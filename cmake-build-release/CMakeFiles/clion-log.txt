@@ -1,0 +1,5 @@
+"E:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\211.6693.114\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - MinGW Makefiles" E:\CLionProjects\AsWeDrown\AwdClient
+-- Found SFML 2.5.1 in E:/CLionProjects/AsWeDrown/AwdClient/lib/SFML-2.5.1-build
+-- Configuring done
+-- Generating done
+-- Build files have been written to: E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release
