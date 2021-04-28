@@ -4,9 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/Game.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/Game.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Button.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/screen/Button.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Screen.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/screen/Screen.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/screen/ScreenComponent.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/screen/ScreenComponent.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuBackground.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuBackground.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuButton.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuButton.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuScreen.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuScreen.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/main.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/main.cpp.obj"
-  "E:/CLionProjects/AsWeDrown/AwdClient/net/client.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/net/client.cpp.obj"
-  "E:/CLionProjects/AsWeDrown/AwdClient/net/ptrans.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/net/ptrans.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/net/PacketTransformer.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/packets.pb.cc" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/packets.pb.cc.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

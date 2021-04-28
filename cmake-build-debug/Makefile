@@ -187,6 +187,249 @@ AwdClient/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/build
 .PHONY : AwdClient/fast
 
+game/Game.obj: game/Game.cpp.obj
+
+.PHONY : game/Game.obj
+
+# target to build an object file
+game/Game.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.obj
+.PHONY : game/Game.cpp.obj
+
+game/Game.i: game/Game.cpp.i
+
+.PHONY : game/Game.i
+
+# target to preprocess a source file
+game/Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.i
+.PHONY : game/Game.cpp.i
+
+game/Game.s: game/Game.cpp.s
+
+.PHONY : game/Game.s
+
+# target to generate assembly for a file
+game/Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.s
+.PHONY : game/Game.cpp.s
+
+game/packetlistener/CreateLobbyResponseListener.obj: game/packetlistener/CreateLobbyResponseListener.cpp.obj
+
+.PHONY : game/packetlistener/CreateLobbyResponseListener.obj
+
+# target to build an object file
+game/packetlistener/CreateLobbyResponseListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj
+.PHONY : game/packetlistener/CreateLobbyResponseListener.cpp.obj
+
+game/packetlistener/CreateLobbyResponseListener.i: game/packetlistener/CreateLobbyResponseListener.cpp.i
+
+.PHONY : game/packetlistener/CreateLobbyResponseListener.i
+
+# target to preprocess a source file
+game/packetlistener/CreateLobbyResponseListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.i
+.PHONY : game/packetlistener/CreateLobbyResponseListener.cpp.i
+
+game/packetlistener/CreateLobbyResponseListener.s: game/packetlistener/CreateLobbyResponseListener.cpp.s
+
+.PHONY : game/packetlistener/CreateLobbyResponseListener.s
+
+# target to generate assembly for a file
+game/packetlistener/CreateLobbyResponseListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.s
+.PHONY : game/packetlistener/CreateLobbyResponseListener.cpp.s
+
+game/packetlistener/HandshakeResponseListener.obj: game/packetlistener/HandshakeResponseListener.cpp.obj
+
+.PHONY : game/packetlistener/HandshakeResponseListener.obj
+
+# target to build an object file
+game/packetlistener/HandshakeResponseListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.obj
+.PHONY : game/packetlistener/HandshakeResponseListener.cpp.obj
+
+game/packetlistener/HandshakeResponseListener.i: game/packetlistener/HandshakeResponseListener.cpp.i
+
+.PHONY : game/packetlistener/HandshakeResponseListener.i
+
+# target to preprocess a source file
+game/packetlistener/HandshakeResponseListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.i
+.PHONY : game/packetlistener/HandshakeResponseListener.cpp.i
+
+game/packetlistener/HandshakeResponseListener.s: game/packetlistener/HandshakeResponseListener.cpp.s
+
+.PHONY : game/packetlistener/HandshakeResponseListener.s
+
+# target to generate assembly for a file
+game/packetlistener/HandshakeResponseListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.s
+.PHONY : game/packetlistener/HandshakeResponseListener.cpp.s
+
+game/screen/Button.obj: game/screen/Button.cpp.obj
+
+.PHONY : game/screen/Button.obj
+
+# target to build an object file
+game/screen/Button.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Button.cpp.obj
+.PHONY : game/screen/Button.cpp.obj
+
+game/screen/Button.i: game/screen/Button.cpp.i
+
+.PHONY : game/screen/Button.i
+
+# target to preprocess a source file
+game/screen/Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Button.cpp.i
+.PHONY : game/screen/Button.cpp.i
+
+game/screen/Button.s: game/screen/Button.cpp.s
+
+.PHONY : game/screen/Button.s
+
+# target to generate assembly for a file
+game/screen/Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Button.cpp.s
+.PHONY : game/screen/Button.cpp.s
+
+game/screen/Screen.obj: game/screen/Screen.cpp.obj
+
+.PHONY : game/screen/Screen.obj
+
+# target to build an object file
+game/screen/Screen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Screen.cpp.obj
+.PHONY : game/screen/Screen.cpp.obj
+
+game/screen/Screen.i: game/screen/Screen.cpp.i
+
+.PHONY : game/screen/Screen.i
+
+# target to preprocess a source file
+game/screen/Screen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Screen.cpp.i
+.PHONY : game/screen/Screen.cpp.i
+
+game/screen/Screen.s: game/screen/Screen.cpp.s
+
+.PHONY : game/screen/Screen.s
+
+# target to generate assembly for a file
+game/screen/Screen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Screen.cpp.s
+.PHONY : game/screen/Screen.cpp.s
+
+game/screen/ScreenComponent.obj: game/screen/ScreenComponent.cpp.obj
+
+.PHONY : game/screen/ScreenComponent.obj
+
+# target to build an object file
+game/screen/ScreenComponent.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/ScreenComponent.cpp.obj
+.PHONY : game/screen/ScreenComponent.cpp.obj
+
+game/screen/ScreenComponent.i: game/screen/ScreenComponent.cpp.i
+
+.PHONY : game/screen/ScreenComponent.i
+
+# target to preprocess a source file
+game/screen/ScreenComponent.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/ScreenComponent.cpp.i
+.PHONY : game/screen/ScreenComponent.cpp.i
+
+game/screen/ScreenComponent.s: game/screen/ScreenComponent.cpp.s
+
+.PHONY : game/screen/ScreenComponent.s
+
+# target to generate assembly for a file
+game/screen/ScreenComponent.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/ScreenComponent.cpp.s
+.PHONY : game/screen/ScreenComponent.cpp.s
+
+game/screen/mainmenu/MainMenuBackground.obj: game/screen/mainmenu/MainMenuBackground.cpp.obj
+
+.PHONY : game/screen/mainmenu/MainMenuBackground.obj
+
+# target to build an object file
+game/screen/mainmenu/MainMenuBackground.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuBackground.cpp.obj
+.PHONY : game/screen/mainmenu/MainMenuBackground.cpp.obj
+
+game/screen/mainmenu/MainMenuBackground.i: game/screen/mainmenu/MainMenuBackground.cpp.i
+
+.PHONY : game/screen/mainmenu/MainMenuBackground.i
+
+# target to preprocess a source file
+game/screen/mainmenu/MainMenuBackground.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuBackground.cpp.i
+.PHONY : game/screen/mainmenu/MainMenuBackground.cpp.i
+
+game/screen/mainmenu/MainMenuBackground.s: game/screen/mainmenu/MainMenuBackground.cpp.s
+
+.PHONY : game/screen/mainmenu/MainMenuBackground.s
+
+# target to generate assembly for a file
+game/screen/mainmenu/MainMenuBackground.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuBackground.cpp.s
+.PHONY : game/screen/mainmenu/MainMenuBackground.cpp.s
+
+game/screen/mainmenu/MainMenuButton.obj: game/screen/mainmenu/MainMenuButton.cpp.obj
+
+.PHONY : game/screen/mainmenu/MainMenuButton.obj
+
+# target to build an object file
+game/screen/mainmenu/MainMenuButton.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuButton.cpp.obj
+.PHONY : game/screen/mainmenu/MainMenuButton.cpp.obj
+
+game/screen/mainmenu/MainMenuButton.i: game/screen/mainmenu/MainMenuButton.cpp.i
+
+.PHONY : game/screen/mainmenu/MainMenuButton.i
+
+# target to preprocess a source file
+game/screen/mainmenu/MainMenuButton.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuButton.cpp.i
+.PHONY : game/screen/mainmenu/MainMenuButton.cpp.i
+
+game/screen/mainmenu/MainMenuButton.s: game/screen/mainmenu/MainMenuButton.cpp.s
+
+.PHONY : game/screen/mainmenu/MainMenuButton.s
+
+# target to generate assembly for a file
+game/screen/mainmenu/MainMenuButton.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuButton.cpp.s
+.PHONY : game/screen/mainmenu/MainMenuButton.cpp.s
+
+game/screen/mainmenu/MainMenuScreen.obj: game/screen/mainmenu/MainMenuScreen.cpp.obj
+
+.PHONY : game/screen/mainmenu/MainMenuScreen.obj
+
+# target to build an object file
+game/screen/mainmenu/MainMenuScreen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuScreen.cpp.obj
+.PHONY : game/screen/mainmenu/MainMenuScreen.cpp.obj
+
+game/screen/mainmenu/MainMenuScreen.i: game/screen/mainmenu/MainMenuScreen.cpp.i
+
+.PHONY : game/screen/mainmenu/MainMenuScreen.i
+
+# target to preprocess a source file
+game/screen/mainmenu/MainMenuScreen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuScreen.cpp.i
+.PHONY : game/screen/mainmenu/MainMenuScreen.cpp.i
+
+game/screen/mainmenu/MainMenuScreen.s: game/screen/mainmenu/MainMenuScreen.cpp.s
+
+.PHONY : game/screen/mainmenu/MainMenuScreen.s
+
+# target to generate assembly for a file
+game/screen/mainmenu/MainMenuScreen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuScreen.cpp.s
+.PHONY : game/screen/mainmenu/MainMenuScreen.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -214,59 +457,86 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-net/client.obj: net/client.cpp.obj
+net/PacketManager.obj: net/PacketManager.cpp.obj
 
-.PHONY : net/client.obj
-
-# target to build an object file
-net/client.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/client.cpp.obj
-.PHONY : net/client.cpp.obj
-
-net/client.i: net/client.cpp.i
-
-.PHONY : net/client.i
-
-# target to preprocess a source file
-net/client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/client.cpp.i
-.PHONY : net/client.cpp.i
-
-net/client.s: net/client.cpp.s
-
-.PHONY : net/client.s
-
-# target to generate assembly for a file
-net/client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/client.cpp.s
-.PHONY : net/client.cpp.s
-
-net/ptrans.obj: net/ptrans.cpp.obj
-
-.PHONY : net/ptrans.obj
+.PHONY : net/PacketManager.obj
 
 # target to build an object file
-net/ptrans.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/ptrans.cpp.obj
-.PHONY : net/ptrans.cpp.obj
+net/PacketManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj
+.PHONY : net/PacketManager.cpp.obj
 
-net/ptrans.i: net/ptrans.cpp.i
+net/PacketManager.i: net/PacketManager.cpp.i
 
-.PHONY : net/ptrans.i
+.PHONY : net/PacketManager.i
 
 # target to preprocess a source file
-net/ptrans.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/ptrans.cpp.i
-.PHONY : net/ptrans.cpp.i
+net/PacketManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketManager.cpp.i
+.PHONY : net/PacketManager.cpp.i
 
-net/ptrans.s: net/ptrans.cpp.s
+net/PacketManager.s: net/PacketManager.cpp.s
 
-.PHONY : net/ptrans.s
+.PHONY : net/PacketManager.s
 
 # target to generate assembly for a file
-net/ptrans.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/ptrans.cpp.s
-.PHONY : net/ptrans.cpp.s
+net/PacketManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketManager.cpp.s
+.PHONY : net/PacketManager.cpp.s
+
+net/PacketTransformer.obj: net/PacketTransformer.cpp.obj
+
+.PHONY : net/PacketTransformer.obj
+
+# target to build an object file
+net/PacketTransformer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketTransformer.cpp.obj
+.PHONY : net/PacketTransformer.cpp.obj
+
+net/PacketTransformer.i: net/PacketTransformer.cpp.i
+
+.PHONY : net/PacketTransformer.i
+
+# target to preprocess a source file
+net/PacketTransformer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketTransformer.cpp.i
+.PHONY : net/PacketTransformer.cpp.i
+
+net/PacketTransformer.s: net/PacketTransformer.cpp.s
+
+.PHONY : net/PacketTransformer.s
+
+# target to generate assembly for a file
+net/PacketTransformer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketTransformer.cpp.s
+.PHONY : net/PacketTransformer.cpp.s
+
+net/UdpClient.obj: net/UdpClient.cpp.obj
+
+.PHONY : net/UdpClient.obj
+
+# target to build an object file
+net/UdpClient.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj
+.PHONY : net/UdpClient.cpp.obj
+
+net/UdpClient.i: net/UdpClient.cpp.i
+
+.PHONY : net/UdpClient.i
+
+# target to preprocess a source file
+net/UdpClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/UdpClient.cpp.i
+.PHONY : net/UdpClient.cpp.i
+
+net/UdpClient.s: net/UdpClient.cpp.s
+
+.PHONY : net/UdpClient.s
+
+# target to generate assembly for a file
+net/UdpClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/UdpClient.cpp.s
+.PHONY : net/UdpClient.cpp.s
 
 packets.pb.obj: packets.pb.cc.obj
 
@@ -308,15 +578,45 @@ help:
 	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... AwdClient
+	@echo ... game/Game.obj
+	@echo ... game/Game.i
+	@echo ... game/Game.s
+	@echo ... game/packetlistener/CreateLobbyResponseListener.obj
+	@echo ... game/packetlistener/CreateLobbyResponseListener.i
+	@echo ... game/packetlistener/CreateLobbyResponseListener.s
+	@echo ... game/packetlistener/HandshakeResponseListener.obj
+	@echo ... game/packetlistener/HandshakeResponseListener.i
+	@echo ... game/packetlistener/HandshakeResponseListener.s
+	@echo ... game/screen/Button.obj
+	@echo ... game/screen/Button.i
+	@echo ... game/screen/Button.s
+	@echo ... game/screen/Screen.obj
+	@echo ... game/screen/Screen.i
+	@echo ... game/screen/Screen.s
+	@echo ... game/screen/ScreenComponent.obj
+	@echo ... game/screen/ScreenComponent.i
+	@echo ... game/screen/ScreenComponent.s
+	@echo ... game/screen/mainmenu/MainMenuBackground.obj
+	@echo ... game/screen/mainmenu/MainMenuBackground.i
+	@echo ... game/screen/mainmenu/MainMenuBackground.s
+	@echo ... game/screen/mainmenu/MainMenuButton.obj
+	@echo ... game/screen/mainmenu/MainMenuButton.i
+	@echo ... game/screen/mainmenu/MainMenuButton.s
+	@echo ... game/screen/mainmenu/MainMenuScreen.obj
+	@echo ... game/screen/mainmenu/MainMenuScreen.i
+	@echo ... game/screen/mainmenu/MainMenuScreen.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... net/client.obj
-	@echo ... net/client.i
-	@echo ... net/client.s
-	@echo ... net/ptrans.obj
-	@echo ... net/ptrans.i
-	@echo ... net/ptrans.s
+	@echo ... net/PacketManager.obj
+	@echo ... net/PacketManager.i
+	@echo ... net/PacketManager.s
+	@echo ... net/PacketTransformer.obj
+	@echo ... net/PacketTransformer.i
+	@echo ... net/PacketTransformer.s
+	@echo ... net/UdpClient.obj
+	@echo ... net/UdpClient.i
+	@echo ... net/UdpClient.s
 	@echo ... packets.pb.obj
 	@echo ... packets.pb.i
 	@echo ... packets.pb.s

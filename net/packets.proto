@@ -1,21 +1,41 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+//
 // Основные параметры .proto.
+//
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 syntax = "proto3";
 package awd.net;
 
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+//
 // Опции для компиляции .proto в Java.
-// Для самой компиляции исп. скрипт "AwdClient/compile_proto_files_for_java.bat".
+// Для самой компиляции исп. скрипт "compile_proto_files_for_java".
+//
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 option java_multiple_files = true;
 option java_package = "gg.aswedrown.net";
 
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+//
 // Спецификация протокола AsWeDrown:
 // --> https://github.com/AsWeDrown/awd-protocol/wiki/
+//
+// TODO - МЕНЯТЬ ЗДЕСЬ: PROTOCOL_VERSION = 1
+// 
+// TODO - При любом изменении этого файла (и, соответственно, версии протокола) выполнять
+//        скрипт "0_on_proto_files_change.bat", находящийся в папке "AwdClient/scripts".
+// 
+// ВАЖНО: основная ("рабочая") версия этого файла находится в папке "AwdClient/net".
+//        В любых местах лежит лишь копия, которая используется максимум для удобства!
+//
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -24,8 +44,48 @@ option java_package = "gg.aswedrown.net";
 ---------------------------------------------------------------------------------------------------
  */
 
+message HandshakeRequest {
+  uint32 protocol_version = 1;
+}
+
+message HandshakeResponse {
+  uint32 protocol_version = 1;
+}
+
 message CreateLobbyRequest {
-  string playerName = 1;
+  string player_name = 1;
+}
+
+message CreateLobbyResponse {
+  sint32 lobby_id  = 1;
+  uint32 player_id = 2;
+}
+
+message JoinLobbyRequest {
+  uint32 lobby_id    = 1;
+  string player_name = 2;
+}
+
+message JoinLobbyResponse {
+  sint32             player_id     = 1;
+  map<int32, string> other_players = 2;
+}
+
+message LeaveLobbyRequest {
+  uint32 lobby_id  = 1;
+  uint32 player_id = 2;
+}
+
+message LeaveLobbyResponse {
+  sint32 status_code = 1;
+}
+
+message KickedFromLobby {
+  uint32 reason = 1;
+}
+
+message UpdatedMembersList {
+  map<uint32, string> members = 1;
 }
 
 /*
@@ -35,8 +95,22 @@ message CreateLobbyRequest {
  */
 
 message KeepAlive {
-  int32 playerId = 1;
-  int32 testId   = 2;
+  int32 player_id = 1;
+  int32 test_id   = 2;
+}
+
+/*
+---------------------------------------------------------------------------------------------------
+   ОБЩИЕ (GENERAL)
+---------------------------------------------------------------------------------------------------
+ */
+
+message Ping {
+  uint64 server_time = 1;
+}
+
+message Pong {
+  uint64 client_time = 1;
 }
 
 /*
@@ -47,13 +121,40 @@ message KeepAlive {
  */
 
 message PacketWrapper {
-  // Номера с    1 по  999 зарезервированы под пакеты предыгрового этапа (LOBBY STATE),
-  //        с 1000 по 9999               - под пакеты игрового этапа (PLAY STATE),
+  // Номера с     1 по   999 зарезервированы под пакеты предыгрового этапа (LOBBY STATE),
+  //        с  1000 по  9999               - под пакеты игрового этапа (PLAY STATE),
+  //        с 10000 по 99999               - под общие пакеты (GENERAL)
+  //
+  // ВАЖНО: 1) внутри этого блока 'oneof packet {...}' запрещено использовать комментарии /* такого */ вида
+  //           (в т.ч. многострочные - последовательность "/*" внутри этого блока не должно быть в любом виде);
+  //        2) внутри этого блока имена должны быть camelCase, а не snake_case, как везде; это "нарушает"
+  //           гугловский стайл-гайд, зато делает проще написание и работу генератора кода (ptrans-codegen),
+  //           особенно для C++.
   oneof packet {
-    // LOBBY STATE
-    CreateLobbyRequest createLobbyRequest = 1;
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //   LOBBY STATE
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    // PLAY STATE
-    KeepAlive keepAlive                   = 1000;
+    HandshakeRequest           handshakeRequest           =     1;
+    HandshakeResponse          handshakeResponse          =     2;
+    CreateLobbyRequest         createLobbyRequest         =   100;
+    CreateLobbyResponse        createLobbyResponse        =   101;
+    JoinLobbyRequest           joinLobbyRequest           =   102;
+    JoinLobbyResponse          joinLobbyResponse          =   103;
+    LeaveLobbyRequest          leaveLobbyRequest          =   104;
+    LeaveLobbyResponse         leaveLobbyResponse         =   105;
+    KickedFromLobby            kickedFromLobby            =   106;
+    UpdatedMembersList         updatedMembersList         =   107;
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //   PLAY STATE
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    KeepAlive                  keepAlive                  =  1000;
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //   GENERAL
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Ping                       ping                       = 10000;
+    Pong                       pong                       = 10001;
   }
 }

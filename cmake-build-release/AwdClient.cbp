@@ -135,19 +135,82 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/packets.pb.h.rule">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/Game.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Button.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Button.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Screen.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Screen.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/ScreenComponent.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/ScreenComponent.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuBackground.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuBackground.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuButton.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuButton.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuScreen.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuScreen.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/main.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/client.cpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/client.hpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/ptrans.cpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/ptrans.hpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/CMakeLists.txt">

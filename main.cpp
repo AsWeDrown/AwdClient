@@ -1,9 +1,6 @@
-#include "net/client.hpp"
+#include "game/Game.hpp"
 
 int main() {
-    std::cout << "< BEGIN" << std::endl;
-    awd::net::Client client;
-    std::cout << "END >" << std::endl;
-
-    system("pause");
+    //TODO (1) обернуть в try/catch, краш-репорты, логи; (2) оптимизировать #include везде; (3) awd-updater.
+    awd::game::Game::instance().bootstrap();
 }

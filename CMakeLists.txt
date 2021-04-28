@@ -29,8 +29,13 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS net/packets.proto)
 add_executable(${PROJECT_NAME}
         main.cpp
         ${PROTO_SRCS} ${PROTO_HDRS}
-        net/client.cpp net/client.hpp
-        net/ptrans.cpp net/ptrans.hpp)
+        net/PacketTransformer.cpp net/PacketTransformer.hpp
+        net/PacketManager.cpp net/PacketManager.hpp
+        game/Game.cpp game/Game.hpp
+        net/UdpClient.cpp net/UdpClient.hpp
+        game/packetlistener/PacketListener.hpp
+        game/packetlistener/HandshakeResponseListener.cpp game/packetlistener/HandshakeResponseListener.hpp
+        game/packetlistener/CreateLobbyResponseListener.cpp game/packetlistener/CreateLobbyResponseListener.hpp game/screen/ScreenComponent.cpp game/screen/ScreenComponent.hpp game/screen/Button.cpp game/screen/Button.hpp game/screen/Screen.cpp game/screen/Screen.hpp game/screen/mainmenu/MainMenuScreen.cpp game/screen/mainmenu/MainMenuScreen.hpp game/screen/mainmenu/MainMenuButton.cpp game/screen/mainmenu/MainMenuButton.hpp game/screen/mainmenu/MainMenuBackground.cpp game/screen/mainmenu/MainMenuBackground.hpp)
 
 target_include_directories(${PROJECT_NAME} PRIVATE "${PROJECT_BINARY_DIR}")
 

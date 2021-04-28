@@ -1260,7 +1260,7 @@ inline bool WireFormatLite::ReadMessage(io::CodedInputStream* input,
   std::pair<io::CodedInputStream::Limit, int> p =
       input->IncrementRecursionDepthAndPushLimit(length);
   if (p.second < 0 || !value->MergePartialFromCodedStream(input)) return false;
-  // Make sure that parsing stopped when the limit was hit, not at an endgroup
+  // Make sure that parsing connected when the limit was hit, not at an endgroup
   // tag.
   return input->DecrementRecursionDepthAndPopLimit(p.first);
 }
