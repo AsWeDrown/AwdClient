@@ -35,7 +35,7 @@ add_executable(${PROJECT_NAME}
         net/UdpClient.cpp net/UdpClient.hpp
         game/packetlistener/PacketListener.hpp
         game/packetlistener/HandshakeResponseListener.cpp game/packetlistener/HandshakeResponseListener.hpp
-        game/packetlistener/CreateLobbyResponseListener.cpp game/packetlistener/CreateLobbyResponseListener.hpp game/screen/ScreenComponent.cpp game/screen/ScreenComponent.hpp game/screen/Button.cpp game/screen/Button.hpp game/screen/Screen.cpp game/screen/Screen.hpp game/screen/mainmenu/MainMenuScreen.cpp game/screen/mainmenu/MainMenuScreen.hpp game/screen/mainmenu/MainMenuButton.cpp game/screen/mainmenu/MainMenuButton.hpp game/screen/mainmenu/MainMenuBackground.cpp game/screen/mainmenu/MainMenuBackground.hpp)
+        game/packetlistener/CreateLobbyResponseListener.cpp game/packetlistener/CreateLobbyResponseListener.hpp game/graphics/Drawable.cpp game/graphics/Drawable.hpp game/graphics/Button.cpp game/graphics/Button.hpp game/graphics/mainmenu/MainMenuScreen.cpp game/graphics/mainmenu/MainMenuScreen.hpp game/graphics/mainmenu/MainMenuButton.cpp game/graphics/mainmenu/MainMenuButton.hpp game/GameState.hpp game/graphics/FontManager.cpp game/graphics/FontManager.hpp game/graphics/ColorSet.cpp game/graphics/ColorSet.hpp game/graphics/RenderUtils.cpp game/graphics/RenderUtils.hpp game/graphics/WaterBackground.cpp game/graphics/WaterBackground.hpp)
 
 target_include_directories(${PROJECT_NAME} PRIVATE "${PROJECT_BINARY_DIR}")
 

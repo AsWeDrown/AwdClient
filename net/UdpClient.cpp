@@ -11,7 +11,9 @@ namespace awd::net {
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
      *   PRIVATE
+     *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     void UdpClient::startInCurrentThread() {
@@ -73,7 +75,9 @@ namespace awd::net {
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
      *   PUBLIC
+     *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     UdpClient::UdpClient(const std::string& serverAddrStr, unsigned short port) {

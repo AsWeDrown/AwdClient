@@ -4,6 +4,12 @@
 
 namespace awd::net {
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PUBLIC
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
     PacketManager::PacketManager(std::shared_ptr<UdpClient> udpClient) {
         this->udpClient = std::move(udpClient);
     }

@@ -214,6 +214,222 @@ game/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.s
 .PHONY : game/Game.cpp.s
 
+game/graphics/Button.obj: game/graphics/Button.cpp.obj
+
+.PHONY : game/graphics/Button.obj
+
+# target to build an object file
+game/graphics/Button.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.obj
+.PHONY : game/graphics/Button.cpp.obj
+
+game/graphics/Button.i: game/graphics/Button.cpp.i
+
+.PHONY : game/graphics/Button.i
+
+# target to preprocess a source file
+game/graphics/Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.i
+.PHONY : game/graphics/Button.cpp.i
+
+game/graphics/Button.s: game/graphics/Button.cpp.s
+
+.PHONY : game/graphics/Button.s
+
+# target to generate assembly for a file
+game/graphics/Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.s
+.PHONY : game/graphics/Button.cpp.s
+
+game/graphics/ColorSet.obj: game/graphics/ColorSet.cpp.obj
+
+.PHONY : game/graphics/ColorSet.obj
+
+# target to build an object file
+game/graphics/ColorSet.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.obj
+.PHONY : game/graphics/ColorSet.cpp.obj
+
+game/graphics/ColorSet.i: game/graphics/ColorSet.cpp.i
+
+.PHONY : game/graphics/ColorSet.i
+
+# target to preprocess a source file
+game/graphics/ColorSet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.i
+.PHONY : game/graphics/ColorSet.cpp.i
+
+game/graphics/ColorSet.s: game/graphics/ColorSet.cpp.s
+
+.PHONY : game/graphics/ColorSet.s
+
+# target to generate assembly for a file
+game/graphics/ColorSet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.s
+.PHONY : game/graphics/ColorSet.cpp.s
+
+game/graphics/Drawable.obj: game/graphics/Drawable.cpp.obj
+
+.PHONY : game/graphics/Drawable.obj
+
+# target to build an object file
+game/graphics/Drawable.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.obj
+.PHONY : game/graphics/Drawable.cpp.obj
+
+game/graphics/Drawable.i: game/graphics/Drawable.cpp.i
+
+.PHONY : game/graphics/Drawable.i
+
+# target to preprocess a source file
+game/graphics/Drawable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.i
+.PHONY : game/graphics/Drawable.cpp.i
+
+game/graphics/Drawable.s: game/graphics/Drawable.cpp.s
+
+.PHONY : game/graphics/Drawable.s
+
+# target to generate assembly for a file
+game/graphics/Drawable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.s
+.PHONY : game/graphics/Drawable.cpp.s
+
+game/graphics/FontManager.obj: game/graphics/FontManager.cpp.obj
+
+.PHONY : game/graphics/FontManager.obj
+
+# target to build an object file
+game/graphics/FontManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.obj
+.PHONY : game/graphics/FontManager.cpp.obj
+
+game/graphics/FontManager.i: game/graphics/FontManager.cpp.i
+
+.PHONY : game/graphics/FontManager.i
+
+# target to preprocess a source file
+game/graphics/FontManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.i
+.PHONY : game/graphics/FontManager.cpp.i
+
+game/graphics/FontManager.s: game/graphics/FontManager.cpp.s
+
+.PHONY : game/graphics/FontManager.s
+
+# target to generate assembly for a file
+game/graphics/FontManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.s
+.PHONY : game/graphics/FontManager.cpp.s
+
+game/graphics/RenderUtils.obj: game/graphics/RenderUtils.cpp.obj
+
+.PHONY : game/graphics/RenderUtils.obj
+
+# target to build an object file
+game/graphics/RenderUtils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.obj
+.PHONY : game/graphics/RenderUtils.cpp.obj
+
+game/graphics/RenderUtils.i: game/graphics/RenderUtils.cpp.i
+
+.PHONY : game/graphics/RenderUtils.i
+
+# target to preprocess a source file
+game/graphics/RenderUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.i
+.PHONY : game/graphics/RenderUtils.cpp.i
+
+game/graphics/RenderUtils.s: game/graphics/RenderUtils.cpp.s
+
+.PHONY : game/graphics/RenderUtils.s
+
+# target to generate assembly for a file
+game/graphics/RenderUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.s
+.PHONY : game/graphics/RenderUtils.cpp.s
+
+game/graphics/WaterBackground.obj: game/graphics/WaterBackground.cpp.obj
+
+.PHONY : game/graphics/WaterBackground.obj
+
+# target to build an object file
+game/graphics/WaterBackground.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.obj
+.PHONY : game/graphics/WaterBackground.cpp.obj
+
+game/graphics/WaterBackground.i: game/graphics/WaterBackground.cpp.i
+
+.PHONY : game/graphics/WaterBackground.i
+
+# target to preprocess a source file
+game/graphics/WaterBackground.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.i
+.PHONY : game/graphics/WaterBackground.cpp.i
+
+game/graphics/WaterBackground.s: game/graphics/WaterBackground.cpp.s
+
+.PHONY : game/graphics/WaterBackground.s
+
+# target to generate assembly for a file
+game/graphics/WaterBackground.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.s
+.PHONY : game/graphics/WaterBackground.cpp.s
+
+game/graphics/mainmenu/MainMenuButton.obj: game/graphics/mainmenu/MainMenuButton.cpp.obj
+
+.PHONY : game/graphics/mainmenu/MainMenuButton.obj
+
+# target to build an object file
+game/graphics/mainmenu/MainMenuButton.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj
+.PHONY : game/graphics/mainmenu/MainMenuButton.cpp.obj
+
+game/graphics/mainmenu/MainMenuButton.i: game/graphics/mainmenu/MainMenuButton.cpp.i
+
+.PHONY : game/graphics/mainmenu/MainMenuButton.i
+
+# target to preprocess a source file
+game/graphics/mainmenu/MainMenuButton.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.i
+.PHONY : game/graphics/mainmenu/MainMenuButton.cpp.i
+
+game/graphics/mainmenu/MainMenuButton.s: game/graphics/mainmenu/MainMenuButton.cpp.s
+
+.PHONY : game/graphics/mainmenu/MainMenuButton.s
+
+# target to generate assembly for a file
+game/graphics/mainmenu/MainMenuButton.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.s
+.PHONY : game/graphics/mainmenu/MainMenuButton.cpp.s
+
+game/graphics/mainmenu/MainMenuScreen.obj: game/graphics/mainmenu/MainMenuScreen.cpp.obj
+
+.PHONY : game/graphics/mainmenu/MainMenuScreen.obj
+
+# target to build an object file
+game/graphics/mainmenu/MainMenuScreen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj
+.PHONY : game/graphics/mainmenu/MainMenuScreen.cpp.obj
+
+game/graphics/mainmenu/MainMenuScreen.i: game/graphics/mainmenu/MainMenuScreen.cpp.i
+
+.PHONY : game/graphics/mainmenu/MainMenuScreen.i
+
+# target to preprocess a source file
+game/graphics/mainmenu/MainMenuScreen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.i
+.PHONY : game/graphics/mainmenu/MainMenuScreen.cpp.i
+
+game/graphics/mainmenu/MainMenuScreen.s: game/graphics/mainmenu/MainMenuScreen.cpp.s
+
+.PHONY : game/graphics/mainmenu/MainMenuScreen.s
+
+# target to generate assembly for a file
+game/graphics/mainmenu/MainMenuScreen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.s
+.PHONY : game/graphics/mainmenu/MainMenuScreen.cpp.s
+
 game/packetlistener/CreateLobbyResponseListener.obj: game/packetlistener/CreateLobbyResponseListener.cpp.obj
 
 .PHONY : game/packetlistener/CreateLobbyResponseListener.obj
@@ -267,168 +483,6 @@ game/packetlistener/HandshakeResponseListener.s: game/packetlistener/HandshakeRe
 game/packetlistener/HandshakeResponseListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.s
 .PHONY : game/packetlistener/HandshakeResponseListener.cpp.s
-
-game/screen/Button.obj: game/screen/Button.cpp.obj
-
-.PHONY : game/screen/Button.obj
-
-# target to build an object file
-game/screen/Button.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Button.cpp.obj
-.PHONY : game/screen/Button.cpp.obj
-
-game/screen/Button.i: game/screen/Button.cpp.i
-
-.PHONY : game/screen/Button.i
-
-# target to preprocess a source file
-game/screen/Button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Button.cpp.i
-.PHONY : game/screen/Button.cpp.i
-
-game/screen/Button.s: game/screen/Button.cpp.s
-
-.PHONY : game/screen/Button.s
-
-# target to generate assembly for a file
-game/screen/Button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Button.cpp.s
-.PHONY : game/screen/Button.cpp.s
-
-game/screen/Screen.obj: game/screen/Screen.cpp.obj
-
-.PHONY : game/screen/Screen.obj
-
-# target to build an object file
-game/screen/Screen.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Screen.cpp.obj
-.PHONY : game/screen/Screen.cpp.obj
-
-game/screen/Screen.i: game/screen/Screen.cpp.i
-
-.PHONY : game/screen/Screen.i
-
-# target to preprocess a source file
-game/screen/Screen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Screen.cpp.i
-.PHONY : game/screen/Screen.cpp.i
-
-game/screen/Screen.s: game/screen/Screen.cpp.s
-
-.PHONY : game/screen/Screen.s
-
-# target to generate assembly for a file
-game/screen/Screen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/Screen.cpp.s
-.PHONY : game/screen/Screen.cpp.s
-
-game/screen/ScreenComponent.obj: game/screen/ScreenComponent.cpp.obj
-
-.PHONY : game/screen/ScreenComponent.obj
-
-# target to build an object file
-game/screen/ScreenComponent.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/ScreenComponent.cpp.obj
-.PHONY : game/screen/ScreenComponent.cpp.obj
-
-game/screen/ScreenComponent.i: game/screen/ScreenComponent.cpp.i
-
-.PHONY : game/screen/ScreenComponent.i
-
-# target to preprocess a source file
-game/screen/ScreenComponent.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/ScreenComponent.cpp.i
-.PHONY : game/screen/ScreenComponent.cpp.i
-
-game/screen/ScreenComponent.s: game/screen/ScreenComponent.cpp.s
-
-.PHONY : game/screen/ScreenComponent.s
-
-# target to generate assembly for a file
-game/screen/ScreenComponent.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/ScreenComponent.cpp.s
-.PHONY : game/screen/ScreenComponent.cpp.s
-
-game/screen/mainmenu/MainMenuBackground.obj: game/screen/mainmenu/MainMenuBackground.cpp.obj
-
-.PHONY : game/screen/mainmenu/MainMenuBackground.obj
-
-# target to build an object file
-game/screen/mainmenu/MainMenuBackground.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuBackground.cpp.obj
-.PHONY : game/screen/mainmenu/MainMenuBackground.cpp.obj
-
-game/screen/mainmenu/MainMenuBackground.i: game/screen/mainmenu/MainMenuBackground.cpp.i
-
-.PHONY : game/screen/mainmenu/MainMenuBackground.i
-
-# target to preprocess a source file
-game/screen/mainmenu/MainMenuBackground.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuBackground.cpp.i
-.PHONY : game/screen/mainmenu/MainMenuBackground.cpp.i
-
-game/screen/mainmenu/MainMenuBackground.s: game/screen/mainmenu/MainMenuBackground.cpp.s
-
-.PHONY : game/screen/mainmenu/MainMenuBackground.s
-
-# target to generate assembly for a file
-game/screen/mainmenu/MainMenuBackground.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuBackground.cpp.s
-.PHONY : game/screen/mainmenu/MainMenuBackground.cpp.s
-
-game/screen/mainmenu/MainMenuButton.obj: game/screen/mainmenu/MainMenuButton.cpp.obj
-
-.PHONY : game/screen/mainmenu/MainMenuButton.obj
-
-# target to build an object file
-game/screen/mainmenu/MainMenuButton.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuButton.cpp.obj
-.PHONY : game/screen/mainmenu/MainMenuButton.cpp.obj
-
-game/screen/mainmenu/MainMenuButton.i: game/screen/mainmenu/MainMenuButton.cpp.i
-
-.PHONY : game/screen/mainmenu/MainMenuButton.i
-
-# target to preprocess a source file
-game/screen/mainmenu/MainMenuButton.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuButton.cpp.i
-.PHONY : game/screen/mainmenu/MainMenuButton.cpp.i
-
-game/screen/mainmenu/MainMenuButton.s: game/screen/mainmenu/MainMenuButton.cpp.s
-
-.PHONY : game/screen/mainmenu/MainMenuButton.s
-
-# target to generate assembly for a file
-game/screen/mainmenu/MainMenuButton.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuButton.cpp.s
-.PHONY : game/screen/mainmenu/MainMenuButton.cpp.s
-
-game/screen/mainmenu/MainMenuScreen.obj: game/screen/mainmenu/MainMenuScreen.cpp.obj
-
-.PHONY : game/screen/mainmenu/MainMenuScreen.obj
-
-# target to build an object file
-game/screen/mainmenu/MainMenuScreen.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuScreen.cpp.obj
-.PHONY : game/screen/mainmenu/MainMenuScreen.cpp.obj
-
-game/screen/mainmenu/MainMenuScreen.i: game/screen/mainmenu/MainMenuScreen.cpp.i
-
-.PHONY : game/screen/mainmenu/MainMenuScreen.i
-
-# target to preprocess a source file
-game/screen/mainmenu/MainMenuScreen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuScreen.cpp.i
-.PHONY : game/screen/mainmenu/MainMenuScreen.cpp.i
-
-game/screen/mainmenu/MainMenuScreen.s: game/screen/mainmenu/MainMenuScreen.cpp.s
-
-.PHONY : game/screen/mainmenu/MainMenuScreen.s
-
-# target to generate assembly for a file
-game/screen/mainmenu/MainMenuScreen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/screen/mainmenu/MainMenuScreen.cpp.s
-.PHONY : game/screen/mainmenu/MainMenuScreen.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -581,30 +635,36 @@ help:
 	@echo ... game/Game.obj
 	@echo ... game/Game.i
 	@echo ... game/Game.s
+	@echo ... game/graphics/Button.obj
+	@echo ... game/graphics/Button.i
+	@echo ... game/graphics/Button.s
+	@echo ... game/graphics/ColorSet.obj
+	@echo ... game/graphics/ColorSet.i
+	@echo ... game/graphics/ColorSet.s
+	@echo ... game/graphics/Drawable.obj
+	@echo ... game/graphics/Drawable.i
+	@echo ... game/graphics/Drawable.s
+	@echo ... game/graphics/FontManager.obj
+	@echo ... game/graphics/FontManager.i
+	@echo ... game/graphics/FontManager.s
+	@echo ... game/graphics/RenderUtils.obj
+	@echo ... game/graphics/RenderUtils.i
+	@echo ... game/graphics/RenderUtils.s
+	@echo ... game/graphics/WaterBackground.obj
+	@echo ... game/graphics/WaterBackground.i
+	@echo ... game/graphics/WaterBackground.s
+	@echo ... game/graphics/mainmenu/MainMenuButton.obj
+	@echo ... game/graphics/mainmenu/MainMenuButton.i
+	@echo ... game/graphics/mainmenu/MainMenuButton.s
+	@echo ... game/graphics/mainmenu/MainMenuScreen.obj
+	@echo ... game/graphics/mainmenu/MainMenuScreen.i
+	@echo ... game/graphics/mainmenu/MainMenuScreen.s
 	@echo ... game/packetlistener/CreateLobbyResponseListener.obj
 	@echo ... game/packetlistener/CreateLobbyResponseListener.i
 	@echo ... game/packetlistener/CreateLobbyResponseListener.s
 	@echo ... game/packetlistener/HandshakeResponseListener.obj
 	@echo ... game/packetlistener/HandshakeResponseListener.i
 	@echo ... game/packetlistener/HandshakeResponseListener.s
-	@echo ... game/screen/Button.obj
-	@echo ... game/screen/Button.i
-	@echo ... game/screen/Button.s
-	@echo ... game/screen/Screen.obj
-	@echo ... game/screen/Screen.i
-	@echo ... game/screen/Screen.s
-	@echo ... game/screen/ScreenComponent.obj
-	@echo ... game/screen/ScreenComponent.i
-	@echo ... game/screen/ScreenComponent.s
-	@echo ... game/screen/mainmenu/MainMenuBackground.obj
-	@echo ... game/screen/mainmenu/MainMenuBackground.i
-	@echo ... game/screen/mainmenu/MainMenuBackground.s
-	@echo ... game/screen/mainmenu/MainMenuButton.obj
-	@echo ... game/screen/mainmenu/MainMenuButton.i
-	@echo ... game/screen/mainmenu/MainMenuButton.s
-	@echo ... game/screen/mainmenu/MainMenuScreen.obj
-	@echo ... game/screen/mainmenu/MainMenuScreen.i
-	@echo ... game/screen/mainmenu/MainMenuScreen.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

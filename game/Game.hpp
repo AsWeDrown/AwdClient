@@ -5,20 +5,25 @@
 #include <memory>
 #include "../net/UdpClient.hpp"
 #include "../net/PacketManager.hpp"
-#include "screen/Screen.hpp"
+#include "graphics/Drawable.hpp"
+#include "GameState.hpp"
+#include "graphics/FontManager.hpp"
 
 namespace awd::game {
 
     class Game {
     private:
+        std::shared_ptr<FontManager> fontManager = nullptr;
         std::shared_ptr<net::UdpClient> udpClient = nullptr;
         std::shared_ptr<net::PacketManager> packetManager = nullptr;
+        int currentState = GameState::LOBBY;
         std::shared_ptr<sf::RenderWindow> window = nullptr;
-        std::shared_ptr<game::Screen> currentScreen = nullptr;
+        std::shared_ptr<Drawable> currentScreen = nullptr;
 
         Game();
         ~Game(); // NOLINT(modernize-use-equals-delete)
 
+        bool loadAssets();
         void registerPacketListeners();
         void startGameLoop();
         void runGameLoop();
@@ -38,8 +43,11 @@ namespace awd::game {
 
         void bootstrap();
 
+        std::shared_ptr<FontManager> getFontManager() const;
         std::shared_ptr<net::PacketManager> getPacketManager() const;
-        sf::Vector2u getScreenSize() const;
+        int getCurrentState() const;
+
+        static unsigned int randUInt(unsigned int min, unsigned int max);
     };
 
 }

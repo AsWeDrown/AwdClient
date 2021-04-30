@@ -1,19 +1,29 @@
 #define HOST "julia.reflex.rip"
 #define PORT 23132
-#define GAME_TPS 20
+#define GAME_TPS 25
+#define BASE_SCREEN_WIDTH 1920
+#define BASE_SCREEN_HEIGHT 1080
 
 
 #include <thread>
 #include "Game.hpp"
 #include "packetlistener/HandshakeResponseListener.hpp"
 #include "packetlistener/CreateLobbyResponseListener.hpp"
-#include "screen/mainmenu/MainMenuScreen.hpp"
+#include "graphics/mainmenu/MainMenuScreen.hpp"
 
 namespace awd::game {
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
      *   PRIVATE
+     *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    bool Game::loadAssets() {
+        std::cout << "Loading assets:" << std::endl;
+
+        return fontManager->loadFonts();
+    }
 
     void Game::registerPacketListeners() {
         packetManager->registerListener(
@@ -28,12 +38,19 @@ namespace awd::game {
     }
 
     void Game::startGameLoop() {
-        auto bestVideoMode = sf::VideoMode::getFullscreenModes()[0];
+        auto bestVideoMode = sf::VideoMode::getFullscreenModes()[10];
         window = std::make_shared<sf::RenderWindow>(
                 bestVideoMode, "As We Drown"/*, sf::Style::Fullscreen*/);
 
-        window->setFramerateLimit(120);
-        currentScreen = std::make_shared<game::MainMenuScreen>(window);
+        float renderScale = std::min((float) bestVideoMode.width  / (float) BASE_SCREEN_WIDTH,
+                                     (float) bestVideoMode.height / (float) BASE_SCREEN_HEIGHT);
+
+        std::cout << "Video mode: " << bestVideoMode.width << "x" << bestVideoMode.height
+                  << " (" << bestVideoMode.bitsPerPixel << " bits per pixel)" << std::endl;
+        std::cout << "Render scale: " << renderScale << std::endl;
+
+        currentState = GameState::LOBBY;
+        currentScreen = std::make_shared<MainMenuScreen>(renderScale, window);
 
         auto tickDelay = std::chrono::milliseconds(1000 / GAME_TPS);
 
@@ -53,6 +70,14 @@ namespace awd::game {
                 case sf::Event::Closed:
                     window->close();
                     break;
+
+                case sf::Event::KeyPressed:
+                    currentScreen->keyPressed(event.key);
+                    break;
+
+                case sf::Event::MouseButtonPressed:
+                    currentScreen->mousePressed(event.mouseButton);
+                    break;
             }
         }
 
@@ -63,18 +88,21 @@ namespace awd::game {
     }
 
     void Game::update() {
-
+        currentScreen->update();
     }
 
     void Game::render() {
-        currentScreen->render();
+        currentScreen->draw();
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
      *   PUBLIC
+     *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     Game::Game() {
+        fontManager = std::make_shared<FontManager>();
         udpClient = std::make_shared<net::UdpClient>(HOST, PORT);
         packetManager = std::make_shared<net::PacketManager>(udpClient);
     }
@@ -82,17 +110,42 @@ namespace awd::game {
     Game::~Game() = default;
 
     void Game::bootstrap() {
+        // Инициализация ГПСЧ
+        srand(static_cast<unsigned int>(time(nullptr))); // NOLINT(cert-msc51-cpp)
+
+        if (!loadAssets()) {
+            std::cerr << "Failed to load assets." << std::endl;
+            return;
+        }
+
         registerPacketListeners();
         udpClient->startInNewThread();
         startGameLoop();
+    }
+
+    std::shared_ptr<FontManager> Game::getFontManager() const {
+        return fontManager;
     }
 
     std::shared_ptr<net::PacketManager> Game::getPacketManager() const {
         return packetManager;
     }
 
-    sf::Vector2u Game::getScreenSize() const {
-        return window->getSize();
+    int Game::getCurrentState() const {
+        return currentState;
+    }
+
+    unsigned int Game::randUInt(unsigned int min, unsigned int max) {
+        if (min == max)
+            return min;
+
+        if (min > max)
+            std::swap(min, max);
+
+        if (max > RAND_MAX)
+            max = RAND_MAX;
+
+        return min + rand() % (max - min); // NOLINT(cert-msc50-cpp)
     }
 
 }

@@ -141,6 +141,57 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/Button.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/Button.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/ColorSet.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/ColorSet.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/Drawable.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/Drawable.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/FontManager.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/FontManager.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/RenderUtils.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/RenderUtils.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/WaterBackground.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/WaterBackground.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreen.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreen.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -154,42 +205,6 @@
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Button.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Button.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Screen.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/Screen.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/ScreenComponent.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/ScreenComponent.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuBackground.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuBackground.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuButton.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuButton.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuScreen.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/screen/mainmenu/MainMenuScreen.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/main.cpp">
