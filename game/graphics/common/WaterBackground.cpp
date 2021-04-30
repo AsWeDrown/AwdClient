@@ -125,8 +125,10 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    WaterBackground::WaterBackground(float renderScale,
+    WaterBackground::WaterBackground(int id,
+                                     float renderScale,
                                      const std::shared_ptr<sf::RenderWindow>& window) {
+        this->id = id;
         this->renderScale = renderScale;
         this->window = window;
 

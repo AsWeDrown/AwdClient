@@ -15,17 +15,20 @@ namespace awd::game {
 
     class Dialog : public Drawable {
     protected:
-        std::vector<std::shared_ptr<Button>> buttons;
-        DialogState state = DialogState::APPEARING;
+        void (*dialogOpened)(Drawable* parentScreen, int dialogId);
+        void (*dialogClosed)(Drawable* parentScreen, int dialogId);
+        DialogState state = DialogState::DISAPPEARED;
         int existedTicks = 0;
 
-        virtual void createButtons() = 0;
-        void addButton(const std::shared_ptr<Button>& button);
-
     public:
-        Dialog(float renderScale,
-               const std::shared_ptr<sf::RenderWindow>& window);
+        Dialog(int id,
+               float renderScale,
+               const std::shared_ptr<sf::RenderWindow>& window,
+               void (*dialogOpened)(Drawable*, int),
+               void (*dialogClosed)(Drawable*, int));
 
+        void keyPressed(const sf::Event::KeyEvent& event) override;
+        void mousePressed(const sf::Event::MouseButtonEvent& event) override;
         void update() override;
         void draw() override;
 

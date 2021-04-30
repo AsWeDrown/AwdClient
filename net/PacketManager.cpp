@@ -23,7 +23,7 @@ namespace awd::net {
                                       const std::shared_ptr<google::protobuf::Message>& packet) {
         auto cursor = listeners.find(packetType);
 
-        if (cursor != listeners.end())
+        if (cursor != listeners.cend())
             cursor->second->processPacket(packet);
         else
             std::cerr << "Ignoring unknown packet (no corresponding listener)." << std::endl;

@@ -376,33 +376,6 @@ game/graphics/common/RenderUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.s
 .PHONY : game/graphics/common/RenderUtils.cpp.s
 
-game/graphics/common/Screen.obj: game/graphics/common/Screen.cpp.obj
-
-.PHONY : game/graphics/common/Screen.obj
-
-# target to build an object file
-game/graphics/common/Screen.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj
-.PHONY : game/graphics/common/Screen.cpp.obj
-
-game/graphics/common/Screen.i: game/graphics/common/Screen.cpp.i
-
-.PHONY : game/graphics/common/Screen.i
-
-# target to preprocess a source file
-game/graphics/common/Screen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.i
-.PHONY : game/graphics/common/Screen.cpp.i
-
-game/graphics/common/Screen.s: game/graphics/common/Screen.cpp.s
-
-.PHONY : game/graphics/common/Screen.s
-
-# target to generate assembly for a file
-game/graphics/common/Screen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.s
-.PHONY : game/graphics/common/Screen.cpp.s
-
 game/graphics/common/TextButton.obj: game/graphics/common/TextButton.cpp.obj
 
 .PHONY : game/graphics/common/TextButton.obj
@@ -734,9 +707,6 @@ help:
 	@echo ... game/graphics/common/RenderUtils.obj
 	@echo ... game/graphics/common/RenderUtils.i
 	@echo ... game/graphics/common/RenderUtils.s
-	@echo ... game/graphics/common/Screen.obj
-	@echo ... game/graphics/common/Screen.i
-	@echo ... game/graphics/common/Screen.s
 	@echo ... game/graphics/common/TextButton.obj
 	@echo ... game/graphics/common/TextButton.i
 	@echo ... game/graphics/common/TextButton.s

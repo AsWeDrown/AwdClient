@@ -25,7 +25,6 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     void TextButton::onLeftClick() {
-        printf("onLeftClick, parent = %d", parent);
         buttonClicked(parent);
     }
 
@@ -35,12 +34,14 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    TextButton::TextButton(float renderScale,
+    TextButton::TextButton(int id,
+                           float renderScale,
                            const std::shared_ptr<sf::RenderWindow>& window,
                            const std::wstring& text,
                            unsigned int x, unsigned int y,
                            unsigned int width, unsigned int height,
-                           void (*buttonClicked)(Drawable* parent)) {
+                           void (*buttonClicked)(Drawable*)) {
+        this->id = id;
         this->renderScale = renderScale;
         this->window = window;
         this->text = text;

@@ -15,15 +15,19 @@ namespace awd::game {
 
     protected:
         void (*nextClicked)(Drawable* parentScreen, const std::wstring& userInput);
+        void (*backClicked)(Drawable* parentScreen);
 
-        void createButtons() override;
         void update() override;
         void draw() override;
 
     public:
-        TextInputDialog(float renderScale,
+        TextInputDialog(int id,
+                        float renderScale,
                         const std::shared_ptr<sf::RenderWindow>& window,
-                        void (*nextClicked)(Drawable* buttonOwner, const std::wstring& userInput));
+                        void (*dialogOpened)(Drawable*, int),
+                        void (*dialogClosed)(Drawable*, int),
+                        void (*nextClicked)(Drawable*, const std::wstring&),
+                        void (*backClicked)(Drawable*));
     };
 
 }

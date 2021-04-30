@@ -180,12 +180,6 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RenderUtils.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp">
 			<Option target="AwdClient"/>
 		</Unit>

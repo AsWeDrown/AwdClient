@@ -1,3 +1,9 @@
+// ID
+#define ID_BUTTON_QUIT_GAME 1
+#define ID_BUTTON_JOIN_LOBBY 2
+#define ID_BUTTON_CREATE_LOBBY 3
+#define ID_WATER_BACKGROUND 100
+#define ID_DIALOG_CREATE_LOBBY 1000
 // Кнопки
 #define ALL_BUTTONS_X 70
 #define BUTTONS_VERTICAL_MARGIN 5
@@ -40,44 +46,70 @@ namespace awd::game {
         // QuitGame
         unsigned int bY = height - bMargin - bHeight - bExtraMargin;
         auto btnQuitGame = std::make_shared<TextButton>(
-                renderScale, window,
+                ID_BUTTON_QUIT_GAME, renderScale, window,
                 L"Выйти из игры", bX, bY, bWidth, bHeight, quitGameClicked);
-        addButton(btnQuitGame);
+        addChild(btnQuitGame);
 
         // JoinLobby
         bY -= bMargin + bHeight;
         auto btnJoinLobby = std::make_shared<TextButton>(
-                renderScale, window,
+                ID_BUTTON_JOIN_LOBBY, renderScale, window,
                 L"Присоединиться к комнате", bX, bY, bWidth, bHeight, joinLobbyClicked);
-        addButton(btnJoinLobby);
+        addChild(btnJoinLobby);
 
         // CreateLobby
         bY -= bMargin + bHeight;
         auto btnCreateLobby = std::make_shared<TextButton>(
-                renderScale, window,
+                ID_BUTTON_CREATE_LOBBY, renderScale, window,
                 L"Создать комнату", bX, bY, bWidth, bHeight, createLobbyClicked);
-        addButton(btnCreateLobby);
+        addChild(btnCreateLobby);
     }
 
-    void MainMenuScreen::addButton(const std::shared_ptr<Button>& button) {
-        buttons.push_back(button);
-        children.push_back(button);
+    void MainMenuScreen::dialogOpened(Drawable* mainMenuScreen, int dialogId) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        mainMenu->dialogOpen = true;
     }
 
-    void MainMenuScreen::createLobbyClicked(Drawable* buttonOwner) {
-        std::cout << "create lobby" << std::endl;
+    void MainMenuScreen::dialogClosed(Drawable* mainMenuScreen, int dialogId) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        mainMenu->dialogOpen = false;
+        mainMenu->removeChild(dialogId);
+    }
 
-        auto* mainMenu = (MainMenuScreen*) buttonOwner;
+    void MainMenuScreen::createLobbyClicked(Drawable* mainMenuScreen) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
 
-        mainMenu->currentDialog = std::make_shared<TextInputDialog>(
-                mainMenu->renderScale, mainMenu->window, createLobbyNextClicked);
+        if (mainMenu->dialogOpen)
+            return;
+
+        auto dialog = std::make_shared<TextInputDialog>(
+                ID_DIALOG_CREATE_LOBBY, mainMenu->renderScale, mainMenu->window,
+                dialogOpened, dialogClosed,
+                createLobbyNextClicked, createLobbyBackClicked
+        );
+
+        mainMenu->addChild(dialog);
+        dialog->show();
     }
 
     void MainMenuScreen::createLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput) {
         std::wcout << L"MainMenu : CreateLobby : next -- " << userInput << std::endl;
+        //todo
     }
 
-    void MainMenuScreen::joinLobbyClicked(Drawable* buttonOwner) {
+    void MainMenuScreen::createLobbyBackClicked(Drawable* mainMenuScreen) {
+        auto dialog = std::dynamic_pointer_cast<Dialog>(
+                mainMenuScreen->getChildById(ID_DIALOG_CREATE_LOBBY));
+
+        dialog->hide();
+    }
+
+    void MainMenuScreen::joinLobbyClicked(Drawable* mainMenuScreen) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+
+        if (mainMenu->dialogOpen)
+            return;
+
         //todo
     }
 
@@ -85,9 +117,19 @@ namespace awd::game {
         //todo
     }
 
-    void MainMenuScreen::quitGameClicked(Drawable* buttonOwner) {
-        std::cout << "quit game" << std::endl;
+    void MainMenuScreen::joinLobbyBackClicked(Drawable* mainMenuScreen) {
+        //todo
     }
+
+    void MainMenuScreen::quitGameClicked(Drawable* mainMenuScreen) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+
+        if (mainMenu->dialogOpen)
+            return;
+
+        //todo
+    }
+
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *
@@ -105,16 +147,17 @@ namespace awd::game {
         width = window->getSize().x;
         height = window->getSize().y;
 
-        children.push_back(std::make_shared<WaterBackground>(renderScale, window));
+        addChild(std::make_shared<WaterBackground>(
+                ID_WATER_BACKGROUND, renderScale, window));
         createButtons();
     }
 
     void MainMenuScreen::update() {
-        Screen::update();
+        Drawable::update();
     }
 
     void MainMenuScreen::draw() {
-        Screen::draw();
+        Drawable::draw();
 
         // Логотип.
         unsigned int logoFontSize   = LOGO_FONT_SIZE         * renderScale;
@@ -125,7 +168,7 @@ namespace awd::game {
         unsigned int buttonsHeight  = BUTTONS_HEIGHT         * renderScale;
 
         unsigned int logoX          = allButtonsX + logoLeftMargin;
-        unsigned int highestButtonY = children[children.size() - 1]->getY();
+        unsigned int highestButtonY = getChildById(ID_BUTTON_CREATE_LOBBY)->getY();
         unsigned int logoY          = highestButtonY - buttonsHeight - logoVertMargin;
 
         sf::Text logo;

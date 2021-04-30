@@ -11,7 +11,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/FontManager.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RenderUtils.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj"
-  "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj"

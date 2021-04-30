@@ -5,7 +5,7 @@
 #include <memory>
 #include "../net/UdpClient.hpp"
 #include "../net/PacketManager.hpp"
-#include "graphics/common/Screen.hpp"
+#include "graphics/common/Drawable.hpp"
 #include "GameState.hpp"
 #include "graphics/common/FontManager.hpp"
 
@@ -21,7 +21,7 @@ namespace awd::game {
         int currentState = GameState::LOBBY;
 
         std::shared_ptr<sf::RenderWindow> window = nullptr;
-        std::shared_ptr<Screen> currentScreen = nullptr;
+        std::shared_ptr<Drawable> currentScreen = nullptr;
 
         Game();
         ~Game(); // NOLINT(modernize-use-equals-delete)

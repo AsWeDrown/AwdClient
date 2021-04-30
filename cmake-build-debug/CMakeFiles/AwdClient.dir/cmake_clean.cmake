@@ -9,7 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj"
-  "CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj"

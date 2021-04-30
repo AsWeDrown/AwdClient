@@ -8,16 +8,11 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    void Drawable::propagateParent() {
-        for (const auto& child : children)
-            child->parent = this;
-    }
-
-    void Drawable::ensureParentPropagated() {
-        if (!parentPropagated) {
-            parentPropagated = true;
-            propagateParent();
-        }
+    /**
+     * @throws std::invalid_argument если в потомках этого объекта уже есть объект с id = childId.
+     */
+    bool Drawable::isChildIdLocallyUnique(int childId) const {
+        return getChildById(childId) == nullptr;
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -25,6 +20,22 @@ namespace awd::game {
      *   PROTECTED
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    void Drawable::addChild(const std::shared_ptr<Drawable>& child) {
+        if (isChildIdLocallyUnique(child->id)) {
+            children.push_back(child);
+            child->parent = this;
+        }
+    }
+
+    void Drawable::removeChild(int childId) {
+        children.erase(std::remove_if(
+                children.begin(), children.end(),
+                [childId](const auto& child) {
+                    return child->id == childId;
+                }), children.end()
+        );
+    }
 
     void Drawable::updateChildren() {
         for (const auto& child : children)
@@ -55,6 +66,10 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+    int Drawable::getId() const {
+        return id;
+    }
+
     unsigned int Drawable::getX() const {
         return x;
     }
@@ -83,16 +98,20 @@ namespace awd::game {
         return parent;
     }
 
-    void Drawable::keyPressed(const sf::Event::KeyEvent& event) {
-        ensureParentPropagated();
+    std::shared_ptr<Drawable> Drawable::getChildById(int childId) const {
+        for (const auto& child : children)
+            if (child->id == childId)
+                return child;
 
+        return nullptr;
+    }
+
+    void Drawable::keyPressed(const sf::Event::KeyEvent& event) {
         for (const auto& child : children)
             child->keyPressed(event);
     }
 
     void Drawable::mousePressed(const sf::Event::MouseButtonEvent& event) {
-        ensureParentPropagated();
-
         for (const auto& child : children)
             child->mousePressed(event);
     }
@@ -103,7 +122,6 @@ namespace awd::game {
      * чтобы система дочерних компонентов Drawable работала корректно.
      */
     void Drawable::update() {
-        ensureParentPropagated();
         updateChildren();
     }
 
@@ -113,7 +131,6 @@ namespace awd::game {
      * чтобы система дочерних компонентов Drawable работала корректно.
      */
     void Drawable::draw() {
-        ensureParentPropagated();
         drawChildren();
     }
 
