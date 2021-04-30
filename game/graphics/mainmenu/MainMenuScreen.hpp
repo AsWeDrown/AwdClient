@@ -1,17 +1,23 @@
 #pragma once
 
 
-#include "../Drawable.hpp"
+#include "../common/Button.hpp"
+#include "../common/Screen.hpp"
 
 namespace awd::game {
 
-    class MainMenuScreen : public Drawable {
+    class MainMenuScreen : public Screen {
     private:
-        void createButtons();
+        std::vector<std::shared_ptr<Button>> buttons;
 
-        static void createLobbyClicked();
-        static void joinLobbyClicked();
-        static void quitGameClicked();
+        void createButtons();
+        void addButton(const std::shared_ptr<Button>& button);
+
+        static void createLobbyClicked(Drawable* mainMenuScreen);
+        static void createLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput);
+        static void joinLobbyClicked(Drawable* mainMenuScreen);
+        static void joinLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput);
+        static void quitGameClicked(Drawable* mainMenuScreen);
 
     public:
         MainMenuScreen(float renderScale,

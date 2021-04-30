@@ -214,167 +214,275 @@ game/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.s
 .PHONY : game/Game.cpp.s
 
-game/graphics/Button.obj: game/graphics/Button.cpp.obj
+game/graphics/common/Button.obj: game/graphics/common/Button.cpp.obj
 
-.PHONY : game/graphics/Button.obj
-
-# target to build an object file
-game/graphics/Button.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.obj
-.PHONY : game/graphics/Button.cpp.obj
-
-game/graphics/Button.i: game/graphics/Button.cpp.i
-
-.PHONY : game/graphics/Button.i
-
-# target to preprocess a source file
-game/graphics/Button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.i
-.PHONY : game/graphics/Button.cpp.i
-
-game/graphics/Button.s: game/graphics/Button.cpp.s
-
-.PHONY : game/graphics/Button.s
-
-# target to generate assembly for a file
-game/graphics/Button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.s
-.PHONY : game/graphics/Button.cpp.s
-
-game/graphics/ColorSet.obj: game/graphics/ColorSet.cpp.obj
-
-.PHONY : game/graphics/ColorSet.obj
+.PHONY : game/graphics/common/Button.obj
 
 # target to build an object file
-game/graphics/ColorSet.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.obj
-.PHONY : game/graphics/ColorSet.cpp.obj
+game/graphics/common/Button.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj
+.PHONY : game/graphics/common/Button.cpp.obj
 
-game/graphics/ColorSet.i: game/graphics/ColorSet.cpp.i
+game/graphics/common/Button.i: game/graphics/common/Button.cpp.i
 
-.PHONY : game/graphics/ColorSet.i
+.PHONY : game/graphics/common/Button.i
 
 # target to preprocess a source file
-game/graphics/ColorSet.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.i
-.PHONY : game/graphics/ColorSet.cpp.i
+game/graphics/common/Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.i
+.PHONY : game/graphics/common/Button.cpp.i
 
-game/graphics/ColorSet.s: game/graphics/ColorSet.cpp.s
+game/graphics/common/Button.s: game/graphics/common/Button.cpp.s
 
-.PHONY : game/graphics/ColorSet.s
+.PHONY : game/graphics/common/Button.s
 
 # target to generate assembly for a file
-game/graphics/ColorSet.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.s
-.PHONY : game/graphics/ColorSet.cpp.s
+game/graphics/common/Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.s
+.PHONY : game/graphics/common/Button.cpp.s
 
-game/graphics/Drawable.obj: game/graphics/Drawable.cpp.obj
+game/graphics/common/ColorSet.obj: game/graphics/common/ColorSet.cpp.obj
 
-.PHONY : game/graphics/Drawable.obj
+.PHONY : game/graphics/common/ColorSet.obj
 
 # target to build an object file
-game/graphics/Drawable.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.obj
-.PHONY : game/graphics/Drawable.cpp.obj
+game/graphics/common/ColorSet.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.obj
+.PHONY : game/graphics/common/ColorSet.cpp.obj
 
-game/graphics/Drawable.i: game/graphics/Drawable.cpp.i
+game/graphics/common/ColorSet.i: game/graphics/common/ColorSet.cpp.i
 
-.PHONY : game/graphics/Drawable.i
+.PHONY : game/graphics/common/ColorSet.i
 
 # target to preprocess a source file
-game/graphics/Drawable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.i
-.PHONY : game/graphics/Drawable.cpp.i
+game/graphics/common/ColorSet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.i
+.PHONY : game/graphics/common/ColorSet.cpp.i
 
-game/graphics/Drawable.s: game/graphics/Drawable.cpp.s
+game/graphics/common/ColorSet.s: game/graphics/common/ColorSet.cpp.s
 
-.PHONY : game/graphics/Drawable.s
+.PHONY : game/graphics/common/ColorSet.s
 
 # target to generate assembly for a file
-game/graphics/Drawable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.s
-.PHONY : game/graphics/Drawable.cpp.s
+game/graphics/common/ColorSet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.s
+.PHONY : game/graphics/common/ColorSet.cpp.s
 
-game/graphics/FontManager.obj: game/graphics/FontManager.cpp.obj
+game/graphics/common/Dialog.obj: game/graphics/common/Dialog.cpp.obj
 
-.PHONY : game/graphics/FontManager.obj
+.PHONY : game/graphics/common/Dialog.obj
 
 # target to build an object file
-game/graphics/FontManager.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.obj
-.PHONY : game/graphics/FontManager.cpp.obj
+game/graphics/common/Dialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj
+.PHONY : game/graphics/common/Dialog.cpp.obj
 
-game/graphics/FontManager.i: game/graphics/FontManager.cpp.i
+game/graphics/common/Dialog.i: game/graphics/common/Dialog.cpp.i
 
-.PHONY : game/graphics/FontManager.i
+.PHONY : game/graphics/common/Dialog.i
 
 # target to preprocess a source file
-game/graphics/FontManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.i
-.PHONY : game/graphics/FontManager.cpp.i
+game/graphics/common/Dialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.i
+.PHONY : game/graphics/common/Dialog.cpp.i
 
-game/graphics/FontManager.s: game/graphics/FontManager.cpp.s
+game/graphics/common/Dialog.s: game/graphics/common/Dialog.cpp.s
 
-.PHONY : game/graphics/FontManager.s
+.PHONY : game/graphics/common/Dialog.s
 
 # target to generate assembly for a file
-game/graphics/FontManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.s
-.PHONY : game/graphics/FontManager.cpp.s
+game/graphics/common/Dialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.s
+.PHONY : game/graphics/common/Dialog.cpp.s
 
-game/graphics/RenderUtils.obj: game/graphics/RenderUtils.cpp.obj
+game/graphics/common/Drawable.obj: game/graphics/common/Drawable.cpp.obj
 
-.PHONY : game/graphics/RenderUtils.obj
+.PHONY : game/graphics/common/Drawable.obj
 
 # target to build an object file
-game/graphics/RenderUtils.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.obj
-.PHONY : game/graphics/RenderUtils.cpp.obj
+game/graphics/common/Drawable.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj
+.PHONY : game/graphics/common/Drawable.cpp.obj
 
-game/graphics/RenderUtils.i: game/graphics/RenderUtils.cpp.i
+game/graphics/common/Drawable.i: game/graphics/common/Drawable.cpp.i
 
-.PHONY : game/graphics/RenderUtils.i
+.PHONY : game/graphics/common/Drawable.i
 
 # target to preprocess a source file
-game/graphics/RenderUtils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.i
-.PHONY : game/graphics/RenderUtils.cpp.i
+game/graphics/common/Drawable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.i
+.PHONY : game/graphics/common/Drawable.cpp.i
 
-game/graphics/RenderUtils.s: game/graphics/RenderUtils.cpp.s
+game/graphics/common/Drawable.s: game/graphics/common/Drawable.cpp.s
 
-.PHONY : game/graphics/RenderUtils.s
+.PHONY : game/graphics/common/Drawable.s
 
 # target to generate assembly for a file
-game/graphics/RenderUtils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.s
-.PHONY : game/graphics/RenderUtils.cpp.s
+game/graphics/common/Drawable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.s
+.PHONY : game/graphics/common/Drawable.cpp.s
 
-game/graphics/WaterBackground.obj: game/graphics/WaterBackground.cpp.obj
+game/graphics/common/FontManager.obj: game/graphics/common/FontManager.cpp.obj
 
-.PHONY : game/graphics/WaterBackground.obj
+.PHONY : game/graphics/common/FontManager.obj
 
 # target to build an object file
-game/graphics/WaterBackground.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.obj
-.PHONY : game/graphics/WaterBackground.cpp.obj
+game/graphics/common/FontManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj
+.PHONY : game/graphics/common/FontManager.cpp.obj
 
-game/graphics/WaterBackground.i: game/graphics/WaterBackground.cpp.i
+game/graphics/common/FontManager.i: game/graphics/common/FontManager.cpp.i
 
-.PHONY : game/graphics/WaterBackground.i
+.PHONY : game/graphics/common/FontManager.i
 
 # target to preprocess a source file
-game/graphics/WaterBackground.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.i
-.PHONY : game/graphics/WaterBackground.cpp.i
+game/graphics/common/FontManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.i
+.PHONY : game/graphics/common/FontManager.cpp.i
 
-game/graphics/WaterBackground.s: game/graphics/WaterBackground.cpp.s
+game/graphics/common/FontManager.s: game/graphics/common/FontManager.cpp.s
 
-.PHONY : game/graphics/WaterBackground.s
+.PHONY : game/graphics/common/FontManager.s
 
 # target to generate assembly for a file
-game/graphics/WaterBackground.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.s
-.PHONY : game/graphics/WaterBackground.cpp.s
+game/graphics/common/FontManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.s
+.PHONY : game/graphics/common/FontManager.cpp.s
+
+game/graphics/common/RegularButton.obj: game/graphics/common/RegularButton.cpp.obj
+
+.PHONY : game/graphics/common/RegularButton.obj
+
+# target to build an object file
+game/graphics/common/RegularButton.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.obj
+.PHONY : game/graphics/common/RegularButton.cpp.obj
+
+game/graphics/common/RegularButton.i: game/graphics/common/RegularButton.cpp.i
+
+.PHONY : game/graphics/common/RegularButton.i
+
+# target to preprocess a source file
+game/graphics/common/RegularButton.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.i
+.PHONY : game/graphics/common/RegularButton.cpp.i
+
+game/graphics/common/RegularButton.s: game/graphics/common/RegularButton.cpp.s
+
+.PHONY : game/graphics/common/RegularButton.s
+
+# target to generate assembly for a file
+game/graphics/common/RegularButton.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.s
+.PHONY : game/graphics/common/RegularButton.cpp.s
+
+game/graphics/common/RenderUtils.obj: game/graphics/common/RenderUtils.cpp.obj
+
+.PHONY : game/graphics/common/RenderUtils.obj
+
+# target to build an object file
+game/graphics/common/RenderUtils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj
+.PHONY : game/graphics/common/RenderUtils.cpp.obj
+
+game/graphics/common/RenderUtils.i: game/graphics/common/RenderUtils.cpp.i
+
+.PHONY : game/graphics/common/RenderUtils.i
+
+# target to preprocess a source file
+game/graphics/common/RenderUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.i
+.PHONY : game/graphics/common/RenderUtils.cpp.i
+
+game/graphics/common/RenderUtils.s: game/graphics/common/RenderUtils.cpp.s
+
+.PHONY : game/graphics/common/RenderUtils.s
+
+# target to generate assembly for a file
+game/graphics/common/RenderUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.s
+.PHONY : game/graphics/common/RenderUtils.cpp.s
+
+game/graphics/common/Screen.obj: game/graphics/common/Screen.cpp.obj
+
+.PHONY : game/graphics/common/Screen.obj
+
+# target to build an object file
+game/graphics/common/Screen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj
+.PHONY : game/graphics/common/Screen.cpp.obj
+
+game/graphics/common/Screen.i: game/graphics/common/Screen.cpp.i
+
+.PHONY : game/graphics/common/Screen.i
+
+# target to preprocess a source file
+game/graphics/common/Screen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.i
+.PHONY : game/graphics/common/Screen.cpp.i
+
+game/graphics/common/Screen.s: game/graphics/common/Screen.cpp.s
+
+.PHONY : game/graphics/common/Screen.s
+
+# target to generate assembly for a file
+game/graphics/common/Screen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.s
+.PHONY : game/graphics/common/Screen.cpp.s
+
+game/graphics/common/TextInputDialog.obj: game/graphics/common/TextInputDialog.cpp.obj
+
+.PHONY : game/graphics/common/TextInputDialog.obj
+
+# target to build an object file
+game/graphics/common/TextInputDialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj
+.PHONY : game/graphics/common/TextInputDialog.cpp.obj
+
+game/graphics/common/TextInputDialog.i: game/graphics/common/TextInputDialog.cpp.i
+
+.PHONY : game/graphics/common/TextInputDialog.i
+
+# target to preprocess a source file
+game/graphics/common/TextInputDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.i
+.PHONY : game/graphics/common/TextInputDialog.cpp.i
+
+game/graphics/common/TextInputDialog.s: game/graphics/common/TextInputDialog.cpp.s
+
+.PHONY : game/graphics/common/TextInputDialog.s
+
+# target to generate assembly for a file
+game/graphics/common/TextInputDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.s
+.PHONY : game/graphics/common/TextInputDialog.cpp.s
+
+game/graphics/common/WaterBackground.obj: game/graphics/common/WaterBackground.cpp.obj
+
+.PHONY : game/graphics/common/WaterBackground.obj
+
+# target to build an object file
+game/graphics/common/WaterBackground.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj
+.PHONY : game/graphics/common/WaterBackground.cpp.obj
+
+game/graphics/common/WaterBackground.i: game/graphics/common/WaterBackground.cpp.i
+
+.PHONY : game/graphics/common/WaterBackground.i
+
+# target to preprocess a source file
+game/graphics/common/WaterBackground.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.i
+.PHONY : game/graphics/common/WaterBackground.cpp.i
+
+game/graphics/common/WaterBackground.s: game/graphics/common/WaterBackground.cpp.s
+
+.PHONY : game/graphics/common/WaterBackground.s
+
+# target to generate assembly for a file
+game/graphics/common/WaterBackground.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.s
+.PHONY : game/graphics/common/WaterBackground.cpp.s
 
 game/graphics/mainmenu/MainMenuButton.obj: game/graphics/mainmenu/MainMenuButton.cpp.obj
 
@@ -635,24 +743,36 @@ help:
 	@echo ... game/Game.obj
 	@echo ... game/Game.i
 	@echo ... game/Game.s
-	@echo ... game/graphics/Button.obj
-	@echo ... game/graphics/Button.i
-	@echo ... game/graphics/Button.s
-	@echo ... game/graphics/ColorSet.obj
-	@echo ... game/graphics/ColorSet.i
-	@echo ... game/graphics/ColorSet.s
-	@echo ... game/graphics/Drawable.obj
-	@echo ... game/graphics/Drawable.i
-	@echo ... game/graphics/Drawable.s
-	@echo ... game/graphics/FontManager.obj
-	@echo ... game/graphics/FontManager.i
-	@echo ... game/graphics/FontManager.s
-	@echo ... game/graphics/RenderUtils.obj
-	@echo ... game/graphics/RenderUtils.i
-	@echo ... game/graphics/RenderUtils.s
-	@echo ... game/graphics/WaterBackground.obj
-	@echo ... game/graphics/WaterBackground.i
-	@echo ... game/graphics/WaterBackground.s
+	@echo ... game/graphics/common/Button.obj
+	@echo ... game/graphics/common/Button.i
+	@echo ... game/graphics/common/Button.s
+	@echo ... game/graphics/common/ColorSet.obj
+	@echo ... game/graphics/common/ColorSet.i
+	@echo ... game/graphics/common/ColorSet.s
+	@echo ... game/graphics/common/Dialog.obj
+	@echo ... game/graphics/common/Dialog.i
+	@echo ... game/graphics/common/Dialog.s
+	@echo ... game/graphics/common/Drawable.obj
+	@echo ... game/graphics/common/Drawable.i
+	@echo ... game/graphics/common/Drawable.s
+	@echo ... game/graphics/common/FontManager.obj
+	@echo ... game/graphics/common/FontManager.i
+	@echo ... game/graphics/common/FontManager.s
+	@echo ... game/graphics/common/RegularButton.obj
+	@echo ... game/graphics/common/RegularButton.i
+	@echo ... game/graphics/common/RegularButton.s
+	@echo ... game/graphics/common/RenderUtils.obj
+	@echo ... game/graphics/common/RenderUtils.i
+	@echo ... game/graphics/common/RenderUtils.s
+	@echo ... game/graphics/common/Screen.obj
+	@echo ... game/graphics/common/Screen.i
+	@echo ... game/graphics/common/Screen.s
+	@echo ... game/graphics/common/TextInputDialog.obj
+	@echo ... game/graphics/common/TextInputDialog.i
+	@echo ... game/graphics/common/TextInputDialog.s
+	@echo ... game/graphics/common/WaterBackground.obj
+	@echo ... game/graphics/common/WaterBackground.i
+	@echo ... game/graphics/common/WaterBackground.s
 	@echo ... game/graphics/mainmenu/MainMenuButton.obj
 	@echo ... game/graphics/mainmenu/MainMenuButton.i
 	@echo ... game/graphics/mainmenu/MainMenuButton.s

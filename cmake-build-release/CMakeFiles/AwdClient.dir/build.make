@@ -195,33 +195,33 @@ CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.s: 
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.s"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\CreateLobbyResponseListener.cpp -o CMakeFiles\AwdClient.dir\game\packetlistener\CreateLobbyResponseListener.cpp.s
 
-CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.obj: ../game/graphics/Drawable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\Drawable.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\Drawable.cpp
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/graphics/common/Drawable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\Drawable.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Drawable.cpp
 
-CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\Drawable.cpp > CMakeFiles\AwdClient.dir\game\graphics\Drawable.cpp.i
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Drawable.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\Drawable.cpp.i
 
-CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\Drawable.cpp -o CMakeFiles\AwdClient.dir\game\graphics\Drawable.cpp.s
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Drawable.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\Drawable.cpp.s
 
-CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.obj: ../game/graphics/Button.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\Button.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\Button.cpp
+CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj: ../game/graphics/common/Button.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\Button.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Button.cpp
 
-CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\Button.cpp > CMakeFiles\AwdClient.dir\game\graphics\Button.cpp.i
+CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Button.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\Button.cpp.i
 
-CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\Button.cpp -o CMakeFiles\AwdClient.dir\game\graphics\Button.cpp.s
+CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Button.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\Button.cpp.s
 
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
@@ -251,61 +251,117 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.s: cmake_forc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.s"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\mainmenu\MainMenuButton.cpp -o CMakeFiles\AwdClient.dir\game\graphics\mainmenu\MainMenuButton.cpp.s
 
-CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.obj: ../game/graphics/FontManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\FontManager.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\FontManager.cpp
+CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj: ../game/graphics/common/FontManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\FontManager.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\FontManager.cpp
 
-CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\FontManager.cpp > CMakeFiles\AwdClient.dir\game\graphics\FontManager.cpp.i
+CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\FontManager.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\FontManager.cpp.i
 
-CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\FontManager.cpp -o CMakeFiles\AwdClient.dir\game\graphics\FontManager.cpp.s
+CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\FontManager.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\FontManager.cpp.s
 
-CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.obj: ../game/graphics/ColorSet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\ColorSet.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\ColorSet.cpp
+CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.obj: ../game/graphics/common/ColorSet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\ColorSet.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\ColorSet.cpp
 
-CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\ColorSet.cpp > CMakeFiles\AwdClient.dir\game\graphics\ColorSet.cpp.i
+CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\ColorSet.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\ColorSet.cpp.i
 
-CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\ColorSet.cpp -o CMakeFiles\AwdClient.dir\game\graphics\ColorSet.cpp.s
+CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\ColorSet.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\ColorSet.cpp.s
 
-CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.obj: ../game/graphics/RenderUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\RenderUtils.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\RenderUtils.cpp
+CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj: ../game/graphics/common/RenderUtils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\RenderUtils.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RenderUtils.cpp
 
-CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\RenderUtils.cpp > CMakeFiles\AwdClient.dir\game\graphics\RenderUtils.cpp.i
+CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RenderUtils.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\RenderUtils.cpp.i
 
-CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\RenderUtils.cpp -o CMakeFiles\AwdClient.dir\game\graphics\RenderUtils.cpp.s
+CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RenderUtils.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\RenderUtils.cpp.s
 
-CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.obj: ../game/graphics/WaterBackground.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\WaterBackground.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\WaterBackground.cpp
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/graphics/common/WaterBackground.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\WaterBackground.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\WaterBackground.cpp
 
-CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\WaterBackground.cpp > CMakeFiles\AwdClient.dir\game\graphics\WaterBackground.cpp.i
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\WaterBackground.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\WaterBackground.cpp.i
 
-CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\WaterBackground.cpp -o CMakeFiles\AwdClient.dir\game\graphics\WaterBackground.cpp.s
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\WaterBackground.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\WaterBackground.cpp.s
+
+CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.obj: ../game/graphics/common/RegularButton.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\RegularButton.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RegularButton.cpp
+
+CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RegularButton.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\RegularButton.cpp.i
+
+CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RegularButton.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\RegularButton.cpp.s
+
+CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj: ../game/graphics/common/Dialog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\Dialog.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Dialog.cpp
+
+CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Dialog.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\Dialog.cpp.i
+
+CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Dialog.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\Dialog.cpp.s
+
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/graphics/common/TextInputDialog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\TextInputDialog.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\TextInputDialog.cpp
+
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\TextInputDialog.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\TextInputDialog.cpp.i
+
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\TextInputDialog.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\TextInputDialog.cpp.s
+
+CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj: ../game/graphics/common/Screen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\Screen.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Screen.cpp
+
+CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Screen.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\Screen.cpp.i
+
+CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Screen.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\Screen.cpp.s
 
 # Object files for target AwdClient
 AwdClient_OBJECTS = \
@@ -317,14 +373,18 @@ AwdClient_OBJECTS = \
 "CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.obj"
+"CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"
 
 # External object files for target AwdClient
 AwdClient_EXTERNAL_OBJECTS =
@@ -337,14 +397,18 @@ AwdClient.exe: CMakeFiles/AwdClient.dir/game/Game.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/Drawable.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/Button.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/FontManager.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/ColorSet.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/RenderUtils.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/WaterBackground.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/RegularButton.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/build.make
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-audio.a
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-graphics.a
@@ -355,7 +419,7 @@ AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-system.a
 AwdClient.exe: CMakeFiles/AwdClient.dir/linklibs.rsp
 AwdClient.exe: CMakeFiles/AwdClient.dir/objects1.rsp
 AwdClient.exe: CMakeFiles/AwdClient.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable AwdClient.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable AwdClient.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\AwdClient.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

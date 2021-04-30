@@ -5,19 +5,21 @@
 #define BUTTONS_WIDTH 700
 #define BUTTONS_HEIGHT 70
 // Логотип
-#define LOGO_FONT_SIZE 85
+#define LOGO_FONT_SIZE 75
 #define LOGO_OUTLINE_THICKNESS 10
 #define LOGO_EXTRA_LEFT_MARGIN 10
 #define LOGO_VERTICAL_MARGIN 50
+#define LETTER_SPACING_FACTOR 1.1f
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <iostream>
 #include "MainMenuScreen.hpp"
-#include "MainMenuButton.hpp"
-#include "../ColorSet.hpp"
-#include "../RenderUtils.hpp"
-#include "../WaterBackground.hpp"
+#include "../common/TextButton.hpp"
+#include "../common/ColorSet.hpp"
+#include "../common/RenderUtils.hpp"
+#include "../common/WaterBackground.hpp"
 #include "../../Game.hpp"
+#include "../common/TextInputDialog.hpp"
 
 namespace awd::game {
 
@@ -37,35 +39,53 @@ namespace awd::game {
 
         // QuitGame
         unsigned int bY = height - bMargin - bHeight - bExtraMargin;
-        auto btnQuitGame = std::make_shared<MainMenuButton>(
+        auto btnQuitGame = std::make_shared<TextButton>(
                 renderScale, window,
                 L"Выйти из игры", bX, bY, bWidth, bHeight, quitGameClicked);
-        children.push_back(btnQuitGame);
+        addButton(btnQuitGame);
 
         // JoinLobby
         bY -= bMargin + bHeight;
-        auto btnJoinLobby = std::make_shared<MainMenuButton>(
+        auto btnJoinLobby = std::make_shared<TextButton>(
                 renderScale, window,
                 L"Присоединиться к комнате", bX, bY, bWidth, bHeight, joinLobbyClicked);
-        children.push_back(btnJoinLobby);
+        addButton(btnJoinLobby);
 
         // CreateLobby
         bY -= bMargin + bHeight;
-        auto btnCreateLobby = std::make_shared<MainMenuButton>(
+        auto btnCreateLobby = std::make_shared<TextButton>(
                 renderScale, window,
                 L"Создать комнату", bX, bY, bWidth, bHeight, createLobbyClicked);
-        children.push_back(btnCreateLobby);
+        addButton(btnCreateLobby);
     }
 
-    void MainMenuScreen::createLobbyClicked() {
+    void MainMenuScreen::addButton(const std::shared_ptr<Button>& button) {
+        buttons.push_back(button);
+        children.push_back(button);
+    }
+
+    void MainMenuScreen::createLobbyClicked(Drawable* buttonOwner) {
         std::cout << "create lobby" << std::endl;
+
+        auto* mainMenu = (MainMenuScreen*) buttonOwner;
+
+        mainMenu->currentDialog = std::make_shared<TextInputDialog>(
+                mainMenu->renderScale, mainMenu->window, createLobbyNextClicked);
     }
 
-    void MainMenuScreen::joinLobbyClicked() {
-        std::cout << "join lobby" << std::endl;
+    void MainMenuScreen::createLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput) {
+        std::wcout << L"MainMenu : CreateLobby : next -- " << userInput << std::endl;
     }
 
-    void MainMenuScreen::quitGameClicked() {
+    void MainMenuScreen::joinLobbyClicked(Drawable* buttonOwner) {
+        //todo
+    }
+
+    void MainMenuScreen::joinLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput) {
+        //todo
+    }
+
+    void MainMenuScreen::quitGameClicked(Drawable* buttonOwner) {
         std::cout << "quit game" << std::endl;
     }
 
@@ -90,11 +110,11 @@ namespace awd::game {
     }
 
     void MainMenuScreen::update() {
-        Drawable::update();
+        Screen::update();
     }
 
     void MainMenuScreen::draw() {
-        Drawable::draw();
+        Screen::draw();
 
         // Логотип.
         unsigned int logoFontSize   = LOGO_FONT_SIZE         * renderScale;
@@ -112,6 +132,7 @@ namespace awd::game {
         logo.setString(L"As We Drown");
         logo.setFont(*Game::instance().getFontManager()->getDecorativeFont());
         logo.setCharacterSize(logoFontSize);
+        logo.setLetterSpacing(LETTER_SPACING_FACTOR);
         logo.setFillColor(ColorSet::LOGO_FILL);
         logo.setOutlineColor(ColorSet::LOGO_OUTLINE);
         logo.setOutlineThickness(logoOutline);
