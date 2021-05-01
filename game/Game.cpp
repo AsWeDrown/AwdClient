@@ -148,4 +148,18 @@ namespace awd::game {
         return min + rand() % (max - min); // NOLINT(cert-msc50-cpp)
     }
 
+    float Game::randFloat(float min, float max) {
+        if (min == max)
+            return min;
+
+        if (min > max)
+            std::swap(min, max);
+
+        if (max > RAND_MAX)
+            max = RAND_MAX;
+
+        return min + static_cast<float>(rand()) // NOLINT(cert-msc50-cpp)
+                / (static_cast<float> (RAND_MAX / (max - min)));
+    }
+
 }

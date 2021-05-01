@@ -214,32 +214,32 @@ game/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.s
 .PHONY : game/Game.cpp.s
 
-game/graphics/common/Button.obj: game/graphics/common/Button.cpp.obj
+game/graphics/common/CircleWrapper.obj: game/graphics/common/CircleWrapper.cpp.obj
 
-.PHONY : game/graphics/common/Button.obj
+.PHONY : game/graphics/common/CircleWrapper.obj
 
 # target to build an object file
-game/graphics/common/Button.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj
-.PHONY : game/graphics/common/Button.cpp.obj
+game/graphics/common/CircleWrapper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/CircleWrapper.cpp.obj
+.PHONY : game/graphics/common/CircleWrapper.cpp.obj
 
-game/graphics/common/Button.i: game/graphics/common/Button.cpp.i
+game/graphics/common/CircleWrapper.i: game/graphics/common/CircleWrapper.cpp.i
 
-.PHONY : game/graphics/common/Button.i
+.PHONY : game/graphics/common/CircleWrapper.i
 
 # target to preprocess a source file
-game/graphics/common/Button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.i
-.PHONY : game/graphics/common/Button.cpp.i
+game/graphics/common/CircleWrapper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/CircleWrapper.cpp.i
+.PHONY : game/graphics/common/CircleWrapper.cpp.i
 
-game/graphics/common/Button.s: game/graphics/common/Button.cpp.s
+game/graphics/common/CircleWrapper.s: game/graphics/common/CircleWrapper.cpp.s
 
-.PHONY : game/graphics/common/Button.s
+.PHONY : game/graphics/common/CircleWrapper.s
 
 # target to generate assembly for a file
-game/graphics/common/Button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.s
-.PHONY : game/graphics/common/Button.cpp.s
+game/graphics/common/CircleWrapper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/CircleWrapper.cpp.s
+.PHONY : game/graphics/common/CircleWrapper.cpp.s
 
 game/graphics/common/ColorSet.obj: game/graphics/common/ColorSet.cpp.obj
 
@@ -349,6 +349,33 @@ game/graphics/common/FontManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.s
 .PHONY : game/graphics/common/FontManager.cpp.s
 
+game/graphics/common/RectWrapper.obj: game/graphics/common/RectWrapper.cpp.obj
+
+.PHONY : game/graphics/common/RectWrapper.obj
+
+# target to build an object file
+game/graphics/common/RectWrapper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj
+.PHONY : game/graphics/common/RectWrapper.cpp.obj
+
+game/graphics/common/RectWrapper.i: game/graphics/common/RectWrapper.cpp.i
+
+.PHONY : game/graphics/common/RectWrapper.i
+
+# target to preprocess a source file
+game/graphics/common/RectWrapper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.i
+.PHONY : game/graphics/common/RectWrapper.cpp.i
+
+game/graphics/common/RectWrapper.s: game/graphics/common/RectWrapper.cpp.s
+
+.PHONY : game/graphics/common/RectWrapper.s
+
+# target to generate assembly for a file
+game/graphics/common/RectWrapper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.s
+.PHONY : game/graphics/common/RectWrapper.cpp.s
+
 game/graphics/common/RenderUtils.obj: game/graphics/common/RenderUtils.cpp.obj
 
 .PHONY : game/graphics/common/RenderUtils.obj
@@ -376,33 +403,6 @@ game/graphics/common/RenderUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.s
 .PHONY : game/graphics/common/RenderUtils.cpp.s
 
-game/graphics/common/TextButton.obj: game/graphics/common/TextButton.cpp.obj
-
-.PHONY : game/graphics/common/TextButton.obj
-
-# target to build an object file
-game/graphics/common/TextButton.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj
-.PHONY : game/graphics/common/TextButton.cpp.obj
-
-game/graphics/common/TextButton.i: game/graphics/common/TextButton.cpp.i
-
-.PHONY : game/graphics/common/TextButton.i
-
-# target to preprocess a source file
-game/graphics/common/TextButton.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.i
-.PHONY : game/graphics/common/TextButton.cpp.i
-
-game/graphics/common/TextButton.s: game/graphics/common/TextButton.cpp.s
-
-.PHONY : game/graphics/common/TextButton.s
-
-# target to generate assembly for a file
-game/graphics/common/TextButton.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.s
-.PHONY : game/graphics/common/TextButton.cpp.s
-
 game/graphics/common/TextInputDialog.obj: game/graphics/common/TextInputDialog.cpp.obj
 
 .PHONY : game/graphics/common/TextInputDialog.obj
@@ -429,6 +429,33 @@ game/graphics/common/TextInputDialog.s: game/graphics/common/TextInputDialog.cpp
 game/graphics/common/TextInputDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.s
 .PHONY : game/graphics/common/TextInputDialog.cpp.s
+
+game/graphics/common/UniformGridBuilder.obj: game/graphics/common/UniformGridBuilder.cpp.obj
+
+.PHONY : game/graphics/common/UniformGridBuilder.obj
+
+# target to build an object file
+game/graphics/common/UniformGridBuilder.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.obj
+.PHONY : game/graphics/common/UniformGridBuilder.cpp.obj
+
+game/graphics/common/UniformGridBuilder.i: game/graphics/common/UniformGridBuilder.cpp.i
+
+.PHONY : game/graphics/common/UniformGridBuilder.i
+
+# target to preprocess a source file
+game/graphics/common/UniformGridBuilder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.i
+.PHONY : game/graphics/common/UniformGridBuilder.cpp.i
+
+game/graphics/common/UniformGridBuilder.s: game/graphics/common/UniformGridBuilder.cpp.s
+
+.PHONY : game/graphics/common/UniformGridBuilder.s
+
+# target to generate assembly for a file
+game/graphics/common/UniformGridBuilder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.s
+.PHONY : game/graphics/common/UniformGridBuilder.cpp.s
 
 game/graphics/common/WaterBackground.obj: game/graphics/common/WaterBackground.cpp.obj
 
@@ -716,9 +743,9 @@ help:
 	@echo ... game/Game.obj
 	@echo ... game/Game.i
 	@echo ... game/Game.s
-	@echo ... game/graphics/common/Button.obj
-	@echo ... game/graphics/common/Button.i
-	@echo ... game/graphics/common/Button.s
+	@echo ... game/graphics/common/CircleWrapper.obj
+	@echo ... game/graphics/common/CircleWrapper.i
+	@echo ... game/graphics/common/CircleWrapper.s
 	@echo ... game/graphics/common/ColorSet.obj
 	@echo ... game/graphics/common/ColorSet.i
 	@echo ... game/graphics/common/ColorSet.s
@@ -731,15 +758,18 @@ help:
 	@echo ... game/graphics/common/FontManager.obj
 	@echo ... game/graphics/common/FontManager.i
 	@echo ... game/graphics/common/FontManager.s
+	@echo ... game/graphics/common/RectWrapper.obj
+	@echo ... game/graphics/common/RectWrapper.i
+	@echo ... game/graphics/common/RectWrapper.s
 	@echo ... game/graphics/common/RenderUtils.obj
 	@echo ... game/graphics/common/RenderUtils.i
 	@echo ... game/graphics/common/RenderUtils.s
-	@echo ... game/graphics/common/TextButton.obj
-	@echo ... game/graphics/common/TextButton.i
-	@echo ... game/graphics/common/TextButton.s
 	@echo ... game/graphics/common/TextInputDialog.obj
 	@echo ... game/graphics/common/TextInputDialog.i
 	@echo ... game/graphics/common/TextInputDialog.s
+	@echo ... game/graphics/common/UniformGridBuilder.obj
+	@echo ... game/graphics/common/UniformGridBuilder.i
+	@echo ... game/graphics/common/UniformGridBuilder.s
 	@echo ... game/graphics/common/WaterBackground.obj
 	@echo ... game/graphics/common/WaterBackground.i
 	@echo ... game/graphics/common/WaterBackground.s

@@ -322,6 +322,33 @@ game/graphics/common/FontManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.s
 .PHONY : game/graphics/common/FontManager.cpp.s
 
+game/graphics/common/RectWrapper.obj: game/graphics/common/RectWrapper.cpp.obj
+
+.PHONY : game/graphics/common/RectWrapper.obj
+
+# target to build an object file
+game/graphics/common/RectWrapper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj
+.PHONY : game/graphics/common/RectWrapper.cpp.obj
+
+game/graphics/common/RectWrapper.i: game/graphics/common/RectWrapper.cpp.i
+
+.PHONY : game/graphics/common/RectWrapper.i
+
+# target to preprocess a source file
+game/graphics/common/RectWrapper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.i
+.PHONY : game/graphics/common/RectWrapper.cpp.i
+
+game/graphics/common/RectWrapper.s: game/graphics/common/RectWrapper.cpp.s
+
+.PHONY : game/graphics/common/RectWrapper.s
+
+# target to generate assembly for a file
+game/graphics/common/RectWrapper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.s
+.PHONY : game/graphics/common/RectWrapper.cpp.s
+
 game/graphics/common/RenderUtils.obj: game/graphics/common/RenderUtils.cpp.obj
 
 .PHONY : game/graphics/common/RenderUtils.obj
@@ -375,6 +402,33 @@ game/graphics/common/TextInputDialog.s: game/graphics/common/TextInputDialog.cpp
 game/graphics/common/TextInputDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.s
 .PHONY : game/graphics/common/TextInputDialog.cpp.s
+
+game/graphics/common/UniformGridBuilder.obj: game/graphics/common/UniformGridBuilder.cpp.obj
+
+.PHONY : game/graphics/common/UniformGridBuilder.obj
+
+# target to build an object file
+game/graphics/common/UniformGridBuilder.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.obj
+.PHONY : game/graphics/common/UniformGridBuilder.cpp.obj
+
+game/graphics/common/UniformGridBuilder.i: game/graphics/common/UniformGridBuilder.cpp.i
+
+.PHONY : game/graphics/common/UniformGridBuilder.i
+
+# target to preprocess a source file
+game/graphics/common/UniformGridBuilder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.i
+.PHONY : game/graphics/common/UniformGridBuilder.cpp.i
+
+game/graphics/common/UniformGridBuilder.s: game/graphics/common/UniformGridBuilder.cpp.s
+
+.PHONY : game/graphics/common/UniformGridBuilder.s
+
+# target to generate assembly for a file
+game/graphics/common/UniformGridBuilder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.s
+.PHONY : game/graphics/common/UniformGridBuilder.cpp.s
 
 game/graphics/common/WaterBackground.obj: game/graphics/common/WaterBackground.cpp.obj
 
@@ -674,12 +728,18 @@ help:
 	@echo ... game/graphics/common/FontManager.obj
 	@echo ... game/graphics/common/FontManager.i
 	@echo ... game/graphics/common/FontManager.s
+	@echo ... game/graphics/common/RectWrapper.obj
+	@echo ... game/graphics/common/RectWrapper.i
+	@echo ... game/graphics/common/RectWrapper.s
 	@echo ... game/graphics/common/RenderUtils.obj
 	@echo ... game/graphics/common/RenderUtils.i
 	@echo ... game/graphics/common/RenderUtils.s
 	@echo ... game/graphics/common/TextInputDialog.obj
 	@echo ... game/graphics/common/TextInputDialog.i
 	@echo ... game/graphics/common/TextInputDialog.s
+	@echo ... game/graphics/common/UniformGridBuilder.obj
+	@echo ... game/graphics/common/UniformGridBuilder.i
+	@echo ... game/graphics/common/UniformGridBuilder.s
 	@echo ... game/graphics/common/WaterBackground.obj
 	@echo ... game/graphics/common/WaterBackground.i
 	@echo ... game/graphics/common/WaterBackground.s

@@ -51,6 +51,7 @@ namespace awd::game {
         int getCurrentState() const;
 
         static unsigned int randUInt(unsigned int min, unsigned int max);
+        static float randFloat(float min, float max);
     };
 
 }

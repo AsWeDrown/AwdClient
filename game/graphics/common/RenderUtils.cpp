@@ -2,6 +2,12 @@
 
 namespace awd::game {
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PUBLIC
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
     void RenderUtils::verticalGradientSquare(const std::shared_ptr<sf::RenderWindow>& window,
                                              float startX, float startY, float endX, float endY,
                                              const sf::Color& topColor, const sf::Color& bottomColor) {

@@ -144,13 +144,19 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.ipp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/CircleWrapper.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/CircleWrapper.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.cpp">
@@ -186,22 +192,34 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/NoPayload.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RenderUtils.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RenderUtils.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.ipp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/UniformGridBuilder.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/UniformGridBuilder.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.cpp">

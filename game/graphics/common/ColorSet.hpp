@@ -16,8 +16,7 @@ namespace awd::game {
                 MIDDLE_LEVEL_WATER,
                 LOWEST_LEVEL_WATER,
                 WATER_FLICKERS,
-                WATER_BUBBLES_FILL,
-                WATER_BUBBLES_OUTLINE;
+                WATER_BUBBLES;
     };
 
 }

@@ -1,5 +1,5 @@
 // Фон окна (диалога)
-#define INITIAL_Y_SHIFT_FACTOR 1.175f
+#define INITIAL_Y_SHIFT_FACTOR 0.95f
 #define DIALOG_WIDTH 800
 #define DIALOG_HEIGHT 350
 #define MAX_EFFECTIVE_EXISTED_TICKS 4
@@ -27,7 +27,7 @@ namespace awd::game {
         height       = DIALOG_HEIGHT * renderScale;
         x            = window->getSize().x / 2 - width  / 2;
         finalY       = window->getSize().y / 2 - height / 2;
-        y = initialY = finalY / INITIAL_Y_SHIFT_FACTOR;
+        y = initialY = finalY * INITIAL_Y_SHIFT_FACTOR;
     }
 
     void Dialog::keyPressed(const sf::Event::KeyEvent& event) {

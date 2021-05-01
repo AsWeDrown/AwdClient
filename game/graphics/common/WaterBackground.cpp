@@ -1,19 +1,24 @@
 // Общее
 #define WATER_FLOW_VELOCITY 6
+#define MIN_DISTANCE_FACTOR 0.45f
+#define MAX_DISTANCE_FACTOR 1.05f
 // Фликеры
-#define NUMBER_OF_FLICKERS 100
-#define FLICKER_WIDTH 90
-#define FLICKER_HEIGHT 3
-#define MIN_FLICKER_MARGIN 30
-#define MAX_FLICKER_MARGIN 60
+#define FLICKER_FILL_ALPHA 65
+#define FLICKER_WIDTH 80
+#define FLICKER_HEIGHT 4
+#define FLICKERS_HORIZONTAL_MARGIN 110
+#define FLICKERS_VERTICAL_MARGIN 135
+#define FLICKERS_CELL_WIDTH FLICKER_WIDTH * MAX_DISTANCE_FACTOR + FLICKERS_HORIZONTAL_MARGIN
+#define FLICKERS_CELL_HEIGHT FLICKER_HEIGHT * MAX_DISTANCE_FACTOR + FLICKERS_VERTICAL_MARGIN
 // Пузырьки
-#define NUMBER_OF_BUBBLES 10
-#define MIN_BUBBLE_RADIUS 5
-#define MAX_BUBBLE_RADIUS 10
-#define BUBBLE_OUTLINE_THICKNESS 3
+#define BUBBLE_FILL_ALPHA 45
+#define BUBBLE_OUTLINE_ALPHA 95
+#define BUBBLE_OUTLINE_THICKNESS 2
+#define NUMBER_OF_BUBBLES 12
+#define BUBBLE_RADIUS 10
 #define MIN_HORIZONTAL_BUBBLE_VELOCITY WATER_FLOW_VELOCITY + 1
 #define MAX_HORIZONTAL_BUBBLE_VELOCITY WATER_FLOW_VELOCITY + 3
-#define MIN_VERTICAL_BUBBLE_VELOCITY 3
+#define MIN_VERTICAL_BUBBLE_VELOCITY 1
 #define MAX_VERTICAL_BUBBLE_VELOCITY 3
 #define MIN_BUBBLE_MARGIN 100
 #define MAX_BUBBLE_MARGIN 200
@@ -23,6 +28,7 @@
 #include "ColorSet.hpp"
 #include "RenderUtils.hpp"
 #include "../../Game.hpp"
+#include "UniformGridBuilder.hpp"
 
 namespace awd::game {
 
@@ -33,69 +39,99 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     void WaterBackground::createFlickers() {
-        unsigned int fNum    = NUMBER_OF_FLICKERS * renderScale;
-        unsigned int fWidth  = FLICKER_WIDTH      * renderScale;
-        unsigned int fHeight = FLICKER_HEIGHT     * renderScale;
-        unsigned int fMinMar = MIN_FLICKER_MARGIN * renderScale;
-        unsigned int fMaxMar = MAX_FLICKER_MARGIN * renderScale;
+        unsigned int fWidth      = FLICKER_WIDTH        * renderScale;
+        unsigned int fHeight     = FLICKER_HEIGHT       * renderScale;
+        unsigned int fCellWidth  = FLICKERS_CELL_WIDTH  * renderScale;
+        unsigned int fCellHeight = FLICKERS_CELL_HEIGHT * renderScale;
 
-        for (int i = 0; i < fNum; i++) {
-            unsigned int fX       = Game::randUInt(0, width);
-            unsigned int fOriginY = height / fNum * i;
-            unsigned int fMargin  = Game::randUInt(fMinMar, fMaxMar) * renderScale;
-            unsigned int fY       = fOriginY + fMargin;
+        sf::Vector2f fCellStart;
+        UniformGridBuilder gridBuilder(0, 0, width, height,
+                                       fCellWidth, fCellHeight, true);
 
-            auto flicker = std::make_shared<sf::RectangleShape>(sf::Vector2f(fWidth, fHeight));
-            flicker->setPosition(fX, fY);
-            flicker->setFillColor(ColorSet::WATER_FLICKERS);
-            flickers.push_back(flicker);
-        }
+        do {
+            gridBuilder >> fCellStart;
+            float distFactor = Game::randFloat(MIN_DISTANCE_FACTOR, MAX_DISTANCE_FACTOR);
+
+            unsigned int thisFlickerWidth  = fWidth             * distFactor * distFactor;
+            unsigned int thisFlickerHeight = fHeight            * distFactor + 1; // min 1 px
+            unsigned int thisFlickerAlpha  = FLICKER_FILL_ALPHA * distFactor;
+
+            unsigned int thisFlickerX = Game::randUInt(
+                    fCellStart.x + thisFlickerWidth / 2.0f,
+                    fCellStart.x + fCellWidth - thisFlickerWidth * 1.5f
+            );
+
+            unsigned int thisFlickerY = Game::randUInt(
+                    fCellStart.y + thisFlickerHeight / 2.0f,
+                    fCellStart.y + fCellHeight - thisFlickerHeight * 1.5f
+            );
+
+            sf::Color thisFlickerColor = ColorSet::WATER_FLICKERS;
+            thisFlickerColor.a = thisFlickerAlpha;
+
+            auto flicker = std::make_shared<sf::RectangleShape>(
+                    sf::Vector2f(thisFlickerWidth, thisFlickerHeight));
+            flicker->setPosition(thisFlickerX, thisFlickerY);
+            flicker->setFillColor(thisFlickerColor);
+            flickers.push_back(std::make_shared<RectWrapper>(
+                    thisFlickerWidth, thisFlickerHeight, flicker));
+        } while (!gridBuilder.failed()); // failed --> весь экран заполнен
     }
 
     void WaterBackground::createBubbles() {
         unsigned int bNum       = NUMBER_OF_BUBBLES        * renderScale;
-        unsigned int bMinRadius = MIN_BUBBLE_RADIUS        * renderScale;
-        unsigned int bMaxRadius = MAX_BUBBLE_RADIUS        * renderScale;
+        unsigned int bRadius    = BUBBLE_RADIUS            * renderScale;
         unsigned int bMinMar    = MIN_BUBBLE_MARGIN        * renderScale;
         unsigned int bMaxMar    = MAX_BUBBLE_MARGIN        * renderScale;
-        unsigned int bOutline   = BUBBLE_OUTLINE_THICKNESS * renderScale;
+        unsigned int bOutline   = BUBBLE_OUTLINE_THICKNESS * renderScale + 1; // min 1 px
 
         for (int i = 0; i < bNum; i++) {
-            unsigned int bRadius  = Game::randUInt(bMinRadius, bMaxRadius);
-            unsigned int bX       = Game::randUInt(0, width);
-            unsigned int bOriginY = height / bNum * i;
-            unsigned int bMargin  = Game::randUInt(bMinMar, bMaxMar) * renderScale;
-            unsigned int bY       = bOriginY + bMargin;
+            float distFactor = Game::randFloat(MIN_DISTANCE_FACTOR, MAX_DISTANCE_FACTOR);
 
-            auto bubble = std::make_shared<sf::CircleShape>(bRadius);
-            bubble->setPosition(bX, bY);
-            bubble->setFillColor(ColorSet::WATER_BUBBLES_FILL);
-            bubble->setOutlineColor(ColorSet::WATER_BUBBLES_OUTLINE);
+            unsigned int thisBubbleRadius       = bRadius * distFactor * distFactor;
+            unsigned int thisBubbleX            = Game::randUInt(0, width);
+            unsigned int bOriginY               = height / bNum * i;
+            unsigned int bMargin                = Game::randUInt(bMinMar, bMaxMar) * renderScale;
+            unsigned int thisBubbleY            = bOriginY + bMargin;
+            unsigned int thisBubbleFillAlpha    = BUBBLE_FILL_ALPHA        * distFactor;
+            unsigned int thisBubbleOutlineAlpha = BUBBLE_OUTLINE_ALPHA     * distFactor;
+
+            sf::Color thisBubbleFill = ColorSet::WATER_BUBBLES;
+            thisBubbleFill.a = thisBubbleFillAlpha;
+            sf::Color thisBubbleOutline = ColorSet::WATER_BUBBLES;
+            thisBubbleOutline.a = thisBubbleOutlineAlpha;
+
+            auto bubble = std::make_shared<sf::CircleShape>(thisBubbleRadius);
+            bubble->setPosition(thisBubbleX, thisBubbleY);
+            bubble->setFillColor(thisBubbleFill);
+            bubble->setOutlineColor(thisBubbleOutline);
             bubble->setOutlineThickness(bOutline);
             bubbles.push_back(bubble);
         }
     }
 
     void WaterBackground::updateFlickers() {
-        unsigned int fWidth       = FLICKER_WIDTH       * renderScale;
-        unsigned int fHeight      = FLICKER_HEIGHT      * renderScale;
         unsigned int flowVelocity = WATER_FLOW_VELOCITY * renderScale;
 
         for (const auto& flicker : flickers) {
-            if (flicker->getPosition().x < width) {
-                auto thisSize = flicker->getSize();
+            unsigned int preservedWidth  = flicker->getPreservedWidth();
+            unsigned int preservedHeight = flicker->getPreservedHeight();
+            auto fRect = flicker->getRect();
 
-                if (thisSize.x < fWidth)
+            if (fRect->getPosition().x < width) {
+                auto thisSize = fRect->getSize();
+
+                if (thisSize.x < preservedWidth)
                     // Просто увеличиваем размер. При увеличении размера фигуры дополняются
                     // справа, так что это создаст эффект постепенного появления фликера.
-                    flicker->setSize(sf::Vector2f(thisSize.x + flowVelocity, fHeight));
+                    fRect->setSize(sf::Vector2f(thisSize.x + flowVelocity, preservedHeight));
                 else
                     // Передвигаем фликер, уже достигший максимального размера, вправо.
-                    flicker->move(flowVelocity, 0);
+                    fRect->move(flowVelocity, 0);
             } else {
                 // Сбрасываем размер фликера и перемещаем его в левый край экрана.
-                flicker->setSize(sf::Vector2f(1, fHeight));
-                flicker->setPosition(0, flicker->getPosition().y);
+                fRect->setSize(sf::Vector2f(1, preservedHeight));
+                fRect->setPosition(0, fRect->getPosition().y);
             }
         }
     }
@@ -155,7 +191,7 @@ namespace awd::game {
 
         // Иллюзия течения (фликеры).
         for (const auto& flicker : flickers)
-            window->draw(*flicker);
+            window->draw(*flicker->getRect());
 
         // Пузырьки.
         for (const auto& bubble : bubbles)
