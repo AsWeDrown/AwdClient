@@ -6,10 +6,11 @@
 #define FLICKER_FILL_ALPHA 65
 #define FLICKER_WIDTH 80
 #define FLICKER_HEIGHT 4
-#define FLICKERS_HORIZONTAL_MARGIN 110
-#define FLICKERS_VERTICAL_MARGIN 135
+#define FLICKERS_HORIZONTAL_MARGIN 110 /* нужно для генерации ячеек для фликеров (сетка) */
+#define FLICKERS_VERTICAL_MARGIN 135 /* нужно для генерации ячеек для фликеров (сетка) */
 #define FLICKERS_CELL_WIDTH FLICKER_WIDTH * MAX_DISTANCE_FACTOR + FLICKERS_HORIZONTAL_MARGIN
 #define FLICKERS_CELL_HEIGHT FLICKER_HEIGHT * MAX_DISTANCE_FACTOR + FLICKERS_VERTICAL_MARGIN
+#define FLICKERS_PLACEMENT_MARGIN_DIV 10 /* нужно для нормальной рандомизации фликеров внутри сгенерированных ячеек */
 // Пузырьки
 #define BUBBLE_FILL_ALPHA 45
 #define BUBBLE_OUTLINE_ALPHA 95
@@ -39,10 +40,12 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     void WaterBackground::createFlickers() {
-        unsigned int fWidth      = FLICKER_WIDTH        * renderScale;
-        unsigned int fHeight     = FLICKER_HEIGHT       * renderScale;
-        unsigned int fCellWidth  = FLICKERS_CELL_WIDTH  * renderScale;
-        unsigned int fCellHeight = FLICKERS_CELL_HEIGHT * renderScale;
+        unsigned int fWidth      = FLICKER_WIDTH              * renderScale;
+        unsigned int fHeight     = FLICKER_HEIGHT             * renderScale;
+        unsigned int fHorMargin  = FLICKERS_HORIZONTAL_MARGIN * renderScale;
+        unsigned int fVerMargin  = FLICKERS_VERTICAL_MARGIN   * renderScale;
+        unsigned int fCellWidth  = FLICKERS_CELL_WIDTH        * renderScale;
+        unsigned int fCellHeight = FLICKERS_CELL_HEIGHT       * renderScale;
 
         sf::Vector2f fCellStart;
         UniformGridBuilder gridBuilder(0, 0, width, height,
@@ -57,13 +60,13 @@ namespace awd::game {
             unsigned int thisFlickerAlpha  = FLICKER_FILL_ALPHA * distFactor;
 
             unsigned int thisFlickerX = Game::randUInt(
-                    fCellStart.x + thisFlickerWidth / 2.0f,
-                    fCellStart.x + fCellWidth - thisFlickerWidth * 1.5f
+                    fCellStart.x + fHorMargin / FLICKERS_PLACEMENT_MARGIN_DIV,
+                    fCellStart.x + fCellWidth - thisFlickerWidth - fHorMargin / FLICKERS_PLACEMENT_MARGIN_DIV
             );
 
             unsigned int thisFlickerY = Game::randUInt(
-                    fCellStart.y + thisFlickerHeight / 2.0f,
-                    fCellStart.y + fCellHeight - thisFlickerHeight * 1.5f
+                    fCellStart.y + fVerMargin / FLICKERS_PLACEMENT_MARGIN_DIV,
+                    fCellStart.y + fCellHeight - thisFlickerHeight - fVerMargin / FLICKERS_PLACEMENT_MARGIN_DIV
             );
 
             sf::Color thisFlickerColor = ColorSet::WATER_FLICKERS;
