@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Drawable.hpp"
 
 namespace awd::game {
@@ -8,11 +9,11 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    /**
-     * @throws std::invalid_argument если в потомках этого объекта уже есть объект с id = childId.
-     */
-    bool Drawable::isChildIdLocallyUnique(int childId) const {
-        return getChildById(childId) == nullptr;
+    std::vector<id_type> Drawable::registeredIds;
+
+    bool Drawable::isIdUnique(id_type id) {
+        return std::all_of(registeredIds.cbegin(), registeredIds.cend(),
+                           [id](id_type otherId) { return otherId != id; });
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -20,22 +21,6 @@ namespace awd::game {
      *   PROTECTED
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-    void Drawable::addChild(const std::shared_ptr<Drawable>& child) {
-        if (isChildIdLocallyUnique(child->id)) {
-            children.push_back(child);
-            child->parent = this;
-        }
-    }
-
-    void Drawable::removeChild(int childId) {
-        children.erase(std::remove_if(
-                children.begin(), children.end(),
-                [childId](const auto& child) {
-                    return child->id == childId;
-                }), children.end()
-        );
-    }
 
     void Drawable::updateChildren() {
         for (const auto& child : children)
@@ -66,8 +51,43 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    int Drawable::getId() const {
+    Drawable::Drawable(id_type id, // NOLINT(cppcoreguidelines-pro-type-member-init)
+                       float renderScale,
+                       const std::shared_ptr<sf::RenderWindow>& window) {
+        if (!isIdUnique(id)) {
+            std::cerr << "ID not unique: " << id << std::endl;
+            throw std::invalid_argument("ID not unique: " + std::to_string(id));
+        }
+
+        // Инициализируем самые базовые (основные, обязательные) поля.
+        this->id = id;
+        this->renderScale = renderScale;
+        this->window = window;
+
+        // Занимаем этот ID.
+        registeredIds.push_back(id);
+    }
+
+    Drawable::~Drawable() {
+        // Освобождаем этот ID.
+        registeredIds.erase(std::remove_if(
+                registeredIds.begin(), registeredIds.end(),
+                [this](id_type otherId) {
+                    return otherId == this->id;
+                }), registeredIds.end()
+        );
+    }
+
+    id_type Drawable::getId() const {
         return id;
+    }
+
+    float Drawable::getRenderScale() const {
+        return renderScale;
+    }
+
+    std::shared_ptr<sf::RenderWindow> Drawable::getWindow() const {
+        return window;
     }
 
     unsigned int Drawable::getX() const {
@@ -94,16 +114,38 @@ namespace awd::game {
         this->visible = visibility;
     }
 
+    bool Drawable::isEnabled() const {
+        return enabled;
+    }
+
+    void Drawable::setEnabled(bool nowEnabled) {
+        this->enabled = nowEnabled;
+    }
+
     Drawable* Drawable::getParent() const {
         return parent;
     }
 
-    std::shared_ptr<Drawable> Drawable::getChildById(int childId) const {
+    std::shared_ptr<Drawable> Drawable::getChildById(id_type childId) const {
         for (const auto& child : children)
             if (child->id == childId)
                 return child;
 
         return nullptr;
+    }
+
+    void Drawable::addChild(const std::shared_ptr<Drawable>& child) {
+        child->parent = this;
+        children.push_back(child);
+    }
+
+    void Drawable::removeChild(id_type childId) {
+        children.erase(std::remove_if(
+                children.begin(), children.end(),
+                [childId](const auto& child) {
+                    return child->id == childId;
+                }), children.end()
+        );
     }
 
     void Drawable::keyPressed(const sf::Event::KeyEvent& event) {

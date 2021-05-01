@@ -4,24 +4,19 @@
 #include "../common/Button.hpp"
 #include "../common/Drawable.hpp"
 #include "../common/Dialog.hpp"
+#include "MainMenuScreenListener.hpp"
 
 namespace awd::game {
 
     class MainMenuScreen : public Drawable {
     private:
+        std::shared_ptr<MainMenuScreenListener> listener = std::make_shared<MainMenuScreenListener>();
         bool dialogOpen = false;
+        std::vector<id_type> buttonsIds;
 
         void createButtons();
-
-        static void dialogOpened(Drawable* mainMenuScreen, int dialogId);
-        static void dialogClosed(Drawable* mainMenuScreen, int dialogId);
-        static void createLobbyClicked(Drawable* mainMenuScreen);
-        static void createLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput);
-        static void createLobbyBackClicked(Drawable* mainMenuScreen);
-        static void joinLobbyClicked(Drawable* mainMenuScreen);
-        static void joinLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput);
-        static void joinLobbyBackClicked(Drawable* mainMenuScreen);
-        static void quitGameClicked(Drawable* mainMenuScreen);
+        void addButton(const std::shared_ptr<Drawable>& button);
+        void setButtonsEnabled(bool enabled);
 
     public:
         MainMenuScreen(float renderScale,
@@ -29,6 +24,10 @@ namespace awd::game {
 
         void update() override;
         void draw() override;
+
+        bool isDialogOpen() const;
+        void setDialogOpen(bool open);
+        std::shared_ptr<MainMenuScreenListener> getListener() const;
     };
 
 }

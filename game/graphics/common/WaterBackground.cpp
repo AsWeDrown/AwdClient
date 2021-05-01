@@ -11,8 +11,8 @@
 #define MIN_BUBBLE_RADIUS 5
 #define MAX_BUBBLE_RADIUS 10
 #define BUBBLE_OUTLINE_THICKNESS 3
-#define MIN_HORIZONTAL_BUBBLE_VELOCITY WATER_FLOW_VELOCITY
-#define MAX_HORIZONTAL_BUBBLE_VELOCITY 12
+#define MIN_HORIZONTAL_BUBBLE_VELOCITY WATER_FLOW_VELOCITY + 1
+#define MAX_HORIZONTAL_BUBBLE_VELOCITY WATER_FLOW_VELOCITY + 3
 #define MIN_VERTICAL_BUBBLE_VELOCITY 3
 #define MAX_VERTICAL_BUBBLE_VELOCITY 3
 #define MIN_BUBBLE_MARGIN 100
@@ -125,13 +125,10 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    WaterBackground::WaterBackground(int id,
+    WaterBackground::WaterBackground(id_type id,
                                      float renderScale,
-                                     const std::shared_ptr<sf::RenderWindow>& window) {
-        this->id = id;
-        this->renderScale = renderScale;
-        this->window = window;
-
+                                     const std::shared_ptr<sf::RenderWindow>& window)
+                                     : Drawable(id, renderScale, window) {
         x = 0;
         y = 0;
         width = window->getSize().x;

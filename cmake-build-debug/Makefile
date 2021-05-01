@@ -214,33 +214,6 @@ game/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.s
 .PHONY : game/Game.cpp.s
 
-game/graphics/common/Button.obj: game/graphics/common/Button.cpp.obj
-
-.PHONY : game/graphics/common/Button.obj
-
-# target to build an object file
-game/graphics/common/Button.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj
-.PHONY : game/graphics/common/Button.cpp.obj
-
-game/graphics/common/Button.i: game/graphics/common/Button.cpp.i
-
-.PHONY : game/graphics/common/Button.i
-
-# target to preprocess a source file
-game/graphics/common/Button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.i
-.PHONY : game/graphics/common/Button.cpp.i
-
-game/graphics/common/Button.s: game/graphics/common/Button.cpp.s
-
-.PHONY : game/graphics/common/Button.s
-
-# target to generate assembly for a file
-game/graphics/common/Button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.s
-.PHONY : game/graphics/common/Button.cpp.s
-
 game/graphics/common/ColorSet.obj: game/graphics/common/ColorSet.cpp.obj
 
 .PHONY : game/graphics/common/ColorSet.obj
@@ -376,33 +349,6 @@ game/graphics/common/RenderUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.s
 .PHONY : game/graphics/common/RenderUtils.cpp.s
 
-game/graphics/common/TextButton.obj: game/graphics/common/TextButton.cpp.obj
-
-.PHONY : game/graphics/common/TextButton.obj
-
-# target to build an object file
-game/graphics/common/TextButton.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj
-.PHONY : game/graphics/common/TextButton.cpp.obj
-
-game/graphics/common/TextButton.i: game/graphics/common/TextButton.cpp.i
-
-.PHONY : game/graphics/common/TextButton.i
-
-# target to preprocess a source file
-game/graphics/common/TextButton.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.i
-.PHONY : game/graphics/common/TextButton.cpp.i
-
-game/graphics/common/TextButton.s: game/graphics/common/TextButton.cpp.s
-
-.PHONY : game/graphics/common/TextButton.s
-
-# target to generate assembly for a file
-game/graphics/common/TextButton.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.s
-.PHONY : game/graphics/common/TextButton.cpp.s
-
 game/graphics/common/TextInputDialog.obj: game/graphics/common/TextInputDialog.cpp.obj
 
 .PHONY : game/graphics/common/TextInputDialog.obj
@@ -483,6 +429,33 @@ game/graphics/mainmenu/MainMenuScreen.s: game/graphics/mainmenu/MainMenuScreen.c
 game/graphics/mainmenu/MainMenuScreen.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.s
 .PHONY : game/graphics/mainmenu/MainMenuScreen.cpp.s
+
+game/graphics/mainmenu/MainMenuScreenListener.obj: game/graphics/mainmenu/MainMenuScreenListener.cpp.obj
+
+.PHONY : game/graphics/mainmenu/MainMenuScreenListener.obj
+
+# target to build an object file
+game/graphics/mainmenu/MainMenuScreenListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj
+.PHONY : game/graphics/mainmenu/MainMenuScreenListener.cpp.obj
+
+game/graphics/mainmenu/MainMenuScreenListener.i: game/graphics/mainmenu/MainMenuScreenListener.cpp.i
+
+.PHONY : game/graphics/mainmenu/MainMenuScreenListener.i
+
+# target to preprocess a source file
+game/graphics/mainmenu/MainMenuScreenListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.i
+.PHONY : game/graphics/mainmenu/MainMenuScreenListener.cpp.i
+
+game/graphics/mainmenu/MainMenuScreenListener.s: game/graphics/mainmenu/MainMenuScreenListener.cpp.s
+
+.PHONY : game/graphics/mainmenu/MainMenuScreenListener.s
+
+# target to generate assembly for a file
+game/graphics/mainmenu/MainMenuScreenListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.s
+.PHONY : game/graphics/mainmenu/MainMenuScreenListener.cpp.s
 
 game/packetlistener/CreateLobbyResponseListener.obj: game/packetlistener/CreateLobbyResponseListener.cpp.obj
 
@@ -689,9 +662,6 @@ help:
 	@echo ... game/Game.obj
 	@echo ... game/Game.i
 	@echo ... game/Game.s
-	@echo ... game/graphics/common/Button.obj
-	@echo ... game/graphics/common/Button.i
-	@echo ... game/graphics/common/Button.s
 	@echo ... game/graphics/common/ColorSet.obj
 	@echo ... game/graphics/common/ColorSet.i
 	@echo ... game/graphics/common/ColorSet.s
@@ -707,9 +677,6 @@ help:
 	@echo ... game/graphics/common/RenderUtils.obj
 	@echo ... game/graphics/common/RenderUtils.i
 	@echo ... game/graphics/common/RenderUtils.s
-	@echo ... game/graphics/common/TextButton.obj
-	@echo ... game/graphics/common/TextButton.i
-	@echo ... game/graphics/common/TextButton.s
 	@echo ... game/graphics/common/TextInputDialog.obj
 	@echo ... game/graphics/common/TextInputDialog.i
 	@echo ... game/graphics/common/TextInputDialog.s
@@ -719,6 +686,9 @@ help:
 	@echo ... game/graphics/mainmenu/MainMenuScreen.obj
 	@echo ... game/graphics/mainmenu/MainMenuScreen.i
 	@echo ... game/graphics/mainmenu/MainMenuScreen.s
+	@echo ... game/graphics/mainmenu/MainMenuScreenListener.obj
+	@echo ... game/graphics/mainmenu/MainMenuScreenListener.i
+	@echo ... game/graphics/mainmenu/MainMenuScreenListener.s
 	@echo ... game/packetlistener/CreateLobbyResponseListener.obj
 	@echo ... game/packetlistener/CreateLobbyResponseListener.i
 	@echo ... game/packetlistener/CreateLobbyResponseListener.s

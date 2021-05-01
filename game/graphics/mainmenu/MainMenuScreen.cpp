@@ -1,9 +1,3 @@
-// ID
-#define ID_BUTTON_QUIT_GAME 1
-#define ID_BUTTON_JOIN_LOBBY 2
-#define ID_BUTTON_CREATE_LOBBY 3
-#define ID_WATER_BACKGROUND 100
-#define ID_DIALOG_CREATE_LOBBY 1000
 // Кнопки
 #define ALL_BUTTONS_X 70
 #define BUTTONS_VERTICAL_MARGIN 5
@@ -18,7 +12,6 @@
 #define LETTER_SPACING_FACTOR 1.1f
 
 #include <SFML/Graphics/RectangleShape.hpp>
-#include <iostream>
 #include "MainMenuScreen.hpp"
 #include "../common/TextButton.hpp"
 #include "../common/ColorSet.hpp"
@@ -45,90 +38,76 @@ namespace awd::game {
 
         // QuitGame
         unsigned int bY = height - bMargin - bHeight - bExtraMargin;
-        auto btnQuitGame = std::make_shared<TextButton>(
-                ID_BUTTON_QUIT_GAME, renderScale, window,
-                L"Выйти из игры", bX, bY, bWidth, bHeight, quitGameClicked);
-        addChild(btnQuitGame);
+        auto btnQuitGame = std::make_shared<TextButton<NoPayload>>(
+                ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME, renderScale, window,
+                L"Выйти из игры", bX, bY, bWidth, bHeight, listener);
+        addButton(btnQuitGame);
 
         // JoinLobby
         bY -= bMargin + bHeight;
-        auto btnJoinLobby = std::make_shared<TextButton>(
-                ID_BUTTON_JOIN_LOBBY, renderScale, window,
-                L"Присоединиться к комнате", bX, bY, bWidth, bHeight, joinLobbyClicked);
-        addChild(btnJoinLobby);
+        auto btnJoinLobby = std::make_shared<TextButton<NoPayload>>(
+                ID_SCREEN_MAIN_MENU_BUTTON_JOIN_LOBBY, renderScale, window,
+                L"Присоединиться к комнате", bX, bY, bWidth, bHeight, listener);
+        addButton(btnJoinLobby);
 
         // CreateLobby
         bY -= bMargin + bHeight;
-        auto btnCreateLobby = std::make_shared<TextButton>(
-                ID_BUTTON_CREATE_LOBBY, renderScale, window,
-                L"Создать комнату", bX, bY, bWidth, bHeight, createLobbyClicked);
-        addChild(btnCreateLobby);
+        auto btnCreateLobby = std::make_shared<TextButton<NoPayload>>(
+                ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY, renderScale, window,
+                L"Создать комнату", bX, bY, bWidth, bHeight, listener);
+        addButton(btnCreateLobby);
     }
 
-    void MainMenuScreen::dialogOpened(Drawable* mainMenuScreen, int dialogId) {
-        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
-        mainMenu->dialogOpen = true;
+    void MainMenuScreen::addButton(const std::shared_ptr<Drawable>& button) {
+        addChild(button);
+        buttonsIds.push_back(button->getId());
     }
 
-    void MainMenuScreen::dialogClosed(Drawable* mainMenuScreen, int dialogId) {
-        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
-        mainMenu->dialogOpen = false;
-        mainMenu->removeChild(dialogId);
+    void MainMenuScreen::setButtonsEnabled(bool enabled) {
+        for (id_type buttonId : buttonsIds)
+            getChildById(buttonId)->setEnabled(enabled);
     }
 
-    void MainMenuScreen::createLobbyClicked(Drawable* mainMenuScreen) {
-        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
-
-        if (mainMenu->dialogOpen)
-            return;
-
-        auto dialog = std::make_shared<TextInputDialog>(
-                ID_DIALOG_CREATE_LOBBY, mainMenu->renderScale, mainMenu->window,
-                dialogOpened, dialogClosed,
-                createLobbyNextClicked, createLobbyBackClicked
-        );
-
-        mainMenu->addChild(dialog);
-        dialog->show();
-    }
-
-    void MainMenuScreen::createLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput) {
-        std::wcout << L"MainMenu : CreateLobby : next -- " << userInput << std::endl;
-        //todo
-    }
-
-    void MainMenuScreen::createLobbyBackClicked(Drawable* mainMenuScreen) {
-        auto dialog = std::dynamic_pointer_cast<Dialog>(
-                mainMenuScreen->getChildById(ID_DIALOG_CREATE_LOBBY));
-
-        dialog->hide();
-    }
-
-    void MainMenuScreen::joinLobbyClicked(Drawable* mainMenuScreen) {
-        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
-
-        if (mainMenu->dialogOpen)
-            return;
-
-        //todo
-    }
-
-    void MainMenuScreen::joinLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput) {
-        //todo
-    }
-
-    void MainMenuScreen::joinLobbyBackClicked(Drawable* mainMenuScreen) {
-        //todo
-    }
-
-    void MainMenuScreen::quitGameClicked(Drawable* mainMenuScreen) {
-        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
-
-        if (mainMenu->dialogOpen)
-            return;
-
-        //todo
-    }
+//    void MainMenuScreen::createLobbyClicked(Drawable* mainMenuScreen) {
+//        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+//        auto dialog = std::make_shared<TextInputDialog>(
+//                ID_DIALOG_CREATE_LOBBY, mainMenu->renderScale, mainMenu->window,
+//                mainMenu->listener,
+//                createLobbyNextClicked, createLobbyBackClicked
+//        );
+//
+//        mainMenu->addChild(dialog);
+//        dialog->show();
+//    }
+//
+//    void MainMenuScreen::createLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput) {
+//        //todo
+//    }
+//
+//    void MainMenuScreen::createLobbyBackClicked(Drawable* mainMenuScreen) {
+//        auto dialog = std::dynamic_pointer_cast<Dialog>(
+//                mainMenuScreen->getChildById(ID_DIALOG_CREATE_LOBBY));
+//
+//        dialog->hide();
+//    }
+//
+//    void MainMenuScreen::joinLobbyClicked(Drawable* mainMenuScreen) {
+//        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+//        //todo
+//    }
+//
+//    void MainMenuScreen::joinLobbyNextClicked(Drawable* mainMenuScreen, const std::wstring& userInput) {
+//        //todo
+//    }
+//
+//    void MainMenuScreen::joinLobbyBackClicked(Drawable* mainMenuScreen) {
+//        //todo
+//    }
+//
+//    void MainMenuScreen::quitGameClicked(Drawable* mainMenuScreen) {
+//        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+//        //todo
+//    }
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -138,21 +117,23 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     MainMenuScreen::MainMenuScreen(float renderScale,
-                                   const std::shared_ptr<sf::RenderWindow>& window) {
-        this->renderScale = renderScale;
-        this->window = window;
-
+                                   const std::shared_ptr<sf::RenderWindow>& window)
+                                   : Drawable(ID_SCREEN_MAIN_MENU, renderScale, window) {
         x = 0;
         y = 0;
         width = window->getSize().x;
         height = window->getSize().y;
 
         addChild(std::make_shared<WaterBackground>(
-                ID_WATER_BACKGROUND, renderScale, window));
+                ID_SCREEN_MAIN_MENU_WATER_BACKGROUND, renderScale, window));
         createButtons();
     }
 
     void MainMenuScreen::update() {
+        // Выключаем все кнопки меню, если открыто окно (Dialog).
+        setButtonsEnabled(!dialogOpen);
+
+        // Обновляем все дочерние компоненты (в т.ч. кнопки) только после проверки условий выше.
         Drawable::update();
     }
 
@@ -168,7 +149,7 @@ namespace awd::game {
         unsigned int buttonsHeight  = BUTTONS_HEIGHT         * renderScale;
 
         unsigned int logoX          = allButtonsX + logoLeftMargin;
-        unsigned int highestButtonY = getChildById(ID_BUTTON_CREATE_LOBBY)->getY();
+        unsigned int highestButtonY = getChildById(ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY)->getY();
         unsigned int logoY          = highestButtonY - buttonsHeight - logoVertMargin;
 
         sf::Text logo;
@@ -181,6 +162,18 @@ namespace awd::game {
         logo.setOutlineThickness(logoOutline);
         logo.setPosition(logoX, logoY);
         window->draw(logo);
+    }
+
+    bool MainMenuScreen::isDialogOpen() const {
+        return dialogOpen;
+    }
+
+    void MainMenuScreen::setDialogOpen(bool open) {
+        this->dialogOpen = open;
+    }
+
+    std::shared_ptr<MainMenuScreenListener> MainMenuScreen::getListener() const {
+        return listener;
     }
 
 }

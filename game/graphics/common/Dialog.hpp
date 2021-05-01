@@ -3,6 +3,7 @@
 
 #include "../common/Drawable.hpp"
 #include "Button.hpp"
+#include "DialogListener.hpp"
 
 namespace awd::game {
 
@@ -15,17 +16,16 @@ namespace awd::game {
 
     class Dialog : public Drawable {
     protected:
-        void (*dialogOpened)(Drawable* parentScreen, int dialogId);
-        void (*dialogClosed)(Drawable* parentScreen, int dialogId);
+        unsigned int initialY, finalY;
+        std::shared_ptr<DialogListener> listener = nullptr;
         DialogState state = DialogState::DISAPPEARED;
         int existedTicks = 0;
 
     public:
-        Dialog(int id,
+        Dialog(id_type id,
                float renderScale,
                const std::shared_ptr<sf::RenderWindow>& window,
-               void (*dialogOpened)(Drawable*, int),
-               void (*dialogClosed)(Drawable*, int));
+               const std::shared_ptr<DialogListener>& listener);
 
         void keyPressed(const sf::Event::KeyEvent& event) override;
         void mousePressed(const sf::Event::MouseButtonEvent& event) override;

@@ -1,8 +1,9 @@
-// Фон диалога
+// Фон окна (диалога)
+#define INITIAL_Y_SHIFT_FACTOR 1.175f
 #define DIALOG_WIDTH 800
-#define DIALOG_HEIGHT 300
-#define MAX_EFFECTIVE_EXISTED_TICKS 3
-#define FILL_ALPHA_PER_EXISTED_TICK 50
+#define DIALOG_HEIGHT 350
+#define MAX_EFFECTIVE_EXISTED_TICKS 4
+#define FILL_ALPHA_PER_EXISTED_TICK 30
 
 
 #include "Dialog.hpp"
@@ -15,21 +16,18 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    Dialog::Dialog(int id,
+    Dialog::Dialog(id_type id,
                    float renderScale,
                    const std::shared_ptr<sf::RenderWindow>& window,
-                   void (*dialogOpened)(Drawable*, int),
-                   void (*dialogClosed)(Drawable*, int)) {
-        this->id = id;
-        this->renderScale = renderScale;
-        this->window = window;
-        this->dialogOpened = dialogOpened;
-        this->dialogClosed = dialogClosed;
+                   const std::shared_ptr<DialogListener>& listener)
+                   : Drawable(id, renderScale, window) {
+        this->listener = listener;
 
-        width  = DIALOG_WIDTH  * renderScale;
-        height = DIALOG_HEIGHT * renderScale;
-        x = window->getSize().x / 2 - width  / 2;
-        y = window->getSize().y / 2 - height / 2;
+        width        = DIALOG_WIDTH  * renderScale;
+        height       = DIALOG_HEIGHT * renderScale;
+        x            = window->getSize().x / 2 - width  / 2;
+        finalY       = window->getSize().y / 2 - height / 2;
+        y = initialY = finalY / INITIAL_Y_SHIFT_FACTOR;
     }
 
     void Dialog::keyPressed(const sf::Event::KeyEvent& event) {
@@ -48,19 +46,34 @@ namespace awd::game {
 
         Drawable::update();
 
+        // Для плавного появления окна сверху / исчезновения окна вверх (см. ниже).
+        unsigned int moveStep = (finalY - initialY) / MAX_EFFECTIVE_EXISTED_TICKS;
+
         if (state == DialogState::APPEARING) {
-            if (existedTicks < MAX_EFFECTIVE_EXISTED_TICKS)
+            if (existedTicks < MAX_EFFECTIVE_EXISTED_TICKS) {
+                y += moveStep;
                 existedTicks++;
-            else {
+            } else {
+                if (y < finalY)
+                    // Из-за неделимости целых чисел окно может чуть-чуть
+                    // не доходить до нужной точки. Поэтому "помогаем" ему.
+                    y = finalY;
+
                 state = DialogState::APPEARED;
-                dialogOpened(parent, id);
+                listener->dialogOpened(parent, id);
             }
         } else if (state == DialogState::DISAPPEARING) {
-            if (existedTicks > 0)
+            if (existedTicks > 0) {
+                y -= moveStep;
                 existedTicks--;
-            else {
+            } else {
+                if (y > initialY)
+                    // Из-за неделимости целых чисел окно может чуть-чуть
+                    // не доходить до нужной точки. Поэтому "помогаем" ему.
+                    y = initialY;
+
                 state = DialogState::DISAPPEARED;
-                dialogClosed(parent, id);
+                listener->dialogClosed(parent, id);
             }
         }
     }

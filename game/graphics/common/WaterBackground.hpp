@@ -17,7 +17,7 @@ namespace awd::game {
         void updateBubbles();
 
     public:
-        WaterBackground(int id,
+        WaterBackground(id_type id,
                         float renderScale,
                         const std::shared_ptr<sf::RenderWindow>& window);
 

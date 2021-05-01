@@ -38,9 +38,9 @@ namespace awd::game {
     }
 
     void Game::startGameLoop() {
-        auto bestVideoMode = sf::VideoMode::getFullscreenModes()[10];
+        auto bestVideoMode = sf::VideoMode::getFullscreenModes()[0];
         window = std::make_shared<sf::RenderWindow>(
-                bestVideoMode, "As We Drown"/*, sf::Style::Fullscreen*/);
+                bestVideoMode, "As We Drown", sf::Style::Fullscreen);
 
         float renderScale = std::min((float) bestVideoMode.width  / (float) BASE_SCREEN_WIDTH,
                                      (float) bestVideoMode.height / (float) BASE_SCREEN_HEIGHT);
