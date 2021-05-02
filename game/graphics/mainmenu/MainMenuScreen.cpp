@@ -15,7 +15,7 @@
 #include "MainMenuScreen.hpp"
 #include "../common/TextButton.hpp"
 #include "../common/ColorSet.hpp"
-#include "../common/RenderUtils.hpp"
+#include "../../util/RenderUtils.hpp"
 #include "../common/WaterBackground.hpp"
 #include "../../Game.hpp"
 #include "../common/TextInputDialog.hpp"

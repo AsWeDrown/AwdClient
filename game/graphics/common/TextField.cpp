@@ -9,7 +9,7 @@
 #define EXTRA_LINE_WIDTH_PER_SELECTED_TICK 1 /* имеется в виду высота прямоугольника (height) */
 // Текст
 #define TEXT_FONT_SIZE 45
-#define TEXT_TOP_MARGIN 20
+#define TEXT_TOP_MARGIN 18
 #define TEXT_LEFT_MARGIN 25
 #define HINT_TEXT_ALPHA 140
 // Макросы для упрощения огромной switch/case конструкции для преобразования кодов клавиш в символы на них

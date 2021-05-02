@@ -9,6 +9,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#define FAILED_TO_BIND_UDP_SOCKET_TO_PORT        "AWD-0001-FATAL"
-#define DRAWABLE_ID_NOT_UNIQUE                   "AWD-0002-FATAL"
+#define FAILED_TO_BIND_UDP_SOCKET_TO_PORT        "AWD-C0001-FATAL"
+#define DRAWABLE_ID_NOT_UNIQUE                   "AWD-C0002-FATAL"
 

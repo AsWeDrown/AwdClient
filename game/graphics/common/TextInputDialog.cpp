@@ -2,6 +2,12 @@
 #define TEXT_FIELD_TOP_MARGIN 40
 #define TEXT_FIELD_LEFT_MARGIN 20
 #define TEXT_FIELD_HEIGHT 100
+// Текст сообщения
+#define MESSAGE_TEXT_LEFT_MARGIN TEXT_FIELD_LEFT_MARGIN
+#define MESSAGE_TEXT_AND_TEXT_FIELD_VERTICAL_MARGIN 8
+#define MESSAGE_TEXT_FONT_SIZE 27
+#define MAX_MESSAGE_TEXT_LINE_LENGTH 70
+#define MAX_MESSAGE_TEXT_LINES 4
 // Кнопки
 #define BUTTONS_LEFT_MARGIN 15
 #define BUTTONS_HORIZONTAL_MARGIN 15
@@ -10,7 +16,11 @@
 #define BUTTONS_HEIGHT 75
 
 
+#include <sstream>
 #include "TextInputDialog.hpp"
+#include "ColorSet.hpp"
+#include "../../util/StringUtils.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 
@@ -19,6 +29,88 @@ namespace awd::game {
      *   PRIVATE
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    void TextInputDialog::applyFormatting(sfe::RichText& msg, wchar_t code) {
+        switch (code) {
+            // Сброс стиля и цвета
+            case L'r':
+            case L'R':
+                msg << sf::Text::Regular << ColorSet::MESSAGE_TEXT_WHITE;
+                break;
+
+            // Стили
+            case L'l':
+            case L'L':
+                msg << sf::Text::Bold;
+                break;
+
+            case L'o':
+            case L'O':
+                msg << sf::Text::Italic;
+                break;
+
+            case L'n':
+            case L'N':
+                msg << sf::Text::Underlined;
+                break;
+
+            case L'm':
+            case L'M':
+                msg << sf::Text::StrikeThrough;
+                break;
+
+            // Цвета
+            case L'f':
+            case L'F':
+                msg << ColorSet::MESSAGE_TEXT_WHITE;
+                break;
+
+            case L'7':
+                msg << ColorSet::MESSAGE_TEXT_GRAY;
+                break;
+
+            case L'0':
+                msg << ColorSet::MESSAGE_TEXT_BLACK;
+                break;
+
+            case L'e':
+            case L'E':
+                msg << ColorSet::MESSAGE_TEXT_YELLOW;
+                break;
+
+            case L'6':
+                msg << ColorSet::MESSAGE_TEXT_GOLD;
+                break;
+
+            case L'a':
+            case L'A':
+                msg << ColorSet::MESSAGE_TEXT_GREEN;
+                break;
+
+            case L'c':
+            case L'C':
+                msg << ColorSet::MESSAGE_TEXT_RED;
+                break;
+
+            case L'b':
+            case L'B':
+                msg << ColorSet::MESSAGE_TEXT_AQUA;
+                break;
+
+            case L'9':
+                msg << ColorSet::MESSAGE_TEXT_BLUE;
+                break;
+
+            case L'd':
+            case L'D':
+                msg << ColorSet::MESSAGE_TEXT_MAGENTA;
+                break;
+
+            // Неизвестный код - пропускаем
+            default:
+                break;
+        }
+    }
 
     void TextInputDialog::createTextField() {
         unsigned int tfTopMargin  = TEXT_FIELD_TOP_MARGIN  * renderScale;
@@ -66,6 +158,7 @@ namespace awd::game {
                                      float renderScale,
                                      const std::shared_ptr<sf::RenderWindow>& window,
                                      const std::shared_ptr<DialogListener>& dialogListener,
+                                     const std::wstring& message,
                                      id_type textFieldId,
                                      const std::shared_ptr<TextFieldListener>& textFieldListener,
                                      unsigned int maxInputLen,
@@ -75,6 +168,9 @@ namespace awd::game {
                                      id_type btnBackId,
                                      const std::shared_ptr<ButtonListener>& btnBackListener)
                                      : Dialog(id, renderScale, window, dialogListener) {
+        this->message = StringUtils::wrapByLineLength(
+                StringUtils::encodeFormatting(message),
+                MAX_MESSAGE_TEXT_LINE_LENGTH, MAX_MESSAGE_TEXT_LINES);
         this->textFieldId = textFieldId;
         this->textFieldListener = textFieldListener;
         this->maxInputLen = maxInputLen;
@@ -94,6 +190,41 @@ namespace awd::game {
 
     void TextInputDialog::draw() {
         Dialog::draw();
+
+        // Текст сообщения (с поддержкой форматирования).
+        unsigned int msgLeftMargin     = MESSAGE_TEXT_LEFT_MARGIN                    * renderScale;
+        unsigned int msgAndTfVerMargin = MESSAGE_TEXT_AND_TEXT_FIELD_VERTICAL_MARGIN * renderScale;
+        unsigned int msgFontSize       = MESSAGE_TEXT_FONT_SIZE                      * renderScale;
+
+        auto textField = getChildById(textFieldId);
+        sfe::RichText msg(*Game::instance().getFontManager()->getRegularFont());
+
+        // Форматирование.
+        std::wstring::size_type offset = 0; // отступ слева от начала текста при выводе очередной части сообщения
+        applyFormatting(msg, L'r'); // сброс цвета на белый при каждом выводе
+
+        for (std::wstring::size_type i = 0; i < message.length() - 1; i++) {
+            wchar_t code = message[i + 1];
+
+            if (message[i] == '&' && code != '&') { // нашли цветовой код
+                // Выводим текст слева от нового цветового кода.
+                std::wstring prev = message.substr(offset, i - offset);
+                msg << prev;
+
+                applyFormatting(msg, code); // устанавливаем цвет для вывода текста справа от нового цветового кода
+                offset = i + 2; // пропускаем сам цветовой код при следующем выводе
+                i++; // перескакиваем через следующий символ (цветовой код после '&')
+            }
+        }
+
+        std::wstring remainder = message.substr(offset, message.length());  // оставшийся текст (если есть)
+        msg << remainder; // ^
+        applyFormatting(msg, L'r'); // сброс цвета на белый после каждого вывода
+
+        // Оставшиеся мелочи.
+        msg.setCharacterSize(msgFontSize);
+        msg.setPosition(x + msgLeftMargin, textField->getY() + textField->getHeight() + msgAndTfVerMargin);
+        window->draw(msg);
     }
 
 }

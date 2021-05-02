@@ -376,32 +376,32 @@ game/graphics/common/RectWrapper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.s
 .PHONY : game/graphics/common/RectWrapper.cpp.s
 
-game/graphics/common/RenderUtils.obj: game/graphics/common/RenderUtils.cpp.obj
+game/graphics/common/RichText.obj: game/graphics/common/RichText.cpp.obj
 
-.PHONY : game/graphics/common/RenderUtils.obj
+.PHONY : game/graphics/common/RichText.obj
 
 # target to build an object file
-game/graphics/common/RenderUtils.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj
-.PHONY : game/graphics/common/RenderUtils.cpp.obj
+game/graphics/common/RichText.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj
+.PHONY : game/graphics/common/RichText.cpp.obj
 
-game/graphics/common/RenderUtils.i: game/graphics/common/RenderUtils.cpp.i
+game/graphics/common/RichText.i: game/graphics/common/RichText.cpp.i
 
-.PHONY : game/graphics/common/RenderUtils.i
+.PHONY : game/graphics/common/RichText.i
 
 # target to preprocess a source file
-game/graphics/common/RenderUtils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.i
-.PHONY : game/graphics/common/RenderUtils.cpp.i
+game/graphics/common/RichText.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.i
+.PHONY : game/graphics/common/RichText.cpp.i
 
-game/graphics/common/RenderUtils.s: game/graphics/common/RenderUtils.cpp.s
+game/graphics/common/RichText.s: game/graphics/common/RichText.cpp.s
 
-.PHONY : game/graphics/common/RenderUtils.s
+.PHONY : game/graphics/common/RichText.s
 
 # target to generate assembly for a file
-game/graphics/common/RenderUtils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.s
-.PHONY : game/graphics/common/RenderUtils.cpp.s
+game/graphics/common/RichText.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.s
+.PHONY : game/graphics/common/RichText.cpp.s
 
 game/graphics/common/TextButton.obj: game/graphics/common/TextButton.cpp.obj
 
@@ -646,6 +646,60 @@ game/packetlistener/HandshakeResponseListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.s
 .PHONY : game/packetlistener/HandshakeResponseListener.cpp.s
 
+game/util/RenderUtils.obj: game/util/RenderUtils.cpp.obj
+
+.PHONY : game/util/RenderUtils.obj
+
+# target to build an object file
+game/util/RenderUtils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj
+.PHONY : game/util/RenderUtils.cpp.obj
+
+game/util/RenderUtils.i: game/util/RenderUtils.cpp.i
+
+.PHONY : game/util/RenderUtils.i
+
+# target to preprocess a source file
+game/util/RenderUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.i
+.PHONY : game/util/RenderUtils.cpp.i
+
+game/util/RenderUtils.s: game/util/RenderUtils.cpp.s
+
+.PHONY : game/util/RenderUtils.s
+
+# target to generate assembly for a file
+game/util/RenderUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.s
+.PHONY : game/util/RenderUtils.cpp.s
+
+game/util/StringUtils.obj: game/util/StringUtils.cpp.obj
+
+.PHONY : game/util/StringUtils.obj
+
+# target to build an object file
+game/util/StringUtils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj
+.PHONY : game/util/StringUtils.cpp.obj
+
+game/util/StringUtils.i: game/util/StringUtils.cpp.i
+
+.PHONY : game/util/StringUtils.i
+
+# target to preprocess a source file
+game/util/StringUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.i
+.PHONY : game/util/StringUtils.cpp.i
+
+game/util/StringUtils.s: game/util/StringUtils.cpp.s
+
+.PHONY : game/util/StringUtils.s
+
+# target to generate assembly for a file
+game/util/StringUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.s
+.PHONY : game/util/StringUtils.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -815,9 +869,9 @@ help:
 	@echo ... game/graphics/common/RectWrapper.obj
 	@echo ... game/graphics/common/RectWrapper.i
 	@echo ... game/graphics/common/RectWrapper.s
-	@echo ... game/graphics/common/RenderUtils.obj
-	@echo ... game/graphics/common/RenderUtils.i
-	@echo ... game/graphics/common/RenderUtils.s
+	@echo ... game/graphics/common/RichText.obj
+	@echo ... game/graphics/common/RichText.i
+	@echo ... game/graphics/common/RichText.s
 	@echo ... game/graphics/common/TextButton.obj
 	@echo ... game/graphics/common/TextButton.i
 	@echo ... game/graphics/common/TextButton.s
@@ -845,6 +899,12 @@ help:
 	@echo ... game/packetlistener/HandshakeResponseListener.obj
 	@echo ... game/packetlistener/HandshakeResponseListener.i
 	@echo ... game/packetlistener/HandshakeResponseListener.s
+	@echo ... game/util/RenderUtils.obj
+	@echo ... game/util/RenderUtils.i
+	@echo ... game/util/RenderUtils.s
+	@echo ... game/util/StringUtils.obj
+	@echo ... game/util/StringUtils.i
+	@echo ... game/util/StringUtils.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

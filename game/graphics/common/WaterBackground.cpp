@@ -27,7 +27,7 @@
 
 #include "WaterBackground.hpp"
 #include "ColorSet.hpp"
-#include "RenderUtils.hpp"
+#include "../../util/RenderUtils.hpp"
 #include "../../Game.hpp"
 #include "UniformGridBuilder.hpp"
 

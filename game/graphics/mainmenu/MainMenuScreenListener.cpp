@@ -5,6 +5,7 @@
 #include "MainMenuScreenListener.hpp"
 #include "MainMenuScreen.hpp"
 #include "../common/TextInputDialog.hpp"
+#include "../common/ColorSet.hpp"
 
 namespace awd::game {
 
@@ -21,6 +22,10 @@ namespace awd::game {
                 mainMenu->getRenderScale(),
                 mainMenu->getWindow(),
                 mainMenu->getListener(),
+                L"{GRAY}Под этим именем вас будут видеть все другие игроки в комнате. "
+                        L"{YELLOW}{BOLD}Обратите внимание: {RESET}{GRAY}если в будущем вы захотите "
+                        L"{WHITE}загрузить сохранение {GRAY}игры в этой комнате, вам потребуется "
+                        L"использовать в точности это же имя.",
                 ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_TEXT_FIELD_PLAYER_NAME,
                 mainMenu->getListener(),
                 MAX_PLAYER_NAME_LENGTH,

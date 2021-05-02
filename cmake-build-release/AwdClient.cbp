@@ -192,10 +192,10 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RenderUtils.cpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RenderUtils.hpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp">
@@ -256,6 +256,18 @@
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/StringUtils.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/StringUtils.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/main.cpp">
