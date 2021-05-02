@@ -20,7 +20,7 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     bool Game::loadAssets() {
-        std::cout << "Loading assets:" << std::endl;
+        std::wcout << L"Loading assets:" << std::endl;
 
         return fontManager->loadFonts();
     }
@@ -45,9 +45,9 @@ namespace awd::game {
         float renderScale = std::min((float) bestVideoMode.width  / (float) BASE_SCREEN_WIDTH,
                                      (float) bestVideoMode.height / (float) BASE_SCREEN_HEIGHT);
 
-        std::cout << "Video mode: " << bestVideoMode.width << "x" << bestVideoMode.height
-                  << " (" << bestVideoMode.bitsPerPixel << " bits per pixel)" << std::endl;
-        std::cout << "Render scale: " << renderScale << std::endl;
+        std::wcout << L"Video mode: " << bestVideoMode.width << L"x" << bestVideoMode.height
+                  << L" (" << bestVideoMode.bitsPerPixel << L" bits per pixel)" << std::endl;
+        std::wcout << L"Render scale: " << renderScale << std::endl;
 
         currentState = GameState::LOBBY;
         currentScreen = std::make_shared<MainMenuScreen>(renderScale, window);
@@ -114,7 +114,7 @@ namespace awd::game {
         srand(static_cast<unsigned int>(time(nullptr))); // NOLINT(cert-msc51-cpp)
 
         if (!loadAssets()) {
-            std::cerr << "Failed to load assets." << std::endl;
+            std::wcerr << L"Failed to load assets." << std::endl;
             return;
         }
 

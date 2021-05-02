@@ -21,8 +21,8 @@ namespace awd::game {
                 mainMenu->getRenderScale(),
                 mainMenu->getWindow(),
                 mainMenu->getListener(),
-                mainMenu,
                 ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_TEXT_FIELD_PLAYER_NAME,
+                mainMenu->getListener(),
                 MAX_PLAYER_NAME_LENGTH,
                 L"Как вас зовут?",
                 ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_NEXT,
@@ -35,9 +35,10 @@ namespace awd::game {
         dialog->show();
     }
 
-    void MainMenuScreenListener::createLobbyNextClicked(Drawable* dialog,
-                                                        const std::wstring& playerName) {
-        std::cout << "CreateLobby : NEXT : playerName = \"" << playerName.c_str() << "\"" << std::endl;
+    void MainMenuScreenListener::createLobbyNextClicked(Drawable* dialog) {
+        auto* mainMenu = (MainMenuScreen*) dialog->getParent();
+        std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
+        std::wcout << L"CreateLobby : NEXT : playerName = \"" << playerName << L"\"" << std::endl;
     }
 
     void MainMenuScreenListener::createLobbyBackClicked(Drawable* dialog) {
@@ -61,23 +62,7 @@ namespace awd::game {
         mainMenu->removeChild(dialogId);
     }
 
-    void MainMenuScreenListener::buttonClicked(Drawable* buttonParent, id_type buttonId,
-                                               const std::wstring& payload) {
-        switch (buttonId) {
-            // MainMenu.CreateLobby
-            case ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_NEXT:
-                createLobbyNextClicked(buttonParent, payload);
-                break;
-
-            // ???
-            default:
-                std::cerr << "Unhandled button click: buttonId=" << buttonId << std::endl;
-                break;
-        }
-    }
-
-    void MainMenuScreenListener::buttonClicked(Drawable* buttonParent, id_type buttonId,
-                                               const NoPayload& payload) {
+    void MainMenuScreenListener::buttonClicked(Drawable* buttonParent, id_type buttonId) {
         switch (buttonId) {
             // MainMenu
             case ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME:
@@ -93,15 +78,29 @@ namespace awd::game {
                 break;
 
             // MainMenu.CreateLobby
+            case ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_NEXT:
+                createLobbyNextClicked(buttonParent);
+                break;
+
             case ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_BACK:
                 createLobbyBackClicked(buttonParent);
                 break;
 
             // ???
             default:
-                std::cerr << "Unhandled button click: buttonId=" << buttonId << std::endl;
+                std::wcerr << L"Unhandled button click: parent=" << buttonParent->getId()
+                          << L", buttonId=" << buttonId << std::endl;
                 break;
         }
+    }
+
+    void MainMenuScreenListener::contentsChanged(Drawable* textFieldParent, id_type textFieldId,
+                                                 const std::wstring& newContents) {
+        enteredPlayerName = newContents;
+    }
+
+    std::wstring MainMenuScreenListener::getEnteredPlayerName() const {
+        return enteredPlayerName;
     }
 
 }

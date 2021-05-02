@@ -8,6 +8,7 @@
 #include "graphics/common/Drawable.hpp"
 #include "GameState.hpp"
 #include "graphics/common/FontManager.hpp"
+#include "FatalErrors.hpp"
 
 namespace awd::game {
 

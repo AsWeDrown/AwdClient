@@ -4,6 +4,7 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include "Identifiers.hpp"
+#include "../../FatalErrors.hpp"
 
 namespace awd::game {
 

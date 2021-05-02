@@ -56,8 +56,8 @@ namespace awd::game {
                        float renderScale,
                        const std::shared_ptr<sf::RenderWindow>& window) {
         if (!isIdUnique(id)) {
-            std::cerr << "ID not unique: " << id << std::endl;
-            throw std::invalid_argument("ID not unique: " + std::to_string(id));
+            std::wcerr << L"ID not unique: " << id << std::endl;
+            throw std::invalid_argument(DRAWABLE_ID_NOT_UNIQUE);
         }
 
         // Инициализируем самые базовые (основные, обязательные) поля.
@@ -168,12 +168,14 @@ namespace awd::game {
 
     void Drawable::keyPressed(const sf::Event::KeyEvent& event) {
         for (const auto& child : children)
-            child->keyPressed(event);
+            if (child->enabled)
+                child->keyPressed(event);
     }
 
     void Drawable::mousePressed(const sf::Event::MouseButtonEvent& event) {
         for (const auto& child : children)
-            child->mousePressed(event);
+            if (child->enabled)
+                child->mousePressed(event);
     }
 
     /**

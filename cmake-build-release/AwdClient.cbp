@@ -135,6 +135,9 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/packets.pb.h.rule">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/Game.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -144,10 +147,10 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.ipp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp">
@@ -183,9 +186,6 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/NoPayload.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -198,10 +198,10 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RenderUtils.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.ipp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.cpp">

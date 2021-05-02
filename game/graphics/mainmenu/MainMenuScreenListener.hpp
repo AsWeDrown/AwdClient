@@ -3,20 +3,19 @@
 
 #include "../common/DialogListener.hpp"
 #include "../common/ButtonListener.hpp"
-#include "../common/NoPayload.hpp"
+#include "../common/TextFieldListener.hpp"
 
 namespace awd::game {
 
     class MainMenuScreenListener :
             public DialogListener,
-            public ButtonListener<std::wstring>,
-            public ButtonListener<NoPayload> {
+            public ButtonListener,
+            public TextFieldListener {
     private:
+        std::wstring enteredPlayerName;
+
         static void createLobbyClicked(Drawable* mainMenuScreen);
-
-        static void createLobbyNextClicked(Drawable* dialog,
-                                           const std::wstring& playerName);
-
+        static void createLobbyNextClicked(Drawable* dialog);
         static void createLobbyBackClicked(Drawable* dialog);
 
     public:
@@ -24,11 +23,12 @@ namespace awd::game {
 
         void dialogClosed(Drawable* mainMenuScreen, id_type dialogId) override;
 
-        void buttonClicked(Drawable* buttonParent, id_type buttonId,
-                           const std::wstring& payload) override;
+        void buttonClicked(Drawable* buttonParent, id_type buttonId) override;
 
-        void buttonClicked(Drawable* buttonParent, id_type buttonId,
-                           const NoPayload& payload) override;
+        void contentsChanged(Drawable* textFieldParent, id_type textFieldId,
+                             const std::wstring& newContents) override;
+
+        std::wstring getEnteredPlayerName() const;
     };
 
 }

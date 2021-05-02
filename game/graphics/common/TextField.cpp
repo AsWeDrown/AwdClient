@@ -1,21 +1,25 @@
 // Общие
-#define BASE_FILL_ALPHA 90
-#define BASE_LINE_ALPHA 110
+#define BASE_FILL_ALPHA 80
+#define BASE_LINE_ALPHA 125
 #define BASE_LINE_WIDTH 3 /* имеется в виду высота прямоугольника (height) */
 // Эффекты выделения
-#define MAX_EFFECTIVE_SELECTED_TICKS 4
+#define MAX_EFFECTIVE_SELECTED_TICKS 3
 #define EXTRA_FILL_ALPHA_PER_SELECTED_TICK 15
 #define EXTRA_LINE_ALPHA_PER_SELECTED_TICK 30
 #define EXTRA_LINE_WIDTH_PER_SELECTED_TICK 1 /* имеется в виду высота прямоугольника (height) */
 // Текст
 #define TEXT_FONT_SIZE 45
-#define TEXT_TOP_MARGIN 15
+#define TEXT_TOP_MARGIN 20
 #define TEXT_LEFT_MARGIN 25
 #define HINT_TEXT_ALPHA 140
-// Макрос для упрощения огромной switch/case конструкции для преобразования кода нажатой клавиши в символ на ней (ниже)
-#define KEY(x) case sf::Keyboard::x : \
-                   charTyped = sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) \
-                           ? #x[0] : std::tolower(#x[0]);                       \
+// Макросы для упрощения огромной switch/case конструкции для преобразования кодов клавиш в символы на них
+#define KEY(x) case sf::Keyboard::x :                                            \
+                   charTyped = sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)  \
+                           ? #x[0] : std::tolower(#x[0]);                        \
+                   break;
+#define NUM(x) case sf::Keyboard::Num ##x :    \
+               case sf::Keyboard::Numpad ##x:  \
+                   charTyped = #x[0];          \
                    break;
 
 
@@ -62,6 +66,7 @@ namespace awd::game {
             wchar_t charTyped;
 
             switch (event.code) {
+                // Латиница (строчные и прописные буквы)
                 KEY(A)
                 KEY(B)
                 KEY(C)
@@ -89,6 +94,19 @@ namespace awd::game {
                 KEY(Y)
                 KEY(Z)
 
+                // Цифры
+                NUM(0)
+                NUM(1)
+                NUM(2)
+                NUM(3)
+                NUM(4)
+                NUM(5)
+                NUM(6)
+                NUM(7)
+                NUM(8)
+                NUM(9)
+
+                // Символ "подчёркивания" (underscore)
                 case sf::Keyboard::Hyphen:
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
                         charTyped = L'_'; // '_' можно
@@ -97,6 +115,7 @@ namespace awd::game {
 
                     break;
 
+                // Какая-то левая кнопка - игнорируем
                 default:
                     charTyped = 0;
                     break;

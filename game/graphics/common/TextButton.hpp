@@ -5,11 +5,7 @@
 
 namespace awd::game {
 
-    // IDE может тут показывать ошибку "redefinition of class". Игнорируем - это из-за
-    // того, что в самом низу файла включён файл ".ipp" (реализация шаблонных функций).
-    // На самом деле всё компилируется и собирается нормально, без ошибок (баг IDE?).
-    template<typename TPayloadType>
-    class TextButton : public Button<TPayloadType> {
+    class TextButton : public Button {
     private:
         std::wstring text;
         unsigned int hoverTicks = 0;
@@ -21,15 +17,10 @@ namespace awd::game {
                    const std::wstring& text,
                    unsigned int x, unsigned int y,
                    unsigned int width, unsigned int height,
-                   const std::shared_ptr<ButtonListener<TPayloadType>>& listener);
+                   const std::shared_ptr<ButtonListener>& listener);
 
         void update() override;
         void draw() override;
     };
 
 }
-
-// Нужно для работы шаблонных функций (иначе не скомпилируется):
-// https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file
-// Файл реализации при этом лучше не называть ".cpp", т.к. по сути он - тоже заголовок.
-#include "TextButton.ipp"

@@ -23,7 +23,7 @@ namespace awd::net {
         void startInNewThread();
         void tearDown();
 
-        const std::string& getServerAddrStr() const;
+        std::string getServerAddrStr() const;
         unsigned short getPort() const;
         bool isConnected() const;
         std::shared_ptr<sf::UdpSocket> getUdpSocket() const;

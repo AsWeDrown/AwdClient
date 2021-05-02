@@ -1,6 +1,6 @@
 // Поле ввода
-#define TEXT_FIELD_TOP_MARGIN 50
-#define TEXT_FIELD_LEFT_MARGIN 15
+#define TEXT_FIELD_TOP_MARGIN 40
+#define TEXT_FIELD_LEFT_MARGIN 20
 #define TEXT_FIELD_HEIGHT 100
 // Кнопки
 #define BUTTONS_LEFT_MARGIN 15
@@ -43,14 +43,14 @@ namespace awd::game {
 
         // Back
         unsigned int bX = x + bLeftMargin;
-        auto btnNext = std::make_shared<TextButton<std::wstring>>(
+        auto btnNext = std::make_shared<TextButton>(
                 btnNextId, renderScale, window,
                 L"Далее", bX, bY, bWidth, bHeight, btnNextListener);
         addChild(btnNext);
 
         // Back
         bX += bWidth + bHorizMargin;
-        auto btnBack = std::make_shared<TextButton<NoPayload>>(
+        auto btnBack = std::make_shared<TextButton>(
                 btnBackId, renderScale, window,
                 L"Назад", bX, bY, bWidth, bHeight, btnBackListener);
         addChild(btnBack);
@@ -62,38 +62,23 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    TextInputDialogListener::TextInputDialogListener(Drawable* textInputDialogParent,
-                                                     id_type btnNextId) {
-        this->textInputDialogParent = textInputDialogParent;
-        this->btnNextId = btnNextId;
-    }
-
-    void TextInputDialogListener::contentsChanged(Drawable* textFieldParent, id_type textFieldId,
-                                                  const std::wstring& newContents) {
-        auto buttonNext = std::static_pointer_cast
-                <Button<std::wstring>>(textInputDialogParent->getChildByIdRecursively(btnNextId));
-
-        buttonNext->setPayload(newContents);
-    }
-
     TextInputDialog::TextInputDialog(id_type id,
                                      float renderScale,
                                      const std::shared_ptr<sf::RenderWindow>& window,
                                      const std::shared_ptr<DialogListener>& dialogListener,
-                                     Drawable* textInputDialogParent,
                                      id_type textFieldId,
+                                     const std::shared_ptr<TextFieldListener>& textFieldListener,
                                      unsigned int maxInputLen,
                                      const std::wstring& hintText,
                                      id_type btnNextId,
-                                     const std::shared_ptr<ButtonListener<std::wstring>>& btnNextListener,
+                                     const std::shared_ptr<ButtonListener>& btnNextListener,
                                      id_type btnBackId,
-                                     const std::shared_ptr<ButtonListener<NoPayload>>& btnBackListener)
+                                     const std::shared_ptr<ButtonListener>& btnBackListener)
                                      : Dialog(id, renderScale, window, dialogListener) {
         this->textFieldId = textFieldId;
+        this->textFieldListener = textFieldListener;
         this->maxInputLen = maxInputLen;
         this->hintText = hintText;
-        this->textFieldListener = std::make_shared
-                <TextInputDialogListener>(textInputDialogParent, btnNextId);
         this->btnNextId = btnNextId;
         this->btnNextListener = btnNextListener;
         this->btnBackId = btnBackId;

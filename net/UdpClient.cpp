@@ -20,10 +20,8 @@ namespace awd::net {
         udpSocket = std::make_shared<sf::UdpSocket>();
 
         if (udpSocket->bind(port) != sf::Socket::Done) {
-            std::string errMsg = "Failed to bind UDP socket to port " + std::to_string(port);
-            std::cerr << errMsg << std::endl;
-
-            throw std::runtime_error(errMsg);
+            std::wcerr << L"Failed to bind UDP socket to port " << port << std::endl;
+            throw std::runtime_error(FAILED_TO_BIND_UDP_SOCKET_TO_PORT);
         }
 
         // Чтобы можно было исправно отправлять пакеты из других потоков, пока этот поток сидит
@@ -53,14 +51,25 @@ namespace awd::net {
 
             if (recvStatus == sf::UdpSocket::Status::Done) {
                 if (bytesReceived == 0)
-                    std::cerr << "Ignoring empty packet." << std::endl;
+                    std::wcerr << L"Ignoring empty packet." << std::endl;
                 else {
-                    auto unwrappedPacketData = unwrap(buffer.get(), bytesReceived);
-                    game::Game::instance().getPacketManager()->receivePacket(
-                            unwrappedPacketData->getPacketType(), unwrappedPacketData->getPacket());
+                    try {
+                        auto unwrappedPacketData = unwrap(buffer.get(), bytesReceived);
+
+                        if (unwrappedPacketData != nullptr)
+                            game::Game::instance().getPacketManager()->receivePacket(
+                                    unwrappedPacketData->getPacketType(), unwrappedPacketData->getPacket());
+                        else
+                            // Пакет неизвестного типа - нет обработчика (исп. awd-ptrans-codegen).
+                            std::wcerr << L"Ignoring unknown packet (cannot unwrap)." << std::endl;
+                    } catch (const std::exception& ex) {
+                        // Какая-то внутренняя ошибка, пропускаем этот пакет и продолжаем работу.
+                        std::wcerr << L"Failed to receive a packet "
+                                      L"(internal error: " << ex.what() << L")." << std::endl;
+                    }
                 }
             } else if (recvStatus == sf::UdpSocket::Status::Error) {
-                std::cerr << "UDP recv error" << std::endl;
+                std::wcerr << L"UDP recv error." << std::endl;
                 tearDown(); // todo RECONNECT
 
                 break;
@@ -97,7 +106,7 @@ namespace awd::net {
         udpSocket = nullptr;
     }
 
-    const std::string& UdpClient::getServerAddrStr() const {
+    std::string UdpClient::getServerAddrStr() const {
         return serverAddrStr;
     }
 
