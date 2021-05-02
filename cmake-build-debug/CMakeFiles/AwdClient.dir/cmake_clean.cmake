@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj"

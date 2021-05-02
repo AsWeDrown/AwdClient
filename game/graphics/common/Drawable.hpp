@@ -26,7 +26,7 @@ namespace awd::game {
         bool enabled = true;
 
         // Не инициализируются (устанавливаются "потом"):
-        Drawable* parent = nullptr; // FIXME - насколько безопасно тут использовать обычный указатель?
+        Drawable* parent = nullptr;
 
         void updateChildren();
         void drawChildren();
@@ -54,6 +54,7 @@ namespace awd::game {
         void setEnabled(bool nowEnabled);
         Drawable* getParent() const;
         std::shared_ptr<Drawable> getChildById(id_type childId) const;
+        std::shared_ptr<Drawable> getChildByIdRecursively(id_type childId) const;
         void addChild(const std::shared_ptr<Drawable>& child);
         void removeChild(id_type childId);
 

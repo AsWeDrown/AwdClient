@@ -29,7 +29,8 @@ namespace awd::game {
 
     void Drawable::drawChildren() {
         for (const auto& child : children)
-            child->draw();
+            if (child->visible)
+                child->draw();
     }
 
     bool Drawable::isMouseOver() const {
@@ -134,6 +135,23 @@ namespace awd::game {
         return nullptr;
     }
 
+    std::shared_ptr<Drawable> Drawable::getChildByIdRecursively(id_type childId) const {
+        for (const auto& child : children) {
+            if (child->id == childId)
+                return child;
+
+            for (const auto& childOfChild : child->children) {
+                if (childOfChild->id == childId)
+                    return child;
+
+                if (auto found = childOfChild->getChildByIdRecursively(childId))
+                    return found;
+            }
+        }
+
+        return nullptr;
+    }
+
     void Drawable::addChild(const std::shared_ptr<Drawable>& child) {
         child->parent = this;
         children.push_back(child);
@@ -173,7 +191,8 @@ namespace awd::game {
      * чтобы система дочерних компонентов Drawable работала корректно.
      */
     void Drawable::draw() {
-        drawChildren();
+        if (visible)
+            drawChildren();
     }
 
 }

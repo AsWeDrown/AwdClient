@@ -24,7 +24,7 @@ namespace awd::game {
 
         void dialogClosed(Drawable* mainMenuScreen, id_type dialogId) override;
 
-        void buttonClicked(Drawable* mainMenuScreen, id_type buttonId,
+        void buttonClicked(Drawable* buttonParent, id_type buttonId,
                            const std::wstring& payload) override;
 
         void buttonClicked(Drawable* buttonParent, id_type buttonId,

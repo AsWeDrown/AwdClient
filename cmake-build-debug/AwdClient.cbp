@@ -204,6 +204,15 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.ipp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.cpp">
 			<Option target="AwdClient"/>
 		</Unit>

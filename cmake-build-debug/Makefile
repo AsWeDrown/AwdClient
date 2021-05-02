@@ -376,6 +376,33 @@ game/graphics/common/RenderUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RenderUtils.cpp.s
 .PHONY : game/graphics/common/RenderUtils.cpp.s
 
+game/graphics/common/TextField.obj: game/graphics/common/TextField.cpp.obj
+
+.PHONY : game/graphics/common/TextField.obj
+
+# target to build an object file
+game/graphics/common/TextField.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj
+.PHONY : game/graphics/common/TextField.cpp.obj
+
+game/graphics/common/TextField.i: game/graphics/common/TextField.cpp.i
+
+.PHONY : game/graphics/common/TextField.i
+
+# target to preprocess a source file
+game/graphics/common/TextField.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.i
+.PHONY : game/graphics/common/TextField.cpp.i
+
+game/graphics/common/TextField.s: game/graphics/common/TextField.cpp.s
+
+.PHONY : game/graphics/common/TextField.s
+
+# target to generate assembly for a file
+game/graphics/common/TextField.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.s
+.PHONY : game/graphics/common/TextField.cpp.s
+
 game/graphics/common/TextInputDialog.obj: game/graphics/common/TextInputDialog.cpp.obj
 
 .PHONY : game/graphics/common/TextInputDialog.obj
@@ -734,6 +761,9 @@ help:
 	@echo ... game/graphics/common/RenderUtils.obj
 	@echo ... game/graphics/common/RenderUtils.i
 	@echo ... game/graphics/common/RenderUtils.s
+	@echo ... game/graphics/common/TextField.obj
+	@echo ... game/graphics/common/TextField.i
+	@echo ... game/graphics/common/TextField.s
 	@echo ... game/graphics/common/TextInputDialog.obj
 	@echo ... game/graphics/common/TextInputDialog.i
 	@echo ... game/graphics/common/TextInputDialog.s

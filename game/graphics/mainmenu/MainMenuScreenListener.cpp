@@ -1,3 +1,6 @@
+#define MAX_PLAYER_NAME_LENGTH 15
+
+
 #include <iostream>
 #include "MainMenuScreenListener.hpp"
 #include "MainMenuScreen.hpp"
@@ -18,6 +21,10 @@ namespace awd::game {
                 mainMenu->getRenderScale(),
                 mainMenu->getWindow(),
                 mainMenu->getListener(),
+                mainMenu,
+                ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_TEXT_FIELD_PLAYER_NAME,
+                MAX_PLAYER_NAME_LENGTH,
+                L"Как вас зовут?",
                 ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_NEXT,
                 mainMenu->getListener(),
                 ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_BACK,
@@ -30,7 +37,7 @@ namespace awd::game {
 
     void MainMenuScreenListener::createLobbyNextClicked(Drawable* dialog,
                                                         const std::wstring& playerName) {
-        //todo
+        std::cout << "CreateLobby : NEXT : playerName = \"" << playerName.c_str() << "\"" << std::endl;
     }
 
     void MainMenuScreenListener::createLobbyBackClicked(Drawable* dialog) {
@@ -54,9 +61,19 @@ namespace awd::game {
         mainMenu->removeChild(dialogId);
     }
 
-    void MainMenuScreenListener::buttonClicked(Drawable* mainMenuScreen, id_type buttonId,
+    void MainMenuScreenListener::buttonClicked(Drawable* buttonParent, id_type buttonId,
                                                const std::wstring& payload) {
+        switch (buttonId) {
+            // MainMenu.CreateLobby
+            case ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_NEXT:
+                createLobbyNextClicked(buttonParent, payload);
+                break;
 
+            // ???
+            default:
+                std::cerr << "Unhandled button click: buttonId=" << buttonId << std::endl;
+                break;
+        }
     }
 
     void MainMenuScreenListener::buttonClicked(Drawable* buttonParent, id_type buttonId,

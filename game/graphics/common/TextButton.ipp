@@ -53,9 +53,6 @@ namespace awd::game {
 
     template<typename TPayloadType>
     void TextButton<TPayloadType>::draw() {
-        if (!this->visible)
-            return;
-
         Button<TPayloadType>::draw();
 
         // Вертикальная черта слева от текста
