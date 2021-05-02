@@ -6,6 +6,7 @@
 #include "MainMenuScreen.hpp"
 #include "../common/TextInputDialog.hpp"
 #include "../common/ColorSet.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 
@@ -14,6 +15,10 @@ namespace awd::game {
      *   PRIVATE
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    void MainMenuScreenListener::quitGameClicked(Drawable* mainMenuScreen) {
+        Game::instance().shutdown();
+    }
 
     void MainMenuScreenListener::createLobbyClicked(Drawable* mainMenuScreen) {
         auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
@@ -44,6 +49,7 @@ namespace awd::game {
         auto* mainMenu = (MainMenuScreen*) dialog->getParent();
         std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
         std::wcout << L"CreateLobby : NEXT : playerName = \"" << playerName << L"\"" << std::endl;
+        //todo
     }
 
     void MainMenuScreenListener::createLobbyBackClicked(Drawable* dialog) {
@@ -71,7 +77,7 @@ namespace awd::game {
         switch (buttonId) {
             // MainMenu
             case ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME:
-                //todo
+                quitGameClicked(buttonParent);
                 break;
 
             case ID_SCREEN_MAIN_MENU_BUTTON_JOIN_LOBBY:

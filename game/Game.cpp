@@ -54,12 +54,13 @@ namespace awd::game {
 
         auto tickDelay = std::chrono::milliseconds(1000 / GAME_TPS);
 
-        while (window->isOpen()) {
+        while (window->isOpen() && currentState != GameState::EXIT) {
             runGameLoop();
             std::this_thread::sleep_for(tickDelay);
         }
 
-        // todo tearDown
+        std::wcout << L"Reached end of game loop." << std::endl;
+        shutdown(); // на случай, если выход был произведён, скажем, по крестику, а не через кнопку в главном меню
     }
 
     void Game::runGameLoop() {
@@ -110,17 +111,34 @@ namespace awd::game {
     Game::~Game() = default;
 
     void Game::bootstrap() {
-        // Инициализация ГПСЧ
+        // Инициализация ГПСЧ.
         srand(static_cast<unsigned int>(time(nullptr))); // NOLINT(cert-msc51-cpp)
 
+        // Загрузка текстур, звуков, шрифтов и прочего.
         if (!loadAssets()) {
             std::wcerr << L"Failed to load assets." << std::endl;
             return;
         }
 
+        // UDP-клиент (в другом потоке).
         registerPacketListeners();
         udpClient->startInNewThread();
+
+        // Главный цикл игры (в этом потоке). Должен запускаться в самом конце!
         startGameLoop();
+    }
+
+    void Game::shutdown() {
+        if (shuttingDown)
+            return; // игнорируем возможные повторные вызовы
+
+        shuttingDown = true;
+
+        std::wcout << L"Shutting down..." << std::endl;
+        udpClient->tearDown();
+        currentState = GameState::EXIT;
+
+        std::wcout << L"Bye!" << std::endl;
     }
 
     std::shared_ptr<FontManager> Game::getFontManager() const {

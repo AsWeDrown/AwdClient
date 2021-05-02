@@ -19,7 +19,8 @@ namespace awd::game {
         std::shared_ptr<net::UdpClient> udpClient = nullptr;
         std::shared_ptr<net::PacketManager> packetManager = nullptr;
 
-        int currentState = GameState::LOBBY;
+        std::atomic<bool> shuttingDown = false;
+        std::atomic<int> currentState = GameState::LOBBY;
 
         std::shared_ptr<sf::RenderWindow> window = nullptr;
         std::shared_ptr<Drawable> currentScreen = nullptr;
@@ -46,6 +47,7 @@ namespace awd::game {
         Game& operator =(Game const&) = delete;
 
         void bootstrap();
+        void shutdown();
 
         std::shared_ptr<FontManager> getFontManager() const;
         std::shared_ptr<net::PacketManager> getPacketManager() const;

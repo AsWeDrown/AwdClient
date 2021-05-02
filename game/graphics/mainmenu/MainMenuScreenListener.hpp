@@ -14,6 +14,8 @@ namespace awd::game {
     private:
         std::wstring enteredPlayerName;
 
+        static void quitGameClicked(Drawable* mainMenuScreen);
+
         static void createLobbyClicked(Drawable* mainMenuScreen);
         static void createLobbyNextClicked(Drawable* dialog);
         static void createLobbyBackClicked(Drawable* dialog);
