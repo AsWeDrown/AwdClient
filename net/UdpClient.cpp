@@ -1,4 +1,4 @@
-#define BUFFER_SIZE 51200
+#define BUFFER_SIZE 1024
 
 
 #include <packets.pb.h>
@@ -32,10 +32,10 @@ namespace awd::net {
 
         // Начинаем с рукопожатия (Handshake).
         // Нужно для дальнейшей коммуникации с сервером.
-        beginHandshake();
+        game::Game::instance().getNetService()->handshakeRequest();
 
         // Затем уже ожидаем пакеты от сервера.
-        std::shared_ptr<char[]> buffer(new char[51200]);
+        std::shared_ptr<char[]> buffer(new char[BUFFER_SIZE]);
         std::size_t bytesReceived;
 
         while (connected) {
@@ -54,14 +54,7 @@ namespace awd::net {
                     std::wcerr << L"Ignoring empty packet." << std::endl;
                 else {
                     try {
-                        auto unwrappedPacketData = unwrap(buffer.get(), bytesReceived);
-
-                        if (unwrappedPacketData != nullptr)
-                            game::Game::instance().getPacketManager()->receivePacket(
-                                    unwrappedPacketData->getPacketType(), unwrappedPacketData->getPacket());
-                        else
-                            // Пакет неизвестного типа - нет обработчика (исп. awd-ptrans-codegen).
-                            std::wcerr << L"Ignoring unknown packet (cannot unwrap)." << std::endl;
+                        game::Game::instance().getPacketManager()->receivePacket(buffer, bytesReceived);
                     } catch (const std::exception& ex) {
                         // Какая-то внутренняя ошибка, пропускаем этот пакет и продолжаем работу.
                         std::wcerr << L"Failed to receive a packet "
@@ -75,12 +68,6 @@ namespace awd::net {
                 break;
             }
         }
-    }
-
-    void UdpClient::beginHandshake() {
-        auto* handshakeRequest = new HandshakeRequest();
-        handshakeRequest->set_protocol_version(PacketManager::PROTOCOL_VERSION);
-        game::Game::instance().getPacketManager()->sendPacket(handshakeRequest);
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

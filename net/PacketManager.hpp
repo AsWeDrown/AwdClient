@@ -1,35 +1,37 @@
 #pragma once
 
 
+#include <deque>
 #include <google/protobuf/message.h>
 #include <packets.pb.h>
 #include <any>
 #include "UdpClient.hpp"
 #include "../game/packetlistener/PacketListener.hpp"
+#include "PacketTransformer.hpp"
+#include "PacketContainer.hpp"
+#include "NetworkHandle.hpp"
 
 namespace awd::net {
 
     class PacketManager {
     private:
-        std::shared_ptr<UdpClient> udpClient;
+        std::shared_ptr<NetworkHandle> handle;
         std::map<PacketWrapper::PacketCase, std::shared_ptr<game::PacketListener>> listeners;
 
     public:
         // TODO - МЕНЯТЬ ЗДЕСЬ:
         static const int PROTOCOL_VERSION = 1;
 
-        explicit PacketManager(std::shared_ptr<UdpClient> udpClient);
+        explicit PacketManager(const std::shared_ptr<UdpClient>& udpClient);
 
         void registerListener(PacketWrapper::PacketCase packetType,
                               const std::shared_ptr<game::PacketListener>& listener);
 
-        void receivePacket(PacketWrapper::PacketCase packetType,
-                           const std::shared_ptr<google::protobuf::Message>& packet);
+        void receivePacket(const std::shared_ptr<char[]>& buffer,
+                           std::size_t bytesReceived);
 
-        /**
-         * @return true - пакет отправлен успешно, false - пакет отправить не удалось.
-         */
-        bool sendPacket(google::protobuf::Message* packet);
+        bool sendPacket(const std::shared_ptr<google::protobuf::Message>& packet);
+        bool sendImportantPacket(const std::shared_ptr<google::protobuf::Message>& packet);
     };
 
 }

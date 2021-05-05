@@ -149,6 +149,10 @@ namespace awd::game {
         return packetManager;
     }
 
+    std::shared_ptr<net::NetworkService> Game::getNetService() const {
+        return netService;
+    }
+
     int Game::getCurrentState() const {
         return currentState;
     }

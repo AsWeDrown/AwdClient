@@ -2,6 +2,7 @@
 
 
 #include <google/protobuf/message.h>
+#include "packets.pb.h"
 
 namespace awd::net {
 
@@ -11,7 +12,7 @@ namespace awd::net {
         size_t dataLen;
 
     public:
-        WrappedPacketData(std::shared_ptr<char[]> data, size_t dataLen);
+        WrappedPacketData(const std::shared_ptr<char[]>& data, size_t dataLen);
 
         std::shared_ptr<char[]> getData() const;
         size_t getDataLen() const;
@@ -19,13 +20,20 @@ namespace awd::net {
 
     class UnwrappedPacketData {
     private:
+        uint32_t sequence, ack, ackBitfield;
         PacketWrapper::PacketCase packetType;
         std::shared_ptr<google::protobuf::Message> packet;
 
     public:
-        UnwrappedPacketData(PacketWrapper::PacketCase packetType,
-                            std::shared_ptr<google::protobuf::Message> packet);
+        UnwrappedPacketData(uint32_t sequence,
+                            uint32_t ack,
+                            uint32_t ackBitfield,
+                            PacketWrapper::PacketCase packetType,
+                            const std::shared_ptr<google::protobuf::Message>& packet);
 
+        uint32_t getSequence() const;
+        uint32_t getAck() const;
+        uint32_t getAckBitfield() const;
         PacketWrapper::PacketCase getPacketType() const;
         std::shared_ptr<google::protobuf::Message> getPacket() const;
     };
@@ -40,7 +48,10 @@ namespace awd::net {
      *
      * @see #unwrap(byte[]) для обратного действия.
      */
-    std::shared_ptr<WrappedPacketData> wrap(google::protobuf::Message* packet);
+    std::shared_ptr<WrappedPacketData> wrap(google::protobuf::Message* packet,
+                                            uint32_t sequence,
+                                            uint32_t ack,
+                                            uint32_t ackBitfield);
 
     /**
      * Принимает на вход "сырой" массив байтов, полученный от какого-то клиента по UDP,
@@ -50,7 +61,8 @@ namespace awd::net {
      *
      * @see #wrap(Message) для обратного действия.
      */
-    std::shared_ptr<UnwrappedPacketData> unwrap(char* rawProto3PacketData, size_t rawProto3PacketDataLen);
+    std::shared_ptr<UnwrappedPacketData> unwrap(char* rawProto3PacketData,
+                                                size_t rawProto3PacketDataLen);
 
     /*
 
@@ -59,10 +71,10 @@ namespace awd::net {
 
      */
 
-    // Сгенерировано с помощью awd-ptrans-codegen.
-    std::shared_ptr<WrappedPacketData> internalGeneratedWrap(google::protobuf::Message* packet);
+    // Сгенерировано с помощью awd-ptrans-codegen. (ОБЯЗАТЕЛЬНО ДОЛЖНО БЫТЬ В ОДНУ СТРОЧКУ - НИЧЕГО НЕ ПЕРЕНОСИТЬ!!!)
+    std::shared_ptr<WrappedPacketData> internalGeneratedWrap(google::protobuf::Message* packet, uint32_t sequence, uint32_t ack, uint32_t ackBitfield);
 
-    // Сгенерировано с помощью awd-ptrans-codegen.
+    // Сгенерировано с помощью awd-ptrans-codegen. (ОБЯЗАТЕЛЬНО ДОЛЖНО БЫТЬ В ОДНУ СТРОЧКУ - НИЧЕГО НЕ ПЕРЕНОСИТЬ!!!)
     std::shared_ptr<UnwrappedPacketData> internalGeneratedUnwrap(char* data, size_t dataLen);
 
 }

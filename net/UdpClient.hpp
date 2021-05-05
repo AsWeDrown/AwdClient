@@ -15,7 +15,6 @@ namespace awd::net {
         std::shared_ptr<sf::UdpSocket> udpSocket = nullptr;
 
         void startInCurrentThread();
-        void beginHandshake();
 
     public:
         UdpClient(const std::string& serverAddr, unsigned short port);

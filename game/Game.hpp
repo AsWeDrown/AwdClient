@@ -9,6 +9,7 @@
 #include "GameState.hpp"
 #include "graphics/common/FontManager.hpp"
 #include "FatalErrors.hpp"
+#include "../net/NetworkService.hpp"
 
 namespace awd::game {
 
@@ -18,6 +19,7 @@ namespace awd::game {
 
         std::shared_ptr<net::UdpClient> udpClient = nullptr;
         std::shared_ptr<net::PacketManager> packetManager = nullptr;
+        std::shared_ptr<net::NetworkService> netService = nullptr;
 
         std::atomic<bool> shuttingDown = false;
         std::atomic<int> currentState = GameState::LOBBY;
@@ -51,6 +53,7 @@ namespace awd::game {
 
         std::shared_ptr<FontManager> getFontManager() const;
         std::shared_ptr<net::PacketManager> getPacketManager() const;
+        std::shared_ptr<net::NetworkService> getNetService() const;
         int getCurrentState() const;
 
         static unsigned int randUInt(unsigned int min, unsigned int max);

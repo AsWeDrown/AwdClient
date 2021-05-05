@@ -66,7 +66,11 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -643,7 +647,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -783,7 +791,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -932,7 +944,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/StringUtils.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -1152,7 +1168,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -1305,7 +1325,11 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreenListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -1455,7 +1479,11 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreenListener.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreenListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -1641,6 +1669,59 @@ CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  packets.pb.h
+CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena_impl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arenastring.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/descriptor.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/extension_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_table_driven.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/has_bits.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/implicit_weak_message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/coded_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_inl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_type_handler.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/metadata_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/parse_context.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_def.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_undef.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/reflection_ops.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/repeated_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/callback.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/casts.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/common.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/hash.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/logging.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/mutex.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/once.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/platform_macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stl_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stringpiece.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PingListener.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PingListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp
+ packets.pb.h
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
@@ -1683,6 +1764,9 @@ CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Color.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Export.hpp
+CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
@@ -1739,7 +1823,11 @@ CMakeFiles/AwdClient.dir/main.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/main.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -1821,6 +1909,174 @@ CMakeFiles/AwdClient.dir/main.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
  packets.pb.h
+CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.obj
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena_impl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arenastring.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/descriptor.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/extension_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_table_driven.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/has_bits.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/implicit_weak_message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/coded_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_inl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_type_handler.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/metadata_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/parse_context.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_def.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_undef.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/reflection_ops.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/repeated_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/callback.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/casts.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/common.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/hash.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/logging.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/mutex.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/once.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/platform_macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stl_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stringpiece.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/IpAddress.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/Socket.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/SocketHandle.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/UdpSocket.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/NonCopyable.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Time.hpp
+ packets.pb.h
+CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena_impl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arenastring.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/descriptor.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/extension_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_table_driven.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/has_bits.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/implicit_weak_message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/coded_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_inl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_type_handler.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/metadata_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/parse_context.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_def.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_undef.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/reflection_ops.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/repeated_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/callback.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/casts.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/common.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/hash.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/logging.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/mutex.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/once.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/platform_macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stl_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stringpiece.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/IpAddress.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/Socket.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/SocketHandle.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/UdpSocket.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/NonCopyable.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Time.hpp
+ packets.pb.h
+CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.obj
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena_impl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arenastring.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/descriptor.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/implicit_weak_message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/coded_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/metadata_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/parse_context.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_def.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_undef.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/repeated_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/callback.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/casts.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/common.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/hash.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/logging.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/mutex.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/once.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/platform_macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stl_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stringpiece.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
 CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
@@ -1870,6 +2126,8 @@ CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
@@ -1935,6 +2193,9 @@ CMakeFiles/AwdClient.dir/net/PacketTransformer.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  packets.pb.h
+CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.obj
+ E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
@@ -1990,6 +2251,9 @@ CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/FontManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.cpp

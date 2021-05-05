@@ -646,6 +646,33 @@ game/packetlistener/HandshakeResponseListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.s
 .PHONY : game/packetlistener/HandshakeResponseListener.cpp.s
 
+game/packetlistener/PingListener.obj: game/packetlistener/PingListener.cpp.obj
+
+.PHONY : game/packetlistener/PingListener.obj
+
+# target to build an object file
+game/packetlistener/PingListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj
+.PHONY : game/packetlistener/PingListener.cpp.obj
+
+game/packetlistener/PingListener.i: game/packetlistener/PingListener.cpp.i
+
+.PHONY : game/packetlistener/PingListener.i
+
+# target to preprocess a source file
+game/packetlistener/PingListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.i
+.PHONY : game/packetlistener/PingListener.cpp.i
+
+game/packetlistener/PingListener.s: game/packetlistener/PingListener.cpp.s
+
+.PHONY : game/packetlistener/PingListener.s
+
+# target to generate assembly for a file
+game/packetlistener/PingListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.s
+.PHONY : game/packetlistener/PingListener.cpp.s
+
 game/util/RenderUtils.obj: game/util/RenderUtils.cpp.obj
 
 .PHONY : game/util/RenderUtils.obj
@@ -700,6 +727,33 @@ game/util/StringUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.s
 .PHONY : game/util/StringUtils.cpp.s
 
+game/util/TimeUtils.obj: game/util/TimeUtils.cpp.obj
+
+.PHONY : game/util/TimeUtils.obj
+
+# target to build an object file
+game/util/TimeUtils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj
+.PHONY : game/util/TimeUtils.cpp.obj
+
+game/util/TimeUtils.i: game/util/TimeUtils.cpp.i
+
+.PHONY : game/util/TimeUtils.i
+
+# target to preprocess a source file
+game/util/TimeUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.i
+.PHONY : game/util/TimeUtils.cpp.i
+
+game/util/TimeUtils.s: game/util/TimeUtils.cpp.s
+
+.PHONY : game/util/TimeUtils.s
+
+# target to generate assembly for a file
+game/util/TimeUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.s
+.PHONY : game/util/TimeUtils.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -726,6 +780,87 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+net/NetworkHandle.obj: net/NetworkHandle.cpp.obj
+
+.PHONY : net/NetworkHandle.obj
+
+# target to build an object file
+net/NetworkHandle.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.obj
+.PHONY : net/NetworkHandle.cpp.obj
+
+net/NetworkHandle.i: net/NetworkHandle.cpp.i
+
+.PHONY : net/NetworkHandle.i
+
+# target to preprocess a source file
+net/NetworkHandle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.i
+.PHONY : net/NetworkHandle.cpp.i
+
+net/NetworkHandle.s: net/NetworkHandle.cpp.s
+
+.PHONY : net/NetworkHandle.s
+
+# target to generate assembly for a file
+net/NetworkHandle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.s
+.PHONY : net/NetworkHandle.cpp.s
+
+net/NetworkService.obj: net/NetworkService.cpp.obj
+
+.PHONY : net/NetworkService.obj
+
+# target to build an object file
+net/NetworkService.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj
+.PHONY : net/NetworkService.cpp.obj
+
+net/NetworkService.i: net/NetworkService.cpp.i
+
+.PHONY : net/NetworkService.i
+
+# target to preprocess a source file
+net/NetworkService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/NetworkService.cpp.i
+.PHONY : net/NetworkService.cpp.i
+
+net/NetworkService.s: net/NetworkService.cpp.s
+
+.PHONY : net/NetworkService.s
+
+# target to generate assembly for a file
+net/NetworkService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/NetworkService.cpp.s
+.PHONY : net/NetworkService.cpp.s
+
+net/PacketContainer.obj: net/PacketContainer.cpp.obj
+
+.PHONY : net/PacketContainer.obj
+
+# target to build an object file
+net/PacketContainer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.obj
+.PHONY : net/PacketContainer.cpp.obj
+
+net/PacketContainer.i: net/PacketContainer.cpp.i
+
+.PHONY : net/PacketContainer.i
+
+# target to preprocess a source file
+net/PacketContainer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.i
+.PHONY : net/PacketContainer.cpp.i
+
+net/PacketContainer.s: net/PacketContainer.cpp.s
+
+.PHONY : net/PacketContainer.s
+
+# target to generate assembly for a file
+net/PacketContainer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.s
+.PHONY : net/PacketContainer.cpp.s
 
 net/PacketManager.obj: net/PacketManager.cpp.obj
 
@@ -780,6 +915,33 @@ net/PacketTransformer.s: net/PacketTransformer.cpp.s
 net/PacketTransformer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/PacketTransformer.cpp.s
 .PHONY : net/PacketTransformer.cpp.s
+
+net/SequenceNumberMath.obj: net/SequenceNumberMath.cpp.obj
+
+.PHONY : net/SequenceNumberMath.obj
+
+# target to build an object file
+net/SequenceNumberMath.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.obj
+.PHONY : net/SequenceNumberMath.cpp.obj
+
+net/SequenceNumberMath.i: net/SequenceNumberMath.cpp.i
+
+.PHONY : net/SequenceNumberMath.i
+
+# target to preprocess a source file
+net/SequenceNumberMath.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.i
+.PHONY : net/SequenceNumberMath.cpp.i
+
+net/SequenceNumberMath.s: net/SequenceNumberMath.cpp.s
+
+.PHONY : net/SequenceNumberMath.s
+
+# target to generate assembly for a file
+net/SequenceNumberMath.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.s
+.PHONY : net/SequenceNumberMath.cpp.s
 
 net/UdpClient.obj: net/UdpClient.cpp.obj
 
@@ -899,21 +1061,39 @@ help:
 	@echo ... game/packetlistener/HandshakeResponseListener.obj
 	@echo ... game/packetlistener/HandshakeResponseListener.i
 	@echo ... game/packetlistener/HandshakeResponseListener.s
+	@echo ... game/packetlistener/PingListener.obj
+	@echo ... game/packetlistener/PingListener.i
+	@echo ... game/packetlistener/PingListener.s
 	@echo ... game/util/RenderUtils.obj
 	@echo ... game/util/RenderUtils.i
 	@echo ... game/util/RenderUtils.s
 	@echo ... game/util/StringUtils.obj
 	@echo ... game/util/StringUtils.i
 	@echo ... game/util/StringUtils.s
+	@echo ... game/util/TimeUtils.obj
+	@echo ... game/util/TimeUtils.i
+	@echo ... game/util/TimeUtils.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... net/NetworkHandle.obj
+	@echo ... net/NetworkHandle.i
+	@echo ... net/NetworkHandle.s
+	@echo ... net/NetworkService.obj
+	@echo ... net/NetworkService.i
+	@echo ... net/NetworkService.s
+	@echo ... net/PacketContainer.obj
+	@echo ... net/PacketContainer.i
+	@echo ... net/PacketContainer.s
 	@echo ... net/PacketManager.obj
 	@echo ... net/PacketManager.i
 	@echo ... net/PacketManager.s
 	@echo ... net/PacketTransformer.obj
 	@echo ... net/PacketTransformer.i
 	@echo ... net/PacketTransformer.s
+	@echo ... net/SequenceNumberMath.obj
+	@echo ... net/SequenceNumberMath.i
+	@echo ... net/SequenceNumberMath.s
 	@echo ... net/UdpClient.obj
 	@echo ... net/UdpClient.i
 	@echo ... net/UdpClient.s

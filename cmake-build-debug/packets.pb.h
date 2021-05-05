@@ -2111,8 +2111,8 @@ class PacketWrapper PROTOBUF_FINAL :
     return *internal_default_instance();
   }
   enum PacketCase {
-    kHandshakeRequest = 1,
-    kHandshakeResponse = 2,
+    kHandshakeRequest = 10,
+    kHandshakeResponse = 11,
     kCreateLobbyRequest = 100,
     kCreateLobbyResponse = 101,
     kJoinLobbyRequest = 102,
@@ -2202,8 +2202,11 @@ class PacketWrapper PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kHandshakeRequestFieldNumber = 1,
-    kHandshakeResponseFieldNumber = 2,
+    kSequenceFieldNumber = 1,
+    kAckFieldNumber = 2,
+    kAckBitfieldFieldNumber = 3,
+    kHandshakeRequestFieldNumber = 10,
+    kHandshakeResponseFieldNumber = 11,
     kCreateLobbyRequestFieldNumber = 100,
     kCreateLobbyResponseFieldNumber = 101,
     kJoinLobbyRequestFieldNumber = 102,
@@ -2216,203 +2219,230 @@ class PacketWrapper PROTOBUF_FINAL :
     kPingFieldNumber = 10000,
     kPongFieldNumber = 10001,
   };
-  // .awd.net.HandshakeRequest handshakeRequest = 1;
-  bool has_handshakerequest() const;
+  // uint32 sequence = 1;
+  void clear_sequence();
+  ::PROTOBUF_NAMESPACE_ID::uint32 sequence() const;
+  void set_sequence(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  bool _internal_has_handshakerequest() const;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_sequence() const;
+  void _internal_set_sequence(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
-  void clear_handshakerequest();
-  const ::awd::net::HandshakeRequest& handshakerequest() const;
-  ::awd::net::HandshakeRequest* release_handshakerequest();
-  ::awd::net::HandshakeRequest* mutable_handshakerequest();
-  void set_allocated_handshakerequest(::awd::net::HandshakeRequest* handshakerequest);
-  private:
-  const ::awd::net::HandshakeRequest& _internal_handshakerequest() const;
-  ::awd::net::HandshakeRequest* _internal_mutable_handshakerequest();
-  public:
-  void unsafe_arena_set_allocated_handshakerequest(
-      ::awd::net::HandshakeRequest* handshakerequest);
-  ::awd::net::HandshakeRequest* unsafe_arena_release_handshakerequest();
 
-  // .awd.net.HandshakeResponse handshakeResponse = 2;
-  bool has_handshakeresponse() const;
+  // uint32 ack = 2;
+  void clear_ack();
+  ::PROTOBUF_NAMESPACE_ID::uint32 ack() const;
+  void set_ack(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  bool _internal_has_handshakeresponse() const;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_ack() const;
+  void _internal_set_ack(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
-  void clear_handshakeresponse();
-  const ::awd::net::HandshakeResponse& handshakeresponse() const;
-  ::awd::net::HandshakeResponse* release_handshakeresponse();
-  ::awd::net::HandshakeResponse* mutable_handshakeresponse();
-  void set_allocated_handshakeresponse(::awd::net::HandshakeResponse* handshakeresponse);
-  private:
-  const ::awd::net::HandshakeResponse& _internal_handshakeresponse() const;
-  ::awd::net::HandshakeResponse* _internal_mutable_handshakeresponse();
-  public:
-  void unsafe_arena_set_allocated_handshakeresponse(
-      ::awd::net::HandshakeResponse* handshakeresponse);
-  ::awd::net::HandshakeResponse* unsafe_arena_release_handshakeresponse();
 
-  // .awd.net.CreateLobbyRequest createLobbyRequest = 100;
-  bool has_createlobbyrequest() const;
+  // uint32 ack_bitfield = 3;
+  void clear_ack_bitfield();
+  ::PROTOBUF_NAMESPACE_ID::uint32 ack_bitfield() const;
+  void set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  bool _internal_has_createlobbyrequest() const;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_ack_bitfield() const;
+  void _internal_set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
-  void clear_createlobbyrequest();
-  const ::awd::net::CreateLobbyRequest& createlobbyrequest() const;
-  ::awd::net::CreateLobbyRequest* release_createlobbyrequest();
-  ::awd::net::CreateLobbyRequest* mutable_createlobbyrequest();
-  void set_allocated_createlobbyrequest(::awd::net::CreateLobbyRequest* createlobbyrequest);
-  private:
-  const ::awd::net::CreateLobbyRequest& _internal_createlobbyrequest() const;
-  ::awd::net::CreateLobbyRequest* _internal_mutable_createlobbyrequest();
-  public:
-  void unsafe_arena_set_allocated_createlobbyrequest(
-      ::awd::net::CreateLobbyRequest* createlobbyrequest);
-  ::awd::net::CreateLobbyRequest* unsafe_arena_release_createlobbyrequest();
 
-  // .awd.net.CreateLobbyResponse createLobbyResponse = 101;
-  bool has_createlobbyresponse() const;
+  // .awd.net.HandshakeRequest handshake_request = 10;
+  bool has_handshake_request() const;
   private:
-  bool _internal_has_createlobbyresponse() const;
+  bool _internal_has_handshake_request() const;
   public:
-  void clear_createlobbyresponse();
-  const ::awd::net::CreateLobbyResponse& createlobbyresponse() const;
-  ::awd::net::CreateLobbyResponse* release_createlobbyresponse();
-  ::awd::net::CreateLobbyResponse* mutable_createlobbyresponse();
-  void set_allocated_createlobbyresponse(::awd::net::CreateLobbyResponse* createlobbyresponse);
+  void clear_handshake_request();
+  const ::awd::net::HandshakeRequest& handshake_request() const;
+  ::awd::net::HandshakeRequest* release_handshake_request();
+  ::awd::net::HandshakeRequest* mutable_handshake_request();
+  void set_allocated_handshake_request(::awd::net::HandshakeRequest* handshake_request);
   private:
-  const ::awd::net::CreateLobbyResponse& _internal_createlobbyresponse() const;
-  ::awd::net::CreateLobbyResponse* _internal_mutable_createlobbyresponse();
+  const ::awd::net::HandshakeRequest& _internal_handshake_request() const;
+  ::awd::net::HandshakeRequest* _internal_mutable_handshake_request();
   public:
-  void unsafe_arena_set_allocated_createlobbyresponse(
-      ::awd::net::CreateLobbyResponse* createlobbyresponse);
-  ::awd::net::CreateLobbyResponse* unsafe_arena_release_createlobbyresponse();
+  void unsafe_arena_set_allocated_handshake_request(
+      ::awd::net::HandshakeRequest* handshake_request);
+  ::awd::net::HandshakeRequest* unsafe_arena_release_handshake_request();
 
-  // .awd.net.JoinLobbyRequest joinLobbyRequest = 102;
-  bool has_joinlobbyrequest() const;
+  // .awd.net.HandshakeResponse handshake_response = 11;
+  bool has_handshake_response() const;
   private:
-  bool _internal_has_joinlobbyrequest() const;
+  bool _internal_has_handshake_response() const;
   public:
-  void clear_joinlobbyrequest();
-  const ::awd::net::JoinLobbyRequest& joinlobbyrequest() const;
-  ::awd::net::JoinLobbyRequest* release_joinlobbyrequest();
-  ::awd::net::JoinLobbyRequest* mutable_joinlobbyrequest();
-  void set_allocated_joinlobbyrequest(::awd::net::JoinLobbyRequest* joinlobbyrequest);
+  void clear_handshake_response();
+  const ::awd::net::HandshakeResponse& handshake_response() const;
+  ::awd::net::HandshakeResponse* release_handshake_response();
+  ::awd::net::HandshakeResponse* mutable_handshake_response();
+  void set_allocated_handshake_response(::awd::net::HandshakeResponse* handshake_response);
   private:
-  const ::awd::net::JoinLobbyRequest& _internal_joinlobbyrequest() const;
-  ::awd::net::JoinLobbyRequest* _internal_mutable_joinlobbyrequest();
+  const ::awd::net::HandshakeResponse& _internal_handshake_response() const;
+  ::awd::net::HandshakeResponse* _internal_mutable_handshake_response();
   public:
-  void unsafe_arena_set_allocated_joinlobbyrequest(
-      ::awd::net::JoinLobbyRequest* joinlobbyrequest);
-  ::awd::net::JoinLobbyRequest* unsafe_arena_release_joinlobbyrequest();
+  void unsafe_arena_set_allocated_handshake_response(
+      ::awd::net::HandshakeResponse* handshake_response);
+  ::awd::net::HandshakeResponse* unsafe_arena_release_handshake_response();
 
-  // .awd.net.JoinLobbyResponse joinLobbyResponse = 103;
-  bool has_joinlobbyresponse() const;
+  // .awd.net.CreateLobbyRequest create_lobby_request = 100;
+  bool has_create_lobby_request() const;
   private:
-  bool _internal_has_joinlobbyresponse() const;
+  bool _internal_has_create_lobby_request() const;
   public:
-  void clear_joinlobbyresponse();
-  const ::awd::net::JoinLobbyResponse& joinlobbyresponse() const;
-  ::awd::net::JoinLobbyResponse* release_joinlobbyresponse();
-  ::awd::net::JoinLobbyResponse* mutable_joinlobbyresponse();
-  void set_allocated_joinlobbyresponse(::awd::net::JoinLobbyResponse* joinlobbyresponse);
+  void clear_create_lobby_request();
+  const ::awd::net::CreateLobbyRequest& create_lobby_request() const;
+  ::awd::net::CreateLobbyRequest* release_create_lobby_request();
+  ::awd::net::CreateLobbyRequest* mutable_create_lobby_request();
+  void set_allocated_create_lobby_request(::awd::net::CreateLobbyRequest* create_lobby_request);
   private:
-  const ::awd::net::JoinLobbyResponse& _internal_joinlobbyresponse() const;
-  ::awd::net::JoinLobbyResponse* _internal_mutable_joinlobbyresponse();
+  const ::awd::net::CreateLobbyRequest& _internal_create_lobby_request() const;
+  ::awd::net::CreateLobbyRequest* _internal_mutable_create_lobby_request();
   public:
-  void unsafe_arena_set_allocated_joinlobbyresponse(
-      ::awd::net::JoinLobbyResponse* joinlobbyresponse);
-  ::awd::net::JoinLobbyResponse* unsafe_arena_release_joinlobbyresponse();
+  void unsafe_arena_set_allocated_create_lobby_request(
+      ::awd::net::CreateLobbyRequest* create_lobby_request);
+  ::awd::net::CreateLobbyRequest* unsafe_arena_release_create_lobby_request();
 
-  // .awd.net.LeaveLobbyRequest leaveLobbyRequest = 104;
-  bool has_leavelobbyrequest() const;
+  // .awd.net.CreateLobbyResponse create_lobby_response = 101;
+  bool has_create_lobby_response() const;
   private:
-  bool _internal_has_leavelobbyrequest() const;
+  bool _internal_has_create_lobby_response() const;
   public:
-  void clear_leavelobbyrequest();
-  const ::awd::net::LeaveLobbyRequest& leavelobbyrequest() const;
-  ::awd::net::LeaveLobbyRequest* release_leavelobbyrequest();
-  ::awd::net::LeaveLobbyRequest* mutable_leavelobbyrequest();
-  void set_allocated_leavelobbyrequest(::awd::net::LeaveLobbyRequest* leavelobbyrequest);
+  void clear_create_lobby_response();
+  const ::awd::net::CreateLobbyResponse& create_lobby_response() const;
+  ::awd::net::CreateLobbyResponse* release_create_lobby_response();
+  ::awd::net::CreateLobbyResponse* mutable_create_lobby_response();
+  void set_allocated_create_lobby_response(::awd::net::CreateLobbyResponse* create_lobby_response);
   private:
-  const ::awd::net::LeaveLobbyRequest& _internal_leavelobbyrequest() const;
-  ::awd::net::LeaveLobbyRequest* _internal_mutable_leavelobbyrequest();
+  const ::awd::net::CreateLobbyResponse& _internal_create_lobby_response() const;
+  ::awd::net::CreateLobbyResponse* _internal_mutable_create_lobby_response();
   public:
-  void unsafe_arena_set_allocated_leavelobbyrequest(
-      ::awd::net::LeaveLobbyRequest* leavelobbyrequest);
-  ::awd::net::LeaveLobbyRequest* unsafe_arena_release_leavelobbyrequest();
+  void unsafe_arena_set_allocated_create_lobby_response(
+      ::awd::net::CreateLobbyResponse* create_lobby_response);
+  ::awd::net::CreateLobbyResponse* unsafe_arena_release_create_lobby_response();
 
-  // .awd.net.LeaveLobbyResponse leaveLobbyResponse = 105;
-  bool has_leavelobbyresponse() const;
+  // .awd.net.JoinLobbyRequest join_lobby_request = 102;
+  bool has_join_lobby_request() const;
   private:
-  bool _internal_has_leavelobbyresponse() const;
+  bool _internal_has_join_lobby_request() const;
   public:
-  void clear_leavelobbyresponse();
-  const ::awd::net::LeaveLobbyResponse& leavelobbyresponse() const;
-  ::awd::net::LeaveLobbyResponse* release_leavelobbyresponse();
-  ::awd::net::LeaveLobbyResponse* mutable_leavelobbyresponse();
-  void set_allocated_leavelobbyresponse(::awd::net::LeaveLobbyResponse* leavelobbyresponse);
+  void clear_join_lobby_request();
+  const ::awd::net::JoinLobbyRequest& join_lobby_request() const;
+  ::awd::net::JoinLobbyRequest* release_join_lobby_request();
+  ::awd::net::JoinLobbyRequest* mutable_join_lobby_request();
+  void set_allocated_join_lobby_request(::awd::net::JoinLobbyRequest* join_lobby_request);
   private:
-  const ::awd::net::LeaveLobbyResponse& _internal_leavelobbyresponse() const;
-  ::awd::net::LeaveLobbyResponse* _internal_mutable_leavelobbyresponse();
+  const ::awd::net::JoinLobbyRequest& _internal_join_lobby_request() const;
+  ::awd::net::JoinLobbyRequest* _internal_mutable_join_lobby_request();
   public:
-  void unsafe_arena_set_allocated_leavelobbyresponse(
-      ::awd::net::LeaveLobbyResponse* leavelobbyresponse);
-  ::awd::net::LeaveLobbyResponse* unsafe_arena_release_leavelobbyresponse();
+  void unsafe_arena_set_allocated_join_lobby_request(
+      ::awd::net::JoinLobbyRequest* join_lobby_request);
+  ::awd::net::JoinLobbyRequest* unsafe_arena_release_join_lobby_request();
 
-  // .awd.net.KickedFromLobby kickedFromLobby = 106;
-  bool has_kickedfromlobby() const;
+  // .awd.net.JoinLobbyResponse join_lobby_response = 103;
+  bool has_join_lobby_response() const;
   private:
-  bool _internal_has_kickedfromlobby() const;
+  bool _internal_has_join_lobby_response() const;
   public:
-  void clear_kickedfromlobby();
-  const ::awd::net::KickedFromLobby& kickedfromlobby() const;
-  ::awd::net::KickedFromLobby* release_kickedfromlobby();
-  ::awd::net::KickedFromLobby* mutable_kickedfromlobby();
-  void set_allocated_kickedfromlobby(::awd::net::KickedFromLobby* kickedfromlobby);
+  void clear_join_lobby_response();
+  const ::awd::net::JoinLobbyResponse& join_lobby_response() const;
+  ::awd::net::JoinLobbyResponse* release_join_lobby_response();
+  ::awd::net::JoinLobbyResponse* mutable_join_lobby_response();
+  void set_allocated_join_lobby_response(::awd::net::JoinLobbyResponse* join_lobby_response);
   private:
-  const ::awd::net::KickedFromLobby& _internal_kickedfromlobby() const;
-  ::awd::net::KickedFromLobby* _internal_mutable_kickedfromlobby();
+  const ::awd::net::JoinLobbyResponse& _internal_join_lobby_response() const;
+  ::awd::net::JoinLobbyResponse* _internal_mutable_join_lobby_response();
   public:
-  void unsafe_arena_set_allocated_kickedfromlobby(
-      ::awd::net::KickedFromLobby* kickedfromlobby);
-  ::awd::net::KickedFromLobby* unsafe_arena_release_kickedfromlobby();
+  void unsafe_arena_set_allocated_join_lobby_response(
+      ::awd::net::JoinLobbyResponse* join_lobby_response);
+  ::awd::net::JoinLobbyResponse* unsafe_arena_release_join_lobby_response();
 
-  // .awd.net.UpdatedMembersList updatedMembersList = 107;
-  bool has_updatedmemberslist() const;
+  // .awd.net.LeaveLobbyRequest leave_lobby_request = 104;
+  bool has_leave_lobby_request() const;
   private:
-  bool _internal_has_updatedmemberslist() const;
+  bool _internal_has_leave_lobby_request() const;
   public:
-  void clear_updatedmemberslist();
-  const ::awd::net::UpdatedMembersList& updatedmemberslist() const;
-  ::awd::net::UpdatedMembersList* release_updatedmemberslist();
-  ::awd::net::UpdatedMembersList* mutable_updatedmemberslist();
-  void set_allocated_updatedmemberslist(::awd::net::UpdatedMembersList* updatedmemberslist);
+  void clear_leave_lobby_request();
+  const ::awd::net::LeaveLobbyRequest& leave_lobby_request() const;
+  ::awd::net::LeaveLobbyRequest* release_leave_lobby_request();
+  ::awd::net::LeaveLobbyRequest* mutable_leave_lobby_request();
+  void set_allocated_leave_lobby_request(::awd::net::LeaveLobbyRequest* leave_lobby_request);
   private:
-  const ::awd::net::UpdatedMembersList& _internal_updatedmemberslist() const;
-  ::awd::net::UpdatedMembersList* _internal_mutable_updatedmemberslist();
+  const ::awd::net::LeaveLobbyRequest& _internal_leave_lobby_request() const;
+  ::awd::net::LeaveLobbyRequest* _internal_mutable_leave_lobby_request();
   public:
-  void unsafe_arena_set_allocated_updatedmemberslist(
-      ::awd::net::UpdatedMembersList* updatedmemberslist);
-  ::awd::net::UpdatedMembersList* unsafe_arena_release_updatedmemberslist();
+  void unsafe_arena_set_allocated_leave_lobby_request(
+      ::awd::net::LeaveLobbyRequest* leave_lobby_request);
+  ::awd::net::LeaveLobbyRequest* unsafe_arena_release_leave_lobby_request();
 
-  // .awd.net.KeepAlive keepAlive = 1000;
-  bool has_keepalive() const;
+  // .awd.net.LeaveLobbyResponse leave_lobby_response = 105;
+  bool has_leave_lobby_response() const;
   private:
-  bool _internal_has_keepalive() const;
+  bool _internal_has_leave_lobby_response() const;
   public:
-  void clear_keepalive();
-  const ::awd::net::KeepAlive& keepalive() const;
-  ::awd::net::KeepAlive* release_keepalive();
-  ::awd::net::KeepAlive* mutable_keepalive();
-  void set_allocated_keepalive(::awd::net::KeepAlive* keepalive);
+  void clear_leave_lobby_response();
+  const ::awd::net::LeaveLobbyResponse& leave_lobby_response() const;
+  ::awd::net::LeaveLobbyResponse* release_leave_lobby_response();
+  ::awd::net::LeaveLobbyResponse* mutable_leave_lobby_response();
+  void set_allocated_leave_lobby_response(::awd::net::LeaveLobbyResponse* leave_lobby_response);
   private:
-  const ::awd::net::KeepAlive& _internal_keepalive() const;
-  ::awd::net::KeepAlive* _internal_mutable_keepalive();
+  const ::awd::net::LeaveLobbyResponse& _internal_leave_lobby_response() const;
+  ::awd::net::LeaveLobbyResponse* _internal_mutable_leave_lobby_response();
   public:
-  void unsafe_arena_set_allocated_keepalive(
-      ::awd::net::KeepAlive* keepalive);
-  ::awd::net::KeepAlive* unsafe_arena_release_keepalive();
+  void unsafe_arena_set_allocated_leave_lobby_response(
+      ::awd::net::LeaveLobbyResponse* leave_lobby_response);
+  ::awd::net::LeaveLobbyResponse* unsafe_arena_release_leave_lobby_response();
+
+  // .awd.net.KickedFromLobby kicked_from_lobby = 106;
+  bool has_kicked_from_lobby() const;
+  private:
+  bool _internal_has_kicked_from_lobby() const;
+  public:
+  void clear_kicked_from_lobby();
+  const ::awd::net::KickedFromLobby& kicked_from_lobby() const;
+  ::awd::net::KickedFromLobby* release_kicked_from_lobby();
+  ::awd::net::KickedFromLobby* mutable_kicked_from_lobby();
+  void set_allocated_kicked_from_lobby(::awd::net::KickedFromLobby* kicked_from_lobby);
+  private:
+  const ::awd::net::KickedFromLobby& _internal_kicked_from_lobby() const;
+  ::awd::net::KickedFromLobby* _internal_mutable_kicked_from_lobby();
+  public:
+  void unsafe_arena_set_allocated_kicked_from_lobby(
+      ::awd::net::KickedFromLobby* kicked_from_lobby);
+  ::awd::net::KickedFromLobby* unsafe_arena_release_kicked_from_lobby();
+
+  // .awd.net.UpdatedMembersList updated_members_list = 107;
+  bool has_updated_members_list() const;
+  private:
+  bool _internal_has_updated_members_list() const;
+  public:
+  void clear_updated_members_list();
+  const ::awd::net::UpdatedMembersList& updated_members_list() const;
+  ::awd::net::UpdatedMembersList* release_updated_members_list();
+  ::awd::net::UpdatedMembersList* mutable_updated_members_list();
+  void set_allocated_updated_members_list(::awd::net::UpdatedMembersList* updated_members_list);
+  private:
+  const ::awd::net::UpdatedMembersList& _internal_updated_members_list() const;
+  ::awd::net::UpdatedMembersList* _internal_mutable_updated_members_list();
+  public:
+  void unsafe_arena_set_allocated_updated_members_list(
+      ::awd::net::UpdatedMembersList* updated_members_list);
+  ::awd::net::UpdatedMembersList* unsafe_arena_release_updated_members_list();
+
+  // .awd.net.KeepAlive keep_alive = 1000;
+  bool has_keep_alive() const;
+  private:
+  bool _internal_has_keep_alive() const;
+  public:
+  void clear_keep_alive();
+  const ::awd::net::KeepAlive& keep_alive() const;
+  ::awd::net::KeepAlive* release_keep_alive();
+  ::awd::net::KeepAlive* mutable_keep_alive();
+  void set_allocated_keep_alive(::awd::net::KeepAlive* keep_alive);
+  private:
+  const ::awd::net::KeepAlive& _internal_keep_alive() const;
+  ::awd::net::KeepAlive* _internal_mutable_keep_alive();
+  public:
+  void unsafe_arena_set_allocated_keep_alive(
+      ::awd::net::KeepAlive* keep_alive);
+  ::awd::net::KeepAlive* unsafe_arena_release_keep_alive();
 
   // .awd.net.Ping ping = 10000;
   bool has_ping() const;
@@ -2455,17 +2485,17 @@ class PacketWrapper PROTOBUF_FINAL :
   // @@protoc_insertion_point(class_scope:awd.net.PacketWrapper)
  private:
   class _Internal;
-  void set_has_handshakerequest();
-  void set_has_handshakeresponse();
-  void set_has_createlobbyrequest();
-  void set_has_createlobbyresponse();
-  void set_has_joinlobbyrequest();
-  void set_has_joinlobbyresponse();
-  void set_has_leavelobbyrequest();
-  void set_has_leavelobbyresponse();
-  void set_has_kickedfromlobby();
-  void set_has_updatedmemberslist();
-  void set_has_keepalive();
+  void set_has_handshake_request();
+  void set_has_handshake_response();
+  void set_has_create_lobby_request();
+  void set_has_create_lobby_response();
+  void set_has_join_lobby_request();
+  void set_has_join_lobby_response();
+  void set_has_leave_lobby_request();
+  void set_has_leave_lobby_response();
+  void set_has_kicked_from_lobby();
+  void set_has_updated_members_list();
+  void set_has_keep_alive();
   void set_has_ping();
   void set_has_pong();
 
@@ -2475,20 +2505,23 @@ class PacketWrapper PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 sequence_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 ack_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 ack_bitfield_;
   union PacketUnion {
     constexpr PacketUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-    ::awd::net::HandshakeRequest* handshakerequest_;
-    ::awd::net::HandshakeResponse* handshakeresponse_;
-    ::awd::net::CreateLobbyRequest* createlobbyrequest_;
-    ::awd::net::CreateLobbyResponse* createlobbyresponse_;
-    ::awd::net::JoinLobbyRequest* joinlobbyrequest_;
-    ::awd::net::JoinLobbyResponse* joinlobbyresponse_;
-    ::awd::net::LeaveLobbyRequest* leavelobbyrequest_;
-    ::awd::net::LeaveLobbyResponse* leavelobbyresponse_;
-    ::awd::net::KickedFromLobby* kickedfromlobby_;
-    ::awd::net::UpdatedMembersList* updatedmemberslist_;
-    ::awd::net::KeepAlive* keepalive_;
+    ::awd::net::HandshakeRequest* handshake_request_;
+    ::awd::net::HandshakeResponse* handshake_response_;
+    ::awd::net::CreateLobbyRequest* create_lobby_request_;
+    ::awd::net::CreateLobbyResponse* create_lobby_response_;
+    ::awd::net::JoinLobbyRequest* join_lobby_request_;
+    ::awd::net::JoinLobbyResponse* join_lobby_response_;
+    ::awd::net::LeaveLobbyRequest* leave_lobby_request_;
+    ::awd::net::LeaveLobbyResponse* leave_lobby_response_;
+    ::awd::net::KickedFromLobby* kicked_from_lobby_;
+    ::awd::net::UpdatedMembersList* updated_members_list_;
+    ::awd::net::KeepAlive* keep_alive_;
     ::awd::net::Ping* ping_;
     ::awd::net::Pong* pong_;
   } packet_;
@@ -3024,807 +3057,867 @@ inline void Pong::set_client_time(::PROTOBUF_NAMESPACE_ID::uint64 value) {
 
 // PacketWrapper
 
-// .awd.net.HandshakeRequest handshakeRequest = 1;
-inline bool PacketWrapper::_internal_has_handshakerequest() const {
+// uint32 sequence = 1;
+inline void PacketWrapper::clear_sequence() {
+  sequence_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PacketWrapper::_internal_sequence() const {
+  return sequence_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PacketWrapper::sequence() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.sequence)
+  return _internal_sequence();
+}
+inline void PacketWrapper::_internal_set_sequence(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  sequence_ = value;
+}
+inline void PacketWrapper::set_sequence(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_sequence(value);
+  // @@protoc_insertion_point(field_set:awd.net.PacketWrapper.sequence)
+}
+
+// uint32 ack = 2;
+inline void PacketWrapper::clear_ack() {
+  ack_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PacketWrapper::_internal_ack() const {
+  return ack_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PacketWrapper::ack() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.ack)
+  return _internal_ack();
+}
+inline void PacketWrapper::_internal_set_ack(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  ack_ = value;
+}
+inline void PacketWrapper::set_ack(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_ack(value);
+  // @@protoc_insertion_point(field_set:awd.net.PacketWrapper.ack)
+}
+
+// uint32 ack_bitfield = 3;
+inline void PacketWrapper::clear_ack_bitfield() {
+  ack_bitfield_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PacketWrapper::_internal_ack_bitfield() const {
+  return ack_bitfield_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 PacketWrapper::ack_bitfield() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.ack_bitfield)
+  return _internal_ack_bitfield();
+}
+inline void PacketWrapper::_internal_set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  ack_bitfield_ = value;
+}
+inline void PacketWrapper::set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_ack_bitfield(value);
+  // @@protoc_insertion_point(field_set:awd.net.PacketWrapper.ack_bitfield)
+}
+
+// .awd.net.HandshakeRequest handshake_request = 10;
+inline bool PacketWrapper::_internal_has_handshake_request() const {
   return packet_case() == kHandshakeRequest;
 }
-inline bool PacketWrapper::has_handshakerequest() const {
-  return _internal_has_handshakerequest();
+inline bool PacketWrapper::has_handshake_request() const {
+  return _internal_has_handshake_request();
 }
-inline void PacketWrapper::set_has_handshakerequest() {
+inline void PacketWrapper::set_has_handshake_request() {
   _oneof_case_[0] = kHandshakeRequest;
 }
-inline void PacketWrapper::clear_handshakerequest() {
-  if (_internal_has_handshakerequest()) {
+inline void PacketWrapper::clear_handshake_request() {
+  if (_internal_has_handshake_request()) {
     if (GetArena() == nullptr) {
-      delete packet_.handshakerequest_;
+      delete packet_.handshake_request_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::HandshakeRequest* PacketWrapper::release_handshakerequest() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.handshakeRequest)
-  if (_internal_has_handshakerequest()) {
+inline ::awd::net::HandshakeRequest* PacketWrapper::release_handshake_request() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.handshake_request)
+  if (_internal_has_handshake_request()) {
     clear_has_packet();
-      ::awd::net::HandshakeRequest* temp = packet_.handshakerequest_;
+      ::awd::net::HandshakeRequest* temp = packet_.handshake_request_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.handshakerequest_ = nullptr;
+    packet_.handshake_request_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::HandshakeRequest& PacketWrapper::_internal_handshakerequest() const {
-  return _internal_has_handshakerequest()
-      ? *packet_.handshakerequest_
+inline const ::awd::net::HandshakeRequest& PacketWrapper::_internal_handshake_request() const {
+  return _internal_has_handshake_request()
+      ? *packet_.handshake_request_
       : reinterpret_cast< ::awd::net::HandshakeRequest&>(::awd::net::_HandshakeRequest_default_instance_);
 }
-inline const ::awd::net::HandshakeRequest& PacketWrapper::handshakerequest() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.handshakeRequest)
-  return _internal_handshakerequest();
+inline const ::awd::net::HandshakeRequest& PacketWrapper::handshake_request() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.handshake_request)
+  return _internal_handshake_request();
 }
-inline ::awd::net::HandshakeRequest* PacketWrapper::unsafe_arena_release_handshakerequest() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.handshakeRequest)
-  if (_internal_has_handshakerequest()) {
+inline ::awd::net::HandshakeRequest* PacketWrapper::unsafe_arena_release_handshake_request() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.handshake_request)
+  if (_internal_has_handshake_request()) {
     clear_has_packet();
-    ::awd::net::HandshakeRequest* temp = packet_.handshakerequest_;
-    packet_.handshakerequest_ = nullptr;
+    ::awd::net::HandshakeRequest* temp = packet_.handshake_request_;
+    packet_.handshake_request_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_handshakerequest(::awd::net::HandshakeRequest* handshakerequest) {
+inline void PacketWrapper::unsafe_arena_set_allocated_handshake_request(::awd::net::HandshakeRequest* handshake_request) {
   clear_packet();
-  if (handshakerequest) {
-    set_has_handshakerequest();
-    packet_.handshakerequest_ = handshakerequest;
+  if (handshake_request) {
+    set_has_handshake_request();
+    packet_.handshake_request_ = handshake_request;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.handshakeRequest)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.handshake_request)
 }
-inline ::awd::net::HandshakeRequest* PacketWrapper::_internal_mutable_handshakerequest() {
-  if (!_internal_has_handshakerequest()) {
+inline ::awd::net::HandshakeRequest* PacketWrapper::_internal_mutable_handshake_request() {
+  if (!_internal_has_handshake_request()) {
     clear_packet();
-    set_has_handshakerequest();
-    packet_.handshakerequest_ = CreateMaybeMessage< ::awd::net::HandshakeRequest >(GetArena());
+    set_has_handshake_request();
+    packet_.handshake_request_ = CreateMaybeMessage< ::awd::net::HandshakeRequest >(GetArena());
   }
-  return packet_.handshakerequest_;
+  return packet_.handshake_request_;
 }
-inline ::awd::net::HandshakeRequest* PacketWrapper::mutable_handshakerequest() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.handshakeRequest)
-  return _internal_mutable_handshakerequest();
+inline ::awd::net::HandshakeRequest* PacketWrapper::mutable_handshake_request() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.handshake_request)
+  return _internal_mutable_handshake_request();
 }
 
-// .awd.net.HandshakeResponse handshakeResponse = 2;
-inline bool PacketWrapper::_internal_has_handshakeresponse() const {
+// .awd.net.HandshakeResponse handshake_response = 11;
+inline bool PacketWrapper::_internal_has_handshake_response() const {
   return packet_case() == kHandshakeResponse;
 }
-inline bool PacketWrapper::has_handshakeresponse() const {
-  return _internal_has_handshakeresponse();
+inline bool PacketWrapper::has_handshake_response() const {
+  return _internal_has_handshake_response();
 }
-inline void PacketWrapper::set_has_handshakeresponse() {
+inline void PacketWrapper::set_has_handshake_response() {
   _oneof_case_[0] = kHandshakeResponse;
 }
-inline void PacketWrapper::clear_handshakeresponse() {
-  if (_internal_has_handshakeresponse()) {
+inline void PacketWrapper::clear_handshake_response() {
+  if (_internal_has_handshake_response()) {
     if (GetArena() == nullptr) {
-      delete packet_.handshakeresponse_;
+      delete packet_.handshake_response_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::HandshakeResponse* PacketWrapper::release_handshakeresponse() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.handshakeResponse)
-  if (_internal_has_handshakeresponse()) {
+inline ::awd::net::HandshakeResponse* PacketWrapper::release_handshake_response() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.handshake_response)
+  if (_internal_has_handshake_response()) {
     clear_has_packet();
-      ::awd::net::HandshakeResponse* temp = packet_.handshakeresponse_;
+      ::awd::net::HandshakeResponse* temp = packet_.handshake_response_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.handshakeresponse_ = nullptr;
+    packet_.handshake_response_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::HandshakeResponse& PacketWrapper::_internal_handshakeresponse() const {
-  return _internal_has_handshakeresponse()
-      ? *packet_.handshakeresponse_
+inline const ::awd::net::HandshakeResponse& PacketWrapper::_internal_handshake_response() const {
+  return _internal_has_handshake_response()
+      ? *packet_.handshake_response_
       : reinterpret_cast< ::awd::net::HandshakeResponse&>(::awd::net::_HandshakeResponse_default_instance_);
 }
-inline const ::awd::net::HandshakeResponse& PacketWrapper::handshakeresponse() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.handshakeResponse)
-  return _internal_handshakeresponse();
+inline const ::awd::net::HandshakeResponse& PacketWrapper::handshake_response() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.handshake_response)
+  return _internal_handshake_response();
 }
-inline ::awd::net::HandshakeResponse* PacketWrapper::unsafe_arena_release_handshakeresponse() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.handshakeResponse)
-  if (_internal_has_handshakeresponse()) {
+inline ::awd::net::HandshakeResponse* PacketWrapper::unsafe_arena_release_handshake_response() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.handshake_response)
+  if (_internal_has_handshake_response()) {
     clear_has_packet();
-    ::awd::net::HandshakeResponse* temp = packet_.handshakeresponse_;
-    packet_.handshakeresponse_ = nullptr;
+    ::awd::net::HandshakeResponse* temp = packet_.handshake_response_;
+    packet_.handshake_response_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_handshakeresponse(::awd::net::HandshakeResponse* handshakeresponse) {
+inline void PacketWrapper::unsafe_arena_set_allocated_handshake_response(::awd::net::HandshakeResponse* handshake_response) {
   clear_packet();
-  if (handshakeresponse) {
-    set_has_handshakeresponse();
-    packet_.handshakeresponse_ = handshakeresponse;
+  if (handshake_response) {
+    set_has_handshake_response();
+    packet_.handshake_response_ = handshake_response;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.handshakeResponse)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.handshake_response)
 }
-inline ::awd::net::HandshakeResponse* PacketWrapper::_internal_mutable_handshakeresponse() {
-  if (!_internal_has_handshakeresponse()) {
+inline ::awd::net::HandshakeResponse* PacketWrapper::_internal_mutable_handshake_response() {
+  if (!_internal_has_handshake_response()) {
     clear_packet();
-    set_has_handshakeresponse();
-    packet_.handshakeresponse_ = CreateMaybeMessage< ::awd::net::HandshakeResponse >(GetArena());
+    set_has_handshake_response();
+    packet_.handshake_response_ = CreateMaybeMessage< ::awd::net::HandshakeResponse >(GetArena());
   }
-  return packet_.handshakeresponse_;
+  return packet_.handshake_response_;
 }
-inline ::awd::net::HandshakeResponse* PacketWrapper::mutable_handshakeresponse() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.handshakeResponse)
-  return _internal_mutable_handshakeresponse();
+inline ::awd::net::HandshakeResponse* PacketWrapper::mutable_handshake_response() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.handshake_response)
+  return _internal_mutable_handshake_response();
 }
 
-// .awd.net.CreateLobbyRequest createLobbyRequest = 100;
-inline bool PacketWrapper::_internal_has_createlobbyrequest() const {
+// .awd.net.CreateLobbyRequest create_lobby_request = 100;
+inline bool PacketWrapper::_internal_has_create_lobby_request() const {
   return packet_case() == kCreateLobbyRequest;
 }
-inline bool PacketWrapper::has_createlobbyrequest() const {
-  return _internal_has_createlobbyrequest();
+inline bool PacketWrapper::has_create_lobby_request() const {
+  return _internal_has_create_lobby_request();
 }
-inline void PacketWrapper::set_has_createlobbyrequest() {
+inline void PacketWrapper::set_has_create_lobby_request() {
   _oneof_case_[0] = kCreateLobbyRequest;
 }
-inline void PacketWrapper::clear_createlobbyrequest() {
-  if (_internal_has_createlobbyrequest()) {
+inline void PacketWrapper::clear_create_lobby_request() {
+  if (_internal_has_create_lobby_request()) {
     if (GetArena() == nullptr) {
-      delete packet_.createlobbyrequest_;
+      delete packet_.create_lobby_request_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::CreateLobbyRequest* PacketWrapper::release_createlobbyrequest() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.createLobbyRequest)
-  if (_internal_has_createlobbyrequest()) {
+inline ::awd::net::CreateLobbyRequest* PacketWrapper::release_create_lobby_request() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.create_lobby_request)
+  if (_internal_has_create_lobby_request()) {
     clear_has_packet();
-      ::awd::net::CreateLobbyRequest* temp = packet_.createlobbyrequest_;
+      ::awd::net::CreateLobbyRequest* temp = packet_.create_lobby_request_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.createlobbyrequest_ = nullptr;
+    packet_.create_lobby_request_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::CreateLobbyRequest& PacketWrapper::_internal_createlobbyrequest() const {
-  return _internal_has_createlobbyrequest()
-      ? *packet_.createlobbyrequest_
+inline const ::awd::net::CreateLobbyRequest& PacketWrapper::_internal_create_lobby_request() const {
+  return _internal_has_create_lobby_request()
+      ? *packet_.create_lobby_request_
       : reinterpret_cast< ::awd::net::CreateLobbyRequest&>(::awd::net::_CreateLobbyRequest_default_instance_);
 }
-inline const ::awd::net::CreateLobbyRequest& PacketWrapper::createlobbyrequest() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.createLobbyRequest)
-  return _internal_createlobbyrequest();
+inline const ::awd::net::CreateLobbyRequest& PacketWrapper::create_lobby_request() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.create_lobby_request)
+  return _internal_create_lobby_request();
 }
-inline ::awd::net::CreateLobbyRequest* PacketWrapper::unsafe_arena_release_createlobbyrequest() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.createLobbyRequest)
-  if (_internal_has_createlobbyrequest()) {
+inline ::awd::net::CreateLobbyRequest* PacketWrapper::unsafe_arena_release_create_lobby_request() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.create_lobby_request)
+  if (_internal_has_create_lobby_request()) {
     clear_has_packet();
-    ::awd::net::CreateLobbyRequest* temp = packet_.createlobbyrequest_;
-    packet_.createlobbyrequest_ = nullptr;
+    ::awd::net::CreateLobbyRequest* temp = packet_.create_lobby_request_;
+    packet_.create_lobby_request_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_createlobbyrequest(::awd::net::CreateLobbyRequest* createlobbyrequest) {
+inline void PacketWrapper::unsafe_arena_set_allocated_create_lobby_request(::awd::net::CreateLobbyRequest* create_lobby_request) {
   clear_packet();
-  if (createlobbyrequest) {
-    set_has_createlobbyrequest();
-    packet_.createlobbyrequest_ = createlobbyrequest;
+  if (create_lobby_request) {
+    set_has_create_lobby_request();
+    packet_.create_lobby_request_ = create_lobby_request;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.createLobbyRequest)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.create_lobby_request)
 }
-inline ::awd::net::CreateLobbyRequest* PacketWrapper::_internal_mutable_createlobbyrequest() {
-  if (!_internal_has_createlobbyrequest()) {
+inline ::awd::net::CreateLobbyRequest* PacketWrapper::_internal_mutable_create_lobby_request() {
+  if (!_internal_has_create_lobby_request()) {
     clear_packet();
-    set_has_createlobbyrequest();
-    packet_.createlobbyrequest_ = CreateMaybeMessage< ::awd::net::CreateLobbyRequest >(GetArena());
+    set_has_create_lobby_request();
+    packet_.create_lobby_request_ = CreateMaybeMessage< ::awd::net::CreateLobbyRequest >(GetArena());
   }
-  return packet_.createlobbyrequest_;
+  return packet_.create_lobby_request_;
 }
-inline ::awd::net::CreateLobbyRequest* PacketWrapper::mutable_createlobbyrequest() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.createLobbyRequest)
-  return _internal_mutable_createlobbyrequest();
+inline ::awd::net::CreateLobbyRequest* PacketWrapper::mutable_create_lobby_request() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.create_lobby_request)
+  return _internal_mutable_create_lobby_request();
 }
 
-// .awd.net.CreateLobbyResponse createLobbyResponse = 101;
-inline bool PacketWrapper::_internal_has_createlobbyresponse() const {
+// .awd.net.CreateLobbyResponse create_lobby_response = 101;
+inline bool PacketWrapper::_internal_has_create_lobby_response() const {
   return packet_case() == kCreateLobbyResponse;
 }
-inline bool PacketWrapper::has_createlobbyresponse() const {
-  return _internal_has_createlobbyresponse();
+inline bool PacketWrapper::has_create_lobby_response() const {
+  return _internal_has_create_lobby_response();
 }
-inline void PacketWrapper::set_has_createlobbyresponse() {
+inline void PacketWrapper::set_has_create_lobby_response() {
   _oneof_case_[0] = kCreateLobbyResponse;
 }
-inline void PacketWrapper::clear_createlobbyresponse() {
-  if (_internal_has_createlobbyresponse()) {
+inline void PacketWrapper::clear_create_lobby_response() {
+  if (_internal_has_create_lobby_response()) {
     if (GetArena() == nullptr) {
-      delete packet_.createlobbyresponse_;
+      delete packet_.create_lobby_response_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::CreateLobbyResponse* PacketWrapper::release_createlobbyresponse() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.createLobbyResponse)
-  if (_internal_has_createlobbyresponse()) {
+inline ::awd::net::CreateLobbyResponse* PacketWrapper::release_create_lobby_response() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.create_lobby_response)
+  if (_internal_has_create_lobby_response()) {
     clear_has_packet();
-      ::awd::net::CreateLobbyResponse* temp = packet_.createlobbyresponse_;
+      ::awd::net::CreateLobbyResponse* temp = packet_.create_lobby_response_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.createlobbyresponse_ = nullptr;
+    packet_.create_lobby_response_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::CreateLobbyResponse& PacketWrapper::_internal_createlobbyresponse() const {
-  return _internal_has_createlobbyresponse()
-      ? *packet_.createlobbyresponse_
+inline const ::awd::net::CreateLobbyResponse& PacketWrapper::_internal_create_lobby_response() const {
+  return _internal_has_create_lobby_response()
+      ? *packet_.create_lobby_response_
       : reinterpret_cast< ::awd::net::CreateLobbyResponse&>(::awd::net::_CreateLobbyResponse_default_instance_);
 }
-inline const ::awd::net::CreateLobbyResponse& PacketWrapper::createlobbyresponse() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.createLobbyResponse)
-  return _internal_createlobbyresponse();
+inline const ::awd::net::CreateLobbyResponse& PacketWrapper::create_lobby_response() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.create_lobby_response)
+  return _internal_create_lobby_response();
 }
-inline ::awd::net::CreateLobbyResponse* PacketWrapper::unsafe_arena_release_createlobbyresponse() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.createLobbyResponse)
-  if (_internal_has_createlobbyresponse()) {
+inline ::awd::net::CreateLobbyResponse* PacketWrapper::unsafe_arena_release_create_lobby_response() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.create_lobby_response)
+  if (_internal_has_create_lobby_response()) {
     clear_has_packet();
-    ::awd::net::CreateLobbyResponse* temp = packet_.createlobbyresponse_;
-    packet_.createlobbyresponse_ = nullptr;
+    ::awd::net::CreateLobbyResponse* temp = packet_.create_lobby_response_;
+    packet_.create_lobby_response_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_createlobbyresponse(::awd::net::CreateLobbyResponse* createlobbyresponse) {
+inline void PacketWrapper::unsafe_arena_set_allocated_create_lobby_response(::awd::net::CreateLobbyResponse* create_lobby_response) {
   clear_packet();
-  if (createlobbyresponse) {
-    set_has_createlobbyresponse();
-    packet_.createlobbyresponse_ = createlobbyresponse;
+  if (create_lobby_response) {
+    set_has_create_lobby_response();
+    packet_.create_lobby_response_ = create_lobby_response;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.createLobbyResponse)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.create_lobby_response)
 }
-inline ::awd::net::CreateLobbyResponse* PacketWrapper::_internal_mutable_createlobbyresponse() {
-  if (!_internal_has_createlobbyresponse()) {
+inline ::awd::net::CreateLobbyResponse* PacketWrapper::_internal_mutable_create_lobby_response() {
+  if (!_internal_has_create_lobby_response()) {
     clear_packet();
-    set_has_createlobbyresponse();
-    packet_.createlobbyresponse_ = CreateMaybeMessage< ::awd::net::CreateLobbyResponse >(GetArena());
+    set_has_create_lobby_response();
+    packet_.create_lobby_response_ = CreateMaybeMessage< ::awd::net::CreateLobbyResponse >(GetArena());
   }
-  return packet_.createlobbyresponse_;
+  return packet_.create_lobby_response_;
 }
-inline ::awd::net::CreateLobbyResponse* PacketWrapper::mutable_createlobbyresponse() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.createLobbyResponse)
-  return _internal_mutable_createlobbyresponse();
+inline ::awd::net::CreateLobbyResponse* PacketWrapper::mutable_create_lobby_response() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.create_lobby_response)
+  return _internal_mutable_create_lobby_response();
 }
 
-// .awd.net.JoinLobbyRequest joinLobbyRequest = 102;
-inline bool PacketWrapper::_internal_has_joinlobbyrequest() const {
+// .awd.net.JoinLobbyRequest join_lobby_request = 102;
+inline bool PacketWrapper::_internal_has_join_lobby_request() const {
   return packet_case() == kJoinLobbyRequest;
 }
-inline bool PacketWrapper::has_joinlobbyrequest() const {
-  return _internal_has_joinlobbyrequest();
+inline bool PacketWrapper::has_join_lobby_request() const {
+  return _internal_has_join_lobby_request();
 }
-inline void PacketWrapper::set_has_joinlobbyrequest() {
+inline void PacketWrapper::set_has_join_lobby_request() {
   _oneof_case_[0] = kJoinLobbyRequest;
 }
-inline void PacketWrapper::clear_joinlobbyrequest() {
-  if (_internal_has_joinlobbyrequest()) {
+inline void PacketWrapper::clear_join_lobby_request() {
+  if (_internal_has_join_lobby_request()) {
     if (GetArena() == nullptr) {
-      delete packet_.joinlobbyrequest_;
+      delete packet_.join_lobby_request_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::JoinLobbyRequest* PacketWrapper::release_joinlobbyrequest() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.joinLobbyRequest)
-  if (_internal_has_joinlobbyrequest()) {
+inline ::awd::net::JoinLobbyRequest* PacketWrapper::release_join_lobby_request() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.join_lobby_request)
+  if (_internal_has_join_lobby_request()) {
     clear_has_packet();
-      ::awd::net::JoinLobbyRequest* temp = packet_.joinlobbyrequest_;
+      ::awd::net::JoinLobbyRequest* temp = packet_.join_lobby_request_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.joinlobbyrequest_ = nullptr;
+    packet_.join_lobby_request_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::JoinLobbyRequest& PacketWrapper::_internal_joinlobbyrequest() const {
-  return _internal_has_joinlobbyrequest()
-      ? *packet_.joinlobbyrequest_
+inline const ::awd::net::JoinLobbyRequest& PacketWrapper::_internal_join_lobby_request() const {
+  return _internal_has_join_lobby_request()
+      ? *packet_.join_lobby_request_
       : reinterpret_cast< ::awd::net::JoinLobbyRequest&>(::awd::net::_JoinLobbyRequest_default_instance_);
 }
-inline const ::awd::net::JoinLobbyRequest& PacketWrapper::joinlobbyrequest() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.joinLobbyRequest)
-  return _internal_joinlobbyrequest();
+inline const ::awd::net::JoinLobbyRequest& PacketWrapper::join_lobby_request() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.join_lobby_request)
+  return _internal_join_lobby_request();
 }
-inline ::awd::net::JoinLobbyRequest* PacketWrapper::unsafe_arena_release_joinlobbyrequest() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.joinLobbyRequest)
-  if (_internal_has_joinlobbyrequest()) {
+inline ::awd::net::JoinLobbyRequest* PacketWrapper::unsafe_arena_release_join_lobby_request() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.join_lobby_request)
+  if (_internal_has_join_lobby_request()) {
     clear_has_packet();
-    ::awd::net::JoinLobbyRequest* temp = packet_.joinlobbyrequest_;
-    packet_.joinlobbyrequest_ = nullptr;
+    ::awd::net::JoinLobbyRequest* temp = packet_.join_lobby_request_;
+    packet_.join_lobby_request_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_joinlobbyrequest(::awd::net::JoinLobbyRequest* joinlobbyrequest) {
+inline void PacketWrapper::unsafe_arena_set_allocated_join_lobby_request(::awd::net::JoinLobbyRequest* join_lobby_request) {
   clear_packet();
-  if (joinlobbyrequest) {
-    set_has_joinlobbyrequest();
-    packet_.joinlobbyrequest_ = joinlobbyrequest;
+  if (join_lobby_request) {
+    set_has_join_lobby_request();
+    packet_.join_lobby_request_ = join_lobby_request;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.joinLobbyRequest)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.join_lobby_request)
 }
-inline ::awd::net::JoinLobbyRequest* PacketWrapper::_internal_mutable_joinlobbyrequest() {
-  if (!_internal_has_joinlobbyrequest()) {
+inline ::awd::net::JoinLobbyRequest* PacketWrapper::_internal_mutable_join_lobby_request() {
+  if (!_internal_has_join_lobby_request()) {
     clear_packet();
-    set_has_joinlobbyrequest();
-    packet_.joinlobbyrequest_ = CreateMaybeMessage< ::awd::net::JoinLobbyRequest >(GetArena());
+    set_has_join_lobby_request();
+    packet_.join_lobby_request_ = CreateMaybeMessage< ::awd::net::JoinLobbyRequest >(GetArena());
   }
-  return packet_.joinlobbyrequest_;
+  return packet_.join_lobby_request_;
 }
-inline ::awd::net::JoinLobbyRequest* PacketWrapper::mutable_joinlobbyrequest() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.joinLobbyRequest)
-  return _internal_mutable_joinlobbyrequest();
+inline ::awd::net::JoinLobbyRequest* PacketWrapper::mutable_join_lobby_request() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.join_lobby_request)
+  return _internal_mutable_join_lobby_request();
 }
 
-// .awd.net.JoinLobbyResponse joinLobbyResponse = 103;
-inline bool PacketWrapper::_internal_has_joinlobbyresponse() const {
+// .awd.net.JoinLobbyResponse join_lobby_response = 103;
+inline bool PacketWrapper::_internal_has_join_lobby_response() const {
   return packet_case() == kJoinLobbyResponse;
 }
-inline bool PacketWrapper::has_joinlobbyresponse() const {
-  return _internal_has_joinlobbyresponse();
+inline bool PacketWrapper::has_join_lobby_response() const {
+  return _internal_has_join_lobby_response();
 }
-inline void PacketWrapper::set_has_joinlobbyresponse() {
+inline void PacketWrapper::set_has_join_lobby_response() {
   _oneof_case_[0] = kJoinLobbyResponse;
 }
-inline void PacketWrapper::clear_joinlobbyresponse() {
-  if (_internal_has_joinlobbyresponse()) {
+inline void PacketWrapper::clear_join_lobby_response() {
+  if (_internal_has_join_lobby_response()) {
     if (GetArena() == nullptr) {
-      delete packet_.joinlobbyresponse_;
+      delete packet_.join_lobby_response_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::JoinLobbyResponse* PacketWrapper::release_joinlobbyresponse() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.joinLobbyResponse)
-  if (_internal_has_joinlobbyresponse()) {
+inline ::awd::net::JoinLobbyResponse* PacketWrapper::release_join_lobby_response() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.join_lobby_response)
+  if (_internal_has_join_lobby_response()) {
     clear_has_packet();
-      ::awd::net::JoinLobbyResponse* temp = packet_.joinlobbyresponse_;
+      ::awd::net::JoinLobbyResponse* temp = packet_.join_lobby_response_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.joinlobbyresponse_ = nullptr;
+    packet_.join_lobby_response_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::JoinLobbyResponse& PacketWrapper::_internal_joinlobbyresponse() const {
-  return _internal_has_joinlobbyresponse()
-      ? *packet_.joinlobbyresponse_
+inline const ::awd::net::JoinLobbyResponse& PacketWrapper::_internal_join_lobby_response() const {
+  return _internal_has_join_lobby_response()
+      ? *packet_.join_lobby_response_
       : reinterpret_cast< ::awd::net::JoinLobbyResponse&>(::awd::net::_JoinLobbyResponse_default_instance_);
 }
-inline const ::awd::net::JoinLobbyResponse& PacketWrapper::joinlobbyresponse() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.joinLobbyResponse)
-  return _internal_joinlobbyresponse();
+inline const ::awd::net::JoinLobbyResponse& PacketWrapper::join_lobby_response() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.join_lobby_response)
+  return _internal_join_lobby_response();
 }
-inline ::awd::net::JoinLobbyResponse* PacketWrapper::unsafe_arena_release_joinlobbyresponse() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.joinLobbyResponse)
-  if (_internal_has_joinlobbyresponse()) {
+inline ::awd::net::JoinLobbyResponse* PacketWrapper::unsafe_arena_release_join_lobby_response() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.join_lobby_response)
+  if (_internal_has_join_lobby_response()) {
     clear_has_packet();
-    ::awd::net::JoinLobbyResponse* temp = packet_.joinlobbyresponse_;
-    packet_.joinlobbyresponse_ = nullptr;
+    ::awd::net::JoinLobbyResponse* temp = packet_.join_lobby_response_;
+    packet_.join_lobby_response_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_joinlobbyresponse(::awd::net::JoinLobbyResponse* joinlobbyresponse) {
+inline void PacketWrapper::unsafe_arena_set_allocated_join_lobby_response(::awd::net::JoinLobbyResponse* join_lobby_response) {
   clear_packet();
-  if (joinlobbyresponse) {
-    set_has_joinlobbyresponse();
-    packet_.joinlobbyresponse_ = joinlobbyresponse;
+  if (join_lobby_response) {
+    set_has_join_lobby_response();
+    packet_.join_lobby_response_ = join_lobby_response;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.joinLobbyResponse)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.join_lobby_response)
 }
-inline ::awd::net::JoinLobbyResponse* PacketWrapper::_internal_mutable_joinlobbyresponse() {
-  if (!_internal_has_joinlobbyresponse()) {
+inline ::awd::net::JoinLobbyResponse* PacketWrapper::_internal_mutable_join_lobby_response() {
+  if (!_internal_has_join_lobby_response()) {
     clear_packet();
-    set_has_joinlobbyresponse();
-    packet_.joinlobbyresponse_ = CreateMaybeMessage< ::awd::net::JoinLobbyResponse >(GetArena());
+    set_has_join_lobby_response();
+    packet_.join_lobby_response_ = CreateMaybeMessage< ::awd::net::JoinLobbyResponse >(GetArena());
   }
-  return packet_.joinlobbyresponse_;
+  return packet_.join_lobby_response_;
 }
-inline ::awd::net::JoinLobbyResponse* PacketWrapper::mutable_joinlobbyresponse() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.joinLobbyResponse)
-  return _internal_mutable_joinlobbyresponse();
+inline ::awd::net::JoinLobbyResponse* PacketWrapper::mutable_join_lobby_response() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.join_lobby_response)
+  return _internal_mutable_join_lobby_response();
 }
 
-// .awd.net.LeaveLobbyRequest leaveLobbyRequest = 104;
-inline bool PacketWrapper::_internal_has_leavelobbyrequest() const {
+// .awd.net.LeaveLobbyRequest leave_lobby_request = 104;
+inline bool PacketWrapper::_internal_has_leave_lobby_request() const {
   return packet_case() == kLeaveLobbyRequest;
 }
-inline bool PacketWrapper::has_leavelobbyrequest() const {
-  return _internal_has_leavelobbyrequest();
+inline bool PacketWrapper::has_leave_lobby_request() const {
+  return _internal_has_leave_lobby_request();
 }
-inline void PacketWrapper::set_has_leavelobbyrequest() {
+inline void PacketWrapper::set_has_leave_lobby_request() {
   _oneof_case_[0] = kLeaveLobbyRequest;
 }
-inline void PacketWrapper::clear_leavelobbyrequest() {
-  if (_internal_has_leavelobbyrequest()) {
+inline void PacketWrapper::clear_leave_lobby_request() {
+  if (_internal_has_leave_lobby_request()) {
     if (GetArena() == nullptr) {
-      delete packet_.leavelobbyrequest_;
+      delete packet_.leave_lobby_request_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::LeaveLobbyRequest* PacketWrapper::release_leavelobbyrequest() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.leaveLobbyRequest)
-  if (_internal_has_leavelobbyrequest()) {
+inline ::awd::net::LeaveLobbyRequest* PacketWrapper::release_leave_lobby_request() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.leave_lobby_request)
+  if (_internal_has_leave_lobby_request()) {
     clear_has_packet();
-      ::awd::net::LeaveLobbyRequest* temp = packet_.leavelobbyrequest_;
+      ::awd::net::LeaveLobbyRequest* temp = packet_.leave_lobby_request_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.leavelobbyrequest_ = nullptr;
+    packet_.leave_lobby_request_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::LeaveLobbyRequest& PacketWrapper::_internal_leavelobbyrequest() const {
-  return _internal_has_leavelobbyrequest()
-      ? *packet_.leavelobbyrequest_
+inline const ::awd::net::LeaveLobbyRequest& PacketWrapper::_internal_leave_lobby_request() const {
+  return _internal_has_leave_lobby_request()
+      ? *packet_.leave_lobby_request_
       : reinterpret_cast< ::awd::net::LeaveLobbyRequest&>(::awd::net::_LeaveLobbyRequest_default_instance_);
 }
-inline const ::awd::net::LeaveLobbyRequest& PacketWrapper::leavelobbyrequest() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.leaveLobbyRequest)
-  return _internal_leavelobbyrequest();
+inline const ::awd::net::LeaveLobbyRequest& PacketWrapper::leave_lobby_request() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.leave_lobby_request)
+  return _internal_leave_lobby_request();
 }
-inline ::awd::net::LeaveLobbyRequest* PacketWrapper::unsafe_arena_release_leavelobbyrequest() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.leaveLobbyRequest)
-  if (_internal_has_leavelobbyrequest()) {
+inline ::awd::net::LeaveLobbyRequest* PacketWrapper::unsafe_arena_release_leave_lobby_request() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.leave_lobby_request)
+  if (_internal_has_leave_lobby_request()) {
     clear_has_packet();
-    ::awd::net::LeaveLobbyRequest* temp = packet_.leavelobbyrequest_;
-    packet_.leavelobbyrequest_ = nullptr;
+    ::awd::net::LeaveLobbyRequest* temp = packet_.leave_lobby_request_;
+    packet_.leave_lobby_request_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_leavelobbyrequest(::awd::net::LeaveLobbyRequest* leavelobbyrequest) {
+inline void PacketWrapper::unsafe_arena_set_allocated_leave_lobby_request(::awd::net::LeaveLobbyRequest* leave_lobby_request) {
   clear_packet();
-  if (leavelobbyrequest) {
-    set_has_leavelobbyrequest();
-    packet_.leavelobbyrequest_ = leavelobbyrequest;
+  if (leave_lobby_request) {
+    set_has_leave_lobby_request();
+    packet_.leave_lobby_request_ = leave_lobby_request;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.leaveLobbyRequest)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.leave_lobby_request)
 }
-inline ::awd::net::LeaveLobbyRequest* PacketWrapper::_internal_mutable_leavelobbyrequest() {
-  if (!_internal_has_leavelobbyrequest()) {
+inline ::awd::net::LeaveLobbyRequest* PacketWrapper::_internal_mutable_leave_lobby_request() {
+  if (!_internal_has_leave_lobby_request()) {
     clear_packet();
-    set_has_leavelobbyrequest();
-    packet_.leavelobbyrequest_ = CreateMaybeMessage< ::awd::net::LeaveLobbyRequest >(GetArena());
+    set_has_leave_lobby_request();
+    packet_.leave_lobby_request_ = CreateMaybeMessage< ::awd::net::LeaveLobbyRequest >(GetArena());
   }
-  return packet_.leavelobbyrequest_;
+  return packet_.leave_lobby_request_;
 }
-inline ::awd::net::LeaveLobbyRequest* PacketWrapper::mutable_leavelobbyrequest() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.leaveLobbyRequest)
-  return _internal_mutable_leavelobbyrequest();
+inline ::awd::net::LeaveLobbyRequest* PacketWrapper::mutable_leave_lobby_request() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.leave_lobby_request)
+  return _internal_mutable_leave_lobby_request();
 }
 
-// .awd.net.LeaveLobbyResponse leaveLobbyResponse = 105;
-inline bool PacketWrapper::_internal_has_leavelobbyresponse() const {
+// .awd.net.LeaveLobbyResponse leave_lobby_response = 105;
+inline bool PacketWrapper::_internal_has_leave_lobby_response() const {
   return packet_case() == kLeaveLobbyResponse;
 }
-inline bool PacketWrapper::has_leavelobbyresponse() const {
-  return _internal_has_leavelobbyresponse();
+inline bool PacketWrapper::has_leave_lobby_response() const {
+  return _internal_has_leave_lobby_response();
 }
-inline void PacketWrapper::set_has_leavelobbyresponse() {
+inline void PacketWrapper::set_has_leave_lobby_response() {
   _oneof_case_[0] = kLeaveLobbyResponse;
 }
-inline void PacketWrapper::clear_leavelobbyresponse() {
-  if (_internal_has_leavelobbyresponse()) {
+inline void PacketWrapper::clear_leave_lobby_response() {
+  if (_internal_has_leave_lobby_response()) {
     if (GetArena() == nullptr) {
-      delete packet_.leavelobbyresponse_;
+      delete packet_.leave_lobby_response_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::LeaveLobbyResponse* PacketWrapper::release_leavelobbyresponse() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.leaveLobbyResponse)
-  if (_internal_has_leavelobbyresponse()) {
+inline ::awd::net::LeaveLobbyResponse* PacketWrapper::release_leave_lobby_response() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.leave_lobby_response)
+  if (_internal_has_leave_lobby_response()) {
     clear_has_packet();
-      ::awd::net::LeaveLobbyResponse* temp = packet_.leavelobbyresponse_;
+      ::awd::net::LeaveLobbyResponse* temp = packet_.leave_lobby_response_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.leavelobbyresponse_ = nullptr;
+    packet_.leave_lobby_response_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::LeaveLobbyResponse& PacketWrapper::_internal_leavelobbyresponse() const {
-  return _internal_has_leavelobbyresponse()
-      ? *packet_.leavelobbyresponse_
+inline const ::awd::net::LeaveLobbyResponse& PacketWrapper::_internal_leave_lobby_response() const {
+  return _internal_has_leave_lobby_response()
+      ? *packet_.leave_lobby_response_
       : reinterpret_cast< ::awd::net::LeaveLobbyResponse&>(::awd::net::_LeaveLobbyResponse_default_instance_);
 }
-inline const ::awd::net::LeaveLobbyResponse& PacketWrapper::leavelobbyresponse() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.leaveLobbyResponse)
-  return _internal_leavelobbyresponse();
+inline const ::awd::net::LeaveLobbyResponse& PacketWrapper::leave_lobby_response() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.leave_lobby_response)
+  return _internal_leave_lobby_response();
 }
-inline ::awd::net::LeaveLobbyResponse* PacketWrapper::unsafe_arena_release_leavelobbyresponse() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.leaveLobbyResponse)
-  if (_internal_has_leavelobbyresponse()) {
+inline ::awd::net::LeaveLobbyResponse* PacketWrapper::unsafe_arena_release_leave_lobby_response() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.leave_lobby_response)
+  if (_internal_has_leave_lobby_response()) {
     clear_has_packet();
-    ::awd::net::LeaveLobbyResponse* temp = packet_.leavelobbyresponse_;
-    packet_.leavelobbyresponse_ = nullptr;
+    ::awd::net::LeaveLobbyResponse* temp = packet_.leave_lobby_response_;
+    packet_.leave_lobby_response_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_leavelobbyresponse(::awd::net::LeaveLobbyResponse* leavelobbyresponse) {
+inline void PacketWrapper::unsafe_arena_set_allocated_leave_lobby_response(::awd::net::LeaveLobbyResponse* leave_lobby_response) {
   clear_packet();
-  if (leavelobbyresponse) {
-    set_has_leavelobbyresponse();
-    packet_.leavelobbyresponse_ = leavelobbyresponse;
+  if (leave_lobby_response) {
+    set_has_leave_lobby_response();
+    packet_.leave_lobby_response_ = leave_lobby_response;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.leaveLobbyResponse)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.leave_lobby_response)
 }
-inline ::awd::net::LeaveLobbyResponse* PacketWrapper::_internal_mutable_leavelobbyresponse() {
-  if (!_internal_has_leavelobbyresponse()) {
+inline ::awd::net::LeaveLobbyResponse* PacketWrapper::_internal_mutable_leave_lobby_response() {
+  if (!_internal_has_leave_lobby_response()) {
     clear_packet();
-    set_has_leavelobbyresponse();
-    packet_.leavelobbyresponse_ = CreateMaybeMessage< ::awd::net::LeaveLobbyResponse >(GetArena());
+    set_has_leave_lobby_response();
+    packet_.leave_lobby_response_ = CreateMaybeMessage< ::awd::net::LeaveLobbyResponse >(GetArena());
   }
-  return packet_.leavelobbyresponse_;
+  return packet_.leave_lobby_response_;
 }
-inline ::awd::net::LeaveLobbyResponse* PacketWrapper::mutable_leavelobbyresponse() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.leaveLobbyResponse)
-  return _internal_mutable_leavelobbyresponse();
+inline ::awd::net::LeaveLobbyResponse* PacketWrapper::mutable_leave_lobby_response() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.leave_lobby_response)
+  return _internal_mutable_leave_lobby_response();
 }
 
-// .awd.net.KickedFromLobby kickedFromLobby = 106;
-inline bool PacketWrapper::_internal_has_kickedfromlobby() const {
+// .awd.net.KickedFromLobby kicked_from_lobby = 106;
+inline bool PacketWrapper::_internal_has_kicked_from_lobby() const {
   return packet_case() == kKickedFromLobby;
 }
-inline bool PacketWrapper::has_kickedfromlobby() const {
-  return _internal_has_kickedfromlobby();
+inline bool PacketWrapper::has_kicked_from_lobby() const {
+  return _internal_has_kicked_from_lobby();
 }
-inline void PacketWrapper::set_has_kickedfromlobby() {
+inline void PacketWrapper::set_has_kicked_from_lobby() {
   _oneof_case_[0] = kKickedFromLobby;
 }
-inline void PacketWrapper::clear_kickedfromlobby() {
-  if (_internal_has_kickedfromlobby()) {
+inline void PacketWrapper::clear_kicked_from_lobby() {
+  if (_internal_has_kicked_from_lobby()) {
     if (GetArena() == nullptr) {
-      delete packet_.kickedfromlobby_;
+      delete packet_.kicked_from_lobby_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::KickedFromLobby* PacketWrapper::release_kickedfromlobby() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.kickedFromLobby)
-  if (_internal_has_kickedfromlobby()) {
+inline ::awd::net::KickedFromLobby* PacketWrapper::release_kicked_from_lobby() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.kicked_from_lobby)
+  if (_internal_has_kicked_from_lobby()) {
     clear_has_packet();
-      ::awd::net::KickedFromLobby* temp = packet_.kickedfromlobby_;
+      ::awd::net::KickedFromLobby* temp = packet_.kicked_from_lobby_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.kickedfromlobby_ = nullptr;
+    packet_.kicked_from_lobby_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::KickedFromLobby& PacketWrapper::_internal_kickedfromlobby() const {
-  return _internal_has_kickedfromlobby()
-      ? *packet_.kickedfromlobby_
+inline const ::awd::net::KickedFromLobby& PacketWrapper::_internal_kicked_from_lobby() const {
+  return _internal_has_kicked_from_lobby()
+      ? *packet_.kicked_from_lobby_
       : reinterpret_cast< ::awd::net::KickedFromLobby&>(::awd::net::_KickedFromLobby_default_instance_);
 }
-inline const ::awd::net::KickedFromLobby& PacketWrapper::kickedfromlobby() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.kickedFromLobby)
-  return _internal_kickedfromlobby();
+inline const ::awd::net::KickedFromLobby& PacketWrapper::kicked_from_lobby() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.kicked_from_lobby)
+  return _internal_kicked_from_lobby();
 }
-inline ::awd::net::KickedFromLobby* PacketWrapper::unsafe_arena_release_kickedfromlobby() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.kickedFromLobby)
-  if (_internal_has_kickedfromlobby()) {
+inline ::awd::net::KickedFromLobby* PacketWrapper::unsafe_arena_release_kicked_from_lobby() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.kicked_from_lobby)
+  if (_internal_has_kicked_from_lobby()) {
     clear_has_packet();
-    ::awd::net::KickedFromLobby* temp = packet_.kickedfromlobby_;
-    packet_.kickedfromlobby_ = nullptr;
+    ::awd::net::KickedFromLobby* temp = packet_.kicked_from_lobby_;
+    packet_.kicked_from_lobby_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_kickedfromlobby(::awd::net::KickedFromLobby* kickedfromlobby) {
+inline void PacketWrapper::unsafe_arena_set_allocated_kicked_from_lobby(::awd::net::KickedFromLobby* kicked_from_lobby) {
   clear_packet();
-  if (kickedfromlobby) {
-    set_has_kickedfromlobby();
-    packet_.kickedfromlobby_ = kickedfromlobby;
+  if (kicked_from_lobby) {
+    set_has_kicked_from_lobby();
+    packet_.kicked_from_lobby_ = kicked_from_lobby;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.kickedFromLobby)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.kicked_from_lobby)
 }
-inline ::awd::net::KickedFromLobby* PacketWrapper::_internal_mutable_kickedfromlobby() {
-  if (!_internal_has_kickedfromlobby()) {
+inline ::awd::net::KickedFromLobby* PacketWrapper::_internal_mutable_kicked_from_lobby() {
+  if (!_internal_has_kicked_from_lobby()) {
     clear_packet();
-    set_has_kickedfromlobby();
-    packet_.kickedfromlobby_ = CreateMaybeMessage< ::awd::net::KickedFromLobby >(GetArena());
+    set_has_kicked_from_lobby();
+    packet_.kicked_from_lobby_ = CreateMaybeMessage< ::awd::net::KickedFromLobby >(GetArena());
   }
-  return packet_.kickedfromlobby_;
+  return packet_.kicked_from_lobby_;
 }
-inline ::awd::net::KickedFromLobby* PacketWrapper::mutable_kickedfromlobby() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.kickedFromLobby)
-  return _internal_mutable_kickedfromlobby();
+inline ::awd::net::KickedFromLobby* PacketWrapper::mutable_kicked_from_lobby() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.kicked_from_lobby)
+  return _internal_mutable_kicked_from_lobby();
 }
 
-// .awd.net.UpdatedMembersList updatedMembersList = 107;
-inline bool PacketWrapper::_internal_has_updatedmemberslist() const {
+// .awd.net.UpdatedMembersList updated_members_list = 107;
+inline bool PacketWrapper::_internal_has_updated_members_list() const {
   return packet_case() == kUpdatedMembersList;
 }
-inline bool PacketWrapper::has_updatedmemberslist() const {
-  return _internal_has_updatedmemberslist();
+inline bool PacketWrapper::has_updated_members_list() const {
+  return _internal_has_updated_members_list();
 }
-inline void PacketWrapper::set_has_updatedmemberslist() {
+inline void PacketWrapper::set_has_updated_members_list() {
   _oneof_case_[0] = kUpdatedMembersList;
 }
-inline void PacketWrapper::clear_updatedmemberslist() {
-  if (_internal_has_updatedmemberslist()) {
+inline void PacketWrapper::clear_updated_members_list() {
+  if (_internal_has_updated_members_list()) {
     if (GetArena() == nullptr) {
-      delete packet_.updatedmemberslist_;
+      delete packet_.updated_members_list_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::UpdatedMembersList* PacketWrapper::release_updatedmemberslist() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.updatedMembersList)
-  if (_internal_has_updatedmemberslist()) {
+inline ::awd::net::UpdatedMembersList* PacketWrapper::release_updated_members_list() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.updated_members_list)
+  if (_internal_has_updated_members_list()) {
     clear_has_packet();
-      ::awd::net::UpdatedMembersList* temp = packet_.updatedmemberslist_;
+      ::awd::net::UpdatedMembersList* temp = packet_.updated_members_list_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.updatedmemberslist_ = nullptr;
+    packet_.updated_members_list_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::UpdatedMembersList& PacketWrapper::_internal_updatedmemberslist() const {
-  return _internal_has_updatedmemberslist()
-      ? *packet_.updatedmemberslist_
+inline const ::awd::net::UpdatedMembersList& PacketWrapper::_internal_updated_members_list() const {
+  return _internal_has_updated_members_list()
+      ? *packet_.updated_members_list_
       : reinterpret_cast< ::awd::net::UpdatedMembersList&>(::awd::net::_UpdatedMembersList_default_instance_);
 }
-inline const ::awd::net::UpdatedMembersList& PacketWrapper::updatedmemberslist() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.updatedMembersList)
-  return _internal_updatedmemberslist();
+inline const ::awd::net::UpdatedMembersList& PacketWrapper::updated_members_list() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.updated_members_list)
+  return _internal_updated_members_list();
 }
-inline ::awd::net::UpdatedMembersList* PacketWrapper::unsafe_arena_release_updatedmemberslist() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.updatedMembersList)
-  if (_internal_has_updatedmemberslist()) {
+inline ::awd::net::UpdatedMembersList* PacketWrapper::unsafe_arena_release_updated_members_list() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.updated_members_list)
+  if (_internal_has_updated_members_list()) {
     clear_has_packet();
-    ::awd::net::UpdatedMembersList* temp = packet_.updatedmemberslist_;
-    packet_.updatedmemberslist_ = nullptr;
+    ::awd::net::UpdatedMembersList* temp = packet_.updated_members_list_;
+    packet_.updated_members_list_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_updatedmemberslist(::awd::net::UpdatedMembersList* updatedmemberslist) {
+inline void PacketWrapper::unsafe_arena_set_allocated_updated_members_list(::awd::net::UpdatedMembersList* updated_members_list) {
   clear_packet();
-  if (updatedmemberslist) {
-    set_has_updatedmemberslist();
-    packet_.updatedmemberslist_ = updatedmemberslist;
+  if (updated_members_list) {
+    set_has_updated_members_list();
+    packet_.updated_members_list_ = updated_members_list;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.updatedMembersList)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.updated_members_list)
 }
-inline ::awd::net::UpdatedMembersList* PacketWrapper::_internal_mutable_updatedmemberslist() {
-  if (!_internal_has_updatedmemberslist()) {
+inline ::awd::net::UpdatedMembersList* PacketWrapper::_internal_mutable_updated_members_list() {
+  if (!_internal_has_updated_members_list()) {
     clear_packet();
-    set_has_updatedmemberslist();
-    packet_.updatedmemberslist_ = CreateMaybeMessage< ::awd::net::UpdatedMembersList >(GetArena());
+    set_has_updated_members_list();
+    packet_.updated_members_list_ = CreateMaybeMessage< ::awd::net::UpdatedMembersList >(GetArena());
   }
-  return packet_.updatedmemberslist_;
+  return packet_.updated_members_list_;
 }
-inline ::awd::net::UpdatedMembersList* PacketWrapper::mutable_updatedmemberslist() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.updatedMembersList)
-  return _internal_mutable_updatedmemberslist();
+inline ::awd::net::UpdatedMembersList* PacketWrapper::mutable_updated_members_list() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.updated_members_list)
+  return _internal_mutable_updated_members_list();
 }
 
-// .awd.net.KeepAlive keepAlive = 1000;
-inline bool PacketWrapper::_internal_has_keepalive() const {
+// .awd.net.KeepAlive keep_alive = 1000;
+inline bool PacketWrapper::_internal_has_keep_alive() const {
   return packet_case() == kKeepAlive;
 }
-inline bool PacketWrapper::has_keepalive() const {
-  return _internal_has_keepalive();
+inline bool PacketWrapper::has_keep_alive() const {
+  return _internal_has_keep_alive();
 }
-inline void PacketWrapper::set_has_keepalive() {
+inline void PacketWrapper::set_has_keep_alive() {
   _oneof_case_[0] = kKeepAlive;
 }
-inline void PacketWrapper::clear_keepalive() {
-  if (_internal_has_keepalive()) {
+inline void PacketWrapper::clear_keep_alive() {
+  if (_internal_has_keep_alive()) {
     if (GetArena() == nullptr) {
-      delete packet_.keepalive_;
+      delete packet_.keep_alive_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::KeepAlive* PacketWrapper::release_keepalive() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.keepAlive)
-  if (_internal_has_keepalive()) {
+inline ::awd::net::KeepAlive* PacketWrapper::release_keep_alive() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.keep_alive)
+  if (_internal_has_keep_alive()) {
     clear_has_packet();
-      ::awd::net::KeepAlive* temp = packet_.keepalive_;
+      ::awd::net::KeepAlive* temp = packet_.keep_alive_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.keepalive_ = nullptr;
+    packet_.keep_alive_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::KeepAlive& PacketWrapper::_internal_keepalive() const {
-  return _internal_has_keepalive()
-      ? *packet_.keepalive_
+inline const ::awd::net::KeepAlive& PacketWrapper::_internal_keep_alive() const {
+  return _internal_has_keep_alive()
+      ? *packet_.keep_alive_
       : reinterpret_cast< ::awd::net::KeepAlive&>(::awd::net::_KeepAlive_default_instance_);
 }
-inline const ::awd::net::KeepAlive& PacketWrapper::keepalive() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.keepAlive)
-  return _internal_keepalive();
+inline const ::awd::net::KeepAlive& PacketWrapper::keep_alive() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.keep_alive)
+  return _internal_keep_alive();
 }
-inline ::awd::net::KeepAlive* PacketWrapper::unsafe_arena_release_keepalive() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.keepAlive)
-  if (_internal_has_keepalive()) {
+inline ::awd::net::KeepAlive* PacketWrapper::unsafe_arena_release_keep_alive() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.keep_alive)
+  if (_internal_has_keep_alive()) {
     clear_has_packet();
-    ::awd::net::KeepAlive* temp = packet_.keepalive_;
-    packet_.keepalive_ = nullptr;
+    ::awd::net::KeepAlive* temp = packet_.keep_alive_;
+    packet_.keep_alive_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_keepalive(::awd::net::KeepAlive* keepalive) {
+inline void PacketWrapper::unsafe_arena_set_allocated_keep_alive(::awd::net::KeepAlive* keep_alive) {
   clear_packet();
-  if (keepalive) {
-    set_has_keepalive();
-    packet_.keepalive_ = keepalive;
+  if (keep_alive) {
+    set_has_keep_alive();
+    packet_.keep_alive_ = keep_alive;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.keepAlive)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.keep_alive)
 }
-inline ::awd::net::KeepAlive* PacketWrapper::_internal_mutable_keepalive() {
-  if (!_internal_has_keepalive()) {
+inline ::awd::net::KeepAlive* PacketWrapper::_internal_mutable_keep_alive() {
+  if (!_internal_has_keep_alive()) {
     clear_packet();
-    set_has_keepalive();
-    packet_.keepalive_ = CreateMaybeMessage< ::awd::net::KeepAlive >(GetArena());
+    set_has_keep_alive();
+    packet_.keep_alive_ = CreateMaybeMessage< ::awd::net::KeepAlive >(GetArena());
   }
-  return packet_.keepalive_;
+  return packet_.keep_alive_;
 }
-inline ::awd::net::KeepAlive* PacketWrapper::mutable_keepalive() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.keepAlive)
-  return _internal_mutable_keepalive();
+inline ::awd::net::KeepAlive* PacketWrapper::mutable_keep_alive() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.keep_alive)
+  return _internal_mutable_keep_alive();
 }
 
 // .awd.net.Ping ping = 10000;
