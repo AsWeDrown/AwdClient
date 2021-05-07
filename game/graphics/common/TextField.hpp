@@ -23,6 +23,7 @@ namespace awd::game {
                   unsigned int width, unsigned int height,
                   unsigned int maxContentsLen,
                   const std::wstring& hintText,
+                  const std::wstring& initialContents,
                   const std::shared_ptr<TextFieldListener>& listener);
 
         void keyPressed(const sf::Event::KeyEvent& event) override;

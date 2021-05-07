@@ -10,6 +10,8 @@
 #include "packetlistener/HandshakeResponseListener.hpp"
 #include "packetlistener/CreateLobbyResponseListener.hpp"
 #include "graphics/mainmenu/MainMenuScreen.hpp"
+#include "packetlistener/PingListener.hpp"
+#include "graphics/common/ErrorDialog.hpp"
 
 namespace awd::game {
 
@@ -26,9 +28,16 @@ namespace awd::game {
     }
 
     void Game::registerPacketListeners() {
+        std::wcout << L"Client protocol version: " << net::PacketManager::PROTOCOL_VERSION << std::endl;
+
         packetManager->registerListener(
                 net::PacketWrapper::PacketCase::kHandshakeResponse,
                 std::make_shared<HandshakeResponseListener>()
+        );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kPing,
+                std::make_shared<PingListener>()
         );
 
         packetManager->registerListener(
@@ -50,7 +59,8 @@ namespace awd::game {
         std::wcout << L"Render scale: " << renderScale << std::endl;
 
         currentState = GameState::LOBBY;
-        currentScreen = std::make_shared<MainMenuScreen>(renderScale, window);
+        gameScreen = std::make_shared<MainMenuScreen>(renderScale, window);
+        gameScreen->setComponentsEnabled(false); // выключаем кнопки до установления "соединения" с сервером
 
         auto tickDelay = std::chrono::milliseconds(1000 / GAME_TPS);
 
@@ -73,11 +83,11 @@ namespace awd::game {
                     break;
 
                 case sf::Event::KeyPressed:
-                    currentScreen->keyPressed(event.key);
+                    gameScreen->keyPressed(event.key);
                     break;
 
                 case sf::Event::MouseButtonPressed:
-                    currentScreen->mousePressed(event.mouseButton);
+                    gameScreen->mousePressed(event.mouseButton);
                     break;
             }
         }
@@ -89,11 +99,20 @@ namespace awd::game {
     }
 
     void Game::update() {
-        currentScreen->update();
+        if (++currentTick == 1)
+            postScreenLoad();
+
+        gameScreen->update();
     }
 
     void Game::render() {
-        currentScreen->draw();
+        gameScreen->draw();
+    }
+
+    void Game::postScreenLoad() {
+        // UDP-клиент (в другом потоке).
+        registerPacketListeners();
+        udpClient->startInNewThread();
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -106,6 +125,7 @@ namespace awd::game {
         fontManager = std::make_shared<FontManager>();
         udpClient = std::make_shared<net::UdpClient>(HOST, PORT);
         packetManager = std::make_shared<net::PacketManager>(udpClient);
+        netService = std::make_shared<net::NetworkService>(packetManager);
     }
 
     Game::~Game() = default;
@@ -119,10 +139,6 @@ namespace awd::game {
             std::wcerr << L"Failed to load assets." << std::endl;
             return;
         }
-
-        // UDP-клиент (в другом потоке).
-        registerPacketListeners();
-        udpClient->startInNewThread();
 
         // Главный цикл игры (в этом потоке). Должен запускаться в самом конце!
         startGameLoop();
@@ -141,6 +157,64 @@ namespace awd::game {
         std::wcout << L"Bye!" << std::endl;
     }
 
+    void Game::handshakeComplete(uint32_t serverProtocolVersion) {
+        udpClient->setHandshakeComplete();
+
+        if (serverProtocolVersion == net::PacketManager::PROTOCOL_VERSION)
+            // Включаем кнопки в главном меню.
+            gameScreen->setComponentsEnabled(true);
+        else {
+            std::wcerr << L"Protocol versions do not match." << std::endl;
+
+            if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(gameScreen)) {
+                auto dialog = std::make_shared<ErrorDialog>(
+                        ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
+                        mainMenuScreen->getRenderScale(),
+                        mainMenuScreen->getWindow(),
+                        mainMenuScreen->getListener(),
+                        L"{RED}{BOLD}Не удалось подключиться к серверу: "
+                        L"{RESET}{GRAY}версия протокола клиента: {WHITE}"+
+                        std::to_wstring(net::PacketManager::PROTOCOL_VERSION) +
+                        L"{GRAY}, версия протокола сервера: {WHITE}" +
+                        std::to_wstring(serverProtocolVersion) +
+                        L"{GRAY}. Пожалуйста, установите новую версию игры.",
+                        ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,
+                        mainMenuScreen->getListener()
+                );
+
+                mainMenuScreen->openDialog(dialog);
+            } else
+                shutdown();
+        }
+    }
+
+    void Game::timedOut() {
+        std::wcerr << L"Timed out." << std::endl;
+
+        if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(gameScreen)) {
+            auto dialog = std::make_shared<ErrorDialog>(
+                    ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
+                    mainMenuScreen->getRenderScale(),
+                    mainMenuScreen->getWindow(),
+                    mainMenuScreen->getListener(),
+                    L"{RED}{BOLD}Не удалось подключиться к серверу: "
+                    L"{RESET}{GRAY}истекло допустимое время ожидания. Пожалуйста, убедитесь, "
+                    L"что вы сейчас подключены к Интернету, и что ваш файервол/антивирус не блокирует "
+                    L"использование UDP-порта {WHITE}23132{GRAY}. Также проблема может быть в том, что "
+                    L"в вашей локальной сети уже есть другое устройство, занявшее этот порт.",
+                    ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,
+                    mainMenuScreen->getListener()
+            );
+
+            mainMenuScreen->openDialog(dialog);
+        } else
+            shutdown();
+    }
+
+    uint32_t Game::getCurrentTick() const {
+        return currentTick;
+    }
+
     std::shared_ptr<FontManager> Game::getFontManager() const {
         return fontManager;
     }
@@ -155,6 +229,10 @@ namespace awd::game {
 
     int Game::getCurrentState() const {
         return currentState;
+    }
+
+    std::shared_ptr<Screen> Game::getGameScreen() const {
+        return gameScreen;
     }
 
     unsigned int Game::randUInt(unsigned int min, unsigned int max) {

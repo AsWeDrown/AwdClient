@@ -1,32 +1,6 @@
 #pragma once
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//   Все поддерживаемые цветовые коды и стили сообщений (текста).
-//   Для удобства чтения и написания форматированных сообщений.
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Стили
-#define RESET         std::wstring(L"&r")
-#define BOLD          std::wstring(L"&l")
-#define ITALIC        std::wstring(L"&o")
-#define UNDERLINED    std::wstring(L"&n")
-#define STRIKETHROUGH std::wstring(L"&m")
-// Цвета
-#define WHITE         std::wstring(L"&f")
-#define GRAY          std::wstring(L"&7")
-#define BLACK         std::wstring(L"&0")
-#define YELLOW        std::wstring(L"&e")
-#define GOLD          std::wstring(L"&6")
-#define GREEN         std::wstring(L"&a")
-#define RED           std::wstring(L"&c")
-#define AQUA          std::wstring(L"&b")
-#define BLUE          std::wstring(L"&9")
-#define MAGENTA       std::wstring(L"&d")
-
-
 #include <SFML/Graphics/Color.hpp>
 
 namespace awd::game {
@@ -38,6 +12,8 @@ namespace awd::game {
                 // Логотип
                 LOGO_FILL,
                 LOGO_OUTLINE,
+                // Общие элементы GUI
+                GUI_BUTTONS_SEPARATOR_LINE,
                 // Вода
                 HIGHEST_LEVEL_WATER,
                 MIDDLE_LEVEL_WATER,

@@ -1,11 +1,11 @@
 #define MAX_PLAYER_NAME_LENGTH 15
+#define MAX_LOBBY_ID_LENGTH 10 /* чуть больше двух миллиардов --> не более 10 знаков */
 
 
 #include <iostream>
 #include "MainMenuScreenListener.hpp"
 #include "MainMenuScreen.hpp"
 #include "../common/TextInputDialog.hpp"
-#include "../common/ColorSet.hpp"
 #include "../../Game.hpp"
 
 namespace awd::game {
@@ -16,44 +16,118 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+    void MainMenuScreenListener::requestPlayerNameInput(Drawable* mainMenuScreen) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        auto dialog = std::make_shared<TextInputDialog>(
+                ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT,
+                mainMenu->getRenderScale(),
+                mainMenu->getWindow(),
+                mainMenu->getListener(),
+                L"{GRAY}Под этим именем вас будут видеть все другие игроки в комнате. "
+                L"Имя может состоять из {WHITE}латинских букв, цифр и символа подчёркивания{GRAY}.",
+                ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_TEXT_FIELD,
+                mainMenu->getListener(),
+                MAX_PLAYER_NAME_LENGTH,
+                L"Как вас зовут?",
+                mainMenu->getListener()->getEnteredPlayerName(),
+                ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_NEXT,
+                mainMenu->getListener(),
+                ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_BACK,
+                mainMenu->getListener()
+        );
+
+        mainMenu->openDialog(dialog);
+    }
+
+    void MainMenuScreenListener::requestLobbyIdInput(Drawable* mainMenuScreen) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        auto dialog = std::make_shared<TextInputDialog>(
+                ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT,
+                mainMenu->getRenderScale(),
+                mainMenu->getWindow(),
+                mainMenu->getListener(),
+                L"{GRAY}Этот идентификатор вам должен был сообщить создатель комнаты.",
+                ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_TEXT_FIELD,
+                mainMenu->getListener(),
+                MAX_LOBBY_ID_LENGTH,
+                L"Введите идентификатор комнаты",
+                mainMenu->getListener()->getEnteredLobbyId(),
+                ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_NEXT,
+                mainMenu->getListener(),
+                ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_BACK,
+                mainMenu->getListener()
+        );
+
+        mainMenu->openDialog(dialog);
+    }
+
     void MainMenuScreenListener::quitGameClicked(Drawable* mainMenuScreen) {
         Game::instance().shutdown();
     }
 
     void MainMenuScreenListener::createLobbyClicked(Drawable* mainMenuScreen) {
         auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
-        auto dialog = std::make_shared<TextInputDialog>(
-                ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY,
-                mainMenu->getRenderScale(),
-                mainMenu->getWindow(),
-                mainMenu->getListener(),
-                L"{GRAY}Под этим именем вас будут видеть все другие игроки в комнате. "
-                        L"{YELLOW}{BOLD}Обратите внимание: {RESET}{GRAY}если в будущем вы захотите "
-                        L"{WHITE}загрузить сохранение {GRAY}игры в этой комнате, вам потребуется "
-                        L"использовать в точности это же имя.",
-                ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_TEXT_FIELD_PLAYER_NAME,
-                mainMenu->getListener(),
-                MAX_PLAYER_NAME_LENGTH,
-                L"Как вас зовут?",
-                ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_NEXT,
-                mainMenu->getListener(),
-                ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_BACK,
-                mainMenu->getListener()
-        );
+        mainMenu->setWorkflowState(WorkflowState::CREATING_LOBBY);
 
-        mainMenu->addChild(dialog);
-        dialog->show();
+        // Запрашиваем имя.
+        requestPlayerNameInput(mainMenu);
     }
 
     void MainMenuScreenListener::createLobbyNextClicked(Drawable* dialog) {
         auto* mainMenu = (MainMenuScreen*) dialog->getParent();
         std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
-        std::wcout << L"CreateLobby : NEXT : playerName = \"" << playerName << L"\"" << std::endl;
+        std::wcout << L"CreateLobby : playerName = \"" << playerName << L"\"" << std::endl;
         //todo
     }
 
     void MainMenuScreenListener::createLobbyBackClicked(Drawable* dialog) {
+        auto mainMenu = (MainMenuScreen*) dialog->getParent();
+        mainMenu->setWorkflowState(WorkflowState::IDLE);
         ((Dialog*) dialog)->hide();
+    }
+
+    void MainMenuScreenListener::joinLobbyClicked(Drawable* mainMenuScreen) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_1);
+
+        // Сначала запрашиваем ID комнаты.
+        requestLobbyIdInput(mainMenu);
+    }
+
+    void MainMenuScreenListener::joinLobbyNextClicked(Drawable* dialog) {
+        //todo dont forget to reset fields on IDLE workstate switch
+        auto mainMenu = (MainMenuScreen*) dialog->getParent();
+        WorkflowState workflowState = mainMenu->getWorkflowState();
+
+        if (workflowState == WorkflowState::JOINING_LOBBY_1) {
+            // Теперь запрашиваем имя. Закрываем этот диалог. Когда закончится анимация
+            // его закрытия, откроется новый (см. реализацию метода dialogClosed).
+            mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_2);
+            mainMenu->closeCurrentDialog(); // закрываем диалог ввода ID комнаты
+        } else {
+            std::wcout << L"JoinLobby : playerName = \"" << mainMenu->getListener()->getEnteredPlayerName()
+                       << L"\", lobbyId = \"" << mainMenu->getListener()->getEnteredLobbyId() << L"\"" << std::endl;
+            //todo
+        }
+    }
+
+    void MainMenuScreenListener::joinLobbyBackClicked(Drawable* dialog) {
+        auto mainMenu = (MainMenuScreen*) dialog->getParent();
+        WorkflowState workflowState = mainMenu->getWorkflowState();
+        ((Dialog*) dialog)->hide();
+
+        if (workflowState == WorkflowState::JOINING_LOBBY_1)
+            // Выходим обратно в главное меню (закрываем диалог).
+            mainMenu->setWorkflowState(WorkflowState::IDLE);
+        else {
+            // Возвращаемся на этап ввода ID комнаты.
+            mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_1);
+            mainMenu->closeCurrentDialog(); // закрываем диалог ввода имени
+        }
+    }
+
+    void MainMenuScreenListener::errorOkClicked(Drawable* dialog) {
+        Game::instance().shutdown();
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -62,18 +136,33 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    void MainMenuScreenListener::dialogOpened(Drawable* mainMenuScreen, id_type dialogId) {
-        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
-        mainMenu->setDialogOpen(true);
-    }
+    void MainMenuScreenListener::dialogOpened(Drawable* parentScreen, id_type dialogId) {}
 
-    void MainMenuScreenListener::dialogClosed(Drawable* mainMenuScreen, id_type dialogId) {
-        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
-        mainMenu->setDialogOpen(false);
-        mainMenu->removeChild(dialogId);
+    void MainMenuScreenListener::dialogClosed(Drawable* parentScreen, id_type dialogId) {
+        auto* mainMenu = (MainMenuScreen*) parentScreen;
+        WorkflowState workflowState = mainMenu->getWorkflowState();
+        mainMenu->dialogClosed(); // вызывать обязательно!
+
+        std::wcerr << L"dialogClosed: " << dialogId << L" | workflowState = "
+        << (workflowState == WorkflowState::IDLE)
+        << L" / " << (workflowState == WorkflowState::CREATING_LOBBY)
+        << L" / " << (workflowState == WorkflowState::JOINING_LOBBY_1)
+        << L" / " << (workflowState == WorkflowState::JOINING_LOBBY_2)
+        << std::endl;
+
+        if (workflowState == WorkflowState::JOINING_LOBBY_1)
+            // Закрылся диалог ввода имени. Снова запрашиваем ввод имени.
+            requestLobbyIdInput(mainMenu);
+        else if (workflowState == WorkflowState::JOINING_LOBBY_2)
+            // Закрылся диалог ввода ID комнаты. При этом если бы он закрылся кнопкой "Назад",
+            // то workflowState был бы IDLE. Значит, он закрылся именно по кнопке "Далее".
+            // Переходим к следующему этапу присоединения к комнате - запрашиваем имя.
+            requestPlayerNameInput(mainMenu);
     }
 
     void MainMenuScreenListener::buttonClicked(Drawable* buttonParent, id_type buttonId) {
+        WorkflowState workflowState;
+
         switch (buttonId) {
             // MainMenu
             case ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME:
@@ -81,20 +170,37 @@ namespace awd::game {
                 break;
 
             case ID_SCREEN_MAIN_MENU_BUTTON_JOIN_LOBBY:
-                //todo
+                joinLobbyClicked(buttonParent);
                 break;
 
             case ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY:
                 createLobbyClicked(buttonParent);
                 break;
 
-            // MainMenu.CreateLobby
-            case ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_NEXT:
-                createLobbyNextClicked(buttonParent);
+            // MainMenu.CreateLobby + MainMenu.JoinLobby
+            case ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_NEXT:
+                workflowState = ((MainMenuScreen*) buttonParent->getParent())->getWorkflowState();
+
+                if (workflowState == WorkflowState::CREATING_LOBBY)
+                    createLobbyNextClicked(buttonParent);
+                else
+                    joinLobbyNextClicked(buttonParent);
+
                 break;
 
-            case ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_BACK:
-                createLobbyBackClicked(buttonParent);
+            case ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_BACK:
+                workflowState = ((MainMenuScreen*) buttonParent->getParent())->getWorkflowState();
+
+                if (workflowState == WorkflowState::CREATING_LOBBY)
+                    createLobbyBackClicked(buttonParent);
+                else
+                    joinLobbyBackClicked(buttonParent);
+
+                break;
+
+            // MainMenu.Error
+            case ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK:
+                errorOkClicked(buttonParent);
                 break;
 
             // ???
@@ -107,11 +213,22 @@ namespace awd::game {
 
     void MainMenuScreenListener::contentsChanged(Drawable* textFieldParent, id_type textFieldId,
                                                  const std::wstring& newContents) {
-        enteredPlayerName = newContents;
+        auto* mainMenu = (MainMenuScreen*) textFieldParent->getParent();
+        WorkflowState workflowState = mainMenu->getWorkflowState();
+
+        if (workflowState == WorkflowState::CREATING_LOBBY
+                || workflowState == WorkflowState::JOINING_LOBBY_2)
+            enteredPlayerName = newContents;
+        else if (workflowState == WorkflowState::JOINING_LOBBY_1)
+            enteredLobbyId = newContents;
     }
 
     std::wstring MainMenuScreenListener::getEnteredPlayerName() const {
         return enteredPlayerName;
+    }
+
+    std::wstring MainMenuScreenListener::getEnteredLobbyId() const {
+        return enteredLobbyId;
     }
 
 }

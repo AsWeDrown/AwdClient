@@ -15,7 +15,7 @@ namespace awd::game {
         id_type textFieldId;
         std::shared_ptr<TextFieldListener> textFieldListener = nullptr;
         unsigned int maxInputLen;
-        std::wstring hintText;
+        std::wstring hintText, initialInput;
 
         id_type btnNextId;
         std::shared_ptr<ButtonListener> btnNextListener = nullptr;
@@ -23,14 +23,8 @@ namespace awd::game {
         id_type btnBackId;
         std::shared_ptr<ButtonListener> btnBackListener = nullptr;
 
-        static void applyFormatting(sfe::RichText& msg, wchar_t code);
-
         void createTextField();
         void createBasicButtons();
-
-    protected:
-        void update() override;
-        void draw() override;
 
     public:
         TextInputDialog(id_type id,
@@ -42,10 +36,14 @@ namespace awd::game {
                         const std::shared_ptr<TextFieldListener>& textFieldListener,
                         unsigned int maxInputLen,
                         const std::wstring& hintText,
+                        const std::wstring& initialInput,
                         id_type btnNextId,
                         const std::shared_ptr<ButtonListener>& btnNextListener,
                         id_type btnBackId,
                         const std::shared_ptr<ButtonListener>& btnBackListener);
+
+        void update() override;
+        void draw() override;
     };
 
 }

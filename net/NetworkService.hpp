@@ -12,7 +12,7 @@ namespace awd::net {
         explicit NetworkService(const std::shared_ptr<PacketManager>& packetManager);
 
         void handshakeRequest();
-        void pong();
+        void pong(uint32_t testId);
     };
 
 }

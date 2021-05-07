@@ -9,7 +9,13 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+    std::recursive_mutex Drawable::mutex;
     std::vector<id_type> Drawable::registeredIds;
+
+    void Drawable::registerChild(const std::shared_ptr<Drawable>& child) {
+        children.push_back(child);
+        child->onRegister();
+    }
 
     bool Drawable::isIdUnique(id_type id) {
         return std::all_of(registeredIds.cbegin(), registeredIds.cend(),
@@ -22,12 +28,41 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+    void Drawable::addChild(const std::shared_ptr<Drawable>& child) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+        child->parent = this;
+        registerChild(child); // мгновенная регистрация
+    }
+
+    void Drawable::enqueueChild(const std::shared_ptr<Drawable>& child) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+        child->parent = this;
+        queuedChildren.push_back(child); // отложенная регистрация
+    }
+
+    void Drawable::onRegister() {}
+
+    void Drawable::removeChild(id_type childId) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
+        children.erase(std::remove_if(
+                children.begin(), children.end(),
+                [childId](const auto& child) {
+                    return child->id == childId;
+                }), children.end()
+        );
+    }
+
     void Drawable::updateChildren() {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         for (const auto& child : children)
             child->update();
     }
 
     void Drawable::drawChildren() {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         for (const auto& child : children)
             if (child->visible)
                 child->draw();
@@ -55,6 +90,8 @@ namespace awd::game {
     Drawable::Drawable(id_type id, // NOLINT(cppcoreguidelines-pro-type-member-init)
                        float renderScale,
                        const std::shared_ptr<sf::RenderWindow>& window) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         if (!isIdUnique(id)) {
             std::wcerr << L"ID not unique: " << id << std::endl;
             throw std::invalid_argument(DRAWABLE_ID_NOT_UNIQUE);
@@ -70,6 +107,8 @@ namespace awd::game {
     }
 
     Drawable::~Drawable() {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         // Освобождаем этот ID.
         registeredIds.erase(std::remove_if(
                 registeredIds.begin(), registeredIds.end(),
@@ -128,6 +167,8 @@ namespace awd::game {
     }
 
     std::shared_ptr<Drawable> Drawable::getChildById(id_type childId) const {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         for (const auto& child : children)
             if (child->id == childId)
                 return child;
@@ -136,6 +177,8 @@ namespace awd::game {
     }
 
     std::shared_ptr<Drawable> Drawable::getChildByIdRecursively(id_type childId) const {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         for (const auto& child : children) {
             if (child->id == childId)
                 return child;
@@ -152,27 +195,17 @@ namespace awd::game {
         return nullptr;
     }
 
-    void Drawable::addChild(const std::shared_ptr<Drawable>& child) {
-        child->parent = this;
-        children.push_back(child);
-    }
-
-    void Drawable::removeChild(id_type childId) {
-        children.erase(std::remove_if(
-                children.begin(), children.end(),
-                [childId](const auto& child) {
-                    return child->id == childId;
-                }), children.end()
-        );
-    }
-
     void Drawable::keyPressed(const sf::Event::KeyEvent& event) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         for (const auto& child : children)
             if (child->enabled)
                 child->keyPressed(event);
     }
 
     void Drawable::mousePressed(const sf::Event::MouseButtonEvent& event) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         for (const auto& child : children)
             if (child->enabled)
                 child->mousePressed(event);
@@ -184,6 +217,18 @@ namespace awd::game {
      * чтобы система дочерних компонентов Drawable работала корректно.
      */
     void Drawable::update() {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
+        // Регистрируем все дочерние компоненты, созданные во время события,
+        // произошедшего между этим и предыдущим тиком. Подробное объяснение
+        // необходимости этого см. над объявлением метода #enqueueChild (.hpp).
+        if (!queuedChildren.empty()) {
+            for (const auto& queuedChild : queuedChildren)
+                registerChild(queuedChild);
+
+            queuedChildren.clear();
+        }
+
         updateChildren();
     }
 
@@ -193,6 +238,8 @@ namespace awd::game {
      * чтобы система дочерних компонентов Drawable работала корректно.
      */
     void Drawable::draw() {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
         if (visible)
             drawChildren();
     }

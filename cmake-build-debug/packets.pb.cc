@@ -94,7 +94,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT JoinLobbyResponse_OtherPlayersE
 constexpr JoinLobbyResponse::JoinLobbyResponse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : other_players_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
-  , player_id_(0){}
+  , player_id_(0)
+  , host_id_(0u){}
 struct JoinLobbyResponseDefaultTypeInternal {
   constexpr JoinLobbyResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -179,7 +180,8 @@ struct KeepAliveDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT KeepAliveDefaultTypeInternal _KeepAlive_default_instance_;
 constexpr Ping::Ping(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : server_time_(PROTOBUF_ULONGLONG(0)){}
+  : test_id_(0u)
+  , last_latency_(0u){}
 struct PingDefaultTypeInternal {
   constexpr PingDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -191,7 +193,7 @@ struct PingDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PingDefaultTypeInternal _Ping_default_instance_;
 constexpr Pong::Pong(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : client_time_(PROTOBUF_ULONGLONG(0)){}
+  : test_id_(0u){}
 struct PongDefaultTypeInternal {
   constexpr PongDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -205,7 +207,7 @@ constexpr PacketWrapper::PacketWrapper(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : sequence_(0u)
   , ack_(0u)
-  , ack_bitfield_(0u)
+  , ack_bitfield_(PROTOBUF_ULONGLONG(0))
   , _oneof_case_{}{}
 struct PacketWrapperDefaultTypeInternal {
   constexpr PacketWrapperDefaultTypeInternal()
@@ -270,6 +272,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, player_id_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, host_id_),
   PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, other_players_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::LeaveLobbyRequest, _internal_metadata_),
@@ -317,13 +320,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::awd::net::Ping, server_time_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::Ping, test_id_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::Ping, last_latency_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::Pong, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::awd::net::Pong, client_time_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::Pong, test_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -355,15 +359,15 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 25, -1, sizeof(::awd::net::JoinLobbyRequest)},
   { 32, 39, sizeof(::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse)},
   { 41, -1, sizeof(::awd::net::JoinLobbyResponse)},
-  { 48, -1, sizeof(::awd::net::LeaveLobbyRequest)},
-  { 55, -1, sizeof(::awd::net::LeaveLobbyResponse)},
-  { 61, -1, sizeof(::awd::net::KickedFromLobby)},
-  { 67, 74, sizeof(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse)},
-  { 76, -1, sizeof(::awd::net::UpdatedMembersList)},
-  { 82, -1, sizeof(::awd::net::KeepAlive)},
-  { 89, -1, sizeof(::awd::net::Ping)},
-  { 95, -1, sizeof(::awd::net::Pong)},
-  { 101, -1, sizeof(::awd::net::PacketWrapper)},
+  { 49, -1, sizeof(::awd::net::LeaveLobbyRequest)},
+  { 56, -1, sizeof(::awd::net::LeaveLobbyResponse)},
+  { 62, -1, sizeof(::awd::net::KickedFromLobby)},
+  { 68, 75, sizeof(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse)},
+  { 77, -1, sizeof(::awd::net::UpdatedMembersList)},
+  { 83, -1, sizeof(::awd::net::KeepAlive)},
+  { 90, -1, sizeof(::awd::net::Ping)},
+  { 97, -1, sizeof(::awd::net::Pong)},
+  { 103, -1, sizeof(::awd::net::PacketWrapper)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -393,44 +397,45 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\":\n\023CreateLobbyResponse\022\020\n\010lobby_id\030\001 \001("
   "\021\022\021\n\tplayer_id\030\002 \001(\r\"9\n\020JoinLobbyRequest"
   "\022\020\n\010lobby_id\030\001 \001(\r\022\023\n\013player_name\030\002 \001(\t\""
-  "\240\001\n\021JoinLobbyResponse\022\021\n\tplayer_id\030\001 \001(\021"
-  "\022C\n\rother_players\030\002 \003(\0132,.awd.net.JoinLo"
-  "bbyResponse.OtherPlayersEntry\0323\n\021OtherPl"
-  "ayersEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002 \001(\t:\002"
-  "8\001\"8\n\021LeaveLobbyRequest\022\020\n\010lobby_id\030\001 \001("
-  "\r\022\021\n\tplayer_id\030\002 \001(\r\")\n\022LeaveLobbyRespon"
-  "se\022\023\n\013status_code\030\001 \001(\021\"!\n\017KickedFromLob"
-  "by\022\016\n\006reason\030\001 \001(\r\"\177\n\022UpdatedMembersList"
-  "\0229\n\007members\030\001 \003(\0132(.awd.net.UpdatedMembe"
-  "rsList.MembersEntry\032.\n\014MembersEntry\022\013\n\003k"
-  "ey\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"/\n\tKeepAlive"
-  "\022\021\n\tplayer_id\030\001 \001(\005\022\017\n\007test_id\030\002 \001(\005\"\033\n\004"
-  "Ping\022\023\n\013server_time\030\001 \001(\004\"\033\n\004Pong\022\023\n\013cli"
-  "ent_time\030\001 \001(\004\"\207\006\n\rPacketWrapper\022\020\n\010sequ"
-  "ence\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_bitfield\030"
-  "\003 \001(\r\0226\n\021handshake_request\030\n \001(\0132\031.awd.n"
-  "et.HandshakeRequestH\000\0228\n\022handshake_respo"
-  "nse\030\013 \001(\0132\032.awd.net.HandshakeResponseH\000\022"
-  ";\n\024create_lobby_request\030d \001(\0132\033.awd.net."
-  "CreateLobbyRequestH\000\022=\n\025create_lobby_res"
-  "ponse\030e \001(\0132\034.awd.net.CreateLobbyRespons"
-  "eH\000\0227\n\022join_lobby_request\030f \001(\0132\031.awd.ne"
-  "t.JoinLobbyRequestH\000\0229\n\023join_lobby_respo"
-  "nse\030g \001(\0132\032.awd.net.JoinLobbyResponseH\000\022"
-  "9\n\023leave_lobby_request\030h \001(\0132\032.awd.net.L"
-  "eaveLobbyRequestH\000\022;\n\024leave_lobby_respon"
-  "se\030i \001(\0132\033.awd.net.LeaveLobbyResponseH\000\022"
-  "5\n\021kicked_from_lobby\030j \001(\0132\030.awd.net.Kic"
-  "kedFromLobbyH\000\022;\n\024updated_members_list\030k"
-  " \001(\0132\033.awd.net.UpdatedMembersListH\000\022)\n\nk"
-  "eep_alive\030\350\007 \001(\0132\022.awd.net.KeepAliveH\000\022\036"
-  "\n\004ping\030\220N \001(\0132\r.awd.net.PingH\000\022\036\n\004pong\030\221"
-  "N \001(\0132\r.awd.net.PongH\000B\010\n\006packetB\024\n\020gg.a"
-  "swedrown.netP\001b\006proto3"
+  "\261\001\n\021JoinLobbyResponse\022\021\n\tplayer_id\030\001 \001(\021"
+  "\022\017\n\007host_id\030\002 \001(\r\022C\n\rother_players\030\003 \003(\013"
+  "2,.awd.net.JoinLobbyResponse.OtherPlayer"
+  "sEntry\0323\n\021OtherPlayersEntry\022\013\n\003key\030\001 \001(\005"
+  "\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\021LeaveLobbyRequest"
+  "\022\020\n\010lobby_id\030\001 \001(\r\022\021\n\tplayer_id\030\002 \001(\r\")\n"
+  "\022LeaveLobbyResponse\022\023\n\013status_code\030\001 \001(\021"
+  "\"!\n\017KickedFromLobby\022\016\n\006reason\030\001 \001(\r\"\177\n\022U"
+  "pdatedMembersList\0229\n\007members\030\001 \003(\0132(.awd"
+  ".net.UpdatedMembersList.MembersEntry\032.\n\014"
+  "MembersEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t"
+  ":\0028\001\"/\n\tKeepAlive\022\021\n\tplayer_id\030\001 \001(\005\022\017\n\007"
+  "test_id\030\002 \001(\005\"-\n\004Ping\022\017\n\007test_id\030\001 \001(\r\022\024"
+  "\n\014last_latency\030\002 \001(\r\"\027\n\004Pong\022\017\n\007test_id\030"
+  "\001 \001(\r\"\207\006\n\rPacketWrapper\022\020\n\010sequence\030\001 \001("
+  "\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_bitfield\030\003 \001(\004\0226\n\021"
+  "handshake_request\030\n \001(\0132\031.awd.net.Handsh"
+  "akeRequestH\000\0228\n\022handshake_response\030\013 \001(\013"
+  "2\032.awd.net.HandshakeResponseH\000\022;\n\024create"
+  "_lobby_request\030d \001(\0132\033.awd.net.CreateLob"
+  "byRequestH\000\022=\n\025create_lobby_response\030e \001"
+  "(\0132\034.awd.net.CreateLobbyResponseH\000\0227\n\022jo"
+  "in_lobby_request\030f \001(\0132\031.awd.net.JoinLob"
+  "byRequestH\000\0229\n\023join_lobby_response\030g \001(\013"
+  "2\032.awd.net.JoinLobbyResponseH\000\0229\n\023leave_"
+  "lobby_request\030h \001(\0132\032.awd.net.LeaveLobby"
+  "RequestH\000\022;\n\024leave_lobby_response\030i \001(\0132"
+  "\033.awd.net.LeaveLobbyResponseH\000\0225\n\021kicked"
+  "_from_lobby\030j \001(\0132\030.awd.net.KickedFromLo"
+  "bbyH\000\022;\n\024updated_members_list\030k \001(\0132\033.aw"
+  "d.net.UpdatedMembersListH\000\022)\n\nkeep_alive"
+  "\030\350\007 \001(\0132\022.awd.net.KeepAliveH\000\022\036\n\004ping\030\220N"
+  " \001(\0132\r.awd.net.PingH\000\022\036\n\004pong\030\221N \001(\0132\r.a"
+  "wd.net.PongH\000B\010\n\006packetB\024\n\020gg.aswedrown."
+  "netP\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_packets_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_packets_2eproto = {
-  false, false, 1622, descriptor_table_protodef_packets_2eproto, "packets.proto", 
+  false, false, 1653, descriptor_table_protodef_packets_2eproto, "packets.proto", 
   &descriptor_table_packets_2eproto_once, nullptr, 0, 16,
   schemas, file_default_instances, TableStruct_packets_2eproto::offsets,
   file_level_metadata_packets_2eproto, file_level_enum_descriptors_packets_2eproto, file_level_service_descriptors_packets_2eproto,
@@ -1509,12 +1514,17 @@ JoinLobbyResponse::JoinLobbyResponse(const JoinLobbyResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   other_players_.MergeFrom(from.other_players_);
-  player_id_ = from.player_id_;
+  ::memcpy(&player_id_, &from.player_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&host_id_) -
+    reinterpret_cast<char*>(&player_id_)) + sizeof(host_id_));
   // @@protoc_insertion_point(copy_constructor:awd.net.JoinLobbyResponse)
 }
 
 void JoinLobbyResponse::SharedCtor() {
-player_id_ = 0;
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&player_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&host_id_) -
+    reinterpret_cast<char*>(&player_id_)) + sizeof(host_id_));
 }
 
 JoinLobbyResponse::~JoinLobbyResponse() {
@@ -1544,7 +1554,9 @@ void JoinLobbyResponse::Clear() {
   (void) cached_has_bits;
 
   other_players_.Clear();
-  player_id_ = 0;
+  ::memset(&player_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&host_id_) -
+      reinterpret_cast<char*>(&player_id_)) + sizeof(host_id_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1562,16 +1574,23 @@ const char* JoinLobbyResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // map<int32, string> other_players = 2;
+      // uint32 host_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          host_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // map<int32, string> other_players = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(&other_players_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -1608,7 +1627,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // map<int32, string> other_players = 2;
+  // uint32 host_id = 2;
+  if (this->host_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_host_id(), target);
+  }
+
+  // map<int32, string> other_players = 3;
   if (!this->_internal_other_players().empty()) {
     typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >::const_pointer
         ConstPtr;
@@ -1636,14 +1661,14 @@ failure:
       }
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       for (size_type i = 0; i < n; i++) {
-        target = JoinLobbyResponse_OtherPlayersEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+        target = JoinLobbyResponse_OtherPlayersEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)].second));
       }
     } else {
       for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >::const_iterator
           it = this->_internal_other_players().begin();
           it != this->_internal_other_players().end(); ++it) {
-        target = JoinLobbyResponse_OtherPlayersEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
+        target = JoinLobbyResponse_OtherPlayersEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
         Utf8Check::Check(&(*it));
       }
     }
@@ -1665,7 +1690,7 @@ size_t JoinLobbyResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<int32, string> other_players = 2;
+  // map<int32, string> other_players = 3;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_other_players_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >::const_iterator
@@ -1679,6 +1704,13 @@ size_t JoinLobbyResponse::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
         this->_internal_player_id());
+  }
+
+  // uint32 host_id = 2;
+  if (this->host_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_host_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1716,6 +1748,9 @@ void JoinLobbyResponse::MergeFrom(const JoinLobbyResponse& from) {
   if (from.player_id() != 0) {
     _internal_set_player_id(from._internal_player_id());
   }
+  if (from.host_id() != 0) {
+    _internal_set_host_id(from._internal_host_id());
+  }
 }
 
 void JoinLobbyResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -1740,7 +1775,12 @@ void JoinLobbyResponse::InternalSwap(JoinLobbyResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   other_players_.Swap(&other->other_players_);
-  swap(player_id_, other->player_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(JoinLobbyResponse, host_id_)
+      + sizeof(JoinLobbyResponse::host_id_)
+      - PROTOBUF_FIELD_OFFSET(JoinLobbyResponse, player_id_)>(
+          reinterpret_cast<char*>(&player_id_),
+          reinterpret_cast<char*>(&other->player_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata JoinLobbyResponse::GetMetadata() const {
@@ -2835,12 +2875,17 @@ Ping::Ping(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 Ping::Ping(const Ping& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  server_time_ = from.server_time_;
+  ::memcpy(&test_id_, &from.test_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&last_latency_) -
+    reinterpret_cast<char*>(&test_id_)) + sizeof(last_latency_));
   // @@protoc_insertion_point(copy_constructor:awd.net.Ping)
 }
 
 void Ping::SharedCtor() {
-server_time_ = PROTOBUF_ULONGLONG(0);
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&test_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&last_latency_) -
+    reinterpret_cast<char*>(&test_id_)) + sizeof(last_latency_));
 }
 
 Ping::~Ping() {
@@ -2869,7 +2914,9 @@ void Ping::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  server_time_ = PROTOBUF_ULONGLONG(0);
+  ::memset(&test_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&last_latency_) -
+      reinterpret_cast<char*>(&test_id_)) + sizeof(last_latency_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2880,10 +2927,17 @@ const char* Ping::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 server_time = 1;
+      // uint32 test_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          server_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          test_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 last_latency = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          last_latency_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2915,10 +2969,16 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 server_time = 1;
-  if (this->server_time() != 0) {
+  // uint32 test_id = 1;
+  if (this->test_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_server_time(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_test_id(), target);
+  }
+
+  // uint32 last_latency = 2;
+  if (this->last_latency() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_last_latency(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2937,11 +2997,18 @@ size_t Ping::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 server_time = 1;
-  if (this->server_time() != 0) {
+  // uint32 test_id = 1;
+  if (this->test_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_server_time());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_test_id());
+  }
+
+  // uint32 last_latency = 2;
+  if (this->last_latency() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_last_latency());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2975,8 +3042,11 @@ void Ping::MergeFrom(const Ping& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.server_time() != 0) {
-    _internal_set_server_time(from._internal_server_time());
+  if (from.test_id() != 0) {
+    _internal_set_test_id(from._internal_test_id());
+  }
+  if (from.last_latency() != 0) {
+    _internal_set_last_latency(from._internal_last_latency());
   }
 }
 
@@ -3001,7 +3071,12 @@ bool Ping::IsInitialized() const {
 void Ping::InternalSwap(Ping* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(server_time_, other->server_time_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Ping, last_latency_)
+      + sizeof(Ping::last_latency_)
+      - PROTOBUF_FIELD_OFFSET(Ping, test_id_)>(
+          reinterpret_cast<char*>(&test_id_),
+          reinterpret_cast<char*>(&other->test_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Ping::GetMetadata() const {
@@ -3024,12 +3099,12 @@ Pong::Pong(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 Pong::Pong(const Pong& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  client_time_ = from.client_time_;
+  test_id_ = from.test_id_;
   // @@protoc_insertion_point(copy_constructor:awd.net.Pong)
 }
 
 void Pong::SharedCtor() {
-client_time_ = PROTOBUF_ULONGLONG(0);
+test_id_ = 0u;
 }
 
 Pong::~Pong() {
@@ -3058,7 +3133,7 @@ void Pong::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  client_time_ = PROTOBUF_ULONGLONG(0);
+  test_id_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3069,10 +3144,10 @@ const char* Pong::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint64 client_time = 1;
+      // uint32 test_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          client_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          test_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3104,10 +3179,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 client_time = 1;
-  if (this->client_time() != 0) {
+  // uint32 test_id = 1;
+  if (this->test_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_client_time(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_test_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3126,11 +3201,11 @@ size_t Pong::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 client_time = 1;
-  if (this->client_time() != 0) {
+  // uint32 test_id = 1;
+  if (this->test_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_client_time());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_test_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3164,8 +3239,8 @@ void Pong::MergeFrom(const Pong& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.client_time() != 0) {
-    _internal_set_client_time(from._internal_client_time());
+  if (from.test_id() != 0) {
+    _internal_set_test_id(from._internal_test_id());
   }
 }
 
@@ -3190,7 +3265,7 @@ bool Pong::IsInitialized() const {
 void Pong::InternalSwap(Pong* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(client_time_, other->client_time_);
+  swap(test_id_, other->test_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Pong::GetMetadata() const {
@@ -3691,10 +3766,10 @@ const char* PacketWrapper::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 ack_bitfield = 3;
+      // uint64 ack_bitfield = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          ack_bitfield_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          ack_bitfield_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3829,10 +3904,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_ack(), target);
   }
 
-  // uint32 ack_bitfield = 3;
+  // uint64 ack_bitfield = 3;
   if (this->ack_bitfield() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_ack_bitfield(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_ack_bitfield(), target);
   }
 
   // .awd.net.HandshakeRequest handshake_request = 10;
@@ -3969,10 +4044,10 @@ size_t PacketWrapper::ByteSizeLong() const {
         this->_internal_ack());
   }
 
-  // uint32 ack_bitfield = 3;
+  // uint64 ack_bitfield = 3;
   if (this->ack_bitfield() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_ack_bitfield());
   }
 

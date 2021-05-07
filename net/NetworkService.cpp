@@ -14,9 +14,9 @@ namespace awd::net {
         packetManager->sendImportantPacket(packet);
     }
 
-    void NetworkService::pong() {
+    void NetworkService::pong(uint32_t testId) {
         auto packet = std::make_shared<Pong>();
-        packet->set_client_time(game::TimeUtils::currentTimeMillis());
+        packet->set_test_id(testId);
 
         packetManager->sendPacket(packet);
     }

@@ -41,6 +41,7 @@ namespace awd::game {
                          unsigned int width, unsigned int height,
                          unsigned int maxContentsLen,
                          const std::wstring& hintText,
+                         const std::wstring& initialContents,
                          const std::shared_ptr<TextFieldListener>& listener)
                          : Drawable(id, renderScale, window) {
         this->x = x;
@@ -49,6 +50,8 @@ namespace awd::game {
         this->height = height;
         this->maxContentsLen = maxContentsLen;
         this->hintText = hintText;
+        this->contents = initialContents.length() <= maxContentsLen
+                ? initialContents : initialContents.substr(0, maxContentsLen);
         this->listener = listener;
     }
 

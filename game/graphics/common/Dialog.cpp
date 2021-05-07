@@ -30,6 +30,11 @@ namespace awd::game {
         y = initialY = finalY * INITIAL_Y_SHIFT_FACTOR;
     }
 
+    void Dialog::onRegister() {
+        // Диалоги обычно создаются отложенно (через "enqueue"), так что используем onRegister для старта.
+        show();
+    }
+
     void Dialog::keyPressed(const sf::Event::KeyEvent& event) {
         if (state == DialogState::APPEARED)
             Drawable::keyPressed(event);
@@ -104,10 +109,6 @@ namespace awd::game {
     void Dialog::hide() {
         if (state == DialogState::APPEARED)
             state = DialogState::DISAPPEARING;
-    }
-
-    DialogState Dialog::getState() const {
-        return state;
     }
 
 }

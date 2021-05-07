@@ -2,21 +2,25 @@
 
 
 #include "../common/Button.hpp"
-#include "../common/Drawable.hpp"
 #include "../common/Dialog.hpp"
 #include "MainMenuScreenListener.hpp"
+#include "../common/Screen.hpp"
 
 namespace awd::game {
 
-    class MainMenuScreen : public Drawable {
+    enum class WorkflowState {
+        IDLE, // ничего не делаем
+        CREATING_LOBBY, // ждём ввода имени для создания комнаты
+        JOINING_LOBBY_1, // ждём ввода ID комнаты для присоединения к комнате
+        JOINING_LOBBY_2 // ждём ввода имени для присоединения к комнате (ID комнаты уже введён)
+    };
+
+    class MainMenuScreen : public Screen {
     private:
         std::shared_ptr<MainMenuScreenListener> listener = std::make_shared<MainMenuScreenListener>();
-        bool dialogOpen = false;
-        std::vector<id_type> buttonsIds;
+        WorkflowState workflowState = WorkflowState::IDLE;
 
         void createButtons();
-        void addButton(const std::shared_ptr<Drawable>& button);
-        void setButtonsEnabled(bool enabled);
 
     public:
         MainMenuScreen(float renderScale,
@@ -25,9 +29,9 @@ namespace awd::game {
         void update() override;
         void draw() override;
 
-        bool isDialogOpen() const;
-        void setDialogOpen(bool open);
         std::shared_ptr<MainMenuScreenListener> getListener() const;
+        WorkflowState getWorkflowState() const;
+        void setWorkflowState(WorkflowState state);
     };
 
 }

@@ -12,7 +12,19 @@ namespace awd::game {
             public ButtonListener,
             public TextFieldListener {
     private:
-        std::wstring enteredPlayerName;
+        std::wstring enteredPlayerName,
+                     enteredLobbyId;
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        //   Утилити-методы
+        //////////////////////////////////////////////////////////////////////////////////////////////
+
+        static void requestPlayerNameInput(Drawable* mainMenuScreen);
+        static void requestLobbyIdInput(Drawable* mainMenuScreen);
+
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        //   Обработчики событий
+        //////////////////////////////////////////////////////////////////////////////////////////////
 
         static void quitGameClicked(Drawable* mainMenuScreen);
 
@@ -20,10 +32,16 @@ namespace awd::game {
         static void createLobbyNextClicked(Drawable* dialog);
         static void createLobbyBackClicked(Drawable* dialog);
 
-    public:
-        void dialogOpened(Drawable* mainMenuScreen, id_type dialogId) override;
+        static void joinLobbyClicked(Drawable* mainMenuScreen);
+        static void joinLobbyNextClicked(Drawable* dialog);
+        static void joinLobbyBackClicked(Drawable* dialog);
 
-        void dialogClosed(Drawable* mainMenuScreen, id_type dialogId) override;
+        static void errorOkClicked(Drawable* dialog);
+
+    public:
+        void dialogOpened(Drawable* parentScreen, id_type dialogId) override;
+
+        void dialogClosed(Drawable* parentScreen, id_type dialogId) override;
 
         void buttonClicked(Drawable* buttonParent, id_type buttonId) override;
 
@@ -31,6 +49,7 @@ namespace awd::game {
                              const std::wstring& newContents) override;
 
         std::wstring getEnteredPlayerName() const;
+        std::wstring getEnteredLobbyId() const;
     };
 
 }

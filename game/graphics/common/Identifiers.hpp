@@ -1,4 +1,6 @@
 #pragma once
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "bugprone-macro-parentheses"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -49,19 +51,26 @@ typedef unsigned long long id_type;
 #define ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY        ID_SCREEN_MAIN_MENU  \
                                                        +  3  *  ID_BUTTON
 
-// MainMenu.CreateLobby
+// MainMenu.CreateLobby + MainMenu.JoinLobby
 
-#define ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY                               ID_SCREEN_MAIN_MENU  \
-                                                                              +  1  *  ID_DIALOG
+#define ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT                    ID_SCREEN_MAIN_MENU  \
+                                                                 +  1  *  ID_DIALOG
 
-#define ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_TEXT_FIELD_PLAYER_NAME        ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY  \
-                                                                              +  1  *  ID_TEXT_FIELD
+#define ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_TEXT_FIELD         ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT  \
+                                                                 +  1  *  ID_TEXT_FIELD
 
-#define ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_NEXT                   ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY  \
+#define ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_NEXT        ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT  \
+                                                                 +  1  *  ID_BUTTON
+
+#define ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_BACK        ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT  \
+                                                                 +  2  *  ID_BUTTON
+
+// MainMenu.Error
+
+#define ID_SCREEN_MAIN_MENU_DIALOG_ERROR                                      ID_SCREEN_MAIN_MENU  \
+                                                                              +  2  *  ID_DIALOG
+
+#define ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK                            ID_SCREEN_MAIN_MENU_DIALOG_ERROR  \
                                                                               +  1  *  ID_BUTTON
 
-#define ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY_BUTTON_BACK                   ID_SCREEN_MAIN_MENU_DIALOG_CREATE_LOBBY  \
-                                                                              +  2  *  ID_BUTTON
-
-
-
+#pragma clang diagnostic pop

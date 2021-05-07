@@ -69,15 +69,9 @@ namespace awd::game {
                 currentWord += ch;
         }
 
-        // Для корректной, упрощённой обработки строк (последнее слово обязано заканчиваться на '\n').
-        if (!words.empty()) {
-            std::wstring repl = words[words.size() - 1];
-
-            if (repl[repl.length() - 1] != L'\n') {
-                words.pop_back();
-                words.push_back(repl + L'\n');
-            }
-        }
+        // Для корректной, упрощённой обработки строк (костыль, короче).
+        if (!words.empty())
+            words.emplace_back(L"\n");
 
         // Разбиваем слова на строки (с учётом символов '\n' и
         // переноса строки при превышении максимальной длины).

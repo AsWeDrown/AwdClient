@@ -41,31 +41,21 @@ namespace awd::game {
         auto btnQuitGame = std::make_shared<TextButton>(
                 ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME, renderScale, window,
                 L"Выйти из игры", bX, bY, bWidth, bHeight, listener);
-        addButton(btnQuitGame);
+        addComponent(btnQuitGame);
 
         // JoinLobby
         bY -= bMargin + bHeight;
         auto btnJoinLobby = std::make_shared<TextButton>(
                 ID_SCREEN_MAIN_MENU_BUTTON_JOIN_LOBBY, renderScale, window,
                 L"Присоединиться к комнате", bX, bY, bWidth, bHeight, listener);
-        addButton(btnJoinLobby);
+        addComponent(btnJoinLobby);
 
         // CreateLobby
         bY -= bMargin + bHeight;
         auto btnCreateLobby = std::make_shared<TextButton>(
                 ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY, renderScale, window,
                 L"Создать комнату", bX, bY, bWidth, bHeight, listener);
-        addButton(btnCreateLobby);
-    }
-
-    void MainMenuScreen::addButton(const std::shared_ptr<Drawable>& button) {
-        addChild(button);
-        buttonsIds.push_back(button->getId());
-    }
-
-    void MainMenuScreen::setButtonsEnabled(bool enabled) {
-        for (id_type buttonId : buttonsIds)
-            getChildById(buttonId)->setEnabled(enabled);
+        addComponent(btnCreateLobby);
     }
 
 
@@ -77,7 +67,7 @@ namespace awd::game {
 
     MainMenuScreen::MainMenuScreen(float renderScale,
                                    const std::shared_ptr<sf::RenderWindow>& window)
-                                   : Drawable(ID_SCREEN_MAIN_MENU, renderScale, window) {
+                                   : Screen(ID_SCREEN_MAIN_MENU, renderScale, window) {
         x = 0;
         y = 0;
         width = window->getSize().x;
@@ -85,19 +75,16 @@ namespace awd::game {
 
         addChild(std::make_shared<WaterBackground>(
                 ID_SCREEN_MAIN_MENU_WATER_BACKGROUND, renderScale, window));
+
         createButtons();
     }
 
     void MainMenuScreen::update() {
-        // Выключаем все кнопки меню, если открыто окно (Dialog).
-        setButtonsEnabled(!dialogOpen);
-
-        // Обновляем все дочерние компоненты (в т.ч. кнопки) только после проверки условий выше.
-        Drawable::update();
+        Screen::update();
     }
 
     void MainMenuScreen::draw() {
-        Drawable::draw();
+        Screen::draw();
 
         // Логотип.
         unsigned int logoFontSize   = LOGO_FONT_SIZE         * renderScale;
@@ -123,16 +110,16 @@ namespace awd::game {
         window->draw(logo);
     }
 
-    bool MainMenuScreen::isDialogOpen() const {
-        return dialogOpen;
-    }
-
-    void MainMenuScreen::setDialogOpen(bool open) {
-        this->dialogOpen = open;
-    }
-
     std::shared_ptr<MainMenuScreenListener> MainMenuScreen::getListener() const {
         return listener;
+    }
+
+    WorkflowState MainMenuScreen::getWorkflowState() const {
+        return workflowState;
+    }
+
+    void MainMenuScreen::setWorkflowState(WorkflowState state) {
+        this->workflowState = state;
     }
 
 }

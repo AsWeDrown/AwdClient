@@ -5,13 +5,16 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "E:/CLionProjects/AsWeDrown/AwdClient/game/Game.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/Game.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/BasicScreenListener.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/BasicScreenListener.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/Button.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/ColorSet.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ErrorDialog.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/FontManager.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj"

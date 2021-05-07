@@ -147,6 +147,12 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/BasicScreenListener.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/BasicScreenListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -177,6 +183,12 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ErrorDialog.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ErrorDialog.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/FontManager.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -196,6 +208,12 @@
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp">

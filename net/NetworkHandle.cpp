@@ -44,7 +44,7 @@ namespace awd::net {
         uint32_t bitNum = 1; // начинаем с 1, т.к. 0 - это этот с номером ack; нас интересуют те, что были до него
 
         printf("** TEMP DEBUG ** Packet received: #%d (current remote seq: #%d), ack: %d, ack bitfield: %s\n",
-               sequence, ack, std::bitset< 32 >( ackBitfield ).to_string().c_str());
+               sequence, remoteSequenceNumber, ack, std::bitset< 32 >( ackBitfield ).to_string().c_str());
 
         while (ackBitfield > 0) {
             bool bitSet = (ackBitfield & 1) == 1;
@@ -60,8 +60,14 @@ namespace awd::net {
             bitNum++;
         }
 
-        // Другая сторона подтвердила получение от нас пакета с номером ack.
-        packetDelivered(ack);
+        // Проверяем подтверждение другой стороной получения от нас отправленных ранее пакетов.
+        // Если sequence = ack = 0, то, скорее всего, это первый пакет, который мы получили, и
+        // без этой проверки (if) можно сделать ложный вывод о том, что другая сторона подтвердила
+        // получение от нас пакета с sequence number #0. При этом в данном случае не страшно "потерять"
+        // это подтверждение, т.к. мы всё равно получим его в последующих пакетах в ack bitfield.
+        if (sequence != 0 || ack != 0)
+            // Другая сторона подтвердила получение от нас пакета с номером ack.
+            packetDelivered(ack);
 
         if (receivedQueue.size() == PACKETS_QUEUE_SIZE)
             // Удаляем самый "старый" пакет из очереди полученных.
@@ -148,7 +154,9 @@ namespace awd::net {
     }
 
     NetworkHandle::NetworkHandle(const std::shared_ptr<UdpClient>& udpClient) {
+        std::wcerr << L"NetworkHandle <init> : udpClient null = " << (udpClient == nullptr) << std::endl;
         this->udpClient = udpClient;
+        std::wcerr << L"NetworkHandle <init> : this->udpClient null = " << (this->udpClient == nullptr) << std::endl;
     }
 
     float NetworkHandle::getPacketLossPercent() const {
@@ -168,10 +176,10 @@ namespace awd::net {
 
     bool NetworkHandle::sendPacket(bool ensureDelivered,
                                    const std::shared_ptr<google::protobuf::Message>& packet) {
-        if (!udpClient->isConnected()) {
-            std::wcerr << L"Cannot send a packet while not connected." << std::endl;
-            return false; // ошибка ("соединение" не установлено)
-        }
+//        if (!udpClient->isConnected()) {
+//            std::wcerr << L"Cannot send a packet while not connected." << std::endl;
+//            return false; // ошибка ("соединение" не установлено)
+//        }
 
         std::unique_lock<std::mutex> lock(mutex);
 
@@ -183,10 +191,12 @@ namespace awd::net {
                                           calculateAckBitfield()
             );
 
-            printf("** TEMP DEBUG **\nSending packet #%d, acking #%d",
+            printf("** TEMP DEBUG ** Sending packet #%d, acking #%d\n",
                    localSequenceNumber, remoteSequenceNumber);
 
             sf::IpAddress serverAddr = udpClient->getServerAddrStr();
+
+            std::wcerr << L"sending packet; udpClient null = " << (udpClient == nullptr ) << std::endl;
 
             // Отправляем пакет по UDP.
             if (udpClient->getUdpSocket()->send(

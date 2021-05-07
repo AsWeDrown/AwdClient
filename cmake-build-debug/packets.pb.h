@@ -999,10 +999,11 @@ class JoinLobbyResponse PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOtherPlayersFieldNumber = 2,
+    kOtherPlayersFieldNumber = 3,
     kPlayerIdFieldNumber = 1,
+    kHostIdFieldNumber = 2,
   };
-  // map<int32, string> other_players = 2;
+  // map<int32, string> other_players = 3;
   int other_players_size() const;
   private:
   int _internal_other_players_size() const;
@@ -1028,6 +1029,15 @@ class JoinLobbyResponse PROTOBUF_FINAL :
   void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // uint32 host_id = 2;
+  void clear_host_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 host_id() const;
+  void set_host_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_host_id() const;
+  void _internal_set_host_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:awd.net.JoinLobbyResponse)
  private:
   class _Internal;
@@ -1041,6 +1051,7 @@ class JoinLobbyResponse PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> other_players_;
   ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 host_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -1911,15 +1922,25 @@ class Ping PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kServerTimeFieldNumber = 1,
+    kTestIdFieldNumber = 1,
+    kLastLatencyFieldNumber = 2,
   };
-  // uint64 server_time = 1;
-  void clear_server_time();
-  ::PROTOBUF_NAMESPACE_ID::uint64 server_time() const;
-  void set_server_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  // uint32 test_id = 1;
+  void clear_test_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 test_id() const;
+  void set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_server_time() const;
-  void _internal_set_server_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_test_id() const;
+  void _internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 last_latency = 2;
+  void clear_last_latency();
+  ::PROTOBUF_NAMESPACE_ID::uint32 last_latency() const;
+  void set_last_latency(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_last_latency() const;
+  void _internal_set_last_latency(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:awd.net.Ping)
@@ -1929,7 +1950,8 @@ class Ping PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 server_time_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 test_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 last_latency_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -2048,15 +2070,15 @@ class Pong PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kClientTimeFieldNumber = 1,
+    kTestIdFieldNumber = 1,
   };
-  // uint64 client_time = 1;
-  void clear_client_time();
-  ::PROTOBUF_NAMESPACE_ID::uint64 client_time() const;
-  void set_client_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  // uint32 test_id = 1;
+  void clear_test_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 test_id() const;
+  void set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_client_time() const;
-  void _internal_set_client_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_test_id() const;
+  void _internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:awd.net.Pong)
@@ -2066,7 +2088,7 @@ class Pong PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 client_time_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 test_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -2237,13 +2259,13 @@ class PacketWrapper PROTOBUF_FINAL :
   void _internal_set_ack(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 ack_bitfield = 3;
+  // uint64 ack_bitfield = 3;
   void clear_ack_bitfield();
-  ::PROTOBUF_NAMESPACE_ID::uint32 ack_bitfield() const;
-  void set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint64 ack_bitfield() const;
+  void set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_ack_bitfield() const;
-  void _internal_set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_ack_bitfield() const;
+  void _internal_set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // .awd.net.HandshakeRequest handshake_request = 10;
@@ -2507,7 +2529,7 @@ class PacketWrapper PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::uint32 sequence_;
   ::PROTOBUF_NAMESPACE_ID::uint32 ack_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 ack_bitfield_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 ack_bitfield_;
   union PacketUnion {
     constexpr PacketUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -2805,7 +2827,27 @@ inline void JoinLobbyResponse::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 valu
   // @@protoc_insertion_point(field_set:awd.net.JoinLobbyResponse.player_id)
 }
 
-// map<int32, string> other_players = 2;
+// uint32 host_id = 2;
+inline void JoinLobbyResponse::clear_host_id() {
+  host_id_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 JoinLobbyResponse::_internal_host_id() const {
+  return host_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 JoinLobbyResponse::host_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.JoinLobbyResponse.host_id)
+  return _internal_host_id();
+}
+inline void JoinLobbyResponse::_internal_set_host_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  host_id_ = value;
+}
+inline void JoinLobbyResponse::set_host_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_host_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.JoinLobbyResponse.host_id)
+}
+
+// map<int32, string> other_players = 3;
 inline int JoinLobbyResponse::_internal_other_players_size() const {
   return other_players_.size();
 }
@@ -3009,48 +3051,68 @@ inline void KeepAlive::set_test_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
 
 // Ping
 
-// uint64 server_time = 1;
-inline void Ping::clear_server_time() {
-  server_time_ = PROTOBUF_ULONGLONG(0);
+// uint32 test_id = 1;
+inline void Ping::clear_test_id() {
+  test_id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 Ping::_internal_server_time() const {
-  return server_time_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::_internal_test_id() const {
+  return test_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 Ping::server_time() const {
-  // @@protoc_insertion_point(field_get:awd.net.Ping.server_time)
-  return _internal_server_time();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::test_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.Ping.test_id)
+  return _internal_test_id();
 }
-inline void Ping::_internal_set_server_time(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void Ping::_internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  server_time_ = value;
+  test_id_ = value;
 }
-inline void Ping::set_server_time(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_server_time(value);
-  // @@protoc_insertion_point(field_set:awd.net.Ping.server_time)
+inline void Ping::set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_test_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.Ping.test_id)
+}
+
+// uint32 last_latency = 2;
+inline void Ping::clear_last_latency() {
+  last_latency_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::_internal_last_latency() const {
+  return last_latency_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::last_latency() const {
+  // @@protoc_insertion_point(field_get:awd.net.Ping.last_latency)
+  return _internal_last_latency();
+}
+inline void Ping::_internal_set_last_latency(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  last_latency_ = value;
+}
+inline void Ping::set_last_latency(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_last_latency(value);
+  // @@protoc_insertion_point(field_set:awd.net.Ping.last_latency)
 }
 
 // -------------------------------------------------------------------
 
 // Pong
 
-// uint64 client_time = 1;
-inline void Pong::clear_client_time() {
-  client_time_ = PROTOBUF_ULONGLONG(0);
+// uint32 test_id = 1;
+inline void Pong::clear_test_id() {
+  test_id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 Pong::_internal_client_time() const {
-  return client_time_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Pong::_internal_test_id() const {
+  return test_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 Pong::client_time() const {
-  // @@protoc_insertion_point(field_get:awd.net.Pong.client_time)
-  return _internal_client_time();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Pong::test_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.Pong.test_id)
+  return _internal_test_id();
 }
-inline void Pong::_internal_set_client_time(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void Pong::_internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  client_time_ = value;
+  test_id_ = value;
 }
-inline void Pong::set_client_time(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_client_time(value);
-  // @@protoc_insertion_point(field_set:awd.net.Pong.client_time)
+inline void Pong::set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_test_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.Pong.test_id)
 }
 
 // -------------------------------------------------------------------
@@ -3097,22 +3159,22 @@ inline void PacketWrapper::set_ack(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:awd.net.PacketWrapper.ack)
 }
 
-// uint32 ack_bitfield = 3;
+// uint64 ack_bitfield = 3;
 inline void PacketWrapper::clear_ack_bitfield() {
-  ack_bitfield_ = 0u;
+  ack_bitfield_ = PROTOBUF_ULONGLONG(0);
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 PacketWrapper::_internal_ack_bitfield() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 PacketWrapper::_internal_ack_bitfield() const {
   return ack_bitfield_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 PacketWrapper::ack_bitfield() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 PacketWrapper::ack_bitfield() const {
   // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.ack_bitfield)
   return _internal_ack_bitfield();
 }
-inline void PacketWrapper::_internal_set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void PacketWrapper::_internal_set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   
   ack_bitfield_ = value;
 }
-inline void PacketWrapper::set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void PacketWrapper::set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_ack_bitfield(value);
   // @@protoc_insertion_point(field_set:awd.net.PacketWrapper.ack_bitfield)
 }

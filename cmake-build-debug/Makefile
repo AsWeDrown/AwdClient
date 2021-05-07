@@ -322,6 +322,33 @@ game/graphics/common/Drawable.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.s
 .PHONY : game/graphics/common/Drawable.cpp.s
 
+game/graphics/common/ErrorDialog.obj: game/graphics/common/ErrorDialog.cpp.obj
+
+.PHONY : game/graphics/common/ErrorDialog.obj
+
+# target to build an object file
+game/graphics/common/ErrorDialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj
+.PHONY : game/graphics/common/ErrorDialog.cpp.obj
+
+game/graphics/common/ErrorDialog.i: game/graphics/common/ErrorDialog.cpp.i
+
+.PHONY : game/graphics/common/ErrorDialog.i
+
+# target to preprocess a source file
+game/graphics/common/ErrorDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.i
+.PHONY : game/graphics/common/ErrorDialog.cpp.i
+
+game/graphics/common/ErrorDialog.s: game/graphics/common/ErrorDialog.cpp.s
+
+.PHONY : game/graphics/common/ErrorDialog.s
+
+# target to generate assembly for a file
+game/graphics/common/ErrorDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.s
+.PHONY : game/graphics/common/ErrorDialog.cpp.s
+
 game/graphics/common/FontManager.obj: game/graphics/common/FontManager.cpp.obj
 
 .PHONY : game/graphics/common/FontManager.obj
@@ -402,6 +429,33 @@ game/graphics/common/RichText.s: game/graphics/common/RichText.cpp.s
 game/graphics/common/RichText.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.s
 .PHONY : game/graphics/common/RichText.cpp.s
+
+game/graphics/common/Screen.obj: game/graphics/common/Screen.cpp.obj
+
+.PHONY : game/graphics/common/Screen.obj
+
+# target to build an object file
+game/graphics/common/Screen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj
+.PHONY : game/graphics/common/Screen.cpp.obj
+
+game/graphics/common/Screen.i: game/graphics/common/Screen.cpp.i
+
+.PHONY : game/graphics/common/Screen.i
+
+# target to preprocess a source file
+game/graphics/common/Screen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.i
+.PHONY : game/graphics/common/Screen.cpp.i
+
+game/graphics/common/Screen.s: game/graphics/common/Screen.cpp.s
+
+.PHONY : game/graphics/common/Screen.s
+
+# target to generate assembly for a file
+game/graphics/common/Screen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.s
+.PHONY : game/graphics/common/Screen.cpp.s
 
 game/graphics/common/TextButton.obj: game/graphics/common/TextButton.cpp.obj
 
@@ -1025,6 +1079,9 @@ help:
 	@echo ... game/graphics/common/Drawable.obj
 	@echo ... game/graphics/common/Drawable.i
 	@echo ... game/graphics/common/Drawable.s
+	@echo ... game/graphics/common/ErrorDialog.obj
+	@echo ... game/graphics/common/ErrorDialog.i
+	@echo ... game/graphics/common/ErrorDialog.s
 	@echo ... game/graphics/common/FontManager.obj
 	@echo ... game/graphics/common/FontManager.i
 	@echo ... game/graphics/common/FontManager.s
@@ -1034,6 +1091,9 @@ help:
 	@echo ... game/graphics/common/RichText.obj
 	@echo ... game/graphics/common/RichText.i
 	@echo ... game/graphics/common/RichText.s
+	@echo ... game/graphics/common/Screen.obj
+	@echo ... game/graphics/common/Screen.i
+	@echo ... game/graphics/common/Screen.s
 	@echo ... game/graphics/common/TextButton.obj
 	@echo ... game/graphics/common/TextButton.i
 	@echo ... game/graphics/common/TextButton.s

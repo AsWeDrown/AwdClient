@@ -1,7 +1,6 @@
 #pragma once
 
 
-#include "../common/Drawable.hpp"
 #include "Button.hpp"
 #include "DialogListener.hpp"
 
@@ -27,6 +26,7 @@ namespace awd::game {
                const std::shared_ptr<sf::RenderWindow>& window,
                const std::shared_ptr<DialogListener>& listener);
 
+        void onRegister() override;
         void keyPressed(const sf::Event::KeyEvent& event) override;
         void mousePressed(const sf::Event::MouseButtonEvent& event) override;
         void update() override;
@@ -34,7 +34,6 @@ namespace awd::game {
 
         void show();
         void hide();
-        DialogState getState() const;
     };
 
 }
