@@ -376,6 +376,33 @@ game/graphics/common/FontManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.s
 .PHONY : game/graphics/common/FontManager.cpp.s
 
+game/graphics/common/LoadingOverlay.obj: game/graphics/common/LoadingOverlay.cpp.obj
+
+.PHONY : game/graphics/common/LoadingOverlay.obj
+
+# target to build an object file
+game/graphics/common/LoadingOverlay.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj
+.PHONY : game/graphics/common/LoadingOverlay.cpp.obj
+
+game/graphics/common/LoadingOverlay.i: game/graphics/common/LoadingOverlay.cpp.i
+
+.PHONY : game/graphics/common/LoadingOverlay.i
+
+# target to preprocess a source file
+game/graphics/common/LoadingOverlay.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.i
+.PHONY : game/graphics/common/LoadingOverlay.cpp.i
+
+game/graphics/common/LoadingOverlay.s: game/graphics/common/LoadingOverlay.cpp.s
+
+.PHONY : game/graphics/common/LoadingOverlay.s
+
+# target to generate assembly for a file
+game/graphics/common/LoadingOverlay.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.s
+.PHONY : game/graphics/common/LoadingOverlay.cpp.s
+
 game/graphics/common/RectWrapper.obj: game/graphics/common/RectWrapper.cpp.obj
 
 .PHONY : game/graphics/common/RectWrapper.obj
@@ -591,6 +618,60 @@ game/graphics/common/WaterBackground.s: game/graphics/common/WaterBackground.cpp
 game/graphics/common/WaterBackground.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.s
 .PHONY : game/graphics/common/WaterBackground.cpp.s
+
+game/graphics/lobby/LobbyScreen.obj: game/graphics/lobby/LobbyScreen.cpp.obj
+
+.PHONY : game/graphics/lobby/LobbyScreen.obj
+
+# target to build an object file
+game/graphics/lobby/LobbyScreen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj
+.PHONY : game/graphics/lobby/LobbyScreen.cpp.obj
+
+game/graphics/lobby/LobbyScreen.i: game/graphics/lobby/LobbyScreen.cpp.i
+
+.PHONY : game/graphics/lobby/LobbyScreen.i
+
+# target to preprocess a source file
+game/graphics/lobby/LobbyScreen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.i
+.PHONY : game/graphics/lobby/LobbyScreen.cpp.i
+
+game/graphics/lobby/LobbyScreen.s: game/graphics/lobby/LobbyScreen.cpp.s
+
+.PHONY : game/graphics/lobby/LobbyScreen.s
+
+# target to generate assembly for a file
+game/graphics/lobby/LobbyScreen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.s
+.PHONY : game/graphics/lobby/LobbyScreen.cpp.s
+
+game/graphics/lobby/LobbyScreenListener.obj: game/graphics/lobby/LobbyScreenListener.cpp.obj
+
+.PHONY : game/graphics/lobby/LobbyScreenListener.obj
+
+# target to build an object file
+game/graphics/lobby/LobbyScreenListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj
+.PHONY : game/graphics/lobby/LobbyScreenListener.cpp.obj
+
+game/graphics/lobby/LobbyScreenListener.i: game/graphics/lobby/LobbyScreenListener.cpp.i
+
+.PHONY : game/graphics/lobby/LobbyScreenListener.i
+
+# target to preprocess a source file
+game/graphics/lobby/LobbyScreenListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.i
+.PHONY : game/graphics/lobby/LobbyScreenListener.cpp.i
+
+game/graphics/lobby/LobbyScreenListener.s: game/graphics/lobby/LobbyScreenListener.cpp.s
+
+.PHONY : game/graphics/lobby/LobbyScreenListener.s
+
+# target to generate assembly for a file
+game/graphics/lobby/LobbyScreenListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.s
+.PHONY : game/graphics/lobby/LobbyScreenListener.cpp.s
 
 game/graphics/mainmenu/MainMenuScreen.obj: game/graphics/mainmenu/MainMenuScreen.cpp.obj
 
@@ -1085,6 +1166,9 @@ help:
 	@echo ... game/graphics/common/FontManager.obj
 	@echo ... game/graphics/common/FontManager.i
 	@echo ... game/graphics/common/FontManager.s
+	@echo ... game/graphics/common/LoadingOverlay.obj
+	@echo ... game/graphics/common/LoadingOverlay.i
+	@echo ... game/graphics/common/LoadingOverlay.s
 	@echo ... game/graphics/common/RectWrapper.obj
 	@echo ... game/graphics/common/RectWrapper.i
 	@echo ... game/graphics/common/RectWrapper.s
@@ -1109,6 +1193,12 @@ help:
 	@echo ... game/graphics/common/WaterBackground.obj
 	@echo ... game/graphics/common/WaterBackground.i
 	@echo ... game/graphics/common/WaterBackground.s
+	@echo ... game/graphics/lobby/LobbyScreen.obj
+	@echo ... game/graphics/lobby/LobbyScreen.i
+	@echo ... game/graphics/lobby/LobbyScreen.s
+	@echo ... game/graphics/lobby/LobbyScreenListener.obj
+	@echo ... game/graphics/lobby/LobbyScreenListener.i
+	@echo ... game/graphics/lobby/LobbyScreenListener.s
 	@echo ... game/graphics/mainmenu/MainMenuScreen.obj
 	@echo ... game/graphics/mainmenu/MainMenuScreen.i
 	@echo ... game/graphics/mainmenu/MainMenuScreen.s

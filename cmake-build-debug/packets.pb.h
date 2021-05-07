@@ -49,7 +49,7 @@ struct TableStruct_packets_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[16]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[17]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -77,9 +77,12 @@ extern JoinLobbyRequestDefaultTypeInternal _JoinLobbyRequest_default_instance_;
 class JoinLobbyResponse;
 struct JoinLobbyResponseDefaultTypeInternal;
 extern JoinLobbyResponseDefaultTypeInternal _JoinLobbyResponse_default_instance_;
-class JoinLobbyResponse_OtherPlayersEntry_DoNotUse;
-struct JoinLobbyResponse_OtherPlayersEntry_DoNotUseDefaultTypeInternal;
-extern JoinLobbyResponse_OtherPlayersEntry_DoNotUseDefaultTypeInternal _JoinLobbyResponse_OtherPlayersEntry_DoNotUse_default_instance_;
+class JoinLobbyResponse_OthersCharactersEntry_DoNotUse;
+struct JoinLobbyResponse_OthersCharactersEntry_DoNotUseDefaultTypeInternal;
+extern JoinLobbyResponse_OthersCharactersEntry_DoNotUseDefaultTypeInternal _JoinLobbyResponse_OthersCharactersEntry_DoNotUse_default_instance_;
+class JoinLobbyResponse_OthersNamesEntry_DoNotUse;
+struct JoinLobbyResponse_OthersNamesEntry_DoNotUseDefaultTypeInternal;
+extern JoinLobbyResponse_OthersNamesEntry_DoNotUseDefaultTypeInternal _JoinLobbyResponse_OthersNamesEntry_DoNotUse_default_instance_;
 class KeepAlive;
 struct KeepAliveDefaultTypeInternal;
 extern KeepAliveDefaultTypeInternal _KeepAlive_default_instance_;
@@ -116,7 +119,8 @@ template<> ::awd::net::HandshakeRequest* Arena::CreateMaybeMessage<::awd::net::H
 template<> ::awd::net::HandshakeResponse* Arena::CreateMaybeMessage<::awd::net::HandshakeResponse>(Arena*);
 template<> ::awd::net::JoinLobbyRequest* Arena::CreateMaybeMessage<::awd::net::JoinLobbyRequest>(Arena*);
 template<> ::awd::net::JoinLobbyResponse* Arena::CreateMaybeMessage<::awd::net::JoinLobbyResponse>(Arena*);
-template<> ::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse>(Arena*);
+template<> ::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse>(Arena*);
+template<> ::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse>(Arena*);
 template<> ::awd::net::KeepAlive* Arena::CreateMaybeMessage<::awd::net::KeepAlive>(Arena*);
 template<> ::awd::net::KickedFromLobby* Arena::CreateMaybeMessage<::awd::net::KickedFromLobby>(Arena*);
 template<> ::awd::net::LeaveLobbyRequest* Arena::CreateMaybeMessage<::awd::net::LeaveLobbyRequest>(Arena*);
@@ -665,6 +669,7 @@ class CreateLobbyResponse PROTOBUF_FINAL :
   enum : int {
     kLobbyIdFieldNumber = 1,
     kPlayerIdFieldNumber = 2,
+    kCharacterFieldNumber = 3,
   };
   // sint32 lobby_id = 1;
   void clear_lobby_id();
@@ -684,6 +689,15 @@ class CreateLobbyResponse PROTOBUF_FINAL :
   void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // uint32 character = 3;
+  void clear_character();
+  ::PROTOBUF_NAMESPACE_ID::uint32 character() const;
+  void set_character(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_character() const;
+  void _internal_set_character(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:awd.net.CreateLobbyResponse)
  private:
   class _Internal;
@@ -693,6 +707,7 @@ class CreateLobbyResponse PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::int32 lobby_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 character_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -853,24 +868,24 @@ class JoinLobbyRequest PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class JoinLobbyResponse_OtherPlayersEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<JoinLobbyResponse_OtherPlayersEntry_DoNotUse, 
-    ::PROTOBUF_NAMESPACE_ID::int32, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
+class JoinLobbyResponse_OthersNamesEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<JoinLobbyResponse_OthersNamesEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<JoinLobbyResponse_OtherPlayersEntry_DoNotUse, 
-    ::PROTOBUF_NAMESPACE_ID::int32, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<JoinLobbyResponse_OthersNamesEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  JoinLobbyResponse_OtherPlayersEntry_DoNotUse();
-  explicit constexpr JoinLobbyResponse_OtherPlayersEntry_DoNotUse(
+  JoinLobbyResponse_OthersNamesEntry_DoNotUse();
+  explicit constexpr JoinLobbyResponse_OthersNamesEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit JoinLobbyResponse_OtherPlayersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const JoinLobbyResponse_OtherPlayersEntry_DoNotUse& other);
-  static const JoinLobbyResponse_OtherPlayersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const JoinLobbyResponse_OtherPlayersEntry_DoNotUse*>(&_JoinLobbyResponse_OtherPlayersEntry_DoNotUse_default_instance_); }
+  explicit JoinLobbyResponse_OthersNamesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const JoinLobbyResponse_OthersNamesEntry_DoNotUse& other);
+  static const JoinLobbyResponse_OthersNamesEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const JoinLobbyResponse_OthersNamesEntry_DoNotUse*>(&_JoinLobbyResponse_OthersNamesEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(void*) { return true; }
   static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "awd.net.JoinLobbyResponse.OtherPlayersEntry.value");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "awd.net.JoinLobbyResponse.OthersNamesEntry.value");
  }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
@@ -878,6 +893,36 @@ public:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
     return ::descriptor_table_packets_2eproto.file_level_metadata[5];
+  }
+
+  public:
+};
+
+// -------------------------------------------------------------------
+
+class JoinLobbyResponse_OthersCharactersEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<JoinLobbyResponse_OthersCharactersEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<JoinLobbyResponse_OthersCharactersEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32> SuperType;
+  JoinLobbyResponse_OthersCharactersEntry_DoNotUse();
+  explicit constexpr JoinLobbyResponse_OthersCharactersEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit JoinLobbyResponse_OthersCharactersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const JoinLobbyResponse_OthersCharactersEntry_DoNotUse& other);
+  static const JoinLobbyResponse_OthersCharactersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const JoinLobbyResponse_OthersCharactersEntry_DoNotUse*>(&_JoinLobbyResponse_OthersCharactersEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(void*) { return true; }
+  static bool ValidateValue(void*) { return true; }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
+    return ::descriptor_table_packets_2eproto.file_level_metadata[6];
   }
 
   public:
@@ -928,7 +973,7 @@ class JoinLobbyResponse PROTOBUF_FINAL :
                &_JoinLobbyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(JoinLobbyResponse& a, JoinLobbyResponse& b) {
     a.Swap(&b);
@@ -999,26 +1044,45 @@ class JoinLobbyResponse PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOtherPlayersFieldNumber = 3,
+    kOthersNamesFieldNumber = 4,
+    kOthersCharactersFieldNumber = 5,
     kPlayerIdFieldNumber = 1,
-    kHostIdFieldNumber = 2,
+    kCharacterFieldNumber = 2,
+    kHostIdFieldNumber = 3,
   };
-  // map<int32, string> other_players = 3;
-  int other_players_size() const;
+  // map<uint32, string> others_names = 4;
+  int others_names_size() const;
   private:
-  int _internal_other_players_size() const;
+  int _internal_others_names_size() const;
   public:
-  void clear_other_players();
+  void clear_others_names();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >&
-      _internal_other_players() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >*
-      _internal_mutable_other_players();
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+      _internal_others_names() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+      _internal_mutable_others_names();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >&
-      other_players() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >*
-      mutable_other_players();
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+      others_names() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+      mutable_others_names();
+
+  // map<uint32, uint32> others_characters = 5;
+  int others_characters_size() const;
+  private:
+  int _internal_others_characters_size() const;
+  public:
+  void clear_others_characters();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_others_characters() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_others_characters();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      others_characters() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_others_characters();
 
   // sint32 player_id = 1;
   void clear_player_id();
@@ -1029,7 +1093,16 @@ class JoinLobbyResponse PROTOBUF_FINAL :
   void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // uint32 host_id = 2;
+  // uint32 character = 2;
+  void clear_character();
+  ::PROTOBUF_NAMESPACE_ID::uint32 character() const;
+  void set_character(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_character() const;
+  void _internal_set_character(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 host_id = 3;
   void clear_host_id();
   ::PROTOBUF_NAMESPACE_ID::uint32 host_id() const;
   void set_host_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -1046,11 +1119,17 @@ class JoinLobbyResponse PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-      JoinLobbyResponse_OtherPlayersEntry_DoNotUse,
-      ::PROTOBUF_NAMESPACE_ID::int32, std::string,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT32,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> other_players_;
+      JoinLobbyResponse_OthersNamesEntry_DoNotUse,
+      ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> others_names_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      JoinLobbyResponse_OthersCharactersEntry_DoNotUse,
+      ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32> others_characters_;
   ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 character_;
   ::PROTOBUF_NAMESPACE_ID::uint32 host_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
@@ -1100,7 +1179,7 @@ class LeaveLobbyRequest PROTOBUF_FINAL :
                &_LeaveLobbyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(LeaveLobbyRequest& a, LeaveLobbyRequest& b) {
     a.Swap(&b);
@@ -1248,7 +1327,7 @@ class LeaveLobbyResponse PROTOBUF_FINAL :
                &_LeaveLobbyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(LeaveLobbyResponse& a, LeaveLobbyResponse& b) {
     a.Swap(&b);
@@ -1385,7 +1464,7 @@ class KickedFromLobby PROTOBUF_FINAL :
                &_KickedFromLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(KickedFromLobby& a, KickedFromLobby& b) {
     a.Swap(&b);
@@ -1503,7 +1582,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
-    return ::descriptor_table_packets_2eproto.file_level_metadata[10];
+    return ::descriptor_table_packets_2eproto.file_level_metadata[11];
   }
 
   public:
@@ -1554,7 +1633,7 @@ class UpdatedMembersList PROTOBUF_FINAL :
                &_UpdatedMembersList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(UpdatedMembersList& a, UpdatedMembersList& b) {
     a.Swap(&b);
@@ -1704,7 +1783,7 @@ class KeepAlive PROTOBUF_FINAL :
                &_KeepAlive_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(KeepAlive& a, KeepAlive& b) {
     a.Swap(&b);
@@ -1852,7 +1931,7 @@ class Ping PROTOBUF_FINAL :
                &_Ping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(Ping& a, Ping& b) {
     a.Swap(&b);
@@ -2000,7 +2079,7 @@ class Pong PROTOBUF_FINAL :
                &_Pong_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(Pong& a, Pong& b) {
     a.Swap(&b);
@@ -2154,7 +2233,7 @@ class PacketWrapper PROTOBUF_FINAL :
                &_PacketWrapper_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(PacketWrapper& a, PacketWrapper& b) {
     a.Swap(&b);
@@ -2716,6 +2795,26 @@ inline void CreateLobbyResponse::set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 v
   // @@protoc_insertion_point(field_set:awd.net.CreateLobbyResponse.player_id)
 }
 
+// uint32 character = 3;
+inline void CreateLobbyResponse::clear_character() {
+  character_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CreateLobbyResponse::_internal_character() const {
+  return character_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CreateLobbyResponse::character() const {
+  // @@protoc_insertion_point(field_get:awd.net.CreateLobbyResponse.character)
+  return _internal_character();
+}
+inline void CreateLobbyResponse::_internal_set_character(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  character_ = value;
+}
+inline void CreateLobbyResponse::set_character(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_character(value);
+  // @@protoc_insertion_point(field_set:awd.net.CreateLobbyResponse.character)
+}
+
 // -------------------------------------------------------------------
 
 // JoinLobbyRequest
@@ -2805,6 +2904,8 @@ inline void JoinLobbyRequest::set_allocated_player_name(std::string* player_name
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // JoinLobbyResponse
 
 // sint32 player_id = 1;
@@ -2827,7 +2928,27 @@ inline void JoinLobbyResponse::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 valu
   // @@protoc_insertion_point(field_set:awd.net.JoinLobbyResponse.player_id)
 }
 
-// uint32 host_id = 2;
+// uint32 character = 2;
+inline void JoinLobbyResponse::clear_character() {
+  character_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 JoinLobbyResponse::_internal_character() const {
+  return character_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 JoinLobbyResponse::character() const {
+  // @@protoc_insertion_point(field_get:awd.net.JoinLobbyResponse.character)
+  return _internal_character();
+}
+inline void JoinLobbyResponse::_internal_set_character(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  character_ = value;
+}
+inline void JoinLobbyResponse::set_character(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_character(value);
+  // @@protoc_insertion_point(field_set:awd.net.JoinLobbyResponse.character)
+}
+
+// uint32 host_id = 3;
 inline void JoinLobbyResponse::clear_host_id() {
   host_id_ = 0u;
 }
@@ -2847,33 +2968,62 @@ inline void JoinLobbyResponse::set_host_id(::PROTOBUF_NAMESPACE_ID::uint32 value
   // @@protoc_insertion_point(field_set:awd.net.JoinLobbyResponse.host_id)
 }
 
-// map<int32, string> other_players = 3;
-inline int JoinLobbyResponse::_internal_other_players_size() const {
-  return other_players_.size();
+// map<uint32, string> others_names = 4;
+inline int JoinLobbyResponse::_internal_others_names_size() const {
+  return others_names_.size();
 }
-inline int JoinLobbyResponse::other_players_size() const {
-  return _internal_other_players_size();
+inline int JoinLobbyResponse::others_names_size() const {
+  return _internal_others_names_size();
 }
-inline void JoinLobbyResponse::clear_other_players() {
-  other_players_.Clear();
+inline void JoinLobbyResponse::clear_others_names() {
+  others_names_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >&
-JoinLobbyResponse::_internal_other_players() const {
-  return other_players_.GetMap();
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+JoinLobbyResponse::_internal_others_names() const {
+  return others_names_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >&
-JoinLobbyResponse::other_players() const {
-  // @@protoc_insertion_point(field_map:awd.net.JoinLobbyResponse.other_players)
-  return _internal_other_players();
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+JoinLobbyResponse::others_names() const {
+  // @@protoc_insertion_point(field_map:awd.net.JoinLobbyResponse.others_names)
+  return _internal_others_names();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >*
-JoinLobbyResponse::_internal_mutable_other_players() {
-  return other_players_.MutableMap();
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+JoinLobbyResponse::_internal_mutable_others_names() {
+  return others_names_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >*
-JoinLobbyResponse::mutable_other_players() {
-  // @@protoc_insertion_point(field_mutable_map:awd.net.JoinLobbyResponse.other_players)
-  return _internal_mutable_other_players();
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+JoinLobbyResponse::mutable_others_names() {
+  // @@protoc_insertion_point(field_mutable_map:awd.net.JoinLobbyResponse.others_names)
+  return _internal_mutable_others_names();
+}
+
+// map<uint32, uint32> others_characters = 5;
+inline int JoinLobbyResponse::_internal_others_characters_size() const {
+  return others_characters_.size();
+}
+inline int JoinLobbyResponse::others_characters_size() const {
+  return _internal_others_characters_size();
+}
+inline void JoinLobbyResponse::clear_others_characters() {
+  others_characters_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >&
+JoinLobbyResponse::_internal_others_characters() const {
+  return others_characters_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >&
+JoinLobbyResponse::others_characters() const {
+  // @@protoc_insertion_point(field_map:awd.net.JoinLobbyResponse.others_characters)
+  return _internal_others_characters();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >*
+JoinLobbyResponse::_internal_mutable_others_characters() {
+  return others_characters_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >*
+JoinLobbyResponse::mutable_others_characters() {
+  // @@protoc_insertion_point(field_mutable_map:awd.net.JoinLobbyResponse.others_characters)
+  return _internal_mutable_others_characters();
 }
 
 // -------------------------------------------------------------------
@@ -4140,6 +4290,8 @@ inline PacketWrapper::PacketCase PacketWrapper::packet_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

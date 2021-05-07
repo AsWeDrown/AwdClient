@@ -59,6 +59,7 @@ message CreateLobbyRequest {
 message CreateLobbyResponse {
   sint32 lobby_id  = 1;
   uint32 player_id = 2;
+  uint32 character = 3;
 }
 
 message JoinLobbyRequest {
@@ -67,9 +68,11 @@ message JoinLobbyRequest {
 }
 
 message JoinLobbyResponse {
-  sint32             player_id     = 1;
-  uint32             host_id       = 2;
-  map<int32, string> other_players = 3;
+  sint32              player_id         = 1;
+  uint32              character         = 2;
+  uint32              host_id           = 3;
+  map<uint32, string> others_names      = 4;
+  map<uint32, uint32> others_characters = 5;
 }
 
 message LeaveLobbyRequest {

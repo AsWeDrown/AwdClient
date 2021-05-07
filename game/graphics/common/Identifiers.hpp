@@ -23,7 +23,8 @@ typedef unsigned long long id_type;
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#define ID_SCREEN                  (id_type) 1E+10L
+#define ID_SCREEN                  (id_type) 1E+16L
+#define ID_LOADING_OVERLAY         (id_type) 1E+14L
 #define ID_DIALOG                  (id_type) 1E+08L
 #define ID_BUTTON                  (id_type) 1E+06L
 #define ID_TEXT_FIELD              (id_type) 1E+04L
@@ -67,10 +68,22 @@ typedef unsigned long long id_type;
 
 // MainMenu.Error
 
-#define ID_SCREEN_MAIN_MENU_DIALOG_ERROR                                      ID_SCREEN_MAIN_MENU  \
-                                                                              +  2  *  ID_DIALOG
+#define ID_SCREEN_MAIN_MENU_DIALOG_ERROR                  ID_SCREEN_MAIN_MENU  \
+                                                           +  2  *  ID_DIALOG
 
-#define ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK                            ID_SCREEN_MAIN_MENU_DIALOG_ERROR  \
-                                                                              +  1  *  ID_BUTTON
+#define ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK        ID_SCREEN_MAIN_MENU_DIALOG_ERROR  \
+                                                          +  1  *  ID_BUTTON
+
+// MainMenu.LoadingOverlay
+
+#define ID_SCREEN_MAIN_MENU_LOADING_OVERLAY        ID_SCREEN_MAIN_MENU \
+                                                   + 1 * ID_LOADING_OVERLAY
+
+// Lobby
+
+#define ID_SCREEN_LOBBY                         2  *  ID_SCREEN
+
+#define ID_SCREEN_LOBBY_WATER_BACKGROUND        ID_SCREEN_LOBBY  \
+                                                +  1  *  ID_WATER_BACKGROUND
 
 #pragma clang diagnostic pop

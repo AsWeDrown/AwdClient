@@ -49,6 +49,7 @@ namespace awd::game {
                              const std::wstring& newContents) override;
 
         std::wstring getEnteredPlayerName() const;
+
         std::wstring getEnteredLobbyId() const;
     };
 

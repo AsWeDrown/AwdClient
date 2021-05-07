@@ -19,6 +19,7 @@
 #include "../common/WaterBackground.hpp"
 #include "../../Game.hpp"
 #include "../common/TextInputDialog.hpp"
+#include "../common/LoadingOverlay.hpp"
 
 namespace awd::game {
 
@@ -120,6 +121,14 @@ namespace awd::game {
 
     void MainMenuScreen::setWorkflowState(WorkflowState state) {
         this->workflowState = state;
+    }
+
+    void MainMenuScreen::showLoadingOverlay(const std::wstring& message) {
+        auto loadingOverlay = std::make_shared<LoadingOverlay>(
+                ID_SCREEN_MAIN_MENU_LOADING_OVERLAY,
+                renderScale, window, message);
+
+        Screen::showLoadingOverlay(loadingOverlay);
     }
 
 }

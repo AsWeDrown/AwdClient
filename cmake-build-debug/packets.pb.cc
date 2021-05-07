@@ -57,7 +57,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CreateLobbyRequestDefaultTypeIn
 constexpr CreateLobbyResponse::CreateLobbyResponse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : lobby_id_(0)
-  , player_id_(0u){}
+  , player_id_(0u)
+  , character_(0u){}
 struct CreateLobbyResponseDefaultTypeInternal {
   constexpr CreateLobbyResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -80,21 +81,34 @@ struct JoinLobbyRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT JoinLobbyRequestDefaultTypeInternal _JoinLobbyRequest_default_instance_;
-constexpr JoinLobbyResponse_OtherPlayersEntry_DoNotUse::JoinLobbyResponse_OtherPlayersEntry_DoNotUse(
+constexpr JoinLobbyResponse_OthersNamesEntry_DoNotUse::JoinLobbyResponse_OthersNamesEntry_DoNotUse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct JoinLobbyResponse_OtherPlayersEntry_DoNotUseDefaultTypeInternal {
-  constexpr JoinLobbyResponse_OtherPlayersEntry_DoNotUseDefaultTypeInternal()
+struct JoinLobbyResponse_OthersNamesEntry_DoNotUseDefaultTypeInternal {
+  constexpr JoinLobbyResponse_OthersNamesEntry_DoNotUseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~JoinLobbyResponse_OtherPlayersEntry_DoNotUseDefaultTypeInternal() {}
+  ~JoinLobbyResponse_OthersNamesEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    JoinLobbyResponse_OtherPlayersEntry_DoNotUse _instance;
+    JoinLobbyResponse_OthersNamesEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT JoinLobbyResponse_OtherPlayersEntry_DoNotUseDefaultTypeInternal _JoinLobbyResponse_OtherPlayersEntry_DoNotUse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT JoinLobbyResponse_OthersNamesEntry_DoNotUseDefaultTypeInternal _JoinLobbyResponse_OthersNamesEntry_DoNotUse_default_instance_;
+constexpr JoinLobbyResponse_OthersCharactersEntry_DoNotUse::JoinLobbyResponse_OthersCharactersEntry_DoNotUse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct JoinLobbyResponse_OthersCharactersEntry_DoNotUseDefaultTypeInternal {
+  constexpr JoinLobbyResponse_OthersCharactersEntry_DoNotUseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~JoinLobbyResponse_OthersCharactersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    JoinLobbyResponse_OthersCharactersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT JoinLobbyResponse_OthersCharactersEntry_DoNotUseDefaultTypeInternal _JoinLobbyResponse_OthersCharactersEntry_DoNotUse_default_instance_;
 constexpr JoinLobbyResponse::JoinLobbyResponse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : other_players_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  : others_names_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , others_characters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
   , player_id_(0)
+  , character_(0u)
   , host_id_(0u){}
 struct JoinLobbyResponseDefaultTypeInternal {
   constexpr JoinLobbyResponseDefaultTypeInternal()
@@ -220,7 +234,7 @@ struct PacketWrapperDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PacketWrapperDefaultTypeInternal _PacketWrapper_default_instance_;
 }  // namespace net
 }  // namespace awd
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_packets_2eproto[16];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_packets_2eproto[17];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_packets_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_packets_2eproto = nullptr;
 
@@ -250,6 +264,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::awd::net::CreateLobbyResponse, lobby_id_),
   PROTOBUF_FIELD_OFFSET(::awd::net::CreateLobbyResponse, player_id_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::CreateLobbyResponse, character_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -257,13 +272,22 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyRequest, lobby_id_),
   PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyRequest, player_name_),
-  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse, value_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse, value_),
   0,
   1,
   ~0u,  // no _has_bits_
@@ -272,8 +296,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, player_id_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, character_),
   PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, host_id_),
-  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, other_players_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, others_names_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::JoinLobbyResponse, others_characters_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::LeaveLobbyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -356,18 +382,19 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 6, -1, sizeof(::awd::net::HandshakeResponse)},
   { 12, -1, sizeof(::awd::net::CreateLobbyRequest)},
   { 18, -1, sizeof(::awd::net::CreateLobbyResponse)},
-  { 25, -1, sizeof(::awd::net::JoinLobbyRequest)},
-  { 32, 39, sizeof(::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse)},
-  { 41, -1, sizeof(::awd::net::JoinLobbyResponse)},
-  { 49, -1, sizeof(::awd::net::LeaveLobbyRequest)},
-  { 56, -1, sizeof(::awd::net::LeaveLobbyResponse)},
-  { 62, -1, sizeof(::awd::net::KickedFromLobby)},
-  { 68, 75, sizeof(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse)},
-  { 77, -1, sizeof(::awd::net::UpdatedMembersList)},
-  { 83, -1, sizeof(::awd::net::KeepAlive)},
-  { 90, -1, sizeof(::awd::net::Ping)},
-  { 97, -1, sizeof(::awd::net::Pong)},
-  { 103, -1, sizeof(::awd::net::PacketWrapper)},
+  { 26, -1, sizeof(::awd::net::JoinLobbyRequest)},
+  { 33, 40, sizeof(::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse)},
+  { 42, 49, sizeof(::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse)},
+  { 51, -1, sizeof(::awd::net::JoinLobbyResponse)},
+  { 61, -1, sizeof(::awd::net::LeaveLobbyRequest)},
+  { 68, -1, sizeof(::awd::net::LeaveLobbyResponse)},
+  { 74, -1, sizeof(::awd::net::KickedFromLobby)},
+  { 80, 87, sizeof(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse)},
+  { 89, -1, sizeof(::awd::net::UpdatedMembersList)},
+  { 95, -1, sizeof(::awd::net::KeepAlive)},
+  { 102, -1, sizeof(::awd::net::Ping)},
+  { 109, -1, sizeof(::awd::net::Pong)},
+  { 115, -1, sizeof(::awd::net::PacketWrapper)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -376,7 +403,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_CreateLobbyRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_CreateLobbyResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_JoinLobbyRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_JoinLobbyResponse_OtherPlayersEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_JoinLobbyResponse_OthersNamesEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_JoinLobbyResponse_OthersCharactersEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_JoinLobbyResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_LeaveLobbyRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_LeaveLobbyResponse_default_instance_),
@@ -394,49 +422,53 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   "uest\022\030\n\020protocol_version\030\001 \001(\r\"-\n\021Handsh"
   "akeResponse\022\030\n\020protocol_version\030\001 \001(\r\")\n"
   "\022CreateLobbyRequest\022\023\n\013player_name\030\001 \001(\t"
-  "\":\n\023CreateLobbyResponse\022\020\n\010lobby_id\030\001 \001("
-  "\021\022\021\n\tplayer_id\030\002 \001(\r\"9\n\020JoinLobbyRequest"
-  "\022\020\n\010lobby_id\030\001 \001(\r\022\023\n\013player_name\030\002 \001(\t\""
-  "\261\001\n\021JoinLobbyResponse\022\021\n\tplayer_id\030\001 \001(\021"
-  "\022\017\n\007host_id\030\002 \001(\r\022C\n\rother_players\030\003 \003(\013"
-  "2,.awd.net.JoinLobbyResponse.OtherPlayer"
-  "sEntry\0323\n\021OtherPlayersEntry\022\013\n\003key\030\001 \001(\005"
-  "\022\r\n\005value\030\002 \001(\t:\0028\001\"8\n\021LeaveLobbyRequest"
-  "\022\020\n\010lobby_id\030\001 \001(\r\022\021\n\tplayer_id\030\002 \001(\r\")\n"
-  "\022LeaveLobbyResponse\022\023\n\013status_code\030\001 \001(\021"
-  "\"!\n\017KickedFromLobby\022\016\n\006reason\030\001 \001(\r\"\177\n\022U"
-  "pdatedMembersList\0229\n\007members\030\001 \003(\0132(.awd"
-  ".net.UpdatedMembersList.MembersEntry\032.\n\014"
-  "MembersEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t"
-  ":\0028\001\"/\n\tKeepAlive\022\021\n\tplayer_id\030\001 \001(\005\022\017\n\007"
-  "test_id\030\002 \001(\005\"-\n\004Ping\022\017\n\007test_id\030\001 \001(\r\022\024"
-  "\n\014last_latency\030\002 \001(\r\"\027\n\004Pong\022\017\n\007test_id\030"
-  "\001 \001(\r\"\207\006\n\rPacketWrapper\022\020\n\010sequence\030\001 \001("
-  "\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_bitfield\030\003 \001(\004\0226\n\021"
-  "handshake_request\030\n \001(\0132\031.awd.net.Handsh"
-  "akeRequestH\000\0228\n\022handshake_response\030\013 \001(\013"
-  "2\032.awd.net.HandshakeResponseH\000\022;\n\024create"
-  "_lobby_request\030d \001(\0132\033.awd.net.CreateLob"
-  "byRequestH\000\022=\n\025create_lobby_response\030e \001"
-  "(\0132\034.awd.net.CreateLobbyResponseH\000\0227\n\022jo"
-  "in_lobby_request\030f \001(\0132\031.awd.net.JoinLob"
-  "byRequestH\000\0229\n\023join_lobby_response\030g \001(\013"
-  "2\032.awd.net.JoinLobbyResponseH\000\0229\n\023leave_"
-  "lobby_request\030h \001(\0132\032.awd.net.LeaveLobby"
-  "RequestH\000\022;\n\024leave_lobby_response\030i \001(\0132"
-  "\033.awd.net.LeaveLobbyResponseH\000\0225\n\021kicked"
-  "_from_lobby\030j \001(\0132\030.awd.net.KickedFromLo"
-  "bbyH\000\022;\n\024updated_members_list\030k \001(\0132\033.aw"
-  "d.net.UpdatedMembersListH\000\022)\n\nkeep_alive"
-  "\030\350\007 \001(\0132\022.awd.net.KeepAliveH\000\022\036\n\004ping\030\220N"
-  " \001(\0132\r.awd.net.PingH\000\022\036\n\004pong\030\221N \001(\0132\r.a"
-  "wd.net.PongH\000B\010\n\006packetB\024\n\020gg.aswedrown."
-  "netP\001b\006proto3"
+  "\"M\n\023CreateLobbyResponse\022\020\n\010lobby_id\030\001 \001("
+  "\021\022\021\n\tplayer_id\030\002 \001(\r\022\021\n\tcharacter\030\003 \001(\r\""
+  "9\n\020JoinLobbyRequest\022\020\n\010lobby_id\030\001 \001(\r\022\023\n"
+  "\013player_name\030\002 \001(\t\"\307\002\n\021JoinLobbyResponse"
+  "\022\021\n\tplayer_id\030\001 \001(\021\022\021\n\tcharacter\030\002 \001(\r\022\017"
+  "\n\007host_id\030\003 \001(\r\022A\n\014others_names\030\004 \003(\0132+."
+  "awd.net.JoinLobbyResponse.OthersNamesEnt"
+  "ry\022K\n\021others_characters\030\005 \003(\01320.awd.net."
+  "JoinLobbyResponse.OthersCharactersEntry\032"
+  "2\n\020OthersNamesEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005valu"
+  "e\030\002 \001(\t:\0028\001\0327\n\025OthersCharactersEntry\022\013\n\003"
+  "key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r:\0028\001\"8\n\021LeaveLob"
+  "byRequest\022\020\n\010lobby_id\030\001 \001(\r\022\021\n\tplayer_id"
+  "\030\002 \001(\r\")\n\022LeaveLobbyResponse\022\023\n\013status_c"
+  "ode\030\001 \001(\021\"!\n\017KickedFromLobby\022\016\n\006reason\030\001"
+  " \001(\r\"\177\n\022UpdatedMembersList\0229\n\007members\030\001 "
+  "\003(\0132(.awd.net.UpdatedMembersList.Members"
+  "Entry\032.\n\014MembersEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005va"
+  "lue\030\002 \001(\t:\0028\001\"/\n\tKeepAlive\022\021\n\tplayer_id\030"
+  "\001 \001(\005\022\017\n\007test_id\030\002 \001(\005\"-\n\004Ping\022\017\n\007test_i"
+  "d\030\001 \001(\r\022\024\n\014last_latency\030\002 \001(\r\"\027\n\004Pong\022\017\n"
+  "\007test_id\030\001 \001(\r\"\207\006\n\rPacketWrapper\022\020\n\010sequ"
+  "ence\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_bitfield\030"
+  "\003 \001(\004\0226\n\021handshake_request\030\n \001(\0132\031.awd.n"
+  "et.HandshakeRequestH\000\0228\n\022handshake_respo"
+  "nse\030\013 \001(\0132\032.awd.net.HandshakeResponseH\000\022"
+  ";\n\024create_lobby_request\030d \001(\0132\033.awd.net."
+  "CreateLobbyRequestH\000\022=\n\025create_lobby_res"
+  "ponse\030e \001(\0132\034.awd.net.CreateLobbyRespons"
+  "eH\000\0227\n\022join_lobby_request\030f \001(\0132\031.awd.ne"
+  "t.JoinLobbyRequestH\000\0229\n\023join_lobby_respo"
+  "nse\030g \001(\0132\032.awd.net.JoinLobbyResponseH\000\022"
+  "9\n\023leave_lobby_request\030h \001(\0132\032.awd.net.L"
+  "eaveLobbyRequestH\000\022;\n\024leave_lobby_respon"
+  "se\030i \001(\0132\033.awd.net.LeaveLobbyResponseH\000\022"
+  "5\n\021kicked_from_lobby\030j \001(\0132\030.awd.net.Kic"
+  "kedFromLobbyH\000\022;\n\024updated_members_list\030k"
+  " \001(\0132\033.awd.net.UpdatedMembersListH\000\022)\n\nk"
+  "eep_alive\030\350\007 \001(\0132\022.awd.net.KeepAliveH\000\022\036"
+  "\n\004ping\030\220N \001(\0132\r.awd.net.PingH\000\022\036\n\004pong\030\221"
+  "N \001(\0132\r.awd.net.PongH\000B\010\n\006packetB\024\n\020gg.a"
+  "swedrown.netP\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_packets_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_packets_2eproto = {
-  false, false, 1653, descriptor_table_protodef_packets_2eproto, "packets.proto", 
-  &descriptor_table_packets_2eproto_once, nullptr, 0, 16,
+  false, false, 1822, descriptor_table_protodef_packets_2eproto, "packets.proto", 
+  &descriptor_table_packets_2eproto_once, nullptr, 0, 17,
   schemas, file_default_instances, TableStruct_packets_2eproto::offsets,
   file_level_metadata_packets_2eproto, file_level_enum_descriptors_packets_2eproto, file_level_service_descriptors_packets_2eproto,
 };
@@ -1045,16 +1077,16 @@ CreateLobbyResponse::CreateLobbyResponse(const CreateLobbyResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&lobby_id_, &from.lobby_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&player_id_) -
-    reinterpret_cast<char*>(&lobby_id_)) + sizeof(player_id_));
+    static_cast<size_t>(reinterpret_cast<char*>(&character_) -
+    reinterpret_cast<char*>(&lobby_id_)) + sizeof(character_));
   // @@protoc_insertion_point(copy_constructor:awd.net.CreateLobbyResponse)
 }
 
 void CreateLobbyResponse::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&lobby_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&player_id_) -
-    reinterpret_cast<char*>(&lobby_id_)) + sizeof(player_id_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&character_) -
+    reinterpret_cast<char*>(&lobby_id_)) + sizeof(character_));
 }
 
 CreateLobbyResponse::~CreateLobbyResponse() {
@@ -1084,8 +1116,8 @@ void CreateLobbyResponse::Clear() {
   (void) cached_has_bits;
 
   ::memset(&lobby_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&player_id_) -
-      reinterpret_cast<char*>(&lobby_id_)) + sizeof(player_id_));
+      reinterpret_cast<char*>(&character_) -
+      reinterpret_cast<char*>(&lobby_id_)) + sizeof(character_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1107,6 +1139,13 @@ const char* CreateLobbyResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAME
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 character = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          character_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1150,6 +1189,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_player_id(), target);
   }
 
+  // uint32 character = 3;
+  if (this->character() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_character(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1178,6 +1223,13 @@ size_t CreateLobbyResponse::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->_internal_player_id());
+  }
+
+  // uint32 character = 3;
+  if (this->character() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_character());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1217,6 +1269,9 @@ void CreateLobbyResponse::MergeFrom(const CreateLobbyResponse& from) {
   if (from.player_id() != 0) {
     _internal_set_player_id(from._internal_player_id());
   }
+  if (from.character() != 0) {
+    _internal_set_character(from._internal_character());
+  }
 }
 
 void CreateLobbyResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -1241,8 +1296,8 @@ void CreateLobbyResponse::InternalSwap(CreateLobbyResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CreateLobbyResponse, player_id_)
-      + sizeof(CreateLobbyResponse::player_id_)
+      PROTOBUF_FIELD_OFFSET(CreateLobbyResponse, character_)
+      + sizeof(CreateLobbyResponse::character_)
       - PROTOBUF_FIELD_OFFSET(CreateLobbyResponse, lobby_id_)>(
           reinterpret_cast<char*>(&lobby_id_),
           reinterpret_cast<char*>(&other->lobby_id_));
@@ -1482,16 +1537,33 @@ void JoinLobbyRequest::InternalSwap(JoinLobbyRequest* other) {
 
 // ===================================================================
 
-JoinLobbyResponse_OtherPlayersEntry_DoNotUse::JoinLobbyResponse_OtherPlayersEntry_DoNotUse() {}
-JoinLobbyResponse_OtherPlayersEntry_DoNotUse::JoinLobbyResponse_OtherPlayersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+JoinLobbyResponse_OthersNamesEntry_DoNotUse::JoinLobbyResponse_OthersNamesEntry_DoNotUse() {}
+JoinLobbyResponse_OthersNamesEntry_DoNotUse::JoinLobbyResponse_OthersNamesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
-void JoinLobbyResponse_OtherPlayersEntry_DoNotUse::MergeFrom(const JoinLobbyResponse_OtherPlayersEntry_DoNotUse& other) {
+void JoinLobbyResponse_OthersNamesEntry_DoNotUse::MergeFrom(const JoinLobbyResponse_OthersNamesEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::PROTOBUF_NAMESPACE_ID::Metadata JoinLobbyResponse_OtherPlayersEntry_DoNotUse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata JoinLobbyResponse_OthersNamesEntry_DoNotUse::GetMetadata() const {
   return GetMetadataStatic();
 }
-void JoinLobbyResponse_OtherPlayersEntry_DoNotUse::MergeFrom(
+void JoinLobbyResponse_OthersNamesEntry_DoNotUse::MergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
+  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+JoinLobbyResponse_OthersCharactersEntry_DoNotUse::JoinLobbyResponse_OthersCharactersEntry_DoNotUse() {}
+JoinLobbyResponse_OthersCharactersEntry_DoNotUse::JoinLobbyResponse_OthersCharactersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void JoinLobbyResponse_OthersCharactersEntry_DoNotUse::MergeFrom(const JoinLobbyResponse_OthersCharactersEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata JoinLobbyResponse_OthersCharactersEntry_DoNotUse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+void JoinLobbyResponse_OthersCharactersEntry_DoNotUse::MergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::Message& other) {
   ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
 }
@@ -1505,7 +1577,8 @@ class JoinLobbyResponse::_Internal {
 
 JoinLobbyResponse::JoinLobbyResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  other_players_(arena) {
+  others_names_(arena),
+  others_characters_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:awd.net.JoinLobbyResponse)
@@ -1513,7 +1586,8 @@ JoinLobbyResponse::JoinLobbyResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 JoinLobbyResponse::JoinLobbyResponse(const JoinLobbyResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  other_players_.MergeFrom(from.other_players_);
+  others_names_.MergeFrom(from.others_names_);
+  others_characters_.MergeFrom(from.others_characters_);
   ::memcpy(&player_id_, &from.player_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&host_id_) -
     reinterpret_cast<char*>(&player_id_)) + sizeof(host_id_));
@@ -1553,7 +1627,8 @@ void JoinLobbyResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  other_players_.Clear();
+  others_names_.Clear();
+  others_characters_.Clear();
   ::memset(&player_id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&host_id_) -
       reinterpret_cast<char*>(&player_id_)) + sizeof(host_id_));
@@ -1574,23 +1649,42 @@ const char* JoinLobbyResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 host_id = 2;
+      // uint32 character = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          character_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 host_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           host_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // map<int32, string> other_players = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+      // map<uint32, string> others_names = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&other_players_, ptr);
+            ptr = ctx->ParseMessage(&others_names_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // map<uint32, uint32> others_characters = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&others_characters_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -1627,49 +1721,86 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(1, this->_internal_player_id(), target);
   }
 
-  // uint32 host_id = 2;
-  if (this->host_id() != 0) {
+  // uint32 character = 2;
+  if (this->character() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_host_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_character(), target);
   }
 
-  // map<int32, string> other_players = 3;
-  if (!this->_internal_other_players().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >::const_pointer
+  // uint32 host_id = 3;
+  if (this->host_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_host_id(), target);
+  }
+
+  // map<uint32, string> others_names = 4;
+  if (!this->_internal_others_names().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_pointer
         ConstPtr;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::int32, ConstPtr > SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::uint32, ConstPtr > SortItem;
     typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByFirstField<SortItem> Less;
     struct Utf8Check {
       static void Check(ConstPtr p) {
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
           p->second.data(), static_cast<int>(p->second.length()),
           ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "awd.net.JoinLobbyResponse.OtherPlayersEntry.value");
+          "awd.net.JoinLobbyResponse.OthersNamesEntry.value");
       }
     };
 
     if (stream->IsSerializationDeterministic() &&
-        this->_internal_other_players().size() > 1) {
+        this->_internal_others_names().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_other_players().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >::size_type size_type;
+          new SortItem[this->_internal_others_names().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::size_type size_type;
       size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >::const_iterator
-          it = this->_internal_other_players().begin();
-          it != this->_internal_other_players().end(); ++it, ++n) {
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+          it = this->_internal_others_names().begin();
+          it != this->_internal_others_names().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       for (size_type i = 0; i < n; i++) {
-        target = JoinLobbyResponse_OtherPlayersEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+        target = JoinLobbyResponse_OthersNamesEntry_DoNotUse::Funcs::InternalSerialize(4, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)].second));
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >::const_iterator
-          it = this->_internal_other_players().begin();
-          it != this->_internal_other_players().end(); ++it) {
-        target = JoinLobbyResponse_OtherPlayersEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+          it = this->_internal_others_names().begin();
+          it != this->_internal_others_names().end(); ++it) {
+        target = JoinLobbyResponse_OthersNamesEntry_DoNotUse::Funcs::InternalSerialize(4, it->first, it->second, target, stream);
         Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // map<uint32, uint32> others_characters = 5;
+  if (!this->_internal_others_characters().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::const_pointer
+        ConstPtr;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::uint32, ConstPtr > SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByFirstField<SortItem> Less;
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_others_characters().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_others_characters().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::const_iterator
+          it = this->_internal_others_characters().begin();
+          it != this->_internal_others_characters().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = JoinLobbyResponse_OthersCharactersEntry_DoNotUse::Funcs::InternalSerialize(5, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::const_iterator
+          it = this->_internal_others_characters().begin();
+          it != this->_internal_others_characters().end(); ++it) {
+        target = JoinLobbyResponse_OthersCharactersEntry_DoNotUse::Funcs::InternalSerialize(5, it->first, it->second, target, stream);
       }
     }
   }
@@ -1690,13 +1821,22 @@ size_t JoinLobbyResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<int32, string> other_players = 3;
+  // map<uint32, string> others_names = 4;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_other_players_size());
-  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::int32, std::string >::const_iterator
-      it = this->_internal_other_players().begin();
-      it != this->_internal_other_players().end(); ++it) {
-    total_size += JoinLobbyResponse_OtherPlayersEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_others_names_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+      it = this->_internal_others_names().begin();
+      it != this->_internal_others_names().end(); ++it) {
+    total_size += JoinLobbyResponse_OthersNamesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<uint32, uint32> others_characters = 5;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_others_characters_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::const_iterator
+      it = this->_internal_others_characters().begin();
+      it != this->_internal_others_characters().end(); ++it) {
+    total_size += JoinLobbyResponse_OthersCharactersEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
   // sint32 player_id = 1;
@@ -1706,7 +1846,14 @@ size_t JoinLobbyResponse::ByteSizeLong() const {
         this->_internal_player_id());
   }
 
-  // uint32 host_id = 2;
+  // uint32 character = 2;
+  if (this->character() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_character());
+  }
+
+  // uint32 host_id = 3;
   if (this->host_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -1744,9 +1891,13 @@ void JoinLobbyResponse::MergeFrom(const JoinLobbyResponse& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  other_players_.MergeFrom(from.other_players_);
+  others_names_.MergeFrom(from.others_names_);
+  others_characters_.MergeFrom(from.others_characters_);
   if (from.player_id() != 0) {
     _internal_set_player_id(from._internal_player_id());
+  }
+  if (from.character() != 0) {
+    _internal_set_character(from._internal_character());
   }
   if (from.host_id() != 0) {
     _internal_set_host_id(from._internal_host_id());
@@ -1774,7 +1925,8 @@ bool JoinLobbyResponse::IsInitialized() const {
 void JoinLobbyResponse::InternalSwap(JoinLobbyResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  other_players_.Swap(&other->other_players_);
+  others_names_.Swap(&other->others_names_);
+  others_characters_.Swap(&other->others_characters_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(JoinLobbyResponse, host_id_)
       + sizeof(JoinLobbyResponse::host_id_)
@@ -4301,8 +4453,11 @@ template<> PROTOBUF_NOINLINE ::awd::net::CreateLobbyResponse* Arena::CreateMaybe
 template<> PROTOBUF_NOINLINE ::awd::net::JoinLobbyRequest* Arena::CreateMaybeMessage< ::awd::net::JoinLobbyRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::awd::net::JoinLobbyRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse* Arena::CreateMaybeMessage< ::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::awd::net::JoinLobbyResponse_OtherPlayersEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse* Arena::CreateMaybeMessage< ::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse* Arena::CreateMaybeMessage< ::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::awd::net::JoinLobbyResponse* Arena::CreateMaybeMessage< ::awd::net::JoinLobbyResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::awd::net::JoinLobbyResponse >(arena);

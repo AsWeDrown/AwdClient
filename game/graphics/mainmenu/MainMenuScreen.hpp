@@ -32,6 +32,8 @@ namespace awd::game {
         std::shared_ptr<MainMenuScreenListener> getListener() const;
         WorkflowState getWorkflowState() const;
         void setWorkflowState(WorkflowState state);
+
+        void showLoadingOverlay(const std::wstring& message);
     };
 
 }

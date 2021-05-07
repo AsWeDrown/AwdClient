@@ -59,21 +59,21 @@ namespace awd::game {
         std::wcout << L"Render scale: " << renderScale << std::endl;
 
         currentState = GameState::LOBBY;
-        gameScreen = std::make_shared<MainMenuScreen>(renderScale, window);
-        gameScreen->setComponentsEnabled(false); // выключаем кнопки до установления "соединения" с сервером
+        currentScreen = std::make_shared<MainMenuScreen>(renderScale, window);
+        //currentScreen->setComponentsEnabled(false); // выключаем кнопки до установления "соединения" с сервером
 
-        auto tickDelay = std::chrono::milliseconds(1000 / GAME_TPS);
+        uint32_t tickDelay = std::chrono::milliseconds(1000 / GAME_TPS).count();
+        sf::Clock tickClock;
 
-        while (window->isOpen() && currentState != GameState::EXIT) {
-            runGameLoop();
-            std::this_thread::sleep_for(tickDelay);
-        }
+        while (window->isOpen() && currentState != GameState::EXIT)
+            runGameLoop(tickDelay, tickClock);
 
         std::wcout << L"Reached end of game loop." << std::endl;
         shutdown(); // на случай, если выход был произведён, скажем, по крестику, а не через кнопку в главном меню
     }
 
-    void Game::runGameLoop() {
+    void Game::runGameLoop(uint32_t tickDelay, sf::Clock& tickClock) {
+        // События (нажатия клавиш и пр.)
         sf::Event event; // NOLINT(cppcoreguidelines-pro-type-member-init)
 
         while (window->pollEvent(event)) {
@@ -83,16 +83,22 @@ namespace awd::game {
                     break;
 
                 case sf::Event::KeyPressed:
-                    gameScreen->keyPressed(event.key);
+                    currentScreen->keyPressed(event.key);
                     break;
 
                 case sf::Event::MouseButtonPressed:
-                    gameScreen->mousePressed(event.mouseButton);
+                    currentScreen->mousePressed(event.mouseButton);
                     break;
             }
         }
 
-        update();
+        // Обновления (тики)
+        if (tickClock.getElapsedTime().asMilliseconds() >= tickDelay) {
+            update();
+            tickClock.restart();
+        }
+
+        // Прорисовка
         window->clear();
         render();
         window->display();
@@ -102,14 +108,18 @@ namespace awd::game {
         if (++currentTick == 1)
             postScreenLoad();
 
-        gameScreen->update();
+        currentScreen->update();
     }
 
     void Game::render() {
-        gameScreen->draw();
+        currentScreen->draw();
     }
 
     void Game::postScreenLoad() {
+        // Сообщение загрузки.
+        if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen))
+            mainMenuScreen->showLoadingOverlay(L"Загрузка. Пожалуйста, подождите...");
+
         // UDP-клиент (в другом потоке).
         registerPacketListeners();
         udpClient->startInNewThread();
@@ -161,12 +171,11 @@ namespace awd::game {
         udpClient->setHandshakeComplete();
 
         if (serverProtocolVersion == net::PacketManager::PROTOCOL_VERSION)
-            // Включаем кнопки в главном меню.
-            gameScreen->setComponentsEnabled(true);
+            currentScreen->hideCurrentLoadingOverlay();
         else {
             std::wcerr << L"Protocol versions do not match." << std::endl;
 
-            if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(gameScreen)) {
+            if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen)) {
                 auto dialog = std::make_shared<ErrorDialog>(
                         ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
                         mainMenuScreen->getRenderScale(),
@@ -191,7 +200,7 @@ namespace awd::game {
     void Game::timedOut() {
         std::wcerr << L"Timed out." << std::endl;
 
-        if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(gameScreen)) {
+        if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen)) {
             auto dialog = std::make_shared<ErrorDialog>(
                     ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
                     mainMenuScreen->getRenderScale(),
@@ -231,8 +240,20 @@ namespace awd::game {
         return currentState;
     }
 
-    std::shared_ptr<Screen> Game::getGameScreen() const {
-        return gameScreen;
+    std::shared_ptr<Screen> Game::getCurrentScreen() const {
+        return currentScreen;
+    }
+
+    void Game::setCurrentScreen(const std::shared_ptr<Screen>& screen) {
+        this->currentScreen = screen;
+    }
+
+    std::shared_ptr<Lobby> Game::getCurrentLobby() const {
+        return currentLobby;
+    }
+
+    void Game::setCurrentLobby(const std::shared_ptr<Lobby>& lobby) {
+        this->currentLobby = lobby;
     }
 
     unsigned int Game::randUInt(unsigned int min, unsigned int max) {

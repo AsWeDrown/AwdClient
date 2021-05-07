@@ -874,6 +874,22 @@ google/protobuf/port_undef.inc
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
 
+E:/CLionProjects/AsWeDrown/AwdClient/game/Game.cpp
+thread
+-
+Game.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+packetlistener/HandshakeResponseListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.hpp
+packetlistener/CreateLobbyResponseListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.hpp
+graphics/mainmenu/MainMenuScreen.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreen.hpp
+packetlistener/PingListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PingListener.hpp
+graphics/common/ErrorDialog.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ErrorDialog.hpp
+
 E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
 SFML/Graphics.hpp
 -
@@ -895,6 +911,8 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
 graphics/common/Screen.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+lobby/Lobby.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
 
@@ -909,14 +927,6 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
 Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.cpp
-ColorSet.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
-SFML/Graphics/Color.hpp
--
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
 Button.hpp
@@ -940,6 +950,16 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
 ../../FatalErrors.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
 
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ErrorDialog.hpp
+Dialog.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
+TextButton.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp
+TextField.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
+RichText.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
+
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/FontManager.hpp
 memory
 -
@@ -947,6 +967,10 @@ SFML/Graphics.hpp
 -
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
+Drawable.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
 vector
@@ -969,6 +993,8 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 ../common/Dialog.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
+LoadingOverlay.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp
 Button.hpp
@@ -984,25 +1010,39 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
 Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.cpp
-TextInputDialog.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.hpp
-../../util/StringUtils.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/util/StringUtils.hpp
-../../Game.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
-../../util/RenderUtils.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.hpp
-Dialog.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreen.hpp
+../common/Button.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
+../common/Dialog.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
-TextButton.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp
-TextField.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
-RichText.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
+MainMenuScreenListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreenListener.hpp
+../common/Screen.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreenListener.hpp
+../common/DialogListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/DialogListener.hpp
+../common/ButtonListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
+../common/TextFieldListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
+string
+-
+cstdint
+-
+map
+-
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.hpp
+PacketListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.hpp
+PacketListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
 memory
@@ -1012,21 +1052,9 @@ google/protobuf/message.h
 packets.pb.h
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/packets.pb.h
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
-memory
--
-SFML/Graphics/RenderWindow.hpp
--
-../graphics/common/RichText.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/util/StringUtils.hpp
-string
--
-vector
--
-../graphics/common/ColorSet.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PingListener.hpp
+PacketListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
 deque

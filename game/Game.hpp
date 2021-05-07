@@ -11,6 +11,7 @@
 #include "FatalErrors.hpp"
 #include "../net/NetworkService.hpp"
 #include "graphics/common/Screen.hpp"
+#include "lobby/Lobby.hpp"
 
 namespace awd::game {
 
@@ -28,7 +29,9 @@ namespace awd::game {
         std::atomic<int> currentState = GameState::LOBBY;
 
         std::shared_ptr<sf::RenderWindow> window = nullptr;
-        std::shared_ptr<Screen> gameScreen = nullptr;
+        std::shared_ptr<Screen> currentScreen = nullptr;
+
+        std::shared_ptr<Lobby> currentLobby = nullptr;
 
         Game();
         ~Game(); // NOLINT(modernize-use-equals-delete)
@@ -36,7 +39,7 @@ namespace awd::game {
         bool loadAssets();
         void registerPacketListeners();
         void startGameLoop();
-        void runGameLoop();
+        void runGameLoop(uint32_t tickDelay, sf::Clock& tickClock);
         void update();
         void render();
         void postScreenLoad();
@@ -62,7 +65,10 @@ namespace awd::game {
         std::shared_ptr<net::PacketManager> getPacketManager() const;
         std::shared_ptr<net::NetworkService> getNetService() const;
         int getCurrentState() const;
-        std::shared_ptr<Screen> getGameScreen() const;
+        std::shared_ptr<Screen> getCurrentScreen() const;
+        void setCurrentScreen(const std::shared_ptr<Screen>& screen);
+        std::shared_ptr<Lobby> getCurrentLobby() const;
+        void setCurrentLobby(const std::shared_ptr<Lobby>& lobby);
 
         // TODO переместить эти методы в какой-то утилити-класс
         static unsigned int randUInt(unsigned int min, unsigned int max);

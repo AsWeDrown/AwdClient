@@ -33,6 +33,24 @@ namespace awd::game {
         Drawable::draw();
     }
 
+    void Screen::showLoadingOverlay(const std::shared_ptr<LoadingOverlay>& loadingOverlay) {
+        currentLoadingOverlayId = loadingOverlay->getId();
+        enqueueChild(loadingOverlay);
+        setComponentsEnabled(false);
+    }
+
+    void Screen::hideCurrentLoadingOverlay() {
+        if (isLoadingOverlayShown()) {
+            removeChild(currentLoadingOverlayId);
+            setComponentsEnabled(true);
+            currentLoadingOverlayId = 0;
+        }
+    }
+
+    bool Screen::isLoadingOverlayShown() const {
+        return currentLoadingOverlayId != 0;
+    }
+
     void Screen::openDialog(const std::shared_ptr<Dialog>& dialog) {
         setComponentsEnabled(false);
         currentDialogId = dialog->getId();
