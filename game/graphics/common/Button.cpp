@@ -33,7 +33,11 @@ namespace awd::game {
         Drawable::mousePressed(event);
 
         if (event.button == sf::Mouse::Button::Left && isMouseOver(event.x, event.y))
-            listener->buttonClicked(parent, id);
+            click();
+    }
+
+    void Button::click() {
+        listener->buttonClicked(parent, id);
     }
 
 }

@@ -34,6 +34,8 @@ namespace awd::game {
                              id_type btnOkId,
                              const std::shared_ptr<ButtonListener>& btnOkListener)
                              : Dialog(id, renderScale, window, dialogListener) {
+        this->btnOkId = btnOkId;
+
         // Кнопка "ОК".
         float bLeftMargin   = BUTTON_OK_LEFT_MARGIN       * renderScale;
         float bBottomMargin = BUTTON_OK_BOTTOM_MARGIN     * renderScale;
@@ -75,6 +77,14 @@ namespace awd::game {
         RenderUtils::enrichText(*text, formattedMsg);
         text->setCharacterSize(msgFontSize);
         text->setPosition(x + msgLeftMargin, finalY + msgTopMargin);
+    }
+
+    void ErrorDialog::keyPressed(const sf::Event::KeyEvent& event) {
+        // Возможность манипулировать диалогом с помощью клавиш ENTER и ESC.
+        if (event.code == sf::Keyboard::Enter || event.code == sf::Keyboard::Escape) {
+            auto btnOk = std::dynamic_pointer_cast<Button>(getChildById(btnOkId));
+            btnOk->click();
+        }
     }
 
     void ErrorDialog::update() {

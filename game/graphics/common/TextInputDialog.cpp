@@ -135,6 +135,21 @@ namespace awd::game {
                          textFieldY + textFieldHeight + msgAndTfVerMargin);
     }
 
+    void TextInputDialog::keyPressed(const sf::Event::KeyEvent& event) {
+        // Возможность манипулировать диалогом с помощью клавиш ENTER и ESC.
+        id_type hotkeyedButtonId = 0L;
+
+        if (event.code == sf::Keyboard::Enter)
+            hotkeyedButtonId = btnNextId;
+        else if (event.code == sf::Keyboard::Escape)
+            hotkeyedButtonId = btnBackId;
+
+        if (hotkeyedButtonId != 0L) {
+            auto hotkeyedButton = std::dynamic_pointer_cast<Button>(getChildById(btnNextId));
+            hotkeyedButton->click();
+        }
+    }
+
     void TextInputDialog::update() {
         Dialog::update();
     }

@@ -21,6 +21,8 @@ namespace awd::game {
         void draw() override;
         void keyPressed(const sf::Event::KeyEvent& event) override;
         void mousePressed(const sf::Event::MouseButtonEvent& event) override;
+
+        void click();
     };
 
 }

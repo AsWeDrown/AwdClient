@@ -47,6 +47,7 @@ namespace awd::game {
                         id_type btnBackId,
                         const std::shared_ptr<ButtonListener>& btnBackListener);
 
+        void keyPressed(const sf::Event::KeyEvent& event) override;
         void update() override;
         void draw() override;
     };
