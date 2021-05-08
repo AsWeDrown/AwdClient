@@ -11,7 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ErrorDialog.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/FontManager.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj"
-  "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingTitle.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"

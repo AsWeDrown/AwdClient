@@ -9,6 +9,7 @@ namespace awd::game {
     private:
         sf::Text text;
         unsigned int existedTicks = 0;
+        bool reverseTick = false;
 
     public:
         LoadingOverlay(id_type id,

@@ -376,32 +376,32 @@ game/graphics/common/FontManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.s
 .PHONY : game/graphics/common/FontManager.cpp.s
 
-game/graphics/common/LoadingTitle.obj: game/graphics/common/LoadingTitle.cpp.obj
+game/graphics/common/LoadingOverlay.obj: game/graphics/common/LoadingOverlay.cpp.obj
 
-.PHONY : game/graphics/common/LoadingTitle.obj
+.PHONY : game/graphics/common/LoadingOverlay.obj
 
 # target to build an object file
-game/graphics/common/LoadingTitle.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj
-.PHONY : game/graphics/common/LoadingTitle.cpp.obj
+game/graphics/common/LoadingOverlay.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj
+.PHONY : game/graphics/common/LoadingOverlay.cpp.obj
 
-game/graphics/common/LoadingTitle.i: game/graphics/common/LoadingTitle.cpp.i
+game/graphics/common/LoadingOverlay.i: game/graphics/common/LoadingOverlay.cpp.i
 
-.PHONY : game/graphics/common/LoadingTitle.i
+.PHONY : game/graphics/common/LoadingOverlay.i
 
 # target to preprocess a source file
-game/graphics/common/LoadingTitle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.i
-.PHONY : game/graphics/common/LoadingTitle.cpp.i
+game/graphics/common/LoadingOverlay.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.i
+.PHONY : game/graphics/common/LoadingOverlay.cpp.i
 
-game/graphics/common/LoadingTitle.s: game/graphics/common/LoadingTitle.cpp.s
+game/graphics/common/LoadingOverlay.s: game/graphics/common/LoadingOverlay.cpp.s
 
-.PHONY : game/graphics/common/LoadingTitle.s
+.PHONY : game/graphics/common/LoadingOverlay.s
 
 # target to generate assembly for a file
-game/graphics/common/LoadingTitle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.s
-.PHONY : game/graphics/common/LoadingTitle.cpp.s
+game/graphics/common/LoadingOverlay.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.s
+.PHONY : game/graphics/common/LoadingOverlay.cpp.s
 
 game/graphics/common/RectWrapper.obj: game/graphics/common/RectWrapper.cpp.obj
 
@@ -1166,9 +1166,9 @@ help:
 	@echo ... game/graphics/common/FontManager.obj
 	@echo ... game/graphics/common/FontManager.i
 	@echo ... game/graphics/common/FontManager.s
-	@echo ... game/graphics/common/LoadingTitle.obj
-	@echo ... game/graphics/common/LoadingTitle.i
-	@echo ... game/graphics/common/LoadingTitle.s
+	@echo ... game/graphics/common/LoadingOverlay.obj
+	@echo ... game/graphics/common/LoadingOverlay.i
+	@echo ... game/graphics/common/LoadingOverlay.s
 	@echo ... game/graphics/common/RectWrapper.obj
 	@echo ... game/graphics/common/RectWrapper.i
 	@echo ... game/graphics/common/RectWrapper.s

@@ -559,19 +559,19 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.s"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\lobby\LobbyScreenListener.cpp -o CMakeFiles\AwdClient.dir\game\graphics\lobby\LobbyScreenListener.cpp.s
 
-CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj: ../game/graphics/common/LoadingTitle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\LoadingTitle.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\LoadingTitle.cpp
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/graphics/common/LoadingOverlay.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\LoadingOverlay.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\LoadingOverlay.cpp
 
-CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\LoadingTitle.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\LoadingTitle.cpp.i
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\LoadingOverlay.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\LoadingOverlay.cpp.i
 
-CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\LoadingTitle.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\LoadingTitle.cpp.s
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\LoadingOverlay.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\LoadingOverlay.cpp.s
 
 # Object files for target AwdClient
 AwdClient_OBJECTS = \
@@ -609,7 +609,7 @@ AwdClient_OBJECTS = \
 "CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj"
+"CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj"
 
 # External object files for target AwdClient
 AwdClient_EXTERNAL_OBJECTS =
@@ -648,7 +648,7 @@ AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/build.make
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-audio.a
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-graphics.a

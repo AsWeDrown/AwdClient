@@ -9,7 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj"
-  "CMakeFiles/AwdClient.dir/game/graphics/common/LoadingTitle.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"
