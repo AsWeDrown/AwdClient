@@ -108,6 +108,7 @@ namespace awd::game {
         if (++currentTick == 1)
             postScreenLoad();
 
+        flushPackets();
         currentScreen->update();
     }
 
@@ -123,6 +124,11 @@ namespace awd::game {
         // UDP-клиент (в другом потоке).
         registerPacketListeners();
         udpClient->startInNewThread();
+    }
+
+    void Game::flushPackets() {
+        netService->flushSendQueue();
+        netService->flushReceiveQueue();
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

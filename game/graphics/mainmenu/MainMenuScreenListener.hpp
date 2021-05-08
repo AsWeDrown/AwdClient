@@ -20,7 +20,18 @@ namespace awd::game {
         //////////////////////////////////////////////////////////////////////////////////////////////
 
         static void requestPlayerNameInput(Drawable* mainMenuScreen);
+
         static void requestLobbyIdInput(Drawable* mainMenuScreen);
+
+        static void displayInputError(Drawable* mainMenuScreen,
+                                      const std::wstring& errMsg);
+
+        static void beginCreateLobby(Drawable* mainMenuScreen,
+                                     const std::wstring& playerName);
+
+        static void beginJoinLobby(Drawable* mainMenuScreen,
+                                   uint32_t lobbyId,
+                                   const std::wstring& playerName);
 
         //////////////////////////////////////////////////////////////////////////////////////////////
         //   Обработчики событий

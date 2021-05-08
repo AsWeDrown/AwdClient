@@ -66,7 +66,13 @@ namespace awd::net {
                     std::wcerr << L"Ignoring empty packet." << std::endl;
                 else {
                     try {
-                        game::Game::instance().getPacketManager()->receivePacket(buffer, bytesReceived);
+                        auto packetData = game::Game::instance()
+                                .getPacketManager()->receivePacket(buffer, bytesReceived);
+
+                        if (packetData != nullptr)
+                            game::Game::instance().getNetService()->enqueueReceive(packetData);
+                        else
+                            std::wcerr << L"Ignoring unknown packet (failed to unwrap)." << std::endl;
                     } catch (const std::exception& ex) {
                         // Какая-то внутренняя ошибка, пропускаем этот пакет и продолжаем работу.
                         std::wcerr << L"Failed to receive a packet "

@@ -67,24 +67,21 @@ namespace awd::net {
         listeners[packetType] = listener;
     }
 
-    void PacketManager::receivePacket(const std::shared_ptr<char[]>& buffer,
-                                      std::size_t bytesReceived) {
-        // Пытаемся обработать пакет.
-        auto unwrappedPacketData = handle->receivePacket(buffer, bytesReceived);
+    std::shared_ptr<UnwrappedPacketData> PacketManager::receivePacket(const std::shared_ptr<char[]>& buffer,
+                                                                      std::size_t bytesReceived) {
+        return handle->receivePacket(buffer, bytesReceived);
+    }
 
-        if (unwrappedPacketData != nullptr) {
-            // Передаём этот пакет на обработку соответствующему PacketListener'у.
-            auto cursor = listeners.find(unwrappedPacketData->getPacketType());
+    void PacketManager::processReceivedPacket(const std::shared_ptr<UnwrappedPacketData>& packetData) {
+        // Передаём этот пакет на обработку соответствующему PacketListener'у.
+        auto cursor = listeners.find(packetData->getPacketType());
 
-            if (cursor != listeners.cend())
-                cursor->second->processPacket(unwrappedPacketData->getPacket());
-            else
-                // Protobuf смог десериализовать полученный пакет, но для него в listeners
-                // не зарегистрировано (в конструкторе этого класса) подходящих PacketListener'ов.
-                std::wcerr << L"Ignoring unknown packet (no corresponding listener)." << std::endl;
-        } else
-            // Пакет неизвестного типа - нет обработчика (исп. awd-ptrans-codegen).
-            std::wcerr << L"Ignoring unknown packet (failed to unwrap)." << std::endl;
+        if (cursor != listeners.cend())
+            cursor->second->processPacket(packetData->getPacket());
+        else
+            // Protobuf смог десериализовать полученный пакет, но для него в listeners
+            // не зарегистрировано (в конструкторе этого класса) подходящих PacketListener'ов.
+            std::wcerr << L"Ignoring unknown packet (no corresponding listener)." << std::endl;
     }
 
     bool PacketManager::sendPacket(const std::shared_ptr<google::protobuf::Message>& packet) {

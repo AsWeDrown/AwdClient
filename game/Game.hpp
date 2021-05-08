@@ -43,6 +43,7 @@ namespace awd::game {
         void update();
         void render();
         void postScreenLoad();
+        void flushPackets();
 
     public:
         static Game& instance() {

@@ -27,9 +27,10 @@ namespace awd::net {
         void registerListener(PacketWrapper::PacketCase packetType,
                               const std::shared_ptr<game::PacketListener>& listener);
 
-        void receivePacket(const std::shared_ptr<char[]>& buffer,
-                           std::size_t bytesReceived);
+        std::shared_ptr<UnwrappedPacketData> receivePacket(const std::shared_ptr<char[]>& buffer,
+                                                           std::size_t bytesReceived);
 
+        void processReceivedPacket(const std::shared_ptr<UnwrappedPacketData>& packetData);
         bool sendPacket(const std::shared_ptr<google::protobuf::Message>& packet);
         bool sendImportantPacket(const std::shared_ptr<google::protobuf::Message>& packet);
     };
