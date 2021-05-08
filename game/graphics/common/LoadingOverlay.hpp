@@ -7,9 +7,10 @@ namespace awd::game {
 
     class LoadingOverlay : public Drawable {
     private:
-        sf::Text text;
         unsigned int existedTicks = 0;
         bool reverseTick = false;
+
+        std::unique_ptr<sf::Text> text = nullptr;
 
     public:
         LoadingOverlay(id_type id,

@@ -4,6 +4,12 @@
 
 namespace awd::net {
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PRIVATE
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
     /* Этот метод НЕ гарантирует потокобезопасность. Его вызов должен быть обёрнут в блокирующий блок. */
     uint32_t NetworkHandle::calculateAckBitfield() {
         uint32_t ackBitfield = 0;
@@ -162,6 +168,12 @@ namespace awd::net {
     float NetworkHandle::getPacketLossPercent() const {
         return packetLossPercent;
     }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PUBLIC
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     std::shared_ptr<UnwrappedPacketData> NetworkHandle::receivePacket(const std::shared_ptr<char[]>& buffer,
                                                                       std::size_t bytesReceived) {

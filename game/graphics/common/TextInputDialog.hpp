@@ -10,7 +10,9 @@ namespace awd::game {
 
     class TextInputDialog : public Dialog {
     private:
-        std::wstring message;
+        float buttonsY        = 0.0f,
+              textFieldY      = 0.0f,
+              textFieldHeight = 0.0f;
 
         id_type textFieldId;
         std::shared_ptr<TextFieldListener> textFieldListener = nullptr;
@@ -22,6 +24,9 @@ namespace awd::game {
 
         id_type btnBackId;
         std::shared_ptr<ButtonListener> btnBackListener = nullptr;
+
+        std::unique_ptr<sf::RectangleShape> sep = nullptr;
+        std::unique_ptr<sfe::RichText>      msg = nullptr;
 
         void createTextField();
         void createBasicButtons();

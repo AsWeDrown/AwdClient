@@ -363,24 +363,10 @@ CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.s"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\UniformGridBuilder.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\UniformGridBuilder.cpp.s
 
-CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj: ../game/graphics/common/RectWrapper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\RectWrapper.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RectWrapper.cpp
-
-CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RectWrapper.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\RectWrapper.cpp.i
-
-CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RectWrapper.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\RectWrapper.cpp.s
-
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/graphics/common/TextField.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\TextField.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\TextField.cpp
 
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.i: cmake_force
@@ -394,7 +380,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj: ../game/graphics/common/RichText.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\RichText.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\RichText.cpp
 
 CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.i: cmake_force
@@ -408,7 +394,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj: ../game/util/StringUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\util\StringUtils.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\util\StringUtils.cpp
 
 CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.i: cmake_force
@@ -422,7 +408,7 @@ CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.obj: ../net/PacketContainer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\net\PacketContainer.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\net\PacketContainer.cpp
 
 CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.i: cmake_force
@@ -436,7 +422,7 @@ CMakeFiles/AwdClient.dir/net/PacketContainer.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.obj: ../net/NetworkHandle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\net\NetworkHandle.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\net\NetworkHandle.cpp
 
 CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.i: cmake_force
@@ -450,7 +436,7 @@ CMakeFiles/AwdClient.dir/net/NetworkHandle.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.obj: ../net/SequenceNumberMath.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\net\SequenceNumberMath.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\net\SequenceNumberMath.cpp
 
 CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.i: cmake_force
@@ -464,7 +450,7 @@ CMakeFiles/AwdClient.dir/net/SequenceNumberMath.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../net/NetworkService.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\net\NetworkService.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\net\NetworkService.cpp
 
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.i: cmake_force
@@ -478,7 +464,7 @@ CMakeFiles/AwdClient.dir/net/NetworkService.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj: ../game/util/TimeUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\util\TimeUtils.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\util\TimeUtils.cpp
 
 CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.i: cmake_force
@@ -492,7 +478,7 @@ CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj: ../game/packetlistener/PingListener.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\packetlistener\PingListener.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\PingListener.cpp
 
 CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.i: cmake_force
@@ -506,7 +492,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/graphics/common/ErrorDialog.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\ErrorDialog.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\ErrorDialog.cpp
 
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.i: cmake_force
@@ -520,7 +506,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj: ../game/graphics/common/Screen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\Screen.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\Screen.cpp
 
 CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.i: cmake_force
@@ -534,7 +520,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/Screen.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/graphics/lobby/LobbyScreen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\lobby\LobbyScreen.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\lobby\LobbyScreen.cpp
 
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.i: cmake_force
@@ -548,7 +534,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.s: cmake_force
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/graphics/lobby/LobbyScreenListener.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\lobby\LobbyScreenListener.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\lobby\LobbyScreenListener.cpp
 
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.i: cmake_force
@@ -562,7 +548,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.s: cmake_fo
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/graphics/common/LoadingOverlay.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\LoadingOverlay.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\LoadingOverlay.cpp
 
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.i: cmake_force
@@ -595,7 +581,6 @@ AwdClient_OBJECTS = \
 "CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj" \
@@ -634,7 +619,6 @@ AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/Dialog.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/RichText.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj
@@ -659,7 +643,7 @@ AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-system.a
 AwdClient.exe: CMakeFiles/AwdClient.dir/linklibs.rsp
 AwdClient.exe: CMakeFiles/AwdClient.dir/objects1.rsp
 AwdClient.exe: CMakeFiles/AwdClient.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Linking CXX executable AwdClient.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Linking CXX executable AwdClient.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\AwdClient.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -98,7 +98,7 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    void RenderUtils::richText(sfe::RichText& msg, const std::wstring& message) {
+    void RenderUtils::enrichText(sfe::RichText& msg, const std::wstring& message) {
         // Форматирование.
         std::wstring::size_type offset = 0; // отступ слева от начала текста при выводе очередной части сообщения
         applyFormatting(msg, L'r'); // сброс цвета на белый при каждом выводе

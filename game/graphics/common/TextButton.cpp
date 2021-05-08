@@ -1,9 +1,9 @@
 // Размер и расположения текста на кнопках
-#define BUTTON_TEXT_LEFT_MARGIN 25
-#define BUTTON_TEXT_TOP_MARGIN 6
+#define BUTTON_TEXT_LEFT_MARGIN 25.0f
+#define BUTTON_TEXT_TOP_MARGIN 6.0f
 #define FONT_SIZE 45
 // Параметры выделенных кнопок
-#define VERTICAL_LINE_WIDTH 10
+#define VERTICAL_LINE_WIDTH 10.0f
 #define MAX_EFFECTIVE_HOVER_TICKS 7
 #define LINE_ALPHA_PER_HOVER_TICK 35
 #define FILL_ALPHA_PER_HOVER_TICK 15
@@ -28,15 +28,40 @@ namespace awd::game {
                            float renderScale,
                            const std::shared_ptr<sf::RenderWindow>& window,
                            const std::wstring& text,
-                           unsigned int x, unsigned int y,
-                           unsigned int width, unsigned int height,
+                           float x, float y,
+                           float width, float height,
                            const std::shared_ptr<ButtonListener>& listener)
                            : Button(id, renderScale, window, listener) {
-        this->text = text;
-        this->x = x;
-        this->y = y;
-        this->width = width;
+        this->x      = x;
+        this->y      = y;
+        this->width  = width;
         this->height = height;
+
+        // Вертикальная черта слева от текста
+        float lineWidth = VERTICAL_LINE_WIDTH * renderScale;
+
+        line = std::make_unique<sf::RectangleShape>(sf::Vector2f(lineWidth, height));
+        line->setFillColor(sf::Color::Transparent);
+        line->setPosition(x, y);
+
+        // Закрашивание кнопки
+        fill = std::make_unique<sf::RectangleShape>(sf::Vector2f(width, height));
+        fill->setFillColor(sf::Color::Transparent);
+        fill->setPosition(x + lineWidth, y);
+
+        // Текст на кнопке
+        unsigned int textAlpha  = BASE_TEXT_ALPHA + BONUS_TEXT_ALPHA_PER_HOVER_TICK * hoverTicks;
+        unsigned int fontSize   = FONT_SIZE                  * renderScale;
+        float        leftMargin = BUTTON_TEXT_LEFT_MARGIN    * renderScale;
+        float        topMargin  = BUTTON_TEXT_TOP_MARGIN     * renderScale;
+        float        textOffset = TEXT_OFFSET_PER_HOVER_TICK * renderScale          * hoverTicks + 1.0f; // min 1 px
+
+        buttonText = std::make_unique<sf::Text>();
+        buttonText->setFont(*Game::instance().getFontManager()->getRegularFont());
+        buttonText->setString(text);
+        buttonText->setCharacterSize(fontSize);
+        buttonText->setFillColor(sf::Color(255, 255, 255, textAlpha));
+        buttonText->setPosition(x + leftMargin + textOffset, y + topMargin);
     }
     
     void TextButton::update() {
@@ -47,42 +72,31 @@ namespace awd::game {
                 hoverTicks++;
         } else if (hoverTicks > 0)
             hoverTicks--;
+
+        // Вертикальная черта слева от текста
+        unsigned int lineAlpha = LINE_ALPHA_PER_HOVER_TICK * hoverTicks;
+        line->setFillColor(sf::Color(255, 255, 255, lineAlpha));
+
+        // Закрашивание кнопки
+        unsigned int fillAlpha = FILL_ALPHA_PER_HOVER_TICK * hoverTicks;
+        fill->setFillColor(sf::Color(0, 0, 0, fillAlpha));
+
+        // Текст на кнопке
+        unsigned int textAlpha  = BASE_TEXT_ALPHA + BONUS_TEXT_ALPHA_PER_HOVER_TICK * hoverTicks;
+        float        leftMargin = BUTTON_TEXT_LEFT_MARGIN    * renderScale;
+        float        topMargin  = BUTTON_TEXT_TOP_MARGIN     * renderScale;
+        float        textOffset = TEXT_OFFSET_PER_HOVER_TICK * renderScale          * hoverTicks + 1.0f; // min 1 px
+
+        buttonText->setFillColor(sf::Color(255, 255, 255, textAlpha));
+        buttonText->setPosition(x + leftMargin + textOffset, y + topMargin);
     }
     
     void TextButton::draw() {
         Button::draw();
 
-        // Вертикальная черта слева от текста
-        unsigned int lineWidth = VERTICAL_LINE_WIDTH       * renderScale;
-        unsigned int lineAlpha = LINE_ALPHA_PER_HOVER_TICK * hoverTicks;
-
-        sf::RectangleShape line(sf::Vector2f(lineWidth, height));
-        line.setPosition(x, y);
-        line.setFillColor(sf::Color(255, 255, 255, lineAlpha));
-        window->draw(line);
-
-        // Закрашивание кнопки
-        unsigned int fillAlpha = FILL_ALPHA_PER_HOVER_TICK * hoverTicks;
-
-        sf::RectangleShape fill(sf::Vector2f(width, height));
-        fill.setPosition(x + lineWidth, y);
-        fill.setFillColor(sf::Color(0, 0, 0, fillAlpha));
-        window->draw(fill);
-
-        // Текст
-        unsigned int fontSize   = FONT_SIZE                  * renderScale;
-        unsigned int leftMargin = BUTTON_TEXT_LEFT_MARGIN    * renderScale;
-        unsigned int topMargin  = BUTTON_TEXT_TOP_MARGIN     * renderScale;
-        unsigned int textOffset = TEXT_OFFSET_PER_HOVER_TICK * renderScale          * hoverTicks + 1; // min 1 px
-        unsigned int textAlpha  = BASE_TEXT_ALPHA + BONUS_TEXT_ALPHA_PER_HOVER_TICK * hoverTicks;
-
-        sf::Text bText;
-        bText.setFont(*Game::instance().getFontManager()->getRegularFont());
-        bText.setString(text);
-        bText.setCharacterSize(fontSize);
-        bText.setFillColor(sf::Color(255, 255, 255, textAlpha));
-        bText.setPosition(x + leftMargin + textOffset, y + topMargin);
-        window->draw(bText);
+        window->draw(*line);
+        window->draw(*fill);
+        window->draw(*buttonText);
     }
 
 }

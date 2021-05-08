@@ -14,9 +14,16 @@ namespace awd::game {
         static std::recursive_mutex mutex;
         static std::vector<id_type> registeredIds;
 
-        std::vector<std::shared_ptr<Drawable>> children, queuedChildren;
+        std::vector<std::shared_ptr<Drawable>> children,
+                                               childrenAddQueue;
+
+        std::vector<id_type> childrenRemoveQueue;
 
         void registerChild(const std::shared_ptr<Drawable>& child);
+
+        static void takeId(id_type idToTake);
+
+        static void freeId(id_type idToFree);
 
         static bool isIdUnique(id_type id);
 
@@ -26,8 +33,8 @@ namespace awd::game {
         float renderScale;
         std::shared_ptr<sf::RenderWindow> window = nullptr;
 
-        // Должны инициализироваться в дочерних конструкторах:
-        unsigned int x, y, width, height;
+        // Инициализируются в дочерних конструкторах:
+        float x, y, width, height;
         bool visible = true;
         bool enabled = true;
 
@@ -40,7 +47,7 @@ namespace awd::game {
          * регистрирует указанного потомка мгновенно. Соответственно, onRegister()
          * этого потомка будет вызван тоже мгновенно, без задержек.
          *
-         * @see #enqueueChild
+         * @see #enqueueAddChild (отложенная регистрация)
          */
         void addChild(const std::shared_ptr<Drawable>& child);
 
@@ -52,9 +59,12 @@ namespace awd::game {
          * при следующем обновлении этого объекта Drawable (update). Тогда же (т.е. с
          * небольшой задержкой) будет вызван и метод onRegister() этого потомка.
          *
-         * @see #queueChild
+         * ПРИМЕЧАНИЕ: объектам Drawable, созданным через enqueueAdd, стоит создавать
+         *             свои дочерние компоненты через всё тот же enqueueAdd.
+         *
+         * @see #queueChild (мгновенная регистрация)
          */
-        void enqueueChild(const std::shared_ptr<Drawable>& child);
+        void enqueueAddChild(const std::shared_ptr<Drawable>& child);
 
         /**
          * Вызывается при регистрации этого объекта в списке потомков (children). Может
@@ -62,14 +72,32 @@ namespace awd::game {
          * порядок вызова onRegister() можно найти в описании методов:
          *
          * @see #addChild (мгновенная регистрация)
-         * @see #enqueueChild (отложенная регистрация)
+         * @see #enqueueAddChild (отложенная регистрация)
          *
          * Для объектов Drawable самого высокого уровня (т.е. таких, которые сами не являются
          * потомками никаких других Drawable), этот метод никогда не будет вызван.
          */
         virtual void onRegister();
 
+        /**
+         * Мгновенно удаляет потомка с указанным ID. Нельзя использовать
+         * внутри цикла обновления и цикла обработки событий.
+         *
+         * Система аналогична #addChild и #enqueueAddChild.
+         *
+         * @see #enqueueRemoveChild (отложенное удаление)
+         */
         void removeChild(id_type childId);
+
+        /**
+         * Отложенно удаляет потомка с указанным ID. Можно использовать
+         * внутри цикла обновления и цикла обработки событий.
+         *
+         * Система аналогична #addChild и #enqueueAddChild.
+         *
+         * @see #removeChild (мгновенное удаление)
+         */
+        void enqueueRemoveChild(id_type childId);
 
         void updateChildren();
 
@@ -79,7 +107,7 @@ namespace awd::game {
 
         bool isMouseOver(const sf::Vector2i& mousePos) const;
 
-        bool isMouseOver(unsigned int mouseX, unsigned int mouseY) const;
+        bool isMouseOver(float mouseX, float mouseY) const;
 
     public:
         Drawable(id_type id,
@@ -91,10 +119,10 @@ namespace awd::game {
         id_type getId() const;
         float getRenderScale() const;
         std::shared_ptr<sf::RenderWindow> getWindow() const;
-        unsigned int getX() const;
-        unsigned int getY() const;
-        unsigned int getWidth() const;
-        unsigned int getHeight() const;
+        float getX() const;
+        float getY() const;
+        float getWidth() const;
+        float getHeight() const;
         bool isVisible() const;
         void setVisible(bool visibility);
         bool isEnabled() const;

@@ -15,10 +15,12 @@ namespace awd::game {
 
     class Dialog : public Drawable {
     protected:
-        unsigned int initialY, finalY;
+        float initialY, finalY, moveStep;
         std::shared_ptr<DialogListener> listener = nullptr;
         DialogState state = DialogState::DISAPPEARED;
-        int existedTicks = 0;
+        unsigned int existedTicks = 0;
+
+        std::unique_ptr<sf::RectangleShape> fill = nullptr;
 
     public:
         Dialog(id_type id,

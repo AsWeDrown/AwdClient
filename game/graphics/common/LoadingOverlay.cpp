@@ -1,7 +1,7 @@
 // Текст
 #define MAX_EFFECTIVE_EXISTED_TICKS 20
-#define TEXT_BASE_ALPHA 125
-#define TEXT_BONUS_ALPHA_PER_EXISTED_TICK 5
+#define TEXT_BASE_ALPHA 160
+#define TEXT_BONUS_ALPHA_PER_EXISTED_TICK 4
 #define TEXT_FONT_SIZE 50
 #define TEXT_OUTLINE_WIDTH 2.0f
 #define TEXT_TOP_MARGIN 50.0f
@@ -28,16 +28,17 @@ namespace awd::game {
         float        outline   = TEXT_OUTLINE_WIDTH * renderScale + 1.0f; // min 1 px
         float        topMargin = TEXT_TOP_MARGIN    * renderScale;
 
-        text.setFont(*Game::instance().getFontManager()->getRegularFont());
-        text.setCharacterSize(fontSize);
-        text.setOutlineThickness(outline);
-        text.setString(message);
+        text = std::make_unique<sf::Text>();
+        text->setFont(*Game::instance().getFontManager()->getRegularFont());
+        text->setCharacterSize(fontSize);
+        text->setOutlineThickness(outline);
+        text->setString(message);
 
-        sf::FloatRect textBounds = text.getGlobalBounds();
+        sf::FloatRect textBounds = text->getGlobalBounds();
 
         float textX = window->getSize().x / 2.0f - textBounds.width / 2.0f;
         float textY = textBounds.height + topMargin;
-        text.setPosition(textX, textY);
+        text->setPosition(textX, textY);
     }
 
     void LoadingOverlay::update() {
@@ -57,13 +58,13 @@ namespace awd::game {
         }
 
         unsigned int textAlpha = TEXT_BASE_ALPHA + TEXT_BONUS_ALPHA_PER_EXISTED_TICK * existedTicks;
-        text.setFillColor   (sf::Color(255, 255, 255, textAlpha));
-        text.setOutlineColor(sf::Color(  0,   0,   0, textAlpha));
+        text->setFillColor   (sf::Color(255, 255, 255, textAlpha));
+        text->setOutlineColor(sf::Color(  0,   0,   0, textAlpha));
     }
 
     void LoadingOverlay::draw() {
         Drawable::draw();
-        window->draw(text);
+        window->draw(*text);
     }
 
 }

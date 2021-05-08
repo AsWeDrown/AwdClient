@@ -4,12 +4,6 @@
 
 namespace awd::net {
 
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-     *
-     *   PRIVATE
-     *
-     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
     /*
      * @@@ BEGIN
      *
@@ -57,8 +51,6 @@ namespace awd::net {
      *             packet #5 MIGHT HAD BEEN LOST, however, its copy, packet #6,
      *             WAS SUCCESSFULLY RECEIVED BY THE SERVER. All good. End.
      */
-
-
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *

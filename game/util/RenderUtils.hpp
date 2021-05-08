@@ -12,7 +12,7 @@ namespace awd::game {
         static void applyFormatting(sfe::RichText& msg, wchar_t code);
 
     public:
-        static void richText(sfe::RichText& msg, const std::wstring& message);
+        static void enrichText(sfe::RichText& msg, const std::wstring& message);
 
         static void verticalGradientSquare(const std::shared_ptr<sf::RenderWindow>& window,
                                            float startX, float startY, float endX, float endY,

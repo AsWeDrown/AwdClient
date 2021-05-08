@@ -2,6 +2,12 @@
 
 namespace awd::net {
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PUBLIC
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
     PacketContainer::PacketContainer(bool ensureDelivered,
                                      uint32_t sequence,
                                      const std::shared_ptr<google::protobuf::Message>& packet) {

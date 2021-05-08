@@ -1,15 +1,16 @@
 // Кнопки
-#define ALL_BUTTONS_X 70
-#define BUTTONS_VERTICAL_MARGIN 5
-#define EXTRA_BOTTOM_MARGIN 100
-#define BUTTONS_WIDTH 700
-#define BUTTONS_HEIGHT 70
+#define ALL_BUTTONS_X 70.0f
+#define BUTTONS_VERTICAL_MARGIN 5.0f
+#define EXTRA_BOTTOM_MARGIN 100.0f
+#define BUTTONS_WIDTH 700.0f
+#define BUTTONS_HEIGHT 70.0f
 // Логотип
 #define LOGO_FONT_SIZE 75
-#define LOGO_OUTLINE_THICKNESS 10
-#define LOGO_EXTRA_LEFT_MARGIN 10
-#define LOGO_VERTICAL_MARGIN 50
+#define LOGO_OUTLINE_THICKNESS 10.0f
+#define LOGO_EXTRA_LEFT_MARGIN 10.0f
+#define LOGO_VERTICAL_MARGIN 50.0f
 #define LETTER_SPACING_FACTOR 1.1f
+
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include "MainMenuScreen.hpp"
@@ -18,8 +19,6 @@
 #include "../../util/RenderUtils.hpp"
 #include "../common/WaterBackground.hpp"
 #include "../../Game.hpp"
-#include "../common/TextInputDialog.hpp"
-#include "../common/LoadingOverlay.hpp"
 
 namespace awd::game {
 
@@ -31,14 +30,14 @@ namespace awd::game {
 
     void MainMenuScreen::createButtons() {
         // Кнопки отрисовываются снизу вверх, поэтому и добавляем их в "обратном" порядке.
-        const unsigned int bMargin      = BUTTONS_VERTICAL_MARGIN * renderScale;
-        const unsigned int bExtraMargin = EXTRA_BOTTOM_MARGIN     * renderScale;
-        const unsigned int bWidth       = BUTTONS_WIDTH           * renderScale;
-        const unsigned int bHeight      = BUTTONS_HEIGHT          * renderScale;
-        const unsigned int bX           = ALL_BUTTONS_X           * renderScale;
+        const float bMargin      = BUTTONS_VERTICAL_MARGIN * renderScale;
+        const float bExtraMargin = EXTRA_BOTTOM_MARGIN     * renderScale;
+        const float bWidth       = BUTTONS_WIDTH           * renderScale;
+        const float bHeight      = BUTTONS_HEIGHT          * renderScale;
+        const float bX           = ALL_BUTTONS_X           * renderScale;
 
         // QuitGame
-        unsigned int bY = height - bMargin - bHeight - bExtraMargin;
+        float bY = height - bMargin - bHeight - bExtraMargin;
         auto btnQuitGame = std::make_shared<TextButton>(
                 ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME, renderScale, window,
                 L"Выйти из игры", bX, bY, bWidth, bHeight, listener);
@@ -57,6 +56,9 @@ namespace awd::game {
                 ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY, renderScale, window,
                 L"Создать комнату", bX, bY, bWidth, bHeight, listener);
         addComponent(btnCreateLobby);
+
+        // Нужно для размещения логотипа
+        highestButtonY = bY;
     }
 
 
@@ -69,15 +71,39 @@ namespace awd::game {
     MainMenuScreen::MainMenuScreen(float renderScale,
                                    const std::shared_ptr<sf::RenderWindow>& window)
                                    : Screen(ID_SCREEN_MAIN_MENU, renderScale, window) {
-        x = 0;
-        y = 0;
-        width = window->getSize().x;
+        x      = 0.0f;
+        y      = 0.0f;
+        width  = window->getSize().x;
         height = window->getSize().y;
 
+        // Фон
         addChild(std::make_shared<WaterBackground>(
                 ID_SCREEN_MAIN_MENU_WATER_BACKGROUND, renderScale, window));
 
+        // Кнопки
         createButtons();
+
+        // Логотип
+        unsigned int logoFontSize   = LOGO_FONT_SIZE         * renderScale;
+        float        logoOutline    = LOGO_OUTLINE_THICKNESS * renderScale;
+        float        logoLeftMargin = LOGO_EXTRA_LEFT_MARGIN * renderScale;
+        float        allButtonsX    = ALL_BUTTONS_X          * renderScale;
+        float        logoVertMargin = LOGO_VERTICAL_MARGIN   * renderScale;
+        float        buttonsHeight  = BUTTONS_HEIGHT         * renderScale;
+        float        logoX          = allButtonsX + logoLeftMargin;
+        float        logoY          = highestButtonY - buttonsHeight - logoVertMargin;
+
+        logo = std::make_unique<sf::Text>();
+        logo->setFont(*Game::instance().getFontManager()->getDecorativeFont());
+        logo->setString(L"As We Drown");
+        logo->setCharacterSize(logoFontSize);
+        logo->setLetterSpacing(LETTER_SPACING_FACTOR);
+        logo->setFillColor(ColorSet::LOGO_FILL);
+        logo->setOutlineColor(ColorSet::LOGO_OUTLINE);
+        logo->setOutlineThickness(logoOutline);
+        logo->setPosition(logoX, logoY);
+
+        std::wcerr << L"logo pos: " << logoX << L" / " << logoY << std::endl;
     }
 
     void MainMenuScreen::update() {
@@ -86,29 +112,7 @@ namespace awd::game {
 
     void MainMenuScreen::draw() {
         Screen::draw();
-
-        // Логотип.
-        unsigned int logoFontSize   = LOGO_FONT_SIZE         * renderScale;
-        unsigned int logoOutline    = LOGO_OUTLINE_THICKNESS * renderScale;
-        unsigned int logoLeftMargin = LOGO_EXTRA_LEFT_MARGIN * renderScale;
-        unsigned int allButtonsX    = ALL_BUTTONS_X          * renderScale;
-        unsigned int logoVertMargin = LOGO_VERTICAL_MARGIN   * renderScale;
-        unsigned int buttonsHeight  = BUTTONS_HEIGHT         * renderScale;
-
-        unsigned int logoX          = allButtonsX + logoLeftMargin;
-        unsigned int highestButtonY = getChildById(ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY)->getY();
-        unsigned int logoY          = highestButtonY - buttonsHeight - logoVertMargin;
-
-        sf::Text logo;
-        logo.setString(L"As We Drown");
-        logo.setFont(*Game::instance().getFontManager()->getDecorativeFont());
-        logo.setCharacterSize(logoFontSize);
-        logo.setLetterSpacing(LETTER_SPACING_FACTOR);
-        logo.setFillColor(ColorSet::LOGO_FILL);
-        logo.setOutlineColor(ColorSet::LOGO_OUTLINE);
-        logo.setOutlineThickness(logoOutline);
-        logo.setPosition(logoX, logoY);
-        window->draw(logo);
+        window->draw(*logo);
     }
 
     std::shared_ptr<MainMenuScreenListener> MainMenuScreen::getListener() const {

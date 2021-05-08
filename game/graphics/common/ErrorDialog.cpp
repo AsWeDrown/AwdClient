@@ -1,16 +1,16 @@
 // Текст сообщения
-#define MESSAGE_TEXT_LEFT_MARGIN 20
-#define MESSAGE_TEXT_TOP_MARGIN 20
+#define MESSAGE_TEXT_LEFT_MARGIN 20.0f
+#define MESSAGE_TEXT_TOP_MARGIN 20.0f
 #define MESSAGE_TEXT_FONT_SIZE 27
 #define MAX_MESSAGE_TEXT_LINE_LENGTH 66
 #define MAX_MESSAGE_TEXT_LINES 9
 // Кнопка "ОК"
-#define BUTTON_OK_LEFT_MARGIN 15
-#define BUTTON_OK_BOTTOM_MARGIN 15
-#define BUTTON_OK_WIDTH 250
-#define BUTTON_OK_HEIGHT 75
+#define BUTTON_OK_LEFT_MARGIN 15.0f
+#define BUTTON_OK_BOTTOM_MARGIN 15.0f
+#define BUTTON_OK_WIDTH 250.0f
+#define BUTTON_OK_HEIGHT 75.0f
 // Разделительная линия над кнопками
-#define BUTTONS_SEPARATOR_LINE_HEIGHT 2
+#define BUTTONS_SEPARATOR_LINE_HEIGHT 2.0f
 
 
 #include "ErrorDialog.hpp"
@@ -34,24 +34,47 @@ namespace awd::game {
                              id_type btnOkId,
                              const std::shared_ptr<ButtonListener>& btnOkListener)
                              : Dialog(id, renderScale, window, dialogListener) {
-        this->message = StringUtils::wrapByLineLength(
-                StringUtils::encodeFormatting(message),
-                MAX_MESSAGE_TEXT_LINE_LENGTH, MAX_MESSAGE_TEXT_LINES);
-
-        this->btnOkId = btnOkId;
-
-        // Создаём кнопку "ОК".
-        unsigned int bLeftMargin   = BUTTON_OK_LEFT_MARGIN       * renderScale;
-        unsigned int bBottomMargin = BUTTON_OK_BOTTOM_MARGIN     * renderScale;
-        unsigned int bWidth        = BUTTON_OK_WIDTH             * renderScale;
-        unsigned int bHeight       = BUTTON_OK_HEIGHT            * renderScale;
-        unsigned int bX            = x + bLeftMargin;
-        unsigned int bY            = finalY + height - bHeight - bBottomMargin;
+        // Кнопка "ОК".
+        float bLeftMargin   = BUTTON_OK_LEFT_MARGIN       * renderScale;
+        float bBottomMargin = BUTTON_OK_BOTTOM_MARGIN     * renderScale;
+        float bWidth        = BUTTON_OK_WIDTH             * renderScale;
+        float bHeight       = BUTTON_OK_HEIGHT            * renderScale;
+        float bX            = x + bLeftMargin;
+        float bY            = finalY + height - bHeight - bBottomMargin;
 
         auto btnOk = std::make_shared<TextButton>(
                 btnOkId, renderScale, window,
                 L"ОК", bX, bY, bWidth, bHeight, btnOkListener);
         addChild(btnOk);
+
+        // Разделительная линия над кнопками.
+        float sepMarginX = BUTTON_OK_LEFT_MARGIN         * renderScale;
+        float sepMarginY = BUTTON_OK_BOTTOM_MARGIN       * renderScale;
+        float sepHeight  = BUTTONS_SEPARATOR_LINE_HEIGHT * renderScale + 1.0f; // min 1 px
+        float btnOkY     = btnOk->getY();
+
+        sepLine = std::make_unique<sf::RectangleShape>(
+                sf::Vector2f(width - 2 * sepMarginX, sepHeight));
+
+        sepLine->setFillColor(ColorSet::GUI_BUTTONS_SEPARATOR_LINE);
+        sepLine->setPosition(x + sepMarginX, btnOkY - sepHeight - sepMarginY);
+
+        // Текст сообщения (с поддержкой форматирования)
+        std::wstring formattedMsg = StringUtils::wrapByLineLength(
+                StringUtils::encodeFormatting(message),
+                MAX_MESSAGE_TEXT_LINE_LENGTH, MAX_MESSAGE_TEXT_LINES
+        );
+
+        float        msgLeftMargin = MESSAGE_TEXT_LEFT_MARGIN * renderScale;
+        float        msgTopMargin  = MESSAGE_TEXT_TOP_MARGIN  * renderScale;
+        unsigned int msgFontSize   = MESSAGE_TEXT_FONT_SIZE   * renderScale;
+
+        text = std::make_unique<sfe::RichText>(
+                *Game::instance().getFontManager()->getRegularFont());
+
+        RenderUtils::enrichText(*text, formattedMsg);
+        text->setCharacterSize(msgFontSize);
+        text->setPosition(x + msgLeftMargin, finalY + msgTopMargin);
     }
 
     void ErrorDialog::update() {
@@ -61,29 +84,8 @@ namespace awd::game {
     void ErrorDialog::draw() {
         Dialog::draw();
 
-        // Разделительная полоса над кнопками
-        unsigned int sepMarginX = BUTTON_OK_LEFT_MARGIN         * renderScale;
-        unsigned int sepMarginY = BUTTON_OK_BOTTOM_MARGIN       * renderScale;
-        unsigned int sepHeight  = BUTTONS_SEPARATOR_LINE_HEIGHT * renderScale + 1; // min 1 px
-        unsigned int btnOkY     = getChildById(btnOkId)->getY();
-
-        sf::RectangleShape sep(sf::Vector2f(width - 2 * sepMarginX, sepHeight));
-        sep.setFillColor(ColorSet::GUI_BUTTONS_SEPARATOR_LINE);
-        sep.setPosition(x + sepMarginX, btnOkY - sepHeight - sepMarginY);
-        window->draw(sep);
-
-        // Текст сообщения (с поддержкой форматирования).
-        unsigned int msgLeftMargin = MESSAGE_TEXT_LEFT_MARGIN * renderScale;
-        unsigned int msgTopMargin  = MESSAGE_TEXT_TOP_MARGIN  * renderScale;
-        unsigned int msgFontSize   = MESSAGE_TEXT_FONT_SIZE   * renderScale;
-
-        sfe::RichText msg(*Game::instance().getFontManager()->getRegularFont());
-        RenderUtils::richText(msg, message);
-
-        // Оставшиеся мелочи.
-        msg.setCharacterSize(msgFontSize);
-        msg.setPosition(x + msgLeftMargin, y + msgTopMargin);
-        window->draw(msg);
+        window->draw(*sepLine);
+        window->draw(*text);
     }
 
 }

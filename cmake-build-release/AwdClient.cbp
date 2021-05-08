@@ -198,9 +198,6 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.hpp">
 			<Option target="AwdClient"/>
 		</Unit>

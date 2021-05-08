@@ -34,16 +34,16 @@ namespace awd::game {
     }
 
     void Screen::showLoadingOverlay(const std::shared_ptr<LoadingOverlay>& loadingOverlay) {
-        currentLoadingOverlayId = loadingOverlay->getId();
-        enqueueChild(loadingOverlay);
         setComponentsEnabled(false);
+        currentLoadingOverlayId = loadingOverlay->getId();
+        enqueueAddChild(loadingOverlay); // т.к. нельзя исп. "add" во время обработки событий
     }
 
     void Screen::hideCurrentLoadingOverlay() {
         if (isLoadingOverlayShown()) {
-            removeChild(currentLoadingOverlayId);
-            setComponentsEnabled(true);
+            enqueueRemoveChild(currentLoadingOverlayId); // т.к. нельзя "remove" во время обработки событий
             currentLoadingOverlayId = 0;
+            setComponentsEnabled(true);
         }
     }
 
@@ -54,18 +54,19 @@ namespace awd::game {
     void Screen::openDialog(const std::shared_ptr<Dialog>& dialog) {
         setComponentsEnabled(false);
         currentDialogId = dialog->getId();
-        enqueueChild(dialog); // исп. "enqueue", т.к. нельзя исп. "add" во время обработки mouseClicked
+        enqueueAddChild(dialog); // исп. "enqueueAdd", т.к. нельзя исп. "add" во время обработки событий
     }
 
     void Screen::closeCurrentDialog() {
         if (isDialogOpen()) {
-            auto currentDialog = std::dynamic_pointer_cast<Dialog>(getChildById(currentDialogId));
+            auto currentDialog = std::dynamic_pointer_cast
+                    <Dialog>(getChildById(currentDialogId));
             currentDialog->hide();
         }
     }
 
     void Screen::dialogClosed() {
-        removeChild(currentDialogId);
+        enqueueRemoveChild(currentDialogId); // "enqueueRemove", т.к. нельзя "remove" во время обработки событий
         currentDialogId = 0;
         setComponentsEnabled(true);
     }

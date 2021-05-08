@@ -3,6 +3,12 @@
 
 namespace awd::net {
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PUBLIC
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
     bool SequenceNumberMath::isMoreRecent(uint32_t s1, uint32_t s2) {
         // Возвращаем true, если первый входной номер пакета (s1) "больше" ("новее") второго (s2).
         return ((s1 > s2) && (s1 - s2 <= SEQUENCE_NUMBER_WRAP_AROUND_THRESHOLD)) // s1 просто "новее" s2

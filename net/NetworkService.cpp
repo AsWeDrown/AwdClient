@@ -3,6 +3,12 @@
 
 namespace awd::net {
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PUBLIC
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
     NetworkService::NetworkService(const std::shared_ptr<PacketManager>& packetManager) {
         this->packetManager = packetManager;
     }

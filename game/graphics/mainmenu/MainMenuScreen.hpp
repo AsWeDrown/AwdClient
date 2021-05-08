@@ -17,8 +17,12 @@ namespace awd::game {
 
     class MainMenuScreen : public Screen {
     private:
+        float highestButtonY = 0.0f;
+
         std::shared_ptr<MainMenuScreenListener> listener = std::make_shared<MainMenuScreenListener>();
         WorkflowState workflowState = WorkflowState::IDLE;
+
+        std::unique_ptr<sf::Text> logo = nullptr;
 
         void createButtons();
 

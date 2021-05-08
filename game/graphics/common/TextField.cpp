@@ -1,16 +1,16 @@
 // Общие
 #define BASE_FILL_ALPHA 80
 #define BASE_LINE_ALPHA 125
-#define BASE_LINE_WIDTH 3 /* имеется в виду высота прямоугольника (height) */
+#define BASE_LINE_WIDTH 3.0f /* имеется в виду высота прямоугольника (height) */
 // Эффекты выделения
 #define MAX_EFFECTIVE_SELECTED_TICKS 3
-#define EXTRA_FILL_ALPHA_PER_SELECTED_TICK 15
-#define EXTRA_LINE_ALPHA_PER_SELECTED_TICK 30
-#define EXTRA_LINE_WIDTH_PER_SELECTED_TICK 1 /* имеется в виду высота прямоугольника (height) */
+#define BONUS_FILL_ALPHA_PER_SELECTED_TICK 15
+#define BONUS_LINE_ALPHA_PER_SELECTED_TICK 30
+#define BONUS_LINE_WIDTH_PER_SELECTED_TICK 0.5f /* имеется в виду высота прямоугольника (height) */
 // Текст
 #define TEXT_FONT_SIZE 45
-#define TEXT_TOP_MARGIN 18
-#define TEXT_LEFT_MARGIN 25
+#define TEXT_TOP_MARGIN 18.0f
+#define TEXT_LEFT_MARGIN 25.0f
 #define HINT_TEXT_ALPHA 140
 // Макросы для упрощения огромной switch/case конструкции для преобразования кодов клавиш в символы на них
 #define KEY(x) case sf::Keyboard::x :                                            \
@@ -37,22 +37,47 @@ namespace awd::game {
     TextField::TextField(id_type id,
                          float renderScale,
                          const std::shared_ptr<sf::RenderWindow>& window,
-                         unsigned int x, unsigned int y,
-                         unsigned int width, unsigned int height,
+                         float x, float y,
+                         float width, float height,
                          unsigned int maxContentsLen,
                          const std::wstring& hintText,
                          const std::wstring& initialContents,
                          const std::shared_ptr<TextFieldListener>& listener)
                          : Drawable(id, renderScale, window) {
-        this->x = x;
-        this->y = y;
-        this->width = width;
+        this->x      = x;
+        this->y      = y;
+        this->width  = width;
         this->height = height;
         this->maxContentsLen = maxContentsLen;
         this->hintText = hintText;
         this->contents = initialContents.length() <= maxContentsLen
                 ? initialContents : initialContents.substr(0, maxContentsLen);
         this->listener = listener;
+
+        // Закрашивание
+        tfFill = std::make_unique<sf::RectangleShape>(sf::Vector2f(width, height));
+        tfFill->setPosition(x, y);
+        tfFill->setFillColor(sf::Color::Transparent);
+
+        // Горизонтальная черта снизу
+        float baseWidth = BASE_LINE_WIDTH * renderScale + 1.0f; // min 1 px
+
+        tfLine = std::make_unique<sf::RectangleShape>(sf::Vector2f(width, baseWidth));
+        tfLine->setPosition(x, y + height - baseWidth); // минус lineWidth, чтобы черта "росла" вверх (внутрь поля)
+        tfLine->setFillColor(sf::Color::Transparent);
+
+        // Введённый пользователем текст (или hintText (подсказка), если пользователь ничего не ввёл)
+        unsigned int fontSize   = TEXT_FONT_SIZE   * renderScale;
+        float        topMargin  = TEXT_TOP_MARGIN  * renderScale;
+        float        leftMargin = TEXT_LEFT_MARGIN * renderScale;
+
+        tfText = std::make_unique<sf::Text>();
+        tfText->setFont(*Game::instance().getFontManager()->getRegularFont());
+        tfText->setString(contents.empty() ? hintText : contents);
+        tfText->setCharacterSize(fontSize);
+        tfText->setFillColor(sf::Color(255, 255, 255,
+                                    contents.empty() ? HINT_TEXT_ALPHA : 255));
+        tfText->setPosition(x + leftMargin, y + topMargin);
     }
 
     void TextField::keyPressed(const sf::Event::KeyEvent& event) {
@@ -70,44 +95,16 @@ namespace awd::game {
 
             switch (event.code) {
                 // Латиница (строчные и прописные буквы)
-                KEY(A)
-                KEY(B)
-                KEY(C)
-                KEY(D)
-                KEY(E)
-                KEY(F)
-                KEY(G)
-                KEY(H)
-                KEY(I)
-                KEY(J)
-                KEY(K)
-                KEY(L)
-                KEY(M)
-                KEY(N)
-                KEY(O)
-                KEY(P)
-                KEY(Q)
-                KEY(R)
-                KEY(S)
-                KEY(T)
-                KEY(U)
-                KEY(V)
-                KEY(W)
-                KEY(X)
-                KEY(Y)
-                KEY(Z)
+                KEY(A) KEY(B) KEY(C) KEY(D) KEY(E)
+                KEY(F) KEY(G) KEY(H) KEY(I) KEY(J)
+                KEY(K) KEY(L) KEY(M) KEY(N) KEY(O)
+                KEY(P) KEY(Q) KEY(R) KEY(S) KEY(T)
+                KEY(U) KEY(V) KEY(W) KEY(X) KEY(Y)
+                              KEY(Z)
 
                 // Цифры
-                NUM(0)
-                NUM(1)
-                NUM(2)
-                NUM(3)
-                NUM(4)
-                NUM(5)
-                NUM(6)
-                NUM(7)
-                NUM(8)
-                NUM(9)
+                NUM(0) NUM(1) NUM(2) NUM(3) NUM(4)
+                NUM(5) NUM(6) NUM(7) NUM(8) NUM(9)
 
                 // Символ "подчёркивания" (underscore)
                 case sf::Keyboard::Hyphen:
@@ -141,42 +138,33 @@ namespace awd::game {
                 selectedTicks++;
         } else if (selectedTicks > 0)
             selectedTicks--;
+
+        // Закрашивание
+        unsigned int fillAlpha = BASE_FILL_ALPHA + BONUS_FILL_ALPHA_PER_SELECTED_TICK * selectedTicks;
+        tfFill->setFillColor(sf::Color(0, 0, 0, fillAlpha));
+
+        // Горизонтальная черта снизу
+        float        baseWidth = BASE_LINE_WIDTH                    * renderScale + 1.0f; // min 1 px
+        float        bwPerTick = BONUS_LINE_WIDTH_PER_SELECTED_TICK * renderScale + 1.0f; // min 1 px
+        float        lineWidth = baseWidth + bwPerTick * selectedTicks;
+        unsigned int lineAlpha = BASE_LINE_ALPHA + BONUS_LINE_ALPHA_PER_SELECTED_TICK * selectedTicks;
+
+        tfLine->setFillColor(sf::Color(255, 255, 255, lineAlpha));
+        tfLine->setSize(sf::Vector2f(tfLine->getSize().x, lineWidth));
+        tfLine->setPosition(x, y + height - lineWidth); // минус lineWidth, чтобы черта "росла" вверх (внутрь поля)
+
+        // Введённый пользователем текст (или hintText (подсказка), если пользователь ничего не ввёл)
+        tfText->setString(contents.empty() ? hintText : contents);
+        tfText->setFillColor(sf::Color(255, 255, 255,
+                                       contents.empty() ? HINT_TEXT_ALPHA : 255));
     }
 
     void TextField::draw() {
         Drawable::draw();
 
-        unsigned int fillAlpha = BASE_FILL_ALPHA + EXTRA_FILL_ALPHA_PER_SELECTED_TICK * selectedTicks;
-        unsigned int lineAlpha = BASE_LINE_ALPHA + EXTRA_LINE_ALPHA_PER_SELECTED_TICK * selectedTicks;
-        unsigned int baseWidth = BASE_LINE_WIDTH                                      * renderScale + 1; // min 1 px
-        unsigned int ewPerTick = EXTRA_LINE_WIDTH_PER_SELECTED_TICK                   * renderScale + 1; // min 1 px
-        unsigned int lineWidth = baseWidth + ewPerTick * selectedTicks;
-
-        // Закрашивание
-        sf::RectangleShape fill(sf::Vector2f(width, height));
-        fill.setPosition(x, y);
-        fill.setFillColor(sf::Color(0, 0, 0, fillAlpha));
-        window->draw(fill);
-
-        // Горизонтальная черта снизу
-        sf::RectangleShape line(sf::Vector2f(width, lineWidth));
-        line.setPosition(x, y + height - lineWidth); // минус lineWidth, чтобы черта "росла" вверх (внутрь поля)
-        line.setFillColor(sf::Color(255, 255, 255, lineAlpha));
-        window->draw(line);
-
-        // Введённый пользователем текст (или hintText (подсказка), если пользователь ничего не ввёл)
-        unsigned int fontSize   = TEXT_FONT_SIZE   * renderScale;
-        unsigned int topMargin  = TEXT_TOP_MARGIN  * renderScale;
-        unsigned int leftMargin = TEXT_LEFT_MARGIN * renderScale;
-
-        sf::Text text;
-        text.setFont(*Game::instance().getFontManager()->getRegularFont());
-        text.setString(contents.empty() ? hintText : contents);
-        text.setCharacterSize(fontSize);
-        text.setFillColor(sf::Color(255, 255, 255,
-                                    contents.empty() ? HINT_TEXT_ALPHA : 255));
-        text.setPosition(x + leftMargin, y + topMargin);
-        window->draw(text);
+        window->draw(*tfFill);
+        window->draw(*tfLine);
+        window->draw(*tfText);
     }
 
     std::wstring TextField::getContents() const {

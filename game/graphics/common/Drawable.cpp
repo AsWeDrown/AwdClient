@@ -13,11 +13,35 @@ namespace awd::game {
     std::vector<id_type> Drawable::registeredIds;
 
     void Drawable::registerChild(const std::shared_ptr<Drawable>& child) {
+        takeId(child->id); // занимаем этот ID (чтобы не появилось других объектов с таким же номером)
         children.push_back(child);
         child->onRegister();
     }
 
+    void Drawable::takeId(id_type idToTake) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
+        if (isIdUnique(idToTake))
+            registeredIds.push_back(idToTake);
+        else {
+            std::wcerr << L"Drawable ID not unique: " << idToTake << std::endl;
+            throw std::invalid_argument(DRAWABLE_ID_NOT_UNIQUE);
+        }
+    }
+
+    void Drawable::freeId(id_type idToFree) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+
+        registeredIds.erase(std::remove_if(
+                registeredIds.begin(), registeredIds.end(),
+                [idToFree](id_type otherId) {
+                    return otherId == idToFree;
+                }), registeredIds.end()
+        );
+    }
+
     bool Drawable::isIdUnique(id_type id) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
         return std::all_of(registeredIds.cbegin(), registeredIds.cend(),
                            [id](id_type otherId) { return otherId != id; });
     }
@@ -31,13 +55,13 @@ namespace awd::game {
     void Drawable::addChild(const std::shared_ptr<Drawable>& child) {
         std::unique_lock<std::recursive_mutex> lock(mutex);
         child->parent = this;
-        registerChild(child); // мгновенная регистрация
+        registerChild(child);
     }
 
-    void Drawable::enqueueChild(const std::shared_ptr<Drawable>& child) {
+    void Drawable::enqueueAddChild(const std::shared_ptr<Drawable>& child) {
         std::unique_lock<std::recursive_mutex> lock(mutex);
         child->parent = this;
-        queuedChildren.push_back(child); // отложенная регистрация
+        childrenAddQueue.push_back(child); // отложенная регистрация
     }
 
     void Drawable::onRegister() {}
@@ -45,12 +69,18 @@ namespace awd::game {
     void Drawable::removeChild(id_type childId) {
         std::unique_lock<std::recursive_mutex> lock(mutex);
 
+        freeId(childId); // освобождаем ID мгновенно (вдруг деструктор вызовется с задержкой?)
         children.erase(std::remove_if(
                 children.begin(), children.end(),
                 [childId](const auto& child) {
                     return child->id == childId;
                 }), children.end()
         );
+    }
+
+    void Drawable::enqueueRemoveChild(id_type childId) {
+        std::unique_lock<std::recursive_mutex> lock(mutex);
+        childrenRemoveQueue.push_back(childId); // отложенное удаление
     }
 
     void Drawable::updateChildren() {
@@ -76,7 +106,7 @@ namespace awd::game {
         return isMouseOver(mousePos.x, mousePos.y);
     }
 
-    bool Drawable::isMouseOver(unsigned int mouseX, unsigned int mouseY) const {
+    bool Drawable::isMouseOver(float mouseX, float mouseY) const {
         return mouseX >= x && mouseX <= x + width
             && mouseY >= y && mouseY <= y + height;
     }
@@ -92,30 +122,14 @@ namespace awd::game {
                        const std::shared_ptr<sf::RenderWindow>& window) {
         std::unique_lock<std::recursive_mutex> lock(mutex);
 
-        if (!isIdUnique(id)) {
-            std::wcerr << L"ID not unique: " << id << std::endl;
-            throw std::invalid_argument(DRAWABLE_ID_NOT_UNIQUE);
-        }
-
         // Инициализируем самые базовые (основные, обязательные) поля.
         this->id = id;
         this->renderScale = renderScale;
         this->window = window;
-
-        // Занимаем этот ID.
-        registeredIds.push_back(id);
     }
 
     Drawable::~Drawable() {
-        std::unique_lock<std::recursive_mutex> lock(mutex);
-
-        // Освобождаем этот ID.
-        registeredIds.erase(std::remove_if(
-                registeredIds.begin(), registeredIds.end(),
-                [this](id_type otherId) {
-                    return otherId == this->id;
-                }), registeredIds.end()
-        );
+        freeId(id); // освбождаем этот ID, если это не было сделано ранее (дополнительная мера предосторожности)
     }
 
     id_type Drawable::getId() const {
@@ -130,19 +144,19 @@ namespace awd::game {
         return window;
     }
 
-    unsigned int Drawable::getX() const {
+    float Drawable::getX() const {
         return x;
     }
 
-    unsigned int Drawable::getY() const {
+    float Drawable::getY() const {
         return y;
     }
 
-    unsigned int Drawable::getWidth() const {
+    float Drawable::getWidth() const {
         return width;
     }
 
-    unsigned int Drawable::getHeight() const {
+    float Drawable::getHeight() const {
         return height;
     }
 
@@ -219,14 +233,25 @@ namespace awd::game {
     void Drawable::update() {
         std::unique_lock<std::recursive_mutex> lock(mutex);
 
+        // Отложенное удаление потомков (см. подробное описание чуть ниже).
+        // Удаление должно происходить ДО добавления, чтобы у родительских
+        // объектов Drawable была возможность "заменять" одного потомка на
+        // другого с таким же ID во время цикла обновления или событий.
+        if (!childrenRemoveQueue.empty()) {
+            for (const auto& queuedChild : childrenRemoveQueue)
+                removeChild(queuedChild);
+
+            childrenRemoveQueue.clear();
+        }
+
         // Регистрируем все дочерние компоненты, созданные во время события,
         // произошедшего между этим и предыдущим тиком. Подробное объяснение
-        // необходимости этого см. над объявлением метода #enqueueChild (.hpp).
-        if (!queuedChildren.empty()) {
-            for (const auto& queuedChild : queuedChildren)
+        // необходимости этого см. над объявлением метода #enqueueAddChild (.hpp).
+        if (!childrenAddQueue.empty()) {
+            for (const auto& queuedChild : childrenAddQueue)
                 registerChild(queuedChild);
 
-            queuedChildren.clear();
+            childrenAddQueue.clear();
         }
 
         updateChildren();

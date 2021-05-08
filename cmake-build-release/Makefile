@@ -403,33 +403,6 @@ game/graphics/common/LoadingOverlay.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.s
 .PHONY : game/graphics/common/LoadingOverlay.cpp.s
 
-game/graphics/common/RectWrapper.obj: game/graphics/common/RectWrapper.cpp.obj
-
-.PHONY : game/graphics/common/RectWrapper.obj
-
-# target to build an object file
-game/graphics/common/RectWrapper.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.obj
-.PHONY : game/graphics/common/RectWrapper.cpp.obj
-
-game/graphics/common/RectWrapper.i: game/graphics/common/RectWrapper.cpp.i
-
-.PHONY : game/graphics/common/RectWrapper.i
-
-# target to preprocess a source file
-game/graphics/common/RectWrapper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.i
-.PHONY : game/graphics/common/RectWrapper.cpp.i
-
-game/graphics/common/RectWrapper.s: game/graphics/common/RectWrapper.cpp.s
-
-.PHONY : game/graphics/common/RectWrapper.s
-
-# target to generate assembly for a file
-game/graphics/common/RectWrapper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/RectWrapper.cpp.s
-.PHONY : game/graphics/common/RectWrapper.cpp.s
-
 game/graphics/common/RichText.obj: game/graphics/common/RichText.cpp.obj
 
 .PHONY : game/graphics/common/RichText.obj
@@ -1169,9 +1142,6 @@ help:
 	@echo ... game/graphics/common/LoadingOverlay.obj
 	@echo ... game/graphics/common/LoadingOverlay.i
 	@echo ... game/graphics/common/LoadingOverlay.s
-	@echo ... game/graphics/common/RectWrapper.obj
-	@echo ... game/graphics/common/RectWrapper.i
-	@echo ... game/graphics/common/RectWrapper.s
 	@echo ... game/graphics/common/RichText.obj
 	@echo ... game/graphics/common/RichText.i
 	@echo ... game/graphics/common/RichText.s

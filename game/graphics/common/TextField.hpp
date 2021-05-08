@@ -10,17 +10,21 @@ namespace awd::game {
     protected:
         std::shared_ptr<TextFieldListener> listener = nullptr;
         unsigned int maxContentsLen;
-        std::wstring hintText;
-        std::wstring contents;
+        std::wstring hintText, contents;
         int selectedTicks = 0;
         bool selected = false;
+
+        std::unique_ptr<sf::RectangleShape> tfFill,
+                                            tfLine;
+
+        std::unique_ptr<sf::Text>           tfText;
 
     public:
         TextField(id_type id,
                   float renderScale,
                   const std::shared_ptr<sf::RenderWindow>& window,
-                  unsigned int x, unsigned int y,
-                  unsigned int width, unsigned int height,
+                  float x, float y,
+                  float width, float height,
                   unsigned int maxContentsLen,
                   const std::wstring& hintText,
                   const std::wstring& initialContents,

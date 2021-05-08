@@ -10,8 +10,8 @@ namespace awd::game {
 
     class ErrorDialog : public Dialog {
     private:
-        std::wstring message;
-        id_type btnOkId;
+        std::unique_ptr<sf::RectangleShape> sepLine = nullptr;
+        std::unique_ptr<sfe::RichText>      text    = nullptr;
 
     protected:
         void update() override;

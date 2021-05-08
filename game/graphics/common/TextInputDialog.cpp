@@ -1,21 +1,21 @@
 // Поле ввода
-#define TEXT_FIELD_TOP_MARGIN 40
-#define TEXT_FIELD_LEFT_MARGIN 20
-#define TEXT_FIELD_HEIGHT 100
+#define TEXT_FIELD_TOP_MARGIN 40.0f
+#define TEXT_FIELD_LEFT_MARGIN 20.0f
+#define TEXT_FIELD_HEIGHT 100.0f
 // Текст сообщения
 #define MESSAGE_TEXT_LEFT_MARGIN TEXT_FIELD_LEFT_MARGIN
-#define MESSAGE_TEXT_AND_TEXT_FIELD_VERTICAL_MARGIN 8
+#define MESSAGE_TEXT_AND_TEXT_FIELD_VERTICAL_MARGIN 8.0f
 #define MESSAGE_TEXT_FONT_SIZE 27
 #define MAX_MESSAGE_TEXT_LINE_LENGTH 70
 #define MAX_MESSAGE_TEXT_LINES 3
 // Кнопки
-#define BUTTONS_LEFT_MARGIN 15
-#define BUTTONS_HORIZONTAL_MARGIN 15
-#define BUTTONS_BOTTOM_MARGIN 15
-#define BUTTONS_WIDTH 250
-#define BUTTONS_HEIGHT 75
+#define BUTTONS_LEFT_MARGIN 15.0f
+#define BUTTONS_HORIZONTAL_MARGIN 15.0f
+#define BUTTONS_BOTTOM_MARGIN 15.0f
+#define BUTTONS_WIDTH 250.0f
+#define BUTTONS_HEIGHT 75.0f
 // Разделительная линия над кнопками
-#define BUTTONS_SEPARATOR_LINE_HEIGHT 2
+#define BUTTONS_SEPARATOR_LINE_HEIGHT 2.0f
 
 
 #include "TextInputDialog.hpp"
@@ -32,40 +32,41 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     void TextInputDialog::createTextField() {
-        unsigned int tfTopMargin  = TEXT_FIELD_TOP_MARGIN  * renderScale;
-        unsigned int tfLeftMargin = TEXT_FIELD_LEFT_MARGIN * renderScale;
-        unsigned int tfWidth      = width - 2 * tfLeftMargin; // одинаковые отступы слева и справа
-        unsigned int tfHeight     = TEXT_FIELD_HEIGHT      * renderScale;
+        float tfTopMargin  = TEXT_FIELD_TOP_MARGIN  * renderScale;
+        float tfLeftMargin = TEXT_FIELD_LEFT_MARGIN * renderScale;
+        float tfWidth      = width - 2 * tfLeftMargin; // одинаковые отступы слева и справа
+        textFieldHeight    = TEXT_FIELD_HEIGHT      * renderScale;
+        textFieldY         = y + tfTopMargin;
 
         auto textField = std::make_shared<TextField>(
                 textFieldId, renderScale, window,
-                x + tfLeftMargin, y + tfTopMargin, tfWidth, tfHeight,
+                x + tfLeftMargin, textFieldY, tfWidth, textFieldHeight,
                 maxInputLen, hintText, initialInput, textFieldListener);
 
-        addChild(textField);
+        enqueueAddChild(textField);
     }
 
     void TextInputDialog::createBasicButtons() {
-        const unsigned int bLeftMargin   = BUTTONS_LEFT_MARGIN       * renderScale;
-        const unsigned int bHorizMargin  = BUTTONS_HORIZONTAL_MARGIN * renderScale;
-        const unsigned int bBottomMargin = BUTTONS_BOTTOM_MARGIN     * renderScale;
-        const unsigned int bWidth        = BUTTONS_WIDTH             * renderScale;
-        const unsigned int bHeight       = BUTTONS_HEIGHT            * renderScale;
-        const unsigned int bY            = finalY + height - bHeight - bBottomMargin;
+        const float bLeftMargin   = BUTTONS_LEFT_MARGIN       * renderScale;
+        const float bHorizMargin  = BUTTONS_HORIZONTAL_MARGIN * renderScale;
+        const float bBottomMargin = BUTTONS_BOTTOM_MARGIN     * renderScale;
+        const float bWidth        = BUTTONS_WIDTH             * renderScale;
+        const float bHeight       = BUTTONS_HEIGHT            * renderScale;
+        buttonsY                  = finalY + height - bHeight - bBottomMargin;
 
         // Back
-        unsigned int bX = x + bLeftMargin;
+        float bX = x + bLeftMargin;
         auto btnNext = std::make_shared<TextButton>(
                 btnNextId, renderScale, window,
-                L"Далее", bX, bY, bWidth, bHeight, btnNextListener);
-        addChild(btnNext);
+                L"Далее", bX, buttonsY, bWidth, bHeight, btnNextListener);
+        enqueueAddChild(btnNext);
 
         // Back
         bX += bWidth + bHorizMargin;
         auto btnBack = std::make_shared<TextButton>(
                 btnBackId, renderScale, window,
-                L"Назад", bX, bY, bWidth, bHeight, btnBackListener);
-        addChild(btnBack);
+                L"Назад", bX, buttonsY, bWidth, bHeight, btnBackListener);
+        enqueueAddChild(btnBack);
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -89,9 +90,6 @@ namespace awd::game {
                                      id_type btnBackId,
                                      const std::shared_ptr<ButtonListener>& btnBackListener)
                                      : Dialog(id, renderScale, window, dialogListener) {
-        this->message = StringUtils::wrapByLineLength(
-                StringUtils::encodeFormatting(message),
-                MAX_MESSAGE_TEXT_LINE_LENGTH, MAX_MESSAGE_TEXT_LINES);
         this->textFieldId = textFieldId;
         this->textFieldListener = textFieldListener;
         this->maxInputLen = maxInputLen;
@@ -102,8 +100,39 @@ namespace awd::game {
         this->btnBackId = btnBackId;
         this->btnBackListener = btnBackListener;
 
+        // Основные составляющие
         createTextField();
         createBasicButtons();
+
+        // Разделительная полоса над кнопками
+        float sepMarginX = BUTTONS_LEFT_MARGIN           * renderScale;
+        float sepMarginY = BUTTONS_BOTTOM_MARGIN         * renderScale;
+        float sepHeight  = BUTTONS_SEPARATOR_LINE_HEIGHT * renderScale + 1; // min 1 px
+
+        sep = std::make_unique<sf::RectangleShape>(
+                sf::Vector2f(width - 2 * sepMarginX, sepHeight));
+
+        sep->setFillColor(ColorSet::GUI_BUTTONS_SEPARATOR_LINE);
+        sep->setPosition(x + sepMarginX, buttonsY - sepHeight - sepMarginY);
+
+        // Текст сообщения (с поддержкой форматирования)
+        std::wstring formattedMsg = StringUtils::wrapByLineLength(
+                StringUtils::encodeFormatting(message),
+                MAX_MESSAGE_TEXT_LINE_LENGTH, MAX_MESSAGE_TEXT_LINES
+        );
+
+        float        msgLeftMargin     = MESSAGE_TEXT_LEFT_MARGIN                    * renderScale;
+        float        msgAndTfVerMargin = MESSAGE_TEXT_AND_TEXT_FIELD_VERTICAL_MARGIN * renderScale;
+        unsigned int msgFontSize       = MESSAGE_TEXT_FONT_SIZE                      * renderScale;
+
+        auto textField = getChildById(textFieldId);
+        msg = std::make_unique<sfe::RichText>(
+                *Game::instance().getFontManager()->getRegularFont());
+
+        RenderUtils::enrichText(*msg, formattedMsg);
+        msg->setCharacterSize(msgFontSize);
+        msg->setPosition(x + msgLeftMargin,
+                         textFieldY + textFieldHeight + msgAndTfVerMargin);
     }
 
     void TextInputDialog::update() {
@@ -113,30 +142,8 @@ namespace awd::game {
     void TextInputDialog::draw() {
         Dialog::draw();
 
-        // Разделительная полоса над кнопками
-        unsigned int sepMarginX = BUTTONS_LEFT_MARGIN           * renderScale;
-        unsigned int sepMarginY = BUTTONS_BOTTOM_MARGIN         * renderScale;
-        unsigned int sepHeight  = BUTTONS_SEPARATOR_LINE_HEIGHT * renderScale + 1; // min 1 px
-        unsigned int btnNextY   = getChildById(btnNextId)->getY();
-
-        sf::RectangleShape sep(sf::Vector2f(width - 2 * sepMarginX, sepHeight));
-        sep.setFillColor(ColorSet::GUI_BUTTONS_SEPARATOR_LINE);
-        sep.setPosition(x + sepMarginX, btnNextY - sepHeight - sepMarginY);
-        window->draw(sep);
-
-        // Текст сообщения (с поддержкой форматирования).
-        unsigned int msgLeftMargin     = MESSAGE_TEXT_LEFT_MARGIN                    * renderScale;
-        unsigned int msgAndTfVerMargin = MESSAGE_TEXT_AND_TEXT_FIELD_VERTICAL_MARGIN * renderScale;
-        unsigned int msgFontSize       = MESSAGE_TEXT_FONT_SIZE                      * renderScale;
-
-        auto textField = getChildById(textFieldId);
-        sfe::RichText msg(*Game::instance().getFontManager()->getRegularFont());
-        RenderUtils::richText(msg, message);
-
-        // Оставшиеся мелочи.
-        msg.setCharacterSize(msgFontSize);
-        msg.setPosition(x + msgLeftMargin, textField->getY() + textField->getHeight() + msgAndTfVerMargin);
-        window->draw(msg);
+        window->draw(*sep);
+        window->draw(*msg);
     }
 
 }

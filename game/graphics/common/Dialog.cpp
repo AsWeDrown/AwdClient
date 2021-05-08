@@ -1,7 +1,7 @@
 // Фон окна (диалога)
 #define INITIAL_Y_SHIFT_FACTOR 0.95f
-#define DIALOG_WIDTH 800
-#define DIALOG_HEIGHT 350
+#define DIALOG_WIDTH 800.0f
+#define DIALOG_HEIGHT 350.0f
 #define MAX_EFFECTIVE_EXISTED_TICKS 4
 #define FILL_ALPHA_PER_EXISTED_TICK 35
 
@@ -25,13 +25,18 @@ namespace awd::game {
 
         width        = DIALOG_WIDTH  * renderScale;
         height       = DIALOG_HEIGHT * renderScale;
-        x            = window->getSize().x / 2 - width  / 2;
-        finalY       = window->getSize().y / 2 - height / 2;
+        x            = window->getSize().x / 2.0f - width  / 2.0f;
+        finalY       = window->getSize().y / 2.0f - height / 2.0f;
         y = initialY = finalY * INITIAL_Y_SHIFT_FACTOR;
+        moveStep     = (finalY - initialY) / MAX_EFFECTIVE_EXISTED_TICKS;
+
+        fill = std::make_unique<sf::RectangleShape>(sf::Vector2f(width, height));
+        fill->setPosition(x, y);
     }
 
     void Dialog::onRegister() {
-        // Диалоги обычно создаются отложенно (через "enqueue"), так что используем onRegister для старта.
+        // Диалоги создаются отложенно (через "enqueueAdd"),
+        // так что используем onRegister для начала появления.
         show();
     }
 
@@ -51,16 +56,14 @@ namespace awd::game {
 
         Drawable::update();
 
-        // Для плавного появления окна сверху / исчезновения окна вверх (см. ниже).
-        unsigned int moveStep = (finalY - initialY) / MAX_EFFECTIVE_EXISTED_TICKS;
-
+        // Для плавного появления окна сверху / исчезновения окна вверх.
         if (state == DialogState::APPEARING) {
             if (existedTicks < MAX_EFFECTIVE_EXISTED_TICKS) {
                 y += moveStep;
                 existedTicks++;
             } else {
-                if (y < finalY)
-                    // Из-за неделимости целых чисел окно может чуть-чуть
+                if (y != finalY)
+                    // Из-за неточности вычислений с float окно может немного
                     // не доходить до нужной точки. Поэтому "помогаем" ему.
                     y = finalY;
 
@@ -72,8 +75,8 @@ namespace awd::game {
                 y -= moveStep;
                 existedTicks--;
             } else {
-                if (y > initialY)
-                    // Из-за неделимости целых чисел окно может чуть-чуть
+                if (y != initialY)
+                    // Из-за неточности вычислений с float окно может немного
                     // не доходить до нужной точки. Поэтому "помогаем" ему.
                     y = initialY;
 
@@ -81,18 +84,17 @@ namespace awd::game {
                 listener->dialogClosed(parent, id);
             }
         }
+
+        unsigned int fillAlpha = FILL_ALPHA_PER_EXISTED_TICK * existedTicks;
+        fill->setFillColor(sf::Color(0, 0, 0, fillAlpha));
+        fill->setPosition(x, y);
     }
 
     void Dialog::draw() {
         // Сначала рисуем фон...
-        unsigned int fillAlpha = FILL_ALPHA_PER_EXISTED_TICK * existedTicks;
+        window->draw(*fill);
 
-        sf::RectangleShape fill(sf::Vector2f(width, height));
-        fill.setPosition(x, y);
-        fill.setFillColor(sf::Color(0, 0, 0, fillAlpha));
-        window->draw(fill);
-
-        // ...и уже поверх него - всё остальное. Однако всё остальное (дочерние компоненты)
+        // ...а уже поверх него - всё остальное. Однако всё остальное (дочерние компоненты)
         // рисуем только в случае, если это окно в процессе отображения или уже полностью
         // отображено (APPEARING или DISAPPEARING соответственно). При этом на стадии
         // DISAPPEARING мы "всё остальное" уже не рисуем. Так достигается наилучшее

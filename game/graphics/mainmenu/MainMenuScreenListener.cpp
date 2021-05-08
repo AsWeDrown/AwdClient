@@ -95,7 +95,6 @@ namespace awd::game {
     }
 
     void MainMenuScreenListener::joinLobbyNextClicked(Drawable* dialog) {
-        //todo dont forget to reset fields on IDLE workstate switch
         auto mainMenu = (MainMenuScreen*) dialog->getParent();
         WorkflowState workflowState = mainMenu->getWorkflowState();
 
@@ -141,7 +140,7 @@ namespace awd::game {
     void MainMenuScreenListener::dialogClosed(Drawable* parentScreen, id_type dialogId) {
         auto* mainMenu = (MainMenuScreen*) parentScreen;
         WorkflowState workflowState = mainMenu->getWorkflowState();
-        mainMenu->dialogClosed(); // вызывать обязательно!
+        mainMenu->dialogClosed(); // для удаления диалога из списка потомков
 
         std::wcerr << L"dialogClosed: " << dialogId << L" | workflowState = "
         << (workflowState == WorkflowState::IDLE)
