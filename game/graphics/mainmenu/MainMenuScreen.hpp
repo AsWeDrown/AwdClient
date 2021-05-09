@@ -11,10 +11,8 @@ namespace awd::game {
     enum class WorkflowState {
         IDLE,             // ничего не делаем
         CREATING_LOBBY_1, // ждём ввода имени для создания комнаты
-        CREATING_LOBBY_2, // ждём ответ от сервера на наш запрос на создание комнаты
         JOINING_LOBBY_1,  // ждём ввода ID комнаты для присоединения к комнате
         JOINING_LOBBY_2,  // ждём ввода имени для присоединения к комнате (ID комнаты уже введён)
-        JOINING_LOBBY_3,  // ждём ответ от сервера на наш запрос на присоединение к комнате
     };
 
     class MainMenuScreen : public Screen {

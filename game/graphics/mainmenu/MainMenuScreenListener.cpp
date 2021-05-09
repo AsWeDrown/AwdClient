@@ -8,7 +8,6 @@
 #include "MainMenuScreen.hpp"
 #include "../common/TextInputDialog.hpp"
 #include "../../Game.hpp"
-#include "../common/ErrorDialog.hpp"
 #include "../lobby/LobbyScreen.hpp"
 
 namespace awd::game {
@@ -129,47 +128,51 @@ namespace awd::game {
         WorkflowState workflowState = mainMenu->getWorkflowState();
 
         if (workflowState == WorkflowState::JOINING_LOBBY_1) {
-            if (!mainMenu->getListener()->getEnteredPlayerName().empty()) {
+            if (!mainMenu->getListener()->getEnteredLobbyId().empty()) {
                 // Теперь запрашиваем имя. Закрываем этот диалог. Когда закончится анимация
                 // его закрытия, откроется новый (см. реализацию метода dialogClosed).
                 mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_2);
                 mainMenu->closeCurrentDialog(); // закрываем диалог ввода ID комнаты
             }
         } else if (workflowState == WorkflowState::JOINING_LOBBY_2) {
-            std::wstring lobbyIdStr = mainMenu->getListener()->getEnteredLobbyId();
-            uint32_t lobbyId;
+            std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
 
-            try {
-                lobbyId = std::stoi(lobbyIdStr);
-            } catch (const std::invalid_argument&) {
-                // Введено что-то, отличное от целого числа.
+            if (!playerName.empty()) {
+                std::wstring lobbyIdStr = mainMenu->getListener()->getEnteredLobbyId();
+                uint32_t lobbyId;
+
+                try {
+                    lobbyId = std::stoi(lobbyIdStr);
+                } catch (const std::invalid_argument&) {
+                    // Введено что-то, отличное от целого числа.
+                    mainMenu->closeCurrentDialog();
+                    mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
+                                              L"{RESET}{GRAY}идентификатор комнаты должен быть "
+                                              L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
+                } catch (const std::out_of_range&) {
+                    // Введено слишком большое целое число.
+                    mainMenu->closeCurrentDialog();
+                    mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
+                                              L"{RESET}{GRAY}идентификатор комнаты должен быть "
+                                              L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
+                }
+
+                // Переходим к присоединению к комнате.
                 mainMenu->closeCurrentDialog();
-                mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
-                                          L"{RESET}{GRAY}идентификатор комнаты должен быть "
-                                          L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
-            } catch (const std::out_of_range&) {
-                // Введено слишком большое целое число.
-                mainMenu->closeCurrentDialog();
-                mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
-                                          L"{RESET}{GRAY}идентификатор комнаты должен быть "
-                                          L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
+                beginJoinLobby(mainMenu, lobbyId, mainMenu->getListener()->getEnteredPlayerName());
             }
-
-            // Переходим к присоединению к комнате.
-            mainMenu->closeCurrentDialog();
-            beginJoinLobby(mainMenu, lobbyId, mainMenu->getListener()->getEnteredPlayerName());
         }
     }
 
     void MainMenuScreenListener::joinLobbyBackClicked(Drawable* dialog) {
         auto mainMenu = (MainMenuScreen*) dialog->getParent();
         WorkflowState workflowState = mainMenu->getWorkflowState();
-        mainMenu->closeCurrentDialog();
 
-        if (workflowState == WorkflowState::JOINING_LOBBY_1)
-            // Выходим обратно в главное меню (закрываем диалог).
+        if (workflowState == WorkflowState::JOINING_LOBBY_1) {
+            // Выходим обратно в главное меню.
             mainMenu->setWorkflowState(WorkflowState::IDLE);
-        else if (workflowState == WorkflowState::JOINING_LOBBY_2) {
+            mainMenu->closeCurrentDialog(); // закрываем диалог ввода ID комнаты
+        } else if (workflowState == WorkflowState::JOINING_LOBBY_2) {
             // Возвращаемся на этап ввода ID комнаты.
             mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_1);
             mainMenu->closeCurrentDialog(); // закрываем диалог ввода имени

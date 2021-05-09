@@ -106,8 +106,11 @@ namespace awd::net {
 
     void UdpClient::tearDown() {
         connected = false;
-        udpSocket->unbind();
-        udpSocket = nullptr;
+
+        if (udpSocket != nullptr) {
+            udpSocket->unbind();
+            udpSocket = nullptr;
+        }
     }
 
     std::string UdpClient::getServerAddrStr() const {

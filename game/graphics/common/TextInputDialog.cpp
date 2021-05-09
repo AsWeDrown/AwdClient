@@ -147,7 +147,8 @@ namespace awd::game {
             hotkeyedButtonId = btnBackId;
 
         if (hotkeyedButtonId != 0L) {
-            auto hotkeyedButton = std::dynamic_pointer_cast<Button>(getChildById(btnNextId));
+            auto hotkeyedButton = std::dynamic_pointer_cast
+                    <Button>(getChildById(hotkeyedButtonId));
             hotkeyedButton->click();
         }
     }

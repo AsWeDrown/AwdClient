@@ -104,8 +104,6 @@ namespace awd::game {
         logo->setOutlineColor(ColorSet::LOGO_OUTLINE);
         logo->setOutlineThickness(logoOutline);
         logo->setPosition(logoX, logoY);
-
-        std::wcerr << L"logo pos: " << logoX << L" / " << logoY << std::endl;
     }
 
     void MainMenuScreen::update() {
