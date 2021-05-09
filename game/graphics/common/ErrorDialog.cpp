@@ -7,8 +7,9 @@
 // Кнопка "ОК"
 #define BUTTON_OK_LEFT_MARGIN 15.0f
 #define BUTTON_OK_BOTTOM_MARGIN 15.0f
-#define BUTTON_OK_WIDTH 250.0f
-#define BUTTON_OK_HEIGHT 75.0f
+#define BUTTON_OK_WIDTH 200.0f
+#define BUTTON_OK_HEIGHT 60.0f
+#define BUTTON_OK_FONT_SIZE 40
 // Разделительная линия над кнопками
 #define BUTTONS_SEPARATOR_LINE_HEIGHT 2.0f
 
@@ -17,6 +18,7 @@
 #include "../../util/StringUtils.hpp"
 #include "../../Game.hpp"
 #include "../../util/RenderUtils.hpp"
+#include "TextButton.hpp"
 
 namespace awd::game {
 
@@ -37,16 +39,17 @@ namespace awd::game {
         this->btnOkId = btnOkId;
 
         // Кнопка "ОК".
-        float bLeftMargin   = BUTTON_OK_LEFT_MARGIN       * renderScale;
-        float bBottomMargin = BUTTON_OK_BOTTOM_MARGIN     * renderScale;
-        float bWidth        = BUTTON_OK_WIDTH             * renderScale;
-        float bHeight       = BUTTON_OK_HEIGHT            * renderScale;
-        float bX            = x + bLeftMargin;
-        float bY            = finalY + height - bHeight - bBottomMargin;
+        float    bLeftMargin   = BUTTON_OK_LEFT_MARGIN       * renderScale;
+        float    bBottomMargin = BUTTON_OK_BOTTOM_MARGIN     * renderScale;
+        float    bWidth        = BUTTON_OK_WIDTH             * renderScale;
+        float    bHeight       = BUTTON_OK_HEIGHT            * renderScale;
+        uint32_t bFontSize     = BUTTON_OK_FONT_SIZE         * renderScale;
+        float    bX            = x + bLeftMargin;
+        float    bY            = finalY + height - bHeight - bBottomMargin;
 
         auto btnOk = std::make_shared<TextButton>(
                 btnOkId, renderScale, window,
-                L"ОК", bX, bY, bWidth, bHeight, btnOkListener);
+                L"ОК", bX, bY, bWidth, bHeight, bFontSize, btnOkListener);
         addChild(btnOk);
 
         // Разделительная линия над кнопками.
@@ -56,7 +59,7 @@ namespace awd::game {
         float btnOkY     = btnOk->getY();
 
         sepLine = std::make_unique<sf::RectangleShape>(
-                sf::Vector2f(width - 2 * sepMarginX, sepHeight));
+                sf::Vector2f(width - 2.0f * sepMarginX, sepHeight));
 
         sepLine->setFillColor(ColorSet::GUI_BUTTONS_SEPARATOR_LINE);
         sepLine->setPosition(x + sepMarginX, btnOkY - sepHeight - sepMarginY);
@@ -67,9 +70,9 @@ namespace awd::game {
                 MAX_MESSAGE_TEXT_LINE_LENGTH, MAX_MESSAGE_TEXT_LINES
         );
 
-        float        msgLeftMargin = MESSAGE_TEXT_LEFT_MARGIN * renderScale;
-        float        msgTopMargin  = MESSAGE_TEXT_TOP_MARGIN  * renderScale;
-        unsigned int msgFontSize   = MESSAGE_TEXT_FONT_SIZE   * renderScale;
+        float    msgLeftMargin = MESSAGE_TEXT_LEFT_MARGIN * renderScale;
+        float    msgTopMargin  = MESSAGE_TEXT_TOP_MARGIN  * renderScale;
+        uint32_t msgFontSize   = MESSAGE_TEXT_FONT_SIZE   * renderScale;
 
         text = std::make_unique<sfe::RichText>(
                 *Game::instance().getFontManager()->getRegularFont());

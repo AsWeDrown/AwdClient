@@ -9,9 +9,9 @@ namespace awd::game {
     class TextField : public Drawable {
     protected:
         std::shared_ptr<TextFieldListener> listener = nullptr;
-        unsigned int maxContentsLen;
+        uint32_t maxContentsLen;
         std::wstring hintText, contents;
-        int selectedTicks = 0;
+        uint32_t selectedTicks = 0;
         bool selected = false;
 
         std::unique_ptr<sf::RectangleShape> tfFill,
@@ -25,7 +25,7 @@ namespace awd::game {
                   const std::shared_ptr<sf::RenderWindow>& window,
                   float x, float y,
                   float width, float height,
-                  unsigned int maxContentsLen,
+                  uint32_t maxContentsLen,
                   const std::wstring& hintText,
                   const std::wstring& initialContents,
                   const std::shared_ptr<TextFieldListener>& listener);

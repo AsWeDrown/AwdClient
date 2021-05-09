@@ -16,8 +16,11 @@ namespace awd::net {
                                      const std::shared_ptr<google::protobuf::Message>& packet) {
         std::unique_lock<std::recursive_mutex> lock(mutex);
 
-        if (sendQueue.size() == MAX_SEND_QUEUE_SIZE)
-            sendQueue.pop_front(); // отменяем отправку самого "старого" пакета (их накопилось уж слишком много)
+        if (sendQueue.size() == MAX_SEND_QUEUE_SIZE) {
+            // Отменяем отправку самого "старого" пакета (их накопилось уж слишком много).
+            sendQueue.pop_front();
+            ensureDeliveredStatuses.pop_front();
+        }
 
         sendQueue.push_back(packet);
         ensureDeliveredStatuses.push_back(ensureDelivered);

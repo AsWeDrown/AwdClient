@@ -39,7 +39,7 @@ namespace awd::game {
                          const std::shared_ptr<sf::RenderWindow>& window,
                          float x, float y,
                          float width, float height,
-                         unsigned int maxContentsLen,
+                         uint32_t maxContentsLen,
                          const std::wstring& hintText,
                          const std::wstring& initialContents,
                          const std::shared_ptr<TextFieldListener>& listener)
@@ -67,9 +67,9 @@ namespace awd::game {
         tfLine->setFillColor(sf::Color::Transparent);
 
         // Введённый пользователем текст (или hintText (подсказка), если пользователь ничего не ввёл)
-        unsigned int fontSize   = TEXT_FONT_SIZE   * renderScale;
-        float        topMargin  = TEXT_TOP_MARGIN  * renderScale;
-        float        leftMargin = TEXT_LEFT_MARGIN * renderScale;
+        uint32_t fontSize   = TEXT_FONT_SIZE   * renderScale;
+        float    topMargin  = TEXT_TOP_MARGIN  * renderScale;
+        float    leftMargin = TEXT_LEFT_MARGIN * renderScale;
 
         tfText = std::make_unique<sf::Text>();
         tfText->setFont(*Game::instance().getFontManager()->getRegularFont());
@@ -140,14 +140,14 @@ namespace awd::game {
             selectedTicks--;
 
         // Закрашивание
-        unsigned int fillAlpha = BASE_FILL_ALPHA + BONUS_FILL_ALPHA_PER_SELECTED_TICK * selectedTicks;
+        uint32_t fillAlpha = BASE_FILL_ALPHA + BONUS_FILL_ALPHA_PER_SELECTED_TICK * selectedTicks;
         tfFill->setFillColor(sf::Color(0, 0, 0, fillAlpha));
 
         // Горизонтальная черта снизу
-        float        baseWidth = BASE_LINE_WIDTH                    * renderScale + 1.0f; // min 1 px
-        float        bwPerTick = BONUS_LINE_WIDTH_PER_SELECTED_TICK * renderScale + 1.0f; // min 1 px
-        float        lineWidth = baseWidth + bwPerTick * selectedTicks;
-        unsigned int lineAlpha = BASE_LINE_ALPHA + BONUS_LINE_ALPHA_PER_SELECTED_TICK * selectedTicks;
+        float    baseWidth = BASE_LINE_WIDTH                    * renderScale + 1.0f; // min 1 px
+        float    bwPerTick = BONUS_LINE_WIDTH_PER_SELECTED_TICK * renderScale + 1.0f; // min 1 px
+        float    lineWidth = baseWidth + bwPerTick * selectedTicks;
+        uint32_t lineAlpha = BASE_LINE_ALPHA + BONUS_LINE_ALPHA_PER_SELECTED_TICK * selectedTicks;
 
         tfLine->setFillColor(sf::Color(255, 255, 255, lineAlpha));
         tfLine->setSize(sf::Vector2f(tfLine->getSize().x, lineWidth));

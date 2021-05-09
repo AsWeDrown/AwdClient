@@ -13,7 +13,8 @@
 #define BUTTONS_HORIZONTAL_MARGIN 15.0f
 #define BUTTONS_BOTTOM_MARGIN 15.0f
 #define BUTTONS_WIDTH 250.0f
-#define BUTTONS_HEIGHT 75.0f
+#define BUTTONS_HEIGHT 60.0f
+#define BUTTONS_FONT_SIZE 40
 // Разделительная линия над кнопками
 #define BUTTONS_SEPARATOR_LINE_HEIGHT 2.0f
 
@@ -22,6 +23,7 @@
 #include "../../util/StringUtils.hpp"
 #include "../../Game.hpp"
 #include "../../util/RenderUtils.hpp"
+#include "TextButton.hpp"
 
 namespace awd::game {
 
@@ -34,7 +36,7 @@ namespace awd::game {
     void TextInputDialog::createTextField() {
         float tfTopMargin  = TEXT_FIELD_TOP_MARGIN  * renderScale;
         float tfLeftMargin = TEXT_FIELD_LEFT_MARGIN * renderScale;
-        float tfWidth      = width - 2 * tfLeftMargin; // одинаковые отступы слева и справа
+        float tfWidth      = width - 2.0f * tfLeftMargin; // одинаковые отступы слева и справа
         textFieldHeight    = TEXT_FIELD_HEIGHT      * renderScale;
         textFieldY         = y + tfTopMargin;
 
@@ -47,6 +49,7 @@ namespace awd::game {
     }
 
     void TextInputDialog::createBasicButtons() {
+        uint32_t    bFontSize     = BUTTONS_FONT_SIZE         * renderScale;
         const float bLeftMargin   = BUTTONS_LEFT_MARGIN       * renderScale;
         const float bHorizMargin  = BUTTONS_HORIZONTAL_MARGIN * renderScale;
         const float bBottomMargin = BUTTONS_BOTTOM_MARGIN     * renderScale;
@@ -58,14 +61,14 @@ namespace awd::game {
         float bX = x + bLeftMargin;
         auto btnNext = std::make_shared<TextButton>(
                 btnNextId, renderScale, window,
-                L"Далее", bX, buttonsY, bWidth, bHeight, btnNextListener);
+                L"Далее", bX, buttonsY, bWidth, bHeight, bFontSize, btnNextListener);
         enqueueAddChild(btnNext);
 
         // Back
         bX += bWidth + bHorizMargin;
         auto btnBack = std::make_shared<TextButton>(
                 btnBackId, renderScale, window,
-                L"Назад", bX, buttonsY, bWidth, bHeight, btnBackListener);
+                L"Назад", bX, buttonsY, bWidth, bHeight, bFontSize, btnBackListener);
         enqueueAddChild(btnBack);
     }
 
@@ -82,7 +85,7 @@ namespace awd::game {
                                      const std::wstring& message,
                                      id_type textFieldId,
                                      const std::shared_ptr<TextFieldListener>& textFieldListener,
-                                     unsigned int maxInputLen,
+                                     uint32_t maxInputLen,
                                      const std::wstring& hintText,
                                      const std::wstring& initialInput,
                                      id_type btnNextId,
@@ -107,10 +110,10 @@ namespace awd::game {
         // Разделительная полоса над кнопками
         float sepMarginX = BUTTONS_LEFT_MARGIN           * renderScale;
         float sepMarginY = BUTTONS_BOTTOM_MARGIN         * renderScale;
-        float sepHeight  = BUTTONS_SEPARATOR_LINE_HEIGHT * renderScale + 1; // min 1 px
+        float sepHeight  = BUTTONS_SEPARATOR_LINE_HEIGHT * renderScale + 1.0f; // min 1 px
 
         sep = std::make_unique<sf::RectangleShape>(
-                sf::Vector2f(width - 2 * sepMarginX, sepHeight));
+                sf::Vector2f(width - 2.0f * sepMarginX, sepHeight));
 
         sep->setFillColor(ColorSet::GUI_BUTTONS_SEPARATOR_LINE);
         sep->setPosition(x + sepMarginX, buttonsY - sepHeight - sepMarginY);
@@ -121,9 +124,9 @@ namespace awd::game {
                 MAX_MESSAGE_TEXT_LINE_LENGTH, MAX_MESSAGE_TEXT_LINES
         );
 
-        float        msgLeftMargin     = MESSAGE_TEXT_LEFT_MARGIN                    * renderScale;
-        float        msgAndTfVerMargin = MESSAGE_TEXT_AND_TEXT_FIELD_VERTICAL_MARGIN * renderScale;
-        unsigned int msgFontSize       = MESSAGE_TEXT_FONT_SIZE                      * renderScale;
+        float    msgLeftMargin     = MESSAGE_TEXT_LEFT_MARGIN                    * renderScale;
+        float    msgAndTfVerMargin = MESSAGE_TEXT_AND_TEXT_FIELD_VERTICAL_MARGIN * renderScale;
+        uint32_t msgFontSize       = MESSAGE_TEXT_FONT_SIZE                      * renderScale;
 
         auto textField = getChildById(textFieldId);
         msg = std::make_unique<sfe::RichText>(

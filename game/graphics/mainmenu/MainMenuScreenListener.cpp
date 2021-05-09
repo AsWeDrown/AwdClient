@@ -224,9 +224,13 @@ namespace awd::game {
         } else {
             // Комната создана успешно.
             auto lobby = std::make_shared<Lobby>();
+
             lobby->lobbyId      = response->lobby_id();
+            lobby->hostId       = response->player_id();
             lobby->ownPlayerId  = response->player_id();
             lobby->ownCharacter = response->character();
+            lobby->playerNames     [response->player_id()] = mainMenu->getListener()->getEnteredPlayerName();
+            lobby->playerCharacters[response->player_id()] = response->character();
 
             Game::instance().setCurrentLobby(lobby);
             Game::instance().setCurrentScreen(std::make_shared

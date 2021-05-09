@@ -24,6 +24,7 @@ namespace awd::game {
         std::shared_ptr<net::UdpClient> udpClient = nullptr;
         std::shared_ptr<net::PacketManager> packetManager = nullptr;
         std::shared_ptr<net::NetworkService> netService = nullptr;
+        uint32_t currentNetLatency = 0;
 
         std::atomic<bool> shuttingDown = false;
         std::atomic<int> currentState = GameState::LOBBY;
@@ -65,14 +66,16 @@ namespace awd::game {
         std::shared_ptr<FontManager> getFontManager() const;
         std::shared_ptr<net::PacketManager> getPacketManager() const;
         std::shared_ptr<net::NetworkService> getNetService() const;
-        int getCurrentState() const;
+        uint32_t getCurrentNetLatency() const;
+        void setCurrentNetLatency(uint32_t latency);
+        uint32_t getCurrentState() const;
         std::shared_ptr<Screen> getCurrentScreen() const;
         void setCurrentScreen(const std::shared_ptr<Screen>& screen);
         std::shared_ptr<Lobby> getCurrentLobby() const;
         void setCurrentLobby(const std::shared_ptr<Lobby>& lobby);
 
         // TODO переместить эти методы в какой-то утилити-класс
-        static unsigned int randUInt(unsigned int min, unsigned int max);
+        static uint32_t randUInt(uint32_t min, uint32_t max);
         static float randFloat(float min, float max);
     };
 

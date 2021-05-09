@@ -2,7 +2,6 @@
 
 
 #include "Dialog.hpp"
-#include "TextButton.hpp"
 #include "TextField.hpp"
 #include "RichText.hpp"
 
@@ -16,7 +15,7 @@ namespace awd::game {
 
         id_type textFieldId;
         std::shared_ptr<TextFieldListener> textFieldListener = nullptr;
-        unsigned int maxInputLen;
+        uint32_t maxInputLen;
         std::wstring hintText, initialInput;
 
         id_type btnNextId;
@@ -39,7 +38,7 @@ namespace awd::game {
                         const std::wstring& message,
                         id_type textFieldId,
                         const std::shared_ptr<TextFieldListener>& textFieldListener,
-                        unsigned int maxInputLen,
+                        uint32_t maxInputLen,
                         const std::wstring& hintText,
                         const std::wstring& initialInput,
                         id_type btnNextId,

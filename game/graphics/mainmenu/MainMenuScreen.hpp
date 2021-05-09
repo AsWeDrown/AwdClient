@@ -1,8 +1,6 @@
 #pragma once
 
 
-#include "../common/Button.hpp"
-#include "../common/Dialog.hpp"
 #include "MainMenuScreenListener.hpp"
 #include "../common/Screen.hpp"
 
@@ -38,7 +36,7 @@ namespace awd::game {
         void setWorkflowState(WorkflowState state);
 
         void showLoadingOverlay(const std::wstring& loadingMessage,
-                                unsigned int timeoutMillis);
+                                uint32_t timeoutMillis);
 
         void showErrorDialog(const std::wstring& message);
     };

@@ -85,7 +85,7 @@ namespace awd::game {
             }
         }
 
-        unsigned int fillAlpha = FILL_ALPHA_PER_EXISTED_TICK * existedTicks;
+        uint32_t fillAlpha = FILL_ALPHA_PER_EXISTED_TICK * existedTicks;
         fill->setFillColor(sf::Color(0, 0, 0, fillAlpha));
         fill->setPosition(x, y);
     }

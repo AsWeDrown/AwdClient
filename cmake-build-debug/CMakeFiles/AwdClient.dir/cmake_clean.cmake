@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj"

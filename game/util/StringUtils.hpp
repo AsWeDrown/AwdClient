@@ -14,7 +14,7 @@ namespace awd::game {
         static std::wstring fixSpacing(std::wstring message);
 
         static std::wstring wrapByLineLength(std::wstring message,
-                                             unsigned int maxLineLen, unsigned int maxLinesNum);
+                                             uint32_t maxLineLen, uint32_t maxLinesNum);
     };
 
 }

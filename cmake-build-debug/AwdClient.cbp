@@ -258,6 +258,18 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreenListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreen.cpp">
 			<Option target="AwdClient"/>
 		</Unit>

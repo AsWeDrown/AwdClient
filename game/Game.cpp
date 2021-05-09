@@ -1,6 +1,6 @@
 #define HOST "julia.reflex.rip"
 #define PORT 23132
-#define CONNECTION_TIMEOUT_MILLIS 5000
+#define CONNECTION_TIMEOUT_MILLIS 10000
 #define GAME_TPS 25
 #define BASE_SCREEN_WIDTH 1920.0f
 #define BASE_SCREEN_HEIGHT 1080.0f
@@ -149,7 +149,7 @@ namespace awd::game {
 
     void Game::bootstrap() {
         // Инициализация ГПСЧ.
-        srand(static_cast<unsigned int>(time(nullptr))); // NOLINT(cert-msc51-cpp)
+        srand(static_cast<uint32_t>(time(nullptr))); // NOLINT(cert-msc51-cpp)
 
         // Загрузка текстур, звуков, шрифтов и прочего.
         if (!loadAssets()) {
@@ -222,7 +222,15 @@ namespace awd::game {
         return netService;
     }
 
-    int Game::getCurrentState() const {
+    uint32_t Game::getCurrentNetLatency() const {
+        return currentNetLatency;
+    }
+
+    void Game::setCurrentNetLatency(uint32_t latency) {
+        this->currentNetLatency = latency;
+    }
+
+    uint32_t Game::getCurrentState() const {
         return currentState;
     }
 
@@ -242,7 +250,7 @@ namespace awd::game {
         this->currentLobby = lobby;
     }
 
-    unsigned int Game::randUInt(unsigned int min, unsigned int max) {
+    uint32_t Game::randUInt(uint32_t min, uint32_t max) {
         if (min == max)
             return min;
 

@@ -56,9 +56,9 @@ namespace awd::game {
 
             float distFactor = Game::randFloat(MIN_DISTANCE_FACTOR, MAX_DISTANCE_FACTOR);
 
-            float thisFlickerWidth         = fWidth             * distFactor * distFactor;
-            float thisFlickerHeight        = fHeight            * distFactor + 1.0f; // min 1 px
-            unsigned int thisFlickerAlpha  = FLICKER_FILL_ALPHA * distFactor;
+            float    thisFlickerWidth        = fWidth             * distFactor * distFactor;
+            float    thisFlickerHeight       = fHeight            * distFactor + 1.0f; // min 1 px
+            uint32_t thisFlickerAlpha        = FLICKER_FILL_ALPHA * distFactor;
 
             float thisFlickerX = Game::randFloat(
                     fCellStart.x + fHorMargin / FLICKERS_PLACEMENT_MARGIN_DIV,
@@ -87,22 +87,22 @@ namespace awd::game {
     }
 
     void WaterBackground::createBubbles() {
-        unsigned int bNum       = NUMBER_OF_BUBBLES        * renderScale;
-        float bRadius           = BUBBLE_RADIUS            * renderScale;
-        float bMinMar           = MIN_BUBBLE_MARGIN        * renderScale;
-        float bMaxMar           = MAX_BUBBLE_MARGIN        * renderScale;
-        float bOutline          = BUBBLE_OUTLINE_THICKNESS * renderScale + 1.0f; // min 1 px
+        uint32_t  bNum     = NUMBER_OF_BUBBLES        * renderScale;
+        float     bRadius  = BUBBLE_RADIUS            * renderScale;
+        float     bMinMar  = MIN_BUBBLE_MARGIN        * renderScale;
+        float     bMaxMar  = MAX_BUBBLE_MARGIN        * renderScale;
+        float     bOutline = BUBBLE_OUTLINE_THICKNESS * renderScale + 1.0f; // min 1 px
 
         for (int i = 0; i < bNum; i++) {
             float distFactor = Game::randFloat(MIN_DISTANCE_FACTOR, MAX_DISTANCE_FACTOR);
 
-            float thisBubbleRadius              = bRadius * distFactor * distFactor;
-            float thisBubbleX                   = Game::randFloat(0.0f, width);
-            float bOriginY                      = height / bNum * i;
-            float bMargin                       = Game::randFloat(bMinMar, bMaxMar) * renderScale;
-            float thisBubbleY                   = bOriginY + bMargin;
-            unsigned int thisBubbleFillAlpha    = BUBBLE_FILL_ALPHA        * distFactor;
-            unsigned int thisBubbleOutlineAlpha = BUBBLE_OUTLINE_ALPHA     * distFactor;
+            float    thisBubbleRadius              = bRadius * distFactor * distFactor;
+            float    thisBubbleX                   = Game::randFloat(0.0f, width);
+            float    bOriginY                      = height / bNum * i;
+            float    bMargin                       = Game::randFloat(bMinMar, bMaxMar) * renderScale;
+            float    thisBubbleY                   = bOriginY + bMargin;
+            uint32_t thisBubbleFillAlpha           = BUBBLE_FILL_ALPHA        * distFactor;
+            uint32_t thisBubbleOutlineAlpha        = BUBBLE_OUTLINE_ALPHA     * distFactor;
 
             sf::Color thisBubbleFill = ColorSet::WATER_BUBBLES;
             thisBubbleFill.a = thisBubbleFillAlpha;

@@ -20,7 +20,7 @@ namespace awd::net {
 
     public:
         // TODO - МЕНЯТЬ ЗДЕСЬ:
-        static const int PROTOCOL_VERSION = 1;
+        static const uint32_t PROTOCOL_VERSION = 1;
 
         explicit PacketManager(const std::shared_ptr<UdpClient>& udpClient);
 

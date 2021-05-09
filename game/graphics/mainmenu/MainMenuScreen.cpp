@@ -15,7 +15,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <thread>
 #include "MainMenuScreen.hpp"
-#include "../common/TextButton.hpp"
+#include "MainMenuButton.hpp"
 #include "../common/ColorSet.hpp"
 #include "../../util/RenderUtils.hpp"
 #include "../common/WaterBackground.hpp"
@@ -40,21 +40,21 @@ namespace awd::game {
 
         // QuitGame
         float bY = height - bMargin - bHeight - bExtraMargin;
-        auto btnQuitGame = std::make_shared<TextButton>(
+        auto btnQuitGame = std::make_shared<MainMenuButton>(
                 ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME, renderScale, window,
                 L"Выйти из игры", bX, bY, bWidth, bHeight, listener);
         addComponent(btnQuitGame);
 
         // JoinLobby
         bY -= bMargin + bHeight;
-        auto btnJoinLobby = std::make_shared<TextButton>(
+        auto btnJoinLobby = std::make_shared<MainMenuButton>(
                 ID_SCREEN_MAIN_MENU_BUTTON_JOIN_LOBBY, renderScale, window,
                 L"Присоединиться к комнате", bX, bY, bWidth, bHeight, listener);
         addComponent(btnJoinLobby);
 
         // CreateLobby
         bY -= bMargin + bHeight;
-        auto btnCreateLobby = std::make_shared<TextButton>(
+        auto btnCreateLobby = std::make_shared<MainMenuButton>(
                 ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY, renderScale, window,
                 L"Создать комнату", bX, bY, bWidth, bHeight, listener);
         addComponent(btnCreateLobby);
@@ -86,14 +86,14 @@ namespace awd::game {
         createButtons();
 
         // Логотип
-        unsigned int logoFontSize   = LOGO_FONT_SIZE         * renderScale;
-        float        logoOutline    = LOGO_OUTLINE_THICKNESS * renderScale;
-        float        logoLeftMargin = LOGO_EXTRA_LEFT_MARGIN * renderScale;
-        float        allButtonsX    = ALL_BUTTONS_X          * renderScale;
-        float        logoVertMargin = LOGO_VERTICAL_MARGIN   * renderScale;
-        float        buttonsHeight  = BUTTONS_HEIGHT         * renderScale;
-        float        logoX          = allButtonsX + logoLeftMargin;
-        float        logoY          = highestButtonY - buttonsHeight - logoVertMargin;
+        uint32_t logoFontSize   = LOGO_FONT_SIZE         * renderScale;
+        float    logoOutline    = LOGO_OUTLINE_THICKNESS * renderScale;
+        float    logoLeftMargin = LOGO_EXTRA_LEFT_MARGIN * renderScale;
+        float    allButtonsX    = ALL_BUTTONS_X          * renderScale;
+        float    logoVertMargin = LOGO_VERTICAL_MARGIN   * renderScale;
+        float    buttonsHeight  = BUTTONS_HEIGHT         * renderScale;
+        float    logoX          = allButtonsX + logoLeftMargin;
+        float    logoY          = highestButtonY - buttonsHeight - logoVertMargin;
 
         logo = std::make_unique<sf::Text>();
         logo->setFont(*Game::instance().getFontManager()->getDecorativeFont());
@@ -128,7 +128,7 @@ namespace awd::game {
     }
 
     void MainMenuScreen::showLoadingOverlay(const std::wstring& loadingMessage,
-                                            unsigned int timeoutMillis) {
+                                            uint32_t timeoutMillis) {
         auto loadingOverlay = std::make_shared<LoadingOverlay>(
                 ID_SCREEN_MAIN_MENU_LOADING_OVERLAY,
                 renderScale, window, loadingMessage);

@@ -21,6 +21,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreen.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreenListener.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreen.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreenListener.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj"

@@ -646,6 +646,60 @@ game/graphics/lobby/LobbyScreenListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.s
 .PHONY : game/graphics/lobby/LobbyScreenListener.cpp.s
 
+game/graphics/lobby/PlayerCard.obj: game/graphics/lobby/PlayerCard.cpp.obj
+
+.PHONY : game/graphics/lobby/PlayerCard.obj
+
+# target to build an object file
+game/graphics/lobby/PlayerCard.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj
+.PHONY : game/graphics/lobby/PlayerCard.cpp.obj
+
+game/graphics/lobby/PlayerCard.i: game/graphics/lobby/PlayerCard.cpp.i
+
+.PHONY : game/graphics/lobby/PlayerCard.i
+
+# target to preprocess a source file
+game/graphics/lobby/PlayerCard.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.i
+.PHONY : game/graphics/lobby/PlayerCard.cpp.i
+
+game/graphics/lobby/PlayerCard.s: game/graphics/lobby/PlayerCard.cpp.s
+
+.PHONY : game/graphics/lobby/PlayerCard.s
+
+# target to generate assembly for a file
+game/graphics/lobby/PlayerCard.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.s
+.PHONY : game/graphics/lobby/PlayerCard.cpp.s
+
+game/graphics/mainmenu/MainMenuButton.obj: game/graphics/mainmenu/MainMenuButton.cpp.obj
+
+.PHONY : game/graphics/mainmenu/MainMenuButton.obj
+
+# target to build an object file
+game/graphics/mainmenu/MainMenuButton.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj
+.PHONY : game/graphics/mainmenu/MainMenuButton.cpp.obj
+
+game/graphics/mainmenu/MainMenuButton.i: game/graphics/mainmenu/MainMenuButton.cpp.i
+
+.PHONY : game/graphics/mainmenu/MainMenuButton.i
+
+# target to preprocess a source file
+game/graphics/mainmenu/MainMenuButton.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.i
+.PHONY : game/graphics/mainmenu/MainMenuButton.cpp.i
+
+game/graphics/mainmenu/MainMenuButton.s: game/graphics/mainmenu/MainMenuButton.cpp.s
+
+.PHONY : game/graphics/mainmenu/MainMenuButton.s
+
+# target to generate assembly for a file
+game/graphics/mainmenu/MainMenuButton.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.s
+.PHONY : game/graphics/mainmenu/MainMenuButton.cpp.s
+
 game/graphics/mainmenu/MainMenuScreen.obj: game/graphics/mainmenu/MainMenuScreen.cpp.obj
 
 .PHONY : game/graphics/mainmenu/MainMenuScreen.obj
@@ -699,33 +753,6 @@ game/graphics/mainmenu/MainMenuScreenListener.s: game/graphics/mainmenu/MainMenu
 game/graphics/mainmenu/MainMenuScreenListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.s
 .PHONY : game/graphics/mainmenu/MainMenuScreenListener.cpp.s
-
-game/lobby/Lobby.obj: game/lobby/Lobby.cpp.obj
-
-.PHONY : game/lobby/Lobby.obj
-
-# target to build an object file
-game/lobby/Lobby.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/lobby/Lobby.cpp.obj
-.PHONY : game/lobby/Lobby.cpp.obj
-
-game/lobby/Lobby.i: game/lobby/Lobby.cpp.i
-
-.PHONY : game/lobby/Lobby.i
-
-# target to preprocess a source file
-game/lobby/Lobby.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/lobby/Lobby.cpp.i
-.PHONY : game/lobby/Lobby.cpp.i
-
-game/lobby/Lobby.s: game/lobby/Lobby.cpp.s
-
-.PHONY : game/lobby/Lobby.s
-
-# target to generate assembly for a file
-game/lobby/Lobby.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/lobby/Lobby.cpp.s
-.PHONY : game/lobby/Lobby.cpp.s
 
 game/packetlistener/CreateLobbyResponseListener.obj: game/packetlistener/CreateLobbyResponseListener.cpp.obj
 
@@ -1196,15 +1223,18 @@ help:
 	@echo ... game/graphics/lobby/LobbyScreenListener.obj
 	@echo ... game/graphics/lobby/LobbyScreenListener.i
 	@echo ... game/graphics/lobby/LobbyScreenListener.s
+	@echo ... game/graphics/lobby/PlayerCard.obj
+	@echo ... game/graphics/lobby/PlayerCard.i
+	@echo ... game/graphics/lobby/PlayerCard.s
+	@echo ... game/graphics/mainmenu/MainMenuButton.obj
+	@echo ... game/graphics/mainmenu/MainMenuButton.i
+	@echo ... game/graphics/mainmenu/MainMenuButton.s
 	@echo ... game/graphics/mainmenu/MainMenuScreen.obj
 	@echo ... game/graphics/mainmenu/MainMenuScreen.i
 	@echo ... game/graphics/mainmenu/MainMenuScreen.s
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.obj
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.i
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.s
-	@echo ... game/lobby/Lobby.obj
-	@echo ... game/lobby/Lobby.i
-	@echo ... game/lobby/Lobby.s
 	@echo ... game/packetlistener/CreateLobbyResponseListener.obj
 	@echo ... game/packetlistener/CreateLobbyResponseListener.i
 	@echo ... game/packetlistener/CreateLobbyResponseListener.s

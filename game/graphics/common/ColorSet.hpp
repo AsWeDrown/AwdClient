@@ -14,6 +14,8 @@ namespace awd::game {
                 LOGO_OUTLINE,
                 // Общие элементы GUI
                 GUI_BUTTONS_SEPARATOR_LINE,
+                // GUI экрана лобби
+                GUI_LOBBY_SCREEN_BUTTONS_SEPARATOR_LINE,
                 // Вода
                 HIGHEST_LEVEL_WATER,
                 MIDDLE_LEVEL_WATER,

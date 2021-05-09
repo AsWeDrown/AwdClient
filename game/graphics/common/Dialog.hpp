@@ -18,7 +18,7 @@ namespace awd::game {
         float initialY, finalY, moveStep;
         std::shared_ptr<DialogListener> listener = nullptr;
         DialogState state = DialogState::DISAPPEARED;
-        unsigned int existedTicks = 0;
+        uint32_t existedTicks = 0;
 
         std::unique_ptr<sf::RectangleShape> fill = nullptr;
 

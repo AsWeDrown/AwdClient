@@ -51,7 +51,7 @@ namespace awd::game {
     }
 
     std::wstring StringUtils::wrapByLineLength(std::wstring message,
-                                               unsigned int maxLineLen, unsigned int maxLinesNum) {
+                                               uint32_t maxLineLen, uint32_t maxLinesNum) {
         // Выделяем из сообщения отдельные слова (с учётом пробелов и символов новой строки '\n';
         // кроме того, чересчур длинные слова будут разбиваться на несколько отдельных).
         message = fixSpacing(message);
@@ -77,8 +77,8 @@ namespace awd::game {
         // переноса строки при превышении максимальной длины).
         std::wstring result;
         std::wstring currentLine;
-        unsigned int currentLinesNum = 0;
-        bool needLeadingSpace = false;
+        uint32_t     currentLinesNum  = 0;
+        bool         needLeadingSpace = false;
 
         for (const auto& word : words) {
             std::wstring::size_type lineLenAfter = currentLine.length() + word.length();

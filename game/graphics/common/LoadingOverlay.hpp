@@ -9,7 +9,7 @@ namespace awd::game {
     private:
         std::wstring unformattedMessage;
 
-        unsigned int existedTicks = 0;
+        uint32_t existedTicks = 0;
         bool reverseTick = false;
 
         std::unique_ptr<sf::Text> text = nullptr;

@@ -8,17 +8,17 @@ namespace awd::game {
         /**
          * Используется только в клиенте. Сигнализирует о необходимости закрытия игры.
          */
-        static const int EXIT  = -1;
+        static const uint32_t EXIT  = -1;
 
         /**
          * Предыгровой этап.
          */
-        static const int LOBBY = 0;
+        static const uint32_t LOBBY = 0;
 
         /**
          * Игровой этап.
          */
-        static const int PLAY  = 1;
+        static const uint32_t PLAY  = 1;
     };
 
 }

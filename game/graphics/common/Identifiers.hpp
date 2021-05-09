@@ -11,7 +11,7 @@
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
- *   Types
+ *   Типы
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -19,7 +19,7 @@ typedef unsigned long long id_type;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
- *   Base
+ *   Основа
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -29,10 +29,11 @@ typedef unsigned long long id_type;
 #define ID_BUTTON                  (id_type) 1E+06L
 #define ID_TEXT_FIELD              (id_type) 1E+04L
 #define ID_WATER_BACKGROUND        (id_type) 1E+02L
+#define ID_CUSTOM                  (id_type) 1E+00L
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
- *   MainMenu
+ *   MainMenu Screen
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -79,11 +80,30 @@ typedef unsigned long long id_type;
 #define ID_SCREEN_MAIN_MENU_LOADING_OVERLAY        ID_SCREEN_MAIN_MENU \
                                                    + 1 * ID_LOADING_OVERLAY
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+*   Lobby Screen
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 // Lobby
 
 #define ID_SCREEN_LOBBY                         2  *  ID_SCREEN
 
 #define ID_SCREEN_LOBBY_WATER_BACKGROUND        ID_SCREEN_LOBBY  \
                                                 +  1  *  ID_WATER_BACKGROUND
+
+#define ID_SCREEN_LOBBY_BUTTON_LEAVE_LOBBY        ID_SCREEN_LOBBY  \
+                                                  +  1  *  ID_BUTTON
+
+#define ID_SCREEN_LOBBY_BUTTON_NEW_GAME           ID_SCREEN_LOBBY  \
+                                                  +  2  *  ID_BUTTON
+
+#define ID_SCREEN_LOBBY_BUTTON_LOAD_GAME          ID_SCREEN_LOBBY  \
+                                                  +  3  *  ID_BUTTON
+
+#define ID_SCREEN_LOBBY_PLAYER_CARD               ID_SCREEN_LOBBY  \
+                                                  +  1  *  ID_CUSTOM
 
 #pragma clang diagnostic pop

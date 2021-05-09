@@ -26,9 +26,9 @@ namespace awd::game {
         this->unformattedMessage = message;
 
         // Текст
-        unsigned int fontSize  = TEXT_FONT_SIZE     * renderScale;
-        float        outline   = TEXT_OUTLINE_WIDTH * renderScale + 1.0f; // min 1 px
-        float        topMargin = TEXT_TOP_MARGIN    * renderScale;
+        uint32_t  fontSize  = TEXT_FONT_SIZE     * renderScale;
+        float     outline   = TEXT_OUTLINE_WIDTH * renderScale + 1.0f; // min 1 px
+        float     topMargin = TEXT_TOP_MARGIN    * renderScale;
 
         text = std::make_unique<sf::Text>();
         text->setFont(*Game::instance().getFontManager()->getRegularFont());
@@ -37,9 +37,9 @@ namespace awd::game {
         text->setString(message);
 
         sf::FloatRect textBounds = text->getGlobalBounds();
-
         float textX = window->getSize().x / 2.0f - textBounds.width / 2.0f;
         float textY = textBounds.height + topMargin;
+
         text->setPosition(textX, textY);
     }
 
@@ -59,7 +59,7 @@ namespace awd::game {
                 reverseTick = true;
         }
 
-        unsigned int textAlpha = TEXT_BASE_ALPHA + TEXT_BONUS_ALPHA_PER_EXISTED_TICK * existedTicks;
+        uint32_t textAlpha = TEXT_BASE_ALPHA + TEXT_BONUS_ALPHA_PER_EXISTED_TICK * existedTicks;
         text->setFillColor   (sf::Color(255, 255, 255, textAlpha));
         text->setOutlineColor(sf::Color(  0,   0,   0, textAlpha));
     }
