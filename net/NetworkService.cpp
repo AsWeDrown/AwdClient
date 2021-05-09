@@ -1,4 +1,4 @@
-#define MAX_SEND_QUEUE_SIZE 33 /* = размер очередей в NetworkHandle */
+#define MAX_SEND_QUEUE_SIZE 10
 
 
 #include "NetworkService.hpp"
@@ -17,7 +17,7 @@ namespace awd::net {
         std::unique_lock<std::recursive_mutex> lock(mutex);
 
         if (sendQueue.size() == MAX_SEND_QUEUE_SIZE)
-            sendQueue.pop_front(); // отменяем отправку самого "старого" пакета (их накопилось слишком много)
+            sendQueue.pop_front(); // отменяем отправку самого "старого" пакета (их накопилось уж слишком много)
 
         sendQueue.push_back(packet);
         ensureDeliveredStatuses.push_back(ensureDelivered);
@@ -96,6 +96,21 @@ namespace awd::net {
         packet->set_test_id(testId);
 
         enqueueSend(packet);
+    }
+
+    void NetworkService::createLobbyRequest(const std::wstring& playerName) {
+        auto packet = std::make_shared<CreateLobbyRequest>();
+        packet->set_player_name(std::string(playerName.begin(), playerName.end())); // wstring --> string
+
+        enqueueSendImportant(packet);
+    }
+
+    void NetworkService::joinLobbyRequest(uint32_t lobbyId, const std::wstring& playerName) {
+        auto packet = std::make_shared<JoinLobbyRequest>();
+        packet->set_lobby_id(lobbyId);
+        packet->set_player_name(std::string(playerName.begin(), playerName.end())); // wstring --> string
+
+        enqueueSendImportant(packet);
     }
 
 }

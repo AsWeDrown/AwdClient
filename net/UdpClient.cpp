@@ -1,5 +1,4 @@
 #define BUFFER_SIZE 1024
-#define TIMEOUT_MILLIS 5000
 
 
 #include <packets.pb.h>
@@ -27,9 +26,7 @@ namespace awd::net {
         auto status = udpSocket->bind(port);
 
         if (status != sf::Socket::Done) {
-            std::wcerr << L"Failed to bind UDP socket to port " << port << std::endl;
-            game::Game::instance().timedOut();
-
+            game::Game::instance().socketBindFailed();
             return;
         }
 
@@ -90,13 +87,6 @@ namespace awd::net {
         std::wcout << L"-- END OF UDP CLIENT LOOP --" << std::endl;
     }
 
-    void UdpClient::timeoutCheck() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(TIMEOUT_MILLIS));
-
-        if (!handshakeComplete)
-            game::Game::instance().timedOut();
-    }
-
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *
      *   PUBLIC
@@ -112,16 +102,10 @@ namespace awd::net {
         // Создаём клиент и начинаем "рукопожатие" (handshake).
         std::thread socketThread(&UdpClient::startInCurrentThread, this);
         socketThread.detach(); // отправляем поток в свободное плавание
-
-        // Через некоторое время проверяем, было ли виртуальное соединение успешно установлено.
-        // Нужно на случай, если от сервера вообще не будет получено никаких пакетов.
-        std::thread timeoutThread(&UdpClient::timeoutCheck, this);
-        timeoutThread.detach(); // отправляем поток в свободное плавание
     }
 
     void UdpClient::tearDown() {
         connected = false;
-        handshakeComplete = false;
         udpSocket->unbind();
         udpSocket = nullptr;
     }
@@ -140,10 +124,6 @@ namespace awd::net {
 
     std::shared_ptr<sf::UdpSocket> UdpClient::getUdpSocket() const {
         return udpSocket;
-    }
-
-    void UdpClient::setHandshakeComplete() {
-        handshakeComplete = true;
     }
 
 }

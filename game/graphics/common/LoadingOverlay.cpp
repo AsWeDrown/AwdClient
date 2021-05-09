@@ -23,6 +23,8 @@ namespace awd::game {
                                    const std::shared_ptr<sf::RenderWindow>& window,
                                    const std::wstring& message)
                                    : Drawable(id, renderScale, window) {
+        this->unformattedMessage = message;
+
         // Текст
         unsigned int fontSize  = TEXT_FONT_SIZE     * renderScale;
         float        outline   = TEXT_OUTLINE_WIDTH * renderScale + 1.0f; // min 1 px
@@ -65,6 +67,10 @@ namespace awd::game {
     void LoadingOverlay::draw() {
         Drawable::draw();
         window->draw(*text);
+    }
+
+    std::wstring LoadingOverlay::getUnformattedMessage() const {
+        return unformattedMessage;
     }
 
 }

@@ -1,5 +1,6 @@
 #include "LobbyScreen.hpp"
 #include "../common/WaterBackground.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 
@@ -30,6 +31,9 @@ namespace awd::game {
         // Фон
         addChild(std::make_shared<WaterBackground>(
                 ID_SCREEN_LOBBY_WATER_BACKGROUND, renderScale, window));
+
+        auto lobby = Game::instance().getCurrentLobby();
+        //todo
 
         // Кнопки
         createButtons();

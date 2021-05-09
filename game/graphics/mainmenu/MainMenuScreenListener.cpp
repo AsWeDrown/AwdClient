@@ -1,3 +1,4 @@
+#define CREATE_OR_JOIN_TIMEOUT_MILLIS 5000
 #define MAX_PLAYER_NAME_LENGTH 15
 #define MAX_LOBBY_ID_LENGTH 10 /* чуть больше двух миллиардов --> не более 10 знаков */
 
@@ -7,6 +8,8 @@
 #include "MainMenuScreen.hpp"
 #include "../common/TextInputDialog.hpp"
 #include "../../Game.hpp"
+#include "../common/ErrorDialog.hpp"
+#include "../lobby/LobbyScreen.hpp"
 
 namespace awd::game {
 
@@ -65,20 +68,19 @@ namespace awd::game {
         mainMenu->openDialog(dialog);
     }
 
-    void MainMenuScreenListener::displayInputError(Drawable* mainMenuScreen,
-                                                   const std::wstring& errMsg) {
-
-    }
-
     void MainMenuScreenListener::beginCreateLobby(Drawable* mainMenuScreen,
                                                   const std::wstring& playerName) {
-
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        mainMenu->showLoadingOverlay(L"Создание комнаты...", CREATE_OR_JOIN_TIMEOUT_MILLIS);
+        Game::instance().getNetService()->createLobbyRequest(playerName);
     }
 
     void MainMenuScreenListener::beginJoinLobby(Drawable* mainMenuScreen,
                                                 uint32_t lobbyId,
                                                 const std::wstring& playerName) {
-        //todo
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        mainMenu->showLoadingOverlay(L"Присоединение к комнате...", CREATE_OR_JOIN_TIMEOUT_MILLIS);
+        Game::instance().getNetService()->joinLobbyRequest(lobbyId, playerName);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,15 +103,17 @@ namespace awd::game {
         auto* mainMenu = (MainMenuScreen*) dialog->getParent();
         std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
 
-        if (!playerName.empty())
+        if (!playerName.empty()) {
             // Переходим к созданию комнаты.
+            mainMenu->closeCurrentDialog();
             beginCreateLobby(mainMenu, playerName);
+        }
     }
 
     void MainMenuScreenListener::createLobbyBackClicked(Drawable* dialog) {
         auto mainMenu = (MainMenuScreen*) dialog->getParent();
         mainMenu->setWorkflowState(WorkflowState::IDLE);
-        ((Dialog*) dialog)->hide();
+        mainMenu->closeCurrentDialog();
     }
 
     void MainMenuScreenListener::joinLobbyClicked(Drawable* mainMenuScreen) {
@@ -131,23 +135,28 @@ namespace awd::game {
                 mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_2);
                 mainMenu->closeCurrentDialog(); // закрываем диалог ввода ID комнаты
             }
-        } else {
+        } else if (workflowState == WorkflowState::JOINING_LOBBY_2) {
             std::wstring lobbyIdStr = mainMenu->getListener()->getEnteredLobbyId();
             uint32_t lobbyId;
 
             try {
                 lobbyId = std::stoi(lobbyIdStr);
             } catch (const std::invalid_argument&) {
-                displayInputError(mainMenu, L"{RED}{BOLD}Ошибка ввода: "
-                                            L"{RESET}{GRAY}идентификатор комнаты должен быть "
-                                            L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
+                // Введено что-то, отличное от целого числа.
+                mainMenu->closeCurrentDialog();
+                mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
+                                          L"{RESET}{GRAY}идентификатор комнаты должен быть "
+                                          L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
             } catch (const std::out_of_range&) {
-                displayInputError(mainMenu, L"{RED}{BOLD}Ошибка ввода: "
-                                            L"{RESET}{GRAY}идентификатор комнаты должен быть "
-                                            L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
+                // Введено слишком большое целое число.
+                mainMenu->closeCurrentDialog();
+                mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
+                                          L"{RESET}{GRAY}идентификатор комнаты должен быть "
+                                          L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
             }
 
             // Переходим к присоединению к комнате.
+            mainMenu->closeCurrentDialog();
             beginJoinLobby(mainMenu, lobbyId, mainMenu->getListener()->getEnteredPlayerName());
         }
     }
@@ -155,12 +164,12 @@ namespace awd::game {
     void MainMenuScreenListener::joinLobbyBackClicked(Drawable* dialog) {
         auto mainMenu = (MainMenuScreen*) dialog->getParent();
         WorkflowState workflowState = mainMenu->getWorkflowState();
-        ((Dialog*) dialog)->hide();
+        mainMenu->closeCurrentDialog();
 
         if (workflowState == WorkflowState::JOINING_LOBBY_1)
             // Выходим обратно в главное меню (закрываем диалог).
             mainMenu->setWorkflowState(WorkflowState::IDLE);
-        else {
+        else if (workflowState == WorkflowState::JOINING_LOBBY_2) {
             // Возвращаемся на этап ввода ID комнаты.
             mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_1);
             mainMenu->closeCurrentDialog(); // закрываем диалог ввода имени
@@ -168,7 +177,17 @@ namespace awd::game {
     }
 
     void MainMenuScreenListener::errorOkClicked(Drawable* dialog) {
-        Game::instance().shutdown();
+        auto mainMenu = (MainMenuScreen*) dialog->getParent();
+        WorkflowState workflowState = mainMenu->getWorkflowState();
+
+        if (workflowState == WorkflowState::IDLE)
+            // Закрываем игру.
+            Game::instance().shutdown();
+        else {
+            // Просто закрываем диалог ошибки.
+            mainMenu->setWorkflowState(WorkflowState::IDLE);
+            mainMenu->closeCurrentDialog();
+        }
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -176,6 +195,41 @@ namespace awd::game {
      *   PUBLIC
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    void MainMenuScreenListener::finishCreateLobby(Drawable* mainMenuScreen,
+                                                   const std::shared_ptr<net::CreateLobbyResponse>& response) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        mainMenu->hideCurrentLoadingOverlay();
+
+        if (response->lobby_id() < 0) {
+            // Отказано в создании комнаты.
+            std::wstring errorMessage;
+            int errorCode = response->lobby_id();
+
+            switch (errorCode) {
+                case -1:
+                    errorMessage = L"недопустимое внутриигровое имя";
+                    break;
+
+                default:
+                    errorMessage = L"что-то пошло не так (" + std::to_wstring(errorCode) + L")";
+                    break;
+            }
+
+            mainMenu->showErrorDialog(
+                    L"{RED}{BOLD}Отказано в создании комнаты: {RESET}{GRAY}" + errorMessage + L".");
+        } else {
+            // Комната создана успешно.
+            auto lobby = std::make_shared<Lobby>();
+            lobby->lobbyId      = response->lobby_id();
+            lobby->ownPlayerId  = response->player_id();
+            lobby->ownCharacter = response->character();
+
+            Game::instance().setCurrentLobby(lobby);
+            Game::instance().setCurrentScreen(std::make_shared
+                    <LobbyScreen>(mainMenu->getRenderScale(), mainMenu->getWindow()));
+        }
+    }
 
     void MainMenuScreenListener::dialogOpened(Drawable* parentScreen, id_type dialogId) {}
 
@@ -217,7 +271,8 @@ namespace awd::game {
 
                 if (workflowState == WorkflowState::CREATING_LOBBY_1)
                     createLobbyNextClicked(buttonParent);
-                else
+                else if (workflowState == WorkflowState::JOINING_LOBBY_1
+                      || workflowState == WorkflowState::JOINING_LOBBY_2)
                     joinLobbyNextClicked(buttonParent);
 
                 break;
@@ -227,7 +282,8 @@ namespace awd::game {
 
                 if (workflowState == WorkflowState::CREATING_LOBBY_1)
                     createLobbyBackClicked(buttonParent);
-                else
+                else if (workflowState == WorkflowState::JOINING_LOBBY_1
+                      || workflowState == WorkflowState::JOINING_LOBBY_2)
                     joinLobbyBackClicked(buttonParent);
 
                 break;

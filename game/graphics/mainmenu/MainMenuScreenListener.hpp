@@ -1,6 +1,7 @@
 #pragma once
 
 
+#include <packets.pb.h>
 #include "../common/DialogListener.hpp"
 #include "../common/ButtonListener.hpp"
 #include "../common/TextFieldListener.hpp"
@@ -22,9 +23,6 @@ namespace awd::game {
         static void requestPlayerNameInput(Drawable* mainMenuScreen);
 
         static void requestLobbyIdInput(Drawable* mainMenuScreen);
-
-        static void displayInputError(Drawable* mainMenuScreen,
-                                      const std::wstring& errMsg);
 
         static void beginCreateLobby(Drawable* mainMenuScreen,
                                      const std::wstring& playerName);
@@ -50,6 +48,9 @@ namespace awd::game {
         static void errorOkClicked(Drawable* dialog);
 
     public:
+        static void finishCreateLobby(Drawable* mainMenuScreen,
+                                      const std::shared_ptr<net::CreateLobbyResponse>& response);
+
         void dialogOpened(Drawable* parentScreen, id_type dialogId) override;
 
         void dialogClosed(Drawable* parentScreen, id_type dialogId) override;

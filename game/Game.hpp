@@ -59,7 +59,7 @@ namespace awd::game {
         void bootstrap();
         void shutdown();
         void handshakeComplete(uint32_t serverProtocolVersion);
-        void timedOut();
+        void socketBindFailed();
 
         uint32_t getCurrentTick() const;
         std::shared_ptr<FontManager> getFontManager() const;

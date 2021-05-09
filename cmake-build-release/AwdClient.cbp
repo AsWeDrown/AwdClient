@@ -270,6 +270,9 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreenListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp">
 			<Option target="AwdClient"/>
 		</Unit>

@@ -7,6 +7,8 @@ namespace awd::game {
 
     class LoadingOverlay : public Drawable {
     private:
+        std::wstring unformattedMessage;
+
         unsigned int existedTicks = 0;
         bool reverseTick = false;
 
@@ -20,6 +22,8 @@ namespace awd::game {
 
         void update() override;
         void draw() override;
+
+        std::wstring getUnformattedMessage() const;
     };
 
 }

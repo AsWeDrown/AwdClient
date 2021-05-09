@@ -13,12 +13,14 @@
 
 
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <thread>
 #include "MainMenuScreen.hpp"
 #include "../common/TextButton.hpp"
 #include "../common/ColorSet.hpp"
 #include "../../util/RenderUtils.hpp"
 #include "../common/WaterBackground.hpp"
 #include "../../Game.hpp"
+#include "../common/ErrorDialog.hpp"
 
 namespace awd::game {
 
@@ -127,12 +129,60 @@ namespace awd::game {
         this->workflowState = state;
     }
 
-    void MainMenuScreen::showLoadingOverlay(const std::wstring& message) {
+    void MainMenuScreen::showLoadingOverlay(const std::wstring& loadingMessage,
+                                            unsigned int timeoutMillis) {
         auto loadingOverlay = std::make_shared<LoadingOverlay>(
                 ID_SCREEN_MAIN_MENU_LOADING_OVERLAY,
-                renderScale, window, message);
+                renderScale, window, loadingMessage);
 
         Screen::showLoadingOverlay(loadingOverlay);
+
+        std::thread timeoutThread([this, loadingMessage, timeoutMillis]() {
+            std::this_thread::sleep_for(std::chrono::milliseconds(timeoutMillis));
+            auto currentLoadingOverlay = getChildById(currentLoadingOverlayId);
+
+            if (currentLoadingOverlay != nullptr) {
+                std::wstring currentLoadingMessage = std::dynamic_pointer_cast
+                        <LoadingOverlay>(currentLoadingOverlay)->getUnformattedMessage();
+
+                if (currentLoadingMessage == loadingMessage) {
+                    // Истекло время ожидания (hideCurrentLoadingOverlay
+                    // для ЭТОГО сообщения загрузки так и не был вызван).
+                    hideCurrentLoadingOverlay(); // скрываем сообщение о загрузке (оно больше не нужно), ...
+                    closeCurrentDialog(); // ... закрываем текущий диалог, каким бы он не был, ...
+
+                    auto dialog = std::make_shared<ErrorDialog>(
+                            ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
+                            renderScale,
+                            window,
+                            listener,
+                            L"{RED}{BOLD}Ошибка: "
+                            L"{RESET}{GRAY}истекло максимальное допустимое время ожидания. "
+                            L"Проверьте своё подключение к Интернету.",
+                            ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,
+                            listener
+                    );
+
+                    openDialog(dialog); // ... и отображаем диалог с ошибкой об истечении времени ожидания.
+                }
+            }
+        });
+
+        timeoutThread.detach();
+    }
+
+    void MainMenuScreen::showErrorDialog(const std::wstring& message) {
+        auto dialog = std::make_shared<ErrorDialog>(
+                ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
+                renderScale,
+                window,
+                listener,
+                message,
+                ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,
+                listener
+        );
+
+        openDialog(dialog);
     }
 
 }

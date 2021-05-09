@@ -136,6 +136,8 @@ namespace awd::game {
     }
 
     void TextInputDialog::keyPressed(const sf::Event::KeyEvent& event) {
+        Dialog::keyPressed(event);
+
         // Возможность манипулировать диалогом с помощью клавиш ENTER и ESC.
         id_type hotkeyedButtonId = 0L;
 

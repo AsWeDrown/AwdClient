@@ -21,6 +21,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/lobby/Lobby.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj"

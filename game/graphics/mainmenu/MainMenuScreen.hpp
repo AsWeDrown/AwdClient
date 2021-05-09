@@ -39,7 +39,10 @@ namespace awd::game {
         WorkflowState getWorkflowState() const;
         void setWorkflowState(WorkflowState state);
 
-        void showLoadingOverlay(const std::wstring& message);
+        void showLoadingOverlay(const std::wstring& loadingMessage,
+                                unsigned int timeoutMillis);
+
+        void showErrorDialog(const std::wstring& message);
     };
 
 }

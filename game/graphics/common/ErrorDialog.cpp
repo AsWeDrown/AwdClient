@@ -80,6 +80,8 @@ namespace awd::game {
     }
 
     void ErrorDialog::keyPressed(const sf::Event::KeyEvent& event) {
+        Dialog::keyPressed(event);
+
         // Возможность манипулировать диалогом с помощью клавиш ENTER и ESC.
         if (event.code == sf::Keyboard::Enter || event.code == sf::Keyboard::Escape) {
             auto btnOk = std::dynamic_pointer_cast<Button>(getChildById(btnOkId));

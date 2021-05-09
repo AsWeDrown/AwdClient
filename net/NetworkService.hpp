@@ -42,6 +42,10 @@ namespace awd::net {
         void handshakeRequest();
 
         void pong(uint32_t testId);
+
+        void createLobbyRequest(const std::wstring& playerName);
+
+        void joinLobbyRequest(uint32_t lobbyId, const std::wstring& playerName);
     };
 
 }

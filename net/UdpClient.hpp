@@ -9,15 +9,13 @@ namespace awd::net {
 
     class UdpClient {
     private:
-        std::atomic<bool> connected         = false,
-                          handshakeComplete = false; // был ли получен пакет HandshakeResponse (содержимое не важно)
+        std::atomic<bool> connected = false;
 
         std::string serverAddrStr;
         unsigned short port;
         std::shared_ptr<sf::UdpSocket> udpSocket = nullptr;
 
         void startInCurrentThread();
-        void timeoutCheck();
 
     public:
         UdpClient(const std::string& serverAddr, unsigned short port);
@@ -29,7 +27,6 @@ namespace awd::net {
         unsigned short getPort() const;
         bool isConnected() const;
         std::shared_ptr<sf::UdpSocket> getUdpSocket() const;
-        void setHandshakeComplete();
     };
 
 }

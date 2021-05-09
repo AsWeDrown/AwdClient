@@ -1,13 +1,14 @@
 #pragma once
 
 
-#include <string>
 #include <cstdint>
+#include <string>
 #include <map>
 
 namespace awd::game {
 
     struct Lobby {
+        uint32_t     lobbyId;
         uint32_t     ownPlayerId;
         std::wstring ownPlayerName;
         uint32_t     ownCharacter;

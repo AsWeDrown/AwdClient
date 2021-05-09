@@ -1,8 +1,9 @@
 #define HOST "julia.reflex.rip"
 #define PORT 23132
+#define CONNECTION_TIMEOUT_MILLIS 5000
 #define GAME_TPS 25
-#define BASE_SCREEN_WIDTH 1920
-#define BASE_SCREEN_HEIGHT 1080
+#define BASE_SCREEN_WIDTH 1920.0f
+#define BASE_SCREEN_HEIGHT 1080.0f
 
 
 #include <thread>
@@ -51,8 +52,8 @@ namespace awd::game {
         window = std::make_shared<sf::RenderWindow>(
                 bestVideoMode, "As We Drown", sf::Style::Fullscreen);
 
-        float renderScale = std::min((float) bestVideoMode.width  / (float) BASE_SCREEN_WIDTH,
-                                     (float) bestVideoMode.height / (float) BASE_SCREEN_HEIGHT);
+        float renderScale = std::min((float) bestVideoMode.width  / BASE_SCREEN_WIDTH,
+                                     (float) bestVideoMode.height / BASE_SCREEN_HEIGHT);
 
         std::wcout << L"Video mode: " << bestVideoMode.width << L"x" << bestVideoMode.height
                   << L" (" << bestVideoMode.bitsPerPixel << L" bits per pixel)" << std::endl;
@@ -94,8 +95,8 @@ namespace awd::game {
 
         // Обновления (тики)
         if (tickClock.getElapsedTime().asMilliseconds() >= tickDelay) {
-            update();
             tickClock.restart();
+            update();
         }
 
         // Прорисовка
@@ -118,8 +119,8 @@ namespace awd::game {
 
     void Game::postScreenLoad() {
         // Сообщение загрузки.
-        if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen))
-            mainMenuScreen->showLoadingOverlay(L"Загрузка. Пожалуйста, подождите...");
+        auto mainMenu = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen);
+        mainMenu->showLoadingOverlay(L"Подключение...", CONNECTION_TIMEOUT_MILLIS);
 
         // UDP-клиент (в другом потоке).
         registerPacketListeners();
@@ -174,55 +175,34 @@ namespace awd::game {
     }
 
     void Game::handshakeComplete(uint32_t serverProtocolVersion) {
-        udpClient->setHandshakeComplete();
-
         if (serverProtocolVersion == net::PacketManager::PROTOCOL_VERSION)
             currentScreen->hideCurrentLoadingOverlay();
         else {
             std::wcerr << L"Protocol versions do not match." << std::endl;
 
-            if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen)) {
-                auto dialog = std::make_shared<ErrorDialog>(
-                        ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
-                        mainMenuScreen->getRenderScale(),
-                        mainMenuScreen->getWindow(),
-                        mainMenuScreen->getListener(),
-                        L"{RED}{BOLD}Не удалось подключиться к серверу: "
-                        L"{RESET}{GRAY}версия протокола клиента: {WHITE}"+
-                        std::to_wstring(net::PacketManager::PROTOCOL_VERSION) +
-                        L"{GRAY}, версия протокола сервера: {WHITE}" +
-                        std::to_wstring(serverProtocolVersion) +
-                        L"{GRAY}. Пожалуйста, установите новую версию игры.",
-                        ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,
-                        mainMenuScreen->getListener()
-                );
-
-                mainMenuScreen->openDialog(dialog);
-            } else
+            if (auto mainMenu = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen))
+                mainMenu->showErrorDialog(L"{RED}{BOLD}Не удалось подключиться к серверу: "
+                                          L"{RESET}{GRAY}версия протокола клиента: {WHITE}"+
+                                          std::to_wstring(net::PacketManager::PROTOCOL_VERSION) +
+                                          L"{GRAY}, версия протокола сервера: {WHITE}" +
+                                          std::to_wstring(serverProtocolVersion) +
+                                          L"{GRAY}. Пожалуйста, установите новую версию игры.");
+            else
                 shutdown();
         }
     }
 
-    void Game::timedOut() {
-        std::wcerr << L"Timed out." << std::endl;
+    void Game::socketBindFailed() {
+        std::wcerr << L"Socket bind failed." << std::endl;
 
-        if (auto mainMenuScreen = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen)) {
-            auto dialog = std::make_shared<ErrorDialog>(
-                    ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
-                    mainMenuScreen->getRenderScale(),
-                    mainMenuScreen->getWindow(),
-                    mainMenuScreen->getListener(),
-                    L"{RED}{BOLD}Не удалось подключиться к серверу: "
-                    L"{RESET}{GRAY}истекло допустимое время ожидания. Пожалуйста, убедитесь, "
-                    L"что вы сейчас подключены к Интернету, и что ваш файервол/антивирус не блокирует "
-                    L"использование UDP-порта {WHITE}23132{GRAY}. Также проблема может быть в том, что "
-                    L"в вашей локальной сети уже есть другое устройство, занявшее этот порт.",
-                    ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,
-                    mainMenuScreen->getListener()
-            );
-
-            mainMenuScreen->openDialog(dialog);
-        } else
+        if (auto mainMenu = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen))
+            mainMenu->showErrorDialog(L"{RED}{BOLD}Не удалось подключиться к серверу: "
+                                      L"{RESET}{GRAY}ошибка привязки сокета. Пожалуйста, убедитесь, "
+                                      L"что вы сейчас подключены к Интернету, и что ваш файервол/антивирус не "
+                                      L"блокирует использование UDP-порта {WHITE}23132{GRAY}. Также проблема может "
+                                      L"быть в том, что в вашей локальной сети уже есть другое устройство, занявшее "
+                                      L"этот порт.");
+        else
             shutdown();
     }
 

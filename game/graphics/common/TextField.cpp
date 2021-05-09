@@ -172,7 +172,8 @@ namespace awd::game {
     }
 
     void TextField::setContents(const std::wstring& newContents) {
-        listener->contentsChanged(parent, id, this->contents = newContents);
+        this->contents = newContents;
+        listener->contentsChanged(parent, id, contents);
     }
 
     bool TextField::isSelected() const {
