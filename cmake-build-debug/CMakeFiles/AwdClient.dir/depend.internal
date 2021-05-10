@@ -66,6 +66,7 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreen.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreenListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
@@ -475,6 +476,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
@@ -703,6 +705,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
@@ -971,6 +974,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
@@ -1122,6 +1126,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
@@ -1277,6 +1282,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
@@ -1367,6 +1373,83 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
  packets.pb.h
+CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.obj
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/CircleShape.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Color.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/ConvexShape.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Drawable.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Font.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Glsl.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Glsl.inl
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Glyph.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Image.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/PrimitiveType.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Rect.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Rect.inl
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RectangleShape.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RenderStates.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RenderTarget.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RenderTexture.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RenderWindow.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Shader.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Shape.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Sprite.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Text.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Texture.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Transform.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Transformable.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Vertex.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/VertexArray.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/View.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Clock.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Err.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/FileInputStream.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/InputStream.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Lock.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/MemoryInputStream.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Mutex.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/NonCopyable.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Sleep.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/String.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/String.inl
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Thread.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Thread.inl
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/ThreadLocal.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/ThreadLocalPtr.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/ThreadLocalPtr.inl
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Time.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Utf.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Utf.inl
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Vector2.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Vector2.inl
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Vector3.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Vector3.inl
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Clipboard.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Context.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/ContextSettings.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Cursor.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Event.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/GlResource.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Joystick.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Keyboard.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Mouse.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Sensor.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Touch.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/VideoMode.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Window.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/UniformGridBuilder.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/UniformGridBuilder.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/UniformGridBuilder.hpp
@@ -1507,6 +1590,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/UniformGridBuilder.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.hpp
@@ -1660,8 +1744,10 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreen.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreen.hpp
@@ -1669,6 +1755,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/StringUtils.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
@@ -1838,13 +1925,79 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena_impl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arenastring.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/descriptor.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/extension_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_table_driven.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/has_bits.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/implicit_weak_message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/coded_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_inl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_type_handler.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/metadata_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/parse_context.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_def.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_undef.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/reflection_ops.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/repeated_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/callback.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/casts.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/common.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/hash.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/logging.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/mutex.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/once.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/platform_macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stl_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stringpiece.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/DialogListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/FontManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
@@ -1877,6 +2030,11 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/VertexArray.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/View.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/IpAddress.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/Socket.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/SocketHandle.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/UdpSocket.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Clock.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Err.hpp
@@ -1919,6 +2077,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Window.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
+ packets.pb.h
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
@@ -1979,6 +2138,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
@@ -2135,6 +2295,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuScreen.cpp
@@ -2293,6 +2454,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextFieldListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextInputDialog.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreen.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreenListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.hpp
@@ -2452,6 +2614,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/FontManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/CreateLobbyResponseListener.hpp
@@ -2602,6 +2765,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.hpp
@@ -2752,6 +2916,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PingListener.cpp
@@ -2956,6 +3121,7 @@ CMakeFiles/AwdClient.dir/main.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/main.cpp
@@ -3392,6 +3558,7 @@ CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp

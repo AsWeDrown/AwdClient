@@ -96,7 +96,7 @@ namespace awd::game {
         float    logoY          = highestButtonY - buttonsHeight - logoVertMargin;
 
         logo = std::make_unique<sf::Text>();
-        logo->setFont(*Game::instance().getFontManager()->getDecorativeFont());
+        logo->setFont(*Game::instance().getFonts()->decorativeFont);
         logo->setString(L"As We Drown");
         logo->setCharacterSize(logoFontSize);
         logo->setLetterSpacing(LETTER_SPACING_FACTOR);
@@ -137,6 +137,11 @@ namespace awd::game {
 
         std::thread timeoutThread([this, loadingMessage, timeoutMillis]() {
             std::this_thread::sleep_for(std::chrono::milliseconds(timeoutMillis));
+
+            if (this != Game::instance().getCurrentScreen().get())
+                // За это время поменялся экран. Код дальше крашнет игру.
+                return;
+
             auto currentLoadingOverlay = getChildById(currentLoadingOverlayId);
 
             if (currentLoadingOverlay != nullptr) {

@@ -2,15 +2,15 @@
 #define MAX_EFFECTIVE_HOVER_TICKS 5
 // Контур кнопок
 #define OUTLINE_WIDTH 2.0f
-#define BASE_OUTLINE_ALPHA 135
-#define BONUS_OUTLINE_ALPHA_PER_HOVER_TICK 20
+#define BASE_OUTLINE_ALPHA 75
+#define BONUS_OUTLINE_ALPHA_PER_HOVER_TICK 30
 // Закрашивание кнопок
 #define BASE_FILL_ALPHA 150
 #define BONUS_FILL_ALPHA_PER_HOVER_TICK 8
 // Текст кнопок
 #define BASE_TEXT_ALPHA 180
 #define BONUS_TEXT_ALPHA_PER_HOVER_TICK 8
-#define TEXT_BOTTOM_MARGIN_HEIGHT_PART 0.1575f
+#define TEXT_BOTTOM_MARGIN_HEIGHT_PART 0.15625f
 
 
 #include <iostream>
@@ -42,32 +42,34 @@ namespace awd::game {
         // Контур кнопки
         float outlineWidth = OUTLINE_WIDTH * renderScale + 1.0f; // min 1 px
 
-        outline = std::make_unique<sf::RectangleShape>(sf::Vector2f(width, height));
+        outline = std::make_unique<sf::RectangleShape>(sf::Vector2f(
+                width - 2.0f * outlineWidth, height - 2.0f * outlineWidth));
         outline->setFillColor(sf::Color::Transparent);
         outline->setOutlineColor(sf::Color::Transparent);
         outline->setOutlineThickness(outlineWidth);
-        outline->setPosition(x, y);
+        outline->setPosition(x + outlineWidth, y + outlineWidth);
 
         // Закрашивание кнопки
-        fill = std::make_unique<sf::RectangleShape>(sf::Vector2f(width, height));
+        fill = std::make_unique<sf::RectangleShape>(sf::Vector2f(width - 2.0f * outlineWidth, height - 2.0f * outlineWidth));
 
         fill->setFillColor(sf::Color::Transparent);
-        fill->setPosition(x, y);
+        fill->setPosition(x + outlineWidth, y + outlineWidth);
 
         // Текст на кнопке
         uint32_t textAlpha  = BASE_TEXT_ALPHA + BONUS_TEXT_ALPHA_PER_HOVER_TICK * hoverTicks;
 
         buttonText = std::make_unique<sf::Text>();
-        buttonText->setFont(*Game::instance().getFontManager()->getRegularFont());
+        buttonText->setFont(*Game::instance().getFonts()->regularFont);
         buttonText->setString(text);
         buttonText->setCharacterSize(fontSize);
         buttonText->setFillColor(sf::Color(255, 255, 255, textAlpha));
 
         sf::FloatRect textBounds = buttonText->getGlobalBounds();
-        float textX = x + width  / 2.0f - textBounds.width  / 2.0f;
-        float textY = y + height / 2.0f - textBounds.height / 2.0f - height * TEXT_BOTTOM_MARGIN_HEIGHT_PART;
 
-        buttonText->setPosition(textX, textY);
+        buttonText->setPosition(
+                x + width  / 2.0f - textBounds.width  / 2.0f,
+                y + height / 2.0f - textBounds.height / 2.0f - height * TEXT_BOTTOM_MARGIN_HEIGHT_PART
+        );
     }
 
     void TextButton::update() {

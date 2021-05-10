@@ -106,4 +106,17 @@ typedef unsigned long long id_type;
 #define ID_SCREEN_LOBBY_PLAYER_CARD               ID_SCREEN_LOBBY  \
                                                   +  1  *  ID_CUSTOM
 
+// Lobby.Error
+
+#define ID_SCREEN_LOBBY_DIALOG_ERROR                  ID_SCREEN_LOBBY  \
+                                                      +  2  *  ID_DIALOG
+
+#define ID_SCREEN_LOBBY_DIALOG_ERROR_BUTTON_OK        ID_SCREEN_LOBBY_DIALOG_ERROR  \
+                                                      +  1  *  ID_BUTTON
+
+// Lobby.LoadingOverlay
+
+#define ID_SCREEN_LOBBY_LOADING_OVERLAY        ID_SCREEN_LOBBY \
+                                               + 1 * ID_LOADING_OVERLAY
+
 #pragma clang diagnostic pop

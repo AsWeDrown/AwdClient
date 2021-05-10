@@ -156,20 +156,32 @@ struct KickedFromLobbyDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT KickedFromLobbyDefaultTypeInternal _KickedFromLobby_default_instance_;
-constexpr UpdatedMembersList_MembersEntry_DoNotUse::UpdatedMembersList_MembersEntry_DoNotUse(
+constexpr UpdatedMembersList_NewAllNamesEntry_DoNotUse::UpdatedMembersList_NewAllNamesEntry_DoNotUse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
-struct UpdatedMembersList_MembersEntry_DoNotUseDefaultTypeInternal {
-  constexpr UpdatedMembersList_MembersEntry_DoNotUseDefaultTypeInternal()
+struct UpdatedMembersList_NewAllNamesEntry_DoNotUseDefaultTypeInternal {
+  constexpr UpdatedMembersList_NewAllNamesEntry_DoNotUseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~UpdatedMembersList_MembersEntry_DoNotUseDefaultTypeInternal() {}
+  ~UpdatedMembersList_NewAllNamesEntry_DoNotUseDefaultTypeInternal() {}
   union {
-    UpdatedMembersList_MembersEntry_DoNotUse _instance;
+    UpdatedMembersList_NewAllNamesEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UpdatedMembersList_MembersEntry_DoNotUseDefaultTypeInternal _UpdatedMembersList_MembersEntry_DoNotUse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UpdatedMembersList_NewAllNamesEntry_DoNotUseDefaultTypeInternal _UpdatedMembersList_NewAllNamesEntry_DoNotUse_default_instance_;
+constexpr UpdatedMembersList_NewAllCharactersEntry_DoNotUse::UpdatedMembersList_NewAllCharactersEntry_DoNotUse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct UpdatedMembersList_NewAllCharactersEntry_DoNotUseDefaultTypeInternal {
+  constexpr UpdatedMembersList_NewAllCharactersEntry_DoNotUseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~UpdatedMembersList_NewAllCharactersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    UpdatedMembersList_NewAllCharactersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UpdatedMembersList_NewAllCharactersEntry_DoNotUseDefaultTypeInternal _UpdatedMembersList_NewAllCharactersEntry_DoNotUse_default_instance_;
 constexpr UpdatedMembersList::UpdatedMembersList(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : members_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}){}
+  : new_all_names_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , new_all_characters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}){}
 struct UpdatedMembersListDefaultTypeInternal {
   constexpr UpdatedMembersListDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -195,7 +207,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT KeepAliveDefaultTypeInternal _K
 constexpr Ping::Ping(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : test_id_(0u)
-  , last_latency_(0u){}
+  , rtt_(0u){}
 struct PingDefaultTypeInternal {
   constexpr PingDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -234,7 +246,7 @@ struct PacketWrapperDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PacketWrapperDefaultTypeInternal _PacketWrapper_default_instance_;
 }  // namespace net
 }  // namespace awd
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_packets_2eproto[17];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_packets_2eproto[18];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_packets_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_packets_2eproto = nullptr;
 
@@ -319,13 +331,22 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::awd::net::KickedFromLobby, reason_),
-  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse, key_),
-  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse, value_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse, value_),
   0,
   1,
   ~0u,  // no _has_bits_
@@ -333,7 +354,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList, members_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList, new_all_names_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdatedMembersList, new_all_characters_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::KeepAlive, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -347,7 +369,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::awd::net::Ping, test_id_),
-  PROTOBUF_FIELD_OFFSET(::awd::net::Ping, last_latency_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::Ping, rtt_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::Pong, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -389,12 +411,13 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 61, -1, sizeof(::awd::net::LeaveLobbyRequest)},
   { 68, -1, sizeof(::awd::net::LeaveLobbyResponse)},
   { 74, -1, sizeof(::awd::net::KickedFromLobby)},
-  { 80, 87, sizeof(::awd::net::UpdatedMembersList_MembersEntry_DoNotUse)},
-  { 89, -1, sizeof(::awd::net::UpdatedMembersList)},
-  { 95, -1, sizeof(::awd::net::KeepAlive)},
-  { 102, -1, sizeof(::awd::net::Ping)},
-  { 109, -1, sizeof(::awd::net::Pong)},
-  { 115, -1, sizeof(::awd::net::PacketWrapper)},
+  { 80, 87, sizeof(::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse)},
+  { 89, 96, sizeof(::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse)},
+  { 98, -1, sizeof(::awd::net::UpdatedMembersList)},
+  { 105, -1, sizeof(::awd::net::KeepAlive)},
+  { 112, -1, sizeof(::awd::net::Ping)},
+  { 119, -1, sizeof(::awd::net::Pong)},
+  { 125, -1, sizeof(::awd::net::PacketWrapper)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -409,7 +432,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_LeaveLobbyRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_LeaveLobbyResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_KickedFromLobby_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdatedMembersList_MembersEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdatedMembersList_NewAllNamesEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdatedMembersList_NewAllCharactersEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdatedMembersList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_KeepAlive_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_Ping_default_instance_),
@@ -437,38 +461,42 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   "byRequest\022\020\n\010lobby_id\030\001 \001(\r\022\021\n\tplayer_id"
   "\030\002 \001(\r\")\n\022LeaveLobbyResponse\022\023\n\013status_c"
   "ode\030\001 \001(\021\"!\n\017KickedFromLobby\022\016\n\006reason\030\001"
-  " \001(\r\"\177\n\022UpdatedMembersList\0229\n\007members\030\001 "
-  "\003(\0132(.awd.net.UpdatedMembersList.Members"
-  "Entry\032.\n\014MembersEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005va"
-  "lue\030\002 \001(\t:\0028\001\"/\n\tKeepAlive\022\021\n\tplayer_id\030"
-  "\001 \001(\005\022\017\n\007test_id\030\002 \001(\005\"-\n\004Ping\022\017\n\007test_i"
-  "d\030\001 \001(\r\022\024\n\014last_latency\030\002 \001(\r\"\027\n\004Pong\022\017\n"
-  "\007test_id\030\001 \001(\r\"\207\006\n\rPacketWrapper\022\020\n\010sequ"
-  "ence\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_bitfield\030"
-  "\003 \001(\004\0226\n\021handshake_request\030\n \001(\0132\031.awd.n"
-  "et.HandshakeRequestH\000\0228\n\022handshake_respo"
-  "nse\030\013 \001(\0132\032.awd.net.HandshakeResponseH\000\022"
-  ";\n\024create_lobby_request\030d \001(\0132\033.awd.net."
-  "CreateLobbyRequestH\000\022=\n\025create_lobby_res"
-  "ponse\030e \001(\0132\034.awd.net.CreateLobbyRespons"
-  "eH\000\0227\n\022join_lobby_request\030f \001(\0132\031.awd.ne"
-  "t.JoinLobbyRequestH\000\0229\n\023join_lobby_respo"
-  "nse\030g \001(\0132\032.awd.net.JoinLobbyResponseH\000\022"
-  "9\n\023leave_lobby_request\030h \001(\0132\032.awd.net.L"
-  "eaveLobbyRequestH\000\022;\n\024leave_lobby_respon"
-  "se\030i \001(\0132\033.awd.net.LeaveLobbyResponseH\000\022"
-  "5\n\021kicked_from_lobby\030j \001(\0132\030.awd.net.Kic"
-  "kedFromLobbyH\000\022;\n\024updated_members_list\030k"
-  " \001(\0132\033.awd.net.UpdatedMembersListH\000\022)\n\nk"
-  "eep_alive\030\350\007 \001(\0132\022.awd.net.KeepAliveH\000\022\036"
-  "\n\004ping\030\220N \001(\0132\r.awd.net.PingH\000\022\036\n\004pong\030\221"
-  "N \001(\0132\r.awd.net.PongH\000B\010\n\006packetB\024\n\020gg.a"
-  "swedrown.netP\001b\006proto3"
+  " \001(\r\"\225\002\n\022UpdatedMembersList\022C\n\rnew_all_n"
+  "ames\030\001 \003(\0132,.awd.net.UpdatedMembersList."
+  "NewAllNamesEntry\022M\n\022new_all_characters\030\002"
+  " \003(\01321.awd.net.UpdatedMembersList.NewAll"
+  "CharactersEntry\0322\n\020NewAllNamesEntry\022\013\n\003k"
+  "ey\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\0327\n\025NewAllCha"
+  "ractersEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t"
+  ":\0028\001\"/\n\tKeepAlive\022\021\n\tplayer_id\030\001 \001(\005\022\017\n\007"
+  "test_id\030\002 \001(\005\"$\n\004Ping\022\017\n\007test_id\030\001 \001(\r\022\013"
+  "\n\003rtt\030\002 \001(\r\"\027\n\004Pong\022\017\n\007test_id\030\001 \001(\r\"\207\006\n"
+  "\rPacketWrapper\022\020\n\010sequence\030\001 \001(\r\022\013\n\003ack\030"
+  "\002 \001(\r\022\024\n\014ack_bitfield\030\003 \001(\004\0226\n\021handshake"
+  "_request\030\n \001(\0132\031.awd.net.HandshakeReques"
+  "tH\000\0228\n\022handshake_response\030\013 \001(\0132\032.awd.ne"
+  "t.HandshakeResponseH\000\022;\n\024create_lobby_re"
+  "quest\030d \001(\0132\033.awd.net.CreateLobbyRequest"
+  "H\000\022=\n\025create_lobby_response\030e \001(\0132\034.awd."
+  "net.CreateLobbyResponseH\000\0227\n\022join_lobby_"
+  "request\030f \001(\0132\031.awd.net.JoinLobbyRequest"
+  "H\000\0229\n\023join_lobby_response\030g \001(\0132\032.awd.ne"
+  "t.JoinLobbyResponseH\000\0229\n\023leave_lobby_req"
+  "uest\030h \001(\0132\032.awd.net.LeaveLobbyRequestH\000"
+  "\022;\n\024leave_lobby_response\030i \001(\0132\033.awd.net"
+  ".LeaveLobbyResponseH\000\0225\n\021kicked_from_lob"
+  "by\030j \001(\0132\030.awd.net.KickedFromLobbyH\000\022;\n\024"
+  "updated_members_list\030k \001(\0132\033.awd.net.Upd"
+  "atedMembersListH\000\022)\n\nkeep_alive\030\350\007 \001(\0132\022"
+  ".awd.net.KeepAliveH\000\022\036\n\004ping\030\220N \001(\0132\r.aw"
+  "d.net.PingH\000\022\036\n\004pong\030\221N \001(\0132\r.awd.net.Po"
+  "ngH\000B\010\n\006packetB\024\n\020gg.aswedrown.netP\001b\006pr"
+  "oto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_packets_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_packets_2eproto = {
-  false, false, 1822, descriptor_table_protodef_packets_2eproto, "packets.proto", 
-  &descriptor_table_packets_2eproto_once, nullptr, 0, 17,
+  false, false, 1964, descriptor_table_protodef_packets_2eproto, "packets.proto", 
+  &descriptor_table_packets_2eproto_once, nullptr, 0, 18,
   schemas, file_default_instances, TableStruct_packets_2eproto::offsets,
   file_level_metadata_packets_2eproto, file_level_enum_descriptors_packets_2eproto, file_level_service_descriptors_packets_2eproto,
 };
@@ -2544,16 +2572,33 @@ void KickedFromLobby::InternalSwap(KickedFromLobby* other) {
 
 // ===================================================================
 
-UpdatedMembersList_MembersEntry_DoNotUse::UpdatedMembersList_MembersEntry_DoNotUse() {}
-UpdatedMembersList_MembersEntry_DoNotUse::UpdatedMembersList_MembersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+UpdatedMembersList_NewAllNamesEntry_DoNotUse::UpdatedMembersList_NewAllNamesEntry_DoNotUse() {}
+UpdatedMembersList_NewAllNamesEntry_DoNotUse::UpdatedMembersList_NewAllNamesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
-void UpdatedMembersList_MembersEntry_DoNotUse::MergeFrom(const UpdatedMembersList_MembersEntry_DoNotUse& other) {
+void UpdatedMembersList_NewAllNamesEntry_DoNotUse::MergeFrom(const UpdatedMembersList_NewAllNamesEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::PROTOBUF_NAMESPACE_ID::Metadata UpdatedMembersList_MembersEntry_DoNotUse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata UpdatedMembersList_NewAllNamesEntry_DoNotUse::GetMetadata() const {
   return GetMetadataStatic();
 }
-void UpdatedMembersList_MembersEntry_DoNotUse::MergeFrom(
+void UpdatedMembersList_NewAllNamesEntry_DoNotUse::MergeFrom(
+    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
+  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
+}
+
+
+// ===================================================================
+
+UpdatedMembersList_NewAllCharactersEntry_DoNotUse::UpdatedMembersList_NewAllCharactersEntry_DoNotUse() {}
+UpdatedMembersList_NewAllCharactersEntry_DoNotUse::UpdatedMembersList_NewAllCharactersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void UpdatedMembersList_NewAllCharactersEntry_DoNotUse::MergeFrom(const UpdatedMembersList_NewAllCharactersEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata UpdatedMembersList_NewAllCharactersEntry_DoNotUse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+void UpdatedMembersList_NewAllCharactersEntry_DoNotUse::MergeFrom(
     const ::PROTOBUF_NAMESPACE_ID::Message& other) {
   ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
 }
@@ -2567,7 +2612,8 @@ class UpdatedMembersList::_Internal {
 
 UpdatedMembersList::UpdatedMembersList(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  members_(arena) {
+  new_all_names_(arena),
+  new_all_characters_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:awd.net.UpdatedMembersList)
@@ -2575,7 +2621,8 @@ UpdatedMembersList::UpdatedMembersList(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 UpdatedMembersList::UpdatedMembersList(const UpdatedMembersList& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  members_.MergeFrom(from.members_);
+  new_all_names_.MergeFrom(from.new_all_names_);
+  new_all_characters_.MergeFrom(from.new_all_characters_);
   // @@protoc_insertion_point(copy_constructor:awd.net.UpdatedMembersList)
 }
 
@@ -2608,7 +2655,8 @@ void UpdatedMembersList::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  members_.Clear();
+  new_all_names_.Clear();
+  new_all_characters_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2619,16 +2667,28 @@ const char* UpdatedMembersList::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // map<uint32, string> members = 1;
+      // map<uint32, string> new_all_names = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&members_, ptr);
+            ptr = ctx->ParseMessage(&new_all_names_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // map<uint32, string> new_all_characters = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&new_all_characters_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -2659,8 +2719,8 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // map<uint32, string> members = 1;
-  if (!this->_internal_members().empty()) {
+  // map<uint32, string> new_all_names = 1;
+  if (!this->_internal_new_all_names().empty()) {
     typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_pointer
         ConstPtr;
     typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::uint32, ConstPtr > SortItem;
@@ -2670,31 +2730,72 @@ failure:
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
           p->second.data(), static_cast<int>(p->second.length()),
           ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "awd.net.UpdatedMembersList.MembersEntry.value");
+          "awd.net.UpdatedMembersList.NewAllNamesEntry.value");
       }
     };
 
     if (stream->IsSerializationDeterministic() &&
-        this->_internal_members().size() > 1) {
+        this->_internal_new_all_names().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_members().size()]);
+          new SortItem[this->_internal_new_all_names().size()]);
       typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::size_type size_type;
       size_type n = 0;
       for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
-          it = this->_internal_members().begin();
-          it != this->_internal_members().end(); ++it, ++n) {
+          it = this->_internal_new_all_names().begin();
+          it != this->_internal_new_all_names().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       for (size_type i = 0; i < n; i++) {
-        target = UpdatedMembersList_MembersEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+        target = UpdatedMembersList_NewAllNamesEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)].second));
       }
     } else {
       for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
-          it = this->_internal_members().begin();
-          it != this->_internal_members().end(); ++it) {
-        target = UpdatedMembersList_MembersEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
+          it = this->_internal_new_all_names().begin();
+          it != this->_internal_new_all_names().end(); ++it) {
+        target = UpdatedMembersList_NewAllNamesEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // map<uint32, string> new_all_characters = 2;
+  if (!this->_internal_new_all_characters().empty()) {
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_pointer
+        ConstPtr;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::uint32, ConstPtr > SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByFirstField<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "awd.net.UpdatedMembersList.NewAllCharactersEntry.value");
+      }
+    };
+
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_new_all_characters().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_new_all_characters().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+          it = this->_internal_new_all_characters().begin();
+          it != this->_internal_new_all_characters().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = UpdatedMembersList_NewAllCharactersEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)].second));
+      }
+    } else {
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+          it = this->_internal_new_all_characters().begin();
+          it != this->_internal_new_all_characters().end(); ++it) {
+        target = UpdatedMembersList_NewAllCharactersEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
         Utf8Check::Check(&(*it));
       }
     }
@@ -2716,13 +2817,22 @@ size_t UpdatedMembersList::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<uint32, string> members = 1;
+  // map<uint32, string> new_all_names = 1;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_members_size());
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_new_all_names_size());
   for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
-      it = this->_internal_members().begin();
-      it != this->_internal_members().end(); ++it) {
-    total_size += UpdatedMembersList_MembersEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+      it = this->_internal_new_all_names().begin();
+      it != this->_internal_new_all_names().end(); ++it) {
+    total_size += UpdatedMembersList_NewAllNamesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<uint32, string> new_all_characters = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_new_all_characters_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+      it = this->_internal_new_all_characters().begin();
+      it != this->_internal_new_all_characters().end(); ++it) {
+    total_size += UpdatedMembersList_NewAllCharactersEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2756,7 +2866,8 @@ void UpdatedMembersList::MergeFrom(const UpdatedMembersList& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  members_.MergeFrom(from.members_);
+  new_all_names_.MergeFrom(from.new_all_names_);
+  new_all_characters_.MergeFrom(from.new_all_characters_);
 }
 
 void UpdatedMembersList::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -2780,7 +2891,8 @@ bool UpdatedMembersList::IsInitialized() const {
 void UpdatedMembersList::InternalSwap(UpdatedMembersList* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  members_.Swap(&other->members_);
+  new_all_names_.Swap(&other->new_all_names_);
+  new_all_characters_.Swap(&other->new_all_characters_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UpdatedMembersList::GetMetadata() const {
@@ -3028,16 +3140,16 @@ Ping::Ping(const Ping& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&test_id_, &from.test_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&last_latency_) -
-    reinterpret_cast<char*>(&test_id_)) + sizeof(last_latency_));
+    static_cast<size_t>(reinterpret_cast<char*>(&rtt_) -
+    reinterpret_cast<char*>(&test_id_)) + sizeof(rtt_));
   // @@protoc_insertion_point(copy_constructor:awd.net.Ping)
 }
 
 void Ping::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&test_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&last_latency_) -
-    reinterpret_cast<char*>(&test_id_)) + sizeof(last_latency_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&rtt_) -
+    reinterpret_cast<char*>(&test_id_)) + sizeof(rtt_));
 }
 
 Ping::~Ping() {
@@ -3067,8 +3179,8 @@ void Ping::Clear() {
   (void) cached_has_bits;
 
   ::memset(&test_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&last_latency_) -
-      reinterpret_cast<char*>(&test_id_)) + sizeof(last_latency_));
+      reinterpret_cast<char*>(&rtt_) -
+      reinterpret_cast<char*>(&test_id_)) + sizeof(rtt_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3086,10 +3198,10 @@ const char* Ping::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 last_latency = 2;
+      // uint32 rtt = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          last_latency_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          rtt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3127,10 +3239,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_test_id(), target);
   }
 
-  // uint32 last_latency = 2;
-  if (this->last_latency() != 0) {
+  // uint32 rtt = 2;
+  if (this->rtt() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_last_latency(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_rtt(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3156,11 +3268,11 @@ size_t Ping::ByteSizeLong() const {
         this->_internal_test_id());
   }
 
-  // uint32 last_latency = 2;
-  if (this->last_latency() != 0) {
+  // uint32 rtt = 2;
+  if (this->rtt() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_last_latency());
+        this->_internal_rtt());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3197,8 +3309,8 @@ void Ping::MergeFrom(const Ping& from) {
   if (from.test_id() != 0) {
     _internal_set_test_id(from._internal_test_id());
   }
-  if (from.last_latency() != 0) {
-    _internal_set_last_latency(from._internal_last_latency());
+  if (from.rtt() != 0) {
+    _internal_set_rtt(from._internal_rtt());
   }
 }
 
@@ -3224,8 +3336,8 @@ void Ping::InternalSwap(Ping* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Ping, last_latency_)
-      + sizeof(Ping::last_latency_)
+      PROTOBUF_FIELD_OFFSET(Ping, rtt_)
+      + sizeof(Ping::rtt_)
       - PROTOBUF_FIELD_OFFSET(Ping, test_id_)>(
           reinterpret_cast<char*>(&test_id_),
           reinterpret_cast<char*>(&other->test_id_));
@@ -4471,8 +4583,11 @@ template<> PROTOBUF_NOINLINE ::awd::net::LeaveLobbyResponse* Arena::CreateMaybeM
 template<> PROTOBUF_NOINLINE ::awd::net::KickedFromLobby* Arena::CreateMaybeMessage< ::awd::net::KickedFromLobby >(Arena* arena) {
   return Arena::CreateMessageInternal< ::awd::net::KickedFromLobby >(arena);
 }
-template<> PROTOBUF_NOINLINE ::awd::net::UpdatedMembersList_MembersEntry_DoNotUse* Arena::CreateMaybeMessage< ::awd::net::UpdatedMembersList_MembersEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::awd::net::UpdatedMembersList_MembersEntry_DoNotUse >(arena);
+template<> PROTOBUF_NOINLINE ::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse* Arena::CreateMaybeMessage< ::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse* Arena::CreateMaybeMessage< ::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::awd::net::UpdatedMembersList* Arena::CreateMaybeMessage< ::awd::net::UpdatedMembersList >(Arena* arena) {
   return Arena::CreateMessageInternal< ::awd::net::UpdatedMembersList >(arena);

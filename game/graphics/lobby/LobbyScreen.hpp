@@ -13,9 +13,12 @@ namespace awd::game {
 
         std::shared_ptr<LobbyScreenListener> listener = std::make_shared<LobbyScreenListener>();
 
-        std::unique_ptr<sf::RectangleShape> sepLine = nullptr;
+        std::vector<std::shared_ptr<PlayerCard>> playerCards;
 
-        void createButtons();
+        std::unique_ptr<sf::RectangleShape> sepLine    = nullptr;
+        std::unique_ptr<sf::Text>           lobbyIdText = nullptr;
+
+        void createButtons(bool isHost);
         void createPlayerCards();
 
     public:
@@ -26,6 +29,11 @@ namespace awd::game {
         void draw() override;
 
         std::shared_ptr<LobbyScreenListener> getListener() const;
+
+        void showLoadingOverlay(const std::wstring& loadingMessage,
+                                uint32_t timeoutMillis);
+
+        void showErrorDialog(const std::wstring& message);
     };
 
 }

@@ -7,15 +7,11 @@
 namespace awd::game {
 
     class FontManager {
-    private:
+    public:
         std::shared_ptr<sf::Font> regularFont    = nullptr;
         std::shared_ptr<sf::Font> decorativeFont = nullptr;
 
-    public:
         bool loadFonts();
-
-        std::shared_ptr<sf::Font> getRegularFont   () const;
-        std::shared_ptr<sf::Font> getDecorativeFont() const;
     };
 
 }

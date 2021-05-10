@@ -1,4 +1,3 @@
-#include <thread>
 #include "CreateLobbyResponseListener.hpp"
 #include "../game/graphics/mainmenu/MainMenuScreen.hpp"
 #include "../Game.hpp"

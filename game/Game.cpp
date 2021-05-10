@@ -13,6 +13,7 @@
 #include "graphics/mainmenu/MainMenuScreen.hpp"
 #include "packetlistener/PingListener.hpp"
 #include "graphics/common/ErrorDialog.hpp"
+#include "packetlistener/LeaveLobbyResponseListener.hpp"
 
 namespace awd::game {
 
@@ -23,9 +24,10 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     bool Game::loadAssets() {
-        std::wcout << L"Loading assets:" << std::endl;
+        std::wcout << L"--- Loading assets ---" << std::endl;
 
-        return fontManager->loadFonts();
+        return fonts   ->loadFonts()
+            && textures->loadTextures();
     }
 
     void Game::registerPacketListeners() {
@@ -44,6 +46,11 @@ namespace awd::game {
         packetManager->registerListener(
                 net::PacketWrapper::PacketCase::kCreateLobbyResponse,
                 std::make_shared<CreateLobbyResponseListener>()
+        );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kLeaveLobbyResponse,
+                std::make_shared<LeaveLobbyResponseListener>()
         );
     }
 
@@ -139,7 +146,6 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     Game::Game() {
-        fontManager = std::make_shared<FontManager>();
         udpClient = std::make_shared<net::UdpClient>(HOST, PORT);
         packetManager = std::make_shared<net::PacketManager>(udpClient);
         netService = std::make_shared<net::NetworkService>(packetManager);
@@ -210,8 +216,12 @@ namespace awd::game {
         return currentTick;
     }
 
-    std::shared_ptr<FontManager> Game::getFontManager() const {
-        return fontManager;
+    std::shared_ptr<FontManager> Game::getFonts() const {
+        return fonts;
+    }
+
+    std::shared_ptr<TextureManager> Game::getTextures() const {
+        return textures;
     }
 
     std::shared_ptr<net::PacketManager> Game::getPacketManager() const {
@@ -222,12 +232,12 @@ namespace awd::game {
         return netService;
     }
 
-    uint32_t Game::getCurrentNetLatency() const {
-        return currentNetLatency;
+    uint32_t Game::getLastRtt() const {
+        return lastRtt;
     }
 
-    void Game::setCurrentNetLatency(uint32_t latency) {
-        this->currentNetLatency = latency;
+    void Game::setLastRtt(uint32_t rtt) {
+        this->lastRtt = rtt;
     }
 
     uint32_t Game::getCurrentState() const {

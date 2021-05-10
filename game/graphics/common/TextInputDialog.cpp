@@ -130,7 +130,7 @@ namespace awd::game {
 
         auto textField = getChildById(textFieldId);
         msg = std::make_unique<sfe::RichText>(
-                *Game::instance().getFontManager()->getRegularFont());
+                *Game::instance().getFonts()->regularFont);
 
         RenderUtils::enrichText(*msg, formattedMsg);
         msg->setCharacterSize(msgFontSize);

@@ -25,7 +25,12 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    const sf::Color ColorSet::GUI_LOBBY_SCREEN_BUTTONS_SEPARATOR_LINE(0, 204, 166, 150);
+    const sf::Color ColorSet::GUI_LOBBY_SCREEN_BUTTONS_SEPARATOR_LINE       ( 51, 255, 188,  50);
+    const sf::Color ColorSet::GUI_LOBBY_SCREEN_CARD_RECT_OUTLINE            ( 51, 255, 188,  70);
+    const sf::Color ColorSet::GUI_LOBBY_SCREEN_CARD_RECT_OUTLINE_HIGHLIGHTED(250, 205,  45, 240);
+    const sf::Color ColorSet::GUI_LOBBY_SCREEN_CARD_RECT_FILL               ( 51, 255, 188,  10);
+    const sf::Color ColorSet::GUI_LOBBY_SCREEN_CARD_RECT_FILL_HIGHLIGHTED   (250, 205,  45, 150);
+    const sf::Color ColorSet::GUI_LOBBY_SCREEN_PLACEHOLDER_TEXT             ( 51, 255, 188, 120);
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *

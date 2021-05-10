@@ -75,7 +75,7 @@ namespace awd::game {
         uint32_t msgFontSize   = MESSAGE_TEXT_FONT_SIZE   * renderScale;
 
         text = std::make_unique<sfe::RichText>(
-                *Game::instance().getFontManager()->getRegularFont());
+                *Game::instance().getFonts()->regularFont);
 
         RenderUtils::enrichText(*text, formattedMsg);
         text->setCharacterSize(msgFontSize);

@@ -57,7 +57,7 @@ namespace awd::game {
         float    textOffset = TEXT_OFFSET_PER_HOVER_TICK * renderScale          * hoverTicks + 1.0f; // min 1 px
 
         buttonText = std::make_unique<sf::Text>();
-        buttonText->setFont(*Game::instance().getFontManager()->getRegularFont());
+        buttonText->setFont(*Game::instance().getFonts()->regularFont);
         buttonText->setString(text);
         buttonText->setCharacterSize(fontSize);
         buttonText->setFillColor(sf::Color(255, 255, 255, textAlpha));

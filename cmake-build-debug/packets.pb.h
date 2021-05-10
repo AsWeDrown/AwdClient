@@ -49,7 +49,7 @@ struct TableStruct_packets_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[17]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -107,9 +107,12 @@ extern PongDefaultTypeInternal _Pong_default_instance_;
 class UpdatedMembersList;
 struct UpdatedMembersListDefaultTypeInternal;
 extern UpdatedMembersListDefaultTypeInternal _UpdatedMembersList_default_instance_;
-class UpdatedMembersList_MembersEntry_DoNotUse;
-struct UpdatedMembersList_MembersEntry_DoNotUseDefaultTypeInternal;
-extern UpdatedMembersList_MembersEntry_DoNotUseDefaultTypeInternal _UpdatedMembersList_MembersEntry_DoNotUse_default_instance_;
+class UpdatedMembersList_NewAllCharactersEntry_DoNotUse;
+struct UpdatedMembersList_NewAllCharactersEntry_DoNotUseDefaultTypeInternal;
+extern UpdatedMembersList_NewAllCharactersEntry_DoNotUseDefaultTypeInternal _UpdatedMembersList_NewAllCharactersEntry_DoNotUse_default_instance_;
+class UpdatedMembersList_NewAllNamesEntry_DoNotUse;
+struct UpdatedMembersList_NewAllNamesEntry_DoNotUseDefaultTypeInternal;
+extern UpdatedMembersList_NewAllNamesEntry_DoNotUseDefaultTypeInternal _UpdatedMembersList_NewAllNamesEntry_DoNotUse_default_instance_;
 }  // namespace net
 }  // namespace awd
 PROTOBUF_NAMESPACE_OPEN
@@ -129,7 +132,8 @@ template<> ::awd::net::PacketWrapper* Arena::CreateMaybeMessage<::awd::net::Pack
 template<> ::awd::net::Ping* Arena::CreateMaybeMessage<::awd::net::Ping>(Arena*);
 template<> ::awd::net::Pong* Arena::CreateMaybeMessage<::awd::net::Pong>(Arena*);
 template<> ::awd::net::UpdatedMembersList* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList>(Arena*);
-template<> ::awd::net::UpdatedMembersList_MembersEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList_MembersEntry_DoNotUse>(Arena*);
+template<> ::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse>(Arena*);
+template<> ::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace awd {
 namespace net {
@@ -1558,24 +1562,24 @@ class KickedFromLobby PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class UpdatedMembersList_MembersEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<UpdatedMembersList_MembersEntry_DoNotUse, 
+class UpdatedMembersList_NewAllNamesEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<UpdatedMembersList_NewAllNamesEntry_DoNotUse, 
     ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
 public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<UpdatedMembersList_MembersEntry_DoNotUse, 
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<UpdatedMembersList_NewAllNamesEntry_DoNotUse, 
     ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  UpdatedMembersList_MembersEntry_DoNotUse();
-  explicit constexpr UpdatedMembersList_MembersEntry_DoNotUse(
+  UpdatedMembersList_NewAllNamesEntry_DoNotUse();
+  explicit constexpr UpdatedMembersList_NewAllNamesEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit UpdatedMembersList_MembersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const UpdatedMembersList_MembersEntry_DoNotUse& other);
-  static const UpdatedMembersList_MembersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const UpdatedMembersList_MembersEntry_DoNotUse*>(&_UpdatedMembersList_MembersEntry_DoNotUse_default_instance_); }
+  explicit UpdatedMembersList_NewAllNamesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const UpdatedMembersList_NewAllNamesEntry_DoNotUse& other);
+  static const UpdatedMembersList_NewAllNamesEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const UpdatedMembersList_NewAllNamesEntry_DoNotUse*>(&_UpdatedMembersList_NewAllNamesEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(void*) { return true; }
   static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "awd.net.UpdatedMembersList.MembersEntry.value");
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "awd.net.UpdatedMembersList.NewAllNamesEntry.value");
  }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
@@ -1583,6 +1587,38 @@ public:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
     return ::descriptor_table_packets_2eproto.file_level_metadata[11];
+  }
+
+  public:
+};
+
+// -------------------------------------------------------------------
+
+class UpdatedMembersList_NewAllCharactersEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<UpdatedMembersList_NewAllCharactersEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<UpdatedMembersList_NewAllCharactersEntry_DoNotUse, 
+    ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  UpdatedMembersList_NewAllCharactersEntry_DoNotUse();
+  explicit constexpr UpdatedMembersList_NewAllCharactersEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit UpdatedMembersList_NewAllCharactersEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const UpdatedMembersList_NewAllCharactersEntry_DoNotUse& other);
+  static const UpdatedMembersList_NewAllCharactersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const UpdatedMembersList_NewAllCharactersEntry_DoNotUse*>(&_UpdatedMembersList_NewAllCharactersEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(void*) { return true; }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "awd.net.UpdatedMembersList.NewAllCharactersEntry.value");
+ }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
+    return ::descriptor_table_packets_2eproto.file_level_metadata[12];
   }
 
   public:
@@ -1633,7 +1669,7 @@ class UpdatedMembersList PROTOBUF_FINAL :
                &_UpdatedMembersList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(UpdatedMembersList& a, UpdatedMembersList& b) {
     a.Swap(&b);
@@ -1704,24 +1740,42 @@ class UpdatedMembersList PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kMembersFieldNumber = 1,
+    kNewAllNamesFieldNumber = 1,
+    kNewAllCharactersFieldNumber = 2,
   };
-  // map<uint32, string> members = 1;
-  int members_size() const;
+  // map<uint32, string> new_all_names = 1;
+  int new_all_names_size() const;
   private:
-  int _internal_members_size() const;
+  int _internal_new_all_names_size() const;
   public:
-  void clear_members();
+  void clear_new_all_names();
   private:
   const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
-      _internal_members() const;
+      _internal_new_all_names() const;
   ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
-      _internal_mutable_members();
+      _internal_mutable_new_all_names();
   public:
   const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
-      members() const;
+      new_all_names() const;
   ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
-      mutable_members();
+      mutable_new_all_names();
+
+  // map<uint32, string> new_all_characters = 2;
+  int new_all_characters_size() const;
+  private:
+  int _internal_new_all_characters_size() const;
+  public:
+  void clear_new_all_characters();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+      _internal_new_all_characters() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+      _internal_mutable_new_all_characters();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+      new_all_characters() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+      mutable_new_all_characters();
 
   // @@protoc_insertion_point(class_scope:awd.net.UpdatedMembersList)
  private:
@@ -1731,10 +1785,15 @@ class UpdatedMembersList PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-      UpdatedMembersList_MembersEntry_DoNotUse,
+      UpdatedMembersList_NewAllNamesEntry_DoNotUse,
       ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> members_;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> new_all_names_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      UpdatedMembersList_NewAllCharactersEntry_DoNotUse,
+      ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> new_all_characters_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -1783,7 +1842,7 @@ class KeepAlive PROTOBUF_FINAL :
                &_KeepAlive_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(KeepAlive& a, KeepAlive& b) {
     a.Swap(&b);
@@ -1931,7 +1990,7 @@ class Ping PROTOBUF_FINAL :
                &_Ping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(Ping& a, Ping& b) {
     a.Swap(&b);
@@ -2002,7 +2061,7 @@ class Ping PROTOBUF_FINAL :
 
   enum : int {
     kTestIdFieldNumber = 1,
-    kLastLatencyFieldNumber = 2,
+    kRttFieldNumber = 2,
   };
   // uint32 test_id = 1;
   void clear_test_id();
@@ -2013,13 +2072,13 @@ class Ping PROTOBUF_FINAL :
   void _internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 last_latency = 2;
-  void clear_last_latency();
-  ::PROTOBUF_NAMESPACE_ID::uint32 last_latency() const;
-  void set_last_latency(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // uint32 rtt = 2;
+  void clear_rtt();
+  ::PROTOBUF_NAMESPACE_ID::uint32 rtt() const;
+  void set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_last_latency() const;
-  void _internal_set_last_latency(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rtt() const;
+  void _internal_set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:awd.net.Ping)
@@ -2030,7 +2089,7 @@ class Ping PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::uint32 test_id_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 last_latency_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 rtt_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -2079,7 +2138,7 @@ class Pong PROTOBUF_FINAL :
                &_Pong_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(Pong& a, Pong& b) {
     a.Swap(&b);
@@ -2233,7 +2292,7 @@ class PacketWrapper PROTOBUF_FINAL :
                &_PacketWrapper_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(PacketWrapper& a, PacketWrapper& b) {
     a.Swap(&b);
@@ -3122,35 +3181,66 @@ inline void KickedFromLobby::set_reason(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // UpdatedMembersList
 
-// map<uint32, string> members = 1;
-inline int UpdatedMembersList::_internal_members_size() const {
-  return members_.size();
+// map<uint32, string> new_all_names = 1;
+inline int UpdatedMembersList::_internal_new_all_names_size() const {
+  return new_all_names_.size();
 }
-inline int UpdatedMembersList::members_size() const {
-  return _internal_members_size();
+inline int UpdatedMembersList::new_all_names_size() const {
+  return _internal_new_all_names_size();
 }
-inline void UpdatedMembersList::clear_members() {
-  members_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
-UpdatedMembersList::_internal_members() const {
-  return members_.GetMap();
+inline void UpdatedMembersList::clear_new_all_names() {
+  new_all_names_.Clear();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
-UpdatedMembersList::members() const {
-  // @@protoc_insertion_point(field_map:awd.net.UpdatedMembersList.members)
-  return _internal_members();
+UpdatedMembersList::_internal_new_all_names() const {
+  return new_all_names_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+UpdatedMembersList::new_all_names() const {
+  // @@protoc_insertion_point(field_map:awd.net.UpdatedMembersList.new_all_names)
+  return _internal_new_all_names();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
-UpdatedMembersList::_internal_mutable_members() {
-  return members_.MutableMap();
+UpdatedMembersList::_internal_mutable_new_all_names() {
+  return new_all_names_.MutableMap();
 }
 inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
-UpdatedMembersList::mutable_members() {
-  // @@protoc_insertion_point(field_mutable_map:awd.net.UpdatedMembersList.members)
-  return _internal_mutable_members();
+UpdatedMembersList::mutable_new_all_names() {
+  // @@protoc_insertion_point(field_mutable_map:awd.net.UpdatedMembersList.new_all_names)
+  return _internal_mutable_new_all_names();
+}
+
+// map<uint32, string> new_all_characters = 2;
+inline int UpdatedMembersList::_internal_new_all_characters_size() const {
+  return new_all_characters_.size();
+}
+inline int UpdatedMembersList::new_all_characters_size() const {
+  return _internal_new_all_characters_size();
+}
+inline void UpdatedMembersList::clear_new_all_characters() {
+  new_all_characters_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+UpdatedMembersList::_internal_new_all_characters() const {
+  return new_all_characters_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+UpdatedMembersList::new_all_characters() const {
+  // @@protoc_insertion_point(field_map:awd.net.UpdatedMembersList.new_all_characters)
+  return _internal_new_all_characters();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+UpdatedMembersList::_internal_mutable_new_all_characters() {
+  return new_all_characters_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+UpdatedMembersList::mutable_new_all_characters() {
+  // @@protoc_insertion_point(field_mutable_map:awd.net.UpdatedMembersList.new_all_characters)
+  return _internal_mutable_new_all_characters();
 }
 
 // -------------------------------------------------------------------
@@ -3221,24 +3311,24 @@ inline void Ping::set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:awd.net.Ping.test_id)
 }
 
-// uint32 last_latency = 2;
-inline void Ping::clear_last_latency() {
-  last_latency_ = 0u;
+// uint32 rtt = 2;
+inline void Ping::clear_rtt() {
+  rtt_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::_internal_last_latency() const {
-  return last_latency_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::_internal_rtt() const {
+  return rtt_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::last_latency() const {
-  // @@protoc_insertion_point(field_get:awd.net.Ping.last_latency)
-  return _internal_last_latency();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::rtt() const {
+  // @@protoc_insertion_point(field_get:awd.net.Ping.rtt)
+  return _internal_rtt();
 }
-inline void Ping::_internal_set_last_latency(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void Ping::_internal_set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  last_latency_ = value;
+  rtt_ = value;
 }
-inline void Ping::set_last_latency(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_last_latency(value);
-  // @@protoc_insertion_point(field_set:awd.net.Ping.last_latency)
+inline void Ping::set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_rtt(value);
+  // @@protoc_insertion_point(field_set:awd.net.Ping.rtt)
 }
 
 // -------------------------------------------------------------------
@@ -4290,6 +4380,8 @@ inline PacketWrapper::PacketCase PacketWrapper::packet_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

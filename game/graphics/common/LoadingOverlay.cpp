@@ -31,7 +31,7 @@ namespace awd::game {
         float     topMargin = TEXT_TOP_MARGIN    * renderScale;
 
         text = std::make_unique<sf::Text>();
-        text->setFont(*Game::instance().getFontManager()->getRegularFont());
+        text->setFont(*Game::instance().getFonts()->regularFont);
         text->setCharacterSize(fontSize);
         text->setOutlineThickness(outline);
         text->setString(message);

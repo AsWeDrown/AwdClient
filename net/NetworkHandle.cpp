@@ -25,8 +25,8 @@ namespace awd::net {
                 // sequence number (устанавливаем бит с соотв. номером на единицу).
                 ackBitfield |= 1UL << (bitNum - 1); // т.к. идём с единицы, не забываем отнимать эту единицу здесь
 
-        printf("** TEMP DEBUG ** Calculated ack bitfield: %s\n",
-               std::bitset< 32 >( ackBitfield ).to_string().c_str());
+//        printf("** TEMP DEBUG ** Calculated ack bitfield: %s\n",
+//               std::bitset< 32 >( ackBitfield ).to_string().c_str());
 
         return ackBitfield;
     }
@@ -49,8 +49,8 @@ namespace awd::net {
         uint32_t ackBitfield = data->getAckBitfield(); // сведения о получении 32 пакетов до пакета с номером ack
         uint32_t bitNum = 1; // начинаем с 1, т.к. 0 - это этот с номером ack; нас интересуют те, что были до него
 
-        printf("** TEMP DEBUG ** Packet received: #%d (current remote seq: #%d), ack: %d, ack bitfield: %s\n",
-               sequence, remoteSequenceNumber, ack, std::bitset< 32 >( ackBitfield ).to_string().c_str());
+//        printf("** TEMP DEBUG ** Packet received: #%d (current remote seq: #%d), ack: %d, ack bitfield: %s\n",
+//               sequence, remoteSequenceNumber, ack, std::bitset< 32 >( ackBitfield ).to_string().c_str());
 
         while (ackBitfield > 0) {
             bool bitSet = (ackBitfield & 1) == 1;
@@ -122,8 +122,8 @@ namespace awd::net {
 
         // Учитываем доставку пакета в статистике.
         updateDeliveryStat(true);
-        printf("** TEMP DEBUG ** Packet delivered: #%d, "
-               "new packet loss: %.2f\n", sequence, packetLossPercent);
+//        printf("** TEMP DEBUG ** Packet delivered: #%d, "
+//               "new packet loss: %.2f\n", sequence, packetLossPercent);
     }
 
     /* Этот метод НЕ гарантирует потокобезопасность. Его вызов должен быть обёрнут в блокирующий блок. */
@@ -139,8 +139,8 @@ namespace awd::net {
 
         // Учитываем потерю пакета в статистике.
         updateDeliveryStat(false);
-        printf("** TEMP DEBUG ** Packet possibly lost: #%d, "
-               "new packet loss: %.2f\n", pContainer->getOriginalSequence(), packetLossPercent);
+//        printf("** TEMP DEBUG ** Packet possibly lost: #%d, "
+//               "new packet loss: %.2f\n", pContainer->getOriginalSequence(), packetLossPercent);
     }
 
     /* Этот метод НЕ гарантирует потокобезопасность. Его вызов должен быть обёрнут в блокирующий блок. */
@@ -203,12 +203,10 @@ namespace awd::net {
                                           calculateAckBitfield()
             );
 
-            printf("** TEMP DEBUG ** Sending packet #%d, acking #%d\n",
-                   localSequenceNumber, remoteSequenceNumber);
+//            printf("** TEMP DEBUG ** Sending packet #%d, acking #%d\n",
+//                   localSequenceNumber, remoteSequenceNumber);
 
             sf::IpAddress serverAddr = udpClient->getServerAddrStr();
-
-            std::wcerr << L"sending packet; udpClient null = " << (udpClient == nullptr ) << std::endl;
 
             // Отправляем пакет по UDP.
             if (udpClient->getUdpSocket()->send(

@@ -46,6 +46,8 @@ namespace awd::net {
         void createLobbyRequest(const std::wstring& playerName);
 
         void joinLobbyRequest(uint32_t lobbyId, const std::wstring& playerName);
+
+        void leaveLobbyRequest(uint32_t lobbyId, uint32_t playerId);
     };
 
 }

@@ -116,4 +116,12 @@ namespace awd::net {
         enqueueSendImportant(packet);
     }
 
+    void NetworkService::leaveLobbyRequest(uint32_t lobbyId, uint32_t playerId) {
+        auto packet = std::make_shared<LeaveLobbyRequest>();
+        packet->set_lobby_id(lobbyId);
+        packet->set_player_id(playerId);
+
+        enqueueSendImportant(packet);
+    }
+
 }

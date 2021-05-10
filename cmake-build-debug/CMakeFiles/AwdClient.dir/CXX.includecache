@@ -916,6 +916,32 @@ google/protobuf/port_def.inc
 google/protobuf/port_undef.inc
 -
 
+../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format.h
+string
+-
+google/protobuf/stubs/common.h
+-
+google/protobuf/parse_context.h
+-
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/descriptor.h
+-
+google/protobuf/generated_message_util.h
+-
+google/protobuf/message.h
+-
+google/protobuf/metadata_lite.h
+-
+google/protobuf/wire_format_lite.h
+-
+google/protobuf/stubs/casts.h
+-
+google/protobuf/port_def.inc
+-
+google/protobuf/port_undef.inc
+-
+
 ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
 string
 -
@@ -934,6 +960,72 @@ google/protobuf/port.h
 google/protobuf/repeated_field.h
 -
 google/protobuf/stubs/casts.h
+-
+google/protobuf/port_def.inc
+-
+google/protobuf/port_undef.inc
+-
+
+E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/packets.pb.cc
+packets.pb.h
+E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/packets.pb.h
+algorithm
+-
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/extension_set.h
+-
+google/protobuf/wire_format_lite.h
+-
+google/protobuf/descriptor.h
+-
+google/protobuf/generated_message_reflection.h
+-
+google/protobuf/reflection_ops.h
+-
+google/protobuf/wire_format.h
+-
+google/protobuf/port_def.inc
+-
+google/protobuf/port_undef.inc
+-
+
+E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/packets.pb.h
+limits
+-
+string
+-
+google/protobuf/port_def.inc
+-
+google/protobuf/port_undef.inc
+-
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
+google/protobuf/generated_message_util.h
+-
+google/protobuf/metadata_lite.h
+-
+google/protobuf/generated_message_reflection.h
+-
+google/protobuf/message.h
+-
+google/protobuf/repeated_field.h
+-
+google/protobuf/extension_set.h
+-
+google/protobuf/map.h
+-
+google/protobuf/map_entry.h
+-
+google/protobuf/map_field_inl.h
+-
+google/protobuf/unknown_field_set.h
 -
 google/protobuf/port_def.inc
 -
@@ -981,14 +1073,10 @@ graphics/common/Screen.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
 lobby/Lobby.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
+graphics/common/TextureManager.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.cpp
-iostream
--
-Button.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
 string
@@ -1002,17 +1090,9 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
 Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.cpp
-ColorSet.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
-
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
 SFML/Graphics/Color.hpp
 -
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.cpp
-Dialog.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
 Button.hpp
@@ -1021,12 +1101,6 @@ DialogListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/DialogListener.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/DialogListener.hpp
-Drawable.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.cpp
-iostream
--
 Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 
@@ -1100,10 +1174,6 @@ SFML/Graphics/Text.hpp
 SFML/System/Vector2.hpp
 -
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.cpp
-Screen.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
-
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
 ../common/Button.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
@@ -1162,6 +1232,12 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextField.hpp
 RichText.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
 
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextureManager.hpp
+memory
+-
+SFML/Graphics.hpp
+-
+
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/UniformGridBuilder.hpp
 SFML/Graphics.hpp
 -
@@ -1195,6 +1271,8 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/TextButton.hpp
 ../common/ColorSet.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
+../../util/StringUtils.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/util/StringUtils.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreen.hpp
 ../common/Screen.hpp
@@ -1203,10 +1281,6 @@ LobbyScreenListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreenListener.hpp
 PlayerCard.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreenListener.cpp
-LobbyScreenListener.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreenListener.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreenListener.hpp
 ../common/DialogListener.hpp
@@ -1217,10 +1291,18 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.cpp
 PlayerCard.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.hpp
+../../Game.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+../common/ColorSet.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
+../../util/RenderUtils.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.hpp
 ../common/Button.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
+../common/RichText.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/mainmenu/MainMenuButton.cpp
 iostream
@@ -1352,9 +1434,21 @@ vector
 ../graphics/common/ColorSet.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
 
+E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp
+cstdint
+-
+
 E:/CLionProjects/AsWeDrown/AwdClient/main.cpp
 game/Game.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.cpp
+NetworkHandle.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+SequenceNumberMath.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
+bitset
+-
 
 E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
 deque
@@ -1366,6 +1460,12 @@ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
 UdpClient.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
 
+E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.cpp
+NetworkService.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+../game/util/TimeUtils.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp
+
 E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
 PacketManager.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
@@ -1373,6 +1473,14 @@ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
 google/protobuf/message.h
 -
+
+E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.cpp
+thread
+-
+algorithm
+-
+PacketManager.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
 deque
@@ -1394,11 +1502,25 @@ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
 NetworkHandle.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
 
+E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.cpp
+packets.pb.h
+-
+utility
+-
+cxxabi.h
+-
+PacketTransformer.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
+
 E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
 google/protobuf/message.h
 -
 packets.pb.h
 E:/CLionProjects/AsWeDrown/AwdClient/net/packets.pb.h
+
+E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
+cstdint
+-
 
 E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.cpp
 packets.pb.h

@@ -304,6 +304,7 @@ namespace awd::game {
             default:
                 std::wcerr << L"Unhandled button click: parent=" << buttonParent->getId()
                           << L", buttonId=" << buttonId << std::endl;
+
                 break;
         }
     }

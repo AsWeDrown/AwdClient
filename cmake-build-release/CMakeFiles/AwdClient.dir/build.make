@@ -587,6 +587,34 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.s"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\lobby\PlayerCard.cpp -o CMakeFiles\AwdClient.dir\game\graphics\lobby\PlayerCard.cpp.s
 
+CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.obj: ../game/graphics/common/TextureManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\graphics\common\TextureManager.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\TextureManager.cpp
+
+CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\TextureManager.cpp > CMakeFiles\AwdClient.dir\game\graphics\common\TextureManager.cpp.i
+
+CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\graphics\common\TextureManager.cpp -o CMakeFiles\AwdClient.dir\game\graphics\common\TextureManager.cpp.s
+
+CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.obj: ../game/packetlistener/LeaveLobbyResponseListener.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\packetlistener\LeaveLobbyResponseListener.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\LeaveLobbyResponseListener.cpp
+
+CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\LeaveLobbyResponseListener.cpp > CMakeFiles\AwdClient.dir\game\packetlistener\LeaveLobbyResponseListener.cpp.i
+
+CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\LeaveLobbyResponseListener.cpp -o CMakeFiles\AwdClient.dir\game\packetlistener\LeaveLobbyResponseListener.cpp.s
+
 # Object files for target AwdClient
 AwdClient_OBJECTS = \
 "CMakeFiles/AwdClient.dir/main.cpp.obj" \
@@ -624,7 +652,9 @@ AwdClient_OBJECTS = \
 "CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj"
+"CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.obj"
 
 # External object files for target AwdClient
 AwdClient_EXTERNAL_OBJECTS =
@@ -665,6 +695,8 @@ AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/build.make
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-audio.a
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-graphics.a
@@ -675,7 +707,7 @@ AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-system.a
 AwdClient.exe: CMakeFiles/AwdClient.dir/linklibs.rsp
 AwdClient.exe: CMakeFiles/AwdClient.dir/objects1.rsp
 AwdClient.exe: CMakeFiles/AwdClient.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Linking CXX executable AwdClient.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking CXX executable AwdClient.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\AwdClient.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

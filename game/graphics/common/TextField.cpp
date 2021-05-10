@@ -72,7 +72,7 @@ namespace awd::game {
         float    leftMargin = TEXT_LEFT_MARGIN * renderScale;
 
         tfText = std::make_unique<sf::Text>();
-        tfText->setFont(*Game::instance().getFontManager()->getRegularFont());
+        tfText->setFont(*Game::instance().getFonts()->regularFont);
         tfText->setString(contents.empty() ? hintText : contents);
         tfText->setCharacterSize(fontSize);
         tfText->setFillColor(sf::Color(255, 255, 255,
