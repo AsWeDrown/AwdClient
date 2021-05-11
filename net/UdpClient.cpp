@@ -1,4 +1,4 @@
-#define BUFFER_SIZE 1024
+#define BUFFER_SIZE 1200
 
 
 #include <packets.pb.h>
