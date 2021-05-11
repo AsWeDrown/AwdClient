@@ -88,6 +88,7 @@ namespace awd::game {
                     break;
             }
 
+            mainMenuScreen->setWorkflowState(WorkflowState::WAITING); // чтобы игра не закрылась при нажатии "ОК"
             mainMenuScreen->showErrorDialog(
                     L"{RED}{BOLD}Вы были исключены из комнаты:{RESET}{GRAY} " + kickReason);
         }

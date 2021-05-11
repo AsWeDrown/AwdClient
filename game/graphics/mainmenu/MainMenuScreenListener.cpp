@@ -204,6 +204,10 @@ namespace awd::game {
                     errorMessage = L"недопустимое внутриигровое имя";
                     break;
 
+                case -999:
+                    errorMessage = L"непредвиденная ошибка на сервере";
+                    break;
+
                 default:
                     errorMessage = L"что-то пошло не так (код ошибки: {WHITE}"
                             + std::to_wstring(errorCode) + L"{GRAY})";
@@ -265,6 +269,10 @@ namespace awd::game {
                     errorMessage = L"комнаты с указанным идентификатором не существует";
                     break;
 
+                case -999:
+                    errorMessage = L"непредвиденная ошибка на сервере";
+                    break;
+
                 default:
                     errorMessage = L"что-то пошло не так (код ошибки: {WHITE}"
                                    + std::to_wstring(errorCode) + L"{GRAY})";
@@ -313,7 +321,7 @@ namespace awd::game {
 
             case WorkflowState::CREATING_LOBBY_2:
                 // Переходим к созданию комнаты.
-                mainMenu->setWorkflowState(WorkflowState::CREATING_LOBBY_3);
+                mainMenu->setWorkflowState(WorkflowState::WAITING);
                 beginCreateLobby(mainMenu, enteredPlayerName);
 
                 break;
@@ -334,7 +342,7 @@ namespace awd::game {
                 // Все данные для присоединения к комнате введены. Проверяем их и делаем запрос на сервер.
                 // WorkflowState обновляем сразу же здесь, чтобы в случае ошибки std::stoi пользователь получил
                 // такое же сообщение об ошибке, как и от сервера.
-                mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_4);
+                mainMenu->setWorkflowState(WorkflowState::WAITING);
                 uint32_t lobbyId;
 
                 try {

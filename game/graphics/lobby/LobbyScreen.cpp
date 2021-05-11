@@ -178,6 +178,7 @@ namespace awd::game {
 
         while (cardNum <= 4) { // 4 персонажа (тут мы создаём местозаполнители, если нужно)
             auto card = playerCards[cardNum - 1];
+            card->setHighlighted(false);
             card->setDisplayedCharacter(0);
             cardNum++;
         }
