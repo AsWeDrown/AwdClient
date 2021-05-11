@@ -90,7 +90,7 @@ message KickedFromLobby {
 
 message UpdatedMembersList {
   map<uint32, string> new_all_names      = 1;
-  map<uint32, string> new_all_characters = 2;
+  map<uint32, uint32> new_all_characters = 2;
 }
 
 /*

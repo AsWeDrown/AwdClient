@@ -1595,14 +1595,14 @@ public:
 // -------------------------------------------------------------------
 
 class UpdatedMembersList_NewAllCharactersEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<UpdatedMembersList_NewAllCharactersEntry_DoNotUse, 
-    ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+    ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32> {
 public:
   typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<UpdatedMembersList_NewAllCharactersEntry_DoNotUse, 
-    ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+    ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32> SuperType;
   UpdatedMembersList_NewAllCharactersEntry_DoNotUse();
   explicit constexpr UpdatedMembersList_NewAllCharactersEntry_DoNotUse(
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
@@ -1610,9 +1610,7 @@ public:
   void MergeFrom(const UpdatedMembersList_NewAllCharactersEntry_DoNotUse& other);
   static const UpdatedMembersList_NewAllCharactersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const UpdatedMembersList_NewAllCharactersEntry_DoNotUse*>(&_UpdatedMembersList_NewAllCharactersEntry_DoNotUse_default_instance_); }
   static bool ValidateKey(void*) { return true; }
-  static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "awd.net.UpdatedMembersList.NewAllCharactersEntry.value");
- }
+  static bool ValidateValue(void*) { return true; }
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
   ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
   private:
@@ -1760,21 +1758,21 @@ class UpdatedMembersList PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
       mutable_new_all_names();
 
-  // map<uint32, string> new_all_characters = 2;
+  // map<uint32, uint32> new_all_characters = 2;
   int new_all_characters_size() const;
   private:
   int _internal_new_all_characters_size() const;
   public:
   void clear_new_all_characters();
   private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >&
       _internal_new_all_characters() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >*
       _internal_mutable_new_all_characters();
   public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+  const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >&
       new_all_characters() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+  ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_new_all_characters();
 
   // @@protoc_insertion_point(class_scope:awd.net.UpdatedMembersList)
@@ -1791,9 +1789,9 @@ class UpdatedMembersList PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> new_all_names_;
   ::PROTOBUF_NAMESPACE_ID::internal::MapField<
       UpdatedMembersList_NewAllCharactersEntry_DoNotUse,
-      ::PROTOBUF_NAMESPACE_ID::uint32, std::string,
+      ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> new_all_characters_;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32> new_all_characters_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -3214,7 +3212,7 @@ UpdatedMembersList::mutable_new_all_names() {
   return _internal_mutable_new_all_names();
 }
 
-// map<uint32, string> new_all_characters = 2;
+// map<uint32, uint32> new_all_characters = 2;
 inline int UpdatedMembersList::_internal_new_all_characters_size() const {
   return new_all_characters_.size();
 }
@@ -3224,20 +3222,20 @@ inline int UpdatedMembersList::new_all_characters_size() const {
 inline void UpdatedMembersList::clear_new_all_characters() {
   new_all_characters_.Clear();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >&
 UpdatedMembersList::_internal_new_all_characters() const {
   return new_all_characters_.GetMap();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >&
+inline const ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >&
 UpdatedMembersList::new_all_characters() const {
   // @@protoc_insertion_point(field_map:awd.net.UpdatedMembersList.new_all_characters)
   return _internal_new_all_characters();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >*
 UpdatedMembersList::_internal_mutable_new_all_characters() {
   return new_all_characters_.MutableMap();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >*
+inline ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >*
 UpdatedMembersList::mutable_new_all_characters() {
   // @@protoc_insertion_point(field_mutable_map:awd.net.UpdatedMembersList.new_all_characters)
   return _internal_mutable_new_all_characters();

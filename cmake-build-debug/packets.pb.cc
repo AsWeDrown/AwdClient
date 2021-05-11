@@ -467,7 +467,7 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   " \003(\01321.awd.net.UpdatedMembersList.NewAll"
   "CharactersEntry\0322\n\020NewAllNamesEntry\022\013\n\003k"
   "ey\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\0327\n\025NewAllCha"
-  "ractersEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t"
+  "ractersEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\r"
   ":\0028\001\"/\n\tKeepAlive\022\021\n\tplayer_id\030\001 \001(\005\022\017\n\007"
   "test_id\030\002 \001(\005\"$\n\004Ping\022\017\n\007test_id\030\001 \001(\r\022\013"
   "\n\003rtt\030\002 \001(\r\"\027\n\004Pong\022\017\n\007test_id\030\001 \001(\r\"\207\006\n"
@@ -2679,7 +2679,7 @@ const char* UpdatedMembersList::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
-      // map<uint32, string> new_all_characters = 2;
+      // map<uint32, uint32> new_all_characters = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -2760,28 +2760,20 @@ failure:
     }
   }
 
-  // map<uint32, string> new_all_characters = 2;
+  // map<uint32, uint32> new_all_characters = 2;
   if (!this->_internal_new_all_characters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_pointer
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::const_pointer
         ConstPtr;
     typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::uint32, ConstPtr > SortItem;
     typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByFirstField<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), static_cast<int>(p->second.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "awd.net.UpdatedMembersList.NewAllCharactersEntry.value");
-      }
-    };
 
     if (stream->IsSerializationDeterministic() &&
         this->_internal_new_all_characters().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
           new SortItem[this->_internal_new_all_characters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::size_type size_type;
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::size_type size_type;
       size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::const_iterator
           it = this->_internal_new_all_characters().begin();
           it != this->_internal_new_all_characters().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
@@ -2789,14 +2781,12 @@ failure:
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       for (size_type i = 0; i < n; i++) {
         target = UpdatedMembersList_NewAllCharactersEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)].second));
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::const_iterator
           it = this->_internal_new_all_characters().begin();
           it != this->_internal_new_all_characters().end(); ++it) {
         target = UpdatedMembersList_NewAllCharactersEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
       }
     }
   }
@@ -2826,10 +2816,10 @@ size_t UpdatedMembersList::ByteSizeLong() const {
     total_size += UpdatedMembersList_NewAllNamesEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  // map<uint32, string> new_all_characters = 2;
+  // map<uint32, uint32> new_all_characters = 2;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_new_all_characters_size());
-  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, std::string >::const_iterator
+  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::uint32 >::const_iterator
       it = this->_internal_new_all_characters().begin();
       it != this->_internal_new_all_characters().end(); ++it) {
     total_size += UpdatedMembersList_NewAllCharactersEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);

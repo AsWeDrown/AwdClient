@@ -51,6 +51,9 @@ namespace awd::game {
         static void finishCreateLobby(Drawable* mainMenuScreen,
                                       const std::shared_ptr<net::CreateLobbyResponse>& response);
 
+        static void finishJoinLobby(Drawable* mainMenuScreen,
+                                    const std::shared_ptr<net::JoinLobbyResponse>& response);
+
         void dialogOpened(Drawable* parentScreen, id_type dialogId) override;
 
         void dialogClosed(Drawable* parentScreen, id_type dialogId) override;

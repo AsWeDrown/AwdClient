@@ -12,8 +12,9 @@
 #include "packetlistener/CreateLobbyResponseListener.hpp"
 #include "graphics/mainmenu/MainMenuScreen.hpp"
 #include "packetlistener/PingListener.hpp"
-#include "graphics/common/ErrorDialog.hpp"
 #include "packetlistener/LeaveLobbyResponseListener.hpp"
+#include "packetlistener/JoinLobbyResponseListener.hpp"
+#include "packetlistener/UpdatedMembersListListener.hpp"
 
 namespace awd::game {
 
@@ -49,15 +50,25 @@ namespace awd::game {
         );
 
         packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kJoinLobbyResponse,
+                std::make_shared<JoinLobbyResponseListener>()
+        );
+
+        packetManager->registerListener(
                 net::PacketWrapper::PacketCase::kLeaveLobbyResponse,
                 std::make_shared<LeaveLobbyResponseListener>()
+        );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kUpdatedMembersList,
+                std::make_shared<UpdatedMembersListListener>()
         );
     }
 
     void Game::startGameLoop() {
-        auto bestVideoMode = sf::VideoMode::getFullscreenModes()[0];
+        auto bestVideoMode = sf::VideoMode::getFullscreenModes()[2];
         window = std::make_shared<sf::RenderWindow>(
-                bestVideoMode, "As We Drown", sf::Style::Fullscreen);
+                bestVideoMode, "As We Drown"/*, sf::Style::Fullscreen*/);
 
         float renderScale = std::min((float) bestVideoMode.width  / BASE_SCREEN_WIDTH,
                                      (float) bestVideoMode.height / BASE_SCREEN_HEIGHT);
@@ -68,7 +79,6 @@ namespace awd::game {
 
         currentState = GameState::LOBBY;
         currentScreen = std::make_shared<MainMenuScreen>(renderScale, window);
-        //currentScreen->setComponentsEnabled(false); // выключаем кнопки до установления "соединения" с сервером
 
         uint32_t tickDelay = std::chrono::milliseconds(1000 / GAME_TPS).count();
         sf::Clock tickClock;

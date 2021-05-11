@@ -29,7 +29,7 @@ typedef unsigned long long id_type;
 #define ID_BUTTON                  (id_type) 1E+06L
 #define ID_TEXT_FIELD              (id_type) 1E+04L
 #define ID_WATER_BACKGROUND        (id_type) 1E+02L
-#define ID_CUSTOM                  (id_type) 1E+00L
+#define ID_OTHER                   (id_type) 1E+00L
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
@@ -102,9 +102,6 @@ typedef unsigned long long id_type;
 
 #define ID_SCREEN_LOBBY_BUTTON_LOAD_GAME          ID_SCREEN_LOBBY  \
                                                   +  3  *  ID_BUTTON
-
-#define ID_SCREEN_LOBBY_PLAYER_CARD               ID_SCREEN_LOBBY  \
-                                                  +  1  *  ID_CUSTOM
 
 // Lobby.Error
 

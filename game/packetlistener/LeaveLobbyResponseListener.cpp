@@ -9,8 +9,8 @@ namespace awd::game {
         auto packet = std::dynamic_pointer_cast<net::LeaveLobbyResponse>(basePacket);
         auto currentScreen = game::Game::instance().getCurrentScreen();
 
-        if (auto mainMenu = std::dynamic_pointer_cast<game::LobbyScreen>(currentScreen))
-            game::LobbyScreenListener::finishLeaveLobby(mainMenu.get(), packet);
+        if (auto lobbyScreen = std::dynamic_pointer_cast<game::LobbyScreen>(currentScreen))
+            game::LobbyScreenListener::finishLeaveLobby(lobbyScreen.get(), packet);
     }
 
 }

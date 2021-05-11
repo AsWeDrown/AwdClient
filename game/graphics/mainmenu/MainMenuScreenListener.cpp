@@ -104,6 +104,7 @@ namespace awd::game {
 
         if (!playerName.empty()) {
             // Переходим к созданию комнаты.
+            mainMenu->setWorkflowState(WorkflowState::IDLE);
             mainMenu->closeCurrentDialog();
             beginCreateLobby(mainMenu, playerName);
         }
@@ -135,31 +136,9 @@ namespace awd::game {
                 mainMenu->closeCurrentDialog(); // закрываем диалог ввода ID комнаты
             }
         } else if (workflowState == WorkflowState::JOINING_LOBBY_2) {
-            std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
-
-            if (!playerName.empty()) {
-                std::wstring lobbyIdStr = mainMenu->getListener()->getEnteredLobbyId();
-                uint32_t lobbyId;
-
-                try {
-                    lobbyId = std::stoi(lobbyIdStr);
-                } catch (const std::invalid_argument&) {
-                    // Введено что-то, отличное от целого числа.
-                    mainMenu->closeCurrentDialog();
-                    mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
-                                              L"{RESET}{GRAY}идентификатор комнаты должен быть "
-                                              L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
-                } catch (const std::out_of_range&) {
-                    // Введено слишком большое целое число.
-                    mainMenu->closeCurrentDialog();
-                    mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
-                                              L"{RESET}{GRAY}идентификатор комнаты должен быть "
-                                              L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
-                }
-
-                // Переходим к присоединению к комнате.
+            if (!mainMenu->getListener()->getEnteredPlayerName().empty()) {
+                mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_3);
                 mainMenu->closeCurrentDialog();
-                beginJoinLobby(mainMenu, lobbyId, mainMenu->getListener()->getEnteredPlayerName());
             }
         }
     }
@@ -215,7 +194,9 @@ namespace awd::game {
                     break;
 
                 default:
-                    errorMessage = L"что-то пошло не так (" + std::to_wstring(errorCode) + L")";
+                    errorMessage = L"что-то пошло не так (код ошибки: {WHITE}"
+                            + std::to_wstring(errorCode) + L"{GRAY})";
+
                     break;
             }
 
@@ -238,6 +219,74 @@ namespace awd::game {
         }
     }
 
+    void MainMenuScreenListener::finishJoinLobby(Drawable* mainMenuScreen,
+                                                 const std::shared_ptr<net::JoinLobbyResponse>& response) {
+        auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
+        mainMenu->hideCurrentLoadingOverlay();
+
+        if (response->player_id() < 0) {
+            // Отказано в присоединении к комнате.
+            std::wstring errorMessage;
+            int errorCode = response->player_id();
+
+            switch (errorCode) {
+                case -1:
+                    errorMessage = L"недопустимое внутриигровое имя";
+                    break;
+
+                case -2:
+                    errorMessage = L"комната переполнена";
+                    break;
+
+                case -3:
+                    errorMessage = L"вы уже состоите в {WHITE}этой{GRAY} комнате";
+                    break;
+
+                case -4:
+                    errorMessage = L"вы уже состоите в {WHITE}другой{GRAY} комнате";
+                    break;
+
+                case -5:
+                    errorMessage = L"это имя уже занято в этой комнате, пожалуйста, выберите другое";
+                    break;
+
+                case -6:
+                    errorMessage = L"комнаты с указанным идентификатором не существует";
+                    break;
+
+                default:
+                    errorMessage = L"что-то пошло не так (код ошибки: {WHITE}"
+                                   + std::to_wstring(errorCode) + L"{GRAY})";
+
+                    break;
+            }
+
+            mainMenu->showErrorDialog(
+                    L"{RED}{BOLD}Отказано в присоединении к комнате: {RESET}{GRAY}" + errorMessage + L".");
+        } else {
+            // Присоединились к комнате успешно.
+            auto lobby = std::make_shared<Lobby>();
+
+            lobby->lobbyId      = std::stoi(mainMenu->getListener()->getEnteredLobbyId());
+            lobby->hostId       = response->host_id();
+            lobby->ownPlayerId  = response->player_id();
+            lobby->ownCharacter = response->character();
+            lobby->playerNames     [response->player_id()] = mainMenu->getListener()->getEnteredPlayerName();
+            lobby->playerCharacters[response->player_id()] = response->character();
+
+            for (const auto& [otherPlayerId, otherPlayerName] : response->others_names())
+                lobby->playerNames[otherPlayerId] = std::wstring(
+                        otherPlayerName.begin(), otherPlayerName.end());
+
+            for (const auto& [otherPlayerId, otherPlayerCharacter] : response->others_characters())
+                lobby->playerCharacters[otherPlayerId] = otherPlayerCharacter;
+
+            Game::instance().setCurrentLobby(lobby);
+            Game::instance().setCurrentScreen(std::make_shared
+                    <LobbyScreen>(mainMenu->getRenderScale(), mainMenu->getWindow()));
+        }
+    }
+
     void MainMenuScreenListener::dialogOpened(Drawable* parentScreen, id_type dialogId) {}
 
     void MainMenuScreenListener::dialogClosed(Drawable* parentScreen, id_type dialogId) {
@@ -245,14 +294,49 @@ namespace awd::game {
         WorkflowState workflowState = mainMenu->getWorkflowState();
         mainMenu->dialogClosed(); // для удаления диалога из списка потомков
 
-        if (workflowState == WorkflowState::JOINING_LOBBY_1)
-            // Закрылся диалог ввода имени. Снова запрашиваем ввод имени.
-            requestLobbyIdInput(mainMenu);
-        else if (workflowState == WorkflowState::JOINING_LOBBY_2)
-            // Закрылся диалог ввода ID комнаты. При этом если бы он закрылся кнопкой "Назад",
-            // то workflowState был бы IDLE. Значит, он закрылся именно по кнопке "Далее".
-            // Переходим к следующему этапу присоединения к комнате - запрашиваем имя.
-            requestPlayerNameInput(mainMenu);
+        switch (workflowState) {
+            default:
+                // Ничего не делаем (просто закрылось окно с некритической ошибкой).
+                break;
+
+            case WorkflowState::JOINING_LOBBY_1:
+                // Закрылся диалог ввода имени по кнопке "Назад". Снова запрашиваем ввод имени.
+                requestLobbyIdInput(mainMenu);
+                break;
+
+            case WorkflowState::JOINING_LOBBY_2:
+                // Закрылся диалог ввода ID комнаты. При этом если бы он закрылся кнопкой "Назад",
+                // то workflowState был бы IDLE. Значит, он закрылся именно по кнопке "Далее".
+                // Переходим к следующему этапу присоединения к комнате - запрашиваем имя.
+                requestPlayerNameInput(mainMenu);
+                break;
+
+            case WorkflowState::JOINING_LOBBY_3:
+                // Все данные для присоединения к комнате введены. Проверяем их и делаем запрос на сервер.
+                std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
+                std::wstring lobbyIdStr = mainMenu->getListener()->getEnteredLobbyId();
+                uint32_t     lobbyId;
+
+                try {
+                    lobbyId = std::stoi(lobbyIdStr);
+                } catch (const std::invalid_argument&) {
+                    // Введено что-то, отличное от целого числа.
+                    mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
+                                              L"{RESET}{GRAY}идентификатор комнаты должен быть "
+                                              L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
+                } catch (const std::out_of_range&) {
+                    // Введено слишком большое целое число.
+                    mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
+                                              L"{RESET}{GRAY}идентификатор комнаты должен быть "
+                                              L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
+                }
+
+                // Переходим к присоединению к комнате.
+                mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_4);
+                beginJoinLobby(mainMenu, lobbyId, mainMenu->getListener()->getEnteredPlayerName());
+
+                break;
+        }
     }
 
     void MainMenuScreenListener::buttonClicked(Drawable* buttonParent, id_type buttonId) {

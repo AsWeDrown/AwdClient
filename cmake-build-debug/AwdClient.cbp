@@ -303,6 +303,12 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/HandshakeResponseListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/JoinLobbyResponseListener.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/JoinLobbyResponseListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/LeaveLobbyResponseListener.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -316,6 +322,12 @@
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PingListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/UpdatedMembersListListener.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/UpdatedMembersListListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.cpp">

@@ -76,8 +76,10 @@ namespace awd::game {
         float cardX = cardMargin;
 
         for (int i = 1; i <= 4; i++) { // 4 - число карточек
+            id_type cardId = ID_SCREEN_LOBBY + i * ID_OTHER;
+
             auto card = std::make_shared<PlayerCard>(
-                    i * ID_SCREEN_LOBBY_PLAYER_CARD,
+                    cardId,
                     renderScale, window,
                     cardX, cardY,
                     cardWidth, cardHeight,
@@ -195,7 +197,7 @@ namespace awd::game {
     void LobbyScreen::showLoadingOverlay(const std::wstring& loadingMessage,
                                          uint32_t timeoutMillis) {
         auto loadingOverlay = std::make_shared<LoadingOverlay>(
-                ID_SCREEN_MAIN_MENU_LOADING_OVERLAY,
+                ID_SCREEN_LOBBY_LOADING_OVERLAY,
                 renderScale, window, loadingMessage);
 
         Screen::showLoadingOverlay(loadingOverlay);
@@ -220,14 +222,14 @@ namespace awd::game {
                     closeCurrentDialog(); // ... закрываем текущий диалог, каким бы он не был, ...
 
                     auto dialog = std::make_shared<ErrorDialog>(
-                            ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
+                            ID_SCREEN_LOBBY_DIALOG_ERROR,
                             renderScale,
                             window,
                             listener,
                             L"{RED}{BOLD}Ошибка: "
                             L"{RESET}{GRAY}истекло максимальное допустимое время ожидания. "
                             L"Проверьте своё подключение к Интернету.",
-                            ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,
+                            ID_SCREEN_LOBBY_DIALOG_ERROR_BUTTON_OK,
                             listener
                     );
 
@@ -241,12 +243,12 @@ namespace awd::game {
 
     void LobbyScreen::showErrorDialog(const std::wstring& message) {
         auto dialog = std::make_shared<ErrorDialog>(
-                ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
+                ID_SCREEN_LOBBY_DIALOG_ERROR,
                 renderScale,
                 window,
                 listener,
                 message,
-                ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,
+                ID_SCREEN_LOBBY_DIALOG_ERROR_BUTTON_OK,
                 listener
         );
 

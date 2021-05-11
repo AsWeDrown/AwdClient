@@ -83,6 +83,9 @@ namespace awd::game {
     }
 
     void ErrorDialog::keyPressed(const sf::Event::KeyEvent& event) {
+        if (state != DialogState::APPEARED)
+            return;
+
         Dialog::keyPressed(event);
 
         // Возможность манипулировать диалогом с помощью клавиш ENTER и ESC.
