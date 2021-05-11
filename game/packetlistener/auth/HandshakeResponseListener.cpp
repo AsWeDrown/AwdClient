@@ -1,6 +1,6 @@
 #include "HandshakeResponseListener.hpp"
-#include "../../net/PacketManager.hpp"
-#include "../Game.hpp"
+#include "../../../net/PacketManager.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 

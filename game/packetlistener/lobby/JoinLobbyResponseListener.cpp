@@ -1,6 +1,6 @@
 #include "JoinLobbyResponseListener.hpp"
-#include "../game/graphics/mainmenu/MainMenuScreen.hpp"
-#include "../Game.hpp"
+#include "../../graphics/mainmenu/MainMenuScreen.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 

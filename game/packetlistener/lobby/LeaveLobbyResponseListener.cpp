@@ -1,6 +1,6 @@
 #include "LeaveLobbyResponseListener.hpp"
-#include "../game/graphics/lobby/LobbyScreen.hpp"
-#include "../Game.hpp"
+#include "../../graphics/lobby/LobbyScreen.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 

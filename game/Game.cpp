@@ -8,14 +8,14 @@
 
 #include <thread>
 #include "Game.hpp"
-#include "packetlistener/HandshakeResponseListener.hpp"
-#include "packetlistener/CreateLobbyResponseListener.hpp"
+#include "packetlistener/auth/HandshakeResponseListener.hpp"
+#include "packetlistener/lobby/CreateLobbyResponseListener.hpp"
 #include "graphics/mainmenu/MainMenuScreen.hpp"
-#include "packetlistener/PingListener.hpp"
-#include "packetlistener/LeaveLobbyResponseListener.hpp"
-#include "packetlistener/JoinLobbyResponseListener.hpp"
-#include "packetlistener/UpdatedMembersListListener.hpp"
-#include "packetlistener/KickedFromLobbyListener.hpp"
+#include "packetlistener/misc/PingListener.hpp"
+#include "packetlistener/lobby/LeaveLobbyResponseListener.hpp"
+#include "packetlistener/lobby/JoinLobbyResponseListener.hpp"
+#include "packetlistener/lobby/UpdatedMembersListListener.hpp"
+#include "packetlistener/lobby/KickedFromLobbyListener.hpp"
 
 namespace awd::game {
 

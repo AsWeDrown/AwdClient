@@ -781,194 +781,194 @@ game/graphics/mainmenu/MainMenuScreenListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.s
 .PHONY : game/graphics/mainmenu/MainMenuScreenListener.cpp.s
 
-game/packetlistener/CreateLobbyResponseListener.obj: game/packetlistener/CreateLobbyResponseListener.cpp.obj
+game/packetlistener/auth/HandshakeResponseListener.obj: game/packetlistener/auth/HandshakeResponseListener.cpp.obj
 
-.PHONY : game/packetlistener/CreateLobbyResponseListener.obj
-
-# target to build an object file
-game/packetlistener/CreateLobbyResponseListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.obj
-.PHONY : game/packetlistener/CreateLobbyResponseListener.cpp.obj
-
-game/packetlistener/CreateLobbyResponseListener.i: game/packetlistener/CreateLobbyResponseListener.cpp.i
-
-.PHONY : game/packetlistener/CreateLobbyResponseListener.i
-
-# target to preprocess a source file
-game/packetlistener/CreateLobbyResponseListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.i
-.PHONY : game/packetlistener/CreateLobbyResponseListener.cpp.i
-
-game/packetlistener/CreateLobbyResponseListener.s: game/packetlistener/CreateLobbyResponseListener.cpp.s
-
-.PHONY : game/packetlistener/CreateLobbyResponseListener.s
-
-# target to generate assembly for a file
-game/packetlistener/CreateLobbyResponseListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/CreateLobbyResponseListener.cpp.s
-.PHONY : game/packetlistener/CreateLobbyResponseListener.cpp.s
-
-game/packetlistener/HandshakeResponseListener.obj: game/packetlistener/HandshakeResponseListener.cpp.obj
-
-.PHONY : game/packetlistener/HandshakeResponseListener.obj
+.PHONY : game/packetlistener/auth/HandshakeResponseListener.obj
 
 # target to build an object file
-game/packetlistener/HandshakeResponseListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.obj
-.PHONY : game/packetlistener/HandshakeResponseListener.cpp.obj
+game/packetlistener/auth/HandshakeResponseListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj
+.PHONY : game/packetlistener/auth/HandshakeResponseListener.cpp.obj
 
-game/packetlistener/HandshakeResponseListener.i: game/packetlistener/HandshakeResponseListener.cpp.i
+game/packetlistener/auth/HandshakeResponseListener.i: game/packetlistener/auth/HandshakeResponseListener.cpp.i
 
-.PHONY : game/packetlistener/HandshakeResponseListener.i
+.PHONY : game/packetlistener/auth/HandshakeResponseListener.i
 
 # target to preprocess a source file
-game/packetlistener/HandshakeResponseListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.i
-.PHONY : game/packetlistener/HandshakeResponseListener.cpp.i
+game/packetlistener/auth/HandshakeResponseListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.i
+.PHONY : game/packetlistener/auth/HandshakeResponseListener.cpp.i
 
-game/packetlistener/HandshakeResponseListener.s: game/packetlistener/HandshakeResponseListener.cpp.s
+game/packetlistener/auth/HandshakeResponseListener.s: game/packetlistener/auth/HandshakeResponseListener.cpp.s
 
-.PHONY : game/packetlistener/HandshakeResponseListener.s
+.PHONY : game/packetlistener/auth/HandshakeResponseListener.s
 
 # target to generate assembly for a file
-game/packetlistener/HandshakeResponseListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/HandshakeResponseListener.cpp.s
-.PHONY : game/packetlistener/HandshakeResponseListener.cpp.s
+game/packetlistener/auth/HandshakeResponseListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.s
+.PHONY : game/packetlistener/auth/HandshakeResponseListener.cpp.s
 
-game/packetlistener/JoinLobbyResponseListener.obj: game/packetlistener/JoinLobbyResponseListener.cpp.obj
+game/packetlistener/lobby/CreateLobbyResponseListener.obj: game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj
 
-.PHONY : game/packetlistener/JoinLobbyResponseListener.obj
+.PHONY : game/packetlistener/lobby/CreateLobbyResponseListener.obj
 
 # target to build an object file
-game/packetlistener/JoinLobbyResponseListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/JoinLobbyResponseListener.cpp.obj
-.PHONY : game/packetlistener/JoinLobbyResponseListener.cpp.obj
+game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj
+.PHONY : game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj
 
-game/packetlistener/JoinLobbyResponseListener.i: game/packetlistener/JoinLobbyResponseListener.cpp.i
+game/packetlistener/lobby/CreateLobbyResponseListener.i: game/packetlistener/lobby/CreateLobbyResponseListener.cpp.i
 
-.PHONY : game/packetlistener/JoinLobbyResponseListener.i
+.PHONY : game/packetlistener/lobby/CreateLobbyResponseListener.i
 
 # target to preprocess a source file
-game/packetlistener/JoinLobbyResponseListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/JoinLobbyResponseListener.cpp.i
-.PHONY : game/packetlistener/JoinLobbyResponseListener.cpp.i
+game/packetlistener/lobby/CreateLobbyResponseListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.i
+.PHONY : game/packetlistener/lobby/CreateLobbyResponseListener.cpp.i
 
-game/packetlistener/JoinLobbyResponseListener.s: game/packetlistener/JoinLobbyResponseListener.cpp.s
+game/packetlistener/lobby/CreateLobbyResponseListener.s: game/packetlistener/lobby/CreateLobbyResponseListener.cpp.s
 
-.PHONY : game/packetlistener/JoinLobbyResponseListener.s
+.PHONY : game/packetlistener/lobby/CreateLobbyResponseListener.s
 
 # target to generate assembly for a file
-game/packetlistener/JoinLobbyResponseListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/JoinLobbyResponseListener.cpp.s
-.PHONY : game/packetlistener/JoinLobbyResponseListener.cpp.s
+game/packetlistener/lobby/CreateLobbyResponseListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.s
+.PHONY : game/packetlistener/lobby/CreateLobbyResponseListener.cpp.s
 
-game/packetlistener/KickedFromLobbyListener.obj: game/packetlistener/KickedFromLobbyListener.cpp.obj
+game/packetlistener/lobby/JoinLobbyResponseListener.obj: game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj
 
-.PHONY : game/packetlistener/KickedFromLobbyListener.obj
+.PHONY : game/packetlistener/lobby/JoinLobbyResponseListener.obj
 
 # target to build an object file
-game/packetlistener/KickedFromLobbyListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/KickedFromLobbyListener.cpp.obj
-.PHONY : game/packetlistener/KickedFromLobbyListener.cpp.obj
+game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj
+.PHONY : game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj
 
-game/packetlistener/KickedFromLobbyListener.i: game/packetlistener/KickedFromLobbyListener.cpp.i
+game/packetlistener/lobby/JoinLobbyResponseListener.i: game/packetlistener/lobby/JoinLobbyResponseListener.cpp.i
 
-.PHONY : game/packetlistener/KickedFromLobbyListener.i
+.PHONY : game/packetlistener/lobby/JoinLobbyResponseListener.i
 
 # target to preprocess a source file
-game/packetlistener/KickedFromLobbyListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/KickedFromLobbyListener.cpp.i
-.PHONY : game/packetlistener/KickedFromLobbyListener.cpp.i
+game/packetlistener/lobby/JoinLobbyResponseListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.i
+.PHONY : game/packetlistener/lobby/JoinLobbyResponseListener.cpp.i
 
-game/packetlistener/KickedFromLobbyListener.s: game/packetlistener/KickedFromLobbyListener.cpp.s
+game/packetlistener/lobby/JoinLobbyResponseListener.s: game/packetlistener/lobby/JoinLobbyResponseListener.cpp.s
 
-.PHONY : game/packetlistener/KickedFromLobbyListener.s
+.PHONY : game/packetlistener/lobby/JoinLobbyResponseListener.s
 
 # target to generate assembly for a file
-game/packetlistener/KickedFromLobbyListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/KickedFromLobbyListener.cpp.s
-.PHONY : game/packetlistener/KickedFromLobbyListener.cpp.s
+game/packetlistener/lobby/JoinLobbyResponseListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.s
+.PHONY : game/packetlistener/lobby/JoinLobbyResponseListener.cpp.s
 
-game/packetlistener/LeaveLobbyResponseListener.obj: game/packetlistener/LeaveLobbyResponseListener.cpp.obj
+game/packetlistener/lobby/KickedFromLobbyListener.obj: game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj
 
-.PHONY : game/packetlistener/LeaveLobbyResponseListener.obj
+.PHONY : game/packetlistener/lobby/KickedFromLobbyListener.obj
 
 # target to build an object file
-game/packetlistener/LeaveLobbyResponseListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.obj
-.PHONY : game/packetlistener/LeaveLobbyResponseListener.cpp.obj
+game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj
+.PHONY : game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj
 
-game/packetlistener/LeaveLobbyResponseListener.i: game/packetlistener/LeaveLobbyResponseListener.cpp.i
+game/packetlistener/lobby/KickedFromLobbyListener.i: game/packetlistener/lobby/KickedFromLobbyListener.cpp.i
 
-.PHONY : game/packetlistener/LeaveLobbyResponseListener.i
+.PHONY : game/packetlistener/lobby/KickedFromLobbyListener.i
 
 # target to preprocess a source file
-game/packetlistener/LeaveLobbyResponseListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.i
-.PHONY : game/packetlistener/LeaveLobbyResponseListener.cpp.i
+game/packetlistener/lobby/KickedFromLobbyListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.i
+.PHONY : game/packetlistener/lobby/KickedFromLobbyListener.cpp.i
 
-game/packetlistener/LeaveLobbyResponseListener.s: game/packetlistener/LeaveLobbyResponseListener.cpp.s
+game/packetlistener/lobby/KickedFromLobbyListener.s: game/packetlistener/lobby/KickedFromLobbyListener.cpp.s
 
-.PHONY : game/packetlistener/LeaveLobbyResponseListener.s
+.PHONY : game/packetlistener/lobby/KickedFromLobbyListener.s
 
 # target to generate assembly for a file
-game/packetlistener/LeaveLobbyResponseListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/LeaveLobbyResponseListener.cpp.s
-.PHONY : game/packetlistener/LeaveLobbyResponseListener.cpp.s
+game/packetlistener/lobby/KickedFromLobbyListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.s
+.PHONY : game/packetlistener/lobby/KickedFromLobbyListener.cpp.s
 
-game/packetlistener/PingListener.obj: game/packetlistener/PingListener.cpp.obj
+game/packetlistener/lobby/LeaveLobbyResponseListener.obj: game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj
 
-.PHONY : game/packetlistener/PingListener.obj
+.PHONY : game/packetlistener/lobby/LeaveLobbyResponseListener.obj
 
 # target to build an object file
-game/packetlistener/PingListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.obj
-.PHONY : game/packetlistener/PingListener.cpp.obj
+game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj
+.PHONY : game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj
 
-game/packetlistener/PingListener.i: game/packetlistener/PingListener.cpp.i
+game/packetlistener/lobby/LeaveLobbyResponseListener.i: game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.i
 
-.PHONY : game/packetlistener/PingListener.i
+.PHONY : game/packetlistener/lobby/LeaveLobbyResponseListener.i
 
 # target to preprocess a source file
-game/packetlistener/PingListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.i
-.PHONY : game/packetlistener/PingListener.cpp.i
+game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.i
+.PHONY : game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.i
 
-game/packetlistener/PingListener.s: game/packetlistener/PingListener.cpp.s
+game/packetlistener/lobby/LeaveLobbyResponseListener.s: game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.s
 
-.PHONY : game/packetlistener/PingListener.s
+.PHONY : game/packetlistener/lobby/LeaveLobbyResponseListener.s
 
 # target to generate assembly for a file
-game/packetlistener/PingListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/PingListener.cpp.s
-.PHONY : game/packetlistener/PingListener.cpp.s
+game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.s
+.PHONY : game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.s
 
-game/packetlistener/UpdatedMembersListListener.obj: game/packetlistener/UpdatedMembersListListener.cpp.obj
+game/packetlistener/lobby/UpdatedMembersListListener.obj: game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj
 
-.PHONY : game/packetlistener/UpdatedMembersListListener.obj
+.PHONY : game/packetlistener/lobby/UpdatedMembersListListener.obj
 
 # target to build an object file
-game/packetlistener/UpdatedMembersListListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/UpdatedMembersListListener.cpp.obj
-.PHONY : game/packetlistener/UpdatedMembersListListener.cpp.obj
+game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj
+.PHONY : game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj
 
-game/packetlistener/UpdatedMembersListListener.i: game/packetlistener/UpdatedMembersListListener.cpp.i
+game/packetlistener/lobby/UpdatedMembersListListener.i: game/packetlistener/lobby/UpdatedMembersListListener.cpp.i
 
-.PHONY : game/packetlistener/UpdatedMembersListListener.i
+.PHONY : game/packetlistener/lobby/UpdatedMembersListListener.i
 
 # target to preprocess a source file
-game/packetlistener/UpdatedMembersListListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/UpdatedMembersListListener.cpp.i
-.PHONY : game/packetlistener/UpdatedMembersListListener.cpp.i
+game/packetlistener/lobby/UpdatedMembersListListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.i
+.PHONY : game/packetlistener/lobby/UpdatedMembersListListener.cpp.i
 
-game/packetlistener/UpdatedMembersListListener.s: game/packetlistener/UpdatedMembersListListener.cpp.s
+game/packetlistener/lobby/UpdatedMembersListListener.s: game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 
-.PHONY : game/packetlistener/UpdatedMembersListListener.s
+.PHONY : game/packetlistener/lobby/UpdatedMembersListListener.s
 
 # target to generate assembly for a file
-game/packetlistener/UpdatedMembersListListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/UpdatedMembersListListener.cpp.s
-.PHONY : game/packetlistener/UpdatedMembersListListener.cpp.s
+game/packetlistener/lobby/UpdatedMembersListListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
+.PHONY : game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
+
+game/packetlistener/misc/PingListener.obj: game/packetlistener/misc/PingListener.cpp.obj
+
+.PHONY : game/packetlistener/misc/PingListener.obj
+
+# target to build an object file
+game/packetlistener/misc/PingListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/misc/PingListener.cpp.obj
+.PHONY : game/packetlistener/misc/PingListener.cpp.obj
+
+game/packetlistener/misc/PingListener.i: game/packetlistener/misc/PingListener.cpp.i
+
+.PHONY : game/packetlistener/misc/PingListener.i
+
+# target to preprocess a source file
+game/packetlistener/misc/PingListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/misc/PingListener.cpp.i
+.PHONY : game/packetlistener/misc/PingListener.cpp.i
+
+game/packetlistener/misc/PingListener.s: game/packetlistener/misc/PingListener.cpp.s
+
+.PHONY : game/packetlistener/misc/PingListener.s
+
+# target to generate assembly for a file
+game/packetlistener/misc/PingListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/misc/PingListener.cpp.s
+.PHONY : game/packetlistener/misc/PingListener.cpp.s
 
 game/util/RenderUtils.obj: game/util/RenderUtils.cpp.obj
 
@@ -1373,27 +1373,27 @@ help:
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.obj
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.i
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.s
-	@echo ... game/packetlistener/CreateLobbyResponseListener.obj
-	@echo ... game/packetlistener/CreateLobbyResponseListener.i
-	@echo ... game/packetlistener/CreateLobbyResponseListener.s
-	@echo ... game/packetlistener/HandshakeResponseListener.obj
-	@echo ... game/packetlistener/HandshakeResponseListener.i
-	@echo ... game/packetlistener/HandshakeResponseListener.s
-	@echo ... game/packetlistener/JoinLobbyResponseListener.obj
-	@echo ... game/packetlistener/JoinLobbyResponseListener.i
-	@echo ... game/packetlistener/JoinLobbyResponseListener.s
-	@echo ... game/packetlistener/KickedFromLobbyListener.obj
-	@echo ... game/packetlistener/KickedFromLobbyListener.i
-	@echo ... game/packetlistener/KickedFromLobbyListener.s
-	@echo ... game/packetlistener/LeaveLobbyResponseListener.obj
-	@echo ... game/packetlistener/LeaveLobbyResponseListener.i
-	@echo ... game/packetlistener/LeaveLobbyResponseListener.s
-	@echo ... game/packetlistener/PingListener.obj
-	@echo ... game/packetlistener/PingListener.i
-	@echo ... game/packetlistener/PingListener.s
-	@echo ... game/packetlistener/UpdatedMembersListListener.obj
-	@echo ... game/packetlistener/UpdatedMembersListListener.i
-	@echo ... game/packetlistener/UpdatedMembersListListener.s
+	@echo ... game/packetlistener/auth/HandshakeResponseListener.obj
+	@echo ... game/packetlistener/auth/HandshakeResponseListener.i
+	@echo ... game/packetlistener/auth/HandshakeResponseListener.s
+	@echo ... game/packetlistener/lobby/CreateLobbyResponseListener.obj
+	@echo ... game/packetlistener/lobby/CreateLobbyResponseListener.i
+	@echo ... game/packetlistener/lobby/CreateLobbyResponseListener.s
+	@echo ... game/packetlistener/lobby/JoinLobbyResponseListener.obj
+	@echo ... game/packetlistener/lobby/JoinLobbyResponseListener.i
+	@echo ... game/packetlistener/lobby/JoinLobbyResponseListener.s
+	@echo ... game/packetlistener/lobby/KickedFromLobbyListener.obj
+	@echo ... game/packetlistener/lobby/KickedFromLobbyListener.i
+	@echo ... game/packetlistener/lobby/KickedFromLobbyListener.s
+	@echo ... game/packetlistener/lobby/LeaveLobbyResponseListener.obj
+	@echo ... game/packetlistener/lobby/LeaveLobbyResponseListener.i
+	@echo ... game/packetlistener/lobby/LeaveLobbyResponseListener.s
+	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.obj
+	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.i
+	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.s
+	@echo ... game/packetlistener/misc/PingListener.obj
+	@echo ... game/packetlistener/misc/PingListener.i
+	@echo ... game/packetlistener/misc/PingListener.s
 	@echo ... game/util/RenderUtils.obj
 	@echo ... game/util/RenderUtils.i
 	@echo ... game/util/RenderUtils.s

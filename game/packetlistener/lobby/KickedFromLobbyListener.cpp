@@ -1,6 +1,6 @@
 #include "KickedFromLobbyListener.hpp"
-#include "../Game.hpp"
-#include "../graphics/lobby/LobbyScreen.hpp"
+#include "../../Game.hpp"
+#include "../../graphics/lobby/LobbyScreen.hpp"
 
 namespace awd::game {
 
