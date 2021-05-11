@@ -47,6 +47,13 @@ namespace awd::game {
 
         static void errorOkClicked(Drawable* dialog);
 
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        //   Геттеры
+        //////////////////////////////////////////////////////////////////////////////////////////////
+
+        std::wstring getEnteredPlayerName() const;
+        std::wstring getEnteredLobbyId() const;
+
     public:
         static void finishCreateLobby(Drawable* mainMenuScreen,
                                       const std::shared_ptr<net::CreateLobbyResponse>& response);
@@ -62,10 +69,6 @@ namespace awd::game {
 
         void contentsChanged(Drawable* textFieldParent, id_type textFieldId,
                              const std::wstring& newContents) override;
-
-        std::wstring getEnteredPlayerName() const;
-
-        std::wstring getEnteredLobbyId() const;
     };
 
 }

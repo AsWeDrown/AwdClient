@@ -50,7 +50,7 @@ namespace awd::game {
         auto btnOk = std::make_shared<TextButton>(
                 btnOkId, renderScale, window,
                 L"ОК", bX, bY, bWidth, bHeight, bFontSize, btnOkListener);
-        addChild(btnOk);
+        enqueueAddChild(btnOk);
 
         // Разделительная линия над кнопками.
         float sepMarginX = BUTTON_OK_LEFT_MARGIN         * renderScale;

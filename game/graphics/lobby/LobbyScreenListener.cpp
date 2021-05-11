@@ -61,6 +61,38 @@ namespace awd::game {
                     + std::to_wstring(response->status_code()) + L"{GRAY}.");
     }
 
+    void LobbyScreenListener::kickedFromLobby(Drawable* lobbyDrawable,
+                                              const std::shared_ptr<net::KickedFromLobby>& kick) {
+        auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
+        auto currentLobby = Game::instance().getCurrentLobby();
+
+        if (currentLobby != nullptr) {
+            auto mainMenuScreen = std::make_shared<MainMenuScreen>(
+                    lobbyScreen->getRenderScale(), lobbyScreen->getWindow());
+
+            Game::instance().setCurrentScreen(mainMenuScreen);
+            Game::instance().setCurrentLobby(nullptr);
+
+            std::wstring kickReason;
+
+            switch (kick->reason()) {
+                case 1:
+                    kickReason = L"комната была расформирована (её хост вышел, "
+                                 L"либо игра не начиналась слишком долго)";
+                    break;
+
+                default:
+                    kickReason = L"что-то пошло не так (код причины: {WHITE} "
+                                 + std::to_wstring(kick->reason()) + L"{GRAY};";
+
+                    break;
+            }
+
+            mainMenuScreen->showErrorDialog(
+                    L"{RED}{BOLD}Вы были исключены из комнаты:{RESET}{GRAY} " + kickReason);
+        }
+    }
+
     void LobbyScreenListener::dialogOpened(Drawable* parentScreen, id_type dialogId) {}
 
     void LobbyScreenListener::dialogClosed(Drawable* parentScreen, id_type dialogId) {

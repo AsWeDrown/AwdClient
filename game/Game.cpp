@@ -15,6 +15,7 @@
 #include "packetlistener/LeaveLobbyResponseListener.hpp"
 #include "packetlistener/JoinLobbyResponseListener.hpp"
 #include "packetlistener/UpdatedMembersListListener.hpp"
+#include "packetlistener/KickedFromLobbyListener.hpp"
 
 namespace awd::game {
 
@@ -62,6 +63,11 @@ namespace awd::game {
         packetManager->registerListener(
                 net::PacketWrapper::PacketCase::kUpdatedMembersList,
                 std::make_shared<UpdatedMembersListListener>()
+        );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kKickedFromLobby,
+                std::make_shared<KickedFromLobbyListener>()
         );
     }
 

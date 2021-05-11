@@ -862,6 +862,33 @@ game/packetlistener/JoinLobbyResponseListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/JoinLobbyResponseListener.cpp.s
 .PHONY : game/packetlistener/JoinLobbyResponseListener.cpp.s
 
+game/packetlistener/KickedFromLobbyListener.obj: game/packetlistener/KickedFromLobbyListener.cpp.obj
+
+.PHONY : game/packetlistener/KickedFromLobbyListener.obj
+
+# target to build an object file
+game/packetlistener/KickedFromLobbyListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/KickedFromLobbyListener.cpp.obj
+.PHONY : game/packetlistener/KickedFromLobbyListener.cpp.obj
+
+game/packetlistener/KickedFromLobbyListener.i: game/packetlistener/KickedFromLobbyListener.cpp.i
+
+.PHONY : game/packetlistener/KickedFromLobbyListener.i
+
+# target to preprocess a source file
+game/packetlistener/KickedFromLobbyListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/KickedFromLobbyListener.cpp.i
+.PHONY : game/packetlistener/KickedFromLobbyListener.cpp.i
+
+game/packetlistener/KickedFromLobbyListener.s: game/packetlistener/KickedFromLobbyListener.cpp.s
+
+.PHONY : game/packetlistener/KickedFromLobbyListener.s
+
+# target to generate assembly for a file
+game/packetlistener/KickedFromLobbyListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/KickedFromLobbyListener.cpp.s
+.PHONY : game/packetlistener/KickedFromLobbyListener.cpp.s
+
 game/packetlistener/LeaveLobbyResponseListener.obj: game/packetlistener/LeaveLobbyResponseListener.cpp.obj
 
 .PHONY : game/packetlistener/LeaveLobbyResponseListener.obj
@@ -1355,6 +1382,9 @@ help:
 	@echo ... game/packetlistener/JoinLobbyResponseListener.obj
 	@echo ... game/packetlistener/JoinLobbyResponseListener.i
 	@echo ... game/packetlistener/JoinLobbyResponseListener.s
+	@echo ... game/packetlistener/KickedFromLobbyListener.obj
+	@echo ... game/packetlistener/KickedFromLobbyListener.i
+	@echo ... game/packetlistener/KickedFromLobbyListener.s
 	@echo ... game/packetlistener/LeaveLobbyResponseListener.obj
 	@echo ... game/packetlistener/LeaveLobbyResponseListener.i
 	@echo ... game/packetlistener/LeaveLobbyResponseListener.s

@@ -100,13 +100,11 @@ namespace awd::game {
 
     void MainMenuScreenListener::createLobbyNextClicked(Drawable* dialog) {
         auto* mainMenu = (MainMenuScreen*) dialog->getParent();
-        std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
 
-        if (!playerName.empty()) {
-            // Переходим к созданию комнаты.
-            mainMenu->setWorkflowState(WorkflowState::IDLE);
+        if (!mainMenu->getListener()->getEnteredPlayerName().empty()) {
+            // Начинаем процесс создания комнаты.
+            mainMenu->setWorkflowState(WorkflowState::CREATING_LOBBY_2);
             mainMenu->closeCurrentDialog();
-            beginCreateLobby(mainMenu, playerName);
         }
     }
 
@@ -137,6 +135,7 @@ namespace awd::game {
             }
         } else if (workflowState == WorkflowState::JOINING_LOBBY_2) {
             if (!mainMenu->getListener()->getEnteredPlayerName().empty()) {
+                // Начинаем процесс присоединения к комнате.
                 mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_3);
                 mainMenu->closeCurrentDialog();
             }
@@ -170,6 +169,18 @@ namespace awd::game {
             mainMenu->setWorkflowState(WorkflowState::IDLE);
             mainMenu->closeCurrentDialog();
         }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    //   Геттеры
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    std::wstring MainMenuScreenListener::getEnteredPlayerName() const {
+        return enteredPlayerName;
+    }
+
+    std::wstring MainMenuScreenListener::getEnteredLobbyId() const {
+        return enteredLobbyId;
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -297,6 +308,14 @@ namespace awd::game {
         switch (workflowState) {
             default:
                 // Ничего не делаем (просто закрылось окно с некритической ошибкой).
+                mainMenu->setWorkflowState(WorkflowState::IDLE);
+                break;
+
+            case WorkflowState::CREATING_LOBBY_2:
+                // Переходим к созданию комнаты.
+                mainMenu->setWorkflowState(WorkflowState::CREATING_LOBBY_3);
+                beginCreateLobby(mainMenu, enteredPlayerName);
+
                 break;
 
             case WorkflowState::JOINING_LOBBY_1:
@@ -313,12 +332,15 @@ namespace awd::game {
 
             case WorkflowState::JOINING_LOBBY_3:
                 // Все данные для присоединения к комнате введены. Проверяем их и делаем запрос на сервер.
-                std::wstring playerName = mainMenu->getListener()->getEnteredPlayerName();
-                std::wstring lobbyIdStr = mainMenu->getListener()->getEnteredLobbyId();
-                uint32_t     lobbyId;
+                // WorkflowState обновляем сразу же здесь, чтобы в случае ошибки std::stoi пользователь получил
+                // такое же сообщение об ошибке, как и от сервера.
+                mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_4);
+                uint32_t lobbyId;
 
                 try {
-                    lobbyId = std::stoi(lobbyIdStr);
+                    // Переходим к присоединению к комнате. (Если введённые данные корректны для std::stoi.)
+                    lobbyId = std::stoi(enteredLobbyId);
+                    beginJoinLobby(mainMenu, lobbyId, enteredPlayerName);
                 } catch (const std::invalid_argument&) {
                     // Введено что-то, отличное от целого числа.
                     mainMenu->showErrorDialog(L"{RED}{BOLD}Ошибка ввода: "
@@ -330,10 +352,6 @@ namespace awd::game {
                                               L"{RESET}{GRAY}идентификатор комнаты должен быть "
                                               L"{WHITE}целым неотрицательным{GRAY} числом (причём не очень большим).");
                 }
-
-                // Переходим к присоединению к комнате.
-                mainMenu->setWorkflowState(WorkflowState::JOINING_LOBBY_4);
-                beginJoinLobby(mainMenu, lobbyId, mainMenu->getListener()->getEnteredPlayerName());
 
                 break;
         }
@@ -403,14 +421,6 @@ namespace awd::game {
             enteredPlayerName = newContents;
         else if (workflowState == WorkflowState::JOINING_LOBBY_1)
             enteredLobbyId = newContents;
-    }
-
-    std::wstring MainMenuScreenListener::getEnteredPlayerName() const {
-        return enteredPlayerName;
-    }
-
-    std::wstring MainMenuScreenListener::getEnteredLobbyId() const {
-        return enteredLobbyId;
     }
 
 }

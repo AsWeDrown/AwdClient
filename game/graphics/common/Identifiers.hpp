@@ -25,7 +25,7 @@ typedef unsigned long long id_type;
 
 #define ID_SCREEN                  (id_type) 1E+16L
 #define ID_LOADING_OVERLAY         (id_type) 1E+14L
-#define ID_DIALOG                  (id_type) 1E+08L
+#define ID_DIALOG                  (id_type) 1E+12L
 #define ID_BUTTON                  (id_type) 1E+06L
 #define ID_TEXT_FIELD              (id_type) 1E+04L
 #define ID_WATER_BACKGROUND        (id_type) 1E+02L
@@ -89,10 +89,10 @@ typedef unsigned long long id_type;
 
 // Lobby
 
-#define ID_SCREEN_LOBBY                         2  *  ID_SCREEN
+#define ID_SCREEN_LOBBY                           2  *  ID_SCREEN
 
-#define ID_SCREEN_LOBBY_WATER_BACKGROUND        ID_SCREEN_LOBBY  \
-                                                +  1  *  ID_WATER_BACKGROUND
+#define ID_SCREEN_LOBBY_WATER_BACKGROUND          ID_SCREEN_LOBBY  \
+                                                  +  1  *  ID_WATER_BACKGROUND
 
 #define ID_SCREEN_LOBBY_BUTTON_LEAVE_LOBBY        ID_SCREEN_LOBBY  \
                                                   +  1  *  ID_BUTTON

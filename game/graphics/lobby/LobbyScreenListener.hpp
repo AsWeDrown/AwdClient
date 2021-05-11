@@ -31,6 +31,9 @@ namespace awd::game {
         static void finishLeaveLobby(Drawable* lobbyDrawable,
                                      const std::shared_ptr<net::LeaveLobbyResponse>& response);
 
+        static void kickedFromLobby(Drawable* lobbyDrawable,
+                                    const std::shared_ptr<net::KickedFromLobby>& kick);
+
         void dialogOpened(Drawable* parentScreen, id_type dialogId) override;
 
         void dialogClosed(Drawable* parentScreen, id_type dialogId) override;

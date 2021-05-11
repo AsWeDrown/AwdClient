@@ -309,6 +309,12 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/JoinLobbyResponseListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/KickedFromLobbyListener.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/KickedFromLobbyListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/LeaveLobbyResponseListener.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
