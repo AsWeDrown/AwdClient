@@ -19,7 +19,6 @@ namespace awd::net {
     void UdpClient::startInCurrentThread() {
         // Начинаем с рукопожатия (Handshake).
         // Нужно для дальнейшей коммуникации с сервером.
-        std::wcerr << L"creating socket." << std::endl;
         udpSocket = std::make_shared<sf::UdpSocket>();
 
         // Затем уже ожидаем пакеты от сервера.
@@ -30,11 +29,7 @@ namespace awd::net {
             return;
         }
 
-        std::wcout << L"Bind status: " << status << std::endl;
-
-        std::wcerr << L"Handshaking..." << std::endl;
         game::Game::instance().getNetService()->handshakeRequest();
-        std::wcerr << L"Binding UDP..." << std::endl;
 
         // Чтобы можно было исправно отправлять пакеты из других потоков, пока этот поток сидит
         // и спокойно ждёт пакеты от сервера, обязательно нужно работать в non-blocking режиме.
@@ -44,8 +39,6 @@ namespace awd::net {
 
         std::shared_ptr<char[]> buffer(new char[BUFFER_SIZE]);
         std::size_t bytesReceived;
-
-        std::wcout << L"Listening.................." << std::endl;
 
         while (connected) {
             // Копии делать ОБЯЗАТЕЛЬНО. В противном случае пакеты просто не будут отправляться.
@@ -66,9 +59,13 @@ namespace awd::net {
                         auto packetData = game::Game::instance()
                                 .getPacketManager()->receivePacket(buffer, bytesReceived);
 
-                        if (packetData != nullptr)
-                            game::Game::instance().getNetService()->enqueueReceive(packetData);
-                        else
+                        if (packetData != nullptr) {
+                            if (packetData->getPacketType() == PacketWrapper::PacketCase::kPing)
+                                // Для пакетов Ping/Pong используем мгновенные отправку/получение.
+                                game::Game::instance().getPacketManager()->processReceivedPacket(packetData);
+                            else
+                                game::Game::instance().getNetService()->enqueueReceive(packetData);
+                        } else
                             std::wcerr << L"Ignoring unknown packet (failed to unwrap)." << std::endl;
                     } catch (const std::exception& ex) {
                         // Какая-то внутренняя ошибка, пропускаем этот пакет и продолжаем работу.
@@ -83,8 +80,6 @@ namespace awd::net {
                 break;
             }
         }
-
-        std::wcout << L"-- END OF UDP CLIENT LOOP --" << std::endl;
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

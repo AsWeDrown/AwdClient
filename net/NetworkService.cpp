@@ -98,7 +98,7 @@ namespace awd::net {
         auto packet = std::make_shared<Pong>();
         packet->set_test_id(testId);
 
-        enqueueSend(packet);
+        packetManager->sendPacket(packet); // Для пакетов Ping/Pong используем мгновенные отправку/получение.
     }
 
     void NetworkService::createLobbyRequest(const std::wstring& playerName) {
