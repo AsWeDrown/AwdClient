@@ -11,11 +11,12 @@
 #include "packetlistener/auth/HandshakeResponseListener.hpp"
 #include "packetlistener/lobby/CreateLobbyResponseListener.hpp"
 #include "graphics/mainmenu/MainMenuScreen.hpp"
-#include "packetlistener/misc/PingListener.hpp"
+#include "packetlistener/auth/PingListener.hpp"
 #include "packetlistener/lobby/LeaveLobbyResponseListener.hpp"
 #include "packetlistener/lobby/JoinLobbyResponseListener.hpp"
 #include "packetlistener/lobby/UpdatedMembersListListener.hpp"
 #include "packetlistener/lobby/KickedFromLobbyListener.hpp"
+#include "graphics/play/PlayScreen.hpp"
 
 namespace awd::game {
 
@@ -28,7 +29,7 @@ namespace awd::game {
     bool Game::loadAssets() {
         std::wcout << L"--- Loading assets ---" << std::endl;
 
-        return fonts   ->loadFonts()
+        return fonts   ->loadFonts   ()
             && textures->loadTextures();
     }
 
@@ -84,7 +85,10 @@ namespace awd::game {
         std::wcout << L"Render scale: " << renderScale << std::endl;
 
         currentState = GameState::LOBBY;
-        currentScreen = std::make_shared<MainMenuScreen>();
+        //currentScreen = std::make_shared<MainMenuScreen>();
+        auto playScreen = std::make_shared<PlayScreen>();
+        playScreen->getWorld()->updateDimension(0);
+        currentScreen = playScreen;
 
         uint32_t tickDelay = std::chrono::milliseconds(1000 / GAME_TPS).count();
         sf::Clock tickClock;
@@ -141,9 +145,9 @@ namespace awd::game {
     }
 
     void Game::update() {
-        if (++currentTick == 1)
-            // Элементы загрузки, которые выполняются после отображения главного меню (например, соединение).
-            postScreenLoad();
+//        if (++currentTick == 1)
+//            // Элементы загрузки, которые выполняются после отображения главного меню (например, соединение).
+//            postScreenLoad();
 
         flushPackets();
         currentScreen->update();

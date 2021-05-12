@@ -7,12 +7,12 @@
 #include "../net/PacketManager.hpp"
 #include "graphics/common/Drawable.hpp"
 #include "GameState.hpp"
-#include "graphics/common/FontManager.hpp"
+#include "graphics/data/FontManager.hpp"
 #include "FatalErrors.hpp"
 #include "../net/NetworkService.hpp"
 #include "graphics/common/Screen.hpp"
 #include "lobby/Lobby.hpp"
-#include "graphics/common/TextureManager.hpp"
+#include "graphics/data/TextureManager.hpp"
 
 namespace awd::game {
 

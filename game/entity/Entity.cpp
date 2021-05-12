@@ -33,11 +33,11 @@ namespace awd::game {
     }
 
     id_type Entity::entityIdToDrawableId(id_type entityId) {
-        return ID_SCREEN_PLAY + entityId * ID_OTHER;
+        return ID_SCREEN_PLAY_WORLD + entityId * ID_OTHER;
     }
 
     id_type Entity::drawableIdToEntityId(id_type drawableId) {
-        return (drawableId - ID_SCREEN_PLAY) / ID_OTHER;
+        return (drawableId - ID_SCREEN_PLAY_WORLD) / ID_OTHER;
     }
 
 }

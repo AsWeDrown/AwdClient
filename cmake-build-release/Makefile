@@ -430,33 +430,6 @@ game/graphics/common/ErrorDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.s
 .PHONY : game/graphics/common/ErrorDialog.cpp.s
 
-game/graphics/common/FontManager.obj: game/graphics/common/FontManager.cpp.obj
-
-.PHONY : game/graphics/common/FontManager.obj
-
-# target to build an object file
-game/graphics/common/FontManager.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.obj
-.PHONY : game/graphics/common/FontManager.cpp.obj
-
-game/graphics/common/FontManager.i: game/graphics/common/FontManager.cpp.i
-
-.PHONY : game/graphics/common/FontManager.i
-
-# target to preprocess a source file
-game/graphics/common/FontManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.i
-.PHONY : game/graphics/common/FontManager.cpp.i
-
-game/graphics/common/FontManager.s: game/graphics/common/FontManager.cpp.s
-
-.PHONY : game/graphics/common/FontManager.s
-
-# target to generate assembly for a file
-game/graphics/common/FontManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/FontManager.cpp.s
-.PHONY : game/graphics/common/FontManager.cpp.s
-
 game/graphics/common/LoadingOverlay.obj: game/graphics/common/LoadingOverlay.cpp.obj
 
 .PHONY : game/graphics/common/LoadingOverlay.obj
@@ -619,33 +592,6 @@ game/graphics/common/TextInputDialog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.s
 .PHONY : game/graphics/common/TextInputDialog.cpp.s
 
-game/graphics/common/TextureManager.obj: game/graphics/common/TextureManager.cpp.obj
-
-.PHONY : game/graphics/common/TextureManager.obj
-
-# target to build an object file
-game/graphics/common/TextureManager.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.obj
-.PHONY : game/graphics/common/TextureManager.cpp.obj
-
-game/graphics/common/TextureManager.i: game/graphics/common/TextureManager.cpp.i
-
-.PHONY : game/graphics/common/TextureManager.i
-
-# target to preprocess a source file
-game/graphics/common/TextureManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.i
-.PHONY : game/graphics/common/TextureManager.cpp.i
-
-game/graphics/common/TextureManager.s: game/graphics/common/TextureManager.cpp.s
-
-.PHONY : game/graphics/common/TextureManager.s
-
-# target to generate assembly for a file
-game/graphics/common/TextureManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/TextureManager.cpp.s
-.PHONY : game/graphics/common/TextureManager.cpp.s
-
 game/graphics/common/UniformGridBuilder.obj: game/graphics/common/UniformGridBuilder.cpp.obj
 
 .PHONY : game/graphics/common/UniformGridBuilder.obj
@@ -699,6 +645,60 @@ game/graphics/common/WaterBackground.s: game/graphics/common/WaterBackground.cpp
 game/graphics/common/WaterBackground.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.s
 .PHONY : game/graphics/common/WaterBackground.cpp.s
+
+game/graphics/data/FontManager.obj: game/graphics/data/FontManager.cpp.obj
+
+.PHONY : game/graphics/data/FontManager.obj
+
+# target to build an object file
+game/graphics/data/FontManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/data/FontManager.cpp.obj
+.PHONY : game/graphics/data/FontManager.cpp.obj
+
+game/graphics/data/FontManager.i: game/graphics/data/FontManager.cpp.i
+
+.PHONY : game/graphics/data/FontManager.i
+
+# target to preprocess a source file
+game/graphics/data/FontManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/data/FontManager.cpp.i
+.PHONY : game/graphics/data/FontManager.cpp.i
+
+game/graphics/data/FontManager.s: game/graphics/data/FontManager.cpp.s
+
+.PHONY : game/graphics/data/FontManager.s
+
+# target to generate assembly for a file
+game/graphics/data/FontManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/data/FontManager.cpp.s
+.PHONY : game/graphics/data/FontManager.cpp.s
+
+game/graphics/data/TextureManager.obj: game/graphics/data/TextureManager.cpp.obj
+
+.PHONY : game/graphics/data/TextureManager.obj
+
+# target to build an object file
+game/graphics/data/TextureManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/data/TextureManager.cpp.obj
+.PHONY : game/graphics/data/TextureManager.cpp.obj
+
+game/graphics/data/TextureManager.i: game/graphics/data/TextureManager.cpp.i
+
+.PHONY : game/graphics/data/TextureManager.i
+
+# target to preprocess a source file
+game/graphics/data/TextureManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/data/TextureManager.cpp.i
+.PHONY : game/graphics/data/TextureManager.cpp.i
+
+game/graphics/data/TextureManager.s: game/graphics/data/TextureManager.cpp.s
+
+.PHONY : game/graphics/data/TextureManager.s
+
+# target to generate assembly for a file
+game/graphics/data/TextureManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/data/TextureManager.cpp.s
+.PHONY : game/graphics/data/TextureManager.cpp.s
 
 game/graphics/lobby/LobbyScreen.obj: game/graphics/lobby/LobbyScreen.cpp.obj
 
@@ -943,6 +943,33 @@ game/packetlistener/auth/HandshakeResponseListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.s
 .PHONY : game/packetlistener/auth/HandshakeResponseListener.cpp.s
 
+game/packetlistener/auth/PingListener.obj: game/packetlistener/auth/PingListener.cpp.obj
+
+.PHONY : game/packetlistener/auth/PingListener.obj
+
+# target to build an object file
+game/packetlistener/auth/PingListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj
+.PHONY : game/packetlistener/auth/PingListener.cpp.obj
+
+game/packetlistener/auth/PingListener.i: game/packetlistener/auth/PingListener.cpp.i
+
+.PHONY : game/packetlistener/auth/PingListener.i
+
+# target to preprocess a source file
+game/packetlistener/auth/PingListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.i
+.PHONY : game/packetlistener/auth/PingListener.cpp.i
+
+game/packetlistener/auth/PingListener.s: game/packetlistener/auth/PingListener.cpp.s
+
+.PHONY : game/packetlistener/auth/PingListener.s
+
+# target to generate assembly for a file
+game/packetlistener/auth/PingListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.s
+.PHONY : game/packetlistener/auth/PingListener.cpp.s
+
 game/packetlistener/lobby/CreateLobbyResponseListener.obj: game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj
 
 .PHONY : game/packetlistener/lobby/CreateLobbyResponseListener.obj
@@ -1078,33 +1105,6 @@ game/packetlistener/lobby/UpdatedMembersListListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 .PHONY : game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 
-game/packetlistener/misc/PingListener.obj: game/packetlistener/misc/PingListener.cpp.obj
-
-.PHONY : game/packetlistener/misc/PingListener.obj
-
-# target to build an object file
-game/packetlistener/misc/PingListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/misc/PingListener.cpp.obj
-.PHONY : game/packetlistener/misc/PingListener.cpp.obj
-
-game/packetlistener/misc/PingListener.i: game/packetlistener/misc/PingListener.cpp.i
-
-.PHONY : game/packetlistener/misc/PingListener.i
-
-# target to preprocess a source file
-game/packetlistener/misc/PingListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/misc/PingListener.cpp.i
-.PHONY : game/packetlistener/misc/PingListener.cpp.i
-
-game/packetlistener/misc/PingListener.s: game/packetlistener/misc/PingListener.cpp.s
-
-.PHONY : game/packetlistener/misc/PingListener.s
-
-# target to generate assembly for a file
-game/packetlistener/misc/PingListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/misc/PingListener.cpp.s
-.PHONY : game/packetlistener/misc/PingListener.cpp.s
-
 game/util/RenderUtils.obj: game/util/RenderUtils.cpp.obj
 
 .PHONY : game/util/RenderUtils.obj
@@ -1185,6 +1185,33 @@ game/util/TimeUtils.s: game/util/TimeUtils.cpp.s
 game/util/TimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.s
 .PHONY : game/util/TimeUtils.cpp.s
+
+game/world/World.obj: game/world/World.cpp.obj
+
+.PHONY : game/world/World.obj
+
+# target to build an object file
+game/world/World.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/World.cpp.obj
+.PHONY : game/world/World.cpp.obj
+
+game/world/World.i: game/world/World.cpp.i
+
+.PHONY : game/world/World.i
+
+# target to preprocess a source file
+game/world/World.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/World.cpp.i
+.PHONY : game/world/World.cpp.i
+
+game/world/World.s: game/world/World.cpp.s
+
+.PHONY : game/world/World.s
+
+# target to generate assembly for a file
+game/world/World.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/World.cpp.s
+.PHONY : game/world/World.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -1469,9 +1496,6 @@ help:
 	@echo ... game/graphics/common/ErrorDialog.obj
 	@echo ... game/graphics/common/ErrorDialog.i
 	@echo ... game/graphics/common/ErrorDialog.s
-	@echo ... game/graphics/common/FontManager.obj
-	@echo ... game/graphics/common/FontManager.i
-	@echo ... game/graphics/common/FontManager.s
 	@echo ... game/graphics/common/LoadingOverlay.obj
 	@echo ... game/graphics/common/LoadingOverlay.i
 	@echo ... game/graphics/common/LoadingOverlay.s
@@ -1490,15 +1514,18 @@ help:
 	@echo ... game/graphics/common/TextInputDialog.obj
 	@echo ... game/graphics/common/TextInputDialog.i
 	@echo ... game/graphics/common/TextInputDialog.s
-	@echo ... game/graphics/common/TextureManager.obj
-	@echo ... game/graphics/common/TextureManager.i
-	@echo ... game/graphics/common/TextureManager.s
 	@echo ... game/graphics/common/UniformGridBuilder.obj
 	@echo ... game/graphics/common/UniformGridBuilder.i
 	@echo ... game/graphics/common/UniformGridBuilder.s
 	@echo ... game/graphics/common/WaterBackground.obj
 	@echo ... game/graphics/common/WaterBackground.i
 	@echo ... game/graphics/common/WaterBackground.s
+	@echo ... game/graphics/data/FontManager.obj
+	@echo ... game/graphics/data/FontManager.i
+	@echo ... game/graphics/data/FontManager.s
+	@echo ... game/graphics/data/TextureManager.obj
+	@echo ... game/graphics/data/TextureManager.i
+	@echo ... game/graphics/data/TextureManager.s
 	@echo ... game/graphics/lobby/LobbyScreen.obj
 	@echo ... game/graphics/lobby/LobbyScreen.i
 	@echo ... game/graphics/lobby/LobbyScreen.s
@@ -1526,6 +1553,9 @@ help:
 	@echo ... game/packetlistener/auth/HandshakeResponseListener.obj
 	@echo ... game/packetlistener/auth/HandshakeResponseListener.i
 	@echo ... game/packetlistener/auth/HandshakeResponseListener.s
+	@echo ... game/packetlistener/auth/PingListener.obj
+	@echo ... game/packetlistener/auth/PingListener.i
+	@echo ... game/packetlistener/auth/PingListener.s
 	@echo ... game/packetlistener/lobby/CreateLobbyResponseListener.obj
 	@echo ... game/packetlistener/lobby/CreateLobbyResponseListener.i
 	@echo ... game/packetlistener/lobby/CreateLobbyResponseListener.s
@@ -1541,9 +1571,6 @@ help:
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.obj
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.i
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.s
-	@echo ... game/packetlistener/misc/PingListener.obj
-	@echo ... game/packetlistener/misc/PingListener.i
-	@echo ... game/packetlistener/misc/PingListener.s
 	@echo ... game/util/RenderUtils.obj
 	@echo ... game/util/RenderUtils.i
 	@echo ... game/util/RenderUtils.s
@@ -1553,6 +1580,9 @@ help:
 	@echo ... game/util/TimeUtils.obj
 	@echo ... game/util/TimeUtils.i
 	@echo ... game/util/TimeUtils.s
+	@echo ... game/world/World.obj
+	@echo ... game/world/World.i
+	@echo ... game/world/World.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

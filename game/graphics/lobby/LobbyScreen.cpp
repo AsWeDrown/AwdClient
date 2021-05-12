@@ -160,17 +160,17 @@ namespace awd::game {
 
             text = StringUtils::encodeFormatting(text);
 
-            card->setHighlighted(isSelf);
-            card->setDisplayedCharacter(lobby->playerCharacters[playerId]);
-            card->setDisplayedText(text);
+            card->updateHighlighted(isSelf);
+            card->updateDisplayedCharacter(lobby->playerCharacters[playerId]);
+            card->updateDisplayedText(text);
 
             cardNum++;
         }
 
         while (cardNum <= 4) { // 4 персонажа (тут мы создаём местозаполнители, если нужно)
             auto card = playerCards[cardNum - 1];
-            card->setHighlighted(false);
-            card->setDisplayedCharacter(0);
+            card->updateHighlighted(false);
+            card->updateDisplayedCharacter(0);
             cardNum++;
         }
     }

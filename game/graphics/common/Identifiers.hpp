@@ -24,6 +24,7 @@ typedef unsigned long long id_type;
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #define ID_SCREEN                  (id_type) 1E+16L
+#define ID_WORLD                   (id_type) 1E+15L
 #define ID_LOADING_OVERLAY         (id_type) 1E+06L
 #define ID_DIALOG                  (id_type) 1E+05L
 #define ID_BUTTON                  (id_type) 1E+04L
@@ -77,8 +78,8 @@ typedef unsigned long long id_type;
 
 // MainMenu.LoadingOverlay
 
-#define ID_SCREEN_MAIN_MENU_LOADING_OVERLAY        ID_SCREEN_MAIN_MENU \
-                                                   + 1 * ID_LOADING_OVERLAY
+#define ID_SCREEN_MAIN_MENU_LOADING_OVERLAY        ID_SCREEN_MAIN_MENU  \
+                                                   +  1  *  ID_LOADING_OVERLAY
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -113,8 +114,8 @@ typedef unsigned long long id_type;
 
 // Lobby.LoadingOverlay
 
-#define ID_SCREEN_LOBBY_LOADING_OVERLAY        ID_SCREEN_LOBBY \
-                                               + 1 * ID_LOADING_OVERLAY
+#define ID_SCREEN_LOBBY_LOADING_OVERLAY        ID_SCREEN_LOBBY  \
+                                               +  1  *  ID_LOADING_OVERLAY
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -123,7 +124,10 @@ typedef unsigned long long id_type;
 *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#define ID_SCREEN_PLAY        3  *  ID_SCREEN
+#define ID_SCREEN_PLAY              3  *  ID_SCREEN
+
+#define ID_SCREEN_PLAY_WORLD        ID_SCREEN_PLAY \
+                                    +  1  * ID_WORLD
 
 
 #pragma clang diagnostic pop

@@ -8,7 +8,11 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    PlayScreen::PlayScreen() : Screen(ID_SCREEN_PLAY) {}
+    PlayScreen::PlayScreen() : Screen(ID_SCREEN_PLAY) {
+        // Мир.
+        world = std::make_shared<World>();
+        addComponent(world);
+    }
 
     void PlayScreen::keyPressed(const sf::Event::KeyEvent& event) {
         Screen::keyPressed(event);
@@ -28,6 +32,10 @@ namespace awd::game {
 
     std::shared_ptr<PlayScreenListener> PlayScreen::getListener() const {
         return listener;
+    }
+
+    std::shared_ptr<World> PlayScreen::getWorld() const {
+        return world;
     }
 
 }

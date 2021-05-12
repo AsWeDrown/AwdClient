@@ -65,7 +65,7 @@ namespace awd::game {
         }
     }
 
-    void PlayerCard::setHighlighted(bool isHighlighted) {
+    void PlayerCard::updateHighlighted(bool isHighlighted) {
         if (this->highlighted != isHighlighted) {
             this->highlighted = isHighlighted;
 
@@ -80,11 +80,7 @@ namespace awd::game {
         }
     }
 
-    uint32_t PlayerCard::getDisplayedCharacter() const {
-        return displayedCharacter;
-    }
-
-    void PlayerCard::setDisplayedCharacter(uint32_t character) {
+    void PlayerCard::updateDisplayedCharacter(uint32_t character) {
         if (this->displayedCharacter != character) {
             this->displayedCharacter = character;
 
@@ -141,7 +137,7 @@ namespace awd::game {
         }
     }
 
-    void PlayerCard::setDisplayedText(const std::wstring& text) {
+    void PlayerCard::updateDisplayedText(const std::wstring& text) {
         if (this->displayedText != text) {
             this->displayedText = text;
 

@@ -57,7 +57,7 @@ struct HandshakeRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HandshakeRequestDefaultTypeInternal _HandshakeRequest_default_instance_;
 constexpr HandshakeResponse::HandshakeResponse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : protocol_version_(0u){}
+  : protocol_version_(0){}
 struct HandshakeResponseDefaultTypeInternal {
   constexpr HandshakeResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -496,7 +496,7 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   "_id\030\001 \001(\r\022\013\n\003rtt\030\002 \001(\r\"\027\n\004Pong\022\017\n\007test_i"
   "d\030\001 \001(\r\",\n\020HandshakeRequest\022\030\n\020protocol_"
   "version\030\001 \001(\r\"-\n\021HandshakeResponse\022\030\n\020pr"
-  "otocol_version\030\001 \001(\r\")\n\022CreateLobbyReque"
+  "otocol_version\030\001 \001(\021\")\n\022CreateLobbyReque"
   "st\022\023\n\013player_name\030\001 \001(\t\"M\n\023CreateLobbyRe"
   "sponse\022\020\n\010lobby_id\030\001 \001(\021\022\021\n\tplayer_id\030\002 "
   "\001(\r\022\021\n\tcharacter\030\003 \001(\r\"9\n\020JoinLobbyReque"
@@ -1190,7 +1190,7 @@ HandshakeResponse::HandshakeResponse(const HandshakeResponse& from)
 }
 
 void HandshakeResponse::SharedCtor() {
-protocol_version_ = 0u;
+protocol_version_ = 0;
 }
 
 HandshakeResponse::~HandshakeResponse() {
@@ -1219,7 +1219,7 @@ void HandshakeResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  protocol_version_ = 0u;
+  protocol_version_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1230,10 +1230,10 @@ const char* HandshakeResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint32 protocol_version = 1;
+      // sint32 protocol_version = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          protocol_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          protocol_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1265,10 +1265,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 protocol_version = 1;
+  // sint32 protocol_version = 1;
   if (this->protocol_version() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_protocol_version(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteSInt32ToArray(1, this->_internal_protocol_version(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1287,10 +1287,10 @@ size_t HandshakeResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 protocol_version = 1;
+  // sint32 protocol_version = 1;
   if (this->protocol_version() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SInt32Size(
         this->_internal_protocol_version());
   }
 

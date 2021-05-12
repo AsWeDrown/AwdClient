@@ -685,13 +685,13 @@ class HandshakeResponse PROTOBUF_FINAL :
   enum : int {
     kProtocolVersionFieldNumber = 1,
   };
-  // uint32 protocol_version = 1;
+  // sint32 protocol_version = 1;
   void clear_protocol_version();
-  ::PROTOBUF_NAMESPACE_ID::uint32 protocol_version() const;
-  void set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 protocol_version() const;
+  void set_protocol_version(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_protocol_version() const;
-  void _internal_set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_protocol_version() const;
+  void _internal_set_protocol_version(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:awd.net.HandshakeResponse)
@@ -701,7 +701,7 @@ class HandshakeResponse PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 protocol_version_;
+  ::PROTOBUF_NAMESPACE_ID::int32 protocol_version_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -3161,22 +3161,22 @@ inline void HandshakeRequest::set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint
 
 // HandshakeResponse
 
-// uint32 protocol_version = 1;
+// sint32 protocol_version = 1;
 inline void HandshakeResponse::clear_protocol_version() {
-  protocol_version_ = 0u;
+  protocol_version_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 HandshakeResponse::_internal_protocol_version() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 HandshakeResponse::_internal_protocol_version() const {
   return protocol_version_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 HandshakeResponse::protocol_version() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 HandshakeResponse::protocol_version() const {
   // @@protoc_insertion_point(field_get:awd.net.HandshakeResponse.protocol_version)
   return _internal_protocol_version();
 }
-inline void HandshakeResponse::_internal_set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void HandshakeResponse::_internal_set_protocol_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   protocol_version_ = value;
 }
-inline void HandshakeResponse::set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void HandshakeResponse::set_protocol_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_protocol_version(value);
   // @@protoc_insertion_point(field_set:awd.net.HandshakeResponse.protocol_version)
 }

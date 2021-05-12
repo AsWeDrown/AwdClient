@@ -160,9 +160,7 @@ namespace awd::net {
     }
 
     NetworkHandle::NetworkHandle(const std::shared_ptr<UdpClient>& udpClient) {
-        std::wcerr << L"NetworkHandle <init> : udpClient null = " << (udpClient == nullptr) << std::endl;
         this->udpClient = udpClient;
-        std::wcerr << L"NetworkHandle <init> : this->udpClient null = " << (this->udpClient == nullptr) << std::endl;
     }
 
     float NetworkHandle::getPacketLossPercent() const {

@@ -11,7 +11,7 @@ namespace awd::game {
         uint32_t fontSize;
         bool highlighted = false;
 
-        uint32_t displayedCharacter = 9999; // 9999 --> не рисуем ничего вообще; нужно исп. setDisplayedCharacter
+        uint32_t displayedCharacter = 9999; // 9999 --> не рисуем ничего вообще; нужно исп. updateDisplayedCharacter
         std::wstring displayedText;
 
         std::unique_ptr<sf::RectangleShape> cardRect        = nullptr;
@@ -32,10 +32,9 @@ namespace awd::game {
         void update() override;
         void draw() override;
 
-        void setHighlighted(bool isHighlighted);
-        uint32_t getDisplayedCharacter() const;
-        void setDisplayedCharacter(uint32_t character);
-        void setDisplayedText(const std::wstring& text);
+        void updateHighlighted(bool isHighlighted);
+        void updateDisplayedCharacter(uint32_t character);
+        void updateDisplayedText(const std::wstring& text);
     };
 
 }
