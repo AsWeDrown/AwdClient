@@ -16,8 +16,6 @@ namespace awd::game {
 
     public:
         LoadingOverlay(id_type id,
-                       float renderScale,
-                       const std::shared_ptr<sf::RenderWindow>& window,
                        const std::wstring& message);
 
         void update() override;

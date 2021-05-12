@@ -35,15 +35,13 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     TextField::TextField(id_type id,
-                         float renderScale,
-                         const std::shared_ptr<sf::RenderWindow>& window,
                          float x, float y,
                          float width, float height,
                          uint32_t maxContentsLen,
                          const std::wstring& hintText,
                          const std::wstring& initialContents,
                          const std::shared_ptr<TextFieldListener>& listener)
-                         : Drawable(id, renderScale, window) {
+                         : Drawable(id) {
         this->x      = x;
         this->y      = y;
         this->width  = width;

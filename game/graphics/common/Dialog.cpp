@@ -17,16 +17,14 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     Dialog::Dialog(id_type id,
-                   float renderScale,
-                   const std::shared_ptr<sf::RenderWindow>& window,
                    const std::shared_ptr<DialogListener>& listener)
-                   : Drawable(id, renderScale, window) {
+                   : Drawable(id) {
         this->listener = listener;
 
         width        = DIALOG_WIDTH  * renderScale;
         height       = DIALOG_HEIGHT * renderScale;
-        x            = window->getSize().x / 2.0f - width  / 2.0f;
-        finalY       = window->getSize().y / 2.0f - height / 2.0f;
+        x            = window->getSize().x / 2.0f - width  / 2.0f; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        finalY       = window->getSize().y / 2.0f - height / 2.0f; // NOLINT(cppcoreguidelines-narrowing-conversions)
         y = initialY = finalY * INITIAL_Y_SHIFT_FACTOR;
         moveStep     = (finalY - initialY) / MAX_EFFECTIVE_EXISTED_TICKS;
 

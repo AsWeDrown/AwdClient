@@ -52,8 +52,7 @@ namespace awd::game {
         if (response->status_code() == 1) {
             // Успешный выход.
             Game::instance().setCurrentLobby(nullptr);
-            Game::instance().setCurrentScreen(std::make_shared
-                    <MainMenuScreen>(lobbyScreen->getRenderScale(), lobbyScreen->getWindow()));
+            Game::instance().setCurrentScreen(std::make_shared<MainMenuScreen>());
         } else
             // Ошибка.
             lobbyScreen->showErrorDialog(
@@ -63,12 +62,10 @@ namespace awd::game {
 
     void LobbyScreenListener::kickedFromLobby(Drawable* lobbyDrawable,
                                               const std::shared_ptr<net::KickedFromLobby>& kick) {
-        auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
         auto currentLobby = Game::instance().getCurrentLobby();
 
         if (currentLobby != nullptr) {
-            auto mainMenuScreen = std::make_shared<MainMenuScreen>(
-                    lobbyScreen->getRenderScale(), lobbyScreen->getWindow());
+            auto mainMenuScreen = std::make_shared<MainMenuScreen>();
 
             Game::instance().setCurrentScreen(mainMenuScreen);
             Game::instance().setCurrentLobby(nullptr);

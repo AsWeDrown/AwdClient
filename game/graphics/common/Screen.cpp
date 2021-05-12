@@ -20,10 +20,21 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    Screen::Screen(id_type id,
-                   float renderScale,
-                   const std::shared_ptr<sf::RenderWindow>& window)
-                   : Drawable(id, renderScale, window) {}
+    Screen::Screen(id_type id)
+                   : Drawable(id) {
+        this->x      = 0.0f;
+        this->y      = 0.0f;
+        this->width  = window->getSize().x; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        this->height = window->getSize().y; // NOLINT(cppcoreguidelines-narrowing-conversions)
+    }
+
+    void Screen::keyPressed(const sf::Event::KeyEvent& event) {
+        Drawable::keyPressed(event);
+    }
+
+    void Screen::mousePressed(const sf::Event::MouseButtonEvent& event) {
+        Drawable::mousePressed(event);
+    }
 
     void Screen::update() {
         Drawable::update();

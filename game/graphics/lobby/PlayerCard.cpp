@@ -22,13 +22,11 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     PlayerCard::PlayerCard(id_type id,
-                           float renderScale,
-                           const std::shared_ptr<sf::RenderWindow>& window,
                            float x, float y,
                            float width, float height,
                            const std::shared_ptr<ButtonListener>& listener,
                            uint32_t fontSize)
-                           : Button(id, renderScale, window, listener) {
+                           : Button(id, listener) {
         this->x        = x;
         this->y        = y;
         this->width    = width;

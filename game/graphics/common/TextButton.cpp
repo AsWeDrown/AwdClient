@@ -26,14 +26,12 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     TextButton::TextButton(id_type id,
-                           float renderScale,
-                           const std::shared_ptr<sf::RenderWindow>& window,
                            const std::wstring& text,
                            float x, float y,
                            float width, float height,
                            uint32_t fontSize,
                            const std::shared_ptr<ButtonListener>& listener)
-                           : Button(id, renderScale, window, listener) {
+                           : Button(id, listener) {
         this->x      = x;
         this->y      = y;
         this->width  = width;

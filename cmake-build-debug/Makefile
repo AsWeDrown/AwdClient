@@ -214,6 +214,87 @@ game/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.s
 .PHONY : game/Game.cpp.s
 
+game/entity/Entity.obj: game/entity/Entity.cpp.obj
+
+.PHONY : game/entity/Entity.obj
+
+# target to build an object file
+game/entity/Entity.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj
+.PHONY : game/entity/Entity.cpp.obj
+
+game/entity/Entity.i: game/entity/Entity.cpp.i
+
+.PHONY : game/entity/Entity.i
+
+# target to preprocess a source file
+game/entity/Entity.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.i
+.PHONY : game/entity/Entity.cpp.i
+
+game/entity/Entity.s: game/entity/Entity.cpp.s
+
+.PHONY : game/entity/Entity.s
+
+# target to generate assembly for a file
+game/entity/Entity.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.s
+.PHONY : game/entity/Entity.cpp.s
+
+game/entity/EntityPlayer.obj: game/entity/EntityPlayer.cpp.obj
+
+.PHONY : game/entity/EntityPlayer.obj
+
+# target to build an object file
+game/entity/EntityPlayer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj
+.PHONY : game/entity/EntityPlayer.cpp.obj
+
+game/entity/EntityPlayer.i: game/entity/EntityPlayer.cpp.i
+
+.PHONY : game/entity/EntityPlayer.i
+
+# target to preprocess a source file
+game/entity/EntityPlayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.i
+.PHONY : game/entity/EntityPlayer.cpp.i
+
+game/entity/EntityPlayer.s: game/entity/EntityPlayer.cpp.s
+
+.PHONY : game/entity/EntityPlayer.s
+
+# target to generate assembly for a file
+game/entity/EntityPlayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.s
+.PHONY : game/entity/EntityPlayer.cpp.s
+
+game/entity/LivingEntity.obj: game/entity/LivingEntity.cpp.obj
+
+.PHONY : game/entity/LivingEntity.obj
+
+# target to build an object file
+game/entity/LivingEntity.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.obj
+.PHONY : game/entity/LivingEntity.cpp.obj
+
+game/entity/LivingEntity.i: game/entity/LivingEntity.cpp.i
+
+.PHONY : game/entity/LivingEntity.i
+
+# target to preprocess a source file
+game/entity/LivingEntity.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.i
+.PHONY : game/entity/LivingEntity.cpp.i
+
+game/entity/LivingEntity.s: game/entity/LivingEntity.cpp.s
+
+.PHONY : game/entity/LivingEntity.s
+
+# target to generate assembly for a file
+game/entity/LivingEntity.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.s
+.PHONY : game/entity/LivingEntity.cpp.s
+
 game/graphics/common/Button.obj: game/graphics/common/Button.cpp.obj
 
 .PHONY : game/graphics/common/Button.obj
@@ -781,6 +862,60 @@ game/graphics/mainmenu/MainMenuScreenListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.s
 .PHONY : game/graphics/mainmenu/MainMenuScreenListener.cpp.s
 
+game/graphics/play/PlayScreen.obj: game/graphics/play/PlayScreen.cpp.obj
+
+.PHONY : game/graphics/play/PlayScreen.obj
+
+# target to build an object file
+game/graphics/play/PlayScreen.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj
+.PHONY : game/graphics/play/PlayScreen.cpp.obj
+
+game/graphics/play/PlayScreen.i: game/graphics/play/PlayScreen.cpp.i
+
+.PHONY : game/graphics/play/PlayScreen.i
+
+# target to preprocess a source file
+game/graphics/play/PlayScreen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.i
+.PHONY : game/graphics/play/PlayScreen.cpp.i
+
+game/graphics/play/PlayScreen.s: game/graphics/play/PlayScreen.cpp.s
+
+.PHONY : game/graphics/play/PlayScreen.s
+
+# target to generate assembly for a file
+game/graphics/play/PlayScreen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.s
+.PHONY : game/graphics/play/PlayScreen.cpp.s
+
+game/graphics/play/PlayScreenListener.obj: game/graphics/play/PlayScreenListener.cpp.obj
+
+.PHONY : game/graphics/play/PlayScreenListener.obj
+
+# target to build an object file
+game/graphics/play/PlayScreenListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreenListener.cpp.obj
+.PHONY : game/graphics/play/PlayScreenListener.cpp.obj
+
+game/graphics/play/PlayScreenListener.i: game/graphics/play/PlayScreenListener.cpp.i
+
+.PHONY : game/graphics/play/PlayScreenListener.i
+
+# target to preprocess a source file
+game/graphics/play/PlayScreenListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreenListener.cpp.i
+.PHONY : game/graphics/play/PlayScreenListener.cpp.i
+
+game/graphics/play/PlayScreenListener.s: game/graphics/play/PlayScreenListener.cpp.s
+
+.PHONY : game/graphics/play/PlayScreenListener.s
+
+# target to generate assembly for a file
+game/graphics/play/PlayScreenListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreenListener.cpp.s
+.PHONY : game/graphics/play/PlayScreenListener.cpp.s
+
 game/packetlistener/auth/HandshakeResponseListener.obj: game/packetlistener/auth/HandshakeResponseListener.cpp.obj
 
 .PHONY : game/packetlistener/auth/HandshakeResponseListener.obj
@@ -1310,6 +1445,15 @@ help:
 	@echo ... game/Game.obj
 	@echo ... game/Game.i
 	@echo ... game/Game.s
+	@echo ... game/entity/Entity.obj
+	@echo ... game/entity/Entity.i
+	@echo ... game/entity/Entity.s
+	@echo ... game/entity/EntityPlayer.obj
+	@echo ... game/entity/EntityPlayer.i
+	@echo ... game/entity/EntityPlayer.s
+	@echo ... game/entity/LivingEntity.obj
+	@echo ... game/entity/LivingEntity.i
+	@echo ... game/entity/LivingEntity.s
 	@echo ... game/graphics/common/Button.obj
 	@echo ... game/graphics/common/Button.i
 	@echo ... game/graphics/common/Button.s
@@ -1373,6 +1517,12 @@ help:
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.obj
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.i
 	@echo ... game/graphics/mainmenu/MainMenuScreenListener.s
+	@echo ... game/graphics/play/PlayScreen.obj
+	@echo ... game/graphics/play/PlayScreen.i
+	@echo ... game/graphics/play/PlayScreen.s
+	@echo ... game/graphics/play/PlayScreenListener.obj
+	@echo ... game/graphics/play/PlayScreenListener.i
+	@echo ... game/graphics/play/PlayScreenListener.s
 	@echo ... game/packetlistener/auth/HandshakeResponseListener.obj
 	@echo ... game/packetlistener/auth/HandshakeResponseListener.i
 	@echo ... game/packetlistener/auth/HandshakeResponseListener.s

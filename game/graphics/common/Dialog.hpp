@@ -24,8 +24,6 @@ namespace awd::game {
 
     public:
         Dialog(id_type id,
-               float renderScale,
-               const std::shared_ptr<sf::RenderWindow>& window,
                const std::shared_ptr<DialogListener>& listener);
 
         void onRegister() override;

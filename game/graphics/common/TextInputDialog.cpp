@@ -41,7 +41,7 @@ namespace awd::game {
         textFieldY         = y + tfTopMargin;
 
         auto textField = std::make_shared<TextField>(
-                textFieldId, renderScale, window,
+                textFieldId,
                 x + tfLeftMargin, textFieldY, tfWidth, textFieldHeight,
                 maxInputLen, hintText, initialInput, textFieldListener);
 
@@ -60,15 +60,15 @@ namespace awd::game {
         // Back
         float bX = x + bLeftMargin;
         auto btnNext = std::make_shared<TextButton>(
-                btnNextId, renderScale, window,
-                L"Далее", bX, buttonsY, bWidth, bHeight, bFontSize, btnNextListener);
+                btnNextId, L"Далее",
+                bX, buttonsY, bWidth, bHeight, bFontSize, btnNextListener);
         enqueueAddChild(btnNext);
 
         // Back
         bX += bWidth + bHorizMargin;
         auto btnBack = std::make_shared<TextButton>(
-                btnBackId, renderScale, window,
-                L"Назад", bX, buttonsY, bWidth, bHeight, bFontSize, btnBackListener);
+                btnBackId, L"Назад",
+                bX, buttonsY, bWidth, bHeight, bFontSize, btnBackListener);
         enqueueAddChild(btnBack);
     }
 
@@ -79,8 +79,6 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     TextInputDialog::TextInputDialog(id_type id,
-                                     float renderScale,
-                                     const std::shared_ptr<sf::RenderWindow>& window,
                                      const std::shared_ptr<DialogListener>& dialogListener,
                                      const std::wstring& message,
                                      id_type textFieldId,
@@ -92,7 +90,7 @@ namespace awd::game {
                                      const std::shared_ptr<ButtonListener>& btnNextListener,
                                      id_type btnBackId,
                                      const std::shared_ptr<ButtonListener>& btnBackListener)
-                                     : Dialog(id, renderScale, window, dialogListener) {
+                                     : Dialog(id, dialogListener) {
         this->textFieldId = textFieldId;
         this->textFieldListener = textFieldListener;
         this->maxInputLen = maxInputLen;

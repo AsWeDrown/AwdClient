@@ -22,8 +22,7 @@ namespace awd::game {
         void createPlayerCards();
 
     public:
-        LobbyScreen(float renderScale,
-                    const std::shared_ptr<sf::RenderWindow>& window);
+        LobbyScreen();
 
         void update() override;
         void draw() override;

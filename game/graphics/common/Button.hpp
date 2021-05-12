@@ -13,8 +13,6 @@ namespace awd::game {
 
     public:
         Button(id_type id,
-               float renderScale,
-               const std::shared_ptr<sf::RenderWindow>& window,
                const std::shared_ptr<ButtonListener>& listener);
 
         void update() override;

@@ -24,10 +24,10 @@ typedef unsigned long long id_type;
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #define ID_SCREEN                  (id_type) 1E+16L
-#define ID_LOADING_OVERLAY         (id_type) 1E+14L
-#define ID_DIALOG                  (id_type) 1E+12L
-#define ID_BUTTON                  (id_type) 1E+06L
-#define ID_TEXT_FIELD              (id_type) 1E+04L
+#define ID_LOADING_OVERLAY         (id_type) 1E+06L
+#define ID_DIALOG                  (id_type) 1E+05L
+#define ID_BUTTON                  (id_type) 1E+04L
+#define ID_TEXT_FIELD              (id_type) 1E+03L
 #define ID_WATER_BACKGROUND        (id_type) 1E+02L
 #define ID_OTHER                   (id_type) 1E+00L
 
@@ -115,5 +115,15 @@ typedef unsigned long long id_type;
 
 #define ID_SCREEN_LOBBY_LOADING_OVERLAY        ID_SCREEN_LOBBY \
                                                + 1 * ID_LOADING_OVERLAY
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+*   Play Screen
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#define ID_SCREEN_PLAY        3  *  ID_SCREEN
+
 
 #pragma clang diagnostic pop

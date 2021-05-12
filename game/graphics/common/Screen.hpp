@@ -17,10 +17,10 @@ namespace awd::game {
         void addComponent(const std::shared_ptr<Drawable>& component);
 
     public:
-        Screen(id_type id,
-               float renderScale,
-               const std::shared_ptr<sf::RenderWindow>& window);
+        explicit Screen(id_type id);
 
+        void keyPressed(const sf::Event::KeyEvent& event) override;
+        void mousePressed(const sf::Event::MouseButtonEvent& event) override;
         void update() override;
         void draw() override;
 

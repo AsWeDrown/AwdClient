@@ -29,13 +29,11 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     ErrorDialog::ErrorDialog(id_type id,
-                             float renderScale,
-                             const std::shared_ptr<sf::RenderWindow>& window,
                              const std::shared_ptr<DialogListener>& dialogListener,
                              const std::wstring& message,
                              id_type btnOkId,
                              const std::shared_ptr<ButtonListener>& btnOkListener)
-                             : Dialog(id, renderScale, window, dialogListener) {
+                             : Dialog(id, dialogListener) {
         this->btnOkId = btnOkId;
 
         // Кнопка "ОК".
@@ -48,8 +46,8 @@ namespace awd::game {
         float    bY            = finalY + height - bHeight - bBottomMargin;
 
         auto btnOk = std::make_shared<TextButton>(
-                btnOkId, renderScale, window,
-                L"ОК", bX, bY, bWidth, bHeight, bFontSize, btnOkListener);
+                btnOkId, L"ОК",
+                bX, bY, bWidth, bHeight, bFontSize, btnOkListener);
         enqueueAddChild(btnOk);
 
         // Разделительная линия над кнопками.

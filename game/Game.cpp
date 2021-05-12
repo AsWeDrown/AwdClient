@@ -76,15 +76,15 @@ namespace awd::game {
         window = std::make_shared<sf::RenderWindow>(
                 bestVideoMode, "As We Drown"/*, sf::Style::Fullscreen*/);
 
-        float renderScale = std::min((float) bestVideoMode.width  / BASE_SCREEN_WIDTH,
-                                     (float) bestVideoMode.height / BASE_SCREEN_HEIGHT);
+        renderScale = std::min((float) bestVideoMode.width  / BASE_SCREEN_WIDTH,
+                               (float) bestVideoMode.height / BASE_SCREEN_HEIGHT);
 
         std::wcout << L"Video mode: " << bestVideoMode.width << L"x" << bestVideoMode.height
                   << L" (" << bestVideoMode.bitsPerPixel << L" bits per pixel)" << std::endl;
         std::wcout << L"Render scale: " << renderScale << std::endl;
 
         currentState = GameState::LOBBY;
-        currentScreen = std::make_shared<MainMenuScreen>(renderScale, window);
+        currentScreen = std::make_shared<MainMenuScreen>();
 
         uint32_t tickDelay = std::chrono::milliseconds(1000 / GAME_TPS).count();
         sf::Clock tickClock;
@@ -106,12 +106,24 @@ namespace awd::game {
                     window->close();
                     break;
 
+                case sf::Event::LostFocus:
+                    gameWindowFocused = false;
+                    break;
+
+                case sf::Event::GainedFocus:
+                    gameWindowFocused = true;
+                    break;
+
                 case sf::Event::KeyPressed:
-                    currentScreen->keyPressed(event.key);
+                    if (gameWindowFocused)
+                        currentScreen->keyPressed(event.key);
+
                     break;
 
                 case sf::Event::MouseButtonPressed:
-                    currentScreen->mousePressed(event.mouseButton);
+                    if (gameWindowFocused)
+                        currentScreen->mousePressed(event.mouseButton);
+
                     break;
             }
         }
@@ -130,6 +142,7 @@ namespace awd::game {
 
     void Game::update() {
         if (++currentTick == 1)
+            // Элементы загрузки, которые выполняются после отображения главного меню (например, соединение).
             postScreenLoad();
 
         flushPackets();
@@ -258,6 +271,14 @@ namespace awd::game {
 
     uint32_t Game::getCurrentState() const {
         return currentState;
+    }
+
+    float Game::getRenderScale() const {
+        return renderScale;
+    }
+
+    std::shared_ptr<sf::RenderWindow> Game::getWindow() const {
+        return window;
     }
 
     std::shared_ptr<Screen> Game::getCurrentScreen() const {

@@ -16,8 +16,6 @@ namespace awd::game {
 
     public:
         ErrorDialog(id_type id,
-                    float renderScale,
-                    const std::shared_ptr<sf::RenderWindow>& window,
                     const std::shared_ptr<DialogListener>& dialogListener,
                     const std::wstring& message,
                     id_type btnOkId,

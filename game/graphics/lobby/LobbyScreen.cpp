@@ -45,23 +45,23 @@ namespace awd::game {
         // LeaveLobby
         float bX = bLeftMargin;
         auto btnLeaveLobby = std::make_shared<TextButton>(
-                ID_SCREEN_LOBBY_BUTTON_LEAVE_LOBBY, renderScale, window,
-                L"Покинуть комнату", bX, buttonsY, bWidth, bHeight, bFontSize, listener);
+                ID_SCREEN_LOBBY_BUTTON_LEAVE_LOBBY, L"Покинуть комнату",
+                bX, buttonsY, bWidth, bHeight, bFontSize, listener);
         addComponent(btnLeaveLobby);
 
         if (isHost) {
             // NewGame
             bX += bWidth + bHorizMargin;
             auto btnNewGame = std::make_shared<TextButton>(
-                    ID_SCREEN_LOBBY_BUTTON_NEW_GAME, renderScale, window,
-                    L"Новая игра", bX, buttonsY, bWidth, bHeight, bFontSize, listener);
+                    ID_SCREEN_LOBBY_BUTTON_NEW_GAME, L"Новая игра",
+                    bX, buttonsY, bWidth, bHeight, bFontSize, listener);
             addComponent(btnNewGame);
 
             // LoadGame
             bX += bWidth + bHorizMargin;
             auto btnLoadGame = std::make_shared<TextButton>(
-                    ID_SCREEN_LOBBY_BUTTON_LOAD_GAME, renderScale, window,
-                    L"Загрузить игру", bX, buttonsY, bWidth, bHeight, bFontSize, listener);
+                    ID_SCREEN_LOBBY_BUTTON_LOAD_GAME, L"Загрузить игру",
+                    bX, buttonsY, bWidth, bHeight, bFontSize, listener);
             addComponent(btnLoadGame);
         }
     }
@@ -80,7 +80,6 @@ namespace awd::game {
 
             auto card = std::make_shared<PlayerCard>(
                     cardId,
-                    renderScale, window,
                     cardX, cardY,
                     cardWidth, cardHeight,
                     listener, cardFontSize
@@ -98,19 +97,11 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    LobbyScreen::LobbyScreen(float renderScale,
-                             const std::shared_ptr<sf::RenderWindow>& window)
-                             : Screen(ID_SCREEN_LOBBY, renderScale, window) {
-        x      = 0.0f;
-        y      = 0.0f;
-        width  = window->getSize().x;
-        height = window->getSize().y;
-
+    LobbyScreen::LobbyScreen() : Screen(ID_SCREEN_LOBBY) {
         auto lobby = Game::instance().getCurrentLobby();
 
         // Фон
-        addChild(std::make_shared<WaterBackground>(
-                ID_SCREEN_LOBBY_WATER_BACKGROUND, renderScale, window));
+        addChild(std::make_shared<WaterBackground>(ID_SCREEN_LOBBY_WATER_BACKGROUND));
 
         // Кнопки
         createButtons(lobby->ownPlayerId == lobby->hostId);
@@ -198,8 +189,7 @@ namespace awd::game {
     void LobbyScreen::showLoadingOverlay(const std::wstring& loadingMessage,
                                          uint32_t timeoutMillis) {
         auto loadingOverlay = std::make_shared<LoadingOverlay>(
-                ID_SCREEN_LOBBY_LOADING_OVERLAY,
-                renderScale, window, loadingMessage);
+                ID_SCREEN_LOBBY_LOADING_OVERLAY, loadingMessage);
 
         Screen::showLoadingOverlay(loadingOverlay);
 
@@ -224,8 +214,6 @@ namespace awd::game {
 
                     auto dialog = std::make_shared<ErrorDialog>(
                             ID_SCREEN_LOBBY_DIALOG_ERROR,
-                            renderScale,
-                            window,
                             listener,
                             L"{RED}{BOLD}Ошибка: "
                             L"{RESET}{GRAY}истекло максимальное допустимое время ожидания. "
@@ -245,8 +233,6 @@ namespace awd::game {
     void LobbyScreen::showErrorDialog(const std::wstring& message) {
         auto dialog = std::make_shared<ErrorDialog>(
                 ID_SCREEN_LOBBY_DIALOG_ERROR,
-                renderScale,
-                window,
                 listener,
                 message,
                 ID_SCREEN_LOBBY_DIALOG_ERROR_BUTTON_OK,

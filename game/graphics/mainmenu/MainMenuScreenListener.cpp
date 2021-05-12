@@ -26,8 +26,6 @@ namespace awd::game {
         auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
         auto dialog = std::make_shared<TextInputDialog>(
                 ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT,
-                mainMenu->getRenderScale(),
-                mainMenu->getWindow(),
                 mainMenu->getListener(),
                 L"{GRAY}Под этим именем вас будут видеть все другие игроки в комнате. "
                 L"Имя может состоять из {WHITE}латинских букв, цифр и символа подчёркивания{GRAY}.",
@@ -49,8 +47,6 @@ namespace awd::game {
         auto* mainMenu = (MainMenuScreen*) mainMenuScreen;
         auto dialog = std::make_shared<TextInputDialog>(
                 ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT,
-                mainMenu->getRenderScale(),
-                mainMenu->getWindow(),
                 mainMenu->getListener(),
                 L"{GRAY}Этот идентификатор вам должен был сообщить создатель комнаты.",
                 ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_TEXT_FIELD,
@@ -229,8 +225,7 @@ namespace awd::game {
             lobby->playerCharacters[response->player_id()] = response->character();
 
             Game::instance().setCurrentLobby(lobby);
-            Game::instance().setCurrentScreen(std::make_shared
-                    <LobbyScreen>(mainMenu->getRenderScale(), mainMenu->getWindow()));
+            Game::instance().setCurrentScreen(std::make_shared<LobbyScreen>());
         }
     }
 
@@ -301,8 +296,7 @@ namespace awd::game {
                 lobby->playerCharacters[otherPlayerId] = otherPlayerCharacter;
 
             Game::instance().setCurrentLobby(lobby);
-            Game::instance().setCurrentScreen(std::make_shared
-                    <LobbyScreen>(mainMenu->getRenderScale(), mainMenu->getWindow()));
+            Game::instance().setCurrentScreen(std::make_shared<LobbyScreen>());
         }
     }
 

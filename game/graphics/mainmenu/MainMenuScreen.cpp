@@ -41,22 +41,22 @@ namespace awd::game {
         // QuitGame
         float bY = height - bMargin - bHeight - bExtraMargin;
         auto btnQuitGame = std::make_shared<MainMenuButton>(
-                ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME, renderScale, window,
-                L"Выйти из игры", bX, bY, bWidth, bHeight, listener);
+                ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME, L"Выйти из игры",
+                bX, bY, bWidth, bHeight, listener);
         addComponent(btnQuitGame);
 
         // JoinLobby
         bY -= bMargin + bHeight;
         auto btnJoinLobby = std::make_shared<MainMenuButton>(
-                ID_SCREEN_MAIN_MENU_BUTTON_JOIN_LOBBY, renderScale, window,
-                L"Присоединиться к комнате", bX, bY, bWidth, bHeight, listener);
+                ID_SCREEN_MAIN_MENU_BUTTON_JOIN_LOBBY, L"Присоединиться к комнате",
+                bX, bY, bWidth, bHeight, listener);
         addComponent(btnJoinLobby);
 
         // CreateLobby
         bY -= bMargin + bHeight;
         auto btnCreateLobby = std::make_shared<MainMenuButton>(
-                ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY, renderScale, window,
-                L"Создать комнату", bX, bY, bWidth, bHeight, listener);
+                ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY, L"Создать комнату",
+                bX, bY, bWidth, bHeight, listener);
         addComponent(btnCreateLobby);
 
         // Нужно для размещения логотипа
@@ -70,17 +70,9 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    MainMenuScreen::MainMenuScreen(float renderScale,
-                                   const std::shared_ptr<sf::RenderWindow>& window)
-                                   : Screen(ID_SCREEN_MAIN_MENU, renderScale, window) {
-        x      = 0.0f;
-        y      = 0.0f;
-        width  = window->getSize().x;
-        height = window->getSize().y;
-
+    MainMenuScreen::MainMenuScreen() : Screen(ID_SCREEN_MAIN_MENU) {
         // Фон
-        addChild(std::make_shared<WaterBackground>(
-                ID_SCREEN_MAIN_MENU_WATER_BACKGROUND, renderScale, window));
+        addChild(std::make_shared<WaterBackground>(ID_SCREEN_MAIN_MENU_WATER_BACKGROUND));
 
         // Кнопки
         createButtons();
@@ -130,8 +122,7 @@ namespace awd::game {
     void MainMenuScreen::showLoadingOverlay(const std::wstring& loadingMessage,
                                             uint32_t timeoutMillis) {
         auto loadingOverlay = std::make_shared<LoadingOverlay>(
-                ID_SCREEN_MAIN_MENU_LOADING_OVERLAY,
-                renderScale, window, loadingMessage);
+                ID_SCREEN_MAIN_MENU_LOADING_OVERLAY, loadingMessage);
 
         Screen::showLoadingOverlay(loadingOverlay);
 
@@ -156,8 +147,6 @@ namespace awd::game {
 
                     auto dialog = std::make_shared<ErrorDialog>(
                             ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
-                            renderScale,
-                            window,
                             listener,
                             L"{RED}{BOLD}Ошибка: "
                             L"{RESET}{GRAY}истекло максимальное допустимое время ожидания. "
@@ -177,8 +166,6 @@ namespace awd::game {
     void MainMenuScreen::showErrorDialog(const std::wstring& message) {
         auto dialog = std::make_shared<ErrorDialog>(
                 ID_SCREEN_MAIN_MENU_DIALOG_ERROR,
-                renderScale,
-                window,
                 listener,
                 message,
                 ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK,

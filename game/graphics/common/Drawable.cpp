@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Drawable.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 
@@ -117,15 +118,13 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    Drawable::Drawable(id_type id, // NOLINT(cppcoreguidelines-pro-type-member-init)
-                       float renderScale,
-                       const std::shared_ptr<sf::RenderWindow>& window) {
+    Drawable::Drawable(id_type id) { // NOLINT(cppcoreguidelines-pro-type-member-init)
         std::unique_lock<std::recursive_mutex> lock(mutex);
 
         // Инициализируем самые базовые (основные, обязательные) поля.
         this->id = id;
-        this->renderScale = renderScale;
-        this->window = window;
+        this->renderScale = Game::instance().getRenderScale();
+        this->window = Game::instance().getWindow();
     }
 
     Drawable::~Drawable() {

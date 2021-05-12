@@ -28,10 +28,13 @@ namespace awd::game {
         std::shared_ptr<net::NetworkService> netService        = nullptr;
         uint32_t                             lastRtt           = 0;
 
+        bool gameWindowFocused = true;
+
         std::shared_ptr<Lobby> currentLobby             = nullptr;
         std::atomic<bool>      shuttingDown             = false;
         std::atomic<int>       currentState             = GameState::LOBBY;
 
+        float                             renderScale   = 0.0f;
         std::shared_ptr<sf::RenderWindow> window        = nullptr;
         std::shared_ptr<Screen>           currentScreen = nullptr;
 
@@ -77,8 +80,10 @@ namespace awd::game {
         void                   setCurrentLobby(const std::shared_ptr<Lobby>& lobby);
         uint32_t               getCurrentState() const;
 
-        std::shared_ptr<Screen> getCurrentScreen() const;
-        void                    setCurrentScreen(const std::shared_ptr<Screen>& screen);
+        float                             getRenderScale  () const;
+        std::shared_ptr<sf::RenderWindow> getWindow       () const;
+        std::shared_ptr<Screen>           getCurrentScreen() const;
+        void                              setCurrentScreen(const std::shared_ptr<Screen>& screen);
 
         // TODO переместить эти методы в какой-то утилити-класс
         static uint32_t randUInt(uint32_t min, uint32_t max);

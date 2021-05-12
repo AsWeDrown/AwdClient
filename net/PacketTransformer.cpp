@@ -112,7 +112,23 @@ namespace awd::net {
         wrapper.set_ack(ack);
         wrapper.set_ack_bitfield(ackBitfield);
 
-        if (auto* handshake_request = dynamic_cast<HandshakeRequest*>(packet)) {
+        if (auto* ping = dynamic_cast<Ping*>(packet)) {
+            wrapper.set_allocated_ping(ping);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_ping();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* pong = dynamic_cast<Pong*>(packet)) {
+            wrapper.set_allocated_pong(pong);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_pong();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* handshake_request = dynamic_cast<HandshakeRequest*>(packet)) {
             wrapper.set_allocated_handshake_request(handshake_request);
             size_t dataLen = wrapper.ByteSizeLong();
             std::shared_ptr<char[]> data(new char[dataLen]);
@@ -192,28 +208,28 @@ namespace awd::net {
             wrapper.release_updated_members_list();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
-        } else if (auto* keep_alive = dynamic_cast<KeepAlive*>(packet)) {
-            wrapper.set_allocated_keep_alive(keep_alive);
+        } else if (auto* spawn_player = dynamic_cast<SpawnPlayer*>(packet)) {
+            wrapper.set_allocated_spawn_player(spawn_player);
             size_t dataLen = wrapper.ByteSizeLong();
             std::shared_ptr<char[]> data(new char[dataLen]);
             wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
-            wrapper.release_keep_alive();
+            wrapper.release_spawn_player();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
-        } else if (auto* ping = dynamic_cast<Ping*>(packet)) {
-            wrapper.set_allocated_ping(ping);
+        } else if (auto* client_relative_move = dynamic_cast<ClientRelativeMove*>(packet)) {
+            wrapper.set_allocated_client_relative_move(client_relative_move);
             size_t dataLen = wrapper.ByteSizeLong();
             std::shared_ptr<char[]> data(new char[dataLen]);
             wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
-            wrapper.release_ping();
+            wrapper.release_client_relative_move();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
-        } else if (auto* pong = dynamic_cast<Pong*>(packet)) {
-            wrapper.set_allocated_pong(pong);
+        } else if (auto* update_entity_position = dynamic_cast<UpdateEntityPosition*>(packet)) {
+            wrapper.set_allocated_update_entity_position(update_entity_position);
             size_t dataLen = wrapper.ByteSizeLong();
             std::shared_ptr<char[]> data(new char[dataLen]);
             wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
-            wrapper.release_pong();
+            wrapper.release_update_entity_position();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
         } else
@@ -234,6 +250,16 @@ namespace awd::net {
         PacketWrapper::PacketCase packetType = wrapper.packet_case();
 
         switch (packetType) {
+            case PacketWrapper::PacketCase::kPing:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<Ping>(wrapper.ping()));
+
+            case PacketWrapper::PacketCase::kPong:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<Pong>(wrapper.pong()));
+
             case PacketWrapper::PacketCase::kHandshakeRequest:
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
@@ -284,20 +310,20 @@ namespace awd::net {
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<UpdatedMembersList>(wrapper.updated_members_list()));
 
-            case PacketWrapper::PacketCase::kKeepAlive:
+            case PacketWrapper::PacketCase::kSpawnPlayer:
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
-                        std::make_shared<KeepAlive>(wrapper.keep_alive()));
+                        std::make_shared<SpawnPlayer>(wrapper.spawn_player()));
 
-            case PacketWrapper::PacketCase::kPing:
+            case PacketWrapper::PacketCase::kClientRelativeMove:
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
-                        std::make_shared<Ping>(wrapper.ping()));
+                        std::make_shared<ClientRelativeMove>(wrapper.client_relative_move()));
 
-            case PacketWrapper::PacketCase::kPong:
+            case PacketWrapper::PacketCase::kUpdateEntityPosition:
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
-                        std::make_shared<Pong>(wrapper.pong()));
+                        std::make_shared<UpdateEntityPosition>(wrapper.update_entity_position()));
 
             default:
                 // Неизвестный пакет - он будет проигнорирован (не передан никакому PacketListener'у).

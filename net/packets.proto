@@ -40,34 +40,49 @@ option java_package = "gg.aswedrown.net";
 
 /*
 ---------------------------------------------------------------------------------------------------
+   ПРОТОКОЛООБРАЗУЮЩИЕ (PROTOCOL BASICS)
+---------------------------------------------------------------------------------------------------
+ */
+
+message Ping { // C <-- S
+  uint32 test_id = 1;
+  uint32 rtt     = 2;
+}
+
+message Pong { // C --> S
+  uint32 test_id = 1;
+}
+
+/*
+---------------------------------------------------------------------------------------------------
    ПРЕДЫГРОВОЙ ЭТАП (LOBBY STATE)
 ---------------------------------------------------------------------------------------------------
  */
 
-message HandshakeRequest {
+message HandshakeRequest { // C --> S
   uint32 protocol_version = 1;
 }
 
-message HandshakeResponse {
-  uint32 protocol_version = 1;
+message HandshakeResponse { // C <-- S
+  sint32 protocol_version = 1;
 }
 
-message CreateLobbyRequest {
+message CreateLobbyRequest { // C --> S
   string player_name = 1;
 }
 
-message CreateLobbyResponse {
+message CreateLobbyResponse { // C <-- S
   sint32 lobby_id  = 1;
   uint32 player_id = 2;
   uint32 character = 3;
 }
 
-message JoinLobbyRequest {
+message JoinLobbyRequest { // C --> S
   uint32 lobby_id    = 1;
   string player_name = 2;
 }
 
-message JoinLobbyResponse {
+message JoinLobbyResponse { // C <-- S
   sint32              player_id         = 1;
   uint32              character         = 2;
   uint32              host_id           = 3;
@@ -75,20 +90,20 @@ message JoinLobbyResponse {
   map<uint32, uint32> others_characters = 5;
 }
 
-message LeaveLobbyRequest {
+message LeaveLobbyRequest { // C --> S
   uint32 lobby_id  = 1;
   uint32 player_id = 2;
 }
 
-message LeaveLobbyResponse {
+message LeaveLobbyResponse { // C <-- S
   sint32 status_code = 1;
 }
 
-message KickedFromLobby {
+message KickedFromLobby { // C <-- S
   uint32 reason = 1;
 }
 
-message UpdatedMembersList {
+message UpdatedMembersList { // C <-- S
   map<uint32, string> new_all_names      = 1;
   map<uint32, uint32> new_all_characters = 2;
 }
@@ -99,10 +114,21 @@ message UpdatedMembersList {
 ---------------------------------------------------------------------------------------------------
  */
 
-//todo delete
-message KeepAlive {
-  int32 player_id = 1;
-  int32 test_id   = 2;
+message SpawnPlayer { // C <-- S
+  uint32 player_id = 1;
+  uint32 entity_id = 2;
+}
+
+message ClientRelativeMove { // C --> S
+  uint32 lobby_id  = 1;
+  uint32 player_id = 2;
+  uint32 direction = 3;
+}
+
+message UpdateEntityPosition { // C <-- S
+  uint32 entity_id = 1;
+  float  pos_x     = 2;
+  float  pos_y     = 3;
 }
 
 /*
@@ -111,14 +137,7 @@ message KeepAlive {
 ---------------------------------------------------------------------------------------------------
  */
 
-message Ping {
-  uint32 test_id = 1;
-  uint32 rtt     = 2;
-}
-
-message Pong {
-  uint32 test_id = 1;
-}
+// ...
 
 /*
 ---------------------------------------------------------------------------------------------------
@@ -135,7 +154,7 @@ message PacketWrapper {
   uint32 ack          = 2;
   uint64 ack_bitfield = 3; // на самом деле используется uint32, но 64 нужно для нормальной работы в Java ("long")
 
-  // Номера с     1 по     9 зарезервированы "протоколообразующие" (основные) поля (описаны немного выше ^),
+  // Номера с     1 по     9 зарезервированы "протоколообразующие" (основные) поля (описаны немного выше ^) и пакеты,
   //        с    10 по   999               - под PacketCase пакетов предыгрового этапа (LOBBY STATE),
   //        с  1000 по  9999               - под PacketCase пакетов игрового этапа (PLAY STATE),
   //        с 10000 по 99999               - под PacketCase общих пакетов (GENERAL).
@@ -146,9 +165,14 @@ message PacketWrapper {
   //            класса пакета (message) и названием поля должен быть ровно один пробел (напр., "Ping ping").
   oneof packet {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //   LOBBY STATE
+    //   PROTOCOL BASICS    [4..9]
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Ping ping = 4;
+    Pong pong = 5;
 
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //   LOBBY STATE    [10..999]
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     HandshakeRequest handshake_request           =    10;
     HandshakeResponse handshake_response         =    11;
     CreateLobbyRequest create_lobby_request      =   100;
@@ -161,14 +185,15 @@ message PacketWrapper {
     UpdatedMembersList updated_members_list      =   107;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //   PLAY STATE
+    //   PLAY STATE    [1000..9999]
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    KeepAlive keep_alive                  =  1000;//todo delete
+    SpawnPlayer spawn_player                    = 1000;
+    ClientRelativeMove client_relative_move     = 2000;
+    UpdateEntityPosition update_entity_position = 2001;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //   GENERAL
+    //   GENERAL    [10000..99999]
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Ping ping    = 10000;
-    Pong pong    = 10001;
+    // ...
   }
 }

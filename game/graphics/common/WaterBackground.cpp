@@ -98,7 +98,7 @@ namespace awd::game {
 
             float    thisBubbleRadius              = bRadius * distFactor * distFactor;
             float    thisBubbleX                   = Game::randFloat(0.0f, width);
-            float    bOriginY                      = height / bNum * i;
+            float    bOriginY                      = height / bNum * i; // NOLINT(cppcoreguidelines-narrowing-conversions)
             float    bMargin                       = Game::randFloat(bMinMar, bMaxMar) * renderScale;
             float    thisBubbleY                   = bOriginY + bMargin;
             uint32_t thisBubbleFillAlpha           = BUBBLE_FILL_ALPHA        * distFactor;
@@ -169,14 +169,12 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    WaterBackground::WaterBackground(id_type id,
-                                     float renderScale,
-                                     const std::shared_ptr<sf::RenderWindow>& window)
-                                     : Drawable(id, renderScale, window) {
+    WaterBackground::WaterBackground(id_type id)
+                                     : Drawable(id) {
         x      = 0.0f;
         y      = 0.0f;
-        width  = window->getSize().x;
-        height = window->getSize().y;
+        width  = window->getSize().x; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        height = window->getSize().y; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
         // Рандомно генерируем перемещающиеся объекты
         createFlickers();

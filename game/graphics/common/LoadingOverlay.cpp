@@ -19,10 +19,8 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     LoadingOverlay::LoadingOverlay(id_type id,
-                                   float renderScale,
-                                   const std::shared_ptr<sf::RenderWindow>& window,
                                    const std::wstring& message)
-                                   : Drawable(id, renderScale, window) {
+                                   : Drawable(id) {
         this->unformattedMessage = message;
 
         // Текст

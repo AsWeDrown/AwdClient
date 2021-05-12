@@ -49,7 +49,7 @@ struct TableStruct_packets_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[18]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[20]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -59,6 +59,9 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 ::PROTOBUF_NAMESPACE_ID::Metadata descriptor_table_packets_2eproto_metadata_getter(int index);
 namespace awd {
 namespace net {
+class ClientRelativeMove;
+struct ClientRelativeMoveDefaultTypeInternal;
+extern ClientRelativeMoveDefaultTypeInternal _ClientRelativeMove_default_instance_;
 class CreateLobbyRequest;
 struct CreateLobbyRequestDefaultTypeInternal;
 extern CreateLobbyRequestDefaultTypeInternal _CreateLobbyRequest_default_instance_;
@@ -83,9 +86,6 @@ extern JoinLobbyResponse_OthersCharactersEntry_DoNotUseDefaultTypeInternal _Join
 class JoinLobbyResponse_OthersNamesEntry_DoNotUse;
 struct JoinLobbyResponse_OthersNamesEntry_DoNotUseDefaultTypeInternal;
 extern JoinLobbyResponse_OthersNamesEntry_DoNotUseDefaultTypeInternal _JoinLobbyResponse_OthersNamesEntry_DoNotUse_default_instance_;
-class KeepAlive;
-struct KeepAliveDefaultTypeInternal;
-extern KeepAliveDefaultTypeInternal _KeepAlive_default_instance_;
 class KickedFromLobby;
 struct KickedFromLobbyDefaultTypeInternal;
 extern KickedFromLobbyDefaultTypeInternal _KickedFromLobby_default_instance_;
@@ -104,6 +104,12 @@ extern PingDefaultTypeInternal _Ping_default_instance_;
 class Pong;
 struct PongDefaultTypeInternal;
 extern PongDefaultTypeInternal _Pong_default_instance_;
+class SpawnPlayer;
+struct SpawnPlayerDefaultTypeInternal;
+extern SpawnPlayerDefaultTypeInternal _SpawnPlayer_default_instance_;
+class UpdateEntityPosition;
+struct UpdateEntityPositionDefaultTypeInternal;
+extern UpdateEntityPositionDefaultTypeInternal _UpdateEntityPosition_default_instance_;
 class UpdatedMembersList;
 struct UpdatedMembersListDefaultTypeInternal;
 extern UpdatedMembersListDefaultTypeInternal _UpdatedMembersList_default_instance_;
@@ -116,6 +122,7 @@ extern UpdatedMembersList_NewAllNamesEntry_DoNotUseDefaultTypeInternal _UpdatedM
 }  // namespace net
 }  // namespace awd
 PROTOBUF_NAMESPACE_OPEN
+template<> ::awd::net::ClientRelativeMove* Arena::CreateMaybeMessage<::awd::net::ClientRelativeMove>(Arena*);
 template<> ::awd::net::CreateLobbyRequest* Arena::CreateMaybeMessage<::awd::net::CreateLobbyRequest>(Arena*);
 template<> ::awd::net::CreateLobbyResponse* Arena::CreateMaybeMessage<::awd::net::CreateLobbyResponse>(Arena*);
 template<> ::awd::net::HandshakeRequest* Arena::CreateMaybeMessage<::awd::net::HandshakeRequest>(Arena*);
@@ -124,13 +131,14 @@ template<> ::awd::net::JoinLobbyRequest* Arena::CreateMaybeMessage<::awd::net::J
 template<> ::awd::net::JoinLobbyResponse* Arena::CreateMaybeMessage<::awd::net::JoinLobbyResponse>(Arena*);
 template<> ::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::JoinLobbyResponse_OthersCharactersEntry_DoNotUse>(Arena*);
 template<> ::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::JoinLobbyResponse_OthersNamesEntry_DoNotUse>(Arena*);
-template<> ::awd::net::KeepAlive* Arena::CreateMaybeMessage<::awd::net::KeepAlive>(Arena*);
 template<> ::awd::net::KickedFromLobby* Arena::CreateMaybeMessage<::awd::net::KickedFromLobby>(Arena*);
 template<> ::awd::net::LeaveLobbyRequest* Arena::CreateMaybeMessage<::awd::net::LeaveLobbyRequest>(Arena*);
 template<> ::awd::net::LeaveLobbyResponse* Arena::CreateMaybeMessage<::awd::net::LeaveLobbyResponse>(Arena*);
 template<> ::awd::net::PacketWrapper* Arena::CreateMaybeMessage<::awd::net::PacketWrapper>(Arena*);
 template<> ::awd::net::Ping* Arena::CreateMaybeMessage<::awd::net::Ping>(Arena*);
 template<> ::awd::net::Pong* Arena::CreateMaybeMessage<::awd::net::Pong>(Arena*);
+template<> ::awd::net::SpawnPlayer* Arena::CreateMaybeMessage<::awd::net::SpawnPlayer>(Arena*);
+template<> ::awd::net::UpdateEntityPosition* Arena::CreateMaybeMessage<::awd::net::UpdateEntityPosition>(Arena*);
 template<> ::awd::net::UpdatedMembersList* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList>(Arena*);
 template<> ::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse>(Arena*);
 template<> ::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse>(Arena*);
@@ -139,6 +147,291 @@ namespace awd {
 namespace net {
 
 // ===================================================================
+
+class Ping PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.Ping) */ {
+ public:
+  inline Ping() : Ping(nullptr) {}
+  virtual ~Ping();
+  explicit constexpr Ping(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Ping(const Ping& from);
+  Ping(Ping&& from) noexcept
+    : Ping() {
+    *this = ::std::move(from);
+  }
+
+  inline Ping& operator=(const Ping& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Ping& operator=(Ping&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Ping& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Ping* internal_default_instance() {
+    return reinterpret_cast<const Ping*>(
+               &_Ping_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Ping& a, Ping& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Ping* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Ping* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Ping* New() const final {
+    return CreateMaybeMessage<Ping>(nullptr);
+  }
+
+  Ping* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Ping>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Ping& from);
+  void MergeFrom(const Ping& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Ping* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "awd.net.Ping";
+  }
+  protected:
+  explicit Ping(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_packets_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTestIdFieldNumber = 1,
+    kRttFieldNumber = 2,
+  };
+  // uint32 test_id = 1;
+  void clear_test_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 test_id() const;
+  void set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_test_id() const;
+  void _internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 rtt = 2;
+  void clear_rtt();
+  ::PROTOBUF_NAMESPACE_ID::uint32 rtt() const;
+  void set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rtt() const;
+  void _internal_set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:awd.net.Ping)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 test_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 rtt_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_packets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Pong PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.Pong) */ {
+ public:
+  inline Pong() : Pong(nullptr) {}
+  virtual ~Pong();
+  explicit constexpr Pong(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Pong(const Pong& from);
+  Pong(Pong&& from) noexcept
+    : Pong() {
+    *this = ::std::move(from);
+  }
+
+  inline Pong& operator=(const Pong& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Pong& operator=(Pong&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Pong& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Pong* internal_default_instance() {
+    return reinterpret_cast<const Pong*>(
+               &_Pong_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Pong& a, Pong& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Pong* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Pong* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Pong* New() const final {
+    return CreateMaybeMessage<Pong>(nullptr);
+  }
+
+  Pong* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Pong>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Pong& from);
+  void MergeFrom(const Pong& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Pong* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "awd.net.Pong";
+  }
+  protected:
+  explicit Pong(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_packets_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTestIdFieldNumber = 1,
+  };
+  // uint32 test_id = 1;
+  void clear_test_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 test_id() const;
+  void set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_test_id() const;
+  void _internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:awd.net.Pong)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 test_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_packets_2eproto;
+};
+// -------------------------------------------------------------------
 
 class HandshakeRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.HandshakeRequest) */ {
@@ -183,7 +476,7 @@ class HandshakeRequest PROTOBUF_FINAL :
                &_HandshakeRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    2;
 
   friend void swap(HandshakeRequest& a, HandshakeRequest& b) {
     a.Swap(&b);
@@ -320,7 +613,7 @@ class HandshakeResponse PROTOBUF_FINAL :
                &_HandshakeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    3;
 
   friend void swap(HandshakeResponse& a, HandshakeResponse& b) {
     a.Swap(&b);
@@ -457,7 +750,7 @@ class CreateLobbyRequest PROTOBUF_FINAL :
                &_CreateLobbyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(CreateLobbyRequest& a, CreateLobbyRequest& b) {
     a.Swap(&b);
@@ -601,7 +894,7 @@ class CreateLobbyResponse PROTOBUF_FINAL :
                &_CreateLobbyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(CreateLobbyResponse& a, CreateLobbyResponse& b) {
     a.Swap(&b);
@@ -760,7 +1053,7 @@ class JoinLobbyRequest PROTOBUF_FINAL :
                &_JoinLobbyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(JoinLobbyRequest& a, JoinLobbyRequest& b) {
     a.Swap(&b);
@@ -896,7 +1189,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
-    return ::descriptor_table_packets_2eproto.file_level_metadata[5];
+    return ::descriptor_table_packets_2eproto.file_level_metadata[7];
   }
 
   public:
@@ -926,7 +1219,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
-    return ::descriptor_table_packets_2eproto.file_level_metadata[6];
+    return ::descriptor_table_packets_2eproto.file_level_metadata[8];
   }
 
   public:
@@ -977,7 +1270,7 @@ class JoinLobbyResponse PROTOBUF_FINAL :
                &_JoinLobbyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(JoinLobbyResponse& a, JoinLobbyResponse& b) {
     a.Swap(&b);
@@ -1183,7 +1476,7 @@ class LeaveLobbyRequest PROTOBUF_FINAL :
                &_LeaveLobbyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(LeaveLobbyRequest& a, LeaveLobbyRequest& b) {
     a.Swap(&b);
@@ -1331,7 +1624,7 @@ class LeaveLobbyResponse PROTOBUF_FINAL :
                &_LeaveLobbyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(LeaveLobbyResponse& a, LeaveLobbyResponse& b) {
     a.Swap(&b);
@@ -1468,7 +1761,7 @@ class KickedFromLobby PROTOBUF_FINAL :
                &_KickedFromLobby_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(KickedFromLobby& a, KickedFromLobby& b) {
     a.Swap(&b);
@@ -1586,7 +1879,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
-    return ::descriptor_table_packets_2eproto.file_level_metadata[11];
+    return ::descriptor_table_packets_2eproto.file_level_metadata[13];
   }
 
   public:
@@ -1616,7 +1909,7 @@ public:
   private:
   static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
     ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
-    return ::descriptor_table_packets_2eproto.file_level_metadata[12];
+    return ::descriptor_table_packets_2eproto.file_level_metadata[14];
   }
 
   public:
@@ -1667,7 +1960,7 @@ class UpdatedMembersList PROTOBUF_FINAL :
                &_UpdatedMembersList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(UpdatedMembersList& a, UpdatedMembersList& b) {
     a.Swap(&b);
@@ -1797,24 +2090,24 @@ class UpdatedMembersList PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class KeepAlive PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.KeepAlive) */ {
+class SpawnPlayer PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.SpawnPlayer) */ {
  public:
-  inline KeepAlive() : KeepAlive(nullptr) {}
-  virtual ~KeepAlive();
-  explicit constexpr KeepAlive(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SpawnPlayer() : SpawnPlayer(nullptr) {}
+  virtual ~SpawnPlayer();
+  explicit constexpr SpawnPlayer(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  KeepAlive(const KeepAlive& from);
-  KeepAlive(KeepAlive&& from) noexcept
-    : KeepAlive() {
+  SpawnPlayer(const SpawnPlayer& from);
+  SpawnPlayer(SpawnPlayer&& from) noexcept
+    : SpawnPlayer() {
     *this = ::std::move(from);
   }
 
-  inline KeepAlive& operator=(const KeepAlive& from) {
+  inline SpawnPlayer& operator=(const SpawnPlayer& from) {
     CopyFrom(from);
     return *this;
   }
-  inline KeepAlive& operator=(KeepAlive&& from) noexcept {
+  inline SpawnPlayer& operator=(SpawnPlayer&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1832,20 +2125,20 @@ class KeepAlive PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const KeepAlive& default_instance() {
+  static const SpawnPlayer& default_instance() {
     return *internal_default_instance();
   }
-  static inline const KeepAlive* internal_default_instance() {
-    return reinterpret_cast<const KeepAlive*>(
-               &_KeepAlive_default_instance_);
+  static inline const SpawnPlayer* internal_default_instance() {
+    return reinterpret_cast<const SpawnPlayer*>(
+               &_SpawnPlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
-  friend void swap(KeepAlive& a, KeepAlive& b) {
+  friend void swap(SpawnPlayer& a, SpawnPlayer& b) {
     a.Swap(&b);
   }
-  inline void Swap(KeepAlive* other) {
+  inline void Swap(SpawnPlayer* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1853,7 +2146,7 @@ class KeepAlive PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(KeepAlive* other) {
+  void UnsafeArenaSwap(SpawnPlayer* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1861,17 +2154,17 @@ class KeepAlive PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline KeepAlive* New() const final {
-    return CreateMaybeMessage<KeepAlive>(nullptr);
+  inline SpawnPlayer* New() const final {
+    return CreateMaybeMessage<SpawnPlayer>(nullptr);
   }
 
-  KeepAlive* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<KeepAlive>(arena);
+  SpawnPlayer* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SpawnPlayer>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const KeepAlive& from);
-  void MergeFrom(const KeepAlive& from);
+  void CopyFrom(const SpawnPlayer& from);
+  void MergeFrom(const SpawnPlayer& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1885,13 +2178,13 @@ class KeepAlive PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(KeepAlive* other);
+  void InternalSwap(SpawnPlayer* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "awd.net.KeepAlive";
+    return "awd.net.SpawnPlayer";
   }
   protected:
-  explicit KeepAlive(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit SpawnPlayer(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1911,58 +2204,58 @@ class KeepAlive PROTOBUF_FINAL :
 
   enum : int {
     kPlayerIdFieldNumber = 1,
-    kTestIdFieldNumber = 2,
+    kEntityIdFieldNumber = 2,
   };
-  // int32 player_id = 1;
+  // uint32 player_id = 1;
   void clear_player_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
-  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
-  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // int32 test_id = 2;
-  void clear_test_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 test_id() const;
-  void set_test_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  // uint32 entity_id = 2;
+  void clear_entity_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 entity_id() const;
+  void set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_test_id() const;
-  void _internal_set_test_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_entity_id() const;
+  void _internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:awd.net.KeepAlive)
+  // @@protoc_insertion_point(class_scope:awd.net.SpawnPlayer)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
-  ::PROTOBUF_NAMESPACE_ID::int32 test_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 entity_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Ping PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.Ping) */ {
+class ClientRelativeMove PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.ClientRelativeMove) */ {
  public:
-  inline Ping() : Ping(nullptr) {}
-  virtual ~Ping();
-  explicit constexpr Ping(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline ClientRelativeMove() : ClientRelativeMove(nullptr) {}
+  virtual ~ClientRelativeMove();
+  explicit constexpr ClientRelativeMove(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Ping(const Ping& from);
-  Ping(Ping&& from) noexcept
-    : Ping() {
+  ClientRelativeMove(const ClientRelativeMove& from);
+  ClientRelativeMove(ClientRelativeMove&& from) noexcept
+    : ClientRelativeMove() {
     *this = ::std::move(from);
   }
 
-  inline Ping& operator=(const Ping& from) {
+  inline ClientRelativeMove& operator=(const ClientRelativeMove& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Ping& operator=(Ping&& from) noexcept {
+  inline ClientRelativeMove& operator=(ClientRelativeMove&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1980,20 +2273,20 @@ class Ping PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Ping& default_instance() {
+  static const ClientRelativeMove& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Ping* internal_default_instance() {
-    return reinterpret_cast<const Ping*>(
-               &_Ping_default_instance_);
+  static inline const ClientRelativeMove* internal_default_instance() {
+    return reinterpret_cast<const ClientRelativeMove*>(
+               &_ClientRelativeMove_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
-  friend void swap(Ping& a, Ping& b) {
+  friend void swap(ClientRelativeMove& a, ClientRelativeMove& b) {
     a.Swap(&b);
   }
-  inline void Swap(Ping* other) {
+  inline void Swap(ClientRelativeMove* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2001,7 +2294,7 @@ class Ping PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Ping* other) {
+  void UnsafeArenaSwap(ClientRelativeMove* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2009,17 +2302,17 @@ class Ping PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Ping* New() const final {
-    return CreateMaybeMessage<Ping>(nullptr);
+  inline ClientRelativeMove* New() const final {
+    return CreateMaybeMessage<ClientRelativeMove>(nullptr);
   }
 
-  Ping* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Ping>(arena);
+  ClientRelativeMove* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ClientRelativeMove>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Ping& from);
-  void MergeFrom(const Ping& from);
+  void CopyFrom(const ClientRelativeMove& from);
+  void MergeFrom(const ClientRelativeMove& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2033,13 +2326,13 @@ class Ping PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Ping* other);
+  void InternalSwap(ClientRelativeMove* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "awd.net.Ping";
+    return "awd.net.ClientRelativeMove";
   }
   protected:
-  explicit Ping(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit ClientRelativeMove(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2058,59 +2351,70 @@ class Ping PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTestIdFieldNumber = 1,
-    kRttFieldNumber = 2,
+    kLobbyIdFieldNumber = 1,
+    kPlayerIdFieldNumber = 2,
+    kDirectionFieldNumber = 3,
   };
-  // uint32 test_id = 1;
-  void clear_test_id();
-  ::PROTOBUF_NAMESPACE_ID::uint32 test_id() const;
-  void set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // uint32 lobby_id = 1;
+  void clear_lobby_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 lobby_id() const;
+  void set_lobby_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_test_id() const;
-  void _internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_lobby_id() const;
+  void _internal_set_lobby_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 rtt = 2;
-  void clear_rtt();
-  ::PROTOBUF_NAMESPACE_ID::uint32 rtt() const;
-  void set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // uint32 player_id = 2;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rtt() const;
-  void _internal_set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:awd.net.Ping)
+  // uint32 direction = 3;
+  void clear_direction();
+  ::PROTOBUF_NAMESPACE_ID::uint32 direction() const;
+  void set_direction(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_direction() const;
+  void _internal_set_direction(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:awd.net.ClientRelativeMove)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 test_id_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 rtt_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 lobby_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 direction_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Pong PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.Pong) */ {
+class UpdateEntityPosition PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.UpdateEntityPosition) */ {
  public:
-  inline Pong() : Pong(nullptr) {}
-  virtual ~Pong();
-  explicit constexpr Pong(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline UpdateEntityPosition() : UpdateEntityPosition(nullptr) {}
+  virtual ~UpdateEntityPosition();
+  explicit constexpr UpdateEntityPosition(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Pong(const Pong& from);
-  Pong(Pong&& from) noexcept
-    : Pong() {
+  UpdateEntityPosition(const UpdateEntityPosition& from);
+  UpdateEntityPosition(UpdateEntityPosition&& from) noexcept
+    : UpdateEntityPosition() {
     *this = ::std::move(from);
   }
 
-  inline Pong& operator=(const Pong& from) {
+  inline UpdateEntityPosition& operator=(const UpdateEntityPosition& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Pong& operator=(Pong&& from) noexcept {
+  inline UpdateEntityPosition& operator=(UpdateEntityPosition&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2128,20 +2432,20 @@ class Pong PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Pong& default_instance() {
+  static const UpdateEntityPosition& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Pong* internal_default_instance() {
-    return reinterpret_cast<const Pong*>(
-               &_Pong_default_instance_);
+  static inline const UpdateEntityPosition* internal_default_instance() {
+    return reinterpret_cast<const UpdateEntityPosition*>(
+               &_UpdateEntityPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
-  friend void swap(Pong& a, Pong& b) {
+  friend void swap(UpdateEntityPosition& a, UpdateEntityPosition& b) {
     a.Swap(&b);
   }
-  inline void Swap(Pong* other) {
+  inline void Swap(UpdateEntityPosition* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2149,7 +2453,7 @@ class Pong PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Pong* other) {
+  void UnsafeArenaSwap(UpdateEntityPosition* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2157,17 +2461,17 @@ class Pong PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Pong* New() const final {
-    return CreateMaybeMessage<Pong>(nullptr);
+  inline UpdateEntityPosition* New() const final {
+    return CreateMaybeMessage<UpdateEntityPosition>(nullptr);
   }
 
-  Pong* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Pong>(arena);
+  UpdateEntityPosition* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<UpdateEntityPosition>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Pong& from);
-  void MergeFrom(const Pong& from);
+  void CopyFrom(const UpdateEntityPosition& from);
+  void MergeFrom(const UpdateEntityPosition& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2181,13 +2485,13 @@ class Pong PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Pong* other);
+  void InternalSwap(UpdateEntityPosition* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "awd.net.Pong";
+    return "awd.net.UpdateEntityPosition";
   }
   protected:
-  explicit Pong(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit UpdateEntityPosition(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2206,25 +2510,47 @@ class Pong PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTestIdFieldNumber = 1,
+    kEntityIdFieldNumber = 1,
+    kPosXFieldNumber = 2,
+    kPosYFieldNumber = 3,
   };
-  // uint32 test_id = 1;
-  void clear_test_id();
-  ::PROTOBUF_NAMESPACE_ID::uint32 test_id() const;
-  void set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // uint32 entity_id = 1;
+  void clear_entity_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 entity_id() const;
+  void set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_test_id() const;
-  void _internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_entity_id() const;
+  void _internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:awd.net.Pong)
+  // float pos_x = 2;
+  void clear_pos_x();
+  float pos_x() const;
+  void set_pos_x(float value);
+  private:
+  float _internal_pos_x() const;
+  void _internal_set_pos_x(float value);
+  public:
+
+  // float pos_y = 3;
+  void clear_pos_y();
+  float pos_y() const;
+  void set_pos_y(float value);
+  private:
+  float _internal_pos_y() const;
+  void _internal_set_pos_y(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:awd.net.UpdateEntityPosition)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 test_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 entity_id_;
+  float pos_x_;
+  float pos_y_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -2269,6 +2595,8 @@ class PacketWrapper PROTOBUF_FINAL :
     return *internal_default_instance();
   }
   enum PacketCase {
+    kPing = 4,
+    kPong = 5,
     kHandshakeRequest = 10,
     kHandshakeResponse = 11,
     kCreateLobbyRequest = 100,
@@ -2279,9 +2607,9 @@ class PacketWrapper PROTOBUF_FINAL :
     kLeaveLobbyResponse = 105,
     kKickedFromLobby = 106,
     kUpdatedMembersList = 107,
-    kKeepAlive = 1000,
-    kPing = 10000,
-    kPong = 10001,
+    kSpawnPlayer = 1000,
+    kClientRelativeMove = 2000,
+    kUpdateEntityPosition = 2001,
     PACKET_NOT_SET = 0,
   };
 
@@ -2290,7 +2618,7 @@ class PacketWrapper PROTOBUF_FINAL :
                &_PacketWrapper_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(PacketWrapper& a, PacketWrapper& b) {
     a.Swap(&b);
@@ -2363,6 +2691,8 @@ class PacketWrapper PROTOBUF_FINAL :
     kSequenceFieldNumber = 1,
     kAckFieldNumber = 2,
     kAckBitfieldFieldNumber = 3,
+    kPingFieldNumber = 4,
+    kPongFieldNumber = 5,
     kHandshakeRequestFieldNumber = 10,
     kHandshakeResponseFieldNumber = 11,
     kCreateLobbyRequestFieldNumber = 100,
@@ -2373,9 +2703,9 @@ class PacketWrapper PROTOBUF_FINAL :
     kLeaveLobbyResponseFieldNumber = 105,
     kKickedFromLobbyFieldNumber = 106,
     kUpdatedMembersListFieldNumber = 107,
-    kKeepAliveFieldNumber = 1000,
-    kPingFieldNumber = 10000,
-    kPongFieldNumber = 10001,
+    kSpawnPlayerFieldNumber = 1000,
+    kClientRelativeMoveFieldNumber = 2000,
+    kUpdateEntityPositionFieldNumber = 2001,
   };
   // uint32 sequence = 1;
   void clear_sequence();
@@ -2403,6 +2733,42 @@ class PacketWrapper PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint64 _internal_ack_bitfield() const;
   void _internal_set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
+
+  // .awd.net.Ping ping = 4;
+  bool has_ping() const;
+  private:
+  bool _internal_has_ping() const;
+  public:
+  void clear_ping();
+  const ::awd::net::Ping& ping() const;
+  ::awd::net::Ping* release_ping();
+  ::awd::net::Ping* mutable_ping();
+  void set_allocated_ping(::awd::net::Ping* ping);
+  private:
+  const ::awd::net::Ping& _internal_ping() const;
+  ::awd::net::Ping* _internal_mutable_ping();
+  public:
+  void unsafe_arena_set_allocated_ping(
+      ::awd::net::Ping* ping);
+  ::awd::net::Ping* unsafe_arena_release_ping();
+
+  // .awd.net.Pong pong = 5;
+  bool has_pong() const;
+  private:
+  bool _internal_has_pong() const;
+  public:
+  void clear_pong();
+  const ::awd::net::Pong& pong() const;
+  ::awd::net::Pong* release_pong();
+  ::awd::net::Pong* mutable_pong();
+  void set_allocated_pong(::awd::net::Pong* pong);
+  private:
+  const ::awd::net::Pong& _internal_pong() const;
+  ::awd::net::Pong* _internal_mutable_pong();
+  public:
+  void unsafe_arena_set_allocated_pong(
+      ::awd::net::Pong* pong);
+  ::awd::net::Pong* unsafe_arena_release_pong();
 
   // .awd.net.HandshakeRequest handshake_request = 10;
   bool has_handshake_request() const;
@@ -2584,65 +2950,67 @@ class PacketWrapper PROTOBUF_FINAL :
       ::awd::net::UpdatedMembersList* updated_members_list);
   ::awd::net::UpdatedMembersList* unsafe_arena_release_updated_members_list();
 
-  // .awd.net.KeepAlive keep_alive = 1000;
-  bool has_keep_alive() const;
+  // .awd.net.SpawnPlayer spawn_player = 1000;
+  bool has_spawn_player() const;
   private:
-  bool _internal_has_keep_alive() const;
+  bool _internal_has_spawn_player() const;
   public:
-  void clear_keep_alive();
-  const ::awd::net::KeepAlive& keep_alive() const;
-  ::awd::net::KeepAlive* release_keep_alive();
-  ::awd::net::KeepAlive* mutable_keep_alive();
-  void set_allocated_keep_alive(::awd::net::KeepAlive* keep_alive);
+  void clear_spawn_player();
+  const ::awd::net::SpawnPlayer& spawn_player() const;
+  ::awd::net::SpawnPlayer* release_spawn_player();
+  ::awd::net::SpawnPlayer* mutable_spawn_player();
+  void set_allocated_spawn_player(::awd::net::SpawnPlayer* spawn_player);
   private:
-  const ::awd::net::KeepAlive& _internal_keep_alive() const;
-  ::awd::net::KeepAlive* _internal_mutable_keep_alive();
+  const ::awd::net::SpawnPlayer& _internal_spawn_player() const;
+  ::awd::net::SpawnPlayer* _internal_mutable_spawn_player();
   public:
-  void unsafe_arena_set_allocated_keep_alive(
-      ::awd::net::KeepAlive* keep_alive);
-  ::awd::net::KeepAlive* unsafe_arena_release_keep_alive();
+  void unsafe_arena_set_allocated_spawn_player(
+      ::awd::net::SpawnPlayer* spawn_player);
+  ::awd::net::SpawnPlayer* unsafe_arena_release_spawn_player();
 
-  // .awd.net.Ping ping = 10000;
-  bool has_ping() const;
+  // .awd.net.ClientRelativeMove client_relative_move = 2000;
+  bool has_client_relative_move() const;
   private:
-  bool _internal_has_ping() const;
+  bool _internal_has_client_relative_move() const;
   public:
-  void clear_ping();
-  const ::awd::net::Ping& ping() const;
-  ::awd::net::Ping* release_ping();
-  ::awd::net::Ping* mutable_ping();
-  void set_allocated_ping(::awd::net::Ping* ping);
+  void clear_client_relative_move();
+  const ::awd::net::ClientRelativeMove& client_relative_move() const;
+  ::awd::net::ClientRelativeMove* release_client_relative_move();
+  ::awd::net::ClientRelativeMove* mutable_client_relative_move();
+  void set_allocated_client_relative_move(::awd::net::ClientRelativeMove* client_relative_move);
   private:
-  const ::awd::net::Ping& _internal_ping() const;
-  ::awd::net::Ping* _internal_mutable_ping();
+  const ::awd::net::ClientRelativeMove& _internal_client_relative_move() const;
+  ::awd::net::ClientRelativeMove* _internal_mutable_client_relative_move();
   public:
-  void unsafe_arena_set_allocated_ping(
-      ::awd::net::Ping* ping);
-  ::awd::net::Ping* unsafe_arena_release_ping();
+  void unsafe_arena_set_allocated_client_relative_move(
+      ::awd::net::ClientRelativeMove* client_relative_move);
+  ::awd::net::ClientRelativeMove* unsafe_arena_release_client_relative_move();
 
-  // .awd.net.Pong pong = 10001;
-  bool has_pong() const;
+  // .awd.net.UpdateEntityPosition update_entity_position = 2001;
+  bool has_update_entity_position() const;
   private:
-  bool _internal_has_pong() const;
+  bool _internal_has_update_entity_position() const;
   public:
-  void clear_pong();
-  const ::awd::net::Pong& pong() const;
-  ::awd::net::Pong* release_pong();
-  ::awd::net::Pong* mutable_pong();
-  void set_allocated_pong(::awd::net::Pong* pong);
+  void clear_update_entity_position();
+  const ::awd::net::UpdateEntityPosition& update_entity_position() const;
+  ::awd::net::UpdateEntityPosition* release_update_entity_position();
+  ::awd::net::UpdateEntityPosition* mutable_update_entity_position();
+  void set_allocated_update_entity_position(::awd::net::UpdateEntityPosition* update_entity_position);
   private:
-  const ::awd::net::Pong& _internal_pong() const;
-  ::awd::net::Pong* _internal_mutable_pong();
+  const ::awd::net::UpdateEntityPosition& _internal_update_entity_position() const;
+  ::awd::net::UpdateEntityPosition* _internal_mutable_update_entity_position();
   public:
-  void unsafe_arena_set_allocated_pong(
-      ::awd::net::Pong* pong);
-  ::awd::net::Pong* unsafe_arena_release_pong();
+  void unsafe_arena_set_allocated_update_entity_position(
+      ::awd::net::UpdateEntityPosition* update_entity_position);
+  ::awd::net::UpdateEntityPosition* unsafe_arena_release_update_entity_position();
 
   void clear_packet();
   PacketCase packet_case() const;
   // @@protoc_insertion_point(class_scope:awd.net.PacketWrapper)
  private:
   class _Internal;
+  void set_has_ping();
+  void set_has_pong();
   void set_has_handshake_request();
   void set_has_handshake_response();
   void set_has_create_lobby_request();
@@ -2653,9 +3021,9 @@ class PacketWrapper PROTOBUF_FINAL :
   void set_has_leave_lobby_response();
   void set_has_kicked_from_lobby();
   void set_has_updated_members_list();
-  void set_has_keep_alive();
-  void set_has_ping();
-  void set_has_pong();
+  void set_has_spawn_player();
+  void set_has_client_relative_move();
+  void set_has_update_entity_position();
 
   inline bool has_packet() const;
   inline void clear_has_packet();
@@ -2669,6 +3037,8 @@ class PacketWrapper PROTOBUF_FINAL :
   union PacketUnion {
     constexpr PacketUnion() : _constinit_{} {}
       ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+    ::awd::net::Ping* ping_;
+    ::awd::net::Pong* pong_;
     ::awd::net::HandshakeRequest* handshake_request_;
     ::awd::net::HandshakeResponse* handshake_response_;
     ::awd::net::CreateLobbyRequest* create_lobby_request_;
@@ -2679,9 +3049,9 @@ class PacketWrapper PROTOBUF_FINAL :
     ::awd::net::LeaveLobbyResponse* leave_lobby_response_;
     ::awd::net::KickedFromLobby* kicked_from_lobby_;
     ::awd::net::UpdatedMembersList* updated_members_list_;
-    ::awd::net::KeepAlive* keep_alive_;
-    ::awd::net::Ping* ping_;
-    ::awd::net::Pong* pong_;
+    ::awd::net::SpawnPlayer* spawn_player_;
+    ::awd::net::ClientRelativeMove* client_relative_move_;
+    ::awd::net::UpdateEntityPosition* update_entity_position_;
   } packet_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -2697,6 +3067,74 @@ class PacketWrapper PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Ping
+
+// uint32 test_id = 1;
+inline void Ping::clear_test_id() {
+  test_id_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::_internal_test_id() const {
+  return test_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::test_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.Ping.test_id)
+  return _internal_test_id();
+}
+inline void Ping::_internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  test_id_ = value;
+}
+inline void Ping::set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_test_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.Ping.test_id)
+}
+
+// uint32 rtt = 2;
+inline void Ping::clear_rtt() {
+  rtt_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::_internal_rtt() const {
+  return rtt_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::rtt() const {
+  // @@protoc_insertion_point(field_get:awd.net.Ping.rtt)
+  return _internal_rtt();
+}
+inline void Ping::_internal_set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  rtt_ = value;
+}
+inline void Ping::set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_rtt(value);
+  // @@protoc_insertion_point(field_set:awd.net.Ping.rtt)
+}
+
+// -------------------------------------------------------------------
+
+// Pong
+
+// uint32 test_id = 1;
+inline void Pong::clear_test_id() {
+  test_id_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Pong::_internal_test_id() const {
+  return test_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Pong::test_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.Pong.test_id)
+  return _internal_test_id();
+}
+inline void Pong::_internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  test_id_ = value;
+}
+inline void Pong::set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_test_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.Pong.test_id)
+}
+
+// -------------------------------------------------------------------
+
 // HandshakeRequest
 
 // uint32 protocol_version = 1;
@@ -3243,114 +3681,174 @@ UpdatedMembersList::mutable_new_all_characters() {
 
 // -------------------------------------------------------------------
 
-// KeepAlive
+// SpawnPlayer
 
-// int32 player_id = 1;
-inline void KeepAlive::clear_player_id() {
-  player_id_ = 0;
+// uint32 player_id = 1;
+inline void SpawnPlayer::clear_player_id() {
+  player_id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 KeepAlive::_internal_player_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnPlayer::_internal_player_id() const {
   return player_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 KeepAlive::player_id() const {
-  // @@protoc_insertion_point(field_get:awd.net.KeepAlive.player_id)
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnPlayer::player_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.SpawnPlayer.player_id)
   return _internal_player_id();
 }
-inline void KeepAlive::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void SpawnPlayer::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
   player_id_ = value;
 }
-inline void KeepAlive::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void SpawnPlayer::set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_player_id(value);
-  // @@protoc_insertion_point(field_set:awd.net.KeepAlive.player_id)
+  // @@protoc_insertion_point(field_set:awd.net.SpawnPlayer.player_id)
 }
 
-// int32 test_id = 2;
-inline void KeepAlive::clear_test_id() {
-  test_id_ = 0;
+// uint32 entity_id = 2;
+inline void SpawnPlayer::clear_entity_id() {
+  entity_id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 KeepAlive::_internal_test_id() const {
-  return test_id_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnPlayer::_internal_entity_id() const {
+  return entity_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 KeepAlive::test_id() const {
-  // @@protoc_insertion_point(field_get:awd.net.KeepAlive.test_id)
-  return _internal_test_id();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnPlayer::entity_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.SpawnPlayer.entity_id)
+  return _internal_entity_id();
 }
-inline void KeepAlive::_internal_set_test_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void SpawnPlayer::_internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  test_id_ = value;
+  entity_id_ = value;
 }
-inline void KeepAlive::set_test_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_test_id(value);
-  // @@protoc_insertion_point(field_set:awd.net.KeepAlive.test_id)
+inline void SpawnPlayer::set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_entity_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.SpawnPlayer.entity_id)
 }
 
 // -------------------------------------------------------------------
 
-// Ping
+// ClientRelativeMove
 
-// uint32 test_id = 1;
-inline void Ping::clear_test_id() {
-  test_id_ = 0u;
+// uint32 lobby_id = 1;
+inline void ClientRelativeMove::clear_lobby_id() {
+  lobby_id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::_internal_test_id() const {
-  return test_id_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ClientRelativeMove::_internal_lobby_id() const {
+  return lobby_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::test_id() const {
-  // @@protoc_insertion_point(field_get:awd.net.Ping.test_id)
-  return _internal_test_id();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ClientRelativeMove::lobby_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.ClientRelativeMove.lobby_id)
+  return _internal_lobby_id();
 }
-inline void Ping::_internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void ClientRelativeMove::_internal_set_lobby_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  test_id_ = value;
+  lobby_id_ = value;
 }
-inline void Ping::set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_test_id(value);
-  // @@protoc_insertion_point(field_set:awd.net.Ping.test_id)
+inline void ClientRelativeMove::set_lobby_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_lobby_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.ClientRelativeMove.lobby_id)
 }
 
-// uint32 rtt = 2;
-inline void Ping::clear_rtt() {
-  rtt_ = 0u;
+// uint32 player_id = 2;
+inline void ClientRelativeMove::clear_player_id() {
+  player_id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::_internal_rtt() const {
-  return rtt_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ClientRelativeMove::_internal_player_id() const {
+  return player_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Ping::rtt() const {
-  // @@protoc_insertion_point(field_get:awd.net.Ping.rtt)
-  return _internal_rtt();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ClientRelativeMove::player_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.ClientRelativeMove.player_id)
+  return _internal_player_id();
 }
-inline void Ping::_internal_set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void ClientRelativeMove::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  rtt_ = value;
+  player_id_ = value;
 }
-inline void Ping::set_rtt(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_rtt(value);
-  // @@protoc_insertion_point(field_set:awd.net.Ping.rtt)
+inline void ClientRelativeMove::set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.ClientRelativeMove.player_id)
+}
+
+// uint32 direction = 3;
+inline void ClientRelativeMove::clear_direction() {
+  direction_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ClientRelativeMove::_internal_direction() const {
+  return direction_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 ClientRelativeMove::direction() const {
+  // @@protoc_insertion_point(field_get:awd.net.ClientRelativeMove.direction)
+  return _internal_direction();
+}
+inline void ClientRelativeMove::_internal_set_direction(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  direction_ = value;
+}
+inline void ClientRelativeMove::set_direction(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_direction(value);
+  // @@protoc_insertion_point(field_set:awd.net.ClientRelativeMove.direction)
 }
 
 // -------------------------------------------------------------------
 
-// Pong
+// UpdateEntityPosition
 
-// uint32 test_id = 1;
-inline void Pong::clear_test_id() {
-  test_id_ = 0u;
+// uint32 entity_id = 1;
+inline void UpdateEntityPosition::clear_entity_id() {
+  entity_id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Pong::_internal_test_id() const {
-  return test_id_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 UpdateEntityPosition::_internal_entity_id() const {
+  return entity_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Pong::test_id() const {
-  // @@protoc_insertion_point(field_get:awd.net.Pong.test_id)
-  return _internal_test_id();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 UpdateEntityPosition::entity_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.UpdateEntityPosition.entity_id)
+  return _internal_entity_id();
 }
-inline void Pong::_internal_set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void UpdateEntityPosition::_internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  test_id_ = value;
+  entity_id_ = value;
 }
-inline void Pong::set_test_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_test_id(value);
-  // @@protoc_insertion_point(field_set:awd.net.Pong.test_id)
+inline void UpdateEntityPosition::set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_entity_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.UpdateEntityPosition.entity_id)
+}
+
+// float pos_x = 2;
+inline void UpdateEntityPosition::clear_pos_x() {
+  pos_x_ = 0;
+}
+inline float UpdateEntityPosition::_internal_pos_x() const {
+  return pos_x_;
+}
+inline float UpdateEntityPosition::pos_x() const {
+  // @@protoc_insertion_point(field_get:awd.net.UpdateEntityPosition.pos_x)
+  return _internal_pos_x();
+}
+inline void UpdateEntityPosition::_internal_set_pos_x(float value) {
+  
+  pos_x_ = value;
+}
+inline void UpdateEntityPosition::set_pos_x(float value) {
+  _internal_set_pos_x(value);
+  // @@protoc_insertion_point(field_set:awd.net.UpdateEntityPosition.pos_x)
+}
+
+// float pos_y = 3;
+inline void UpdateEntityPosition::clear_pos_y() {
+  pos_y_ = 0;
+}
+inline float UpdateEntityPosition::_internal_pos_y() const {
+  return pos_y_;
+}
+inline float UpdateEntityPosition::pos_y() const {
+  // @@protoc_insertion_point(field_get:awd.net.UpdateEntityPosition.pos_y)
+  return _internal_pos_y();
+}
+inline void UpdateEntityPosition::_internal_set_pos_y(float value) {
+  
+  pos_y_ = value;
+}
+inline void UpdateEntityPosition::set_pos_y(float value) {
+  _internal_set_pos_y(value);
+  // @@protoc_insertion_point(field_set:awd.net.UpdateEntityPosition.pos_y)
 }
 
 // -------------------------------------------------------------------
@@ -3415,6 +3913,152 @@ inline void PacketWrapper::_internal_set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::u
 inline void PacketWrapper::set_ack_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_ack_bitfield(value);
   // @@protoc_insertion_point(field_set:awd.net.PacketWrapper.ack_bitfield)
+}
+
+// .awd.net.Ping ping = 4;
+inline bool PacketWrapper::_internal_has_ping() const {
+  return packet_case() == kPing;
+}
+inline bool PacketWrapper::has_ping() const {
+  return _internal_has_ping();
+}
+inline void PacketWrapper::set_has_ping() {
+  _oneof_case_[0] = kPing;
+}
+inline void PacketWrapper::clear_ping() {
+  if (_internal_has_ping()) {
+    if (GetArena() == nullptr) {
+      delete packet_.ping_;
+    }
+    clear_has_packet();
+  }
+}
+inline ::awd::net::Ping* PacketWrapper::release_ping() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.ping)
+  if (_internal_has_ping()) {
+    clear_has_packet();
+      ::awd::net::Ping* temp = packet_.ping_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    packet_.ping_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::awd::net::Ping& PacketWrapper::_internal_ping() const {
+  return _internal_has_ping()
+      ? *packet_.ping_
+      : reinterpret_cast< ::awd::net::Ping&>(::awd::net::_Ping_default_instance_);
+}
+inline const ::awd::net::Ping& PacketWrapper::ping() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.ping)
+  return _internal_ping();
+}
+inline ::awd::net::Ping* PacketWrapper::unsafe_arena_release_ping() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.ping)
+  if (_internal_has_ping()) {
+    clear_has_packet();
+    ::awd::net::Ping* temp = packet_.ping_;
+    packet_.ping_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void PacketWrapper::unsafe_arena_set_allocated_ping(::awd::net::Ping* ping) {
+  clear_packet();
+  if (ping) {
+    set_has_ping();
+    packet_.ping_ = ping;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.ping)
+}
+inline ::awd::net::Ping* PacketWrapper::_internal_mutable_ping() {
+  if (!_internal_has_ping()) {
+    clear_packet();
+    set_has_ping();
+    packet_.ping_ = CreateMaybeMessage< ::awd::net::Ping >(GetArena());
+  }
+  return packet_.ping_;
+}
+inline ::awd::net::Ping* PacketWrapper::mutable_ping() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.ping)
+  return _internal_mutable_ping();
+}
+
+// .awd.net.Pong pong = 5;
+inline bool PacketWrapper::_internal_has_pong() const {
+  return packet_case() == kPong;
+}
+inline bool PacketWrapper::has_pong() const {
+  return _internal_has_pong();
+}
+inline void PacketWrapper::set_has_pong() {
+  _oneof_case_[0] = kPong;
+}
+inline void PacketWrapper::clear_pong() {
+  if (_internal_has_pong()) {
+    if (GetArena() == nullptr) {
+      delete packet_.pong_;
+    }
+    clear_has_packet();
+  }
+}
+inline ::awd::net::Pong* PacketWrapper::release_pong() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.pong)
+  if (_internal_has_pong()) {
+    clear_has_packet();
+      ::awd::net::Pong* temp = packet_.pong_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    packet_.pong_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::awd::net::Pong& PacketWrapper::_internal_pong() const {
+  return _internal_has_pong()
+      ? *packet_.pong_
+      : reinterpret_cast< ::awd::net::Pong&>(::awd::net::_Pong_default_instance_);
+}
+inline const ::awd::net::Pong& PacketWrapper::pong() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.pong)
+  return _internal_pong();
+}
+inline ::awd::net::Pong* PacketWrapper::unsafe_arena_release_pong() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.pong)
+  if (_internal_has_pong()) {
+    clear_has_packet();
+    ::awd::net::Pong* temp = packet_.pong_;
+    packet_.pong_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void PacketWrapper::unsafe_arena_set_allocated_pong(::awd::net::Pong* pong) {
+  clear_packet();
+  if (pong) {
+    set_has_pong();
+    packet_.pong_ = pong;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.pong)
+}
+inline ::awd::net::Pong* PacketWrapper::_internal_mutable_pong() {
+  if (!_internal_has_pong()) {
+    clear_packet();
+    set_has_pong();
+    packet_.pong_ = CreateMaybeMessage< ::awd::net::Pong >(GetArena());
+  }
+  return packet_.pong_;
+}
+inline ::awd::net::Pong* PacketWrapper::mutable_pong() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.pong)
+  return _internal_mutable_pong();
 }
 
 // .awd.net.HandshakeRequest handshake_request = 10;
@@ -4147,223 +4791,223 @@ inline ::awd::net::UpdatedMembersList* PacketWrapper::mutable_updated_members_li
   return _internal_mutable_updated_members_list();
 }
 
-// .awd.net.KeepAlive keep_alive = 1000;
-inline bool PacketWrapper::_internal_has_keep_alive() const {
-  return packet_case() == kKeepAlive;
+// .awd.net.SpawnPlayer spawn_player = 1000;
+inline bool PacketWrapper::_internal_has_spawn_player() const {
+  return packet_case() == kSpawnPlayer;
 }
-inline bool PacketWrapper::has_keep_alive() const {
-  return _internal_has_keep_alive();
+inline bool PacketWrapper::has_spawn_player() const {
+  return _internal_has_spawn_player();
 }
-inline void PacketWrapper::set_has_keep_alive() {
-  _oneof_case_[0] = kKeepAlive;
+inline void PacketWrapper::set_has_spawn_player() {
+  _oneof_case_[0] = kSpawnPlayer;
 }
-inline void PacketWrapper::clear_keep_alive() {
-  if (_internal_has_keep_alive()) {
+inline void PacketWrapper::clear_spawn_player() {
+  if (_internal_has_spawn_player()) {
     if (GetArena() == nullptr) {
-      delete packet_.keep_alive_;
+      delete packet_.spawn_player_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::KeepAlive* PacketWrapper::release_keep_alive() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.keep_alive)
-  if (_internal_has_keep_alive()) {
+inline ::awd::net::SpawnPlayer* PacketWrapper::release_spawn_player() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.spawn_player)
+  if (_internal_has_spawn_player()) {
     clear_has_packet();
-      ::awd::net::KeepAlive* temp = packet_.keep_alive_;
+      ::awd::net::SpawnPlayer* temp = packet_.spawn_player_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.keep_alive_ = nullptr;
+    packet_.spawn_player_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::KeepAlive& PacketWrapper::_internal_keep_alive() const {
-  return _internal_has_keep_alive()
-      ? *packet_.keep_alive_
-      : reinterpret_cast< ::awd::net::KeepAlive&>(::awd::net::_KeepAlive_default_instance_);
+inline const ::awd::net::SpawnPlayer& PacketWrapper::_internal_spawn_player() const {
+  return _internal_has_spawn_player()
+      ? *packet_.spawn_player_
+      : reinterpret_cast< ::awd::net::SpawnPlayer&>(::awd::net::_SpawnPlayer_default_instance_);
 }
-inline const ::awd::net::KeepAlive& PacketWrapper::keep_alive() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.keep_alive)
-  return _internal_keep_alive();
+inline const ::awd::net::SpawnPlayer& PacketWrapper::spawn_player() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.spawn_player)
+  return _internal_spawn_player();
 }
-inline ::awd::net::KeepAlive* PacketWrapper::unsafe_arena_release_keep_alive() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.keep_alive)
-  if (_internal_has_keep_alive()) {
+inline ::awd::net::SpawnPlayer* PacketWrapper::unsafe_arena_release_spawn_player() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.spawn_player)
+  if (_internal_has_spawn_player()) {
     clear_has_packet();
-    ::awd::net::KeepAlive* temp = packet_.keep_alive_;
-    packet_.keep_alive_ = nullptr;
+    ::awd::net::SpawnPlayer* temp = packet_.spawn_player_;
+    packet_.spawn_player_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_keep_alive(::awd::net::KeepAlive* keep_alive) {
+inline void PacketWrapper::unsafe_arena_set_allocated_spawn_player(::awd::net::SpawnPlayer* spawn_player) {
   clear_packet();
-  if (keep_alive) {
-    set_has_keep_alive();
-    packet_.keep_alive_ = keep_alive;
+  if (spawn_player) {
+    set_has_spawn_player();
+    packet_.spawn_player_ = spawn_player;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.keep_alive)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.spawn_player)
 }
-inline ::awd::net::KeepAlive* PacketWrapper::_internal_mutable_keep_alive() {
-  if (!_internal_has_keep_alive()) {
+inline ::awd::net::SpawnPlayer* PacketWrapper::_internal_mutable_spawn_player() {
+  if (!_internal_has_spawn_player()) {
     clear_packet();
-    set_has_keep_alive();
-    packet_.keep_alive_ = CreateMaybeMessage< ::awd::net::KeepAlive >(GetArena());
+    set_has_spawn_player();
+    packet_.spawn_player_ = CreateMaybeMessage< ::awd::net::SpawnPlayer >(GetArena());
   }
-  return packet_.keep_alive_;
+  return packet_.spawn_player_;
 }
-inline ::awd::net::KeepAlive* PacketWrapper::mutable_keep_alive() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.keep_alive)
-  return _internal_mutable_keep_alive();
+inline ::awd::net::SpawnPlayer* PacketWrapper::mutable_spawn_player() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.spawn_player)
+  return _internal_mutable_spawn_player();
 }
 
-// .awd.net.Ping ping = 10000;
-inline bool PacketWrapper::_internal_has_ping() const {
-  return packet_case() == kPing;
+// .awd.net.ClientRelativeMove client_relative_move = 2000;
+inline bool PacketWrapper::_internal_has_client_relative_move() const {
+  return packet_case() == kClientRelativeMove;
 }
-inline bool PacketWrapper::has_ping() const {
-  return _internal_has_ping();
+inline bool PacketWrapper::has_client_relative_move() const {
+  return _internal_has_client_relative_move();
 }
-inline void PacketWrapper::set_has_ping() {
-  _oneof_case_[0] = kPing;
+inline void PacketWrapper::set_has_client_relative_move() {
+  _oneof_case_[0] = kClientRelativeMove;
 }
-inline void PacketWrapper::clear_ping() {
-  if (_internal_has_ping()) {
+inline void PacketWrapper::clear_client_relative_move() {
+  if (_internal_has_client_relative_move()) {
     if (GetArena() == nullptr) {
-      delete packet_.ping_;
+      delete packet_.client_relative_move_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::Ping* PacketWrapper::release_ping() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.ping)
-  if (_internal_has_ping()) {
+inline ::awd::net::ClientRelativeMove* PacketWrapper::release_client_relative_move() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.client_relative_move)
+  if (_internal_has_client_relative_move()) {
     clear_has_packet();
-      ::awd::net::Ping* temp = packet_.ping_;
+      ::awd::net::ClientRelativeMove* temp = packet_.client_relative_move_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.ping_ = nullptr;
+    packet_.client_relative_move_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::Ping& PacketWrapper::_internal_ping() const {
-  return _internal_has_ping()
-      ? *packet_.ping_
-      : reinterpret_cast< ::awd::net::Ping&>(::awd::net::_Ping_default_instance_);
+inline const ::awd::net::ClientRelativeMove& PacketWrapper::_internal_client_relative_move() const {
+  return _internal_has_client_relative_move()
+      ? *packet_.client_relative_move_
+      : reinterpret_cast< ::awd::net::ClientRelativeMove&>(::awd::net::_ClientRelativeMove_default_instance_);
 }
-inline const ::awd::net::Ping& PacketWrapper::ping() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.ping)
-  return _internal_ping();
+inline const ::awd::net::ClientRelativeMove& PacketWrapper::client_relative_move() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.client_relative_move)
+  return _internal_client_relative_move();
 }
-inline ::awd::net::Ping* PacketWrapper::unsafe_arena_release_ping() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.ping)
-  if (_internal_has_ping()) {
+inline ::awd::net::ClientRelativeMove* PacketWrapper::unsafe_arena_release_client_relative_move() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.client_relative_move)
+  if (_internal_has_client_relative_move()) {
     clear_has_packet();
-    ::awd::net::Ping* temp = packet_.ping_;
-    packet_.ping_ = nullptr;
+    ::awd::net::ClientRelativeMove* temp = packet_.client_relative_move_;
+    packet_.client_relative_move_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_ping(::awd::net::Ping* ping) {
+inline void PacketWrapper::unsafe_arena_set_allocated_client_relative_move(::awd::net::ClientRelativeMove* client_relative_move) {
   clear_packet();
-  if (ping) {
-    set_has_ping();
-    packet_.ping_ = ping;
+  if (client_relative_move) {
+    set_has_client_relative_move();
+    packet_.client_relative_move_ = client_relative_move;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.ping)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.client_relative_move)
 }
-inline ::awd::net::Ping* PacketWrapper::_internal_mutable_ping() {
-  if (!_internal_has_ping()) {
+inline ::awd::net::ClientRelativeMove* PacketWrapper::_internal_mutable_client_relative_move() {
+  if (!_internal_has_client_relative_move()) {
     clear_packet();
-    set_has_ping();
-    packet_.ping_ = CreateMaybeMessage< ::awd::net::Ping >(GetArena());
+    set_has_client_relative_move();
+    packet_.client_relative_move_ = CreateMaybeMessage< ::awd::net::ClientRelativeMove >(GetArena());
   }
-  return packet_.ping_;
+  return packet_.client_relative_move_;
 }
-inline ::awd::net::Ping* PacketWrapper::mutable_ping() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.ping)
-  return _internal_mutable_ping();
+inline ::awd::net::ClientRelativeMove* PacketWrapper::mutable_client_relative_move() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.client_relative_move)
+  return _internal_mutable_client_relative_move();
 }
 
-// .awd.net.Pong pong = 10001;
-inline bool PacketWrapper::_internal_has_pong() const {
-  return packet_case() == kPong;
+// .awd.net.UpdateEntityPosition update_entity_position = 2001;
+inline bool PacketWrapper::_internal_has_update_entity_position() const {
+  return packet_case() == kUpdateEntityPosition;
 }
-inline bool PacketWrapper::has_pong() const {
-  return _internal_has_pong();
+inline bool PacketWrapper::has_update_entity_position() const {
+  return _internal_has_update_entity_position();
 }
-inline void PacketWrapper::set_has_pong() {
-  _oneof_case_[0] = kPong;
+inline void PacketWrapper::set_has_update_entity_position() {
+  _oneof_case_[0] = kUpdateEntityPosition;
 }
-inline void PacketWrapper::clear_pong() {
-  if (_internal_has_pong()) {
+inline void PacketWrapper::clear_update_entity_position() {
+  if (_internal_has_update_entity_position()) {
     if (GetArena() == nullptr) {
-      delete packet_.pong_;
+      delete packet_.update_entity_position_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::Pong* PacketWrapper::release_pong() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.pong)
-  if (_internal_has_pong()) {
+inline ::awd::net::UpdateEntityPosition* PacketWrapper::release_update_entity_position() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.update_entity_position)
+  if (_internal_has_update_entity_position()) {
     clear_has_packet();
-      ::awd::net::Pong* temp = packet_.pong_;
+      ::awd::net::UpdateEntityPosition* temp = packet_.update_entity_position_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.pong_ = nullptr;
+    packet_.update_entity_position_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::Pong& PacketWrapper::_internal_pong() const {
-  return _internal_has_pong()
-      ? *packet_.pong_
-      : reinterpret_cast< ::awd::net::Pong&>(::awd::net::_Pong_default_instance_);
+inline const ::awd::net::UpdateEntityPosition& PacketWrapper::_internal_update_entity_position() const {
+  return _internal_has_update_entity_position()
+      ? *packet_.update_entity_position_
+      : reinterpret_cast< ::awd::net::UpdateEntityPosition&>(::awd::net::_UpdateEntityPosition_default_instance_);
 }
-inline const ::awd::net::Pong& PacketWrapper::pong() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.pong)
-  return _internal_pong();
+inline const ::awd::net::UpdateEntityPosition& PacketWrapper::update_entity_position() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.update_entity_position)
+  return _internal_update_entity_position();
 }
-inline ::awd::net::Pong* PacketWrapper::unsafe_arena_release_pong() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.pong)
-  if (_internal_has_pong()) {
+inline ::awd::net::UpdateEntityPosition* PacketWrapper::unsafe_arena_release_update_entity_position() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.update_entity_position)
+  if (_internal_has_update_entity_position()) {
     clear_has_packet();
-    ::awd::net::Pong* temp = packet_.pong_;
-    packet_.pong_ = nullptr;
+    ::awd::net::UpdateEntityPosition* temp = packet_.update_entity_position_;
+    packet_.update_entity_position_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_pong(::awd::net::Pong* pong) {
+inline void PacketWrapper::unsafe_arena_set_allocated_update_entity_position(::awd::net::UpdateEntityPosition* update_entity_position) {
   clear_packet();
-  if (pong) {
-    set_has_pong();
-    packet_.pong_ = pong;
+  if (update_entity_position) {
+    set_has_update_entity_position();
+    packet_.update_entity_position_ = update_entity_position;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.pong)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.update_entity_position)
 }
-inline ::awd::net::Pong* PacketWrapper::_internal_mutable_pong() {
-  if (!_internal_has_pong()) {
+inline ::awd::net::UpdateEntityPosition* PacketWrapper::_internal_mutable_update_entity_position() {
+  if (!_internal_has_update_entity_position()) {
     clear_packet();
-    set_has_pong();
-    packet_.pong_ = CreateMaybeMessage< ::awd::net::Pong >(GetArena());
+    set_has_update_entity_position();
+    packet_.update_entity_position_ = CreateMaybeMessage< ::awd::net::UpdateEntityPosition >(GetArena());
   }
-  return packet_.pong_;
+  return packet_.update_entity_position_;
 }
-inline ::awd::net::Pong* PacketWrapper::mutable_pong() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.pong)
-  return _internal_mutable_pong();
+inline ::awd::net::UpdateEntityPosition* PacketWrapper::mutable_update_entity_position() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.update_entity_position)
+  return _internal_mutable_update_entity_position();
 }
 
 inline bool PacketWrapper::has_packet() const {
@@ -4378,6 +5022,10 @@ inline PacketWrapper::PacketCase PacketWrapper::packet_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

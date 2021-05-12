@@ -24,8 +24,6 @@ namespace awd::game {
 
     public:
         PlayerCard(id_type id,
-                   float renderScale,
-                   const std::shared_ptr<sf::RenderWindow>& window,
                    float x, float y,
                    float width, float height,
                    const std::shared_ptr<ButtonListener>& listener,

@@ -35,6 +35,8 @@ namespace awd::game {
 
         // Инициализируются в дочерних конструкторах:
         float x, y, width, height;
+
+        // Инициализируются "оптимальными" значениями по-умолчанию
         bool visible = true;
         bool enabled = true;
 
@@ -110,10 +112,7 @@ namespace awd::game {
         bool isMouseOver(float mouseX, float mouseY) const;
 
     public:
-        Drawable(id_type id,
-                 float renderScale,
-                 const std::shared_ptr<sf::RenderWindow>& window);
-
+        explicit Drawable(id_type id);
         ~Drawable();
 
         id_type getId() const;

@@ -31,8 +31,7 @@ namespace awd::game {
         void createButtons();
 
     public:
-        MainMenuScreen(float renderScale,
-                       const std::shared_ptr<sf::RenderWindow>& window);
+        MainMenuScreen();
 
         void update() override;
         void draw() override;
