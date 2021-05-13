@@ -87,7 +87,7 @@ namespace awd::game {
         currentState = GameState::LOBBY;
         //currentScreen = std::make_shared<MainMenuScreen>();
         auto playScreen = std::make_shared<PlayScreen>();
-        playScreen->getWorld()->updateDimension(0);
+        playScreen->getWorld()->updateDimension(1);
         currentScreen = playScreen;
 
         uint32_t tickDelay = std::chrono::milliseconds(1000 / GAME_TPS).count();

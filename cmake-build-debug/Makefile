@@ -1105,6 +1105,33 @@ game/packetlistener/lobby/UpdatedMembersListListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 .PHONY : game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 
+game/util/ImageUtils.obj: game/util/ImageUtils.cpp.obj
+
+.PHONY : game/util/ImageUtils.obj
+
+# target to build an object file
+game/util/ImageUtils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj
+.PHONY : game/util/ImageUtils.cpp.obj
+
+game/util/ImageUtils.i: game/util/ImageUtils.cpp.i
+
+.PHONY : game/util/ImageUtils.i
+
+# target to preprocess a source file
+game/util/ImageUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.i
+.PHONY : game/util/ImageUtils.cpp.i
+
+game/util/ImageUtils.s: game/util/ImageUtils.cpp.s
+
+.PHONY : game/util/ImageUtils.s
+
+# target to generate assembly for a file
+game/util/ImageUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.s
+.PHONY : game/util/ImageUtils.cpp.s
+
 game/util/RenderUtils.obj: game/util/RenderUtils.cpp.obj
 
 .PHONY : game/util/RenderUtils.obj
@@ -1212,6 +1239,33 @@ game/world/World.s: game/world/World.cpp.s
 game/world/World.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/World.cpp.s
 .PHONY : game/world/World.cpp.s
+
+game/world/WorldLoader.obj: game/world/WorldLoader.cpp.obj
+
+.PHONY : game/world/WorldLoader.obj
+
+# target to build an object file
+game/world/WorldLoader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj
+.PHONY : game/world/WorldLoader.cpp.obj
+
+game/world/WorldLoader.i: game/world/WorldLoader.cpp.i
+
+.PHONY : game/world/WorldLoader.i
+
+# target to preprocess a source file
+game/world/WorldLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.i
+.PHONY : game/world/WorldLoader.cpp.i
+
+game/world/WorldLoader.s: game/world/WorldLoader.cpp.s
+
+.PHONY : game/world/WorldLoader.s
+
+# target to generate assembly for a file
+game/world/WorldLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.s
+.PHONY : game/world/WorldLoader.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -1571,6 +1625,9 @@ help:
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.obj
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.i
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.s
+	@echo ... game/util/ImageUtils.obj
+	@echo ... game/util/ImageUtils.i
+	@echo ... game/util/ImageUtils.s
 	@echo ... game/util/RenderUtils.obj
 	@echo ... game/util/RenderUtils.i
 	@echo ... game/util/RenderUtils.s
@@ -1583,6 +1640,9 @@ help:
 	@echo ... game/world/World.obj
 	@echo ... game/world/World.i
 	@echo ... game/world/World.s
+	@echo ... game/world/WorldLoader.obj
+	@echo ... game/world/WorldLoader.i
+	@echo ... game/world/WorldLoader.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

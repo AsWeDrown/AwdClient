@@ -2,12 +2,15 @@
 
 
 #include "../graphics/common/Drawable.hpp"
+#include "WorldData.hpp"
 
 namespace awd::game {
 
     class World : public Drawable {
     private:
         uint32_t dimension = 9999; // 9999 -> ничего не рисуем (мир ещё не загружен)
+
+        std::shared_ptr<WorldData> worldData = nullptr;
 
         std::unique_ptr<sf::VertexArray> worldVertices = nullptr;
 

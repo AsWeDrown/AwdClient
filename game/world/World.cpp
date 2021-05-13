@@ -12,11 +12,12 @@
 /**
  * Часть мира (%/100), отображаемая на экрана (находящаяся в фокусе, т.е. в текущем View).
  */
-#define WORLD_SIZE_ON_SCREEN_PART 0.25f
+#define WORLD_SIZE_ON_SCREEN_PART 0.225f /* 22.5% */
 
 
 #include "World.hpp"
 #include "../Game.hpp"
+#include "WorldLoader.hpp"
 
 namespace awd::game {
 
@@ -80,7 +81,10 @@ namespace awd::game {
         if (this->dimension != newDimension) {
             // Загружаем новое измерение.
             this->dimension = newDimension;
-            std::wcout << L"Loading dimension " << dimension << std::endl;
+
+            WorldLoader worldLoader(dimension);
+            worldData = std::make_shared<WorldData>();
+            worldLoader >> *worldData;
 
             worldVertices = std::make_unique<sf::VertexArray>();
             worldVertices->setPrimitiveType(sf::Quads);
