@@ -40,6 +40,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/world/World.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj"
   "CMakeFiles/AwdClient.dir/main.cpp.obj"

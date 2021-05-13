@@ -24,6 +24,7 @@ namespace awd::game {
     class WorldLoader {
     private:
         uint32_t dimension;
+        std::map<int, uint32_t> rgbToTileIdMap;
         LevelParseState parseState = LevelParseState::EXPECTING_IDENTIFIER;
         WorldLoadStatus loadStatus = WorldLoadStatus::NOT_LOADED;
 
