@@ -7,8 +7,8 @@ namespace awd::game {
 
     class LivingEntity : public Entity {
     public:
-        float maxHealth     = 0.0f;
-        float currentHealth = 0.0f;
+        float maxHealth     = 0.0f; // максимальный запас здоровья этой сущности (в хитпоинтах) (не должен меняться)
+        float currentHealth = 0.0f; // текущий запас здоровья этой сущности (в хитпоинтах)
 
         explicit LivingEntity(id_type entityId);
 

@@ -5,6 +5,7 @@
 #include "../common/DialogListener.hpp"
 #include "../common/ButtonListener.hpp"
 #include "../../lobby/Lobby.hpp"
+#include "../play/PlayScreen.hpp"
 
 namespace awd::game {
 
@@ -12,18 +13,23 @@ namespace awd::game {
             public DialogListener,
             public ButtonListener {
     private:
+        std::shared_ptr<PlayScreen> playScreen = nullptr;
+
         //////////////////////////////////////////////////////////////////////////////////////////////
         //   Утилити-методы
         //////////////////////////////////////////////////////////////////////////////////////////////
 
-        static void beginLeaveLobby(Drawable* lobbyDrawable,
-                                    const std::shared_ptr<Lobby>& currentLobby);
+        static void beginLeaveLobby(Drawable* lobbyDrawable);
+
+        static void beginNewGame(Drawable* lobbyDrawable);
 
         //////////////////////////////////////////////////////////////////////////////////////////////
         //   Обработчики событий
         //////////////////////////////////////////////////////////////////////////////////////////////
 
         static void leaveLobbyClicked(Drawable* lobbyDrawable);
+
+        static void newGameClicked(Drawable* lobbyDrawable);
 
         static void errorOkClicked(Drawable* dialog);
 
@@ -33,6 +39,15 @@ namespace awd::game {
 
         static void kickedFromLobby(Drawable* lobbyDrawable,
                                     const std::shared_ptr<net::KickedFromLobby>& kick);
+
+        static void finishBeginPlayState(Drawable* lobbyDrawable,
+                                         const std::shared_ptr<net::BeginPlayStateResponse>& response);
+
+        static void initialUpdateDimension(Drawable* lobbyDrawable,
+                                           const std::shared_ptr<net::UpdateDimensionCommand>& command);
+
+        static void joinWorld(Drawable* lobbyDrawable,
+                              const std::shared_ptr<net::JoinWorldCommand>& command);
 
         void dialogOpened(Drawable* parentScreen, id_type dialogId) override;
 

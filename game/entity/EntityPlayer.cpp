@@ -1,4 +1,5 @@
-#define SPRITE_WIDTH 128.0f
+#define BASE_PLAYER_TEXTURE_WIDTH 22.0f
+#define BASE_PLAYER_TEXTURE_HEIGHT 34.0f
 
 
 #include "EntityPlayer.hpp"
@@ -20,7 +21,7 @@ namespace awd::game {
         stillFrontSprite->setTexture(*Game::instance().getTextures()->characters[character - 1]);
 
         sf::FloatRect baseBounds = stillFrontSprite->getGlobalBounds();
-        stillFrontSprite->setScale( // устанавливаем нужный нам размер спрайта (из 16x32 --> WxH)
+        stillFrontSprite->setScale( // устанавливаем нужный нам размер спрайта
                 spriteWidth  / baseBounds.width,
                 spriteHeight / baseBounds.height
         );
@@ -38,8 +39,8 @@ namespace awd::game {
         this->name = name;
         this->character = character;
 
-        spriteWidth  = SPRITE_WIDTH * renderScale;
-        spriteHeight = 2.0f * spriteWidth;
+        spriteWidth  = BASE_PLAYER_TEXTURE_WIDTH;
+        spriteHeight = BASE_PLAYER_TEXTURE_HEIGHT;
 
         prepareSprites();
     }

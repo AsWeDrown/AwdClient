@@ -6,7 +6,11 @@
 #define BUTTONS_HEIGHT 75.0f
 #define BUTTONS_FONT_SIZE 40
 // Карточки игроков
-#define PLAYER_CARDS_WIDTH 400.0f
+#define BASE_PLAYER_TEXTURE_WIDTH 22.0f
+#define BASE_PLAYER_TEXTURE_HEIGHT 34.0f
+#define PLAYER_CARDS_SCALE 18.0f /* в 18 раз больше базовой модельки */
+#define PLAYER_CARDS_WIDTH BASE_PLAYER_TEXTURE_WIDTH * PLAYER_CARDS_SCALE
+#define PLAYER_CARDS_HEIGHT BASE_PLAYER_TEXTURE_HEIGHT * PLAYER_CARDS_SCALE
 #define PLAYER_CARDS_FONT_SIZE 27
 // Разделительная линия над кнопками
 #define BUTTONS_SEPARATOR_LINE_HEIGHT 3.0f
@@ -69,7 +73,7 @@ namespace awd::game {
     void LobbyScreen::createPlayerCards() {
         uint32_t    cardFontSize   = PLAYER_CARDS_FONT_SIZE   * renderScale;
         const float cardWidth      = PLAYER_CARDS_WIDTH       * renderScale;
-        const float cardHeight     = 2.0f * cardWidth; // базовые текстуры - 16 x 32 (W x 2*W)
+        const float cardHeight     = PLAYER_CARDS_HEIGHT      * renderScale;
         const float cardMargin     = (width - 4.0f * cardWidth) / 5.0f; // делим на 5, т.к. "дырок" - 5
         const float cardY          = sepLine->getPosition().y / 2.0f - cardHeight / 2.0f;
 

@@ -1,4 +1,6 @@
 #define LEAVE_TIMEOUT_MILLIS 5000
+#define NEW_OR_LOAD_GAME_TIMEOUT_MILLIS 7500
+#define PLAY_STATE_LOAD_TIMEOUT_MILLIS 30000
 
 
 #include <iostream>
@@ -13,13 +15,16 @@ namespace awd::game {
     //   Утилити-методы
     //////////////////////////////////////////////////////////////////////////////////////////////
 
-    void LobbyScreenListener::beginLeaveLobby(Drawable* lobbyDrawable,
-                                              const std::shared_ptr<Lobby>& currentLobby) {
+    void LobbyScreenListener::beginLeaveLobby(Drawable* lobbyDrawable) {
         auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
         lobbyScreen->showLoadingOverlay(L"Выход из комнаты...", LEAVE_TIMEOUT_MILLIS);
+        Game::instance().getNetService()->leaveLobbyRequest();
+    }
 
-        Game::instance().getNetService()->leaveLobbyRequest(
-                currentLobby->lobbyId, currentLobby->ownPlayerId);
+    void LobbyScreenListener::beginNewGame(Drawable* lobbyDrawable) {
+        auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
+        lobbyScreen->showLoadingOverlay(L"Игра скоро начнётся...", NEW_OR_LOAD_GAME_TIMEOUT_MILLIS);
+        Game::instance().getNetService()->beginPlayStateRequest("0");
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,7 +35,14 @@ namespace awd::game {
         auto currentLobby = Game::instance().getCurrentLobby();
 
         if (currentLobby != nullptr)
-            beginLeaveLobby(lobbyDrawable, currentLobby);
+            beginLeaveLobby(lobbyDrawable);
+    }
+
+    void LobbyScreenListener::newGameClicked(Drawable* lobbyDrawable) {
+        auto currentLobby = Game::instance().getCurrentLobby();
+
+        if (currentLobby != nullptr)
+            beginNewGame(lobbyDrawable);
     }
 
     void LobbyScreenListener::errorOkClicked(Drawable* dialog) {
@@ -91,6 +103,83 @@ namespace awd::game {
         }
     }
 
+    void LobbyScreenListener::finishBeginPlayState(Drawable* lobbyDrawable,
+                                                   const std::shared_ptr<net::BeginPlayStateResponse>& response) {
+        auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
+        lobbyScreen->hideCurrentLoadingOverlay();
+
+        if (response->status_code() == 1)
+            // Игра запускается успешно. Ждём, пока сервер передаст нам и остальным
+            // игрокам в комнате всю необходимую для старта игровой стадии информацию.
+            lobbyScreen->showLoadingOverlay(
+                    L"Ждём, пока все игроки загрузятся...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
+        else {
+            // Ошибка.
+            std::wstring errorMessage;
+            int errorCode = response->status_code();
+
+            switch (errorCode) {
+                case -1:
+                    errorMessage = L"недостаточно игроков в комнате для начала";
+                    break;
+
+                case -2:
+                    errorMessage = L"данных о локальном сохранении нет на сервере "
+                                   L"(возможно, локальное сохранение устарело)";
+                    break;
+
+                case -3:
+                    errorMessage = L"невозможно загрузить сохранение - состав игроков (имена и/или "
+                                   L"количество) в комнате отличаются от записанного в сохранении";
+
+                    break;
+
+                case -4:
+                    errorMessage = L"локальное сохранение было создано для другой версии игры";
+                    break;
+
+                case -999:
+                    errorMessage = L"непредвиденная ошибка на сервере";
+                    break;
+
+                default:
+                    errorMessage = L"что-то пошло не так (код ошибки: {WHITE}"
+                                   + std::to_wstring(errorCode) + L"{GRAY})";
+
+                    break;
+            }
+
+            lobbyScreen->showErrorDialog(
+                    L"{RED}{BOLD}Не удалось начать игру: {RESET}{GRAY}" + errorMessage + L".");
+        }
+    }
+
+    void LobbyScreenListener::initialUpdateDimension(Drawable* lobbyDrawable,
+                                                     const std::shared_ptr<net::UpdateDimensionCommand>& command) {
+        auto lobbyScreen = (LobbyScreen*) lobbyDrawable;
+
+        if (lobbyScreen->getListener()->playScreen == nullptr) { // защита от повторного получения пакетов
+            // Загружаем указанное сервером измерение и сообщаем ему по завершении, переходя в игровую стадию (PLAY).
+            lobbyScreen->getListener()->playScreen = std::make_shared<PlayScreen>();
+            lobbyScreen->getListener()->playScreen->getWorld()->updateDimension(command->dimension());
+            Game::instance().setCurrentState(GameState::PLAY);
+            Game::instance().getNetService()->updateDimensionComplete();
+        }
+    }
+
+    void LobbyScreenListener::joinWorld(Drawable* lobbyDrawable,
+                                        const std::shared_ptr<net::JoinWorldCommand>& command) {
+        auto lobbyScreen = (LobbyScreen*) lobbyDrawable;
+
+        if (!Game::instance().isJoinedWorld()) { // защита от повторного получения пакетов
+            // Переходим на игровой экран. Серверу сообщим об этом по завершении:
+            // в следующем тике, в методе update() игрового экрана (PlayScreen).
+            lobbyScreen->hideCurrentLoadingOverlay();
+            Game::instance().setJoinedWorld(true);
+            Game::instance().setCurrentScreen(lobbyScreen->getListener()->playScreen);
+        }
+    }
+
     void LobbyScreenListener::dialogOpened(Drawable* parentScreen, id_type dialogId) {}
 
     void LobbyScreenListener::dialogClosed(Drawable* parentScreen, id_type dialogId) {
@@ -103,6 +192,10 @@ namespace awd::game {
             // Lobby
             case ID_SCREEN_LOBBY_BUTTON_LEAVE_LOBBY:
                 leaveLobbyClicked(buttonParent);
+                break;
+
+            case ID_SCREEN_LOBBY_BUTTON_NEW_GAME:
+                newGameClicked(buttonParent);
                 break;
 
             // Lobby.Error

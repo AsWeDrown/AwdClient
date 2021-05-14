@@ -208,6 +208,54 @@ namespace awd::net {
             wrapper.release_updated_members_list();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* begin_play_state_request = dynamic_cast<BeginPlayStateRequest*>(packet)) {
+            wrapper.set_allocated_begin_play_state_request(begin_play_state_request);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_begin_play_state_request();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* begin_play_state_response = dynamic_cast<BeginPlayStateResponse*>(packet)) {
+            wrapper.set_allocated_begin_play_state_response(begin_play_state_response);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_begin_play_state_response();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* update_dimension_command = dynamic_cast<UpdateDimensionCommand*>(packet)) {
+            wrapper.set_allocated_update_dimension_command(update_dimension_command);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_update_dimension_command();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* update_dimension_complete = dynamic_cast<UpdateDimensionComplete*>(packet)) {
+            wrapper.set_allocated_update_dimension_complete(update_dimension_complete);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_update_dimension_complete();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* join_world_command = dynamic_cast<JoinWorldCommand*>(packet)) {
+            wrapper.set_allocated_join_world_command(join_world_command);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_join_world_command();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* join_world_complete = dynamic_cast<JoinWorldComplete*>(packet)) {
+            wrapper.set_allocated_join_world_complete(join_world_complete);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_join_world_complete();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
         } else if (auto* spawn_player = dynamic_cast<SpawnPlayer*>(packet)) {
             wrapper.set_allocated_spawn_player(spawn_player);
             size_t dataLen = wrapper.ByteSizeLong();
@@ -216,12 +264,12 @@ namespace awd::net {
             wrapper.release_spawn_player();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
-        } else if (auto* client_relative_move = dynamic_cast<ClientRelativeMove*>(packet)) {
-            wrapper.set_allocated_client_relative_move(client_relative_move);
+        } else if (auto* update_player_inputs = dynamic_cast<UpdatePlayerInputs*>(packet)) {
+            wrapper.set_allocated_update_player_inputs(update_player_inputs);
             size_t dataLen = wrapper.ByteSizeLong();
             std::shared_ptr<char[]> data(new char[dataLen]);
             wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
-            wrapper.release_client_relative_move();
+            wrapper.release_update_player_inputs();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
         } else if (auto* update_entity_position = dynamic_cast<UpdateEntityPosition*>(packet)) {
@@ -310,15 +358,45 @@ namespace awd::net {
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<UpdatedMembersList>(wrapper.updated_members_list()));
 
+            case PacketWrapper::PacketCase::kBeginPlayStateRequest:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<BeginPlayStateRequest>(wrapper.begin_play_state_request()));
+
+            case PacketWrapper::PacketCase::kBeginPlayStateResponse:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<BeginPlayStateResponse>(wrapper.begin_play_state_response()));
+
+            case PacketWrapper::PacketCase::kUpdateDimensionCommand:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<UpdateDimensionCommand>(wrapper.update_dimension_command()));
+
+            case PacketWrapper::PacketCase::kUpdateDimensionComplete:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<UpdateDimensionComplete>(wrapper.update_dimension_complete()));
+
+            case PacketWrapper::PacketCase::kJoinWorldCommand:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<JoinWorldCommand>(wrapper.join_world_command()));
+
+            case PacketWrapper::PacketCase::kJoinWorldComplete:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<JoinWorldComplete>(wrapper.join_world_complete()));
+
             case PacketWrapper::PacketCase::kSpawnPlayer:
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<SpawnPlayer>(wrapper.spawn_player()));
 
-            case PacketWrapper::PacketCase::kClientRelativeMove:
+            case PacketWrapper::PacketCase::kUpdatePlayerInputs:
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
-                        std::make_shared<ClientRelativeMove>(wrapper.client_relative_move()));
+                        std::make_shared<UpdatePlayerInputs>(wrapper.update_player_inputs()));
 
             case PacketWrapper::PacketCase::kUpdateEntityPosition:
                 return std::make_shared<UnwrappedPacketData>(

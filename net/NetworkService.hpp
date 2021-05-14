@@ -47,7 +47,13 @@ namespace awd::net {
 
         void joinLobbyRequest(uint32_t lobbyId, const std::wstring& playerName);
 
-        void leaveLobbyRequest(uint32_t lobbyId, uint32_t playerId);
+        void leaveLobbyRequest();
+
+        void beginPlayStateRequest(const std::string& saveId);
+
+        void updateDimensionComplete();
+
+        void joinWorldComplete();
     };
 
 }

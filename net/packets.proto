@@ -91,8 +91,7 @@ message JoinLobbyResponse { // C <-- S
 }
 
 message LeaveLobbyRequest { // C --> S
-  uint32 lobby_id  = 1;
-  uint32 player_id = 2;
+  /* empty packet */
 }
 
 message LeaveLobbyResponse { // C <-- S
@@ -108,27 +107,50 @@ message UpdatedMembersList { // C <-- S
   map<uint32, uint32> new_all_characters = 2;
 }
 
+message BeginPlayStateRequest { // C --> S
+  string save_id = 1;
+}
+
+message BeginPlayStateResponse { // C <-- S
+  sint32 status_code = 1;
+}
+
 /*
 ---------------------------------------------------------------------------------------------------
    ИГРОВОЙ ЭТАП (PLAY STATE)
 ---------------------------------------------------------------------------------------------------
  */
 
+message UpdateDimensionCommand { // C <-- S
+  uint32 dimension = 1;
+}
+
+message UpdateDimensionComplete { // C --> S
+  /* empty packet */
+}
+
+message JoinWorldCommand { // C <-- S
+  /* empty packet */
+}
+
+message JoinWorldComplete { // C --> S
+  /* empty packet */
+}
+
 message SpawnPlayer { // C <-- S
   uint32 player_id = 1;
   uint32 entity_id = 2;
 }
 
-message ClientRelativeMove { // C --> S
-  uint32 lobby_id  = 1;
-  uint32 player_id = 2;
-  uint32 direction = 3;
+message UpdatePlayerInputs { // C --> S
+  uint64 inputs_bitfield = 1; // на самом деле используется uint32, но 64 нужно для нормальной работы в Java ("long")
 }
 
 message UpdateEntityPosition { // C <-- S
-  uint32 entity_id = 1;
-  float  pos_x     = 2;
-  float  pos_y     = 3;
+  uint32 entity_id  = 1;
+  float  pos_x      = 2;
+  float  pos_y      = 3;
+  float  face_angle = 4;
 }
 
 /*
@@ -173,23 +195,29 @@ message PacketWrapper {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //   LOBBY STATE    [10..999]
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    HandshakeRequest handshake_request           =    10;
-    HandshakeResponse handshake_response         =    11;
-    CreateLobbyRequest create_lobby_request      =   100;
-    CreateLobbyResponse create_lobby_response    =   101;
-    JoinLobbyRequest join_lobby_request          =   102;
-    JoinLobbyResponse join_lobby_response        =   103;
-    LeaveLobbyRequest leave_lobby_request        =   104;
-    LeaveLobbyResponse leave_lobby_response      =   105;
-    KickedFromLobby kicked_from_lobby            =   106;
-    UpdatedMembersList updated_members_list      =   107;
+    HandshakeRequest handshake_request               =  10;
+    HandshakeResponse handshake_response             =  11;
+    CreateLobbyRequest create_lobby_request          = 100;
+    CreateLobbyResponse create_lobby_response        = 101;
+    JoinLobbyRequest join_lobby_request              = 102;
+    JoinLobbyResponse join_lobby_response            = 103;
+    LeaveLobbyRequest leave_lobby_request            = 104;
+    LeaveLobbyResponse leave_lobby_response          = 105;
+    KickedFromLobby kicked_from_lobby                = 106;
+    UpdatedMembersList updated_members_list          = 107;
+    BeginPlayStateRequest begin_play_state_request   = 901;
+    BeginPlayStateResponse begin_play_state_response = 902;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //   PLAY STATE    [1000..9999]
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    SpawnPlayer spawn_player                    = 1000;
-    ClientRelativeMove client_relative_move     = 2000;
-    UpdateEntityPosition update_entity_position = 2001;
+    UpdateDimensionCommand update_dimension_command   = 1000;
+    UpdateDimensionComplete update_dimension_complete = 1001;
+    JoinWorldCommand join_world_command               = 1002;
+    JoinWorldComplete join_world_complete             = 1003;
+    SpawnPlayer spawn_player                          = 2000;
+    UpdatePlayerInputs update_player_inputs           = 3000;
+    UpdateEntityPosition update_entity_position       = 3001;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //   GENERAL    [10000..99999]

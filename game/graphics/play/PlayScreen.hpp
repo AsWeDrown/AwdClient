@@ -9,8 +9,10 @@ namespace awd::game {
 
     class PlayScreen : public Screen {
     private:
+        bool justJoined = true; // используется для уведомления сервера о присоединении к миру (игровому экрану)
+
         std::shared_ptr<PlayScreenListener> listener = std::make_shared<PlayScreenListener>();
-        std::shared_ptr<World> world = nullptr;
+        std::shared_ptr<World> world = nullptr; // создаётся сразу в конструкторе
 
     public:
         PlayScreen();

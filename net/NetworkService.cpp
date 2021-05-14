@@ -90,37 +90,48 @@ namespace awd::net {
     void NetworkService::handshakeRequest() {
         auto packet = std::make_shared<HandshakeRequest>();
         packet->set_protocol_version(PacketManager::PROTOCOL_VERSION);
-
         enqueueSendImportant(packet);
     }
 
     void NetworkService::pong(uint32_t testId) {
         auto packet = std::make_shared<Pong>();
         packet->set_test_id(testId);
-
         packetManager->sendPacket(packet); // Для пакетов Ping/Pong используем мгновенные отправку/получение.
     }
 
     void NetworkService::createLobbyRequest(const std::wstring& playerName) {
         auto packet = std::make_shared<CreateLobbyRequest>();
         packet->set_player_name(std::string(playerName.begin(), playerName.end())); // wstring --> string
-
         enqueueSendImportant(packet);
     }
 
     void NetworkService::joinLobbyRequest(uint32_t lobbyId, const std::wstring& playerName) {
         auto packet = std::make_shared<JoinLobbyRequest>();
+
         packet->set_lobby_id(lobbyId);
         packet->set_player_name(std::string(playerName.begin(), playerName.end())); // wstring --> string
 
         enqueueSendImportant(packet);
     }
 
-    void NetworkService::leaveLobbyRequest(uint32_t lobbyId, uint32_t playerId) {
+    void NetworkService::leaveLobbyRequest() {
         auto packet = std::make_shared<LeaveLobbyRequest>();
-        packet->set_lobby_id(lobbyId);
-        packet->set_player_id(playerId);
+        enqueueSendImportant(packet);
+    }
 
+    void NetworkService::beginPlayStateRequest(const std::string& saveId) {
+        auto packet = std::make_shared<BeginPlayStateRequest>();
+        packet->set_save_id(saveId);
+        enqueueSendImportant(packet);
+    }
+
+    void NetworkService::updateDimensionComplete() {
+        auto packet = std::make_shared<UpdateDimensionComplete>();
+        enqueueSendImportant(packet);
+    }
+
+    void NetworkService::joinWorldComplete() {
+        auto packet = std::make_shared<JoinWorldComplete>();
         enqueueSendImportant(packet);
     }
 

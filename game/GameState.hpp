@@ -8,17 +8,22 @@ namespace awd::game {
         /**
          * Используется только в клиенте. Сигнализирует о необходимости закрытия игры.
          */
-        static const uint32_t EXIT  = -1;
+        static const uint32_t EXIT  = 9999;
+
+        /**
+         * Этап аутентификации/рукопожатия.
+         */
+        static const uint32_t AUTH  = 0;
 
         /**
          * Предыгровой этап.
          */
-        static const uint32_t LOBBY = 0;
+        static const uint32_t LOBBY = 1;
 
         /**
          * Игровой этап.
          */
-        static const uint32_t PLAY  = 1;
+        static const uint32_t PLAY  = 2;
     };
 
 }

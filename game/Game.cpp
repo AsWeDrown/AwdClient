@@ -17,6 +17,11 @@
 #include "packetlistener/lobby/UpdatedMembersListListener.hpp"
 #include "packetlistener/lobby/KickedFromLobbyListener.hpp"
 #include "graphics/play/PlayScreen.hpp"
+#include "packetlistener/lobby/BeginPlayStateResponseListener.hpp"
+#include "packetlistener/play/UpdateDimensionCommandListener.hpp"
+#include "packetlistener/play/JoinWorldCommandListener.hpp"
+#include "packetlistener/play/SpawnPlayerListener.hpp"
+#include "packetlistener/play/UpdateEntityPositionListener.hpp"
 
 namespace awd::game {
 
@@ -70,6 +75,31 @@ namespace awd::game {
                 net::PacketWrapper::PacketCase::kKickedFromLobby,
                 std::make_shared<KickedFromLobbyListener>()
         );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kBeginPlayStateResponse,
+                std::make_shared<BeginPlayStateResponseListener>()
+        );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kUpdateDimensionCommand,
+                std::make_shared<UpdateDimensionCommandListener>()
+        );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kJoinWorldCommand,
+                std::make_shared<JoinWorldCommandListener>()
+        );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kSpawnPlayer,
+                std::make_shared<SpawnPlayerListener>()
+        );
+
+        packetManager->registerListener(
+                net::PacketWrapper::PacketCase::kUpdateEntityPosition,
+                std::make_shared<UpdateEntityPositionListener>()
+        );
     }
 
     void Game::startGameLoop() {
@@ -84,11 +114,11 @@ namespace awd::game {
                   << L" (" << bestVideoMode.bitsPerPixel << L" bits per pixel)" << std::endl;
         std::wcout << L"Render scale: " << renderScale << std::endl;
 
-        currentState = GameState::LOBBY;
-        //currentScreen = std::make_shared<MainMenuScreen>();
-        auto playScreen = std::make_shared<PlayScreen>();
-        playScreen->getWorld()->updateDimension(1);
-        currentScreen = playScreen;
+        currentState = GameState::AUTH;
+        currentScreen = std::make_shared<MainMenuScreen>();
+//        auto playScreen = std::make_shared<PlayScreen>();//todo remove
+//        playScreen->getWorld()->updateDimension(1);//todo remove
+//        currentScreen = playScreen;//todo remove
 
         uint32_t tickDelay = std::chrono::milliseconds(1000 / GAME_TPS).count();
         sf::Clock tickClock;
@@ -145,12 +175,13 @@ namespace awd::game {
     }
 
     void Game::update() {
-//        if (++currentTick == 1)
-//            // Элементы загрузки, которые выполняются после отображения главного меню (например, соединение).
-//            postScreenLoad();
+        if (++currentTick == 1)
+            // Элементы загрузки, которые выполняются после отображения главного меню (например, соединение).
+            postScreenLoad();
 
-        flushPackets();
-        currentScreen->update();
+        netService->flushReceiveQueue(); // обрабатываем пакеты, полученные с сервера
+        currentScreen->update();         // выполняем обновление (м.б., на отправку будут поставлены какие-то пакеты)
+        netService->flushSendQueue();    // отправляем пакеты, поставленые в очередь на отправку после обновления
     }
 
     void Game::render() {
@@ -165,11 +196,6 @@ namespace awd::game {
         // UDP-клиент (в другом потоке).
         registerPacketListeners();
         udpClient->startInNewThread();
-    }
-
-    void Game::flushPackets() {
-        netService->flushSendQueue();
-        netService->flushReceiveQueue();
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -207,16 +233,21 @@ namespace awd::game {
         shuttingDown = true;
 
         std::wcout << L"Shutting down..." << std::endl;
-        udpClient->tearDown();
+
+        if (udpClient != nullptr)
+            udpClient->tearDown();
+
         currentState = GameState::EXIT;
 
         std::wcout << L"Bye!" << std::endl;
     }
 
     void Game::handshakeComplete(uint32_t serverProtocolVersion) {
-        if (serverProtocolVersion == net::PacketManager::PROTOCOL_VERSION)
+        if (serverProtocolVersion == net::PacketManager::PROTOCOL_VERSION) {
+            // Процесс аутентификации/рукопожатия прошёл успешно.
+            currentState = GameState::LOBBY;
             currentScreen->hideCurrentLoadingOverlay();
-        else {
+        } else {
             std::wcerr << L"Protocol versions do not match." << std::endl;
 
             if (auto mainMenu = std::dynamic_pointer_cast<MainMenuScreen>(currentScreen))
@@ -277,6 +308,10 @@ namespace awd::game {
         return currentState;
     }
 
+    void Game::setCurrentState(uint32_t newState) {
+        this->currentState = newState;
+    }
+
     float Game::getRenderScale() const {
         return renderScale;
     }
@@ -299,6 +334,14 @@ namespace awd::game {
 
     void Game::setCurrentLobby(const std::shared_ptr<Lobby>& lobby) {
         this->currentLobby = lobby;
+    }
+
+    bool Game::isJoinedWorld() const {
+        return joinedWorld;
+    }
+
+    void Game::setJoinedWorld(bool joined) {
+        this->joinedWorld = joined;
     }
 
     uint32_t Game::randUInt(uint32_t min, uint32_t max) {

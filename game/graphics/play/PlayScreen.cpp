@@ -1,4 +1,5 @@
 #include "PlayScreen.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 
@@ -9,9 +10,9 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     PlayScreen::PlayScreen() : Screen(ID_SCREEN_PLAY) {
-        // Мир.
+        // Собственно, мир (карта).
         world = std::make_shared<World>();
-        addComponent(world);
+        enqueueAddChild(world);
     }
 
     void PlayScreen::keyPressed(const sf::Event::KeyEvent& event) {
@@ -24,6 +25,12 @@ namespace awd::game {
 
     void PlayScreen::update() {
         Screen::update();
+
+        if (justJoined) {
+            // Уведомляем сервер о присоединении к миру (для фактического начала игры).
+            Game::instance().getNetService()->joinWorldComplete();
+            justJoined = false;
+        }
     }
 
     void PlayScreen::draw() {

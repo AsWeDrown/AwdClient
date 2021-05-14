@@ -31,8 +31,9 @@ namespace awd::game {
         bool gameWindowFocused = true;
 
         std::shared_ptr<Lobby> currentLobby             = nullptr;
+        std::atomic<bool>      joinedWorld              = false;
         std::atomic<bool>      shuttingDown             = false;
-        std::atomic<int>       currentState             = GameState::LOBBY;
+        std::atomic<uint32_t>  currentState             = GameState::AUTH;
 
         float                             renderScale   = 0.0f;
         std::shared_ptr<sf::RenderWindow> window        = nullptr;
@@ -48,7 +49,6 @@ namespace awd::game {
         void update();
         void render();
         void postScreenLoad();
-        void flushPackets();
 
     public:
         static Game& instance() {
@@ -78,7 +78,12 @@ namespace awd::game {
 
         std::shared_ptr<Lobby> getCurrentLobby() const;
         void                   setCurrentLobby(const std::shared_ptr<Lobby>& lobby);
-        uint32_t               getCurrentState() const;
+
+        bool isJoinedWorld() const;
+        void setJoinedWorld(bool joined);
+
+        uint32_t getCurrentState() const;
+        void     setCurrentState(uint32_t newState);
 
         float                             getRenderScale  () const;
         std::shared_ptr<sf::RenderWindow> getWindow       () const;
@@ -86,8 +91,8 @@ namespace awd::game {
         void                              setCurrentScreen(const std::shared_ptr<Screen>& screen);
 
         // TODO переместить эти методы в какой-то утилити-класс
-        static uint32_t randUInt(uint32_t min, uint32_t max);
-        static float randFloat(float min, float max);
+        static uint32_t randUInt (uint32_t min, uint32_t max);
+        static float    randFloat(float    min, float    max);
     };
 
 }

@@ -94,4 +94,28 @@ namespace awd::game {
         }
     }
 
+    std::shared_ptr<Entity> World::getEntityById(uint32_t entityId) const {
+        for (const auto& entity : entities)
+            if (entity->getEntityId() == entityId)
+                return entity;
+
+        return nullptr;
+    }
+
+    void World::addEntity(const std::shared_ptr<Entity>& entity) {
+        enqueueAddChild(entity);
+        entities.push_back(entity);
+    }
+
+    void World::removeEntity(uint32_t entityId) {
+        entities.erase(std::remove_if(
+                entities.begin(), entities.end(),
+                [entityId](const std::shared_ptr<Entity>& entity) {
+                    return entity->getEntityId() == entityId;
+                }), entities.end()
+        );
+
+        enqueueRemoveChild(Entity::entityIdToDrawableId(entityId));
+    }
+
 }

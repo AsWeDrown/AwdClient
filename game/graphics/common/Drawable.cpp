@@ -73,7 +73,7 @@ namespace awd::game {
         freeId(childId); // освобождаем ID мгновенно (вдруг деструктор вызовется с задержкой?)
         children.erase(std::remove_if(
                 children.begin(), children.end(),
-                [childId](const auto& child) {
+                [childId](const std::shared_ptr<Drawable>& child) {
                     return child->id == childId;
                 }), children.end()
         );
