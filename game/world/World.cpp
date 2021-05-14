@@ -1,18 +1,7 @@
 /**
- * Размер текстур всех тайлов (ширина и длина, в пикселях).
- */
-#define WORLD_TILEMAP_TILE_SIZE 16
-
-/**
- * Ширина и высота мира (в тайлах). Наиболее оптимальное отношение ширины к длине - 16:9.
- */
-#define WORLD_SIZE_WIDTH 128
-#define WORLD_SIZE_HEIGHT 72
-
-/**
  * Часть мира (%/100), отображаемая на экрана (находящаяся в фокусе, т.е. в текущем View).
  */
-#define WORLD_SIZE_ON_SCREEN_PART 0.225f /* 22.5% */
+#define WORLD_SIZE_ON_SCREEN_PART 0.25f /* 25% */
 
 
 #include "World.hpp"
@@ -28,9 +17,6 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     World::World() : Drawable(ID_SCREEN_PLAY_WORLD) {
-        // Изначально фокусируем камеру по центру мира.
-        centerCamera();
-
         x      = 0.0f;
         y      = 0.0f;
         width  = window->getSize().x; // NOLINT(cppcoreguidelines-narrowing-conversions)
@@ -51,9 +37,9 @@ namespace awd::game {
 
     void World::draw() {
         // Сначала рисуем сам мир (карту) ...
-        if (worldVertices != nullptr) {
+        if (worldData != nullptr) {
             sf::RenderStates states(Game::instance().getTextures()->worldTileMap.get());
-            window->draw(*worldVertices, states);
+            window->draw(*worldData->worldVertices, states);
         }
 
         // ... а затем уже всё остальное.
@@ -61,19 +47,25 @@ namespace awd::game {
     }
 
     void World::focusCamera(float worldX, float worldY) {
+        float worldWidthPixels  = worldData->width  * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float worldHeightPixels = worldData->height * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+
         window->setView(sf::View(
-                sf::Vector2f(worldX, worldY),
                 sf::Vector2f(
-                        WORLD_SIZE_ON_SCREEN_PART * WORLD_SIZE_WIDTH  * WORLD_TILEMAP_TILE_SIZE,
-                        WORLD_SIZE_ON_SCREEN_PART * WORLD_SIZE_HEIGHT * WORLD_TILEMAP_TILE_SIZE
+                        worldX * worldData->tileSize,  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                        worldY * worldData->tileSize   // NOLINT(cppcoreguidelines-narrowing-conversions)
+                ),
+                sf::Vector2f(
+                        WORLD_SIZE_ON_SCREEN_PART * worldWidthPixels,
+                        WORLD_SIZE_ON_SCREEN_PART * worldHeightPixels
                 )
         ));
     }
 
     void World::centerCamera() {
         focusCamera(
-                window->getSize().x / 2.0f, // NOLINT(cppcoreguidelines-narrowing-conversions
-                window->getSize().y / 2.0f  // NOLINT(cppcoreguidelines-narrowing-conversions
+                worldData->width  / 2.0f, // NOLINT(cppcoreguidelines-narrowing-conversions
+                worldData->height / 2.0f  // NOLINT(cppcoreguidelines-narrowing-conversions
         );
     }
 
@@ -88,6 +80,7 @@ namespace awd::game {
 
             if (worldLoader.getLoadStatus() != WorldLoadStatus::LOADED) {
                 // Скорее всего, файлы игры были повреждены.
+                worldData = nullptr;
                 std::wcerr << L"Failed to update dimension (world load error)" << std::endl;
                 Game::instance().shutdown();
 
@@ -95,6 +88,9 @@ namespace awd::game {
             }
 
             std::wcout << L"Updated dimension successfully" << std::endl;
+
+            // Изначально фокусируем камеру по центру мира.
+            centerCamera();
         }
     }
 

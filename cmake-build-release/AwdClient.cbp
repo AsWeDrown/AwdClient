@@ -390,10 +390,13 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.cpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileData.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileData.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.cpp">

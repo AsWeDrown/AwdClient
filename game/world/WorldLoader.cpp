@@ -8,6 +8,7 @@
 #include "WorldLoader.hpp"
 #include "../util/ImageUtils.hpp"
 #include "../Game.hpp"
+#include "TileData.hpp"
 
 namespace awd::game {
 
@@ -69,18 +70,22 @@ namespace awd::game {
                 parseState = LevelParseState::EXPECTING_IDENTIFIER;
             } catch (const std::invalid_argument&) {
                 std::wcerr << L"Invalid token in level data file: expected positive 32-bit integer" << std::endl;
+                loadStatus = WorldLoadStatus::PARSE_ERROR;
             } catch (const std::out_of_range&) {
                 std::wcerr << L"Invalid token in level data file: expected positive 32-bit integer" << std::endl;
+                loadStatus = WorldLoadStatus::PARSE_ERROR;
             }
         }
     }
 
-    void WorldLoader::processPixel(uint32_t x, uint32_t y, int rgb, WorldData& targetWorldData) {
+    void WorldLoader::processPixel(uint32_t wholeTilemapWidth, uint32_t x, uint32_t y,
+                                   int rgb, WorldData& targetWorldData) {
         // Конвертируем RGB-цвет пикселя в ID тайла (текстуры).
-        auto cursor = rgbToTileIdMap.find(rgb);
+        auto cursor = TileData::rgbToTileIdMap.find(rgb);
 
-        if (cursor == rgbToTileIdMap.cend()) {
-            std::wcerr << L"Invalid tile RGB " << rgb << L" at (" << x << L", " << y << L")" << std::endl;
+        if (cursor == TileData::rgbToTileIdMap.cend()) {
+            std::wcerr << L"Invalid tile RGB #" << std::hex << rgb
+                       << L" at (" << x << L", " << y << L")" << std::endl;
             loadStatus = WorldLoadStatus::BITMAP_ERROR;
 
             return;
@@ -98,9 +103,8 @@ namespace awd::game {
         targetWorldData.tiles.push_back(tileBlock);
 
         // Ищем позицию этого тайла в tilemap (в "таблице текстур" тайлов).
-        uint32_t tilemapWidth = Game::instance().getTextures()->worldTileMap->getSize().x;
-        uint32_t tileX        = tileId % (tilemapWidth / targetWorldData.tileSize);
-        uint32_t tileY        = tileId / (tilemapWidth / targetWorldData.tileSize);
+        uint32_t tileX = tileId % (wholeTilemapWidth / targetWorldData.tileSize);
+        uint32_t tileY = tileId / (wholeTilemapWidth / targetWorldData.tileSize);
 
         // Указатель на Quad (4 точки) этого тайла.
         sf::Vertex* quad = &(*targetWorldData.worldVertices)[4 * (x + y * targetWorldData.width)];
@@ -143,13 +147,6 @@ namespace awd::game {
 
     WorldLoader::WorldLoader(uint32_t dimension) {
         this->dimension = dimension;
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-        // Для конверсии RGB-цвета пикселей из level-scheme в ID (номера) тайлов (текстур).
-        ///////////////////////////////////////////////////////////////////////////////////////
-        rgbToTileIdMap[0xFFFFFF] = 1; // Белый       -- Пустота
-        rgbToTileIdMap[0x000000] = 2; // Чёрный      -- Металлический корпус подлодки (без контура)
-        rgbToTileIdMap[0x666666] = 3; // Тёмно-серый -- Металлический корпус подлодки (контур сверху)
     }
 
     void WorldLoader::operator >>(WorldData& targetWorldData) {
@@ -178,6 +175,22 @@ namespace awd::game {
                 return;
             }
 
+            uint32_t wholeTilemapWidth  = Game::instance().getTextures()->worldTileMap->getSize().x;
+            uint32_t wholeTilemapHeight = Game::instance().getTextures()->worldTileMap->getSize().y;
+
+            if ((wholeTilemapWidth % targetWorldData.tileSize) != 0
+                    || (wholeTilemapHeight % targetWorldData.tileSize) != 0) {
+                std::wcerr << L"World loader: Compat error: level-meta specifies tile size of "
+                           << targetWorldData.tileSize << L"x" << targetWorldData.tileSize
+                           << L", but either the width or the height of the tilemap.png texture "
+                           << L"(" << wholeTilemapWidth << L"x" << wholeTilemapHeight << L") "
+                           << L"is not a multiple of " << targetWorldData.tileSize << std::endl;
+
+                loadStatus = WorldLoadStatus::COMPAT_ERROR;
+
+                return;
+            }
+
             std::wcout << L"World size: " << targetWorldData.width    << L"x"
                                           << targetWorldData.height   << L" x "
                                           << targetWorldData.tileSize << L"x"
@@ -187,14 +200,26 @@ namespace awd::game {
             std::shared_ptr<Pixels> scheme = ImageUtils
                     ::readBitmapImage((dimFolder + "/level-scheme.bmp").c_str());
 
-            targetWorldData.worldVertices = std::make_unique<sf::VertexArray>();
+            if (scheme->bmpWidth != targetWorldData.width
+                    || scheme->bmpHeight != targetWorldData.height) {
+                std::wcerr << L"World loader: Compat error: level-meta specifies world of size "
+                           << targetWorldData.width << L"x" << targetWorldData.height
+                           << L", but the size of the level-scheme BMP is "
+                           << scheme->bmpWidth << L"x" << scheme->bmpHeight << std::endl;
+
+                loadStatus = WorldLoadStatus::COMPAT_ERROR;
+
+                return;
+            }
+
+            targetWorldData.worldVertices = std::make_shared<sf::VertexArray>();
             targetWorldData.worldVertices->setPrimitiveType(sf::Quads);
             targetWorldData.worldVertices->resize(4 * targetWorldData.width * targetWorldData.height);
 
             for (int y = 0; y < scheme->bmpHeight; y++) {
                 for (int x = 0; x < scheme->bmpWidth; x++) {
                     int rgb = scheme->rgbAt(x, y);
-                    processPixel(x, y, rgb, targetWorldData);
+                    processPixel(wholeTilemapWidth, x, y, rgb, targetWorldData);
 
                     if (loadStatus == WorldLoadStatus::BITMAP_ERROR) {
                         std::wcerr << L"World Loader: Bitmap error" << std::endl;

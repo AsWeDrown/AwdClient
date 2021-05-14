@@ -12,8 +12,6 @@ namespace awd::game {
 
         std::shared_ptr<WorldData> worldData = nullptr;
 
-        std::unique_ptr<sf::VertexArray> worldVertices = nullptr;
-
     public:
         World();
 

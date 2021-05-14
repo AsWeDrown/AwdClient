@@ -1213,32 +1213,32 @@ game/util/TimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.s
 .PHONY : game/util/TimeUtils.cpp.s
 
-game/world/TileBlock.obj: game/world/TileBlock.cpp.obj
+game/world/TileData.obj: game/world/TileData.cpp.obj
 
-.PHONY : game/world/TileBlock.obj
+.PHONY : game/world/TileData.obj
 
 # target to build an object file
-game/world/TileBlock.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj
-.PHONY : game/world/TileBlock.cpp.obj
+game/world/TileData.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileData.cpp.obj
+.PHONY : game/world/TileData.cpp.obj
 
-game/world/TileBlock.i: game/world/TileBlock.cpp.i
+game/world/TileData.i: game/world/TileData.cpp.i
 
-.PHONY : game/world/TileBlock.i
+.PHONY : game/world/TileData.i
 
 # target to preprocess a source file
-game/world/TileBlock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.i
-.PHONY : game/world/TileBlock.cpp.i
+game/world/TileData.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileData.cpp.i
+.PHONY : game/world/TileData.cpp.i
 
-game/world/TileBlock.s: game/world/TileBlock.cpp.s
+game/world/TileData.s: game/world/TileData.cpp.s
 
-.PHONY : game/world/TileBlock.s
+.PHONY : game/world/TileData.s
 
 # target to generate assembly for a file
-game/world/TileBlock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.s
-.PHONY : game/world/TileBlock.cpp.s
+game/world/TileData.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileData.cpp.s
+.PHONY : game/world/TileData.cpp.s
 
 game/world/World.obj: game/world/World.cpp.obj
 
@@ -1664,9 +1664,9 @@ help:
 	@echo ... game/util/TimeUtils.obj
 	@echo ... game/util/TimeUtils.i
 	@echo ... game/util/TimeUtils.s
-	@echo ... game/world/TileBlock.obj
-	@echo ... game/world/TileBlock.i
-	@echo ... game/world/TileBlock.s
+	@echo ... game/world/TileData.obj
+	@echo ... game/world/TileData.i
+	@echo ... game/world/TileData.s
 	@echo ... game/world/World.obj
 	@echo ... game/world/World.i
 	@echo ... game/world/World.s
