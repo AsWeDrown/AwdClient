@@ -1132,59 +1132,59 @@ game/packetlistener/lobby/UpdatedMembersListListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 .PHONY : game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 
-game/packetlistener/play/JoinWorldListener.obj: game/packetlistener/play/JoinWorldListener.cpp.obj
+game/packetlistener/play/JoinWorldCommandListener.obj: game/packetlistener/play/JoinWorldCommandListener.cpp.obj
 
-.PHONY : game/packetlistener/play/JoinWorldListener.obj
-
-# target to build an object file
-game/packetlistener/play/JoinWorldListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.obj
-.PHONY : game/packetlistener/play/JoinWorldListener.cpp.obj
-
-game/packetlistener/play/JoinWorldListener.i: game/packetlistener/play/JoinWorldListener.cpp.i
-
-.PHONY : game/packetlistener/play/JoinWorldListener.i
-
-# target to preprocess a source file
-game/packetlistener/play/JoinWorldListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.i
-.PHONY : game/packetlistener/play/JoinWorldListener.cpp.i
-
-game/packetlistener/play/JoinWorldListener.s: game/packetlistener/play/JoinWorldListener.cpp.s
-
-.PHONY : game/packetlistener/play/JoinWorldListener.s
-
-# target to generate assembly for a file
-game/packetlistener/play/JoinWorldListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.s
-.PHONY : game/packetlistener/play/JoinWorldListener.cpp.s
-
-game/packetlistener/play/SpawnPlayerListener.obj: game/packetlistener/play/SpawnPlayerListener.cpp.obj
-
-.PHONY : game/packetlistener/play/SpawnPlayerListener.obj
+.PHONY : game/packetlistener/play/JoinWorldCommandListener.obj
 
 # target to build an object file
-game/packetlistener/play/SpawnPlayerListener.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj
-.PHONY : game/packetlistener/play/SpawnPlayerListener.cpp.obj
+game/packetlistener/play/JoinWorldCommandListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj
+.PHONY : game/packetlistener/play/JoinWorldCommandListener.cpp.obj
 
-game/packetlistener/play/SpawnPlayerListener.i: game/packetlistener/play/SpawnPlayerListener.cpp.i
+game/packetlistener/play/JoinWorldCommandListener.i: game/packetlistener/play/JoinWorldCommandListener.cpp.i
 
-.PHONY : game/packetlistener/play/SpawnPlayerListener.i
+.PHONY : game/packetlistener/play/JoinWorldCommandListener.i
 
 # target to preprocess a source file
-game/packetlistener/play/SpawnPlayerListener.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.i
-.PHONY : game/packetlistener/play/SpawnPlayerListener.cpp.i
+game/packetlistener/play/JoinWorldCommandListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.i
+.PHONY : game/packetlistener/play/JoinWorldCommandListener.cpp.i
 
-game/packetlistener/play/SpawnPlayerListener.s: game/packetlistener/play/SpawnPlayerListener.cpp.s
+game/packetlistener/play/JoinWorldCommandListener.s: game/packetlistener/play/JoinWorldCommandListener.cpp.s
 
-.PHONY : game/packetlistener/play/SpawnPlayerListener.s
+.PHONY : game/packetlistener/play/JoinWorldCommandListener.s
 
 # target to generate assembly for a file
-game/packetlistener/play/SpawnPlayerListener.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.s
-.PHONY : game/packetlistener/play/SpawnPlayerListener.cpp.s
+game/packetlistener/play/JoinWorldCommandListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.s
+.PHONY : game/packetlistener/play/JoinWorldCommandListener.cpp.s
+
+game/packetlistener/play/SpawnEntityListener.obj: game/packetlistener/play/SpawnEntityListener.cpp.obj
+
+.PHONY : game/packetlistener/play/SpawnEntityListener.obj
+
+# target to build an object file
+game/packetlistener/play/SpawnEntityListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj
+.PHONY : game/packetlistener/play/SpawnEntityListener.cpp.obj
+
+game/packetlistener/play/SpawnEntityListener.i: game/packetlistener/play/SpawnEntityListener.cpp.i
+
+.PHONY : game/packetlistener/play/SpawnEntityListener.i
+
+# target to preprocess a source file
+game/packetlistener/play/SpawnEntityListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.i
+.PHONY : game/packetlistener/play/SpawnEntityListener.cpp.i
+
+game/packetlistener/play/SpawnEntityListener.s: game/packetlistener/play/SpawnEntityListener.cpp.s
+
+.PHONY : game/packetlistener/play/SpawnEntityListener.s
+
+# target to generate assembly for a file
+game/packetlistener/play/SpawnEntityListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.s
+.PHONY : game/packetlistener/play/SpawnEntityListener.cpp.s
 
 game/packetlistener/play/UpdateDimensionCommandListener.obj: game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj
 
@@ -1790,12 +1790,12 @@ help:
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.obj
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.i
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.s
-	@echo ... game/packetlistener/play/JoinWorldListener.obj
-	@echo ... game/packetlistener/play/JoinWorldListener.i
-	@echo ... game/packetlistener/play/JoinWorldListener.s
-	@echo ... game/packetlistener/play/SpawnPlayerListener.obj
-	@echo ... game/packetlistener/play/SpawnPlayerListener.i
-	@echo ... game/packetlistener/play/SpawnPlayerListener.s
+	@echo ... game/packetlistener/play/JoinWorldCommandListener.obj
+	@echo ... game/packetlistener/play/JoinWorldCommandListener.i
+	@echo ... game/packetlistener/play/JoinWorldCommandListener.s
+	@echo ... game/packetlistener/play/SpawnEntityListener.obj
+	@echo ... game/packetlistener/play/SpawnEntityListener.i
+	@echo ... game/packetlistener/play/SpawnEntityListener.s
 	@echo ... game/packetlistener/play/UpdateDimensionCommandListener.obj
 	@echo ... game/packetlistener/play/UpdateDimensionCommandListener.i
 	@echo ... game/packetlistener/play/UpdateDimensionCommandListener.s

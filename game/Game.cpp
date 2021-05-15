@@ -20,7 +20,7 @@
 #include "packetlistener/lobby/BeginPlayStateResponseListener.hpp"
 #include "packetlistener/play/UpdateDimensionCommandListener.hpp"
 #include "packetlistener/play/JoinWorldCommandListener.hpp"
-#include "packetlistener/play/SpawnPlayerListener.hpp"
+#include "packetlistener/play/SpawnEntityListener.hpp"
 #include "packetlistener/play/UpdateEntityPositionListener.hpp"
 
 namespace awd::game {
@@ -92,8 +92,8 @@ namespace awd::game {
         );
 
         packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kSpawnPlayer,
-                std::make_shared<SpawnPlayerListener>()
+                net::PacketWrapper::PacketCase::kSpawnEntity,
+                std::make_shared<SpawnEntityListener>()
         );
 
         packetManager->registerListener(

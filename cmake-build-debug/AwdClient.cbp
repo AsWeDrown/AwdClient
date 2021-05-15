@@ -147,6 +147,9 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -378,10 +381,10 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/JoinWorldCommandListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnPlayerListener.cpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnEntityListener.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnPlayerListener.hpp">
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnEntityListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateDimensionCommandListener.cpp">

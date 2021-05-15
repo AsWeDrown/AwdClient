@@ -46,6 +46,10 @@ namespace awd::game {
         Drawable::draw();
     }
 
+    std::shared_ptr<WorldData> World::getWorldData() const {
+        return worldData;
+    }
+
     void World::focusCamera(float worldX, float worldY) {
         float worldWidthPixels  = worldData->width  * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
         float worldHeightPixels = worldData->height * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)

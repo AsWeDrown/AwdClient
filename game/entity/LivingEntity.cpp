@@ -8,7 +8,8 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    LivingEntity::LivingEntity(id_type entityId) : Entity(entityId) {}
+    LivingEntity::LivingEntity(uint32_t entityType, id_type entityId)
+                               : Entity(entityType, entityId) {}
 
     void LivingEntity::keyPressed(const sf::Event::KeyEvent& event) {
         Entity::keyPressed(event);

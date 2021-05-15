@@ -49,7 +49,7 @@ struct TableStruct_packets_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[26]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[28]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -71,6 +71,9 @@ extern CreateLobbyRequestDefaultTypeInternal _CreateLobbyRequest_default_instanc
 class CreateLobbyResponse;
 struct CreateLobbyResponseDefaultTypeInternal;
 extern CreateLobbyResponseDefaultTypeInternal _CreateLobbyResponse_default_instance_;
+class DespawnEntity;
+struct DespawnEntityDefaultTypeInternal;
+extern DespawnEntityDefaultTypeInternal _DespawnEntity_default_instance_;
 class HandshakeRequest;
 struct HandshakeRequestDefaultTypeInternal;
 extern HandshakeRequestDefaultTypeInternal _HandshakeRequest_default_instance_;
@@ -113,9 +116,12 @@ extern PingDefaultTypeInternal _Ping_default_instance_;
 class Pong;
 struct PongDefaultTypeInternal;
 extern PongDefaultTypeInternal _Pong_default_instance_;
-class SpawnPlayer;
-struct SpawnPlayerDefaultTypeInternal;
-extern SpawnPlayerDefaultTypeInternal _SpawnPlayer_default_instance_;
+class SpawnEntity;
+struct SpawnEntityDefaultTypeInternal;
+extern SpawnEntityDefaultTypeInternal _SpawnEntity_default_instance_;
+class SpawnEntity_EntityDataEntry_DoNotUse;
+struct SpawnEntity_EntityDataEntry_DoNotUseDefaultTypeInternal;
+extern SpawnEntity_EntityDataEntry_DoNotUseDefaultTypeInternal _SpawnEntity_EntityDataEntry_DoNotUse_default_instance_;
 class UpdateDimensionCommand;
 struct UpdateDimensionCommandDefaultTypeInternal;
 extern UpdateDimensionCommandDefaultTypeInternal _UpdateDimensionCommand_default_instance_;
@@ -144,6 +150,7 @@ template<> ::awd::net::BeginPlayStateRequest* Arena::CreateMaybeMessage<::awd::n
 template<> ::awd::net::BeginPlayStateResponse* Arena::CreateMaybeMessage<::awd::net::BeginPlayStateResponse>(Arena*);
 template<> ::awd::net::CreateLobbyRequest* Arena::CreateMaybeMessage<::awd::net::CreateLobbyRequest>(Arena*);
 template<> ::awd::net::CreateLobbyResponse* Arena::CreateMaybeMessage<::awd::net::CreateLobbyResponse>(Arena*);
+template<> ::awd::net::DespawnEntity* Arena::CreateMaybeMessage<::awd::net::DespawnEntity>(Arena*);
 template<> ::awd::net::HandshakeRequest* Arena::CreateMaybeMessage<::awd::net::HandshakeRequest>(Arena*);
 template<> ::awd::net::HandshakeResponse* Arena::CreateMaybeMessage<::awd::net::HandshakeResponse>(Arena*);
 template<> ::awd::net::JoinLobbyRequest* Arena::CreateMaybeMessage<::awd::net::JoinLobbyRequest>(Arena*);
@@ -158,7 +165,8 @@ template<> ::awd::net::LeaveLobbyResponse* Arena::CreateMaybeMessage<::awd::net:
 template<> ::awd::net::PacketWrapper* Arena::CreateMaybeMessage<::awd::net::PacketWrapper>(Arena*);
 template<> ::awd::net::Ping* Arena::CreateMaybeMessage<::awd::net::Ping>(Arena*);
 template<> ::awd::net::Pong* Arena::CreateMaybeMessage<::awd::net::Pong>(Arena*);
-template<> ::awd::net::SpawnPlayer* Arena::CreateMaybeMessage<::awd::net::SpawnPlayer>(Arena*);
+template<> ::awd::net::SpawnEntity* Arena::CreateMaybeMessage<::awd::net::SpawnEntity>(Arena*);
+template<> ::awd::net::SpawnEntity_EntityDataEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::SpawnEntity_EntityDataEntry_DoNotUse>(Arena*);
 template<> ::awd::net::UpdateDimensionCommand* Arena::CreateMaybeMessage<::awd::net::UpdateDimensionCommand>(Arena*);
 template<> ::awd::net::UpdateDimensionComplete* Arena::CreateMaybeMessage<::awd::net::UpdateDimensionComplete>(Arena*);
 template<> ::awd::net::UpdateEntityPosition* Arena::CreateMaybeMessage<::awd::net::UpdateEntityPosition>(Arena*);
@@ -709,13 +717,13 @@ class HandshakeResponse PROTOBUF_FINAL :
   enum : int {
     kProtocolVersionFieldNumber = 1,
   };
-  // sint32 protocol_version = 1;
+  // uint32 protocol_version = 1;
   void clear_protocol_version();
-  ::PROTOBUF_NAMESPACE_ID::int32 protocol_version() const;
-  void set_protocol_version(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 protocol_version() const;
+  void set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_protocol_version() const;
-  void _internal_set_protocol_version(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_protocol_version() const;
+  void _internal_set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:awd.net.HandshakeResponse)
@@ -725,7 +733,7 @@ class HandshakeResponse PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 protocol_version_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 protocol_version_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -2880,24 +2888,58 @@ class JoinWorldComplete PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class SpawnPlayer PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.SpawnPlayer) */ {
- public:
-  inline SpawnPlayer() : SpawnPlayer(nullptr) {}
-  virtual ~SpawnPlayer();
-  explicit constexpr SpawnPlayer(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+class SpawnEntity_EntityDataEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<SpawnEntity_EntityDataEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<SpawnEntity_EntityDataEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  SpawnEntity_EntityDataEntry_DoNotUse();
+  explicit constexpr SpawnEntity_EntityDataEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit SpawnEntity_EntityDataEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const SpawnEntity_EntityDataEntry_DoNotUse& other);
+  static const SpawnEntity_EntityDataEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const SpawnEntity_EntityDataEntry_DoNotUse*>(&_SpawnEntity_EntityDataEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "awd.net.SpawnEntity.EntityDataEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "awd.net.SpawnEntity.EntityDataEntry.value");
+ }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_packets_2eproto);
+    return ::descriptor_table_packets_2eproto.file_level_metadata[22];
+  }
 
-  SpawnPlayer(const SpawnPlayer& from);
-  SpawnPlayer(SpawnPlayer&& from) noexcept
-    : SpawnPlayer() {
+  public:
+};
+
+// -------------------------------------------------------------------
+
+class SpawnEntity PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.SpawnEntity) */ {
+ public:
+  inline SpawnEntity() : SpawnEntity(nullptr) {}
+  virtual ~SpawnEntity();
+  explicit constexpr SpawnEntity(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SpawnEntity(const SpawnEntity& from);
+  SpawnEntity(SpawnEntity&& from) noexcept
+    : SpawnEntity() {
     *this = ::std::move(from);
   }
 
-  inline SpawnPlayer& operator=(const SpawnPlayer& from) {
+  inline SpawnEntity& operator=(const SpawnEntity& from) {
     CopyFrom(from);
     return *this;
   }
-  inline SpawnPlayer& operator=(SpawnPlayer&& from) noexcept {
+  inline SpawnEntity& operator=(SpawnEntity&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2915,20 +2957,20 @@ class SpawnPlayer PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const SpawnPlayer& default_instance() {
+  static const SpawnEntity& default_instance() {
     return *internal_default_instance();
   }
-  static inline const SpawnPlayer* internal_default_instance() {
-    return reinterpret_cast<const SpawnPlayer*>(
-               &_SpawnPlayer_default_instance_);
+  static inline const SpawnEntity* internal_default_instance() {
+    return reinterpret_cast<const SpawnEntity*>(
+               &_SpawnEntity_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
-  friend void swap(SpawnPlayer& a, SpawnPlayer& b) {
+  friend void swap(SpawnEntity& a, SpawnEntity& b) {
     a.Swap(&b);
   }
-  inline void Swap(SpawnPlayer* other) {
+  inline void Swap(SpawnEntity* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2936,7 +2978,7 @@ class SpawnPlayer PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(SpawnPlayer* other) {
+  void UnsafeArenaSwap(SpawnEntity* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2944,17 +2986,17 @@ class SpawnPlayer PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline SpawnPlayer* New() const final {
-    return CreateMaybeMessage<SpawnPlayer>(nullptr);
+  inline SpawnEntity* New() const final {
+    return CreateMaybeMessage<SpawnEntity>(nullptr);
   }
 
-  SpawnPlayer* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<SpawnPlayer>(arena);
+  SpawnEntity* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SpawnEntity>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const SpawnPlayer& from);
-  void MergeFrom(const SpawnPlayer& from);
+  void CopyFrom(const SpawnEntity& from);
+  void MergeFrom(const SpawnEntity& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2968,13 +3010,185 @@ class SpawnPlayer PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(SpawnPlayer* other);
+  void InternalSwap(SpawnEntity* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "awd.net.SpawnPlayer";
+    return "awd.net.SpawnEntity";
   }
   protected:
-  explicit SpawnPlayer(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit SpawnEntity(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_packets_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEntityDataFieldNumber = 3,
+    kEntityTypeFieldNumber = 1,
+    kEntityIdFieldNumber = 2,
+  };
+  // map<string, string> entity_data = 3;
+  int entity_data_size() const;
+  private:
+  int _internal_entity_data_size() const;
+  public:
+  void clear_entity_data();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_entity_data() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_entity_data();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      entity_data() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_entity_data();
+
+  // uint32 entity_type = 1;
+  void clear_entity_type();
+  ::PROTOBUF_NAMESPACE_ID::uint32 entity_type() const;
+  void set_entity_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_entity_type() const;
+  void _internal_set_entity_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 entity_id = 2;
+  void clear_entity_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 entity_id() const;
+  void set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_entity_id() const;
+  void _internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:awd.net.SpawnEntity)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      SpawnEntity_EntityDataEntry_DoNotUse,
+      std::string, std::string,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> entity_data_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 entity_type_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 entity_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_packets_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DespawnEntity PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.DespawnEntity) */ {
+ public:
+  inline DespawnEntity() : DespawnEntity(nullptr) {}
+  virtual ~DespawnEntity();
+  explicit constexpr DespawnEntity(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DespawnEntity(const DespawnEntity& from);
+  DespawnEntity(DespawnEntity&& from) noexcept
+    : DespawnEntity() {
+    *this = ::std::move(from);
+  }
+
+  inline DespawnEntity& operator=(const DespawnEntity& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DespawnEntity& operator=(DespawnEntity&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const DespawnEntity& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DespawnEntity* internal_default_instance() {
+    return reinterpret_cast<const DespawnEntity*>(
+               &_DespawnEntity_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(DespawnEntity& a, DespawnEntity& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DespawnEntity* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DespawnEntity* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DespawnEntity* New() const final {
+    return CreateMaybeMessage<DespawnEntity>(nullptr);
+  }
+
+  DespawnEntity* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DespawnEntity>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const DespawnEntity& from);
+  void MergeFrom(const DespawnEntity& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DespawnEntity* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "awd.net.DespawnEntity";
+  }
+  protected:
+  explicit DespawnEntity(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2993,19 +3207,9 @@ class SpawnPlayer PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
-    kEntityIdFieldNumber = 2,
+    kEntityIdFieldNumber = 1,
   };
-  // uint32 player_id = 1;
-  void clear_player_id();
-  ::PROTOBUF_NAMESPACE_ID::uint32 player_id() const;
-  void set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_player_id() const;
-  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // uint32 entity_id = 2;
+  // uint32 entity_id = 1;
   void clear_entity_id();
   ::PROTOBUF_NAMESPACE_ID::uint32 entity_id() const;
   void set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
@@ -3014,14 +3218,13 @@ class SpawnPlayer PROTOBUF_FINAL :
   void _internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:awd.net.SpawnPlayer)
+  // @@protoc_insertion_point(class_scope:awd.net.DespawnEntity)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 player_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 entity_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
@@ -3071,7 +3274,7 @@ class UpdatePlayerInputs PROTOBUF_FINAL :
                &_UpdatePlayerInputs_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(UpdatePlayerInputs& a, UpdatePlayerInputs& b) {
     a.Swap(&b);
@@ -3208,7 +3411,7 @@ class UpdateEntityPosition PROTOBUF_FINAL :
                &_UpdateEntityPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(UpdateEntityPosition& a, UpdateEntityPosition& b) {
     a.Swap(&b);
@@ -3392,7 +3595,8 @@ class PacketWrapper PROTOBUF_FINAL :
     kUpdateDimensionComplete = 1001,
     kJoinWorldCommand = 1002,
     kJoinWorldComplete = 1003,
-    kSpawnPlayer = 2000,
+    kSpawnEntity = 2000,
+    kDespawnEntity = 2001,
     kUpdatePlayerInputs = 3000,
     kUpdateEntityPosition = 3001,
     PACKET_NOT_SET = 0,
@@ -3403,7 +3607,7 @@ class PacketWrapper PROTOBUF_FINAL :
                &_PacketWrapper_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(PacketWrapper& a, PacketWrapper& b) {
     a.Swap(&b);
@@ -3494,7 +3698,8 @@ class PacketWrapper PROTOBUF_FINAL :
     kUpdateDimensionCompleteFieldNumber = 1001,
     kJoinWorldCommandFieldNumber = 1002,
     kJoinWorldCompleteFieldNumber = 1003,
-    kSpawnPlayerFieldNumber = 2000,
+    kSpawnEntityFieldNumber = 2000,
+    kDespawnEntityFieldNumber = 2001,
     kUpdatePlayerInputsFieldNumber = 3000,
     kUpdateEntityPositionFieldNumber = 3001,
   };
@@ -3849,23 +4054,41 @@ class PacketWrapper PROTOBUF_FINAL :
       ::awd::net::JoinWorldComplete* join_world_complete);
   ::awd::net::JoinWorldComplete* unsafe_arena_release_join_world_complete();
 
-  // .awd.net.SpawnPlayer spawn_player = 2000;
-  bool has_spawn_player() const;
+  // .awd.net.SpawnEntity spawn_entity = 2000;
+  bool has_spawn_entity() const;
   private:
-  bool _internal_has_spawn_player() const;
+  bool _internal_has_spawn_entity() const;
   public:
-  void clear_spawn_player();
-  const ::awd::net::SpawnPlayer& spawn_player() const;
-  ::awd::net::SpawnPlayer* release_spawn_player();
-  ::awd::net::SpawnPlayer* mutable_spawn_player();
-  void set_allocated_spawn_player(::awd::net::SpawnPlayer* spawn_player);
+  void clear_spawn_entity();
+  const ::awd::net::SpawnEntity& spawn_entity() const;
+  ::awd::net::SpawnEntity* release_spawn_entity();
+  ::awd::net::SpawnEntity* mutable_spawn_entity();
+  void set_allocated_spawn_entity(::awd::net::SpawnEntity* spawn_entity);
   private:
-  const ::awd::net::SpawnPlayer& _internal_spawn_player() const;
-  ::awd::net::SpawnPlayer* _internal_mutable_spawn_player();
+  const ::awd::net::SpawnEntity& _internal_spawn_entity() const;
+  ::awd::net::SpawnEntity* _internal_mutable_spawn_entity();
   public:
-  void unsafe_arena_set_allocated_spawn_player(
-      ::awd::net::SpawnPlayer* spawn_player);
-  ::awd::net::SpawnPlayer* unsafe_arena_release_spawn_player();
+  void unsafe_arena_set_allocated_spawn_entity(
+      ::awd::net::SpawnEntity* spawn_entity);
+  ::awd::net::SpawnEntity* unsafe_arena_release_spawn_entity();
+
+  // .awd.net.DespawnEntity despawn_entity = 2001;
+  bool has_despawn_entity() const;
+  private:
+  bool _internal_has_despawn_entity() const;
+  public:
+  void clear_despawn_entity();
+  const ::awd::net::DespawnEntity& despawn_entity() const;
+  ::awd::net::DespawnEntity* release_despawn_entity();
+  ::awd::net::DespawnEntity* mutable_despawn_entity();
+  void set_allocated_despawn_entity(::awd::net::DespawnEntity* despawn_entity);
+  private:
+  const ::awd::net::DespawnEntity& _internal_despawn_entity() const;
+  ::awd::net::DespawnEntity* _internal_mutable_despawn_entity();
+  public:
+  void unsafe_arena_set_allocated_despawn_entity(
+      ::awd::net::DespawnEntity* despawn_entity);
+  ::awd::net::DespawnEntity* unsafe_arena_release_despawn_entity();
 
   // .awd.net.UpdatePlayerInputs update_player_inputs = 3000;
   bool has_update_player_inputs() const;
@@ -3926,7 +4149,8 @@ class PacketWrapper PROTOBUF_FINAL :
   void set_has_update_dimension_complete();
   void set_has_join_world_command();
   void set_has_join_world_complete();
-  void set_has_spawn_player();
+  void set_has_spawn_entity();
+  void set_has_despawn_entity();
   void set_has_update_player_inputs();
   void set_has_update_entity_position();
 
@@ -3960,7 +4184,8 @@ class PacketWrapper PROTOBUF_FINAL :
     ::awd::net::UpdateDimensionComplete* update_dimension_complete_;
     ::awd::net::JoinWorldCommand* join_world_command_;
     ::awd::net::JoinWorldComplete* join_world_complete_;
-    ::awd::net::SpawnPlayer* spawn_player_;
+    ::awd::net::SpawnEntity* spawn_entity_;
+    ::awd::net::DespawnEntity* despawn_entity_;
     ::awd::net::UpdatePlayerInputs* update_player_inputs_;
     ::awd::net::UpdateEntityPosition* update_entity_position_;
   } packet_;
@@ -4072,22 +4297,22 @@ inline void HandshakeRequest::set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint
 
 // HandshakeResponse
 
-// sint32 protocol_version = 1;
+// uint32 protocol_version = 1;
 inline void HandshakeResponse::clear_protocol_version() {
-  protocol_version_ = 0;
+  protocol_version_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 HandshakeResponse::_internal_protocol_version() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 HandshakeResponse::_internal_protocol_version() const {
   return protocol_version_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 HandshakeResponse::protocol_version() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 HandshakeResponse::protocol_version() const {
   // @@protoc_insertion_point(field_get:awd.net.HandshakeResponse.protocol_version)
   return _internal_protocol_version();
 }
-inline void HandshakeResponse::_internal_set_protocol_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void HandshakeResponse::_internal_set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
   protocol_version_ = value;
 }
-inline void HandshakeResponse::set_protocol_version(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void HandshakeResponse::set_protocol_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_protocol_version(value);
   // @@protoc_insertion_point(field_set:awd.net.HandshakeResponse.protocol_version)
 }
@@ -4677,46 +4902,101 @@ inline void UpdateDimensionCommand::set_dimension(::PROTOBUF_NAMESPACE_ID::uint3
 
 // -------------------------------------------------------------------
 
-// SpawnPlayer
+// -------------------------------------------------------------------
 
-// uint32 player_id = 1;
-inline void SpawnPlayer::clear_player_id() {
-  player_id_ = 0u;
+// SpawnEntity
+
+// uint32 entity_type = 1;
+inline void SpawnEntity::clear_entity_type() {
+  entity_type_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnPlayer::_internal_player_id() const {
-  return player_id_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnEntity::_internal_entity_type() const {
+  return entity_type_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnPlayer::player_id() const {
-  // @@protoc_insertion_point(field_get:awd.net.SpawnPlayer.player_id)
-  return _internal_player_id();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnEntity::entity_type() const {
+  // @@protoc_insertion_point(field_get:awd.net.SpawnEntity.entity_type)
+  return _internal_entity_type();
 }
-inline void SpawnPlayer::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void SpawnEntity::_internal_set_entity_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  player_id_ = value;
+  entity_type_ = value;
 }
-inline void SpawnPlayer::set_player_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_player_id(value);
-  // @@protoc_insertion_point(field_set:awd.net.SpawnPlayer.player_id)
+inline void SpawnEntity::set_entity_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_entity_type(value);
+  // @@protoc_insertion_point(field_set:awd.net.SpawnEntity.entity_type)
 }
 
 // uint32 entity_id = 2;
-inline void SpawnPlayer::clear_entity_id() {
+inline void SpawnEntity::clear_entity_id() {
   entity_id_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnPlayer::_internal_entity_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnEntity::_internal_entity_id() const {
   return entity_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnPlayer::entity_id() const {
-  // @@protoc_insertion_point(field_get:awd.net.SpawnPlayer.entity_id)
+inline ::PROTOBUF_NAMESPACE_ID::uint32 SpawnEntity::entity_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.SpawnEntity.entity_id)
   return _internal_entity_id();
 }
-inline void SpawnPlayer::_internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void SpawnEntity::_internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
   entity_id_ = value;
 }
-inline void SpawnPlayer::set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void SpawnEntity::set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_entity_id(value);
-  // @@protoc_insertion_point(field_set:awd.net.SpawnPlayer.entity_id)
+  // @@protoc_insertion_point(field_set:awd.net.SpawnEntity.entity_id)
+}
+
+// map<string, string> entity_data = 3;
+inline int SpawnEntity::_internal_entity_data_size() const {
+  return entity_data_.size();
+}
+inline int SpawnEntity::entity_data_size() const {
+  return _internal_entity_data_size();
+}
+inline void SpawnEntity::clear_entity_data() {
+  entity_data_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+SpawnEntity::_internal_entity_data() const {
+  return entity_data_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+SpawnEntity::entity_data() const {
+  // @@protoc_insertion_point(field_map:awd.net.SpawnEntity.entity_data)
+  return _internal_entity_data();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+SpawnEntity::_internal_mutable_entity_data() {
+  return entity_data_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+SpawnEntity::mutable_entity_data() {
+  // @@protoc_insertion_point(field_mutable_map:awd.net.SpawnEntity.entity_data)
+  return _internal_mutable_entity_data();
+}
+
+// -------------------------------------------------------------------
+
+// DespawnEntity
+
+// uint32 entity_id = 1;
+inline void DespawnEntity::clear_entity_id() {
+  entity_id_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 DespawnEntity::_internal_entity_id() const {
+  return entity_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 DespawnEntity::entity_id() const {
+  // @@protoc_insertion_point(field_get:awd.net.DespawnEntity.entity_id)
+  return _internal_entity_id();
+}
+inline void DespawnEntity::_internal_set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  entity_id_ = value;
+}
+inline void DespawnEntity::set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_entity_id(value);
+  // @@protoc_insertion_point(field_set:awd.net.DespawnEntity.entity_id)
 }
 
 // -------------------------------------------------------------------
@@ -6205,77 +6485,150 @@ inline ::awd::net::JoinWorldComplete* PacketWrapper::mutable_join_world_complete
   return _internal_mutable_join_world_complete();
 }
 
-// .awd.net.SpawnPlayer spawn_player = 2000;
-inline bool PacketWrapper::_internal_has_spawn_player() const {
-  return packet_case() == kSpawnPlayer;
+// .awd.net.SpawnEntity spawn_entity = 2000;
+inline bool PacketWrapper::_internal_has_spawn_entity() const {
+  return packet_case() == kSpawnEntity;
 }
-inline bool PacketWrapper::has_spawn_player() const {
-  return _internal_has_spawn_player();
+inline bool PacketWrapper::has_spawn_entity() const {
+  return _internal_has_spawn_entity();
 }
-inline void PacketWrapper::set_has_spawn_player() {
-  _oneof_case_[0] = kSpawnPlayer;
+inline void PacketWrapper::set_has_spawn_entity() {
+  _oneof_case_[0] = kSpawnEntity;
 }
-inline void PacketWrapper::clear_spawn_player() {
-  if (_internal_has_spawn_player()) {
+inline void PacketWrapper::clear_spawn_entity() {
+  if (_internal_has_spawn_entity()) {
     if (GetArena() == nullptr) {
-      delete packet_.spawn_player_;
+      delete packet_.spawn_entity_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::SpawnPlayer* PacketWrapper::release_spawn_player() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.spawn_player)
-  if (_internal_has_spawn_player()) {
+inline ::awd::net::SpawnEntity* PacketWrapper::release_spawn_entity() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.spawn_entity)
+  if (_internal_has_spawn_entity()) {
     clear_has_packet();
-      ::awd::net::SpawnPlayer* temp = packet_.spawn_player_;
+      ::awd::net::SpawnEntity* temp = packet_.spawn_entity_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.spawn_player_ = nullptr;
+    packet_.spawn_entity_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::SpawnPlayer& PacketWrapper::_internal_spawn_player() const {
-  return _internal_has_spawn_player()
-      ? *packet_.spawn_player_
-      : reinterpret_cast< ::awd::net::SpawnPlayer&>(::awd::net::_SpawnPlayer_default_instance_);
+inline const ::awd::net::SpawnEntity& PacketWrapper::_internal_spawn_entity() const {
+  return _internal_has_spawn_entity()
+      ? *packet_.spawn_entity_
+      : reinterpret_cast< ::awd::net::SpawnEntity&>(::awd::net::_SpawnEntity_default_instance_);
 }
-inline const ::awd::net::SpawnPlayer& PacketWrapper::spawn_player() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.spawn_player)
-  return _internal_spawn_player();
+inline const ::awd::net::SpawnEntity& PacketWrapper::spawn_entity() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.spawn_entity)
+  return _internal_spawn_entity();
 }
-inline ::awd::net::SpawnPlayer* PacketWrapper::unsafe_arena_release_spawn_player() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.spawn_player)
-  if (_internal_has_spawn_player()) {
+inline ::awd::net::SpawnEntity* PacketWrapper::unsafe_arena_release_spawn_entity() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.spawn_entity)
+  if (_internal_has_spawn_entity()) {
     clear_has_packet();
-    ::awd::net::SpawnPlayer* temp = packet_.spawn_player_;
-    packet_.spawn_player_ = nullptr;
+    ::awd::net::SpawnEntity* temp = packet_.spawn_entity_;
+    packet_.spawn_entity_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_spawn_player(::awd::net::SpawnPlayer* spawn_player) {
+inline void PacketWrapper::unsafe_arena_set_allocated_spawn_entity(::awd::net::SpawnEntity* spawn_entity) {
   clear_packet();
-  if (spawn_player) {
-    set_has_spawn_player();
-    packet_.spawn_player_ = spawn_player;
+  if (spawn_entity) {
+    set_has_spawn_entity();
+    packet_.spawn_entity_ = spawn_entity;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.spawn_player)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.spawn_entity)
 }
-inline ::awd::net::SpawnPlayer* PacketWrapper::_internal_mutable_spawn_player() {
-  if (!_internal_has_spawn_player()) {
+inline ::awd::net::SpawnEntity* PacketWrapper::_internal_mutable_spawn_entity() {
+  if (!_internal_has_spawn_entity()) {
     clear_packet();
-    set_has_spawn_player();
-    packet_.spawn_player_ = CreateMaybeMessage< ::awd::net::SpawnPlayer >(GetArena());
+    set_has_spawn_entity();
+    packet_.spawn_entity_ = CreateMaybeMessage< ::awd::net::SpawnEntity >(GetArena());
   }
-  return packet_.spawn_player_;
+  return packet_.spawn_entity_;
 }
-inline ::awd::net::SpawnPlayer* PacketWrapper::mutable_spawn_player() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.spawn_player)
-  return _internal_mutable_spawn_player();
+inline ::awd::net::SpawnEntity* PacketWrapper::mutable_spawn_entity() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.spawn_entity)
+  return _internal_mutable_spawn_entity();
+}
+
+// .awd.net.DespawnEntity despawn_entity = 2001;
+inline bool PacketWrapper::_internal_has_despawn_entity() const {
+  return packet_case() == kDespawnEntity;
+}
+inline bool PacketWrapper::has_despawn_entity() const {
+  return _internal_has_despawn_entity();
+}
+inline void PacketWrapper::set_has_despawn_entity() {
+  _oneof_case_[0] = kDespawnEntity;
+}
+inline void PacketWrapper::clear_despawn_entity() {
+  if (_internal_has_despawn_entity()) {
+    if (GetArena() == nullptr) {
+      delete packet_.despawn_entity_;
+    }
+    clear_has_packet();
+  }
+}
+inline ::awd::net::DespawnEntity* PacketWrapper::release_despawn_entity() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.despawn_entity)
+  if (_internal_has_despawn_entity()) {
+    clear_has_packet();
+      ::awd::net::DespawnEntity* temp = packet_.despawn_entity_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    packet_.despawn_entity_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::awd::net::DespawnEntity& PacketWrapper::_internal_despawn_entity() const {
+  return _internal_has_despawn_entity()
+      ? *packet_.despawn_entity_
+      : reinterpret_cast< ::awd::net::DespawnEntity&>(::awd::net::_DespawnEntity_default_instance_);
+}
+inline const ::awd::net::DespawnEntity& PacketWrapper::despawn_entity() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.despawn_entity)
+  return _internal_despawn_entity();
+}
+inline ::awd::net::DespawnEntity* PacketWrapper::unsafe_arena_release_despawn_entity() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.despawn_entity)
+  if (_internal_has_despawn_entity()) {
+    clear_has_packet();
+    ::awd::net::DespawnEntity* temp = packet_.despawn_entity_;
+    packet_.despawn_entity_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void PacketWrapper::unsafe_arena_set_allocated_despawn_entity(::awd::net::DespawnEntity* despawn_entity) {
+  clear_packet();
+  if (despawn_entity) {
+    set_has_despawn_entity();
+    packet_.despawn_entity_ = despawn_entity;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.despawn_entity)
+}
+inline ::awd::net::DespawnEntity* PacketWrapper::_internal_mutable_despawn_entity() {
+  if (!_internal_has_despawn_entity()) {
+    clear_packet();
+    set_has_despawn_entity();
+    packet_.despawn_entity_ = CreateMaybeMessage< ::awd::net::DespawnEntity >(GetArena());
+  }
+  return packet_.despawn_entity_;
+}
+inline ::awd::net::DespawnEntity* PacketWrapper::mutable_despawn_entity() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.despawn_entity)
+  return _internal_mutable_despawn_entity();
 }
 
 // .awd.net.UpdatePlayerInputs update_player_inputs = 3000;
@@ -6436,6 +6789,10 @@ inline PacketWrapper::PacketCase PacketWrapper::packet_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

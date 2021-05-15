@@ -4,6 +4,7 @@
 
 #include "EntityPlayer.hpp"
 #include "../Game.hpp"
+#include "Entities.hpp"
 
 namespace awd::game {
 
@@ -25,6 +26,10 @@ namespace awd::game {
                 spriteWidth  / baseBounds.width,
                 spriteHeight / baseBounds.height
         );
+
+        //todo remove
+        entitySprite = stillFrontSprite;
+        //todo remove
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -35,7 +40,7 @@ namespace awd::game {
 
     EntityPlayer::EntityPlayer(id_type entityId,
                                const std::wstring& name, uint32_t character)
-                               : LivingEntity(entityId) {
+                               : LivingEntity(Entities::EntityPlayer::TYPE, entityId) {
         this->name = name;
         this->character = character;
 

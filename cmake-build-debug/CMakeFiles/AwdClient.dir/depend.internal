@@ -80,7 +80,7 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/lobby/LeaveLobbyResponseListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/lobby/UpdatedMembersListListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/JoinWorldCommandListener.hpp
- E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnPlayerListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnEntityListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateDimensionCommandListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateEntityPositionListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
@@ -173,11 +173,81 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
  packets.pb.h
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arena_impl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/arenastring.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/descriptor.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/extension_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_enum_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_reflection.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_table_driven.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/generated_message_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/has_bits.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/implicit_weak_message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/coded_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_entry_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_inl.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_field_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/map_type_handler.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/message_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/metadata_lite.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/parse_context.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_def.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/port_undef.inc
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/reflection_ops.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/repeated_field.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/callback.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/casts.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/common.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/hash.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/logging.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/mutex.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/once.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/platform_macros.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/port.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stl_util.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/stringpiece.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
+ ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/DialogListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/data/FontManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/data/TextureManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/play/PlayScreen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/play/PlayScreenListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldData.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
@@ -210,6 +280,11 @@ CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/VertexArray.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/View.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/Export.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/IpAddress.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/Socket.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/SocketHandle.hpp
+ E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Network/UdpSocket.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Clock.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Err.hpp
@@ -252,6 +327,7 @@ CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Window.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
+ packets.pb.h
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
@@ -303,6 +379,7 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
@@ -4606,7 +4683,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.o
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
  packets.pb.h
-CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj
+CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/arena_impl.h
@@ -4657,6 +4734,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
@@ -4674,8 +4752,8 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/play/PlayScreenListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
- E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnPlayerListener.cpp
- E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnPlayerListener.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnEntityListener.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnEntityListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldData.hpp

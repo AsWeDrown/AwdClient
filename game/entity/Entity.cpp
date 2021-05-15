@@ -1,4 +1,6 @@
 #include "Entity.hpp"
+#include "../Game.hpp"
+#include "../graphics/play/PlayScreen.hpp"
 
 namespace awd::game {
 
@@ -8,8 +10,9 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    Entity::Entity(id_type entityId)
+    Entity::Entity(uint32_t entityType, id_type entityId)
                    : Drawable(entityIdToDrawableId(entityId)) {
+        this->entityType = entityType;
         this->entityId = entityId;
     }
 
@@ -32,7 +35,11 @@ namespace awd::game {
             window->draw(*entitySprite);
     }
 
-    uint32_t Entity::getEntityId() const {
+    uint32_t Entity::getEntityType() const {
+        return entityType;
+    }
+
+    id_type Entity::getEntityId() const {
         return entityId;
     }
 
@@ -55,11 +62,14 @@ namespace awd::game {
             this->posY = newY;
 
             // Новые координаты на экране.
-            sf::Vector2i pixelPos = window->
-                    mapCoordsToPixel(sf::Vector2f(posX, posY));
+            sf::Vector2f screenPos = calcPosOnScreen();
 
-            this->x = pixelPos.x; // NOLINT(cppcoreguidelines-narrowing-conversions)
-            this->y = pixelPos.y; // NOLINT(cppcoreguidelines-narrowing-conversions)
+            this->x = screenPos.x;
+            this->y = screenPos.y;
+
+            std::wcout << L"Move entity " << entityId << L" (Drawable ID: " << id << L") to ("
+                       << posX << L", " << posY << L")" << L" in world, aka (" << x << L", " << y << L") on screen; "
+                       << L"entitySprite: " << entitySprite << std::endl;
 
             if (entitySprite != nullptr)
                 // Обновляем позицию модельки.
@@ -84,6 +94,32 @@ namespace awd::game {
 
     void Entity::rotate(float deltaFaceAngle) {
         setRotation(faceAngle + deltaFaceAngle);
+    }
+
+    sf::Vector2f Entity::calcPosOnScreen() const {
+        if (auto playScreen = std::dynamic_pointer_cast
+                <PlayScreen>(Game::instance().getCurrentScreen())) {
+            if (auto worldData = playScreen->getWorld()->getWorldData()) {
+                // posX и posY - это координаты в тайлах - в системе координат, описанной здесь:
+                // https://github.com/AsWeDrown/awd-protocol/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82
+                // Умножая эти значения на размер тайла в пикселях (tileSize), получаем глобальные
+                // координаты сущности в мире, но уже в пикселях. Затем используем метод SFML
+                // mapCoordsToPixel для преобразования этих глобальных координат в локальыне,
+                // т.е. в координаты конкретно внутри пользовательского окна (фокуса (View)).
+                uint32_t     tileSize = worldData->tileSize;
+                sf::Vector2i pixelPos = window->mapCoordsToPixel(sf::Vector2f(
+                        tileSize * posX, // NOLINT(cppcoreguidelines-narrowing-conversions)
+                        tileSize * posY  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                ));
+
+                return sf::Vector2f(
+                        pixelPos.x, // NOLINT(cppcoreguidelines-narrowing-conversions)
+                        pixelPos.y  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                );
+            }
+        }
+
+        return sf::Vector2f(posX, posY); // подстраховка
     }
 
     id_type Entity::entityIdToDrawableId(id_type entityId) {

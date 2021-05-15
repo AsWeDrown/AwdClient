@@ -64,7 +64,7 @@ message HandshakeRequest { // C --> S
 }
 
 message HandshakeResponse { // C <-- S
-  sint32 protocol_version = 1;
+  uint32 protocol_version = 1;
 }
 
 message CreateLobbyRequest { // C --> S
@@ -137,9 +137,14 @@ message JoinWorldComplete { // C --> S
   /* empty packet */
 }
 
-message SpawnPlayer { // C <-- S
-  uint32 player_id = 1;
-  uint32 entity_id = 2;
+message SpawnEntity { // C <-- S
+  uint32              entity_type = 1;
+  uint32              entity_id   = 2;
+  map<string, string> entity_data = 3;
+}
+
+message DespawnEntity { // C <-- S
+  uint32 entity_id = 1;
 }
 
 message UpdatePlayerInputs { // C --> S
@@ -215,7 +220,8 @@ message PacketWrapper {
     UpdateDimensionComplete update_dimension_complete = 1001;
     JoinWorldCommand join_world_command               = 1002;
     JoinWorldComplete join_world_complete             = 1003;
-    SpawnPlayer spawn_player                          = 2000;
+    SpawnEntity spawn_entity                          = 2000;
+    DespawnEntity despawn_entity                      = 2001;
     UpdatePlayerInputs update_player_inputs           = 3000;
     UpdateEntityPosition update_entity_position       = 3001;
 

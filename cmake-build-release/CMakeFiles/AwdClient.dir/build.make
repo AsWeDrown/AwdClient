@@ -783,19 +783,19 @@ CMakeFiles/AwdClient.dir/game/world/TileData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/world/TileData.cpp.s"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\world\TileData.cpp -o CMakeFiles\AwdClient.dir\game\world\TileData.cpp.s
 
-CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj: ../game/packetlistener/play/SpawnPlayerListener.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\packetlistener\play\SpawnPlayerListener.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\SpawnPlayerListener.cpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/packetlistener/play/SpawnEntityListener.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\packetlistener\play\SpawnEntityListener.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\SpawnEntityListener.cpp
 
-CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\SpawnPlayerListener.cpp > CMakeFiles\AwdClient.dir\game\packetlistener\play\SpawnPlayerListener.cpp.i
+CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\SpawnEntityListener.cpp > CMakeFiles\AwdClient.dir\game\packetlistener\play\SpawnEntityListener.cpp.i
 
-CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\SpawnPlayerListener.cpp -o CMakeFiles\AwdClient.dir\game\packetlistener\play\SpawnPlayerListener.cpp.s
+CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\SpawnEntityListener.cpp -o CMakeFiles\AwdClient.dir\game\packetlistener\play\SpawnEntityListener.cpp.s
 
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
@@ -839,19 +839,19 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.s"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\UpdateDimensionCommandListener.cpp -o CMakeFiles\AwdClient.dir\game\packetlistener\play\UpdateDimensionCommandListener.cpp.s
 
-CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
-CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
-CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.obj: ../game/packetlistener/play/JoinWorldListener.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.obj"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\packetlistener\play\JoinWorldListener.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\JoinWorldListener.cpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/packetlistener/play/JoinWorldCommandListener.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\packetlistener\play\JoinWorldCommandListener.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\JoinWorldCommandListener.cpp
 
-CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.i"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\JoinWorldListener.cpp > CMakeFiles\AwdClient.dir\game\packetlistener\play\JoinWorldListener.cpp.i
+CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\JoinWorldCommandListener.cpp > CMakeFiles\AwdClient.dir\game\packetlistener\play\JoinWorldCommandListener.cpp.i
 
-CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.s"
-	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\JoinWorldListener.cpp -o CMakeFiles\AwdClient.dir\game\packetlistener\play\JoinWorldListener.cpp.s
+CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\packetlistener\play\JoinWorldCommandListener.cpp -o CMakeFiles\AwdClient.dir\game\packetlistener\play\JoinWorldCommandListener.cpp.s
 
 # Object files for target AwdClient
 AwdClient_OBJECTS = \
@@ -905,11 +905,11 @@ AwdClient_OBJECTS = \
 "CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/world/TileData.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.obj"
+"CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj"
 
 # External object files for target AwdClient
 AwdClient_EXTERNAL_OBJECTS =
@@ -964,11 +964,11 @@ AwdClient.exe: CMakeFiles/AwdClient.dir/game/world/World.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/world/TileData.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnPlayerListener.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj
-AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldListener.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/build.make
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-audio.a
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-graphics.a

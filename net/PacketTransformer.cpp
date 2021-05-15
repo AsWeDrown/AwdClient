@@ -256,12 +256,20 @@ namespace awd::net {
             wrapper.release_join_world_complete();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
-        } else if (auto* spawn_player = dynamic_cast<SpawnPlayer*>(packet)) {
-            wrapper.set_allocated_spawn_player(spawn_player);
+        } else if (auto* spawn_entity = dynamic_cast<SpawnEntity*>(packet)) {
+            wrapper.set_allocated_spawn_entity(spawn_entity);
             size_t dataLen = wrapper.ByteSizeLong();
             std::shared_ptr<char[]> data(new char[dataLen]);
             wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
-            wrapper.release_spawn_player();
+            wrapper.release_spawn_entity();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* despawn_entity = dynamic_cast<DespawnEntity*>(packet)) {
+            wrapper.set_allocated_despawn_entity(despawn_entity);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_despawn_entity();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
         } else if (auto* update_player_inputs = dynamic_cast<UpdatePlayerInputs*>(packet)) {
@@ -388,10 +396,15 @@ namespace awd::net {
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<JoinWorldComplete>(wrapper.join_world_complete()));
 
-            case PacketWrapper::PacketCase::kSpawnPlayer:
+            case PacketWrapper::PacketCase::kSpawnEntity:
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
-                        std::make_shared<SpawnPlayer>(wrapper.spawn_player()));
+                        std::make_shared<SpawnEntity>(wrapper.spawn_entity()));
+
+            case PacketWrapper::PacketCase::kDespawnEntity:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<DespawnEntity>(wrapper.despawn_entity()));
 
             case PacketWrapper::PacketCase::kUpdatePlayerInputs:
                 return std::make_shared<UnwrappedPacketData>(

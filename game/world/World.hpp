@@ -12,6 +12,7 @@ namespace awd::game {
         uint32_t dimension = 9999; // 9999 -> ничего не рисуем (мир ещё не загружен)
 
         std::shared_ptr<WorldData> worldData = nullptr;
+
         std::vector<std::shared_ptr<Entity>> entities;
 
     public:
@@ -21,6 +22,8 @@ namespace awd::game {
         void mousePressed(const sf::Event::MouseButtonEvent& event) override;
         void update() override;
         void draw() override;
+
+        std::shared_ptr<WorldData> getWorldData() const;
 
         void focusCamera(float worldX, float worldY);
         void centerCamera();

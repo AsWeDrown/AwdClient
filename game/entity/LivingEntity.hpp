@@ -10,7 +10,7 @@ namespace awd::game {
         float maxHealth     = 0.0f; // максимальный запас здоровья этой сущности (в хитпоинтах) (не должен меняться)
         float currentHealth = 0.0f; // текущий запас здоровья этой сущности (в хитпоинтах)
 
-        explicit LivingEntity(id_type entityId);
+        LivingEntity(uint32_t entityType, id_type entityId);
 
         void keyPressed(const sf::Event::KeyEvent& event) override;
         void mousePressed(const sf::Event::MouseButtonEvent& event) override;
