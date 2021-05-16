@@ -112,7 +112,7 @@ namespace awd::game {
             // Игра запускается успешно. Ждём, пока сервер передаст нам и остальным
             // игрокам в комнате всю необходимую для старта игровой стадии информацию.
             lobbyScreen->showLoadingOverlay(
-                    L"Ждём, пока все игроки загрузятся...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
+                    L"Загрузка мира...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
         else {
             // Ошибка.
             std::wstring errorMessage;
@@ -164,6 +164,10 @@ namespace awd::game {
             lobbyScreen->getListener()->playScreen->getWorld()->updateDimension(command->dimension());
             Game::instance().setCurrentState(GameState::PLAY);
             Game::instance().getNetService()->updateDimensionComplete();
+
+            lobbyScreen->hideCurrentLoadingOverlay();
+            lobbyScreen->showLoadingOverlay(
+                    L"Ждём, когда загрузятся все остальные...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
         }
     }
 

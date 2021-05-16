@@ -32,11 +32,37 @@ namespace awd::game {
         //todo remove
     }
 
+    void EntityPlayer::updatePlayerInputs() {
+        auto newPlayerInputs = std::make_shared<PlayerInputs>();
+
+        newPlayerInputs->movingLeft  = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
+        newPlayerInputs->movingRight = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+
+        if (*playerInputs != *newPlayerInputs) {
+            playerInputs = newPlayerInputs;
+            uint32_t inputsBitfield = 0;
+
+            if (playerInputs->movingLeft ) inputsBitfield |= PlayerInputs::BIT_MOVING_LEFT ;
+            if (playerInputs->movingRight) inputsBitfield |= PlayerInputs::BIT_MOVING_RIGHT;
+
+            Game::instance().getNetService()->updatePlayerInputs(inputsBitfield);
+        }
+    }
+
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *
      *   PUBLIC
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    bool operator ==(const PlayerInputs& a, const PlayerInputs& b) {
+        return a.movingLeft  == b.movingLeft
+            && a.movingRight == b.movingRight;
+    }
+
+    bool operator !=(const PlayerInputs& a, const PlayerInputs& b) {
+        return !(a == b);
+    }
 
     EntityPlayer::EntityPlayer(id_type entityId,
                                const std::wstring& name, uint32_t character)
@@ -56,6 +82,7 @@ namespace awd::game {
 
     void EntityPlayer::update() {
         LivingEntity::update();
+        updatePlayerInputs();
     }
 
 }

@@ -1,9 +1,15 @@
+// Основные параметры. TODO: загружать некоторые из них из конфига
 #define HOST "julia.reflex.rip"
 #define PORT 23132
 #define CONNECTION_TIMEOUT_MILLIS 10000
 #define GAME_TPS 25
 #define BASE_SCREEN_WIDTH 1920.0f
 #define BASE_SCREEN_HEIGHT 1080.0f
+// Макрос для менее громоздкой регистрации PacketListener'ов.
+#define PLISTENER(x)  packetManager->registerListener( \
+                              net::PacketWrapper::PacketCase::k##x, \
+                              std::make_shared<x##Listener>() \
+                      );
 
 
 #include <thread>
@@ -22,6 +28,7 @@
 #include "packetlistener/play/JoinWorldCommandListener.hpp"
 #include "packetlistener/play/SpawnEntityListener.hpp"
 #include "packetlistener/play/UpdateEntityPositionListener.hpp"
+#include "packetlistener/play/DespawnEntityListener.hpp"
 
 namespace awd::game {
 
@@ -41,65 +48,19 @@ namespace awd::game {
     void Game::registerPacketListeners() {
         std::wcout << L"Client protocol version: " << net::PacketManager::PROTOCOL_VERSION << std::endl;
 
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kHandshakeResponse,
-                std::make_shared<HandshakeResponseListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kPing,
-                std::make_shared<PingListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kCreateLobbyResponse,
-                std::make_shared<CreateLobbyResponseListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kJoinLobbyResponse,
-                std::make_shared<JoinLobbyResponseListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kLeaveLobbyResponse,
-                std::make_shared<LeaveLobbyResponseListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kUpdatedMembersList,
-                std::make_shared<UpdatedMembersListListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kKickedFromLobby,
-                std::make_shared<KickedFromLobbyListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kBeginPlayStateResponse,
-                std::make_shared<BeginPlayStateResponseListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kUpdateDimensionCommand,
-                std::make_shared<UpdateDimensionCommandListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kJoinWorldCommand,
-                std::make_shared<JoinWorldCommandListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kSpawnEntity,
-                std::make_shared<SpawnEntityListener>()
-        );
-
-        packetManager->registerListener(
-                net::PacketWrapper::PacketCase::kUpdateEntityPosition,
-                std::make_shared<UpdateEntityPositionListener>()
-        );
+        PLISTENER(HandshakeResponse)
+        PLISTENER(Ping)
+        PLISTENER(CreateLobbyResponse)
+        PLISTENER(JoinLobbyResponse)
+        PLISTENER(LeaveLobbyResponse)
+        PLISTENER(UpdatedMembersList)
+        PLISTENER(KickedFromLobby)
+        PLISTENER(BeginPlayStateResponse)
+        PLISTENER(UpdateDimensionCommand)
+        PLISTENER(JoinWorldCommand)
+        PLISTENER(SpawnEntity)
+        PLISTENER(UpdateEntityPosition)
+        PLISTENER(DespawnEntity)
     }
 
     void Game::startGameLoop() {

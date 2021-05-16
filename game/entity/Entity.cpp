@@ -61,15 +61,11 @@ namespace awd::game {
             this->posX = newX;
             this->posY = newY;
 
-            // Новые координаты на экране.
+            // Новые координаты на экране (в фокусе (View)).
             sf::Vector2f screenPos = calcPosOnScreen();
 
             this->x = screenPos.x;
             this->y = screenPos.y;
-
-            std::wcout << L"Move entity " << entityId << L" (Drawable ID: " << id << L") to ("
-                       << posX << L", " << posY << L")" << L" in world, aka (" << x << L", " << y << L") on screen; "
-                       << L"entitySprite: " << entitySprite << std::endl;
 
             if (entitySprite != nullptr)
                 // Обновляем позицию модельки.

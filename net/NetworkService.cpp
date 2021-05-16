@@ -135,4 +135,10 @@ namespace awd::net {
         enqueueSendImportant(packet);
     }
 
+    void NetworkService::updatePlayerInputs(uint32_t inputsBitfield) {
+        auto packet = std::make_shared<UpdatePlayerInputs>();
+        packet->set_inputs_bitfield(inputsBitfield);
+        enqueueSend(packet);
+    }
+
 }

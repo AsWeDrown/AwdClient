@@ -37,6 +37,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj"

@@ -1,7 +1,7 @@
 /**
  * Часть мира (%/100), отображаемая на экрана (находящаяся в фокусе, т.е. в текущем View).
  */
-#define WORLD_SIZE_ON_SCREEN_PART 0.25f /* 25% */
+#define WORLD_SIZE_ON_SCREEN_PART /* TODO CHANGE BACK TO 0.25f */ 0.5f /* 25% */
 
 
 #include "World.hpp"

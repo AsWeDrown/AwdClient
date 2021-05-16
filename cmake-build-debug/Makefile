@@ -1132,6 +1132,33 @@ game/packetlistener/lobby/UpdatedMembersListListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 .PHONY : game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 
+game/packetlistener/play/DespawnEntityListener.obj: game/packetlistener/play/DespawnEntityListener.cpp.obj
+
+.PHONY : game/packetlistener/play/DespawnEntityListener.obj
+
+# target to build an object file
+game/packetlistener/play/DespawnEntityListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj
+.PHONY : game/packetlistener/play/DespawnEntityListener.cpp.obj
+
+game/packetlistener/play/DespawnEntityListener.i: game/packetlistener/play/DespawnEntityListener.cpp.i
+
+.PHONY : game/packetlistener/play/DespawnEntityListener.i
+
+# target to preprocess a source file
+game/packetlistener/play/DespawnEntityListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.i
+.PHONY : game/packetlistener/play/DespawnEntityListener.cpp.i
+
+game/packetlistener/play/DespawnEntityListener.s: game/packetlistener/play/DespawnEntityListener.cpp.s
+
+.PHONY : game/packetlistener/play/DespawnEntityListener.s
+
+# target to generate assembly for a file
+game/packetlistener/play/DespawnEntityListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.s
+.PHONY : game/packetlistener/play/DespawnEntityListener.cpp.s
+
 game/packetlistener/play/JoinWorldCommandListener.obj: game/packetlistener/play/JoinWorldCommandListener.cpp.obj
 
 .PHONY : game/packetlistener/play/JoinWorldCommandListener.obj
@@ -1790,6 +1817,9 @@ help:
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.obj
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.i
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.s
+	@echo ... game/packetlistener/play/DespawnEntityListener.obj
+	@echo ... game/packetlistener/play/DespawnEntityListener.i
+	@echo ... game/packetlistener/play/DespawnEntityListener.s
 	@echo ... game/packetlistener/play/JoinWorldCommandListener.obj
 	@echo ... game/packetlistener/play/JoinWorldCommandListener.i
 	@echo ... game/packetlistener/play/JoinWorldCommandListener.s

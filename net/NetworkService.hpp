@@ -54,6 +54,8 @@ namespace awd::net {
         void updateDimensionComplete();
 
         void joinWorldComplete();
+
+        void updatePlayerInputs(uint32_t inputsBitfield);
     };
 
 }
