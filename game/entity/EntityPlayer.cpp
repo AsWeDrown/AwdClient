@@ -1,11 +1,10 @@
-#define BASE_PLAYER_TEXTURE_WIDTH 1.375f
-#define BASE_PLAYER_TEXTURE_HEIGHT 2.125f
+#define BASE_PLAYER_TEXTURE_WIDTH 1.375f /* tiles */
+#define BASE_PLAYER_TEXTURE_HEIGHT 2.125f /* tiles */
 
 
 #include "EntityPlayer.hpp"
 #include "../Game.hpp"
 #include "Entities.hpp"
-#include "../graphics/play/PlayScreen.hpp"
 
 namespace awd::game {
 
@@ -16,30 +15,12 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     void EntityPlayer::prepareSprites() {
-        // Нужно для масштабирования спрайтов.
-        float spriteWidthPixels  = 0.0f;
-        float spriteHeightPixels = 0.0f;
-
-        if (auto playScreen = std::dynamic_pointer_cast
-                <PlayScreen>(Game::instance().getCurrentScreen())) {
-            float tileSize = playScreen->getWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
-
-            spriteWidthPixels  = spriteWidth  * tileSize;
-            spriteHeightPixels = spriteHeight * tileSize;
-        }
-
         // Стоит на месте. Повёрнут лицом к игроку (пользователю перед экраном).
         stillFrontSprite = std::make_shared<sf::Sprite>();
 
         stillFrontSprite->setPosition(x, y);
         stillFrontSprite->setTexture(*Game::instance().getTextures()->characters[character - 1]);
-
-        sf::FloatRect baseBounds = stillFrontSprite->getGlobalBounds();
-
-        stillFrontSprite->setScale( // устанавливаем нужный нам размер спрайта
-                spriteWidthPixels  / baseBounds.width,
-                spriteHeightPixels / baseBounds.height
-        );
+        scaleSprite(stillFrontSprite);
 
         //todo remove (update after setRotation instead)
         entitySprite = stillFrontSprite;
@@ -116,13 +97,11 @@ namespace awd::game {
         if (!isControlled)
             return;
 
-        if (auto playScreen = std::dynamic_pointer_cast
-                <PlayScreen>(Game::instance().getCurrentScreen()))
-            // Фокусируем центр камера (View) на центре модельки игрока.
-            playScreen->getWorld()->focusCamera(
-                    newX + BASE_PLAYER_TEXTURE_WIDTH  / 2.0f,
-                    newY + BASE_PLAYER_TEXTURE_HEIGHT / 2.0f
-            );
+        // Фокусируем центр камера (View) на центре модельки игрока.
+        Game::instance().currentWorld()->focusCamera(
+                newX + BASE_PLAYER_TEXTURE_WIDTH  / 2.0f,
+                newY + BASE_PLAYER_TEXTURE_HEIGHT / 2.0f
+        );
     }
 
     void EntityPlayer::rotationUpdated(float oldFaceAngle, float newFaceAngle) {

@@ -1,6 +1,5 @@
 #include "Entity.hpp"
 #include "../Game.hpp"
-#include "../graphics/play/PlayScreen.hpp"
 
 namespace awd::game {
 
@@ -13,7 +12,7 @@ namespace awd::game {
     Entity::Entity(uint32_t entityType, id_type entityId)
                    : Drawable(entityIdToDrawableId(entityId)) {
         this->entityType = entityType;
-        this->entityId = entityId;
+        this->entityId   = entityId;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -78,17 +77,14 @@ namespace awd::game {
             this->posY = newY;
 
             // Новые координаты на экране (в фокусе (View)).
-            if (auto playScreen = std::dynamic_pointer_cast
-                    <PlayScreen>(Game::instance().getCurrentScreen())) {
-                float tileSize = playScreen->getWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+            float tileSize = Game::instance().currentWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
-                this->x = posX * tileSize;
-                this->y = posY * tileSize;
+            this->x = posX * tileSize;
+            this->y = posY * tileSize;
 
-                if (entitySprite != nullptr)
-                    // Обновляем позицию модельки.
-                    entitySprite->setPosition(x, y);
-            }
+            if (entitySprite != nullptr)
+                // Обновляем позицию модельки.
+                entitySprite->setPosition(x, y);
 
             // Реакция на обновления позиции
             positionUpdated(oldX, oldY, posX, posY);
@@ -133,28 +129,36 @@ namespace awd::game {
     ///////////////////////////////////////////////////////////////////////////////////////////
 
     sf::Vector2f Entity::calcPosOnScreen() const {
-        if (auto playScreen = std::dynamic_pointer_cast
-                <PlayScreen>(Game::instance().getCurrentScreen())) {
-            if (auto worldData = playScreen->getWorld()->getWorldData()) {
-                // posX и posY - это координаты в тайлах - в системе координат, описанной здесь:
-                // https://github.com/AsWeDrown/awd-protocol/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82
-                // Умножая эти значения на размер тайла в пикселях (tileSize), получаем глобальные
-                // координаты сущности в мире, но уже в пикселях. Затем используем метод SFML
-                // mapCoordsToPixel для преобразования этих глобальных координат в локальыне,
-                // т.е. в координаты конкретно внутри пользовательского окна (фокуса (View)).
-                sf::Vector2i pixelPos = window->mapCoordsToPixel(sf::Vector2f(
-                        worldData->tileSize * posX, // NOLINT(cppcoreguidelines-narrowing-conversions)
-                        worldData->tileSize * posY  // NOLINT(cppcoreguidelines-narrowing-conversions)
-                ));
+        // posX и posY - это координаты в тайлах - в системе координат, описанной здесь:
+        // https://github.com/AsWeDrown/awd-protocol/wiki/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82
+        // Умножая эти значения на размер тайла в пикселях (tileSize), получаем глобальные
+        // координаты сущности в мире, но уже в пикселях. Затем используем метод SFML
+        // mapCoordsToPixel для преобразования этих глобальных координат в локальыне,
+        // т.е. в координаты конкретно внутри пользовательского окна (фокуса (View)).
+        float tileSize = Game::instance().currentWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
-                return sf::Vector2f(
-                        pixelPos.x, // NOLINT(cppcoreguidelines-narrowing-conversions)
-                        pixelPos.y  // NOLINT(cppcoreguidelines-narrowing-conversions)
-                );
-            }
-        }
+        sf::Vector2i pixelPos = window->mapCoordsToPixel(sf::Vector2f(
+                posX * tileSize,
+                posY * tileSize
+        ));
 
-        return sf::Vector2f(posX, posY); // подстраховка
+        return sf::Vector2f(
+                pixelPos.x, // NOLINT(cppcoreguidelines-narrowing-conversions)
+                pixelPos.y  // NOLINT(cppcoreguidelines-narrowing-conversions)
+        );
+    }
+
+    void Entity::scaleSprite(const std::shared_ptr<sf::Sprite>& sprite) {
+        float tileSize           = Game::instance().currentWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float spriteWidthPixels  = spriteWidth  * tileSize;
+        float spriteHeightPixels = spriteHeight * tileSize;
+
+        sf::FloatRect baseBounds = sprite->getGlobalBounds();
+
+        sprite->setScale( // устанавливаем нужный нам размер спрайта
+                spriteWidthPixels  / baseBounds.width,
+                spriteHeightPixels / baseBounds.height
+        );
     }
 
     id_type Entity::entityIdToDrawableId(id_type entityId) {

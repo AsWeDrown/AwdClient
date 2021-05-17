@@ -14,6 +14,8 @@
 #include "lobby/Lobby.hpp"
 #include "graphics/data/TextureManager.hpp"
 #include "profiling/TpsMeter.hpp"
+#include "profiling/FpsMeter.hpp"
+#include "world/World.hpp"
 
 namespace awd::game {
 
@@ -27,6 +29,7 @@ namespace awd::game {
         uint32_t currentTick = 0;
 
         std::shared_ptr<TpsMeter> tpsMeter;
+        std::shared_ptr<FpsMeter> fpsMeter;
 
         std::shared_ptr<FontManager>    fonts    = std::make_shared<FontManager>   ();
         std::shared_ptr<TextureManager> textures = std::make_shared<TextureManager>();
@@ -86,9 +89,6 @@ namespace awd::game {
         uint32_t                             getLastRtt          () const;
         void                                 setLastRtt(uint32_t rtt);
 
-        std::shared_ptr<Lobby> getCurrentLobby() const;
-        void                   setCurrentLobby(const std::shared_ptr<Lobby>& lobby);
-
         bool isJoinedWorld() const;
         void setJoinedWorld(bool joined);
 
@@ -99,6 +99,10 @@ namespace awd::game {
         std::shared_ptr<sf::RenderWindow> getWindow       () const;
         std::shared_ptr<Screen>           getCurrentScreen() const;
         void                              setCurrentScreen(const std::shared_ptr<Screen>& screen);
+
+        std::shared_ptr<World> currentWorld    () const;
+        std::shared_ptr<Lobby> getCurrentLobby () const;
+        void                   setCurrentLobby(const std::shared_ptr<Lobby>& lobby);
 
         // TODO переместить эти методы в какой-то утилити-класс
         static uint32_t randUInt (uint32_t min, uint32_t max);

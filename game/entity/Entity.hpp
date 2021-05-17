@@ -37,11 +37,11 @@ namespace awd::game {
         //   Геттеры
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        uint32_t getEntityType() const;
-        id_type  getEntityId  () const;
-        float    getPosX      () const;
-        float    getPosY      () const;
-        float    getFaceAngle () const;
+        uint32_t               getEntityType() const;
+        id_type                getEntityId  () const;
+        float                  getPosX      () const;
+        float                  getPosY      () const;
+        float                  getFaceAngle () const;
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Сеттеры (скорее даже "апдейтеры")
@@ -65,6 +65,8 @@ namespace awd::game {
         ///////////////////////////////////////////////////////////////////////////////////////////
 
         sf::Vector2f calcPosOnScreen() const;
+
+        void scaleSprite(const std::shared_ptr<sf::Sprite>& sprite);
 
         static id_type entityIdToDrawableId(id_type entityId);
         static id_type drawableIdToEntityId(id_type drawableId);

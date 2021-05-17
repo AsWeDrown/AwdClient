@@ -35,9 +35,9 @@ namespace awd::game {
      */
     class TpsMeter {
     private:
-        std::mutex               mutex;
-        uint32_t                 samplesNum;
-        std::deque<float>        recentTickDelays;
+        std::mutex                 mutex;
+        uint32_t                   samplesNum;
+        std::deque<float>          recentTickDelays;
         std::shared_ptr<game_time> lastTickNanoTime = nullptr;
 
     public:

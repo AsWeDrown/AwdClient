@@ -83,6 +83,7 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/packetlistener/play/JoinWorl
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/packetlistener/play/SpawnEntityListener.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/packetlistener/play/UpdateDimensionCommandListener.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/packetlistener/play/UpdateEntityPositionListener.hpp
+CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/world/World.hpp
@@ -236,10 +237,9 @@ CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/graphics/common/Loa
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/graphics/common/Screen.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/graphics/data/FontManager.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/graphics/data/TextureManager.hpp
-CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/graphics/play/PlayScreen.hpp
-CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/graphics/play/PlayScreenListener.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/world/World.hpp
@@ -396,10 +396,9 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/comm
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/common/Screen.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/data/FontManager.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/data/TextureManager.hpp
-CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/play/PlayScreen.hpp
-CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/play/PlayScreenListener.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/world/World.hpp
@@ -792,6 +791,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../lib/protobuf-
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -805,7 +805,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/graphics
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../net/PacketContainer.hpp
@@ -943,6 +947,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../lib/protob
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/graphics/common/ColorSet.hpp
@@ -962,9 +967,13 @@ CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/graph
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/util/RenderUtils.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/util/StringUtils.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../net/PacketContainer.hpp
@@ -1102,6 +1111,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../lib/pro
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -1115,7 +1125,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/gr
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../net/PacketContainer.hpp
@@ -1371,6 +1385,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../lib/protobu
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -1385,7 +1400,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/graphi
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../net/PacketContainer.hpp
@@ -1523,6 +1542,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../lib/protobuf
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -1538,7 +1558,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/graphic
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../net/PacketContainer.hpp
@@ -1676,6 +1700,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../lib/pr
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/graphics/common/ColorSet.hpp
@@ -1695,9 +1720,13 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/g
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/util/RenderUtils.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/util/StringUtils.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../net/PacketContainer.hpp
@@ -1912,6 +1941,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../lib/pr
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/graphics/common/ColorSet.hpp
@@ -1930,8 +1960,12 @@ CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/g
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/util/RenderUtils.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../net/PacketContainer.hpp
@@ -2250,6 +2284,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/graphi
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/graphics/play/PlayScreenListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/util/StringUtils.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/world/TileBlock.hpp
@@ -2415,6 +2450,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../gam
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/graphics/play/PlayScreenListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/world/World.hpp
@@ -2556,6 +2592,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../lib/protobuf
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/graphics/common/ColorSet.hpp
@@ -2572,8 +2609,12 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/graphic
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/graphics/lobby/PlayerCard.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/util/RenderUtils.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../net/PacketContainer.hpp
@@ -2711,6 +2752,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../lib/p
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -2725,7 +2767,11 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/graphics/mainmenu/MainMenuButton.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../net/PacketContainer.hpp
@@ -2863,6 +2909,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../lib/p
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/graphics/common/ColorSet.hpp
@@ -2886,8 +2933,12 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/graphics/mainmenu/MainMenuScreenListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/util/RenderUtils.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../net/PacketContainer.hpp
@@ -3050,6 +3101,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: 
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/graphics/play/PlayScreenListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/world/World.hpp
@@ -3207,6 +3259,7 @@ CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/graphics
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/graphics/play/PlayScreenListener.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/world/World.hpp
@@ -3351,6 +3404,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -3365,7 +3419,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/packetlistener/auth/HandshakeResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/packetlistener/auth/HandshakeResponseListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../net/PacketContainer.hpp
@@ -3503,6 +3561,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../lib/p
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -3517,7 +3576,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/packetlistener/auth/PingListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/packetlistener/auth/PingListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../net/PacketContainer.hpp
@@ -3676,6 +3739,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListene
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/packetlistener/lobby/BeginPlayStateResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/packetlistener/lobby/BeginPlayStateResponseListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/world/World.hpp
@@ -3817,6 +3881,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -3834,7 +3899,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/packetlistener/lobby/CreateLobbyResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/packetlistener/lobby/CreateLobbyResponseListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../net/PacketContainer.hpp
@@ -3972,6 +4041,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -3989,7 +4059,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/packetlistener/lobby/JoinLobbyResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/packetlistener/lobby/JoinLobbyResponseListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../net/PacketContainer.hpp
@@ -4148,6 +4222,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.o
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/packetlistener/lobby/KickedFromLobbyListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/packetlistener/lobby/KickedFromLobbyListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/world/World.hpp
@@ -4310,6 +4385,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/packetlistener/lobby/LeaveLobbyResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/packetlistener/lobby/LeaveLobbyResponseListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/world/World.hpp
@@ -4451,6 +4527,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -4465,7 +4542,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/packetlistener/lobby/UpdatedMembersListListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/packetlistener/lobby/UpdatedMembersListListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../net/PacketContainer.hpp
@@ -4620,6 +4701,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj:
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/packetlistener/play/DespawnEntityListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/packetlistener/play/DespawnEntityListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/world/World.hpp
@@ -4782,6 +4864,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.o
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/packetlistener/play/JoinWorldCommandListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/packetlistener/play/JoinWorldCommandListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/world/World.hpp
@@ -4943,6 +5026,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: .
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/packetlistener/play/SpawnEntityListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/packetlistener/play/SpawnEntityListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/world/World.hpp
@@ -5105,6 +5189,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/packetlistener/play/UpdateDimensionCommandListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/packetlistener/play/UpdateDimensionCommandListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/world/World.hpp
@@ -5263,6 +5348,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/packetlistener/play/UpdateEntityPositionListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/packetlistener/play/UpdateEntityPositionListener.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/world/World.hpp
@@ -5353,6 +5439,10 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: packets.pb.h
+
+CMakeFiles/AwdClient.dir/game/profiling/FpsMeter.cpp.obj: ../game/profiling/FpsMeter.cpp
+CMakeFiles/AwdClient.dir/game/profiling/FpsMeter.cpp.obj: ../game/profiling/FpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/profiling/FpsMeter.cpp.obj: ../game/profiling/TpsMeter.hpp
 
 CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.obj: ../game/profiling/TpsMeter.cpp
 CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.obj: ../game/profiling/TpsMeter.hpp
@@ -5480,6 +5570,7 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/data/FontMan
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/world/World.cpp
@@ -5623,6 +5714,7 @@ CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../lib/protobuf-3.15.8-
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -5635,10 +5727,12 @@ CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/graphics/data/F
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/profiling/TpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/util/ImageUtils.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/world/TileData.hpp
+CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/world/World.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/world/WorldLoader.cpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/world/WorldLoader.hpp
@@ -5779,6 +5873,7 @@ CMakeFiles/AwdClient.dir/main.cpp.obj: ../lib/protobuf-3.15.8-build/include/goog
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -5791,7 +5886,11 @@ CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/graphics/data/FontManager.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../net/NetworkService.hpp
@@ -6217,6 +6316,7 @@ CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../lib/protobuf-3.15.8-build/inc
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/GameState.hpp
+CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -6229,7 +6329,11 @@ CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/graphics/data/FontManage
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/packetlistener/PacketListener.hpp
+CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../net/PacketContainer.hpp

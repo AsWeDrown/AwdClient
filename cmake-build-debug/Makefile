@@ -1267,6 +1267,33 @@ game/packetlistener/play/UpdateEntityPositionListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.s
 .PHONY : game/packetlistener/play/UpdateEntityPositionListener.cpp.s
 
+game/profiling/FpsMeter.obj: game/profiling/FpsMeter.cpp.obj
+
+.PHONY : game/profiling/FpsMeter.obj
+
+# target to build an object file
+game/profiling/FpsMeter.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/profiling/FpsMeter.cpp.obj
+.PHONY : game/profiling/FpsMeter.cpp.obj
+
+game/profiling/FpsMeter.i: game/profiling/FpsMeter.cpp.i
+
+.PHONY : game/profiling/FpsMeter.i
+
+# target to preprocess a source file
+game/profiling/FpsMeter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/profiling/FpsMeter.cpp.i
+.PHONY : game/profiling/FpsMeter.cpp.i
+
+game/profiling/FpsMeter.s: game/profiling/FpsMeter.cpp.s
+
+.PHONY : game/profiling/FpsMeter.s
+
+# target to generate assembly for a file
+game/profiling/FpsMeter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/profiling/FpsMeter.cpp.s
+.PHONY : game/profiling/FpsMeter.cpp.s
+
 game/profiling/TpsMeter.obj: game/profiling/TpsMeter.cpp.obj
 
 .PHONY : game/profiling/TpsMeter.obj
@@ -1859,6 +1886,9 @@ help:
 	@echo ... game/packetlistener/play/UpdateEntityPositionListener.obj
 	@echo ... game/packetlistener/play/UpdateEntityPositionListener.i
 	@echo ... game/packetlistener/play/UpdateEntityPositionListener.s
+	@echo ... game/profiling/FpsMeter.obj
+	@echo ... game/profiling/FpsMeter.i
+	@echo ... game/profiling/FpsMeter.s
 	@echo ... game/profiling/TpsMeter.obj
 	@echo ... game/profiling/TpsMeter.i
 	@echo ... game/profiling/TpsMeter.s

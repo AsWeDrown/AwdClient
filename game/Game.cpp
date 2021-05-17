@@ -163,9 +163,9 @@ namespace awd::game {
 
         tpsMeter->onUpdate();
 
-        // todo FIX TPS (23-24) & REMOVE DEBUG
-        if((currentTick%25)==0)std::wcerr<<L"TPS: "<<tpsMeter->estimateTps()<<std::endl;
-        // todo FIX TPS (23-24) & REMOVE DEBUG
+        // todo
+        if((currentTick%25)==0)std::wcerr<<L"TPS: "<<tpsMeter->estimateTps()<<L" | FPS: "<<fpsMeter->estimateFps()<<std::endl;
+        // todo
 
         netService->flushReceiveQueue(); // обрабатываем пакеты, полученные с сервера
         currentScreen->update();         // выполняем обновление (м.б., на отправку будут поставлены какие-то пакеты)
@@ -173,6 +173,7 @@ namespace awd::game {
     }
 
     void Game::render() {
+        fpsMeter->onDraw();
         currentScreen->draw();
     }
 
@@ -194,6 +195,7 @@ namespace awd::game {
 
     Game::Game() {
         tpsMeter      = std::make_shared<TpsMeter>           (GAME_TPS);
+        fpsMeter      = std::make_shared<FpsMeter>           ();
         udpClient     = std::make_shared<net::UdpClient>     (HOST, PORT);
         packetManager = std::make_shared<net::PacketManager> (udpClient);
         netService    = std::make_shared<net::NetworkService>(packetManager);
@@ -319,6 +321,13 @@ namespace awd::game {
 
     void Game::setCurrentScreen(const std::shared_ptr<Screen>& screen) {
         this->currentScreen = screen;
+    }
+
+    std::shared_ptr<World> Game::currentWorld() const {
+        if (auto playScreen = std::dynamic_pointer_cast<game::PlayScreen>(currentScreen))
+            return playScreen->getWorld();
+        else
+            return nullptr;
     }
 
     std::shared_ptr<Lobby> Game::getCurrentLobby() const {
