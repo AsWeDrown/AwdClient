@@ -30,14 +30,27 @@ namespace awd::game {
         uint32_t     playerId;
         std::wstring name;
         uint32_t     character;
+        bool         isControlled; // true только для игрока, которым мы управляем; false - для остальных игроков
 
         std::shared_ptr<PlayerInputs> playerInputs = std::make_shared<PlayerInputs>();
 
         EntityPlayer(id_type entityId, uint32_t playerId,
                      const std::wstring& name, uint32_t character);
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //   События Drawable
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
         void keyPressed(const sf::Event::KeyEvent &event) override;
         void update() override;
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //   Игровые события
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        void positionUpdated(float oldX, float oldY, float newX, float newY) override;
+
+        void rotationUpdated(float oldFaceAngle, float newFaceAngle) override;
     };
 
 }

@@ -1,9 +1,3 @@
-/**
- * Часть мира (%/100), отображаемая на экрана (находящаяся в фокусе, т.е. в текущем View).
- */
-#define WORLD_SIZE_ON_SCREEN_PART /* TODO CHANGE BACK TO 0.25f */ 0.5f /* 25% */
-
-
 #include "World.hpp"
 #include "../Game.hpp"
 #include "WorldLoader.hpp"
@@ -51,18 +45,33 @@ namespace awd::game {
     }
 
     void World::focusCamera(float worldX, float worldY) {
-        float worldWidthPixels  = worldData->width  * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
-        float worldHeightPixels = worldData->height * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        // Размеры отображаемой части мира (фокуса) (View) - в тайлах.
+        float viewWidth           = WORLD_SIZE_ON_SCREEN_PART * worldData->width; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float viewHeight          = WORLD_SIZE_ON_SCREEN_PART * worldData->height; // NOLINT(cppcoreguidelines-narrowing-conversions)
+
+        // Половины размеров отображаемой части мира (фокуса) (View) - в тайлах.
+        float halfViewWidthTiles  = viewWidth  / 2.0f; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float halfViewHeightTiles = viewHeight / 2.0f; // NOLINT(cppcoreguidelines-narrowing-conversions)
+
+        // Накладываем ограничения на расположение X центра фокуса в мире (все рассчёте ведём в тайлах).
+        float focusMinWorldX      = halfViewWidthTiles;
+        float focusMaxWorldX      = worldData->width - halfViewWidthTiles; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float focusWorldX         = std::min(focusMaxWorldX, std::max(focusMinWorldX, worldX));
+
+        // Накладываем ограничения на расположение Y центра фокуса в мире (все рассчёте ведём в тайлах).
+        float focusMinWorldY      = halfViewHeightTiles;
+        float focusMaxWorldY      = worldData->height - halfViewHeightTiles; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float focusWorldY         = std::min(focusMaxWorldY, std::max(focusMinWorldY, worldY));
+
+        // Переводим координаты фокуса из игровой системы координат (тайлы) в пиксели.
+        float focusWorldXPixel    = focusWorldX * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float focusWorldYPixel    = focusWorldY * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float viewWidthPixels     = viewWidth   * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float viewHeightPixels    = viewHeight  * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
         window->setView(sf::View(
-                sf::Vector2f(
-                        worldX * worldData->tileSize,  // NOLINT(cppcoreguidelines-narrowing-conversions)
-                        worldY * worldData->tileSize   // NOLINT(cppcoreguidelines-narrowing-conversions)
-                ),
-                sf::Vector2f(
-                        WORLD_SIZE_ON_SCREEN_PART * worldWidthPixels,
-                        WORLD_SIZE_ON_SCREEN_PART * worldHeightPixels
-                )
+                sf::Vector2f(focusWorldXPixel, focusWorldYPixel),
+                sf::Vector2f(viewWidthPixels, viewHeightPixels)
         ));
     }
 

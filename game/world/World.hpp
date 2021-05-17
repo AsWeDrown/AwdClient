@@ -16,6 +16,11 @@ namespace awd::game {
         std::vector<std::shared_ptr<Entity>> entities;
 
     public:
+        /**
+         * Часть мира (%/100), отображаемая на экрана (находящаяся в фокусе, т.е. в текущем View).
+         */
+        static constexpr float WORLD_SIZE_ON_SCREEN_PART = 0.225f; // 22.5%
+
         World();
 
         void keyPressed(const sf::Event::KeyEvent& event) override;

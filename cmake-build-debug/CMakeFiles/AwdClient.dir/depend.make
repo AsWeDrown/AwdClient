@@ -396,9 +396,14 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/comm
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/common/Screen.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/data/FontManager.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/data/TextureManager.hpp
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/play/PlayScreen.hpp
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/play/PlayScreenListener.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/world/TileBlock.hpp
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/world/World.hpp
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/world/WorldData.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../net/NetworkService.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../net/PacketContainer.hpp

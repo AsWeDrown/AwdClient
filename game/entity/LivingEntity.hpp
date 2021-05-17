@@ -12,6 +12,10 @@ namespace awd::game {
 
         LivingEntity(uint32_t entityType, id_type entityId);
 
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //   События Drawable
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
         void keyPressed(const sf::Event::KeyEvent& event) override;
         void mousePressed(const sf::Event::MouseButtonEvent& event) override;
         void update() override;

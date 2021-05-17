@@ -16,6 +16,10 @@ namespace awd::game {
         this->entityId = entityId;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //   События Drawable
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     void Entity::keyPressed(const sf::Event::KeyEvent& event) {
         Drawable::keyPressed(event);
     }
@@ -34,6 +38,10 @@ namespace awd::game {
         if (entitySprite != nullptr)
             window->draw(*entitySprite);
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //   Геттеры
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     uint32_t Entity::getEntityType() const {
         return entityType;
@@ -55,21 +63,35 @@ namespace awd::game {
         return faceAngle;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //   Сеттеры (скорее даже "апдейтеры")
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     void Entity::setPosition(float newX, float newY) {
         if (this->posX != newX || this->posY != newY) {
+            // Понадобится для реакции на обновление позиции.
+            float oldX = this->posX;
+            float oldY = this->posY;
+
             // Новые координаты в мире.
             this->posX = newX;
             this->posY = newY;
 
             // Новые координаты на экране (в фокусе (View)).
-            sf::Vector2f screenPos = calcPosOnScreen();
+            if (auto playScreen = std::dynamic_pointer_cast
+                    <PlayScreen>(Game::instance().getCurrentScreen())) {
+                float tileSize = playScreen->getWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
-            this->x = screenPos.x;
-            this->y = screenPos.y;
+                this->x = posX * tileSize;
+                this->y = posY * tileSize;
 
-            if (entitySprite != nullptr)
-                // Обновляем позицию модельки.
-                entitySprite->setPosition(x, y);
+                if (entitySprite != nullptr)
+                    // Обновляем позицию модельки.
+                    entitySprite->setPosition(x, y);
+            }
+
+            // Реакция на обновления позиции
+            positionUpdated(oldX, oldY, posX, posY);
         }
     }
 
@@ -79,18 +101,36 @@ namespace awd::game {
 
     void Entity::setRotation(float newFaceAngle) {
         if (this->faceAngle != newFaceAngle) {
+            // Понадобится для реакции на обновление угла поворота.
+            float oldFaceAngle = this->faceAngle;
+
             // Новая ориентация в мире.
             this->faceAngle = newFaceAngle;
 
             if (entitySprite != nullptr)
                 // Обновляем ориентацию модельки.
                 entitySprite->setRotation(faceAngle);
+
+            // Реакция на обновление угла поворота.
+            rotationUpdated(oldFaceAngle, faceAngle);
         }
     }
 
     void Entity::rotate(float deltaFaceAngle) {
         setRotation(faceAngle + deltaFaceAngle);
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //   Игровые события
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    void Entity::positionUpdated(float oldX, float oldY, float newX, float newY) {}
+
+    void Entity::rotationUpdated(float oldFaceAngle, float newFaceAngle) {}
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //   Утилити-методы
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     sf::Vector2f Entity::calcPosOnScreen() const {
         if (auto playScreen = std::dynamic_pointer_cast
@@ -102,10 +142,9 @@ namespace awd::game {
                 // координаты сущности в мире, но уже в пикселях. Затем используем метод SFML
                 // mapCoordsToPixel для преобразования этих глобальных координат в локальыне,
                 // т.е. в координаты конкретно внутри пользовательского окна (фокуса (View)).
-                uint32_t     tileSize = worldData->tileSize;
                 sf::Vector2i pixelPos = window->mapCoordsToPixel(sf::Vector2f(
-                        tileSize * posX, // NOLINT(cppcoreguidelines-narrowing-conversions)
-                        tileSize * posY  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                        worldData->tileSize * posX, // NOLINT(cppcoreguidelines-narrowing-conversions)
+                        worldData->tileSize * posY  // NOLINT(cppcoreguidelines-narrowing-conversions)
                 ));
 
                 return sf::Vector2f(

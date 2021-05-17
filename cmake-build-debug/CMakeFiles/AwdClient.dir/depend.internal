@@ -397,9 +397,14 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/data/FontManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/data/TextureManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/play/PlayScreen.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/play/PlayScreenListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldData.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkService.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
