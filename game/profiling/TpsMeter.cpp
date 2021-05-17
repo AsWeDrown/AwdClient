@@ -30,7 +30,7 @@ namespace awd::game {
     }
 
     void TpsMeter::onUpdate() {
-        auto thisTickNanoTime = std::make_shared<nanos_t>(std::chrono::high_resolution_clock::now());
+        auto thisTickNanoTime = std::make_shared<game_time>(game_clock::now());
 
         if (lastTickNanoTime == nullptr)
             // Лениво инициализируем (чтобы не было "гигантских" значений задержки).
@@ -41,8 +41,10 @@ namespace awd::game {
         if (recentTickDelays.size() == samplesNum)
             recentTickDelays.pop_front(); // удаляем самый "старый" экземпляр данных
 
-        recentTickDelays.push_back((float) std::chrono::duration_cast
-                <std::chrono::nanoseconds>(*thisTickNanoTime - *lastTickNanoTime).count());
+        recentTickDelays.push_back(static_cast<float>(
+                std::chrono::duration_cast<std::chrono::nanoseconds>(
+                        *thisTickNanoTime - *lastTickNanoTime).count()));
+
         lastTickNanoTime = thisTickNanoTime;
     }
 

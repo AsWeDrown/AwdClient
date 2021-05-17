@@ -19,6 +19,11 @@ namespace awd::game {
 
     class Game {
     private:
+        std::shared_ptr<game_time> lastFrameNanoTime = nullptr;
+
+        int64_t tickDelayNanos        = 0,
+                frameAccumulatorNanos = 0;
+
         uint32_t currentTick = 0;
 
         std::shared_ptr<TpsMeter> tpsMeter;
@@ -48,7 +53,7 @@ namespace awd::game {
         bool loadAssets();
         void registerPacketListeners();
         void startGameLoop();
-        void runGameLoop(uint32_t tickDelay, sf::Clock& tickClock);
+        void runGameLoop();
         void update();
         void render();
         void postScreenLoad();

@@ -2,9 +2,12 @@
 #define HOST "julia.reflex.rip"
 #define PORT 23132
 #define CONNECTION_TIMEOUT_MILLIS 10000
-#define GAME_TPS 25
+#define FRAMERATE_LIMIT 180
+#define GAME_TPS (int64_t) 25L
 #define BASE_SCREEN_WIDTH 1920.0f
 #define BASE_SCREEN_HEIGHT 1080.0f
+// Число наносекунд в одной секунде.
+#define NANOS_IN_SECOND (int64_t) 1E+9L
 // Макрос для менее громоздкой регистрации PacketListener'ов.
 #define PLISTENER(x)  packetManager->registerListener( \
                               net::PacketWrapper::PacketCase::k##x, \
@@ -65,8 +68,11 @@ namespace awd::game {
 
     void Game::startGameLoop() {
         auto bestVideoMode = sf::VideoMode::getFullscreenModes()[2];
+
         window = std::make_shared<sf::RenderWindow>(
                 bestVideoMode, "As We Drown"/*, sf::Style::Fullscreen*/);
+
+        window->setFramerateLimit(FRAMERATE_LIMIT);
 
         renderScale = std::min((float) bestVideoMode.width  / BASE_SCREEN_WIDTH,
                                (float) bestVideoMode.height / BASE_SCREEN_HEIGHT);
@@ -81,18 +87,21 @@ namespace awd::game {
 //        playScreen->getWorld()->updateDimension(1);//todo remove
 //        currentScreen = playScreen;//todo remove
 
-        uint32_t tickDelay = std::chrono::milliseconds(1000 / GAME_TPS).count();
-        sf::Clock tickClock;
+        tickDelayNanos = std::chrono::nanoseconds(NANOS_IN_SECOND / GAME_TPS).count();
+        lastFrameNanoTime = std::make_shared<game_time>(game_clock::now());
 
         while (window->isOpen() && currentState != GameState::EXIT)
-            runGameLoop(tickDelay, tickClock);
+            runGameLoop();
 
         std::wcout << L"Reached end of game loop." << std::endl;
         shutdown(); // на случай, если выход был произведён, скажем, по крестику, а не через кнопку в главном меню
     }
 
-    void Game::runGameLoop(uint32_t tickDelay, sf::Clock& tickClock) {
-        // События (нажатия клавиш и пр.)
+    void Game::runGameLoop() {
+        // Засекаем время начала обновления в самом начале.
+        auto thisFrameNanoTime = std::make_shared<game_time>(game_clock::now());
+
+        // События (нажатия клавиш и пр.).
         sf::Event event; // NOLINT(cppcoreguidelines-pro-type-member-init)
 
         while (window->pollEvent(event)) {
@@ -123,13 +132,25 @@ namespace awd::game {
             }
         }
 
-        // Обновления (тики)
-        if (tickClock.getElapsedTime().asMilliseconds() >= tickDelay) {
-            tickClock.restart();
+        // Обновления состояния игры (игровые тики).
+        //
+        // Такой подход (вместо, например, sleep или простого измерения времени с последнего тика)
+        // важен для соблюдения максимально возможного постоянства TPS (при других подходах он будет
+        // колебаться от 23-24 до 25-26, что совершенно неприемлемо). В Java это же (или максимально
+        // близкое к нему) поведение реализует Timer#scheduleAtFixedRate, здесь же реализуем сами:
+        // https://gafferongames.com/post/fix_your_timestep/
+        int64_t nanosSinceLastTick = std::chrono::duration_cast
+                <std::chrono::nanoseconds>(*thisFrameNanoTime - *lastFrameNanoTime).count();
+
+        lastFrameNanoTime      = thisFrameNanoTime;
+        frameAccumulatorNanos += nanosSinceLastTick;
+
+        while (frameAccumulatorNanos >= tickDelayNanos) {
             update();
+            frameAccumulatorNanos -= tickDelayNanos;
         }
 
-        // Прорисовка
+        // Прорисовка.
         window->clear();
         render();
         window->display();

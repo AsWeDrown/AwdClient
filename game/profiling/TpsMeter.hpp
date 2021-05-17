@@ -7,8 +7,11 @@
 
 namespace awd::game {
 
-    typedef std::chrono::time_point<std::chrono::high_resolution_clock,
-                                    std::chrono::nanoseconds> nanos_t;
+    typedef std::chrono::steady_clock
+            game_clock;
+
+    typedef std::chrono::time_point<game_clock, std::chrono::nanoseconds>
+            game_time;
 
     /**
      * Измеритель показателя TPS (ticks per second).
@@ -35,7 +38,7 @@ namespace awd::game {
         std::mutex               mutex;
         uint32_t                 samplesNum;
         std::deque<float>        recentTickDelays;
-        std::shared_ptr<nanos_t> lastTickNanoTime = nullptr;
+        std::shared_ptr<game_time> lastTickNanoTime = nullptr;
 
     public:
         explicit TpsMeter(uint32_t gameTps);
