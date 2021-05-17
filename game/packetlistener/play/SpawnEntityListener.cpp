@@ -27,6 +27,7 @@ namespace awd::game {
                         auto lobby = Game::instance().getCurrentLobby();
                         auto player = std::make_shared<EntityPlayer>(
                                 packet->entity_id(),
+                                playerId,
                                 lobby->playerNames[playerId],
                                 lobby->playerCharacters[playerId]
                         );

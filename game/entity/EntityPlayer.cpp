@@ -27,12 +27,15 @@ namespace awd::game {
                 spriteHeight / baseBounds.height
         );
 
-        //todo remove
+        //todo remove (update after setRotation instead)
         entitySprite = stillFrontSprite;
-        //todo remove
+        //todo remove (update after setRotation instead)
     }
 
     void EntityPlayer::updatePlayerInputs() {
+        if (playerId != Game::instance().getCurrentLobby()->ownPlayerId)
+            return;
+
         auto newPlayerInputs = std::make_shared<PlayerInputs>();
 
         newPlayerInputs->movingLeft  = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
@@ -64,10 +67,11 @@ namespace awd::game {
         return !(a == b);
     }
 
-    EntityPlayer::EntityPlayer(id_type entityId,
+    EntityPlayer::EntityPlayer(id_type entityId, uint32_t playerId,
                                const std::wstring& name, uint32_t character)
                                : LivingEntity(Entities::EntityPlayer::TYPE, entityId) {
-        this->name = name;
+        this->playerId  = playerId;
+        this->name      = name;
         this->character = character;
 
         spriteWidth  = BASE_PLAYER_TEXTURE_WIDTH;

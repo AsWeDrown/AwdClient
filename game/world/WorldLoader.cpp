@@ -1,6 +1,6 @@
 #define TOK_WORLD_WIDTH "WorldWidth"
 #define TOK_WORLD_HEIGHT "WorldHeight"
-#define TOK_TIlE_SIZE "TileSize"
+#define TOK_TILE_SIZE "TileSize"
 
 
 #include <fstream>
@@ -33,7 +33,7 @@ namespace awd::game {
                 std::wcerr << L"Invalid token in level data file: unexpected identifier" << std::endl;
                 loadStatus = WorldLoadStatus::PARSE_ERROR;
             }
-        } else if (token == TOK_TIlE_SIZE) {
+        } else if (token == TOK_TILE_SIZE) {
             if (parseState == LevelParseState::EXPECTING_IDENTIFIER)
                 parseState = LevelParseState::EXPECTING_TILE_SIZE_INT_VAL;
             else {
@@ -150,6 +150,9 @@ namespace awd::game {
     }
 
     void WorldLoader::operator >>(WorldData& targetWorldData) {
+        if (loadStatus != WorldLoadStatus::NOT_LOADED)
+            throw std::runtime_error("loadWorld() called twice");
+
         std::wcout << L"Loading dimension " << dimension << std::endl;
         targetWorldData.dimension = dimension;
 

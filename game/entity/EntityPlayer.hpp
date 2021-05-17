@@ -7,8 +7,8 @@ namespace awd::game {
 
     class PlayerInputs {
     public:
-        static const uint32_t BIT_MOVING_LEFT  = 1,
-                              BIT_MOVING_RIGHT = 2;
+        static const uint32_t BIT_MOVING_LEFT  = 0b1,
+                              BIT_MOVING_RIGHT = 0b10;
 
         bool movingLeft  = false,
              movingRight = false;
@@ -27,12 +27,13 @@ namespace awd::game {
         void updatePlayerInputs();
 
     public:
+        uint32_t     playerId;
         std::wstring name;
         uint32_t     character;
 
         std::shared_ptr<PlayerInputs> playerInputs = std::make_shared<PlayerInputs>();
 
-        EntityPlayer(id_type entityId,
+        EntityPlayer(id_type entityId, uint32_t playerId,
                      const std::wstring& name, uint32_t character);
 
         void keyPressed(const sf::Event::KeyEvent &event) override;

@@ -935,6 +935,8 @@ lobby/Lobby.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp
 graphics/data/TextureManager.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/data/TextureManager.hpp
+profiling/TpsMeter.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
 
@@ -1055,6 +1057,8 @@ PlayerCard.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/PlayerCard.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/lobby/LobbyScreenListener.cpp
+thread
+-
 iostream
 -
 LobbyScreenListener.hpp
@@ -1158,14 +1162,6 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/lobby/UpdatedMembersLis
 ../PacketListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/DespawnEntityListener.cpp
-DespawnEntityListener.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/DespawnEntityListener.hpp
-../../Game.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
-../../graphics/play/PlayScreen.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/play/PlayScreen.hpp
-
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/DespawnEntityListener.hpp
 ../PacketListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
@@ -1173,6 +1169,18 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/JoinWorldCommandListener.hpp
 ../PacketListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnEntityListener.cpp
+SpawnEntityListener.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnEntityListener.hpp
+../../Game.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+../../graphics/play/PlayScreen.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/play/PlayScreen.hpp
+../../entity/EntityPlayer.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
+../../entity/Entities.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/SpawnEntityListener.hpp
 ../PacketListener.hpp
@@ -1185,6 +1193,14 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateEntityPositionListener.hpp
 ../PacketListener.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp
+memory
+-
+mutex
+-
+deque
+-
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
 cstdint

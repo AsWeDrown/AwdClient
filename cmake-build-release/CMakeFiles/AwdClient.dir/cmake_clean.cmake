@@ -42,6 +42,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj"

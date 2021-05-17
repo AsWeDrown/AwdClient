@@ -13,12 +13,15 @@
 #include "graphics/common/Screen.hpp"
 #include "lobby/Lobby.hpp"
 #include "graphics/data/TextureManager.hpp"
+#include "profiling/TpsMeter.hpp"
 
 namespace awd::game {
 
     class Game {
     private:
         uint32_t currentTick = 0;
+
+        std::shared_ptr<TpsMeter> tpsMeter;
 
         std::shared_ptr<FontManager>    fonts    = std::make_shared<FontManager>   ();
         std::shared_ptr<TextureManager> textures = std::make_shared<TextureManager>();
@@ -67,6 +70,8 @@ namespace awd::game {
         void socketBindFailed();
 
         uint32_t getCurrentTick() const;
+
+        std::shared_ptr<TpsMeter> getTpsMeter() const;
 
         std::shared_ptr<FontManager>    getFonts   () const;
         std::shared_ptr<TextureManager> getTextures() const;

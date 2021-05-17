@@ -405,6 +405,12 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateEntityPositionListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/ImageUtils.cpp">
 			<Option target="AwdClient"/>
 		</Unit>

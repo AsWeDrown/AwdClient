@@ -140,6 +140,12 @@ namespace awd::game {
             // Элементы загрузки, которые выполняются после отображения главного меню (например, соединение).
             postScreenLoad();
 
+        tpsMeter->onUpdate();
+
+        // todo FIX TPS (23-24) & REMOVE DEBUG
+        if((currentTick%25)==0)std::wcerr<<L"TPS: "<<tpsMeter->estimateTps()<<std::endl;
+        // todo FIX TPS (23-24) & REMOVE DEBUG
+
         netService->flushReceiveQueue(); // обрабатываем пакеты, полученные с сервера
         currentScreen->update();         // выполняем обновление (м.б., на отправку будут поставлены какие-то пакеты)
         netService->flushSendQueue();    // отправляем пакеты, поставленые в очередь на отправку после обновления
@@ -166,9 +172,10 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     Game::Game() {
-        udpClient = std::make_shared<net::UdpClient>(HOST, PORT);
-        packetManager = std::make_shared<net::PacketManager>(udpClient);
-        netService = std::make_shared<net::NetworkService>(packetManager);
+        tpsMeter      = std::make_shared<TpsMeter>           (GAME_TPS);
+        udpClient     = std::make_shared<net::UdpClient>     (HOST, PORT);
+        packetManager = std::make_shared<net::PacketManager> (udpClient);
+        netService    = std::make_shared<net::NetworkService>(packetManager);
     }
 
     Game::~Game() = default;
@@ -239,6 +246,10 @@ namespace awd::game {
 
     uint32_t Game::getCurrentTick() const {
         return currentTick;
+    }
+
+    std::shared_ptr<TpsMeter> Game::getTpsMeter() const {
+        return tpsMeter;
     }
 
     std::shared_ptr<FontManager> Game::getFonts() const {

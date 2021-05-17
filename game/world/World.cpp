@@ -107,6 +107,13 @@ namespace awd::game {
     }
 
     void World::addEntity(const std::shared_ptr<Entity>& entity) {
+        if (getChildById(entity->getId()) != nullptr) {
+            std::wcerr << L"addEntity() called twice for entity " << entity->getEntityId()
+                       << L" (Drawable ID: " << entity->getId() << L")" << std::endl;
+
+            return;
+        }
+
         enqueueAddChild(entity);
         entities.push_back(entity);
     }

@@ -3,6 +3,7 @@
 #define PLAY_STATE_LOAD_TIMEOUT_MILLIS 30000
 
 
+#include <thread>
 #include <iostream>
 #include "LobbyScreenListener.hpp"
 #include "LobbyScreen.hpp"
@@ -112,7 +113,7 @@ namespace awd::game {
             // Игра запускается успешно. Ждём, пока сервер передаст нам и остальным
             // игрокам в комнате всю необходимую для старта игровой стадии информацию.
             lobbyScreen->showLoadingOverlay(
-                    L"Загрузка мира...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
+                    L"Создание мира...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
         else {
             // Ошибка.
             std::wstring errorMessage;
@@ -159,15 +160,27 @@ namespace awd::game {
         auto lobbyScreen = (LobbyScreen*) lobbyDrawable;
 
         if (lobbyScreen->getListener()->playScreen == nullptr) { // защита от повторного получения пакетов
-            // Загружаем указанное сервером измерение и сообщаем ему по завершении, переходя в игровую стадию (PLAY).
-            lobbyScreen->getListener()->playScreen = std::make_shared<PlayScreen>();
-            lobbyScreen->getListener()->playScreen->getWorld()->updateDimension(command->dimension());
-            Game::instance().setCurrentState(GameState::PLAY);
-            Game::instance().getNetService()->updateDimensionComplete();
-
+            // Загружаем указанное сервером измерение и сообщаем ему по завершении,
+            // переходя в игровую стадию (PLAY). Делаем это в другом потоке, чтобы
+            // не тормозить текущий поток (поток получения/обработки пакетов).
             lobbyScreen->hideCurrentLoadingOverlay();
             lobbyScreen->showLoadingOverlay(
-                    L"Ждём, когда загрузятся все остальные...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
+                    L"Загрузка мира...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
+
+            uint32_t dimension = command->dimension();
+
+            std::thread tLoadWorld([lobbyScreen, dimension]() {
+                lobbyScreen->getListener()->playScreen = std::make_shared<PlayScreen>();
+                lobbyScreen->getListener()->playScreen->getWorld()->updateDimension(dimension);
+                Game::instance().setCurrentState(GameState::PLAY);
+                Game::instance().getNetService()->updateDimensionComplete();
+
+                lobbyScreen->hideCurrentLoadingOverlay();
+                lobbyScreen->showLoadingOverlay(
+                        L"Ждём, когда загрузятся все остальные...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
+            });
+
+            tLoadWorld.detach();
         }
     }
 
