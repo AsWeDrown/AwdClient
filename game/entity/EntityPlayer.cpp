@@ -1,7 +1,7 @@
 #define BASE_PLAYER_TEXTURE_WIDTH 1.375f /* tiles */
 #define BASE_PLAYER_TEXTURE_HEIGHT 2.125f /* tiles */
 
-#define MAX_RECENT_INPUT_SNAPSHOTS 5
+#define MAX_RECENT_INPUT_SNAPSHOTS 10
 
 
 #include "EntityPlayer.hpp"
@@ -179,8 +179,8 @@ namespace awd::game {
 
             applyStateSnapshot(fixedPlayerState);
 
-            if (oldCltX != posX)
-                std::wcerr << L"[DRAG] deltaX = " << (posX-oldCltX) << std::endl;
+            if (oldCltX != posX && !recentInputsSnapshots.empty())
+                std::wcerr << L"[DRAG] " << oldCltX << L" -> " << posX << L" | applied: " << recentInputsSnapshots.size() << L", lag: " << (recentInputsSnapshots[recentInputsSnapshots.size() - 1].localSequence - newestAck) << std::endl;
         }
     }
 

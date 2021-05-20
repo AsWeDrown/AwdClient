@@ -921,12 +921,12 @@ string
 -
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
+string
+-
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.cpp
-Entity.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
-../Game.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp
+cstdint
+-
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
 deque
@@ -940,9 +940,27 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 EntityStateSnapshot.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
 
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.cpp
+EntityPlayer.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
+../Game.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+Entities.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp
+../../net/SequenceNumberMath.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
+LivingEntity.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
+
 E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
 SFML/Graphics.hpp
 -
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
+Entity.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
 string
@@ -1097,6 +1115,10 @@ google/protobuf/message.h
 -
 packets.pb.h
 E:/CLionProjects/AsWeDrown/AwdClient/net/packets.pb.h
+
+E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
+cstdint
+-
 
 E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
 SFML/Network/UdpSocket.hpp
