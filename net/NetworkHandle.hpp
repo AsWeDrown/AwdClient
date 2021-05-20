@@ -51,8 +51,10 @@ namespace awd::net {
         /**
          * "Протоколообразующие" поля.
          */
-        uint32_t localSequenceNumber  = 0, // новер самого "нового" отправленного пакета
-                 remoteSequenceNumber = 0; // номер самого "нового" полученного пакета
+        std::atomic<uint32_t> localSequenceNumber  = 0, // новер самого "нового" отправленного пакета;
+                              remoteSequenceNumber = 0, // номер самого "нового" полученного пакета;
+                              newestAck            = 0; // номер самого "нового" отправленного пакета, ...
+                                                        // ... получение которого другая сторона подтвердила;
 
         uint32_t calculateAckBitfield();
         void packetReceived(const std::shared_ptr<UnwrappedPacketData>& data);
@@ -64,7 +66,11 @@ namespace awd::net {
     public:
         explicit NetworkHandle(const std::shared_ptr<UdpClient>& udpClient);
 
-        float getPacketLossPercent() const;
+        uint32_t getLocalSequenceNumber ();
+        uint32_t getRemoteSequenceNumber();
+        uint32_t getNewestAck           ();
+
+        float getPacketLossPercent();
 
         std::shared_ptr<UnwrappedPacketData> receivePacket(const std::shared_ptr<char[]>& buffer,
                                                            std::size_t bytesReceived);

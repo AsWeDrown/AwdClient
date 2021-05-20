@@ -60,11 +60,11 @@ namespace awd::net {
                                 .getPacketManager()->receivePacket(buffer, bytesReceived);
 
                         if (packetData != nullptr) {
-                            if (packetData->getPacketType() == PacketWrapper::PacketCase::kPing)
+                            //if (packetData->getPacketType() == PacketWrapper::PacketCase::kPing)
                                 // Для пакетов Ping/Pong используем мгновенные отправку/получение.
                                 game::Game::instance().getPacketManager()->processReceivedPacket(packetData);
-                            else
-                                game::Game::instance().getNetService()->enqueueReceive(packetData);
+                            //else
+                            //    game::Game::instance().getNetService()->enqueueReceive(packetData);
                         } else
                             std::wcerr << L"Ignoring unknown packet (failed to unwrap)." << std::endl;
                     } catch (const std::exception& ex) {

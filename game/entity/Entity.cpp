@@ -1,7 +1,41 @@
+#define INTERPOLATION_BUFFER_SIZE 5 /* 0.2 секунды (при 25 TPS) */
+
+
 #include "Entity.hpp"
 #include "../Game.hpp"
 
 namespace awd::game {
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PRIVATE
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    void Entity::internalSetPosition(float newX, float newY) {
+        if (this->posX != newX || this->posY != newY) {
+            // Понадобится для реакции на обновление позиции.
+            float oldX = this->posX;
+            float oldY = this->posY;
+
+            // Новые координаты в мире.
+            this->posX = newX;
+            this->posY = newY;
+
+            // Новые координаты на экране (в фокусе (View)).
+            float tileSize = Game::instance().currentWorld()->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+
+            this->x = posX * tileSize;
+            this->y = posY * tileSize;
+
+            if (entitySprite != nullptr)
+                // Обновляем позицию модельки.
+                entitySprite->setPosition(x, y);
+
+            // Реакция на обновления позиции
+            positionUpdated(oldX, oldY, posX, posY);
+        }
+    }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *
@@ -29,6 +63,22 @@ namespace awd::game {
 
     void Entity::update() {
         Drawable::update();
+
+        if (!isControlled) {
+            while (interpolationBuffer.size() > INTERPOLATION_BUFFER_SIZE)
+                // Кажется, мы получили кучу пакетов от сервера, не успев их толком обработать.
+                // Скорее всего, клиент ненадолго завис / очень сильно залагал. Стираем наиболее
+                // старые данные, чтобы не отставать от сервера сильнее положенного.
+                interpolationBuffer.pop_front();
+
+            if (interpolationBuffer.size() == INTERPOLATION_BUFFER_SIZE) {
+                EntityStateSnapshot oldestSnapshot = interpolationBuffer.front();
+                interpolationBuffer.pop_front();
+                std::wcerr << L"interpolate " << oldestSnapshot.posX << L"," << oldestSnapshot.posY << L" | "
+                           << interpolationBuffer.size() << std::endl;
+                internalSetPosition(oldestSnapshot.posX, oldestSnapshot.posY);
+            }
+        }
     }
 
     void Entity::draw() {
@@ -67,27 +117,16 @@ namespace awd::game {
     ///////////////////////////////////////////////////////////////////////////////////////////
 
     void Entity::setPosition(float newX, float newY) {
-        if (this->posX != newX || this->posY != newY) {
-            // Понадобится для реакции на обновление позиции.
-            float oldX = this->posX;
-            float oldY = this->posY;
+        if (isControlled)
+            internalSetPosition(newX, newY);
+        else {
+            EntityStateSnapshot newSnapshot;
 
-            // Новые координаты в мире.
-            this->posX = newX;
-            this->posY = newY;
+            newSnapshot.posX      = newX;
+            newSnapshot.posY      = newY;
+            newSnapshot.faceAngle = faceAngle;
 
-            // Новые координаты на экране (в фокусе (View)).
-            float tileSize = Game::instance().currentWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
-
-            this->x = posX * tileSize;
-            this->y = posY * tileSize;
-
-            if (entitySprite != nullptr)
-                // Обновляем позицию модельки.
-                entitySprite->setPosition(x, y);
-
-            // Реакция на обновления позиции
-            positionUpdated(oldX, oldY, posX, posY);
+            interpolationBuffer.push_back(newSnapshot);
         }
     }
 
@@ -135,7 +174,7 @@ namespace awd::game {
         // координаты сущности в мире, но уже в пикселях. Затем используем метод SFML
         // mapCoordsToPixel для преобразования этих глобальных координат в локальыне,
         // т.е. в координаты конкретно внутри пользовательского окна (фокуса (View)).
-        float tileSize = Game::instance().currentWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float tileSize = Game::instance().currentWorld()->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
         sf::Vector2i pixelPos = window->mapCoordsToPixel(sf::Vector2f(
                 posX * tileSize,
@@ -148,8 +187,8 @@ namespace awd::game {
         );
     }
 
-    void Entity::scaleSprite(const std::shared_ptr<sf::Sprite>& sprite) {
-        float tileSize           = Game::instance().currentWorld()->getWorldData()->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+    void Entity::scaleSprite(const std::shared_ptr<sf::Sprite>& sprite) const {
+        float tileSize           = Game::instance().currentWorld()->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
         float spriteWidthPixels  = spriteWidth  * tileSize;
         float spriteHeightPixels = spriteHeight * tileSize;
 

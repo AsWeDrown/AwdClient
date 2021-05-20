@@ -1,8 +1,5 @@
 // Основные параметры. TODO: загружать некоторые из них из конфига
-#define HOST "julia.reflex.rip"
-#define PORT 23132
 #define CONNECTION_TIMEOUT_MILLIS 10000
-#define FRAMERATE_LIMIT 180
 #define GAME_TPS (int64_t) 25L
 #define BASE_SCREEN_WIDTH 1920.0f
 #define BASE_SCREEN_HEIGHT 1080.0f
@@ -44,7 +41,8 @@ namespace awd::game {
     bool Game::loadAssets() {
         std::wcout << L"--- Loading assets ---" << std::endl;
 
-        return fonts   ->loadFonts   ()
+        return configs ->loadConfigs ()
+            && fonts   ->loadFonts   ()
             && textures->loadTextures();
     }
 
@@ -67,12 +65,23 @@ namespace awd::game {
     }
 
     void Game::startGameLoop() {
+        // Инициализация базовых полей, зависящих от конфига/настроек (не могут быть инициализированы в конструкторе).
+        udpClient = std::make_shared<net::UdpClient>(
+                configs->game.rootServerHost, configs->game.rootServerPort);
+
+        packetManager = std::make_shared<net::PacketManager >(udpClient    );
+        netService    = std::make_shared<net::NetworkService>(packetManager);
+
+        // Появления игры на экране.
         auto bestVideoMode = sf::VideoMode::getFullscreenModes()[2];
 
         window = std::make_shared<sf::RenderWindow>(
                 bestVideoMode, "As We Drown"/*, sf::Style::Fullscreen*/);
 
-        window->setFramerateLimit(FRAMERATE_LIMIT);
+        if (configs->game.vsync)
+            window->setVerticalSyncEnabled(true);
+        else
+            window->setFramerateLimit(configs->game.framerateLimit);
 
         renderScale = std::min((float) bestVideoMode.width  / BASE_SCREEN_WIDTH,
                                (float) bestVideoMode.height / BASE_SCREEN_HEIGHT);
@@ -83,10 +92,6 @@ namespace awd::game {
 
         currentState = GameState::AUTH;
         currentScreen = std::make_shared<MainMenuScreen>();
-//        auto playScreen = std::make_shared<PlayScreen>();//todo remove
-//        playScreen->getWorld()->updateDimension(1);//todo remove
-//        currentScreen = playScreen;//todo remove
-
         tickDelayNanos = std::chrono::nanoseconds(NANOS_IN_SECOND / GAME_TPS).count();
         lastFrameNanoTime = std::make_shared<game_time>(game_clock::now());
 
@@ -163,10 +168,6 @@ namespace awd::game {
 
         tpsMeter->onUpdate();
 
-        // todo
-        if((currentTick%25)==0)std::wcerr<<L"TPS: "<<tpsMeter->estimateTps()<<L" | FPS: "<<fpsMeter->estimateFps()<<std::endl;
-        // todo
-
         netService->flushReceiveQueue(); // обрабатываем пакеты, полученные с сервера
         currentScreen->update();         // выполняем обновление (м.б., на отправку будут поставлены какие-то пакеты)
         netService->flushSendQueue();    // отправляем пакеты, поставленые в очередь на отправку после обновления
@@ -196,9 +197,6 @@ namespace awd::game {
     Game::Game() {
         tpsMeter      = std::make_shared<TpsMeter>           (GAME_TPS);
         fpsMeter      = std::make_shared<FpsMeter>           ();
-        udpClient     = std::make_shared<net::UdpClient>     (HOST, PORT);
-        packetManager = std::make_shared<net::PacketManager> (udpClient);
-        netService    = std::make_shared<net::NetworkService>(packetManager);
     }
 
     Game::~Game() = default;
@@ -273,6 +271,10 @@ namespace awd::game {
 
     std::shared_ptr<TpsMeter> Game::getTpsMeter() const {
         return tpsMeter;
+    }
+
+    std::shared_ptr<ConfigManager> Game::getConfigs() const {
+        return configs;
     }
 
     std::shared_ptr<FontManager> Game::getFonts() const {

@@ -45,6 +45,7 @@ namespace awd::game {
     }
 
     void Screen::showLoadingOverlay(const std::shared_ptr<LoadingOverlay>& loadingOverlay) {
+        hideCurrentLoadingOverlay();
         setComponentsEnabled(false);
         currentLoadingOverlayId = loadingOverlay->getId();
         enqueueAddChild(loadingOverlay); // т.к. нельзя исп. "add" во время обработки событий
@@ -63,6 +64,7 @@ namespace awd::game {
     }
 
     void Screen::openDialog(const std::shared_ptr<Dialog>& dialog) {
+        closeCurrentDialog();
         setComponentsEnabled(false);
         currentDialogId = dialog->getId();
         enqueueAddChild(dialog); // исп. "enqueueAdd", т.к. нельзя исп. "add" во время обработки событий

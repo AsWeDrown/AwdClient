@@ -64,10 +64,10 @@ namespace awd::game {
         float focusWorldY         = std::min(focusMaxWorldY, std::max(focusMinWorldY, worldY));
 
         // Переводим координаты фокуса из игровой системы координат (тайлы) в пиксели.
-        float focusWorldXPixel    = focusWorldX * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
-        float focusWorldYPixel    = focusWorldY * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
-        float viewWidthPixels     = viewWidth   * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
-        float viewHeightPixels    = viewHeight  * worldData->tileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float focusWorldXPixel    = focusWorldX * worldData->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float focusWorldYPixel    = focusWorldY * worldData->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float viewWidthPixels     = viewWidth   * worldData->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float viewHeightPixels    = viewHeight  * worldData->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
         window->setView(sf::View(
                 sf::Vector2f(focusWorldXPixel, focusWorldYPixel),

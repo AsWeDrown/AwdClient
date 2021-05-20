@@ -1,9 +1,11 @@
 #pragma once
 
 
+#include <deque>
 #include <cstdint>
 #include <SFML/Graphics.hpp>
 #include "../graphics/common/Drawable.hpp"
+#include "EntityStateSnapshot.hpp"
 
 namespace awd::game {
 
@@ -19,7 +21,13 @@ namespace awd::game {
               spriteWidth  = 0.0f, // ширина спрайта (модельки) (В ТАЙЛАХ)
               spriteHeight = 0.0f; // высота спрайта (модельки) (В ТАЙЛАХ)
 
+        bool isControlled = false; // true только для игрока, которым мы управляем; false - для всех остальных
+
         std::shared_ptr<sf::Sprite> entitySprite = nullptr;
+
+        std::deque<EntityStateSnapshot> interpolationBuffer;
+
+        void internalSetPosition(float newX, float newY);
 
     public:
         Entity(uint32_t entityType, id_type entityId);
@@ -47,10 +55,10 @@ namespace awd::game {
         //   Сеттеры (скорее даже "апдейтеры")
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        void setPosition(float newX,   float newY  );
-        void move       (float deltaX, float deltaY);
-        void setRotation(float newFaceAngle        );
-        void rotate     (float deltaFaceAngle      );
+        virtual void setPosition(float newX,   float newY  );
+        void move               (float deltaX, float deltaY);
+        virtual void setRotation(float newFaceAngle        );
+        void rotate             (float deltaFaceAngle      );
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Игровые события
@@ -66,7 +74,7 @@ namespace awd::game {
 
         sf::Vector2f calcPosOnScreen() const;
 
-        void scaleSprite(const std::shared_ptr<sf::Sprite>& sprite);
+        void scaleSprite(const std::shared_ptr<sf::Sprite>& sprite) const;
 
         static id_type entityIdToDrawableId(id_type entityId);
         static id_type drawableIdToEntityId(id_type drawableId);

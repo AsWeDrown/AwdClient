@@ -18,12 +18,14 @@ namespace awd::game {
 
     void LobbyScreenListener::beginLeaveLobby(Drawable* lobbyDrawable) {
         auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
+        lobbyScreen->hideCurrentLoadingOverlay();
         lobbyScreen->showLoadingOverlay(L"Выход из комнаты...", LEAVE_TIMEOUT_MILLIS);
         Game::instance().getNetService()->leaveLobbyRequest();
     }
 
     void LobbyScreenListener::beginNewGame(Drawable* lobbyDrawable) {
         auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
+        lobbyScreen->hideCurrentLoadingOverlay();
         lobbyScreen->showLoadingOverlay(L"Игра скоро начнётся...", NEW_OR_LOAD_GAME_TIMEOUT_MILLIS);
         Game::instance().getNetService()->beginPlayStateRequest("0");
     }
@@ -109,12 +111,13 @@ namespace awd::game {
         auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
         lobbyScreen->hideCurrentLoadingOverlay();
 
-        if (response->status_code() == 1)
+        if (response->status_code() == 1) {
             // Игра запускается успешно. Ждём, пока сервер передаст нам и остальным
             // игрокам в комнате всю необходимую для старта игровой стадии информацию.
+            lobbyScreen->hideCurrentLoadingOverlay();
             lobbyScreen->showLoadingOverlay(
-                    L"Создание мира...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
-        else {
+                    L"Загрузка мира...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
+        } else {
             // Ошибка.
             std::wstring errorMessage;
             int errorCode = response->status_code();
@@ -163,24 +166,16 @@ namespace awd::game {
             // Загружаем указанное сервером измерение и сообщаем ему по завершении,
             // переходя в игровую стадию (PLAY). Делаем это в другом потоке, чтобы
             // не тормозить текущий поток (поток получения/обработки пакетов).
-            lobbyScreen->hideCurrentLoadingOverlay();
-            lobbyScreen->showLoadingOverlay(
-                    L"Загрузка мира...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
-
             uint32_t dimension = command->dimension();
 
-            std::thread tLoadWorld([lobbyScreen, dimension]() {
-                lobbyScreen->getListener()->playScreen = std::make_shared<PlayScreen>();
-                lobbyScreen->getListener()->playScreen->getWorld()->updateDimension(dimension);
-                Game::instance().setCurrentState(GameState::PLAY);
-                Game::instance().getNetService()->updateDimensionComplete();
+            lobbyScreen->getListener()->playScreen = std::make_shared<PlayScreen>();
+            lobbyScreen->getListener()->playScreen->getWorld()->updateDimension(dimension);
+            Game::instance().setCurrentState(GameState::PLAY);
+            Game::instance().getNetService()->updateDimensionComplete();
 
-                lobbyScreen->hideCurrentLoadingOverlay();
-                lobbyScreen->showLoadingOverlay(
-                        L"Ждём, когда загрузятся все остальные...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
-            });
-
-            tLoadWorld.detach();
+            lobbyScreen->hideCurrentLoadingOverlay();
+            lobbyScreen->showLoadingOverlay(
+                    L"Ждём, когда загрузятся все остальные...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
         }
     }
 

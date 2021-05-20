@@ -113,6 +113,9 @@ extern PacketWrapperDefaultTypeInternal _PacketWrapper_default_instance_;
 class Ping;
 struct PingDefaultTypeInternal;
 extern PingDefaultTypeInternal _Ping_default_instance_;
+class PlayerActions;
+struct PlayerActionsDefaultTypeInternal;
+extern PlayerActionsDefaultTypeInternal _PlayerActions_default_instance_;
 class Pong;
 struct PongDefaultTypeInternal;
 extern PongDefaultTypeInternal _Pong_default_instance_;
@@ -131,9 +134,6 @@ extern UpdateDimensionCompleteDefaultTypeInternal _UpdateDimensionComplete_defau
 class UpdateEntityPosition;
 struct UpdateEntityPositionDefaultTypeInternal;
 extern UpdateEntityPositionDefaultTypeInternal _UpdateEntityPosition_default_instance_;
-class UpdatePlayerInputs;
-struct UpdatePlayerInputsDefaultTypeInternal;
-extern UpdatePlayerInputsDefaultTypeInternal _UpdatePlayerInputs_default_instance_;
 class UpdatedMembersList;
 struct UpdatedMembersListDefaultTypeInternal;
 extern UpdatedMembersListDefaultTypeInternal _UpdatedMembersList_default_instance_;
@@ -164,13 +164,13 @@ template<> ::awd::net::LeaveLobbyRequest* Arena::CreateMaybeMessage<::awd::net::
 template<> ::awd::net::LeaveLobbyResponse* Arena::CreateMaybeMessage<::awd::net::LeaveLobbyResponse>(Arena*);
 template<> ::awd::net::PacketWrapper* Arena::CreateMaybeMessage<::awd::net::PacketWrapper>(Arena*);
 template<> ::awd::net::Ping* Arena::CreateMaybeMessage<::awd::net::Ping>(Arena*);
+template<> ::awd::net::PlayerActions* Arena::CreateMaybeMessage<::awd::net::PlayerActions>(Arena*);
 template<> ::awd::net::Pong* Arena::CreateMaybeMessage<::awd::net::Pong>(Arena*);
 template<> ::awd::net::SpawnEntity* Arena::CreateMaybeMessage<::awd::net::SpawnEntity>(Arena*);
 template<> ::awd::net::SpawnEntity_EntityDataEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::SpawnEntity_EntityDataEntry_DoNotUse>(Arena*);
 template<> ::awd::net::UpdateDimensionCommand* Arena::CreateMaybeMessage<::awd::net::UpdateDimensionCommand>(Arena*);
 template<> ::awd::net::UpdateDimensionComplete* Arena::CreateMaybeMessage<::awd::net::UpdateDimensionComplete>(Arena*);
 template<> ::awd::net::UpdateEntityPosition* Arena::CreateMaybeMessage<::awd::net::UpdateEntityPosition>(Arena*);
-template<> ::awd::net::UpdatePlayerInputs* Arena::CreateMaybeMessage<::awd::net::UpdatePlayerInputs>(Arena*);
 template<> ::awd::net::UpdatedMembersList* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList>(Arena*);
 template<> ::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList_NewAllCharactersEntry_DoNotUse>(Arena*);
 template<> ::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse* Arena::CreateMaybeMessage<::awd::net::UpdatedMembersList_NewAllNamesEntry_DoNotUse>(Arena*);
@@ -3231,24 +3231,24 @@ class DespawnEntity PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class UpdatePlayerInputs PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.UpdatePlayerInputs) */ {
+class PlayerActions PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:awd.net.PlayerActions) */ {
  public:
-  inline UpdatePlayerInputs() : UpdatePlayerInputs(nullptr) {}
-  virtual ~UpdatePlayerInputs();
-  explicit constexpr UpdatePlayerInputs(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline PlayerActions() : PlayerActions(nullptr) {}
+  virtual ~PlayerActions();
+  explicit constexpr PlayerActions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  UpdatePlayerInputs(const UpdatePlayerInputs& from);
-  UpdatePlayerInputs(UpdatePlayerInputs&& from) noexcept
-    : UpdatePlayerInputs() {
+  PlayerActions(const PlayerActions& from);
+  PlayerActions(PlayerActions&& from) noexcept
+    : PlayerActions() {
     *this = ::std::move(from);
   }
 
-  inline UpdatePlayerInputs& operator=(const UpdatePlayerInputs& from) {
+  inline PlayerActions& operator=(const PlayerActions& from) {
     CopyFrom(from);
     return *this;
   }
-  inline UpdatePlayerInputs& operator=(UpdatePlayerInputs&& from) noexcept {
+  inline PlayerActions& operator=(PlayerActions&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -3266,20 +3266,20 @@ class UpdatePlayerInputs PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const UpdatePlayerInputs& default_instance() {
+  static const PlayerActions& default_instance() {
     return *internal_default_instance();
   }
-  static inline const UpdatePlayerInputs* internal_default_instance() {
-    return reinterpret_cast<const UpdatePlayerInputs*>(
-               &_UpdatePlayerInputs_default_instance_);
+  static inline const PlayerActions* internal_default_instance() {
+    return reinterpret_cast<const PlayerActions*>(
+               &_PlayerActions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     25;
 
-  friend void swap(UpdatePlayerInputs& a, UpdatePlayerInputs& b) {
+  friend void swap(PlayerActions& a, PlayerActions& b) {
     a.Swap(&b);
   }
-  inline void Swap(UpdatePlayerInputs* other) {
+  inline void Swap(PlayerActions* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -3287,7 +3287,7 @@ class UpdatePlayerInputs PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(UpdatePlayerInputs* other) {
+  void UnsafeArenaSwap(PlayerActions* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -3295,17 +3295,17 @@ class UpdatePlayerInputs PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline UpdatePlayerInputs* New() const final {
-    return CreateMaybeMessage<UpdatePlayerInputs>(nullptr);
+  inline PlayerActions* New() const final {
+    return CreateMaybeMessage<PlayerActions>(nullptr);
   }
 
-  UpdatePlayerInputs* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<UpdatePlayerInputs>(arena);
+  PlayerActions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PlayerActions>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const UpdatePlayerInputs& from);
-  void MergeFrom(const UpdatePlayerInputs& from);
+  void CopyFrom(const PlayerActions& from);
+  void MergeFrom(const PlayerActions& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -3319,13 +3319,13 @@ class UpdatePlayerInputs PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(UpdatePlayerInputs* other);
+  void InternalSwap(PlayerActions* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "awd.net.UpdatePlayerInputs";
+    return "awd.net.PlayerActions";
   }
   protected:
-  explicit UpdatePlayerInputs(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit PlayerActions(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -3344,25 +3344,25 @@ class UpdatePlayerInputs PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kInputsBitfieldFieldNumber = 1,
+    kActionsBitfieldFieldNumber = 1,
   };
-  // uint64 inputs_bitfield = 1;
-  void clear_inputs_bitfield();
-  ::PROTOBUF_NAMESPACE_ID::uint64 inputs_bitfield() const;
-  void set_inputs_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  // uint64 actions_bitfield = 1;
+  void clear_actions_bitfield();
+  ::PROTOBUF_NAMESPACE_ID::uint64 actions_bitfield() const;
+  void set_actions_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_inputs_bitfield() const;
-  void _internal_set_inputs_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_actions_bitfield() const;
+  void _internal_set_actions_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:awd.net.UpdatePlayerInputs)
+  // @@protoc_insertion_point(class_scope:awd.net.PlayerActions)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint64 inputs_bitfield_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 actions_bitfield_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -3597,7 +3597,7 @@ class PacketWrapper PROTOBUF_FINAL :
     kJoinWorldComplete = 1003,
     kSpawnEntity = 2000,
     kDespawnEntity = 2001,
-    kUpdatePlayerInputs = 3000,
+    kPlayerActions = 3000,
     kUpdateEntityPosition = 3001,
     PACKET_NOT_SET = 0,
   };
@@ -3700,7 +3700,7 @@ class PacketWrapper PROTOBUF_FINAL :
     kJoinWorldCompleteFieldNumber = 1003,
     kSpawnEntityFieldNumber = 2000,
     kDespawnEntityFieldNumber = 2001,
-    kUpdatePlayerInputsFieldNumber = 3000,
+    kPlayerActionsFieldNumber = 3000,
     kUpdateEntityPositionFieldNumber = 3001,
   };
   // uint32 sequence = 1;
@@ -4090,23 +4090,23 @@ class PacketWrapper PROTOBUF_FINAL :
       ::awd::net::DespawnEntity* despawn_entity);
   ::awd::net::DespawnEntity* unsafe_arena_release_despawn_entity();
 
-  // .awd.net.UpdatePlayerInputs update_player_inputs = 3000;
-  bool has_update_player_inputs() const;
+  // .awd.net.PlayerActions player_actions = 3000;
+  bool has_player_actions() const;
   private:
-  bool _internal_has_update_player_inputs() const;
+  bool _internal_has_player_actions() const;
   public:
-  void clear_update_player_inputs();
-  const ::awd::net::UpdatePlayerInputs& update_player_inputs() const;
-  ::awd::net::UpdatePlayerInputs* release_update_player_inputs();
-  ::awd::net::UpdatePlayerInputs* mutable_update_player_inputs();
-  void set_allocated_update_player_inputs(::awd::net::UpdatePlayerInputs* update_player_inputs);
+  void clear_player_actions();
+  const ::awd::net::PlayerActions& player_actions() const;
+  ::awd::net::PlayerActions* release_player_actions();
+  ::awd::net::PlayerActions* mutable_player_actions();
+  void set_allocated_player_actions(::awd::net::PlayerActions* player_actions);
   private:
-  const ::awd::net::UpdatePlayerInputs& _internal_update_player_inputs() const;
-  ::awd::net::UpdatePlayerInputs* _internal_mutable_update_player_inputs();
+  const ::awd::net::PlayerActions& _internal_player_actions() const;
+  ::awd::net::PlayerActions* _internal_mutable_player_actions();
   public:
-  void unsafe_arena_set_allocated_update_player_inputs(
-      ::awd::net::UpdatePlayerInputs* update_player_inputs);
-  ::awd::net::UpdatePlayerInputs* unsafe_arena_release_update_player_inputs();
+  void unsafe_arena_set_allocated_player_actions(
+      ::awd::net::PlayerActions* player_actions);
+  ::awd::net::PlayerActions* unsafe_arena_release_player_actions();
 
   // .awd.net.UpdateEntityPosition update_entity_position = 3001;
   bool has_update_entity_position() const;
@@ -4151,7 +4151,7 @@ class PacketWrapper PROTOBUF_FINAL :
   void set_has_join_world_complete();
   void set_has_spawn_entity();
   void set_has_despawn_entity();
-  void set_has_update_player_inputs();
+  void set_has_player_actions();
   void set_has_update_entity_position();
 
   inline bool has_packet() const;
@@ -4186,7 +4186,7 @@ class PacketWrapper PROTOBUF_FINAL :
     ::awd::net::JoinWorldComplete* join_world_complete_;
     ::awd::net::SpawnEntity* spawn_entity_;
     ::awd::net::DespawnEntity* despawn_entity_;
-    ::awd::net::UpdatePlayerInputs* update_player_inputs_;
+    ::awd::net::PlayerActions* player_actions_;
     ::awd::net::UpdateEntityPosition* update_entity_position_;
   } packet_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5001,26 +5001,26 @@ inline void DespawnEntity::set_entity_id(::PROTOBUF_NAMESPACE_ID::uint32 value) 
 
 // -------------------------------------------------------------------
 
-// UpdatePlayerInputs
+// PlayerActions
 
-// uint64 inputs_bitfield = 1;
-inline void UpdatePlayerInputs::clear_inputs_bitfield() {
-  inputs_bitfield_ = PROTOBUF_ULONGLONG(0);
+// uint64 actions_bitfield = 1;
+inline void PlayerActions::clear_actions_bitfield() {
+  actions_bitfield_ = PROTOBUF_ULONGLONG(0);
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 UpdatePlayerInputs::_internal_inputs_bitfield() const {
-  return inputs_bitfield_;
+inline ::PROTOBUF_NAMESPACE_ID::uint64 PlayerActions::_internal_actions_bitfield() const {
+  return actions_bitfield_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint64 UpdatePlayerInputs::inputs_bitfield() const {
-  // @@protoc_insertion_point(field_get:awd.net.UpdatePlayerInputs.inputs_bitfield)
-  return _internal_inputs_bitfield();
+inline ::PROTOBUF_NAMESPACE_ID::uint64 PlayerActions::actions_bitfield() const {
+  // @@protoc_insertion_point(field_get:awd.net.PlayerActions.actions_bitfield)
+  return _internal_actions_bitfield();
 }
-inline void UpdatePlayerInputs::_internal_set_inputs_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+inline void PlayerActions::_internal_set_actions_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   
-  inputs_bitfield_ = value;
+  actions_bitfield_ = value;
 }
-inline void UpdatePlayerInputs::set_inputs_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value) {
-  _internal_set_inputs_bitfield(value);
-  // @@protoc_insertion_point(field_set:awd.net.UpdatePlayerInputs.inputs_bitfield)
+inline void PlayerActions::set_actions_bitfield(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_actions_bitfield(value);
+  // @@protoc_insertion_point(field_set:awd.net.PlayerActions.actions_bitfield)
 }
 
 // -------------------------------------------------------------------
@@ -6631,77 +6631,77 @@ inline ::awd::net::DespawnEntity* PacketWrapper::mutable_despawn_entity() {
   return _internal_mutable_despawn_entity();
 }
 
-// .awd.net.UpdatePlayerInputs update_player_inputs = 3000;
-inline bool PacketWrapper::_internal_has_update_player_inputs() const {
-  return packet_case() == kUpdatePlayerInputs;
+// .awd.net.PlayerActions player_actions = 3000;
+inline bool PacketWrapper::_internal_has_player_actions() const {
+  return packet_case() == kPlayerActions;
 }
-inline bool PacketWrapper::has_update_player_inputs() const {
-  return _internal_has_update_player_inputs();
+inline bool PacketWrapper::has_player_actions() const {
+  return _internal_has_player_actions();
 }
-inline void PacketWrapper::set_has_update_player_inputs() {
-  _oneof_case_[0] = kUpdatePlayerInputs;
+inline void PacketWrapper::set_has_player_actions() {
+  _oneof_case_[0] = kPlayerActions;
 }
-inline void PacketWrapper::clear_update_player_inputs() {
-  if (_internal_has_update_player_inputs()) {
+inline void PacketWrapper::clear_player_actions() {
+  if (_internal_has_player_actions()) {
     if (GetArena() == nullptr) {
-      delete packet_.update_player_inputs_;
+      delete packet_.player_actions_;
     }
     clear_has_packet();
   }
 }
-inline ::awd::net::UpdatePlayerInputs* PacketWrapper::release_update_player_inputs() {
-  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.update_player_inputs)
-  if (_internal_has_update_player_inputs()) {
+inline ::awd::net::PlayerActions* PacketWrapper::release_player_actions() {
+  // @@protoc_insertion_point(field_release:awd.net.PacketWrapper.player_actions)
+  if (_internal_has_player_actions()) {
     clear_has_packet();
-      ::awd::net::UpdatePlayerInputs* temp = packet_.update_player_inputs_;
+      ::awd::net::PlayerActions* temp = packet_.player_actions_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    packet_.update_player_inputs_ = nullptr;
+    packet_.player_actions_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::awd::net::UpdatePlayerInputs& PacketWrapper::_internal_update_player_inputs() const {
-  return _internal_has_update_player_inputs()
-      ? *packet_.update_player_inputs_
-      : reinterpret_cast< ::awd::net::UpdatePlayerInputs&>(::awd::net::_UpdatePlayerInputs_default_instance_);
+inline const ::awd::net::PlayerActions& PacketWrapper::_internal_player_actions() const {
+  return _internal_has_player_actions()
+      ? *packet_.player_actions_
+      : reinterpret_cast< ::awd::net::PlayerActions&>(::awd::net::_PlayerActions_default_instance_);
 }
-inline const ::awd::net::UpdatePlayerInputs& PacketWrapper::update_player_inputs() const {
-  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.update_player_inputs)
-  return _internal_update_player_inputs();
+inline const ::awd::net::PlayerActions& PacketWrapper::player_actions() const {
+  // @@protoc_insertion_point(field_get:awd.net.PacketWrapper.player_actions)
+  return _internal_player_actions();
 }
-inline ::awd::net::UpdatePlayerInputs* PacketWrapper::unsafe_arena_release_update_player_inputs() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.update_player_inputs)
-  if (_internal_has_update_player_inputs()) {
+inline ::awd::net::PlayerActions* PacketWrapper::unsafe_arena_release_player_actions() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:awd.net.PacketWrapper.player_actions)
+  if (_internal_has_player_actions()) {
     clear_has_packet();
-    ::awd::net::UpdatePlayerInputs* temp = packet_.update_player_inputs_;
-    packet_.update_player_inputs_ = nullptr;
+    ::awd::net::PlayerActions* temp = packet_.player_actions_;
+    packet_.player_actions_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void PacketWrapper::unsafe_arena_set_allocated_update_player_inputs(::awd::net::UpdatePlayerInputs* update_player_inputs) {
+inline void PacketWrapper::unsafe_arena_set_allocated_player_actions(::awd::net::PlayerActions* player_actions) {
   clear_packet();
-  if (update_player_inputs) {
-    set_has_update_player_inputs();
-    packet_.update_player_inputs_ = update_player_inputs;
+  if (player_actions) {
+    set_has_player_actions();
+    packet_.player_actions_ = player_actions;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.update_player_inputs)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:awd.net.PacketWrapper.player_actions)
 }
-inline ::awd::net::UpdatePlayerInputs* PacketWrapper::_internal_mutable_update_player_inputs() {
-  if (!_internal_has_update_player_inputs()) {
+inline ::awd::net::PlayerActions* PacketWrapper::_internal_mutable_player_actions() {
+  if (!_internal_has_player_actions()) {
     clear_packet();
-    set_has_update_player_inputs();
-    packet_.update_player_inputs_ = CreateMaybeMessage< ::awd::net::UpdatePlayerInputs >(GetArena());
+    set_has_player_actions();
+    packet_.player_actions_ = CreateMaybeMessage< ::awd::net::PlayerActions >(GetArena());
   }
-  return packet_.update_player_inputs_;
+  return packet_.player_actions_;
 }
-inline ::awd::net::UpdatePlayerInputs* PacketWrapper::mutable_update_player_inputs() {
-  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.update_player_inputs)
-  return _internal_mutable_update_player_inputs();
+inline ::awd::net::PlayerActions* PacketWrapper::mutable_player_actions() {
+  // @@protoc_insertion_point(field_mutable:awd.net.PacketWrapper.player_actions)
+  return _internal_mutable_player_actions();
 }
 
 // .awd.net.UpdateEntityPosition update_entity_position = 3001;

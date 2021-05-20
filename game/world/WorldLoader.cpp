@@ -1,6 +1,10 @@
+// Токены парсера level meta.
 #define TOK_WORLD_WIDTH "WorldWidth"
 #define TOK_WORLD_HEIGHT "WorldHeight"
 #define TOK_TILE_SIZE "TileSize"
+
+// Подробнее - см. WorldData#displayTileSize.
+#define DISPLAY_TILE_SIZE 64
 
 
 #include <fstream>
@@ -110,21 +114,22 @@ namespace awd::game {
         sf::Vertex* quad = &(*targetWorldData.worldVertices)[4 * (x + y * targetWorldData.width)];
 
         // Задаём координаты 4 точек этого Quad'а.
+        // Для размещения точек используем отмасштабированный под текущий дисплей размер тайлов (displayTileSize).
         quad[0].position = sf::Vector2f(
-                x       * targetWorldData.tileSize,      // NOLINT(cppcoreguidelines-narrowing-conversions)
-                y       * targetWorldData.tileSize);     // NOLINT(cppcoreguidelines-narrowing-conversions)
+                x       * targetWorldData.displayTileSize,      // NOLINT(cppcoreguidelines-narrowing-conversions)
+                y       * targetWorldData.displayTileSize);     // NOLINT(cppcoreguidelines-narrowing-conversions)
         quad[1].position = sf::Vector2f(
-                (x + 1) * targetWorldData.tileSize,      // NOLINT(cppcoreguidelines-narrowing-conversions)
-                y       * targetWorldData.tileSize);     // NOLINT(cppcoreguidelines-narrowing-conversions)
+                (x + 1) * targetWorldData.displayTileSize,      // NOLINT(cppcoreguidelines-narrowing-conversions)
+                y       * targetWorldData.displayTileSize);     // NOLINT(cppcoreguidelines-narrowing-conversions)
         quad[2].position = sf::Vector2f(
-                (x + 1) * targetWorldData.tileSize,      // NOLINT(cppcoreguidelines-narrowing-conversions)
-                (y + 1) * targetWorldData.tileSize);     // NOLINT(cppcoreguidelines-narrowing-conversions)
+                (x + 1) * targetWorldData.displayTileSize,      // NOLINT(cppcoreguidelines-narrowing-conversions)
+                (y + 1) * targetWorldData.displayTileSize);     // NOLINT(cppcoreguidelines-narrowing-conversions)
         quad[3].position = sf::Vector2f(
-                x       * targetWorldData.tileSize,      // NOLINT(cppcoreguidelines-narrowing-conversions)
-                (y + 1) * targetWorldData.tileSize);     // NOLINT(cppcoreguidelines-narrowing-conversions)
+                x       * targetWorldData.displayTileSize,      // NOLINT(cppcoreguidelines-narrowing-conversions)
+                (y + 1) * targetWorldData.displayTileSize);     // NOLINT(cppcoreguidelines-narrowing-conversions)
 
         // Задаём текстуры 4 точек этого Quad'а.
-        // (Имеются в виду координаты нужной текстуры в tilemap (в "таблцие текстур" тайлов).)
+        // (Имеются в виду координаты нужной текстуры в tilemap (в "таблцие текстур" тайлов) - используем tileSize.)
         quad[0].texCoords = sf::Vector2f(
                 tileX       * targetWorldData.tileSize,  // NOLINT(cppcoreguidelines-narrowing-conversions)
                 tileY       * targetWorldData.tileSize); // NOLINT(cppcoreguidelines-narrowing-conversions)
@@ -194,10 +199,15 @@ namespace awd::game {
                 return;
             }
 
-            std::wcout << L"World size: " << targetWorldData.width    << L"x"
-                                          << targetWorldData.height   << L" x "
-                                          << targetWorldData.tileSize << L"x"
-                                          << targetWorldData.tileSize << std::endl;
+            targetWorldData.displayTileSize = DISPLAY_TILE_SIZE * Game::instance().getRenderScale();
+
+            std::wcout << L"World size: " << targetWorldData.width           << L"x"
+                                          << targetWorldData.height          << L" x "
+                                          << targetWorldData.tileSize        << L"x"
+                                          << targetWorldData.tileSize        << L" ("
+                                          << targetWorldData.displayTileSize << L"x"
+                                          << targetWorldData.displayTileSize
+                                          << L" pixels per tile on screen)"  << std::endl;
 
             // Читаем и обрабатываем "начинку" мира (местоположение тайлов и т.п.).
             std::shared_ptr<Pixels> scheme = ImageUtils

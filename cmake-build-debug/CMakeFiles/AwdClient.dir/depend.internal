@@ -53,7 +53,11 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -175,6 +179,22 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
  packets.pb.h
+CMakeFiles/AwdClient.dir/game/config/ConfigManager.cpp.obj
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/config/DumbYamlReader.cpp.obj
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/DumbYamlReader.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/DumbYamlReader.hpp
+CMakeFiles/AwdClient.dir/game/config/GameConfig.cpp.obj
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/DumbYamlReader.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+CMakeFiles/AwdClient.dir/game/config/PhysicsConfig.cpp.obj
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/DumbYamlReader.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/any.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/arena.h
@@ -226,8 +246,12 @@ CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -382,10 +406,14 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
@@ -409,6 +437,7 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketTransformer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
  E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
@@ -493,6 +522,7 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj
 CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
@@ -792,7 +822,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -948,7 +982,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
@@ -1112,7 +1150,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -1386,7 +1428,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -1543,7 +1589,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -1701,7 +1751,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
@@ -1942,7 +1996,11 @@ CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
@@ -2258,7 +2316,11 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
@@ -2428,7 +2490,11 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -2593,7 +2659,11 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
@@ -2753,7 +2823,11 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -2910,7 +2984,11 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
@@ -3077,7 +3155,11 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -3244,7 +3326,11 @@ CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -3405,7 +3491,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -3562,7 +3652,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -3719,7 +3813,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListene
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -3882,7 +3980,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.c
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -4042,7 +4144,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -4202,7 +4308,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.o
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -4365,7 +4475,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -4528,7 +4642,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -4685,7 +4803,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -4844,7 +4966,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.o
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -5007,9 +5133,13 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
@@ -5169,7 +5299,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -5332,7 +5466,11 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.c
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -5558,7 +5696,11 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -5715,7 +5857,11 @@ CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -5874,7 +6020,11 @@ CMakeFiles/AwdClient.dir/main.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -6317,7 +6467,11 @@ CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp

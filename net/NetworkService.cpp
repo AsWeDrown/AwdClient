@@ -90,7 +90,7 @@ namespace awd::net {
     void NetworkService::handshakeRequest() {
         auto packet = std::make_shared<HandshakeRequest>();
         packet->set_protocol_version(PacketManager::PROTOCOL_VERSION);
-        enqueueSendImportant(packet);
+        packetManager->sendImportantPacket(packet);
     }
 
     void NetworkService::pong(uint32_t testId) {
@@ -102,7 +102,7 @@ namespace awd::net {
     void NetworkService::createLobbyRequest(const std::wstring& playerName) {
         auto packet = std::make_shared<CreateLobbyRequest>();
         packet->set_player_name(std::string(playerName.begin(), playerName.end())); // wstring --> string
-        enqueueSendImportant(packet);
+        packetManager->sendImportantPacket(packet);
     }
 
     void NetworkService::joinLobbyRequest(uint32_t lobbyId, const std::wstring& playerName) {
@@ -111,34 +111,34 @@ namespace awd::net {
         packet->set_lobby_id(lobbyId);
         packet->set_player_name(std::string(playerName.begin(), playerName.end())); // wstring --> string
 
-        enqueueSendImportant(packet);
+        packetManager->sendImportantPacket(packet);
     }
 
     void NetworkService::leaveLobbyRequest() {
         auto packet = std::make_shared<LeaveLobbyRequest>();
-        enqueueSendImportant(packet);
+        packetManager->sendImportantPacket(packet);
     }
 
     void NetworkService::beginPlayStateRequest(const std::string& saveId) {
         auto packet = std::make_shared<BeginPlayStateRequest>();
         packet->set_save_id(saveId);
-        enqueueSendImportant(packet);
+        packetManager->sendImportantPacket(packet);
     }
 
     void NetworkService::updateDimensionComplete() {
         auto packet = std::make_shared<UpdateDimensionComplete>();
-        enqueueSendImportant(packet);
+        packetManager->sendImportantPacket(packet);
     }
 
     void NetworkService::joinWorldComplete() {
         auto packet = std::make_shared<JoinWorldComplete>();
-        enqueueSendImportant(packet);
+        packetManager->sendImportantPacket(packet);
     }
 
-    void NetworkService::updatePlayerInputs(uint32_t inputsBitfield) {
-        auto packet = std::make_shared<UpdatePlayerInputs>();
-        packet->set_inputs_bitfield(inputsBitfield);
-        enqueueSend(packet);
+    void NetworkService::playerActions(uint32_t actionsBitfield) {
+        auto packet = std::make_shared<PlayerActions>();
+        packet->set_actions_bitfield(actionsBitfield);
+        packetManager->sendPacket(packet);
     }
 
 }

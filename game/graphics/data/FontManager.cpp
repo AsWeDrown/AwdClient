@@ -5,6 +5,34 @@ namespace awd::game {
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *
+     *   PRIVATE
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    bool FontManager::loadRegularFont() {
+        regularFont = std::make_shared<sf::Font>();
+
+        if (regularFont->loadFromFile("assets/fonts/SubdexBold.ttf"))
+            return true;
+        else {
+            std::wcerr << L"Failed to load font: regular" << std::endl;
+            return false;
+        }
+    }
+
+    bool FontManager::loadDecorativeFont() {
+        decorativeFont = std::make_shared<sf::Font>();
+
+        if (decorativeFont->loadFromFile("assets/fonts/PaperCuts2.ttf"))
+            return true;
+        else {
+            std::wcerr << L"Failed to load font: decorative" << std::endl;
+            return false;
+        }
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
      *   PUBLIC
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -12,23 +40,8 @@ namespace awd::game {
     bool FontManager::loadFonts() {
         std::wcout << L"Loading fonts" << std::endl;
 
-        // REGULAR
-        regularFont = std::make_shared<sf::Font>();
-
-        if (!regularFont->loadFromFile("assets/fonts/SubdexBold.ttf")) {
-            std::wcerr << L"Failed to load font: regular." << std::endl;
-            return false;
-        }
-
-        // DECORATIVE
-        decorativeFont = std::make_shared<sf::Font>();
-
-        if (!decorativeFont->loadFromFile("assets/fonts/PaperCuts2.ttf")) {
-            std::wcerr << L"Failed to load font: decorative." << std::endl;
-            return false;
-        }
-
-        return true;
+        return loadRegularFont   ()
+            && loadDecorativeFont();
     }
 
 }

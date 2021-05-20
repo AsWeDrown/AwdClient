@@ -214,6 +214,114 @@ game/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/Game.cpp.s
 .PHONY : game/Game.cpp.s
 
+game/config/ConfigManager.obj: game/config/ConfigManager.cpp.obj
+
+.PHONY : game/config/ConfigManager.obj
+
+# target to build an object file
+game/config/ConfigManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/ConfigManager.cpp.obj
+.PHONY : game/config/ConfigManager.cpp.obj
+
+game/config/ConfigManager.i: game/config/ConfigManager.cpp.i
+
+.PHONY : game/config/ConfigManager.i
+
+# target to preprocess a source file
+game/config/ConfigManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/ConfigManager.cpp.i
+.PHONY : game/config/ConfigManager.cpp.i
+
+game/config/ConfigManager.s: game/config/ConfigManager.cpp.s
+
+.PHONY : game/config/ConfigManager.s
+
+# target to generate assembly for a file
+game/config/ConfigManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/ConfigManager.cpp.s
+.PHONY : game/config/ConfigManager.cpp.s
+
+game/config/DumbYamlReader.obj: game/config/DumbYamlReader.cpp.obj
+
+.PHONY : game/config/DumbYamlReader.obj
+
+# target to build an object file
+game/config/DumbYamlReader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/DumbYamlReader.cpp.obj
+.PHONY : game/config/DumbYamlReader.cpp.obj
+
+game/config/DumbYamlReader.i: game/config/DumbYamlReader.cpp.i
+
+.PHONY : game/config/DumbYamlReader.i
+
+# target to preprocess a source file
+game/config/DumbYamlReader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/DumbYamlReader.cpp.i
+.PHONY : game/config/DumbYamlReader.cpp.i
+
+game/config/DumbYamlReader.s: game/config/DumbYamlReader.cpp.s
+
+.PHONY : game/config/DumbYamlReader.s
+
+# target to generate assembly for a file
+game/config/DumbYamlReader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/DumbYamlReader.cpp.s
+.PHONY : game/config/DumbYamlReader.cpp.s
+
+game/config/GameConfig.obj: game/config/GameConfig.cpp.obj
+
+.PHONY : game/config/GameConfig.obj
+
+# target to build an object file
+game/config/GameConfig.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/GameConfig.cpp.obj
+.PHONY : game/config/GameConfig.cpp.obj
+
+game/config/GameConfig.i: game/config/GameConfig.cpp.i
+
+.PHONY : game/config/GameConfig.i
+
+# target to preprocess a source file
+game/config/GameConfig.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/GameConfig.cpp.i
+.PHONY : game/config/GameConfig.cpp.i
+
+game/config/GameConfig.s: game/config/GameConfig.cpp.s
+
+.PHONY : game/config/GameConfig.s
+
+# target to generate assembly for a file
+game/config/GameConfig.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/GameConfig.cpp.s
+.PHONY : game/config/GameConfig.cpp.s
+
+game/config/PhysicsConfig.obj: game/config/PhysicsConfig.cpp.obj
+
+.PHONY : game/config/PhysicsConfig.obj
+
+# target to build an object file
+game/config/PhysicsConfig.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/PhysicsConfig.cpp.obj
+.PHONY : game/config/PhysicsConfig.cpp.obj
+
+game/config/PhysicsConfig.i: game/config/PhysicsConfig.cpp.i
+
+.PHONY : game/config/PhysicsConfig.i
+
+# target to preprocess a source file
+game/config/PhysicsConfig.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/PhysicsConfig.cpp.i
+.PHONY : game/config/PhysicsConfig.cpp.i
+
+game/config/PhysicsConfig.s: game/config/PhysicsConfig.cpp.s
+
+.PHONY : game/config/PhysicsConfig.s
+
+# target to generate assembly for a file
+game/config/PhysicsConfig.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/config/PhysicsConfig.cpp.s
+.PHONY : game/config/PhysicsConfig.cpp.s
+
 game/entity/Entity.obj: game/entity/Entity.cpp.obj
 
 .PHONY : game/entity/Entity.obj
@@ -1769,6 +1877,18 @@ help:
 	@echo ... game/Game.obj
 	@echo ... game/Game.i
 	@echo ... game/Game.s
+	@echo ... game/config/ConfigManager.obj
+	@echo ... game/config/ConfigManager.i
+	@echo ... game/config/ConfigManager.s
+	@echo ... game/config/DumbYamlReader.obj
+	@echo ... game/config/DumbYamlReader.i
+	@echo ... game/config/DumbYamlReader.s
+	@echo ... game/config/GameConfig.obj
+	@echo ... game/config/GameConfig.i
+	@echo ... game/config/GameConfig.s
+	@echo ... game/config/PhysicsConfig.obj
+	@echo ... game/config/PhysicsConfig.i
+	@echo ... game/config/PhysicsConfig.s
 	@echo ... game/entity/Entity.obj
 	@echo ... game/entity/Entity.i
 	@echo ... game/entity/Entity.s

@@ -27,6 +27,8 @@ namespace awd::net {
         void registerListener(PacketWrapper::PacketCase packetType,
                               const std::shared_ptr<game::PacketListener>& listener);
 
+        std::shared_ptr<NetworkHandle> getHandle() const;
+
         std::shared_ptr<UnwrappedPacketData> receivePacket(const std::shared_ptr<char[]>& buffer,
                                                            std::size_t bytesReceived);
 

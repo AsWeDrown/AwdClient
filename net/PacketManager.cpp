@@ -67,6 +67,10 @@ namespace awd::net {
         listeners[packetType] = listener;
     }
 
+    std::shared_ptr<NetworkHandle> PacketManager::getHandle() const {
+        return handle;
+    }
+
     std::shared_ptr<UnwrappedPacketData> PacketManager::receivePacket(const std::shared_ptr<char[]>& buffer,
                                                                       std::size_t bytesReceived) {
         return handle->receivePacket(buffer, bytesReceived);

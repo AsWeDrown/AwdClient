@@ -1,6 +1,5 @@
 #include "NetworkHandle.hpp"
 #include "SequenceNumberMath.hpp"
-#include <bitset>
 
 namespace awd::net {
 
@@ -25,9 +24,6 @@ namespace awd::net {
                 // sequence number (устанавливаем бит с соотв. номером на единицу).
                 ackBitfield |= 1UL << (bitNum - 1); // т.к. идём с единицы, не забываем отнимать эту единицу здесь
 
-//        printf("** TEMP DEBUG ** Calculated ack bitfield: %s\n",
-//               std::bitset< 32 >( ackBitfield ).to_string().c_str());
-
         return ackBitfield;
     }
 
@@ -46,11 +42,14 @@ namespace awd::net {
 
         // Смотрим, подтверждение получения каких пакетов другая сторона указала.
         uint32_t ack = data->getAck(); // sequence number последнего пакета, который другая сторона от нас получила
+
+        if (SequenceNumberMath::isMoreRecent(ack, newestAck))
+            // Записываем номер самого "нового" пакета из отправленных нами,
+            // успешное получение которого другая сторона подтвердила.
+            newestAck = ack;
+
         uint32_t ackBitfield = data->getAckBitfield(); // сведения о получении 32 пакетов до пакета с номером ack
         uint32_t bitNum = 1; // начинаем с 1, т.к. 0 - это этот с номером ack; нас интересуют те, что были до него
-
-//        printf("** TEMP DEBUG ** Packet received: #%d (current remote seq: #%d), ack: %d, ack bitfield: %s\n",
-//               sequence, remoteSequenceNumber, ack, std::bitset< 32 >( ackBitfield ).to_string().c_str());
 
         while (ackBitfield > 0) {
             bool bitSet = (ackBitfield & 1) == 1;
@@ -86,7 +85,9 @@ namespace awd::net {
     /* Этот метод НЕ гарантирует потокобезопасность. Его вызов должен быть обёрнут в блокирующий блок. */
     void NetworkHandle::packetSent(const std::shared_ptr<PacketContainer>& pContainer) {
         // Обновляем локальный sequence number только после успешной отправки этого пакета.
-        if (++localSequenceNumber == SEQUENCE_NUMBER_WRAP_AROUND_THRESHOLD)
+        localSequenceNumber = SequenceNumberMath::add(localSequenceNumber, 1);
+
+        if (localSequenceNumber == SEQUENCE_NUMBER_WRAP_AROUND_THRESHOLD)
             localSequenceNumber = 0; // wrap-around
 
         // Запоминаем этот пакет (но только в случае успешной отправки).
@@ -122,8 +123,6 @@ namespace awd::net {
 
         // Учитываем доставку пакета в статистике.
         updateDeliveryStat(true);
-//        printf("** TEMP DEBUG ** Packet delivered: #%d, "
-//               "new packet loss: %.2f\n", sequence, packetLossPercent);
     }
 
     /* Этот метод НЕ гарантирует потокобезопасность. Его вызов должен быть обёрнут в блокирующий блок. */
@@ -139,8 +138,6 @@ namespace awd::net {
 
         // Учитываем потерю пакета в статистике.
         updateDeliveryStat(false);
-//        printf("** TEMP DEBUG ** Packet possibly lost: #%d, "
-//               "new packet loss: %.2f\n", pContainer->getOriginalSequence(), packetLossPercent);
     }
 
     /* Этот метод НЕ гарантирует потокобезопасность. Его вызов должен быть обёрнут в блокирующий блок. */
@@ -163,7 +160,23 @@ namespace awd::net {
         this->udpClient = udpClient;
     }
 
-    float NetworkHandle::getPacketLossPercent() const {
+    uint32_t NetworkHandle::getLocalSequenceNumber() {
+        std::unique_lock<std::mutex> lock(mutex);
+        return localSequenceNumber;
+    }
+
+    uint32_t NetworkHandle::getRemoteSequenceNumber() {
+        std::unique_lock<std::mutex> lock(mutex);
+        return remoteSequenceNumber;
+    }
+
+    uint32_t NetworkHandle::getNewestAck() {
+        std::unique_lock<std::mutex> lock(mutex);
+        return newestAck;
+    }
+
+    float NetworkHandle::getPacketLossPercent() {
+        std::unique_lock<std::mutex> lock(mutex);
         return packetLossPercent;
     }
 
@@ -186,11 +199,6 @@ namespace awd::net {
 
     bool NetworkHandle::sendPacket(bool ensureDelivered,
                                    const std::shared_ptr<google::protobuf::Message>& packet) {
-//        if (!udpClient->isConnected()) {
-//            std::wcerr << L"Cannot send a packet while not connected." << std::endl;
-//            return false; // ошибка ("соединение" не установлено)
-//        }
-
         std::unique_lock<std::mutex> lock(mutex);
 
         try {
@@ -200,9 +208,6 @@ namespace awd::net {
                                           remoteSequenceNumber,
                                           calculateAckBitfield()
             );
-
-//            printf("** TEMP DEBUG ** Sending packet #%d, acking #%d\n",
-//                   localSequenceNumber, remoteSequenceNumber);
 
             sf::IpAddress serverAddr = udpClient->getServerAddrStr();
 

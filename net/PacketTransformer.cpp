@@ -272,12 +272,12 @@ namespace awd::net {
             wrapper.release_despawn_entity();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
-        } else if (auto* update_player_inputs = dynamic_cast<UpdatePlayerInputs*>(packet)) {
-            wrapper.set_allocated_update_player_inputs(update_player_inputs);
+        } else if (auto* player_actions = dynamic_cast<PlayerActions*>(packet)) {
+            wrapper.set_allocated_player_actions(player_actions);
             size_t dataLen = wrapper.ByteSizeLong();
             std::shared_ptr<char[]> data(new char[dataLen]);
             wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
-            wrapper.release_update_player_inputs();
+            wrapper.release_player_actions();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
         } else if (auto* update_entity_position = dynamic_cast<UpdateEntityPosition*>(packet)) {
@@ -406,10 +406,10 @@ namespace awd::net {
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<DespawnEntity>(wrapper.despawn_entity()));
 
-            case PacketWrapper::PacketCase::kUpdatePlayerInputs:
+            case PacketWrapper::PacketCase::kPlayerActions:
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
-                        std::make_shared<UpdatePlayerInputs>(wrapper.update_player_inputs()));
+                        std::make_shared<PlayerActions>(wrapper.player_actions()));
 
             case PacketWrapper::PacketCase::kUpdateEntityPosition:
                 return std::make_shared<UnwrappedPacketData>(

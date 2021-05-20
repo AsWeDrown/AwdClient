@@ -16,6 +16,7 @@
 #include "profiling/TpsMeter.hpp"
 #include "profiling/FpsMeter.hpp"
 #include "world/World.hpp"
+#include "config/ConfigManager.hpp"
 
 namespace awd::game {
 
@@ -31,6 +32,7 @@ namespace awd::game {
         std::shared_ptr<TpsMeter> tpsMeter;
         std::shared_ptr<FpsMeter> fpsMeter;
 
+        std::shared_ptr<ConfigManager>  configs  = std::make_shared<ConfigManager> ();
         std::shared_ptr<FontManager>    fonts    = std::make_shared<FontManager>   ();
         std::shared_ptr<TextureManager> textures = std::make_shared<TextureManager>();
 
@@ -81,6 +83,7 @@ namespace awd::game {
 
         std::shared_ptr<TpsMeter> getTpsMeter() const;
 
+        std::shared_ptr<ConfigManager>  getConfigs () const;
         std::shared_ptr<FontManager>    getFonts   () const;
         std::shared_ptr<TextureManager> getTextures() const;
 

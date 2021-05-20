@@ -5,6 +5,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "E:/CLionProjects/AsWeDrown/AwdClient/game/Game.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/Game.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/config/ConfigManager.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/config/ConfigManager.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/config/DumbYamlReader.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/config/DumbYamlReader.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/config/GameConfig.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/config/PhysicsConfig.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-release/CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.obj"
