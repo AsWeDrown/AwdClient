@@ -91,6 +91,7 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateEntityPositionListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/FpsMeter.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldData.hpp
@@ -5617,6 +5618,10 @@ CMakeFiles/AwdClient.dir/game/profiling/FpsMeter.cpp.obj
 CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.cpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp
 CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/ImageUtils.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/ImageUtils.hpp
@@ -5748,6 +5753,7 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/FpsMeter.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
@@ -6074,6 +6080,7 @@ CMakeFiles/AwdClient.dir/main.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/FpsMeter.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldData.hpp

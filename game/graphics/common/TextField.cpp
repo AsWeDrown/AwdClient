@@ -83,12 +83,25 @@ namespace awd::game {
             return;
 
         // TODO: возможность перемещать "курсор" стралочками <влево/вправо>.
-
         if (event.code == sf::Keyboard::Backspace) {
+            // Стирание введённых в данный момент символов.
             if (!contents.empty())
-                // Возможность стирать введённые символы.
                 setContents(contents.substr(0, contents.length() - 1));
+        } else if (event.code == sf::Keyboard::V && sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)) {
+            // Вставка из буфера обмена.
+            std::wstring clipboardContents = sf::Clipboard::getString();
+
+            if (!clipboardContents.empty() && contents.length() < maxContentsLen) {
+                std::wstring::size_type charsLeft = maxContentsLen - contents.length();
+
+                if (clipboardContents.length() <= charsLeft)
+                    setContents(contents + clipboardContents);
+                else
+                    setContents(contents + clipboardContents.substr(0, charsLeft));
+            }
         } else if (contents.length() < maxContentsLen) {
+            // Обычный (ручной) ввод символов с клавиатуры.
+            // TODO: использовать событие TextEntered вместо этого switch/case...
             wchar_t charTyped;
 
             switch (event.code) {

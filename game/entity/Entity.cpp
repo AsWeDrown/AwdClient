@@ -79,7 +79,7 @@ namespace awd::game {
                     interpolationBuffer.pop_front();
 
             // Интерполируем позиции сущности из прошлого. Используем ">=", а не "==", т.к. размер
-            // буффера интерполяции может быть и больше interpDelay (но не больше interpBufSizeThreshold).
+            // буфера интерполяции может быть и больше interpDelay (но не больше interpBufSizeThreshold).
             // Если тупо удалять все снимки состояний старее interpDelay, то при движении все существа
             // будут периодически дёргаться и/или подвисать (выглядит это совершенно неиграбельно).
             if (interpolationBuffer.size() >= Game::instance().getConfigs()->physics.interpDelay) {
@@ -134,7 +134,7 @@ namespace awd::game {
             // Обновляем позицию сразу.
             internalSetPosition(newX, newY, newFaceAngle);
         else {
-            // Добавляем позицию в буффер интерполяции.
+            // Добавляем позицию в буфер интерполяции.
             EntityStateSnapshot newSnapshot;
 
             newSnapshot.posX      = newX;

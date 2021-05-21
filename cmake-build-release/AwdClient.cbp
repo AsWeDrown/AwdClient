@@ -444,6 +444,12 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/ImageUtils.cpp">
 			<Option target="AwdClient"/>
 		</Unit>

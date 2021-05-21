@@ -90,6 +90,7 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/packetlistener/play/UpdateDi
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/packetlistener/play/UpdateEntityPositionListener.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/util/CrashReporter.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/world/World.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/world/WorldData.hpp
@@ -5617,6 +5618,10 @@ CMakeFiles/AwdClient.dir/game/profiling/FpsMeter.cpp.obj: ../game/profiling/TpsM
 CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.obj: ../game/profiling/TpsMeter.cpp
 CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.obj: ../game/profiling/TpsMeter.hpp
 
+CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj: ../game/util/CrashReporter.cpp
+CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj: ../game/util/CrashReporter.hpp
+CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj: ../game/util/TimeUtils.hpp
+
 CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj: ../game/util/ImageUtils.cpp
 CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj: ../game/util/ImageUtils.hpp
 
@@ -5747,6 +5752,7 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/util/CrashReporter.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/world/World.cpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/world/World.hpp
@@ -6073,6 +6079,7 @@ CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/lobby/Lobby.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/util/CrashReporter.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/world/World.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/world/WorldData.hpp

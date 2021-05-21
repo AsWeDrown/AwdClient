@@ -1429,6 +1429,33 @@ game/profiling/TpsMeter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.s
 .PHONY : game/profiling/TpsMeter.cpp.s
 
+game/util/CrashReporter.obj: game/util/CrashReporter.cpp.obj
+
+.PHONY : game/util/CrashReporter.obj
+
+# target to build an object file
+game/util/CrashReporter.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj
+.PHONY : game/util/CrashReporter.cpp.obj
+
+game/util/CrashReporter.i: game/util/CrashReporter.cpp.i
+
+.PHONY : game/util/CrashReporter.i
+
+# target to preprocess a source file
+game/util/CrashReporter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.i
+.PHONY : game/util/CrashReporter.cpp.i
+
+game/util/CrashReporter.s: game/util/CrashReporter.cpp.s
+
+.PHONY : game/util/CrashReporter.s
+
+# target to generate assembly for a file
+game/util/CrashReporter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.s
+.PHONY : game/util/CrashReporter.cpp.s
+
 game/util/ImageUtils.obj: game/util/ImageUtils.cpp.obj
 
 .PHONY : game/util/ImageUtils.obj
@@ -2012,6 +2039,9 @@ help:
 	@echo ... game/profiling/TpsMeter.obj
 	@echo ... game/profiling/TpsMeter.i
 	@echo ... game/profiling/TpsMeter.s
+	@echo ... game/util/CrashReporter.obj
+	@echo ... game/util/CrashReporter.i
+	@echo ... game/util/CrashReporter.s
 	@echo ... game/util/ImageUtils.obj
 	@echo ... game/util/ImageUtils.i
 	@echo ... game/util/ImageUtils.s

@@ -1,6 +1,7 @@
 #include "World.hpp"
 #include "../Game.hpp"
 #include "WorldLoader.hpp"
+#include "../util/CrashReporter.hpp"
 
 namespace awd::game {
 
@@ -94,7 +95,8 @@ namespace awd::game {
             if (worldLoader.getLoadStatus() != WorldLoadStatus::LOADED) {
                 // Скорее всего, файлы игры были повреждены.
                 worldData = nullptr;
-                std::wcerr << L"Failed to update dimension (world load error)" << std::endl;
+                CrashReporter::makeReport(
+                        "Failed to update dimension (world load error): " + std::to_string(newDimension));
                 Game::instance().shutdown();
 
                 return;

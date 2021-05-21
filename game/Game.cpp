@@ -1,4 +1,10 @@
-// Основные параметры. TODO: загружать некоторые из них из конфига
+// Проверка ОС (мы поддерживаем только Windows).
+#if !defined(__CYGWIN__) && (defined(WIN32) || defined(_WIN32) || defined(__WIN32) || defined(__WIN32__))
+    #define IS_RUNNING_WINDOWS true
+#else
+    #define IS_RUNNING_WINDOWS false
+#endif
+// Основные параметры.
 #define CONNECTION_TIMEOUT_MILLIS 10000
 #define GAME_TPS (int64_t) 25L
 #define BASE_SCREEN_WIDTH 1920.0f
@@ -29,6 +35,7 @@
 #include "packetlistener/play/SpawnEntityListener.hpp"
 #include "packetlistener/play/UpdateEntityPositionListener.hpp"
 #include "packetlistener/play/DespawnEntityListener.hpp"
+#include "util/CrashReporter.hpp"
 
 namespace awd::game {
 
@@ -95,8 +102,12 @@ namespace awd::game {
         tickDelayNanos = std::chrono::nanoseconds(NANOS_IN_SECOND / GAME_TPS).count();
         lastFrameNanoTime = std::make_shared<game_time>(game_clock::now());
 
-        while (window->isOpen() && currentState != GameState::EXIT)
-            runGameLoop();
+        try {
+            while (window->isOpen() && currentState != GameState::EXIT)
+                runGameLoop();
+        } catch (const std::exception& ex) {
+            CrashReporter::makeReport("Unhandled exception in main game loop", ex);
+        }
 
         std::wcout << L"Reached end of game loop." << std::endl;
         shutdown(); // на случай, если выход был произведён, скажем, по крестику, а не через кнопку в главном меню
@@ -202,14 +213,16 @@ namespace awd::game {
     Game::~Game() = default;
 
     void Game::bootstrap() {
+        // Мы работаем только с Windows.
+        if (!IS_RUNNING_WINDOWS)
+            throw std::runtime_error("unsupported platform (required: Windows)");
+
         // Инициализация ГПСЧ.
         srand(static_cast<uint32_t>(time(nullptr))); // NOLINT(cert-msc51-cpp)
 
         // Загрузка текстур, звуков, шрифтов и прочего.
-        if (!loadAssets()) {
-            std::wcerr << L"Failed to load assets." << std::endl;
-            return;
-        }
+        if (!loadAssets())
+            throw std::runtime_error("failed to load assets");
 
         // Главный цикл игры (в этом потоке). Должен запускаться в самом конце!
         startGameLoop();
