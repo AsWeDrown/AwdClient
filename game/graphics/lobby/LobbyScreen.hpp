@@ -15,8 +15,10 @@ namespace awd::game {
 
         std::vector<std::shared_ptr<PlayerCard>> playerCards;
 
-        std::unique_ptr<sf::RectangleShape> sepLine    = nullptr;
+        std::unique_ptr<sf::RectangleShape> sepLine     = nullptr;
         std::unique_ptr<sf::Text>           lobbyIdText = nullptr;
+
+        uint32_t labelCopiedDisplayTicks = 0;
 
         void createButtons(bool isHost);
         void createPlayerCards();
@@ -24,6 +26,7 @@ namespace awd::game {
     public:
         LobbyScreen();
 
+        void mousePressed(const sf::Event::MouseButtonEvent& event) override;
         void update() override;
         void draw() override;
 

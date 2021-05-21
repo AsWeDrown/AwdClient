@@ -18,6 +18,7 @@
 #define LOBBY_ID_TEXT_FONT_SIZE 45
 #define LOBBY_ID_TEXT_RIGHT_MARGIN 30.0f
 #define LOBBY_ID_TEXT_BOTTOM_MARGIN 45.0f
+#define LOBBY_ID_TEXT_COPIED_DISPLAY_TICKS 25
 
 
 #include <thread>
@@ -143,8 +144,36 @@ namespace awd::game {
         createPlayerCards();
     }
 
+    void LobbyScreen::mousePressed(const sf::Event::MouseButtonEvent& event) {
+        Screen::mousePressed(event);
+
+        // Клик по надписи "Комната #xxxxxx" для копирования идентификатора комнаты в буфер обмена.
+        float mouseX            = event.x; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float mouseY            = event.y; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        float lobbyIdTextX      = lobbyIdText->getPosition().x;
+        float lobbyIdTextY      = lobbyIdText->getPosition().y;
+        float lobbyIdTextWidth  = lobbyIdText->getGlobalBounds().width;
+        float lobbyIdTextHeight = lobbyIdText->getGlobalBounds().height;
+
+        if (mouseX >= lobbyIdTextX && mouseX <= (lobbyIdTextX + lobbyIdTextWidth)
+                && mouseY >= lobbyIdTextY && mouseY <= (lobbyIdTextY + lobbyIdTextHeight)) {
+            uint32_t lobbyId = Game::instance().getCurrentLobby()->lobbyId;
+            sf::Clipboard::setString(std::to_string(lobbyId));
+            labelCopiedDisplayTicks = LOBBY_ID_TEXT_COPIED_DISPLAY_TICKS;
+            lobbyIdText->setString(L"* ID СКОПИРОВАН *");
+        }
+    }
+
     void LobbyScreen::update() {
         Screen::update();
+
+        // Надпись с ID комнаты
+        if (labelCopiedDisplayTicks > 0)
+            labelCopiedDisplayTicks--;
+        else {
+            uint32_t lobbyId = Game::instance().getCurrentLobby()->lobbyId;
+            lobbyIdText->setString(L"Комната #" + std::to_wstring(lobbyId));
+        }
 
         // Карточки игроков
         auto lobby = Game::instance().getCurrentLobby();
