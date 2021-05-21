@@ -5,8 +5,8 @@
 namespace awd::game {
 
     void DespawnEntityListener::processPacket(
-            const std::shared_ptr<google::protobuf::Message>& basePacket) {
-        auto packet = std::dynamic_pointer_cast<net::DespawnEntity>(basePacket);
+            const std::shared_ptr<net::UnwrappedPacketData>& packetData) {
+        auto packet = std::dynamic_pointer_cast<net::DespawnEntity>(packetData->getPacket());
         auto currentScreen = game::Game::instance().getCurrentScreen();
 
         if (Game::instance().getCurrentState() == GameState::PLAY) {

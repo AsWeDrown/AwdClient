@@ -10,6 +10,9 @@
 namespace awd::game {
 
     class Entity : public Drawable {
+    private:
+        std::mutex interpBufferMutex;
+
     protected:
         uint32_t entityType; // тип сущности
 
@@ -27,7 +30,7 @@ namespace awd::game {
 
         std::deque<EntityStateSnapshot> interpolationBuffer;
 
-        void internalSetPosition(float newX, float newY);
+        void internalSetPosition(float newX, float newY, float newFaceAngle);
 
     public:
         Entity(uint32_t entityType, id_type entityId);
@@ -45,28 +48,26 @@ namespace awd::game {
         //   Геттеры
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        uint32_t               getEntityType() const;
-        id_type                getEntityId  () const;
-        float                  getPosX      () const;
-        float                  getPosY      () const;
-        float                  getFaceAngle () const;
+        uint32_t getEntityType     () const;
+        id_type  getEntityId       () const;
+        float    getPosX           () const;
+        float    getPosY           () const;
+        float    getFaceAngle      () const;
+        bool     isControlledPlayer() const;
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Сеттеры (скорее даже "апдейтеры")
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        virtual void setPosition(float newX,   float newY  );
-        void move               (float deltaX, float deltaY);
-        virtual void setRotation(float newFaceAngle        );
-        void rotate             (float deltaFaceAngle      );
+        virtual void setPosition(float newX,   float newY,   float newFaceAngle);
+                void move       (float deltaX, float deltaY, float deltaFaceAngle);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Игровые события
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        virtual void positionUpdated(float oldX, float oldY, float newX, float newY);
-
-        virtual void rotationUpdated(float oldFaceAngle, float newFaceAngle);
+        virtual void positionChanged(float oldX, float oldY, float newX, float newY);
+        virtual void rotationChanged(float oldFaceAngle,     float newFaceAngle    );
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Утилити-методы

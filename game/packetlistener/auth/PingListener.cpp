@@ -4,8 +4,8 @@
 namespace awd::game {
 
     void PingListener::processPacket(
-            const std::shared_ptr<google::protobuf::Message>& basePacket) {
-        auto packet = std::dynamic_pointer_cast<net::Ping>(basePacket);
+            const std::shared_ptr<net::UnwrappedPacketData>& packetData) {
+        auto packet = std::dynamic_pointer_cast<net::Ping>(packetData->getPacket());
         Game::instance().setLastRtt(packet->rtt());
         Game::instance().getNetService()->pong(packet->test_id());
     }

@@ -4,9 +4,9 @@
 namespace awd::game {
 
     void UpdatedMembersListListener::processPacket(
-            const std::shared_ptr<google::protobuf::Message>& basePacket) {
+            const std::shared_ptr<net::UnwrappedPacketData>& packetData) {
         if (Game::instance().getCurrentState() == GameState::LOBBY) {
-            auto packet = std::dynamic_pointer_cast<net::UpdatedMembersList>(basePacket);
+            auto packet = std::dynamic_pointer_cast<net::UpdatedMembersList>(packetData->getPacket());
             auto lobby = Game::instance().getCurrentLobby();
 
             if (lobby != nullptr) {

@@ -7,7 +7,7 @@ namespace awd::game {
 
     class BeginPlayStateResponseListener : public PacketListener {
         void processPacket(
-                const std::shared_ptr<google::protobuf::Message>& basePacket) override;
+                const std::shared_ptr<net::UnwrappedPacketData>& packetData) override;
     };
 
 }

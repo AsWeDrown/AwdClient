@@ -48,6 +48,7 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../lib/protobuf-3.15.8-build/include
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/Game.cpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/Game.hpp
@@ -242,6 +243,7 @@ CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../lib/protobuf-3.15.8-buil
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/GameState.hpp
@@ -402,6 +404,7 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../lib/protobuf-3.15.
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/GameState.hpp
@@ -818,6 +821,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../lib/protobuf-
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/GameState.hpp
@@ -978,6 +982,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../lib/protob
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/GameState.hpp
@@ -1146,6 +1151,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../lib/pro
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/GameState.hpp
@@ -1424,6 +1430,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../lib/protobu
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/GameState.hpp
@@ -1585,6 +1592,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../lib/protobuf
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/GameState.hpp
@@ -1747,6 +1755,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../lib/pr
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/GameState.hpp
@@ -1992,6 +2001,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../lib/pr
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/GameState.hpp
@@ -2312,6 +2322,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../lib/protobu
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/GameState.hpp
@@ -2486,6 +2497,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../lib
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/GameState.hpp
@@ -2655,6 +2667,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../lib/protobuf
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/GameState.hpp
@@ -2819,6 +2832,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../lib/p
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/GameState.hpp
@@ -2980,6 +2994,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../lib/p
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/GameState.hpp
@@ -3151,6 +3166,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: 
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/GameState.hpp
@@ -3322,6 +3338,7 @@ CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../lib/protobuf-
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/GameState.hpp
@@ -3487,6 +3504,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/GameState.hpp
@@ -3648,6 +3666,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../lib/p
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/GameState.hpp
@@ -3809,6 +3828,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListene
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/GameState.hpp
@@ -3976,6 +3996,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/GameState.hpp
@@ -4140,6 +4161,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/GameState.hpp
@@ -4304,6 +4326,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.o
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/GameState.hpp
@@ -4471,6 +4494,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/GameState.hpp
@@ -4638,6 +4662,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/GameState.hpp
@@ -4799,6 +4824,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj:
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/GameState.hpp
@@ -4962,6 +4988,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.o
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/GameState.hpp
@@ -5129,6 +5156,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: .
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj: ../game/GameState.hpp
@@ -5295,6 +5323,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/GameState.hpp
@@ -5462,6 +5491,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/GameState.hpp
@@ -5469,7 +5499,9 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/config/PhysicsConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/entity/Entity.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/entity/EntityPlayer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/entity/LivingEntity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/graphics/common/Button.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/graphics/common/ButtonListener.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/graphics/common/Dialog.hpp
@@ -5692,6 +5724,7 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../lib/protobuf-3.15.8-build/
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/GameState.hpp
@@ -5853,6 +5886,7 @@ CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../lib/protobuf-3.15.8-
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/GameState.hpp
@@ -6016,6 +6050,7 @@ CMakeFiles/AwdClient.dir/main.cpp.obj: ../lib/protobuf-3.15.8-build/include/goog
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/main.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/GameState.hpp
@@ -6240,6 +6275,7 @@ CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../lib/protobuf-3.15.8-buil
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../game/util/TimeUtils.hpp
 CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj: ../net/NetworkHandle.hpp
@@ -6344,6 +6380,7 @@ CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj: ../lib/protobuf-3.15.8-build
 CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj: ../net/NetworkHandle.hpp
 CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj: ../net/PacketContainer.hpp
@@ -6463,6 +6500,7 @@ CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../lib/protobuf-3.15.8-build/inc
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../net/PacketTransformer.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/FatalErrors.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/Game.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/GameState.hpp

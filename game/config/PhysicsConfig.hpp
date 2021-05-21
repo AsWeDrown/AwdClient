@@ -12,13 +12,21 @@
 
 namespace awd::game {
 
+    /**
+     * https://github.com/AsWeDrown/awd-protocol/wiki/Physics-Config
+     */
     class PhysicsConfig {
     public:
         void load();
 
         uint32_t schemaVersion;
 
-        float playerBaseHorizontalMoveSpeed;
+        uint32_t maxLag;
+        uint32_t interpDelay;
+        uint32_t interpBufSizeThreshold;
+        float    playerBaseHorMs;
+        float    baseEntityPlayerW;
+        float    baseEntityPlayerH;
     };
 
 }

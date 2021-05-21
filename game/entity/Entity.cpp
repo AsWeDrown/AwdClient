@@ -1,6 +1,3 @@
-#define INTERPOLATION_BUFFER_SIZE 5 /* 0.2 секунды (при 25 TPS) */
-
-
 #include "Entity.hpp"
 #include "../Game.hpp"
 
@@ -8,32 +5,39 @@ namespace awd::game {
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *
-     *   PRIVATE
+     *   PROTECTED
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    void Entity::internalSetPosition(float newX, float newY) {
-        if (this->posX != newX || this->posY != newY) {
-            // Понадобится для реакции на обновление позиции.
+    void Entity::internalSetPosition(float newX, float newY, float newFaceAngle) {
+        bool posChanged = this->posX != newX || this->posY != newY;
+        bool rotChanged = this->faceAngle != newFaceAngle;
+
+        if (posChanged) {
             float oldX = this->posX;
             float oldY = this->posY;
-
-            // Новые координаты в мире.
             this->posX = newX;
             this->posY = newY;
 
-            // Новые координаты на экране (в фокусе (View)).
             float tileSize = Game::instance().currentWorld()->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
             this->x = posX * tileSize;
             this->y = posY * tileSize;
 
             if (entitySprite != nullptr)
-                // Обновляем позицию модельки.
                 entitySprite->setPosition(x, y);
 
-            // Реакция на обновления позиции
-            positionUpdated(oldX, oldY, posX, posY);
+            positionChanged(oldX, oldY, posX, posY);
+        }
+
+        if (rotChanged) {
+            float oldFaceAngle = this->faceAngle;
+            this->faceAngle    = newFaceAngle;
+
+            if (entitySprite != nullptr)
+                entitySprite->setRotation(faceAngle);
+
+            rotationChanged(oldFaceAngle, newFaceAngle);
         }
     }
 
@@ -65,18 +69,23 @@ namespace awd::game {
         Drawable::update();
 
         if (!isControlled) {
-            while (interpolationBuffer.size() > INTERPOLATION_BUFFER_SIZE)
-                // Кажется, мы получили кучу пакетов от сервера, не успев их толком обработать.
-                // Скорее всего, клиент ненадолго завис / очень сильно залагал. Стираем наиболее
-                // старые данные, чтобы не отставать от сервера сильнее положенного.
-                interpolationBuffer.pop_front();
+            std::unique_lock<std::mutex> lock(interpBufferMutex);
 
-            if (interpolationBuffer.size() == INTERPOLATION_BUFFER_SIZE) {
+            if (interpolationBuffer.size() > Game::instance().getConfigs()->physics.interpBufSizeThreshold)
+                // Кажется, мы получили кучу пакетов от сервера, не успев их толком обработать.
+                // Скорее всего, клиент ненадолго завис (очень сильно залагал). Стираем наиболее
+                // старые данные, чтобы не отставать от сервера сильнее положенного.
+                while (interpolationBuffer.size() > Game::instance().getConfigs()->physics.interpDelay)
+                    interpolationBuffer.pop_front();
+
+            // Интерполируем позиции сущности из прошлого. Используем ">=", а не "==", т.к. размер
+            // буффера интерполяции может быть и больше interpDelay (но не больше interpBufSizeThreshold).
+            // Если тупо удалять все снимки состояний старее interpDelay, то при движении все существа
+            // будут периодически дёргаться и/или подвисать (выглядит это совершенно неиграбельно).
+            if (interpolationBuffer.size() >= Game::instance().getConfigs()->physics.interpDelay) {
                 EntityStateSnapshot oldestSnapshot = interpolationBuffer.front();
                 interpolationBuffer.pop_front();
-                std::wcerr << L"interpolate " << oldestSnapshot.posX << L"," << oldestSnapshot.posY << L" | "
-                           << interpolationBuffer.size() << std::endl;
-                internalSetPosition(oldestSnapshot.posX, oldestSnapshot.posY);
+                internalSetPosition(oldestSnapshot.posX, oldestSnapshot.posY, oldestSnapshot.faceAngle);
             }
         }
     }
@@ -112,56 +121,42 @@ namespace awd::game {
         return faceAngle;
     }
 
+    bool Entity::isControlledPlayer() const {
+        return isControlled;
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     //   Сеттеры (скорее даже "апдейтеры")
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    void Entity::setPosition(float newX, float newY) {
+    void Entity::setPosition(float newX, float newY, float newFaceAngle) {
         if (isControlled)
-            internalSetPosition(newX, newY);
+            // Обновляем позицию сразу.
+            internalSetPosition(newX, newY, newFaceAngle);
         else {
+            // Добавляем позицию в буффер интерполяции.
             EntityStateSnapshot newSnapshot;
 
             newSnapshot.posX      = newX;
             newSnapshot.posY      = newY;
             newSnapshot.faceAngle = faceAngle;
 
+            std::unique_lock<std::mutex> lock(interpBufferMutex);
             interpolationBuffer.push_back(newSnapshot);
         }
     }
 
-    void Entity::move(float deltaX, float deltaY) {
-        setPosition(posX + deltaX, posY + deltaY);
-    }
-
-    void Entity::setRotation(float newFaceAngle) {
-        if (this->faceAngle != newFaceAngle) {
-            // Понадобится для реакции на обновление угла поворота.
-            float oldFaceAngle = this->faceAngle;
-
-            // Новая ориентация в мире.
-            this->faceAngle = newFaceAngle;
-
-            if (entitySprite != nullptr)
-                // Обновляем ориентацию модельки.
-                entitySprite->setRotation(faceAngle);
-
-            // Реакция на обновление угла поворота.
-            rotationUpdated(oldFaceAngle, faceAngle);
-        }
-    }
-
-    void Entity::rotate(float deltaFaceAngle) {
-        setRotation(faceAngle + deltaFaceAngle);
+    void Entity::move(float deltaX, float deltaY, float deltaFaceAngle) {
+        setPosition(posX + deltaX, posY + deltaY, faceAngle + deltaFaceAngle);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     //   Игровые события
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    void Entity::positionUpdated(float oldX, float oldY, float newX, float newY) {}
+    void Entity::positionChanged(float oldX, float oldY, float newX, float newY) {}
 
-    void Entity::rotationUpdated(float oldFaceAngle, float newFaceAngle) {}
+    void Entity::rotationChanged(float oldFaceAngle, float newFaceAngle) {}
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     //   Утилити-методы

@@ -135,9 +135,9 @@ namespace awd::net {
         packetManager->sendImportantPacket(packet);
     }
 
-    void NetworkService::playerActions(uint32_t actionsBitfield) {
-        auto packet = std::make_shared<PlayerActions>();
-        packet->set_actions_bitfield(actionsBitfield);
+    void NetworkService::updatePlayerInputs(uint32_t inputsBitfield) {
+        auto packet = std::make_shared<UpdatePlayerInputs>();
+        packet->set_inputs_bitfield(inputsBitfield);
         packetManager->sendPacket(packet);
     }
 

@@ -81,7 +81,7 @@ namespace awd::net {
         auto cursor = listeners.find(packetData->getPacketType());
 
         if (cursor != listeners.cend())
-            cursor->second->processPacket(packetData->getPacket());
+            cursor->second->processPacket(packetData);
         else
             // Protobuf смог десериализовать полученный пакет, но для него в listeners
             // не зарегистрировано (в конструкторе этого класса) подходящих PacketListener'ов.

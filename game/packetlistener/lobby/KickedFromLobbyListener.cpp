@@ -5,9 +5,9 @@
 namespace awd::game {
 
     void KickedFromLobbyListener::processPacket(
-            const std::shared_ptr<google::protobuf::Message>& basePacket) {
+            const std::shared_ptr<net::UnwrappedPacketData>& packetData) {
         if (Game::instance().getCurrentState() == GameState::LOBBY) {
-            auto packet = std::dynamic_pointer_cast<net::KickedFromLobby>(basePacket);
+            auto packet = std::dynamic_pointer_cast<net::KickedFromLobby>(packetData->getPacket());
             auto currentScreen = game::Game::instance().getCurrentScreen();
 
             if (auto lobbyScreen = std::dynamic_pointer_cast<game::LobbyScreen>(currentScreen))

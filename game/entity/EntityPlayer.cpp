@@ -1,9 +1,3 @@
-#define BASE_PLAYER_TEXTURE_WIDTH 1.375f /* tiles */
-#define BASE_PLAYER_TEXTURE_HEIGHT 2.125f /* tiles */
-
-#define MAX_RECENT_INPUT_SNAPSHOTS 10
-
-
 #include "EntityPlayer.hpp"
 #include "../Game.hpp"
 #include "Entities.hpp"
@@ -30,33 +24,32 @@ namespace awd::game {
         //todo remove (update after setRotation instead)
     }
 
-    void EntityPlayer::updatePlayerActions() {
-        PlayerActions inputs;
+    void EntityPlayer::updatePlayerInputs() {
+        std::unique_lock<std::mutex> lock(mutex);
 
-        inputs.setMoveLeft (sf::Keyboard::isKeyPressed(sf::Keyboard::A));
-        inputs.setMoveRight(sf::Keyboard::isKeyPressed(sf::Keyboard::D));
+        if (Game::instance().isGameFocused()) {
+            currentInputs.setMovingLeft (sf::Keyboard::isKeyPressed(sf::Keyboard::A));
+            currentInputs.setMovingRight(sf::Keyboard::isKeyPressed(sf::Keyboard::D));
+        } else
+            currentInputs.reset();
 
-        if (!inputs.empty()) {
-            std::unique_lock<std::mutex> lock(mutex);
+        // Прогноз передвижения.
+        auto updatedPlayerState = takeStateSnapshot();
+        currentInputs.apply(updatedPlayerState);
+        applyStateSnapshot(updatedPlayerState);
+        saveInputsSnapshot(currentInputs);
 
-            // Прогноз передвижения.
-            auto updatedPlayerState = takeStateSnapshot();
-            inputs.apply(updatedPlayerState);
-            applyStateSnapshot(updatedPlayerState);
-            saveInputsSnapshot(inputs);
-
-            // Отправка информации о совершение действий серверу.
-            Game::instance().getNetService()->playerActions(inputs.actionsBitfield);
-        }
+        // Обновление ввода на сервере.
+        Game::instance().getNetService()->updatePlayerInputs(currentInputs.inputsBitfield);
     }
 
-    void EntityPlayer::saveInputsSnapshot(PlayerActions inputsSnapshot) {
-        if (recentInputsSnapshots.size() == MAX_RECENT_INPUT_SNAPSHOTS)
+    void EntityPlayer::saveInputsSnapshot(PlayerInputs inputsSnapshot) {
+        if (recentInputsSnapshots.size() == Game::instance().getConfigs()->physics.maxLag)
             recentInputsSnapshots.pop_front();
 
         recentInputsSnapshots.emplace_back(
                 Game::instance().getPacketManager()->getHandle()->getLocalSequenceNumber(),
-                inputsSnapshot.actionsBitfield
+                inputsSnapshot.inputsBitfield
         );
     }
 
@@ -71,10 +64,10 @@ namespace awd::game {
     }
 
     void EntityPlayer::applyStateSnapshot(const PlayerStateSnapshot& playerState) {
-        //todo rotation
         internalSetPosition(
                 playerState.posX,
-                playerState.posY
+                playerState.posY,
+                playerState.faceAngle
         );
     }
 
@@ -84,41 +77,45 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    PlayerActions::PlayerActions() = default;
+    PlayerInputs::PlayerInputs() = default;
 
-    PlayerActions::PlayerActions(uint32_t localSequence, uint32_t actionsBitfield) {
-        this->localSequence   = localSequence;
-        this->actionsBitfield = actionsBitfield;
+    PlayerInputs::PlayerInputs(uint32_t localSequence, uint32_t inputsBitfield) {
+        this->localSequence  = localSequence;
+        this->inputsBitfield = inputsBitfield;
     }
 
-    void PlayerActions::setMoveLeft(bool enableAction) {
-        if (enableAction) actionsBitfield |=  ACTION_MOVE_LEFT;
-        else              actionsBitfield &= ~ACTION_MOVE_LEFT;
+    void PlayerInputs::reset() {
+        inputsBitfield = 0;
     }
 
-    void PlayerActions::setMoveRight(bool enableAction) {
-        if (enableAction) actionsBitfield |=  ACTION_MOVE_RIGHT;
-        else              actionsBitfield &= ~ACTION_MOVE_RIGHT;
+    void PlayerInputs::setMovingLeft(bool enable) {
+        if (enable) inputsBitfield |=  INPUT_MOVING_LEFT;
+        else        inputsBitfield &= ~INPUT_MOVING_LEFT;
     }
 
-    bool PlayerActions::empty() const {
-        return actionsBitfield == 0;
+    void PlayerInputs::setMovingRight(bool enable) {
+        if (enable) inputsBitfield |=  INPUT_MOVING_RIGHT;
+        else        inputsBitfield &= ~INPUT_MOVING_RIGHT;
     }
 
-    bool PlayerActions::moveLeft() const {
-        return (actionsBitfield & ACTION_MOVE_LEFT) != 0;
+    bool PlayerInputs::empty() const {
+        return inputsBitfield == 0;
     }
 
-    bool PlayerActions::moveRight() const {
-        return (actionsBitfield & ACTION_MOVE_RIGHT) != 0;
+    bool PlayerInputs::movingLeft() const {
+        return (inputsBitfield & INPUT_MOVING_LEFT) != 0;
     }
 
-    void PlayerActions::apply(PlayerStateSnapshot& playerState) const {
-        if (moveLeft())
-            playerState.posX -= Game::instance().getConfigs()->physics.playerBaseHorizontalMoveSpeed;
+    bool PlayerInputs::movingRight() const {
+        return (inputsBitfield & INPUT_MOVING_RIGHT) != 0;
+    }
 
-        if (moveRight())
-            playerState.posX += Game::instance().getConfigs()->physics.playerBaseHorizontalMoveSpeed;
+    void PlayerInputs::apply(PlayerStateSnapshot& playerState) const {
+        if (movingLeft())
+            playerState.posX -= Game::instance().getConfigs()->physics.playerBaseHorMs;
+
+        if (movingRight())
+            playerState.posX += Game::instance().getConfigs()->physics.playerBaseHorMs;
     }
 
     EntityPlayer::EntityPlayer(id_type entityId, uint32_t playerId,
@@ -129,8 +126,8 @@ namespace awd::game {
         this->character    = character;
         this->isControlled = playerId == Game::instance().getCurrentLobby()->ownPlayerId;
 
-        spriteWidth  = BASE_PLAYER_TEXTURE_WIDTH;
-        spriteHeight = BASE_PLAYER_TEXTURE_HEIGHT;
+        spriteWidth  = Game::instance().getConfigs()->physics.baseEntityPlayerW;
+        spriteHeight = Game::instance().getConfigs()->physics.baseEntityPlayerH;
 
         prepareSprites();
     }
@@ -147,40 +144,42 @@ namespace awd::game {
         LivingEntity::update();
 
         if (isControlled)
-            updatePlayerActions();
+            updatePlayerInputs();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
     //   Сеттеры (скорее даже "апдейтеры")
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    void EntityPlayer::setPosition(float newX, float newY) {
-        float oldCltX = posX;
+    void EntityPlayer::setLastSrvProcInputs(uint32_t ack) {
+        std::unique_lock<std::mutex> lock(mutex);
+        this->lastSrvProcInputs = ack;
+    }
 
-        Entity::setPosition(newX, newY);
+    void EntityPlayer::setPosition(float newX, float newY, float newFaceAngle) {
+        Entity::setPosition(newX, newY, newFaceAngle);
 
         if (isControlled) {
-            uint32_t newestAck = Game::instance()
-                    .getPacketManager()->getHandle()->getNewestAck();
-
+            // Сервер нас передвинул.
             std::unique_lock<std::mutex> lock(mutex);
+            uint32_t ack = this->lastSrvProcInputs;
 
+            // Стираем из списка недавно применённого ввода тот ввод, который
+            // сервер уже учёл в этой, т.е. полученной только что, позиции.
             recentInputsSnapshots.erase(std::remove_if(
                     recentInputsSnapshots.begin(), recentInputsSnapshots.end(),
-                    [newestAck](PlayerActions snapshot) {
-                        return !net::SequenceNumberMath::isMoreRecent(snapshot.localSequence, newestAck);
+                    [ack](PlayerInputs snapshot) {
+                        return !net::SequenceNumberMath::isMoreRecent(snapshot.localSequence, ack);
                     }), recentInputsSnapshots.end()
             );
 
+            // Заново применяем тот ввод, который сервер ещё не успел учесть.
             auto fixedPlayerState = takeStateSnapshot();
 
             for (const auto& snapshot : recentInputsSnapshots)
                 snapshot.apply(fixedPlayerState);
 
             applyStateSnapshot(fixedPlayerState);
-
-            if (oldCltX != posX && !recentInputsSnapshots.empty())
-                std::wcerr << L"[DRAG] " << oldCltX << L" -> " << posX << L" | applied: " << recentInputsSnapshots.size() << L", lag: " << (recentInputsSnapshots[recentInputsSnapshots.size() - 1].localSequence - newestAck) << std::endl;
         }
     }
 
@@ -188,18 +187,18 @@ namespace awd::game {
     //   Игровые события
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    void EntityPlayer::positionUpdated(float oldX, float oldY, float newX, float newY) {
+    void EntityPlayer::positionChanged(float oldX, float oldY, float newX, float newY) {
         if (!isControlled)
             return;
 
         // Фокусируем центр камера (View) на центре модельки игрока.
         Game::instance().currentWorld()->focusCamera(
-                newX + BASE_PLAYER_TEXTURE_WIDTH  / 2.0f,
-                newY + BASE_PLAYER_TEXTURE_HEIGHT / 2.0f
+                newX + Game::instance().getConfigs()->physics.baseEntityPlayerW / 2.0f,
+                newY + Game::instance().getConfigs()->physics.baseEntityPlayerH / 2.0f
         );
     }
 
-    void EntityPlayer::rotationUpdated(float oldFaceAngle, float newFaceAngle) {
+    void EntityPlayer::rotationChanged(float oldFaceAngle, float newFaceAngle) {
         //todo anything?
     }
 

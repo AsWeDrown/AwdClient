@@ -91,6 +91,7 @@ namespace awd::game {
         std::shared_ptr<net::NetworkService> getNetService       () const;
         uint32_t                             getLastRtt          () const;
         void                                 setLastRtt(uint32_t rtt);
+        bool                                 isGameFocused       () const;
 
         bool isJoinedWorld() const;
         void setJoinedWorld(bool joined);

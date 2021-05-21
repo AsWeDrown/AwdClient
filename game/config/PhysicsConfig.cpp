@@ -11,7 +11,12 @@ namespace awd::game {
             throw std::runtime_error("incompatible physics config schema - code: "
                     + std::to_string(SCHEMA_VERSION) + ", file: " + std::to_string(schemaVersion));
 
-        playerBaseHorizontalMoveSpeed = yamlReader.getFloat("playerBaseHorizontalMoveSpeed");
+        maxLag                 = yamlReader.getUnsignedInt32("maxLag"                );
+        interpDelay            = yamlReader.getUnsignedInt32("interpDelay"           );
+        interpBufSizeThreshold = yamlReader.getUnsignedInt32("interpBufSizeThreshold");
+        playerBaseHorMs        = yamlReader.getFloat        ("playerBaseHorMs"       );
+        baseEntityPlayerW      = yamlReader.getFloat        ("baseEntityPlayerW"     );
+        baseEntityPlayerH      = yamlReader.getFloat        ("baseEntityPlayerH"     );
     }
 
 }

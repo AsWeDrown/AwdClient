@@ -210,8 +210,8 @@ namespace awd::game {
                                           << L" pixels per tile on screen)"  << std::endl;
 
             // Читаем и обрабатываем "начинку" мира (местоположение тайлов и т.п.).
-            std::shared_ptr<Pixels> scheme = ImageUtils
-                    ::readBitmapImage((dimFolder + "/level-scheme.bmp").c_str());
+            std::shared_ptr<Pixels> scheme = ImageUtils::
+                    readBitmapImage((dimFolder + "/level-scheme.bmp").c_str());
 
             if (scheme->bmpWidth != targetWorldData.width
                     || scheme->bmpHeight != targetWorldData.height) {

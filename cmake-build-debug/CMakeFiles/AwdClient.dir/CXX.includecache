@@ -872,6 +872,12 @@ google/protobuf/port_def.inc
 google/protobuf/port_undef.inc
 -
 
+../net/PacketTransformer.hpp
+google/protobuf/message.h
+-
+packets.pb.h
+../net/packets.pb.h
+
 E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
@@ -951,6 +957,8 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entities.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
+atomic
+-
 LivingEntity.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
 
@@ -1039,6 +1047,8 @@ google/protobuf/message.h
 -
 packets.pb.h
 E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/packets.pb.h
+../net/PacketTransformer.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/net/PacketTransformer.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/FpsMeter.hpp
 TpsMeter.hpp

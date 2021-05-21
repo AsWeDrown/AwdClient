@@ -49,6 +49,7 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.cpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
@@ -243,6 +244,7 @@ CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -403,6 +405,7 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -819,6 +822,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -979,6 +983,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -1147,6 +1152,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -1425,6 +1431,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -1586,6 +1593,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -1748,6 +1756,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -1993,6 +2002,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -2313,6 +2323,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -2487,6 +2498,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -2656,6 +2668,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -2820,6 +2833,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -2981,6 +2995,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -3152,6 +3167,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -3323,6 +3339,7 @@ CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -3488,6 +3505,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -3649,6 +3667,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -3810,6 +3829,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListene
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -3977,6 +3997,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.c
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -4141,6 +4162,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -4305,6 +4327,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.o
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -4472,6 +4495,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cp
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -4639,6 +4663,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cp
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -4800,6 +4825,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -4963,6 +4989,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.o
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -5130,6 +5157,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/SpawnEntityListener.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -5296,6 +5324,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -5463,6 +5492,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.c
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -5470,7 +5500,9 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.c
  E:/CLionProjects/AsWeDrown/AwdClient/game/config/GameConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/config/PhysicsConfig.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
+ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
@@ -5693,6 +5725,7 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -5854,6 +5887,7 @@ CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -6017,6 +6051,7 @@ CMakeFiles/AwdClient.dir/main.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp
@@ -6241,6 +6276,7 @@ CMakeFiles/AwdClient.dir/net/NetworkService.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
@@ -6345,6 +6381,7 @@ CMakeFiles/AwdClient.dir/net/PacketManager.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/PacketListener.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/NetworkHandle.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/net/PacketContainer.hpp
@@ -6464,6 +6501,7 @@ CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj
  ../lib/protobuf-3.15.8-build/include/google/protobuf/stubs/strutil.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/unknown_field_set.h
  ../lib/protobuf-3.15.8-build/include/google/protobuf/wire_format_lite.h
+ ../net/PacketTransformer.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/FatalErrors.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/GameState.hpp

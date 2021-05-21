@@ -5,8 +5,8 @@
 namespace awd::game {
 
     void UpdateDimensionCommandListener::processPacket(
-            const std::shared_ptr<google::protobuf::Message>& basePacket) {
-        auto packet = std::dynamic_pointer_cast<net::UpdateDimensionCommand>(basePacket);
+            const std::shared_ptr<net::UnwrappedPacketData>& packetData) {
+        auto packet = std::dynamic_pointer_cast<net::UpdateDimensionCommand>(packetData->getPacket());
         auto currentScreen = game::Game::instance().getCurrentScreen();
         auto currentState = Game::instance().getCurrentState();
 

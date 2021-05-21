@@ -1,23 +1,10 @@
 #pragma once
 
 
+#include <atomic>
 #include "LivingEntity.hpp"
 
 namespace awd::game {
-
-//    class PlayerInputs {
-//    public:
-//        static const uint32_t BIT_MOVING_LEFT  = 0b1,
-//                              BIT_MOVING_RIGHT = 0b10;
-//
-//        uint32_t localSequence = 0;
-//
-//        bool movingLeft  = false,
-//             movingRight = false;
-//    };
-//
-//    bool operator ==(const PlayerInputs& a, const PlayerInputs& b);
-//    bool operator !=(const PlayerInputs& a, const PlayerInputs& b);
 
     class PlayerStateSnapshot {
     public:
@@ -26,24 +13,26 @@ namespace awd::game {
               faceAngle = 0.0f;
     };
 
-    class PlayerActions {
+    class PlayerInputs {
     public:
-        static const uint32_t ACTION_MOVE_LEFT  = 0b1;
-        static const uint32_t ACTION_MOVE_RIGHT = 0b10;
+        static const uint32_t INPUT_MOVING_LEFT  = 0b1;
+        static const uint32_t INPUT_MOVING_RIGHT = 0b10;
 
-        uint32_t localSequence   = 0,
-                 actionsBitfield = 0;
+        uint32_t localSequence  = 0,
+                 inputsBitfield = 0;
 
-        PlayerActions();
-        PlayerActions(uint32_t localSequence, uint32_t actionsBitfield);
+        PlayerInputs();
+        PlayerInputs(uint32_t localSequence, uint32_t inputsBitfield);
 
-        void setMoveLeft (bool enableAction);
-        void setMoveRight(bool enableAction);
+        void reset();
+
+        void setMovingLeft (bool enable);
+        void setMovingRight(bool enable);
 
         bool empty() const;
 
-        bool moveLeft () const;
-        bool moveRight() const;
+        bool movingLeft () const;
+        bool movingRight() const;
 
         void apply(PlayerStateSnapshot& playerState) const;
     };
@@ -55,13 +44,18 @@ namespace awd::game {
         // Стоит на месте. Повёрнут лицом к игроку (пользователю перед экраном).
         std::shared_ptr<sf::Sprite> stillFrontSprite;
 
+        PlayerInputs currentInputs;
+
+        // Номер (sequence number) последнего пакета UpdatePlayerInputs,
+        // который УЖЕ УЧЁЛ И ОБРАБОТАЛ (а не просто получил!) сервер.
+        // Используется для прогнозирования передвижений (для controlled).
+        std::atomic<uint32_t> lastSrvProcInputs = 0;
+
         void prepareSprites();
 
-        void updatePlayerActions();
+        void updatePlayerInputs();
 
-        //void updatePlayerInputs();
-
-        void saveInputsSnapshot(PlayerActions inputsSnapshot);
+        void saveInputsSnapshot(PlayerInputs inputsSnapshot);
 
         PlayerStateSnapshot takeStateSnapshot() const;
 
@@ -72,7 +66,7 @@ namespace awd::game {
         std::wstring name;
         uint32_t     character;
 
-        std::deque<PlayerActions> recentInputsSnapshots;
+        std::deque<PlayerInputs> recentInputsSnapshots;
 
         EntityPlayer(id_type entityId, uint32_t playerId,
                      const std::wstring& name, uint32_t character);
@@ -89,15 +83,17 @@ namespace awd::game {
         //   Сеттеры (скорее даже "апдейтеры")
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        void setPosition(float newX, float newY) override;
+        void setLastSrvProcInputs(uint32_t ack);
+
+        void setPosition(float newX, float newY, float newFaceAngle) override; // прогноз передвижения
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Игровые события
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        void positionUpdated(float oldX, float oldY, float newX, float newY) override;
+        void positionChanged(float oldX, float oldY, float newX, float newY) override;
 
-        void rotationUpdated(float oldFaceAngle, float newFaceAngle) override;
+        void rotationChanged(float oldFaceAngle, float newFaceAngle) override;
     };
 
 }

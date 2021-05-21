@@ -7,8 +7,8 @@
 namespace awd::game {
 
     void SpawnEntityListener::processPacket(
-            const std::shared_ptr<google::protobuf::Message>& basePacket) {
-        auto packet = std::dynamic_pointer_cast<net::SpawnEntity>(basePacket);
+            const std::shared_ptr<net::UnwrappedPacketData>& packetData) {
+        auto packet = std::dynamic_pointer_cast<net::SpawnEntity>(packetData->getPacket());
         auto currentScreen = game::Game::instance().getCurrentScreen();
 
         if (Game::instance().getCurrentState() == GameState::PLAY) {

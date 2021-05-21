@@ -297,6 +297,10 @@ namespace awd::game {
         return lastRtt;
     }
 
+    bool Game::isGameFocused() const {
+        return gameWindowFocused;
+    }
+
     void Game::setLastRtt(uint32_t rtt) {
         this->lastRtt = rtt;
     }
