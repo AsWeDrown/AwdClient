@@ -165,7 +165,7 @@ namespace awd::game {
 
             newSnapshot.posX      = newX;
             newSnapshot.posY      = newY;
-            newSnapshot.faceAngle = faceAngle;
+            newSnapshot.faceAngle = newFaceAngle;
 
             std::unique_lock<std::mutex> lock(interpBufferMutex);
             interpolationBuffer.push_back(newSnapshot);
