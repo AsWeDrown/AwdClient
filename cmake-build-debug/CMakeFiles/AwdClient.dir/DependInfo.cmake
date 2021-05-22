@@ -52,6 +52,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/TpsMeter.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/util/ImageUtils.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj"
+  "E:/CLionProjects/AsWeDrown/AwdClient/game/util/MathUtils.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/util/StringUtils.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj"
   "E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.cpp" "E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj"

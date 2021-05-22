@@ -135,4 +135,29 @@ namespace awd::game {
         window->draw(gradient, 4, sf::Quads);
     }
 
+    void RenderUtils::turnLeft(const std::shared_ptr<sf::Sprite>& sprite) {
+        auto size  = sprite->getTexture()->getSize();
+        int  w     = size.x; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        int  h     = size.y; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        sprite->setTextureRect(sf::IntRect(w, 0, -w, h));
+    }
+
+    void RenderUtils::turnRight(const std::shared_ptr<sf::Sprite>& sprite) {
+        auto size  = sprite->getTexture()->getSize();
+        int  w     = size.x; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        int  h     = size.y; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        sprite->setTextureRect(sf::IntRect(0, 0, w, h));
+    }
+
+    void RenderUtils::turnTop(const std::shared_ptr<sf::Sprite>& sprite) {
+        turnRight(sprite); // "top-right" - стандартная позиция (по умолчанию) --> преобразование одно и то же
+    }
+
+    void RenderUtils::turnBottom(const std::shared_ptr<sf::Sprite>& sprite) {
+        auto size  = sprite->getTexture()->getSize();
+        int  w     = size.x; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        int  h     = size.y; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        sprite->setTextureRect(sf::IntRect(0, h, w, -h));
+    }
+
 }

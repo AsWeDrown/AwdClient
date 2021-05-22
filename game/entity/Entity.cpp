@@ -10,12 +10,18 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     void Entity::internalSetPosition(float newX, float newY, float newFaceAngle) {
-        bool posChanged = this->posX != newX || this->posY != newY;
-        bool rotChanged = this->faceAngle != newFaceAngle;
+        float oldX         = this->posX;
+        float oldY         = this->posY;
+        float oldFaceAngle = this->faceAngle;
+
+        lastTickDeltaX         = newX         - oldX;
+        lastTickDeltaY         = newY         - oldY;
+        lastTickDeltaFaceAngle = newFaceAngle - oldFaceAngle;
+
+        bool posChanged = lastTickDeltaX         != 0.0f || lastTickDeltaY != 0.0f;
+        bool rotChanged = lastTickDeltaFaceAngle != 0.0f;
 
         if (posChanged) {
-            float oldX = this->posX;
-            float oldY = this->posY;
             this->posX = newX;
             this->posY = newY;
 
@@ -31,12 +37,7 @@ namespace awd::game {
         }
 
         if (rotChanged) {
-            float oldFaceAngle = this->faceAngle;
-            this->faceAngle    = newFaceAngle;
-
-            if (entitySprite != nullptr)
-                entitySprite->setRotation(faceAngle);
-
+            this->faceAngle = newFaceAngle;
             rotationChanged(oldFaceAngle, newFaceAngle);
         }
     }
@@ -57,15 +58,28 @@ namespace awd::game {
     //   События Drawable
     ///////////////////////////////////////////////////////////////////////////////////////////
 
+    void Entity::onRegister() {
+        registered = true;
+    }
+
     void Entity::keyPressed(const sf::Event::KeyEvent& event) {
+        if (!registered)
+            return;
+
         Drawable::keyPressed(event);
     }
 
     void Entity::mousePressed(const sf::Event::MouseButtonEvent& event) {
+        if (!registered)
+            return;
+
         Drawable::mousePressed(event);
     }
 
     void Entity::update() {
+        if (!registered)
+            return;
+
         Drawable::update();
 
         if (!isControlled) {
@@ -91,10 +105,15 @@ namespace awd::game {
     }
 
     void Entity::draw() {
+        if (!registered)
+            return;
+
         Drawable::draw();
 
         if (entitySprite != nullptr)
             window->draw(*entitySprite);
+        else
+            std::wcerr << L"Cannot draw entity " << entityId << std::endl;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -125,6 +144,12 @@ namespace awd::game {
         return isControlled;
     }
 
+    bool Entity::movedLastTick() const {
+        return lastTickDeltaX         != 0.0f
+            || lastTickDeltaY         != 0.0f
+            || lastTickDeltaFaceAngle != 0.0f;
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     //   Сеттеры (скорее даже "апдейтеры")
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -135,6 +160,7 @@ namespace awd::game {
             internalSetPosition(newX, newY, newFaceAngle);
         else {
             // Добавляем позицию в буфер интерполяции.
+            // TODO: линейная интерполяция позиций при слишком большом расстоянии (быстрая прокрутка событий прошлого).
             EntityStateSnapshot newSnapshot;
 
             newSnapshot.posX      = newX;
@@ -182,25 +208,30 @@ namespace awd::game {
         );
     }
 
-    void Entity::scaleSprite(const std::shared_ptr<sf::Sprite>& sprite) const {
+    std::shared_ptr<sf::Sprite> Entity::createScaledSprite(
+            const std::shared_ptr<sf::Texture>& texture) const {
+        auto sprite = std::make_shared<sf::Sprite>(*texture);
+
         float tileSize           = Game::instance().currentWorld()->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
         float spriteWidthPixels  = spriteWidth  * tileSize;
         float spriteHeightPixels = spriteHeight * tileSize;
 
         sf::FloatRect baseBounds = sprite->getGlobalBounds();
 
-        sprite->setScale( // устанавливаем нужный нам размер спрайта
+        sprite->setScale( // устанавливаем нужный нам размер спрайта (в соответствии с размером Entity в тайлах)
                 spriteWidthPixels  / baseBounds.width,
                 spriteHeightPixels / baseBounds.height
         );
+
+        return sprite;
     }
 
     id_type Entity::entityIdToDrawableId(id_type entityId) {
-        return ID_SCREEN_PLAY_WORLD + entityId * ID_OTHER;
+        return entityId + ID_SCREEN_PLAY_WORLD_ENTITY;
     }
 
     id_type Entity::drawableIdToEntityId(id_type drawableId) {
-        return (drawableId - ID_SCREEN_PLAY_WORLD) / ID_OTHER;
+        return drawableId - ID_SCREEN_PLAY_WORLD_ENTITY;
     }
 
 }

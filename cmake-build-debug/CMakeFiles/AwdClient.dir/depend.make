@@ -56,6 +56,7 @@ CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/GameState.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/Game.cpp.obj: ../game/graphics/common/Button.hpp
@@ -251,6 +252,7 @@ CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/GameState.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/entity/Entity.cpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/entity/Entity.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
@@ -425,6 +427,7 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/comm
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/common/Drawable.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/common/Identifiers.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/common/LoadingOverlay.hpp
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/common/RichText.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/common/Screen.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/data/FontManager.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/graphics/data/TextureManager.hpp
@@ -432,6 +435,7 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/lobby/Lobby.h
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/packetlistener/PacketListener.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/profiling/FpsMeter.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/profiling/TpsMeter.hpp
+CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/util/RenderUtils.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/world/TileBlock.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/world/World.hpp
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: ../game/world/WorldData.hpp
@@ -524,6 +528,7 @@ CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: E:/CLionProjects/libs
 CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.obj: packets.pb.h
 
 CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.obj: ../game/FatalErrors.hpp
+CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/entity/LivingEntity.cpp.obj: ../game/entity/LivingEntity.cpp
@@ -829,6 +834,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/GameStat
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/Drawable.cpp.obj: ../game/graphics/common/Button.hpp
@@ -990,6 +996,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/GameS
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/ErrorDialog.cpp.obj: ../game/graphics/common/Button.hpp
@@ -1159,6 +1166,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/Ga
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/LoadingOverlay.cpp.obj: ../game/graphics/common/Button.hpp
@@ -1438,6 +1446,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/GameSt
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextButton.cpp.obj: ../game/graphics/common/Button.hpp
@@ -1600,6 +1609,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/GameSta
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextField.cpp.obj: ../game/graphics/common/Button.hpp
@@ -1763,6 +1773,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/G
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/TextInputDialog.cpp.obj: ../game/graphics/common/Button.hpp
@@ -2009,6 +2020,7 @@ CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/G
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/common/WaterBackground.cpp.obj: ../game/graphics/common/Button.hpp
@@ -2199,6 +2211,7 @@ CMakeFiles/AwdClient.dir/game/graphics/data/FontManager.cpp.obj: E:/CLionProject
 CMakeFiles/AwdClient.dir/game/graphics/data/FontManager.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
 CMakeFiles/AwdClient.dir/game/graphics/data/FontManager.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowStyle.hpp
 
+CMakeFiles/AwdClient.dir/game/graphics/data/TextureManager.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/data/TextureManager.cpp.obj: ../game/graphics/data/TextureManager.cpp
 CMakeFiles/AwdClient.dir/game/graphics/data/TextureManager.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/data/TextureManager.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
@@ -2330,6 +2343,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/GameSt
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreen.cpp.obj: ../game/graphics/common/Button.hpp
@@ -2505,6 +2519,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../gam
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/LobbyScreenListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -2675,6 +2690,7 @@ CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/GameSta
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/lobby/PlayerCard.cpp.obj: ../game/graphics/common/Button.hpp
@@ -2840,6 +2856,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuButton.cpp.obj: ../game/graphics/common/Button.hpp
@@ -3002,6 +3019,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreen.cpp.obj: ../game/graphics/common/Button.hpp
@@ -3174,6 +3192,7 @@ CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: 
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/mainmenu/MainMenuScreenListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -3346,6 +3365,7 @@ CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/GameStat
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/graphics/play/PlayScreen.cpp.obj: ../game/graphics/common/Button.hpp
@@ -3512,6 +3532,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/HandshakeResponseListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -3674,6 +3695,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/auth/PingListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -3836,6 +3858,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListene
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/BeginPlayStateResponseListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -4004,6 +4027,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/CreateLobbyResponseListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -4169,6 +4193,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/JoinLobbyResponseListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -4334,6 +4359,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.o
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/KickedFromLobbyListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -4502,6 +4528,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/LeaveLobbyResponseListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -4670,6 +4697,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -4832,6 +4860,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj:
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -4996,6 +5025,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.o
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/JoinWorldCommandListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -5331,6 +5361,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateDimensionCommandListener.cpp.obj: ../game/graphics/common/Button.hpp
@@ -5499,6 +5530,7 @@ CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.c
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/entity/EntityPlayer.hpp
 CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
@@ -5625,45 +5657,83 @@ CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj: ../game/util/TimeUtils
 CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj: ../game/util/ImageUtils.cpp
 CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj: ../game/util/ImageUtils.hpp
 
+CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.obj: ../game/util/MathUtils.cpp
+CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.obj: ../game/util/MathUtils.hpp
+
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: ../game/graphics/common/ColorSet.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: ../game/graphics/common/RichText.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: ../game/util/RenderUtils.cpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: ../game/util/RenderUtils.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Config.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/CircleShape.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Color.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/ConvexShape.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Drawable.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Export.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Font.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Glsl.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Glsl.inl
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Glyph.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Image.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/PrimitiveType.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Rect.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Rect.inl
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RectangleShape.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RenderStates.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RenderTarget.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RenderTexture.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/RenderWindow.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Shader.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Shape.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Sprite.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Text.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Texture.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Transform.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Transformable.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/Vertex.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/VertexArray.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/VertexBuffer.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Graphics/View.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Clock.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Err.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Export.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/FileInputStream.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/InputStream.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Lock.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/MemoryInputStream.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Mutex.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/NonCopyable.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Sleep.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/String.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/String.inl
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Thread.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Thread.inl
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/ThreadLocal.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/ThreadLocalPtr.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/ThreadLocalPtr.inl
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Time.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Utf.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Utf.inl
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Vector2.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Vector2.inl
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Vector3.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/System/Vector3.inl
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Clipboard.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Context.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/ContextSettings.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Cursor.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Event.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Export.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/GlResource.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Joystick.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Keyboard.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Mouse.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Sensor.hpp
+CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Touch.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/VideoMode.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/Window.hpp
 CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj: E:/CLionProjects/libs/sfml/SFML-2.5.1/include/SFML/Window/WindowHandle.hpp
@@ -5736,6 +5806,7 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/GameState.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/common/Button.hpp
@@ -5899,6 +5970,7 @@ CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/GameState.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.obj: ../game/graphics/common/Button.hpp
@@ -6063,6 +6135,7 @@ CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/GameState.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/main.cpp.obj: ../game/graphics/common/Button.hpp
@@ -6514,6 +6587,7 @@ CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/GameState.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/config/ConfigManager.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/config/GameConfig.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/config/PhysicsConfig.hpp
+CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/entity/Entities.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/entity/Entity.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/entity/EntityStateSnapshot.hpp
 CMakeFiles/AwdClient.dir/net/UdpClient.cpp.obj: ../game/graphics/common/Button.hpp

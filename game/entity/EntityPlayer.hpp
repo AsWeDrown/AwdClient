@@ -2,6 +2,7 @@
 
 
 #include <atomic>
+#include <map>
 #include "LivingEntity.hpp"
 
 namespace awd::game {
@@ -13,10 +14,13 @@ namespace awd::game {
               faceAngle = 0.0f;
     };
 
+    bool operator ==(const PlayerStateSnapshot& a, const PlayerStateSnapshot& b);
+    bool operator !=(const PlayerStateSnapshot& a, const PlayerStateSnapshot& b);
+
     class PlayerInputs {
     public:
-        static const uint32_t INPUT_MOVING_LEFT  = 0b1;
-        static const uint32_t INPUT_MOVING_RIGHT = 0b10;
+        static constexpr uint32_t INPUT_MOVING_LEFT  = 0b1;
+        static constexpr uint32_t INPUT_MOVING_RIGHT = 0b10;
 
         uint32_t localSequence  = 0,
                  inputsBitfield = 0;
@@ -41,8 +45,12 @@ namespace awd::game {
     private:
         std::mutex mutex;
 
-        // Стоит на месте. Повёрнут лицом к игроку (пользователю перед экраном).
-        std::shared_ptr<sf::Sprite> stillFrontSprite;
+        std::map<uint32_t, std::shared_ptr<sf::Sprite>> playerSprites;
+
+        uint32_t remainingAnimTicks = 0;
+        uint32_t prevAnim           = Entities::EntityPlayer::ANIM_BASE_STILL_FRONT;
+        uint32_t prevPrevAnim       = Entities::EntityPlayer::ANIM_BASE_STILL_FRONT;
+        uint32_t currentAnim        = Entities::EntityPlayer::ANIM_BASE_STILL_FRONT;
 
         PlayerInputs currentInputs;
 
@@ -54,6 +62,8 @@ namespace awd::game {
         void prepareSprites();
 
         void updatePlayerInputs();
+
+        void updateAnimation();
 
         void saveInputsSnapshot(PlayerInputs inputsSnapshot);
 
@@ -86,6 +96,8 @@ namespace awd::game {
         void setLastSrvProcInputs(uint32_t ack);
 
         void setPosition(float newX, float newY, float newFaceAngle) override; // прогноз передвижения
+
+        void turnSprite(const std::shared_ptr<sf::Sprite>& sprite, float newFaceAngle);
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Игровые события

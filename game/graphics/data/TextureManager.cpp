@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TextureManager.hpp"
+#include "../../entity/Entities.hpp"
 
 namespace awd::game {
 
@@ -9,17 +10,27 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+    bool TextureManager::loadCharAnim(uint32_t character, uint32_t animation) {
+        auto texture = std::make_shared<sf::Texture>();
+        std::string file = "assets/textures/characters/char"
+                "_" + std::to_string(character) + "/anim_" + std::to_string(animation) + ".png";
+
+        if (!texture->loadFromFile(file)) {
+            std::wcerr << L"Failed to load character texture: " << character << L"_" << animation << std::endl;
+            return false;
+        }
+
+        characters[character][animation] = texture;
+
+        return true;
+    }
+
     bool TextureManager::loadCharacters() {
         for (int i = 1; i <= 4; i++) { // 4 персонажа
-            auto texture = std::make_shared<sf::Texture>();
-
-            if (!texture->loadFromFile(
-                    "assets/textures/characters/char_" + std::to_string(i) + ".png")) {
-                std::wcerr << L"Failed to load texture for character " << i << std::endl;
-                return false;
-            }
-
-            characters.push_back(texture);
+            if (!loadCharAnim(i, Entities::EntityPlayer::ANIM_BASE_STILL_FRONT )) return false;
+            if (!loadCharAnim(i, Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0)) return false;
+            if (!loadCharAnim(i, Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1)) return false;
+            if (!loadCharAnim(i, Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2)) return false;
         }
 
         return true;

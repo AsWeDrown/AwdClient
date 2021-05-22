@@ -12,6 +12,7 @@
 #include "../../Game.hpp"
 #include "../common/ColorSet.hpp"
 #include "../../util/RenderUtils.hpp"
+#include "../../entity/Entities.hpp"
 
 namespace awd::game {
 
@@ -115,7 +116,8 @@ namespace awd::game {
                 characterSprite = std::make_unique<sf::Sprite>();
 
                 characterSprite->setPosition(x + spriteHorMargin, y + spriteVerMargin);
-                characterSprite->setTexture(*Game::instance().getTextures()->characters[character - 1]);
+                characterSprite->setTexture(*Game::instance().getTextures()
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]);
 
                 sf::FloatRect baseBounds = characterSprite->getGlobalBounds();
                 characterSprite->setScale( // устанавливаем нужный нам размер спрайта (из 16x32 --> WxH)

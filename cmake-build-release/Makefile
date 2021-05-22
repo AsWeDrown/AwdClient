@@ -1483,6 +1483,33 @@ game/util/ImageUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.s
 .PHONY : game/util/ImageUtils.cpp.s
 
+game/util/MathUtils.obj: game/util/MathUtils.cpp.obj
+
+.PHONY : game/util/MathUtils.obj
+
+# target to build an object file
+game/util/MathUtils.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.obj
+.PHONY : game/util/MathUtils.cpp.obj
+
+game/util/MathUtils.i: game/util/MathUtils.cpp.i
+
+.PHONY : game/util/MathUtils.i
+
+# target to preprocess a source file
+game/util/MathUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.i
+.PHONY : game/util/MathUtils.cpp.i
+
+game/util/MathUtils.s: game/util/MathUtils.cpp.s
+
+.PHONY : game/util/MathUtils.s
+
+# target to generate assembly for a file
+game/util/MathUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.s
+.PHONY : game/util/MathUtils.cpp.s
+
 game/util/RenderUtils.obj: game/util/RenderUtils.cpp.obj
 
 .PHONY : game/util/RenderUtils.obj
@@ -2045,6 +2072,9 @@ help:
 	@echo ... game/util/ImageUtils.obj
 	@echo ... game/util/ImageUtils.i
 	@echo ... game/util/ImageUtils.s
+	@echo ... game/util/MathUtils.obj
+	@echo ... game/util/MathUtils.i
+	@echo ... game/util/MathUtils.s
 	@echo ... game/util/RenderUtils.obj
 	@echo ... game/util/RenderUtils.i
 	@echo ... game/util/RenderUtils.s

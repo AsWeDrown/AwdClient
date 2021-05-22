@@ -130,9 +130,32 @@ namespace awd::game {
         std::shared_ptr<Drawable> getChildById(id_type childId) const;
         std::shared_ptr<Drawable> getChildByIdRecursively(id_type childId) const;
 
+        /**
+         * Какой бы не была реализация keyPressed какого-то компонента Drawable,
+         * ОБЯЗАТЕЛЬНО нужно вызывать родительский метод Drawable::keyPressed(),
+         * чтобы система дочерних компонентов Drawable работала корректно.
+         */
         virtual void keyPressed(const sf::Event::KeyEvent& event);
+
+        /**
+         * Какой бы не была реализация mousePressed какого-то компонента Drawable,
+         * ОБЯЗАТЕЛЬНО нужно вызывать родительский метод Drawable::mousePressed(),
+         * чтобы система дочерних компонентов Drawable работала корректно.
+         */
         virtual void mousePressed(const sf::Event::MouseButtonEvent& event);
+
+        /**
+         * Какой бы не была реализация update какого-то компонента Drawable,
+         * ОБЯЗАТЕЛЬНО нужно вызывать родительский метод Drawable::update(),
+         * чтобы система дочерних компонентов Drawable работала корректно.
+         */
         virtual void update();
+
+        /**
+         * Какой бы не была реализация draw какого-то компонента Drawable,
+         * ОБЯЗАТЕЛЬНО нужно вызывать родительский метод Drawable::draw(),
+         * чтобы система дочерних компонентов Drawable работала корректно.
+         */
         virtual void draw();
     };
 

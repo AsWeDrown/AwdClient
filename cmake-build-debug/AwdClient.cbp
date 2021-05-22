@@ -456,6 +456,12 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/ImageUtils.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/MathUtils.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/MathUtils.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.cpp">
 			<Option target="AwdClient"/>
 		</Unit>

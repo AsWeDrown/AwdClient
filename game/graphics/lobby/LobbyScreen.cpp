@@ -81,7 +81,7 @@ namespace awd::game {
         float cardX = cardMargin;
 
         for (int i = 1; i <= 4; i++) { // 4 - число карточек
-            id_type cardId = ID_SCREEN_LOBBY + i * ID_OTHER;
+            id_type cardId = i + ID_SCREEN_LOBBY_PLAYER_CARD;
 
             auto card = std::make_shared<PlayerCard>(
                     cardId,
@@ -167,6 +167,10 @@ namespace awd::game {
     void LobbyScreen::update() {
         Screen::update();
 
+        if (playerCards.size() != 4)
+            // Экран лобби уже закрылся/закрывается.
+            return;
+
         // Надпись с ID комнаты
         if (labelCopiedDisplayTicks > 0)
             labelCopiedDisplayTicks--;
@@ -177,10 +181,10 @@ namespace awd::game {
 
         // Карточки игроков
         auto lobby = Game::instance().getCurrentLobby();
-        uint32_t cardNum = 1; // 1..4
+        uint32_t cardNum = 0; // 0..3
 
         for (const auto& [playerId, playerName] : lobby->playerNames) {
-            auto card = playerCards[cardNum - 1];
+            auto card = playerCards[cardNum];
             bool isSelf = playerId == lobby->ownPlayerId;
 
             std::wstring text = playerName;
@@ -200,8 +204,8 @@ namespace awd::game {
             cardNum++;
         }
 
-        while (cardNum <= 4) { // 4 персонажа (тут мы создаём местозаполнители, если нужно)
-            auto card = playerCards[cardNum - 1];
+        while (cardNum < 4) { // 4 персонажа (тут мы создаём местозаполнители, если нужно)
+            auto card = playerCards[cardNum];
             card->updateHighlighted(false);
             card->updateDisplayedCharacter(0);
             cardNum++;

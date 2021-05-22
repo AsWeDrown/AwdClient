@@ -224,11 +224,6 @@ namespace awd::game {
                 child->mousePressed(event);
     }
 
-    /**
-     * Какой бы не была реализация update какого-то компонента Drawable,
-     * ОБЯЗАТЕЛЬНО нужно вызывать родительский метод Drawable::update(),
-     * чтобы система дочерних компонентов Drawable работала корректно.
-     */
     void Drawable::update() {
         std::unique_lock<std::recursive_mutex> lock(mutex);
 
@@ -256,11 +251,6 @@ namespace awd::game {
         updateChildren();
     }
 
-    /**
-     * Какой бы не была реализация update какого-то компонента Drawable,
-     * ОБЯЗАТЕЛЬНО нужно вызывать родительский метод Drawable::render(),
-     * чтобы система дочерних компонентов Drawable работала корректно.
-     */
     void Drawable::draw() {
         std::unique_lock<std::recursive_mutex> lock(mutex);
 

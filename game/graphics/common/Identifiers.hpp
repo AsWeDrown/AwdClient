@@ -24,13 +24,10 @@ typedef unsigned long long id_type;
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #define ID_SCREEN                  (id_type) 1E+16L
-#define ID_WORLD                   (id_type) 1E+15L
-#define ID_LOADING_OVERLAY         (id_type) 1E+06L
-#define ID_DIALOG                  (id_type) 1E+05L
-#define ID_BUTTON                  (id_type) 1E+04L
-#define ID_TEXT_FIELD              (id_type) 1E+03L
-#define ID_WATER_BACKGROUND        (id_type) 1E+02L
-#define ID_OTHER                   (id_type) 1E+00L
+#define ID_WORLD                   (id_type) 1E+14L
+#define ID_LOADING_OVERLAY         (id_type) 1E+12L
+#define ID_DIALOG                  (id_type) 1E+10L
+#define ID_SUBCOMPONENT            (id_type) 1E+00L
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
@@ -43,16 +40,16 @@ typedef unsigned long long id_type;
 #define ID_SCREEN_MAIN_MENU                            1  *  ID_SCREEN
 
 #define ID_SCREEN_MAIN_MENU_WATER_BACKGROUND           ID_SCREEN_MAIN_MENU  \
-                                                       +  1  *  ID_WATER_BACKGROUND
+                                                       +  1  *  ID_SUBCOMPONENT
 
 #define ID_SCREEN_MAIN_MENU_BUTTON_QUIT_GAME           ID_SCREEN_MAIN_MENU  \
-                                                       +  1  *  ID_BUTTON
+                                                       +  2  *  ID_SUBCOMPONENT
 
 #define ID_SCREEN_MAIN_MENU_BUTTON_JOIN_LOBBY          ID_SCREEN_MAIN_MENU  \
-                                                       +  2  *  ID_BUTTON
+                                                       +  3  *  ID_SUBCOMPONENT
 
 #define ID_SCREEN_MAIN_MENU_BUTTON_CREATE_LOBBY        ID_SCREEN_MAIN_MENU  \
-                                                       +  3  *  ID_BUTTON
+                                                       +  4  *  ID_SUBCOMPONENT
 
 // MainMenu.CreateLobby + MainMenu.JoinLobby
 
@@ -60,13 +57,13 @@ typedef unsigned long long id_type;
                                                                  +  1  *  ID_DIALOG
 
 #define ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_TEXT_FIELD         ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT  \
-                                                                 +  1  *  ID_TEXT_FIELD
+                                                                 +  1  *  ID_SUBCOMPONENT
 
 #define ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_NEXT        ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT  \
-                                                                 +  1  *  ID_BUTTON
+                                                                 +  2  *  ID_SUBCOMPONENT
 
 #define ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT_BUTTON_BACK        ID_SCREEN_MAIN_MENU_DIALOG_TEXT_INPUT  \
-                                                                 +  2  *  ID_BUTTON
+                                                                 +  3  *  ID_SUBCOMPONENT
 
 // MainMenu.Error
 
@@ -74,7 +71,7 @@ typedef unsigned long long id_type;
                                                            +  2  *  ID_DIALOG
 
 #define ID_SCREEN_MAIN_MENU_DIALOG_ERROR_BUTTON_OK        ID_SCREEN_MAIN_MENU_DIALOG_ERROR  \
-                                                          +  1  *  ID_BUTTON
+                                                          +  1  *  ID_SUBCOMPONENT
 
 // MainMenu.LoadingOverlay
 
@@ -92,25 +89,28 @@ typedef unsigned long long id_type;
 
 #define ID_SCREEN_LOBBY                           2  *  ID_SCREEN
 
+#define ID_SCREEN_LOBBY_PLAYER_CARD               ID_SCREEN_LOBBY  \
+                                                  +  (id_type) 1E+10L
+
 #define ID_SCREEN_LOBBY_WATER_BACKGROUND          ID_SCREEN_LOBBY  \
-                                                  +  1  *  ID_WATER_BACKGROUND
+                                                  +  1  *  ID_SUBCOMPONENT
 
 #define ID_SCREEN_LOBBY_BUTTON_LEAVE_LOBBY        ID_SCREEN_LOBBY  \
-                                                  +  1  *  ID_BUTTON
+                                                  +  2  *  ID_SUBCOMPONENT
 
 #define ID_SCREEN_LOBBY_BUTTON_NEW_GAME           ID_SCREEN_LOBBY  \
-                                                  +  2  *  ID_BUTTON
+                                                  +  3  *  ID_SUBCOMPONENT
 
 #define ID_SCREEN_LOBBY_BUTTON_LOAD_GAME          ID_SCREEN_LOBBY  \
-                                                  +  3  *  ID_BUTTON
+                                                  +  4  *  ID_SUBCOMPONENT
 
 // Lobby.Error
 
 #define ID_SCREEN_LOBBY_DIALOG_ERROR                  ID_SCREEN_LOBBY  \
-                                                      +  2  *  ID_DIALOG
+                                                      +  1  *  ID_DIALOG
 
 #define ID_SCREEN_LOBBY_DIALOG_ERROR_BUTTON_OK        ID_SCREEN_LOBBY_DIALOG_ERROR  \
-                                                      +  1  *  ID_BUTTON
+                                                      +  1  *  ID_SUBCOMPONENT
 
 // Lobby.LoadingOverlay
 
@@ -124,10 +124,12 @@ typedef unsigned long long id_type;
 *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#define ID_SCREEN_PLAY              3  *  ID_SCREEN
+#define ID_SCREEN_PLAY                     3  *  ID_SCREEN
 
-#define ID_SCREEN_PLAY_WORLD        ID_SCREEN_PLAY \
-                                    +  1  * ID_WORLD
+#define ID_SCREEN_PLAY_WORLD               ID_SCREEN_PLAY  \
+                                           +  1  *  ID_WORLD
 
+#define ID_SCREEN_PLAY_WORLD_ENTITY        ID_SCREEN_PLAY_WORLD  \
+                                           +  (id_type) 1E+10L
 
 #pragma clang diagnostic pop

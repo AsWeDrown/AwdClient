@@ -4,7 +4,9 @@
 #include <deque>
 #include <cstdint>
 #include <SFML/Graphics.hpp>
+#include <atomic>
 #include "../graphics/common/Drawable.hpp"
+#include "Entities.hpp"
 #include "EntityStateSnapshot.hpp"
 
 namespace awd::game {
@@ -14,6 +16,8 @@ namespace awd::game {
         std::mutex interpBufferMutex;
 
     protected:
+        std::atomic<bool> registered = false; // пока false, никаких события Drawable не должны обрабатываться
+
         uint32_t entityType; // тип сущности
 
         id_type entityId; // ID этой сущности в её текущем мире (ID графики на экране - this->id (от Drawable))
@@ -23,6 +27,10 @@ namespace awd::game {
               faceAngle    = 0.0f, // угол, указывающий, в какую сторону сейчас смотрит эта сущность
               spriteWidth  = 0.0f, // ширина спрайта (модельки) (В ТАЙЛАХ)
               spriteHeight = 0.0f; // высота спрайта (модельки) (В ТАЙЛАХ)
+
+        float lastTickDeltaX         = 0.0f,
+              lastTickDeltaY         = 0.0f,
+              lastTickDeltaFaceAngle = 0.0f;
 
         bool isControlled = false; // true только для игрока, которым мы управляем; false - для всех остальных
 
@@ -39,6 +47,8 @@ namespace awd::game {
         //   События Drawable
         ///////////////////////////////////////////////////////////////////////////////////////////
 
+        void onRegister() override;
+
         void keyPressed(const sf::Event::KeyEvent& event) override;
         void mousePressed(const sf::Event::MouseButtonEvent& event) override;
         void update() override;
@@ -54,6 +64,7 @@ namespace awd::game {
         float    getPosY           () const;
         float    getFaceAngle      () const;
         bool     isControlledPlayer() const;
+        bool     movedLastTick     () const;
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Сеттеры (скорее даже "апдейтеры")
@@ -75,7 +86,8 @@ namespace awd::game {
 
         sf::Vector2f calcPosOnScreen() const;
 
-        void scaleSprite(const std::shared_ptr<sf::Sprite>& sprite) const;
+        std::shared_ptr<sf::Sprite> createScaledSprite(
+                const std::shared_ptr<sf::Texture>& texture) const;
 
         static id_type entityIdToDrawableId(id_type entityId);
         static id_type drawableIdToEntityId(id_type drawableId);

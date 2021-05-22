@@ -1,7 +1,10 @@
+#define WALK_ANIMATION_SWITCH_DELAY_TICKS 2
+
+
 #include "EntityPlayer.hpp"
 #include "../Game.hpp"
-#include "Entities.hpp"
 #include "../../net/SequenceNumberMath.hpp"
+#include "../util/RenderUtils.hpp"
 
 namespace awd::game {
 
@@ -12,21 +15,27 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     void EntityPlayer::prepareSprites() {
-        // Стоит на месте. Повёрнут лицом к игроку (пользователю перед экраном).
-        stillFrontSprite = std::make_shared<sf::Sprite>();
+        playerSprites[Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]
+                = createScaledSprite(Game::instance().getTextures()
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]);
 
-        stillFrontSprite->setPosition(x, y);
-        stillFrontSprite->setTexture(*Game::instance().getTextures()->characters[character - 1]);
-        scaleSprite(stillFrontSprite);
+        playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]
+                = createScaledSprite(Game::instance().getTextures()
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]);
 
-        //todo remove (update after setRotation instead)
-        entitySprite = stillFrontSprite;
-        //todo remove (update after setRotation instead)
+        playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]
+                = createScaledSprite(Game::instance().getTextures()
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]);
+
+        playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]
+                = createScaledSprite(Game::instance().getTextures()
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]);
+
+        // Начальный спрайт.
+        entitySprite = playerSprites[Entities::EntityPlayer::ANIM_BASE_STILL_FRONT];
     }
 
     void EntityPlayer::updatePlayerInputs() {
-        std::unique_lock<std::mutex> lock(mutex);
-
         if (Game::instance().isGameFocused()) {
             currentInputs.setMovingLeft (sf::Keyboard::isKeyPressed(sf::Keyboard::A));
             currentInputs.setMovingRight(sf::Keyboard::isKeyPressed(sf::Keyboard::D));
@@ -43,7 +52,42 @@ namespace awd::game {
         Game::instance().getNetService()->updatePlayerInputs(currentInputs.inputsBitfield);
     }
 
+    void EntityPlayer::updateAnimation() {
+        if (movedLastTick()) {
+            if (remainingAnimTicks > 0)
+                remainingAnimTicks--;
+            else {
+                if (currentAnim == Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0)
+                    currentAnim = prevPrevAnim == Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1
+                            ? Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2
+                            : Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1;
+                else
+                    currentAnim = Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0;
+
+                remainingAnimTicks = WALK_ANIMATION_SWITCH_DELAY_TICKS;
+            }
+        } else {
+            remainingAnimTicks = 0;
+            currentAnim = Entities::EntityPlayer::ANIM_BASE_STILL_FRONT;
+        }
+
+        if (currentAnim != prevAnim) {
+            prevPrevAnim = prevAnim;
+            prevAnim     = currentAnim;
+            entitySprite = playerSprites[currentAnim];
+        }
+
+        entitySprite->setPosition(x, y);
+        turnSprite(entitySprite, faceAngle);
+    }
+
     void EntityPlayer::saveInputsSnapshot(PlayerInputs inputsSnapshot) {
+        if (inputsSnapshot.empty())
+            // Нет смысла сохранять пустые снимки ввода на стороне клиента,
+            // т.к. при повторном их применении (для чего мы эти снимки и
+            // сохраняем) они не дадут совершенно никакого эффекта.
+            return;
+
         if (recentInputsSnapshots.size() == Game::instance().getConfigs()->physics.maxLag)
             recentInputsSnapshots.pop_front();
 
@@ -77,6 +121,16 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+    bool operator ==(const PlayerStateSnapshot& a, const PlayerStateSnapshot& b) {
+        return a.posX      == b.posX
+            && a.posY      == b.posY
+            && a.faceAngle == b.faceAngle;
+    }
+
+    bool operator !=(const PlayerStateSnapshot& a, const PlayerStateSnapshot& b) {
+        return !(a == b);
+    }
+
     PlayerInputs::PlayerInputs() = default;
 
     PlayerInputs::PlayerInputs(uint32_t localSequence, uint32_t inputsBitfield) {
@@ -89,13 +143,13 @@ namespace awd::game {
     }
 
     void PlayerInputs::setMovingLeft(bool enable) {
-        if (enable) inputsBitfield |=  INPUT_MOVING_LEFT;
-        else        inputsBitfield &= ~INPUT_MOVING_LEFT;
+        if    (enable) inputsBitfield |=  INPUT_MOVING_LEFT;
+        else           inputsBitfield &= ~INPUT_MOVING_LEFT;
     }
 
     void PlayerInputs::setMovingRight(bool enable) {
-        if (enable) inputsBitfield |=  INPUT_MOVING_RIGHT;
-        else        inputsBitfield &= ~INPUT_MOVING_RIGHT;
+        if    (enable) inputsBitfield |=  INPUT_MOVING_RIGHT;
+        else           inputsBitfield &= ~INPUT_MOVING_RIGHT;
     }
 
     bool PlayerInputs::empty() const {
@@ -111,11 +165,15 @@ namespace awd::game {
     }
 
     void PlayerInputs::apply(PlayerStateSnapshot& playerState) const {
-        if (movingLeft())
+        if (movingLeft()) {
             playerState.posX -= Game::instance().getConfigs()->physics.playerBaseHorMs;
+            playerState.faceAngle = 270.0f; // лицом влево
+        }
 
-        if (movingRight())
+        if (movingRight()) {
             playerState.posX += Game::instance().getConfigs()->physics.playerBaseHorMs;
+            playerState.faceAngle = 90.0f; // лицом вправо
+        }
     }
 
     EntityPlayer::EntityPlayer(id_type entityId, uint32_t playerId,
@@ -130,6 +188,8 @@ namespace awd::game {
         spriteHeight = Game::instance().getConfigs()->physics.baseEntityPlayerH;
 
         prepareSprites();
+
+        std::wcerr << L"Created EntityPlayer [" << name << L"]: " << entityId << std::endl;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -141,10 +201,14 @@ namespace awd::game {
     }
 
     void EntityPlayer::update() {
+        std::unique_lock<std::mutex> lock(mutex);
+
         LivingEntity::update();
 
         if (isControlled)
             updatePlayerInputs();
+
+        updateAnimation();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -157,11 +221,13 @@ namespace awd::game {
     }
 
     void EntityPlayer::setPosition(float newX, float newY, float newFaceAngle) {
+        std::unique_lock<std::mutex> lock(mutex);
+
+        auto oldClientPlayerState = takeStateSnapshot();
         Entity::setPosition(newX, newY, newFaceAngle);
 
         if (isControlled) {
             // Сервер нас передвинул.
-            std::unique_lock<std::mutex> lock(mutex);
             uint32_t ack = this->lastSrvProcInputs;
 
             // Стираем из списка недавно применённого ввода тот ввод, который
@@ -179,8 +245,37 @@ namespace awd::game {
             for (const auto& snapshot : recentInputsSnapshots)
                 snapshot.apply(fixedPlayerState);
 
-            applyStateSnapshot(fixedPlayerState);
+            if (fixedPlayerState == oldClientPlayerState)
+                // Прогноз передвижения сработал корректно.
+                applyStateSnapshot(fixedPlayerState);
+            else {
+                // Клиенту не удалось корректно спрогнозировать свою следующую позицию.
+                // Скорее всего, на это повлияли какие-то факторы, известные серверу, но
+                // не известные клиенту (по крайней мере неизвестные на момент предсказания).
+                // Принимаем позицию, указанную сервером, без каких-либо локальных корректировок,
+                // и на всякий случай очищаем локальную историю ввода (чтобы не попасть в адский
+                // цикл бесконечных телепортаций (drag'ов).
+                recentInputsSnapshots.clear();
+
+                std::wcerr << L"Drag (prediction failure) - accepting server position: " << std::endl;
+                std::wcerr << L"    x          : " << oldClientPlayerState.posX
+                           << L" -> " << newX << L" -> " << fixedPlayerState.posX << std::endl;
+                std::wcerr << L"    y          : " << oldClientPlayerState.posY
+                           << L" -> " << newY << L" -> " << fixedPlayerState.posY << std::endl;
+                std::wcerr << L"    face angle : " << oldClientPlayerState.faceAngle
+                           << L" -> " << newFaceAngle << L" -> " << fixedPlayerState.faceAngle << std::endl;
+                std::wcerr << std::endl;
+            }
         }
+    }
+
+    void EntityPlayer::turnSprite(const std::shared_ptr<sf::Sprite>& sprite, float newFaceAngle) {
+        if (newFaceAngle == 90.0f)
+            // Разворачиваемся лицом вправо.
+            RenderUtils::turnRight(entitySprite);
+        else if (newFaceAngle == 270.0f)
+            // Разворачиваемся лицом вправо.
+            RenderUtils::turnLeft(entitySprite);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -191,7 +286,7 @@ namespace awd::game {
         if (!isControlled)
             return;
 
-        // Фокусируем центр камера (View) на центре модельки игрока.
+        // Фокусируем центр камеры (View) на центре модельки игрока.
         Game::instance().currentWorld()->focusCamera(
                 newX + Game::instance().getConfigs()->physics.baseEntityPlayerW / 2.0f,
                 newY + Game::instance().getConfigs()->physics.baseEntityPlayerH / 2.0f
@@ -199,7 +294,7 @@ namespace awd::game {
     }
 
     void EntityPlayer::rotationChanged(float oldFaceAngle, float newFaceAngle) {
-        //todo anything?
+        // TODO ?
     }
 
 }

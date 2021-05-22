@@ -87,9 +87,6 @@ namespace awd::net {
         // Обновляем локальный sequence number только после успешной отправки этого пакета.
         localSequenceNumber = SequenceNumberMath::add(localSequenceNumber, 1);
 
-        if (localSequenceNumber == SEQUENCE_NUMBER_WRAP_AROUND_THRESHOLD)
-            localSequenceNumber = 0; // wrap-around
-
         // Запоминаем этот пакет (но только в случае успешной отправки).
         // В случае потери пакета это поможет отправить его повторно, но
         // уже с другими sequence number, ack и ack bitfield.

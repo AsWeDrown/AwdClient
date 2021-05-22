@@ -50,6 +50,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AwdClient.dir/game/profiling/TpsMeter.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/ImageUtils.cpp.obj"
+  "CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/RenderUtils.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/StringUtils.cpp.obj"
   "CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.obj"
