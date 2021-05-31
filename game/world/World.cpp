@@ -2,6 +2,7 @@
 #include "../Game.hpp"
 #include "WorldLoader.hpp"
 #include "../util/CrashReporter.hpp"
+#include "../entity/Fallable.hpp"
 
 namespace awd::game {
 
@@ -102,6 +103,7 @@ namespace awd::game {
                 return;
             }
 
+            terrainControls = std::make_shared<TerrainControls>(worldData);
             std::wcout << L"Updated dimension successfully" << std::endl;
 
             // Изначально фокусируем камеру по центру мира.
@@ -138,6 +140,10 @@ namespace awd::game {
         );
 
         enqueueRemoveChild(Entity::entityIdToDrawableId(entityId));
+    }
+
+    std::shared_ptr<TerrainControls> World::getTerrainControls() const {
+        return terrainControls;
     }
 
 }

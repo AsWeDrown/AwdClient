@@ -14,9 +14,12 @@ namespace awd::game {
         maxLag                 = yamlReader.getUnsignedInt32("maxLag"                );
         interpDelay            = yamlReader.getUnsignedInt32("interpDelay"           );
         interpBufSizeThreshold = yamlReader.getUnsignedInt32("interpBufSizeThreshold");
-        playerBaseHorMs        = yamlReader.getFloat        ("playerBaseHorMs"       );
+
+        baseEntityPlayerMs     = yamlReader.getFloat        ("baseEntityPlayerMs"    );
         baseEntityPlayerW      = yamlReader.getFloat        ("baseEntityPlayerW"     );
         baseEntityPlayerH      = yamlReader.getFloat        ("baseEntityPlayerH"     );
+
+        freeFallAcce           = yamlReader.getFloat        ("freeFallAcce"          );
     }
 
 }

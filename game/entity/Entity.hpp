@@ -8,10 +8,13 @@
 #include "../graphics/common/Drawable.hpp"
 #include "Entities.hpp"
 #include "EntityStateSnapshot.hpp"
+#include "../world/Collidable.hpp"
 
 namespace awd::game {
 
-    class Entity : public Drawable {
+    class Entity :
+            public Drawable,
+            public Collidable {
     private:
         std::mutex interpBufferMutex;
 
@@ -38,7 +41,21 @@ namespace awd::game {
 
         std::deque<EntityStateSnapshot> interpolationBuffer;
 
-        void internalSetPosition(float newX, float newY, float newFaceAngle);
+        /**
+         * @param silent false (default) - Установить новое местоположение в мире, обновить
+         *                                 позицию спрайта (модельки) и вызвать события обновления.
+         *                                 Используется почти во всех случаях, кроме [см. ниже].
+         *
+         *               true            - Просто установить новое местоположение в мире - без
+         *                                 обновления позиции спрайта (модельки) и вызова событий
+         *                                 обновления. Используется для применения "временных"
+         *                                 ("промежуточных") позиций при локальном обновлении
+         *                                 позиции управляемого игрока (EntityPlayer; isControlled).
+         *                                 Это нужно, чтобы моделька игрока/камера визуально не
+         *                                 дёргалась при многократном применении нескольких снимков
+         *                                 сохранённых DeltaPosition.
+         */
+        void internalSetPosition(float newX, float newY, float newFaceAngle, bool silent = false);
 
     public:
         Entity(uint32_t entityType, id_type entityId);
@@ -58,13 +75,14 @@ namespace awd::game {
         //   Геттеры
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        uint32_t getEntityType     () const;
-        id_type  getEntityId       () const;
-        float    getPosX           () const;
-        float    getPosY           () const;
-        float    getFaceAngle      () const;
-        bool     isControlledPlayer() const;
-        bool     movedLastTick     () const;
+        uint32_t     getEntityType     () const;
+        id_type      getEntityId       () const;
+        float        getPosX           () const;
+        float        getPosY           () const;
+        float        getFaceAngle      () const;
+        bool         isControlledPlayer() const;
+        bool         movedLastTick     () const;
+        BoundingBox  getBoundingBox    () const override;
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //   Сеттеры (скорее даже "апдейтеры")

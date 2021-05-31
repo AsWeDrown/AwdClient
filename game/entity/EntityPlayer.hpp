@@ -3,7 +3,7 @@
 
 #include <atomic>
 #include <map>
-#include "LivingEntity.hpp"
+#include "FallableLivingEntity.hpp"
 
 namespace awd::game {
 
@@ -22,11 +22,7 @@ namespace awd::game {
         static constexpr uint32_t INPUT_MOVING_LEFT  = 0b1;
         static constexpr uint32_t INPUT_MOVING_RIGHT = 0b10;
 
-        uint32_t localSequence  = 0,
-                 inputsBitfield = 0;
-
-        PlayerInputs();
-        PlayerInputs(uint32_t localSequence, uint32_t inputsBitfield);
+        uint32_t inputsBitfield = 0;
 
         void reset();
 
@@ -37,11 +33,23 @@ namespace awd::game {
 
         bool movingLeft () const;
         bool movingRight() const;
-
-        void apply(PlayerStateSnapshot& playerState) const;
     };
 
-    class EntityPlayer : public LivingEntity {
+    class DeltaPosition {
+    public:
+        uint32_t localSequence = 0;
+
+        float deltaX    =  0.0f,
+              deltaY    =  0.0f,
+              faceAngle = -1.0f; // -1 => нужно использовать текущее значение faceAngle игрока (поле EntityPlayer)
+
+        DeltaPosition();
+        DeltaPosition(uint32_t localSequence, float deltaX, float deltaY, float faceAngle);
+
+        bool empty() const;
+    };
+
+    class EntityPlayer : public FallableLivingEntity {
     private:
         std::mutex mutex;
 
@@ -59,24 +67,28 @@ namespace awd::game {
         // Используется для прогнозирования передвижений (для controlled).
         std::atomic<uint32_t> lastSrvProcInputs = 0;
 
+        std::deque<DeltaPosition> recentDeltaPosSnapshots;
+
         void prepareSprites();
 
         void updatePlayerInputs();
 
         void updateAnimation();
 
-        void saveInputsSnapshot(PlayerInputs inputsSnapshot);
+        void applyGravityForce(DeltaPosition& deltaPosSnapshot);
+
+        void applyPlayerInputs(DeltaPosition& deltaPosSnapshot);
+
+        void applyDeltaPosSnapshot(const DeltaPosition& deltaPosSnapshot, bool silent = false);
+
+        void saveDeltaPosSnapshot(const DeltaPosition& deltaPosSnapshot);
 
         PlayerStateSnapshot takeStateSnapshot() const;
-
-        void applyStateSnapshot(const PlayerStateSnapshot& playerState);
 
     public:
         uint32_t     playerId;
         std::wstring name;
         uint32_t     character;
-
-        std::deque<PlayerInputs> recentInputsSnapshots;
 
         EntityPlayer(id_type entityId, uint32_t playerId,
                      const std::wstring& name, uint32_t character);
@@ -85,7 +97,7 @@ namespace awd::game {
         //   События Drawable
         ///////////////////////////////////////////////////////////////////////////////////////////
 
-        void keyPressed(const sf::Event::KeyEvent &event) override;
+        void keyPressed(const sf::Event::KeyEvent& event) override;
 
         void update() override;
 
@@ -94,6 +106,9 @@ namespace awd::game {
         ///////////////////////////////////////////////////////////////////////////////////////////
 
         void setLastSrvProcInputs(uint32_t ack);
+
+        void setGravityData(uint32_t midairTicks,
+                            float lastTickFallDistance, float fallDistance);
 
         void setPosition(float newX, float newY, float newFaceAngle) override; // прогноз передвижения
 

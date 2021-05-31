@@ -337,7 +337,10 @@ constexpr UpdateEntityPosition::UpdateEntityPosition(
   : entity_id_(0u)
   , pos_x_(0)
   , pos_y_(0)
-  , face_angle_(0){}
+  , face_angle_(0)
+  , midair_ticks_(0u)
+  , last_tick_fall_distance_(0)
+  , fall_distance_(0){}
 struct UpdateEntityPositionDefaultTypeInternal {
   constexpr UpdateEntityPositionDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -556,6 +559,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, pos_x_),
   PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, pos_y_),
   PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, face_angle_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, midair_ticks_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, last_tick_fall_distance_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, fall_distance_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -616,7 +622,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 166, -1, sizeof(::awd::net::DespawnEntity)},
   { 172, -1, sizeof(::awd::net::UpdatePlayerInputs)},
   { 178, -1, sizeof(::awd::net::UpdateEntityPosition)},
-  { 187, -1, sizeof(::awd::net::PacketWrapper)},
+  { 190, -1, sizeof(::awd::net::PacketWrapper)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -689,48 +695,50 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   "aEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\""
   "\n\rDespawnEntity\022\021\n\tentity_id\030\001 \001(\r\"-\n\022Up"
   "datePlayerInputs\022\027\n\017inputs_bitfield\030\001 \001("
-  "\004\"[\n\024UpdateEntityPosition\022\021\n\tentity_id\030\001"
-  " \001(\r\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\022\022\n\nfa"
-  "ce_angle\030\004 \001(\002\"\314\n\n\rPacketWrapper\022\020\n\010sequ"
-  "ence\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_bitfield\030"
-  "\003 \001(\004\022\035\n\004ping\030\004 \001(\0132\r.awd.net.PingH\000\022\035\n\004"
-  "pong\030\005 \001(\0132\r.awd.net.PongH\000\0226\n\021handshake"
-  "_request\030\n \001(\0132\031.awd.net.HandshakeReques"
-  "tH\000\0228\n\022handshake_response\030\013 \001(\0132\032.awd.ne"
-  "t.HandshakeResponseH\000\022;\n\024create_lobby_re"
-  "quest\030d \001(\0132\033.awd.net.CreateLobbyRequest"
-  "H\000\022=\n\025create_lobby_response\030e \001(\0132\034.awd."
-  "net.CreateLobbyResponseH\000\0227\n\022join_lobby_"
-  "request\030f \001(\0132\031.awd.net.JoinLobbyRequest"
-  "H\000\0229\n\023join_lobby_response\030g \001(\0132\032.awd.ne"
-  "t.JoinLobbyResponseH\000\0229\n\023leave_lobby_req"
-  "uest\030h \001(\0132\032.awd.net.LeaveLobbyRequestH\000"
-  "\022;\n\024leave_lobby_response\030i \001(\0132\033.awd.net"
-  ".LeaveLobbyResponseH\000\0225\n\021kicked_from_lob"
-  "by\030j \001(\0132\030.awd.net.KickedFromLobbyH\000\022;\n\024"
-  "updated_members_list\030k \001(\0132\033.awd.net.Upd"
-  "atedMembersListH\000\022C\n\030begin_play_state_re"
-  "quest\030\205\007 \001(\0132\036.awd.net.BeginPlayStateReq"
-  "uestH\000\022E\n\031begin_play_state_response\030\206\007 \001"
-  "(\0132\037.awd.net.BeginPlayStateResponseH\000\022D\n"
-  "\030update_dimension_command\030\350\007 \001(\0132\037.awd.n"
-  "et.UpdateDimensionCommandH\000\022F\n\031update_di"
-  "mension_complete\030\351\007 \001(\0132 .awd.net.Update"
-  "DimensionCompleteH\000\0228\n\022join_world_comman"
-  "d\030\352\007 \001(\0132\031.awd.net.JoinWorldCommandH\000\022:\n"
-  "\023join_world_complete\030\353\007 \001(\0132\032.awd.net.Jo"
-  "inWorldCompleteH\000\022-\n\014spawn_entity\030\320\017 \001(\013"
-  "2\024.awd.net.SpawnEntityH\000\0221\n\016despawn_enti"
-  "ty\030\321\017 \001(\0132\026.awd.net.DespawnEntityH\000\022<\n\024u"
-  "pdate_player_inputs\030\270\027 \001(\0132\033.awd.net.Upd"
-  "atePlayerInputsH\000\022@\n\026update_entity_posit"
-  "ion\030\271\027 \001(\0132\035.awd.net.UpdateEntityPositio"
-  "nH\000B\010\n\006packetB\024\n\020gg.aswedrown.netP\001b\006pro"
-  "to3"
+  "\004\"\251\001\n\024UpdateEntityPosition\022\021\n\tentity_id\030"
+  "\001 \001(\r\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\022\022\n\nf"
+  "ace_angle\030\004 \001(\002\022\024\n\014midair_ticks\030\005 \001(\r\022\037\n"
+  "\027last_tick_fall_distance\030\006 \001(\002\022\025\n\rfall_d"
+  "istance\030\007 \001(\002\"\314\n\n\rPacketWrapper\022\020\n\010seque"
+  "nce\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_bitfield\030\003"
+  " \001(\004\022\035\n\004ping\030\004 \001(\0132\r.awd.net.PingH\000\022\035\n\004p"
+  "ong\030\005 \001(\0132\r.awd.net.PongH\000\0226\n\021handshake_"
+  "request\030\n \001(\0132\031.awd.net.HandshakeRequest"
+  "H\000\0228\n\022handshake_response\030\013 \001(\0132\032.awd.net"
+  ".HandshakeResponseH\000\022;\n\024create_lobby_req"
+  "uest\030d \001(\0132\033.awd.net.CreateLobbyRequestH"
+  "\000\022=\n\025create_lobby_response\030e \001(\0132\034.awd.n"
+  "et.CreateLobbyResponseH\000\0227\n\022join_lobby_r"
+  "equest\030f \001(\0132\031.awd.net.JoinLobbyRequestH"
+  "\000\0229\n\023join_lobby_response\030g \001(\0132\032.awd.net"
+  ".JoinLobbyResponseH\000\0229\n\023leave_lobby_requ"
+  "est\030h \001(\0132\032.awd.net.LeaveLobbyRequestH\000\022"
+  ";\n\024leave_lobby_response\030i \001(\0132\033.awd.net."
+  "LeaveLobbyResponseH\000\0225\n\021kicked_from_lobb"
+  "y\030j \001(\0132\030.awd.net.KickedFromLobbyH\000\022;\n\024u"
+  "pdated_members_list\030k \001(\0132\033.awd.net.Upda"
+  "tedMembersListH\000\022C\n\030begin_play_state_req"
+  "uest\030\205\007 \001(\0132\036.awd.net.BeginPlayStateRequ"
+  "estH\000\022E\n\031begin_play_state_response\030\206\007 \001("
+  "\0132\037.awd.net.BeginPlayStateResponseH\000\022D\n\030"
+  "update_dimension_command\030\350\007 \001(\0132\037.awd.ne"
+  "t.UpdateDimensionCommandH\000\022F\n\031update_dim"
+  "ension_complete\030\351\007 \001(\0132 .awd.net.UpdateD"
+  "imensionCompleteH\000\0228\n\022join_world_command"
+  "\030\352\007 \001(\0132\031.awd.net.JoinWorldCommandH\000\022:\n\023"
+  "join_world_complete\030\353\007 \001(\0132\032.awd.net.Joi"
+  "nWorldCompleteH\000\022-\n\014spawn_entity\030\320\017 \001(\0132"
+  "\024.awd.net.SpawnEntityH\000\0221\n\016despawn_entit"
+  "y\030\321\017 \001(\0132\026.awd.net.DespawnEntityH\000\022<\n\024up"
+  "date_player_inputs\030\270\027 \001(\0132\033.awd.net.Upda"
+  "tePlayerInputsH\000\022@\n\026update_entity_positi"
+  "on\030\271\027 \001(\0132\035.awd.net.UpdateEntityPosition"
+  "H\000B\010\n\006packetB\024\n\020gg.aswedrown.netP\001b\006prot"
+  "o3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_packets_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_packets_2eproto = {
-  false, false, 3003, descriptor_table_protodef_packets_2eproto, "packets.proto", 
+  false, false, 3082, descriptor_table_protodef_packets_2eproto, "packets.proto", 
   &descriptor_table_packets_2eproto_once, nullptr, 0, 28,
   schemas, file_default_instances, TableStruct_packets_2eproto::offsets,
   file_level_metadata_packets_2eproto, file_level_enum_descriptors_packets_2eproto, file_level_service_descriptors_packets_2eproto,
@@ -5226,16 +5234,16 @@ UpdateEntityPosition::UpdateEntityPosition(const UpdateEntityPosition& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&entity_id_, &from.entity_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&face_angle_) -
-    reinterpret_cast<char*>(&entity_id_)) + sizeof(face_angle_));
+    static_cast<size_t>(reinterpret_cast<char*>(&fall_distance_) -
+    reinterpret_cast<char*>(&entity_id_)) + sizeof(fall_distance_));
   // @@protoc_insertion_point(copy_constructor:awd.net.UpdateEntityPosition)
 }
 
 void UpdateEntityPosition::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&entity_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&face_angle_) -
-    reinterpret_cast<char*>(&entity_id_)) + sizeof(face_angle_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&fall_distance_) -
+    reinterpret_cast<char*>(&entity_id_)) + sizeof(fall_distance_));
 }
 
 UpdateEntityPosition::~UpdateEntityPosition() {
@@ -5265,8 +5273,8 @@ void UpdateEntityPosition::Clear() {
   (void) cached_has_bits;
 
   ::memset(&entity_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&face_angle_) -
-      reinterpret_cast<char*>(&entity_id_)) + sizeof(face_angle_));
+      reinterpret_cast<char*>(&fall_distance_) -
+      reinterpret_cast<char*>(&entity_id_)) + sizeof(fall_distance_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5302,6 +5310,27 @@ const char* UpdateEntityPosition::_InternalParse(const char* ptr, ::PROTOBUF_NAM
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
           face_angle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // uint32 midair_ticks = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          midair_ticks_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float last_tick_fall_distance = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
+          last_tick_fall_distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float fall_distance = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 61)) {
+          fall_distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
@@ -5357,6 +5386,24 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_face_angle(), target);
   }
 
+  // uint32 midair_ticks = 5;
+  if (this->midair_ticks() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_midair_ticks(), target);
+  }
+
+  // float last_tick_fall_distance = 6;
+  if (!(this->last_tick_fall_distance() <= 0 && this->last_tick_fall_distance() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_last_tick_fall_distance(), target);
+  }
+
+  // float fall_distance = 7;
+  if (!(this->fall_distance() <= 0 && this->fall_distance() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(7, this->_internal_fall_distance(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5392,6 +5439,23 @@ size_t UpdateEntityPosition::ByteSizeLong() const {
 
   // float face_angle = 4;
   if (!(this->face_angle() <= 0 && this->face_angle() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // uint32 midair_ticks = 5;
+  if (this->midair_ticks() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_midair_ticks());
+  }
+
+  // float last_tick_fall_distance = 6;
+  if (!(this->last_tick_fall_distance() <= 0 && this->last_tick_fall_distance() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float fall_distance = 7;
+  if (!(this->fall_distance() <= 0 && this->fall_distance() >= 0)) {
     total_size += 1 + 4;
   }
 
@@ -5438,6 +5502,15 @@ void UpdateEntityPosition::MergeFrom(const UpdateEntityPosition& from) {
   if (!(from.face_angle() <= 0 && from.face_angle() >= 0)) {
     _internal_set_face_angle(from._internal_face_angle());
   }
+  if (from.midair_ticks() != 0) {
+    _internal_set_midair_ticks(from._internal_midair_ticks());
+  }
+  if (!(from.last_tick_fall_distance() <= 0 && from.last_tick_fall_distance() >= 0)) {
+    _internal_set_last_tick_fall_distance(from._internal_last_tick_fall_distance());
+  }
+  if (!(from.fall_distance() <= 0 && from.fall_distance() >= 0)) {
+    _internal_set_fall_distance(from._internal_fall_distance());
+  }
 }
 
 void UpdateEntityPosition::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -5462,8 +5535,8 @@ void UpdateEntityPosition::InternalSwap(UpdateEntityPosition* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(UpdateEntityPosition, face_angle_)
-      + sizeof(UpdateEntityPosition::face_angle_)
+      PROTOBUF_FIELD_OFFSET(UpdateEntityPosition, fall_distance_)
+      + sizeof(UpdateEntityPosition::fall_distance_)
       - PROTOBUF_FIELD_OFFSET(UpdateEntityPosition, entity_id_)>(
           reinterpret_cast<char*>(&entity_id_),
           reinterpret_cast<char*>(&other->entity_id_));

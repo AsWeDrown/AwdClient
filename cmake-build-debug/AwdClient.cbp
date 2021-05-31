@@ -189,6 +189,18 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Fallable.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Fallable.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/FallableLivingEntity.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/FallableLivingEntity.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -480,6 +492,24 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/util/TimeUtils.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/BoundingBox.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/BoundingBox.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/Collidable.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TerrainControls.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TerrainControls.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -502,6 +532,21 @@
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldLoader.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/tile/SolidHandler.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/tile/SolidHandler.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/tile/TileHandler.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/tile/VoidHandler.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/world/tile/VoidHandler.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/main.cpp">

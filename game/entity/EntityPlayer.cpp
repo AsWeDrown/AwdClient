@@ -1,4 +1,4 @@
-#define WALK_ANIMATION_SWITCH_DELAY_TICKS 2
+#define WALK_ANIMATION_SWITCH_DELAY_TICKS 3
 
 
 #include "EntityPlayer.hpp"
@@ -17,19 +17,19 @@ namespace awd::game {
     void EntityPlayer::prepareSprites() {
         playerSprites[Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]
                 = createScaledSprite(Game::instance().getTextures()
-                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]);
+                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]
                 = createScaledSprite(Game::instance().getTextures()
-                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]);
+                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]
                 = createScaledSprite(Game::instance().getTextures()
-                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]);
+                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]
                 = createScaledSprite(Game::instance().getTextures()
-                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]);
+                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]);
 
         // Начальный спрайт.
         entitySprite = playerSprites[Entities::EntityPlayer::ANIM_BASE_STILL_FRONT];
@@ -42,13 +42,17 @@ namespace awd::game {
         } else
             currentInputs.reset();
 
-        // Прогноз передвижения.
-        auto updatedPlayerState = takeStateSnapshot();
-        currentInputs.apply(updatedPlayerState);
-        applyStateSnapshot(updatedPlayerState);
-        saveInputsSnapshot(currentInputs);
+        // Создание прогноза передвижения.
+        DeltaPosition deltaPosSnapshot;
 
-        // Обновление ввода на сервере.
+        applyGravityForce(deltaPosSnapshot);
+        applyPlayerInputs(deltaPosSnapshot);
+
+        // Локальное применение прогроза передвижения.
+        applyDeltaPosSnapshot(deltaPosSnapshot);
+        saveDeltaPosSnapshot(deltaPosSnapshot);
+
+        // Обновление пользовательского ввода на сервере.
         Game::instance().getNetService()->updatePlayerInputs(currentInputs.inputsBitfield);
     }
 
@@ -59,8 +63,8 @@ namespace awd::game {
             else {
                 if (currentAnim == Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0)
                     currentAnim = prevPrevAnim == Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1
-                            ? Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2
-                            : Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1;
+                                  ? Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2
+                                  : Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1;
                 else
                     currentAnim = Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0;
 
@@ -81,19 +85,65 @@ namespace awd::game {
         turnSprite(entitySprite, faceAngle);
     }
 
-    void EntityPlayer::saveInputsSnapshot(PlayerInputs inputsSnapshot) {
-        if (inputsSnapshot.empty())
+    void EntityPlayer::applyGravityForce(DeltaPosition& deltaPosSnapshot) {
+        float freeFallAcce = Game::instance().getConfigs()->physics.freeFallAcce;
+        fallDistance = (freeFallAcce * midairTicks * midairTicks) / 2.0f; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        deltaPosSnapshot.deltaY = fallDistance - lastTickFallDistance;
+        lastTickFallDistance = fallDistance;
+    }
+
+    void EntityPlayer::applyPlayerInputs(DeltaPosition& deltaPosSnapshot) {
+        float moveSpeed = Game::instance().getConfigs()->physics.baseEntityPlayerMs;
+
+        if (currentInputs.movingLeft()) {
+            deltaPosSnapshot.deltaX -= moveSpeed;
+            deltaPosSnapshot.faceAngle = 270.0f; // лицом влево
+        }
+
+        if (currentInputs.movingRight()) {
+            deltaPosSnapshot.deltaX += moveSpeed;
+            deltaPosSnapshot.faceAngle = 90.0f; // лицом вправо
+        }
+    }
+
+    void EntityPlayer::applyDeltaPosSnapshot(const DeltaPosition& deltaPosSnapshot, bool silent) {
+        auto terrainControls = Game::instance().currentWorld()->getTerrainControls();
+
+        float destX = posX + deltaPosSnapshot.deltaX;
+        float destY = posY + deltaPosSnapshot.deltaY;
+
+        internalSetPosition(
+                terrainControls->advanceTowardsXUntilTerrainCollision(*this, destX),
+                terrainControls->advanceTowardsYUntilTerrainCollision(*this, destY),
+                deltaPosSnapshot.faceAngle == -1.0f ? this->faceAngle : deltaPosSnapshot.faceAngle,
+                silent
+        );
+
+        if (terrainControls->isOnGround(*this)) {
+            midairTicks          = 0;
+            lastTickFallDistance = 0.0f;
+            fallDistance         = 0.0f;
+        } else
+            midairTicks++;
+    }
+
+    void EntityPlayer::saveDeltaPosSnapshot(const DeltaPosition& deltaPosSnapshot) {
+        if (deltaPosSnapshot.empty())
             // Нет смысла сохранять пустые снимки ввода на стороне клиента,
             // т.к. при повторном их применении (для чего мы эти снимки и
-            // сохраняем) они не дадут совершенно никакого эффекта.
+            // сохраняем) они не дадут совершенно никакого эффекта. А вот
+            // отправлять серверу их нужно - потому что сервер обрабатывает
+            // строго по одному вводу из очереди получения каждый серверный тик.
             return;
 
-        if (recentInputsSnapshots.size() == Game::instance().getConfigs()->physics.maxLag)
-            recentInputsSnapshots.pop_front();
+        if (recentDeltaPosSnapshots.size() == Game::instance().getConfigs()->physics.maxLag)
+            recentDeltaPosSnapshots.pop_front();
 
-        recentInputsSnapshots.emplace_back(
+        recentDeltaPosSnapshots.emplace_back(
                 Game::instance().getPacketManager()->getHandle()->getLocalSequenceNumber(),
-                inputsSnapshot.inputsBitfield
+                deltaPosSnapshot.deltaX,
+                deltaPosSnapshot.deltaY,
+                deltaPosSnapshot.faceAngle
         );
     }
 
@@ -105,14 +155,6 @@ namespace awd::game {
         playerState.faceAngle = faceAngle;
 
         return playerState;
-    }
-
-    void EntityPlayer::applyStateSnapshot(const PlayerStateSnapshot& playerState) {
-        internalSetPosition(
-                playerState.posX,
-                playerState.posY,
-                playerState.faceAngle
-        );
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -129,13 +171,6 @@ namespace awd::game {
 
     bool operator !=(const PlayerStateSnapshot& a, const PlayerStateSnapshot& b) {
         return !(a == b);
-    }
-
-    PlayerInputs::PlayerInputs() = default;
-
-    PlayerInputs::PlayerInputs(uint32_t localSequence, uint32_t inputsBitfield) {
-        this->localSequence  = localSequence;
-        this->inputsBitfield = inputsBitfield;
     }
 
     void PlayerInputs::reset() {
@@ -164,21 +199,22 @@ namespace awd::game {
         return (inputsBitfield & INPUT_MOVING_RIGHT) != 0;
     }
 
-    void PlayerInputs::apply(PlayerStateSnapshot& playerState) const {
-        if (movingLeft()) {
-            playerState.posX -= Game::instance().getConfigs()->physics.playerBaseHorMs;
-            playerState.faceAngle = 270.0f; // лицом влево
-        }
+    DeltaPosition::DeltaPosition() = default;
 
-        if (movingRight()) {
-            playerState.posX += Game::instance().getConfigs()->physics.playerBaseHorMs;
-            playerState.faceAngle = 90.0f; // лицом вправо
-        }
+    DeltaPosition::DeltaPosition(uint32_t localSequence, float deltaX, float deltaY, float faceAngle) {
+        this->localSequence = localSequence;
+        this->deltaX        = deltaX;
+        this->deltaY        = deltaY;
+        this->faceAngle     = faceAngle;
+    }
+
+    bool DeltaPosition::empty() const {
+        return deltaX == 0.0f && deltaY == 0.0f;
     }
 
     EntityPlayer::EntityPlayer(id_type entityId, uint32_t playerId,
                                const std::wstring& name, uint32_t character)
-                               : LivingEntity(Entities::EntityPlayer::TYPE, entityId) {
+                               : FallableLivingEntity(Entities::EntityPlayer::TYPE, entityId) {
         this->playerId     = playerId;
         this->name         = name;
         this->character    = character;
@@ -188,8 +224,6 @@ namespace awd::game {
         spriteHeight = Game::instance().getConfigs()->physics.baseEntityPlayerH;
 
         prepareSprites();
-
-        std::wcerr << L"Created EntityPlayer [" << name << L"]: " << entityId << std::endl;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -220,11 +254,34 @@ namespace awd::game {
         this->lastSrvProcInputs = ack;
     }
 
-    void EntityPlayer::setPosition(float newX, float newY, float newFaceAngle) {
+    void EntityPlayer::setGravityData(uint32_t midairTicks,
+                                      float lastTickFallDistance, float fallDistance) {
         std::unique_lock<std::mutex> lock(mutex);
 
+        this->midairTicks          = midairTicks;
+        this->lastTickFallDistance = lastTickFallDistance;
+        this->fallDistance         = fallDistance;
+    }
+
+    void EntityPlayer::setPosition(float newX, float newY, float newFaceAngle) {
+        if (!isControlled) {
+            Entity::setPosition(newX, newY, newFaceAngle);
+            return;
+        }
+
+        bool isInitialMove = posX == 0.0f && posY == 0.0f; // сервер нас только что отправил на позицию спавна
+
+        if (isInitialMove) {
+            internalSetPosition(newX, newY, newFaceAngle); // не учитываем никакое прогнозирование до спавна
+            return;
+        }
+
+        std::unique_lock<std::mutex> lock(mutex);
+
+        // Здесь и далее все "промежуточные" перемещения осуществляем с silent=true.
+        // Подробнее - см. объявление (declaration) метода Entity#internalSetPosition.
         auto oldClientPlayerState = takeStateSnapshot();
-        Entity::setPosition(newX, newY, newFaceAngle);
+        internalSetPosition(newX, newY, newFaceAngle, true);
 
         if (isControlled) {
             // Сервер нас передвинул.
@@ -232,38 +289,38 @@ namespace awd::game {
 
             // Стираем из списка недавно применённого ввода тот ввод, который
             // сервер уже учёл в этой, т.е. полученной только что, позиции.
-            recentInputsSnapshots.erase(std::remove_if(
-                    recentInputsSnapshots.begin(), recentInputsSnapshots.end(),
-                    [ack](PlayerInputs snapshot) {
+            recentDeltaPosSnapshots.erase(std::remove_if(
+                    recentDeltaPosSnapshots.begin(), recentDeltaPosSnapshots.end(),
+                    [ack](DeltaPosition snapshot) {
                         return !net::SequenceNumberMath::isMoreRecent(snapshot.localSequence, ack);
-                    }), recentInputsSnapshots.end()
+                    }), recentDeltaPosSnapshots.end()
             );
 
             // Заново применяем тот ввод, который сервер ещё не успел учесть.
-            auto fixedPlayerState = takeStateSnapshot();
+            uint32_t lastSnapshotIndex = recentDeltaPosSnapshots.size() - 1; 
 
-            for (const auto& snapshot : recentInputsSnapshots)
-                snapshot.apply(fixedPlayerState);
+            for (int i = 0; i < recentDeltaPosSnapshots.size(); i++)
+                applyDeltaPosSnapshot(recentDeltaPosSnapshots[i], i != lastSnapshotIndex);
 
-            if (fixedPlayerState == oldClientPlayerState)
-                // Прогноз передвижения сработал корректно.
-                applyStateSnapshot(fixedPlayerState);
-            else {
+            auto correctedPlayerState = takeStateSnapshot();
+
+            if (correctedPlayerState != oldClientPlayerState) {
                 // Клиенту не удалось корректно спрогнозировать свою следующую позицию.
                 // Скорее всего, на это повлияли какие-то факторы, известные серверу, но
                 // не известные клиенту (по крайней мере неизвестные на момент предсказания).
                 // Принимаем позицию, указанную сервером, без каких-либо локальных корректировок,
                 // и на всякий случай очищаем локальную историю ввода (чтобы не попасть в адский
                 // цикл бесконечных телепортаций (drag'ов).
-                recentInputsSnapshots.clear();
+                internalSetPosition(newX, newY, newFaceAngle);
+                recentDeltaPosSnapshots.clear();
 
                 std::wcerr << L"Drag (prediction failure) - accepting server position: " << std::endl;
                 std::wcerr << L"    x          : " << oldClientPlayerState.posX
-                           << L" -> " << newX << L" -> " << fixedPlayerState.posX << std::endl;
+                           << L" -> " << newX << L" -> " << correctedPlayerState.posX << std::endl;
                 std::wcerr << L"    y          : " << oldClientPlayerState.posY
-                           << L" -> " << newY << L" -> " << fixedPlayerState.posY << std::endl;
+                           << L" -> " << newY << L" -> " << correctedPlayerState.posY << std::endl;
                 std::wcerr << L"    face angle : " << oldClientPlayerState.faceAngle
-                           << L" -> " << newFaceAngle << L" -> " << fixedPlayerState.faceAngle << std::endl;
+                           << L" -> " << newFaceAngle << L" -> " << correctedPlayerState.faceAngle << std::endl;
                 std::wcerr << std::endl;
             }
         }
@@ -288,8 +345,8 @@ namespace awd::game {
 
         // Фокусируем центр камеры (View) на центре модельки игрока.
         Game::instance().currentWorld()->focusCamera(
-                newX + Game::instance().getConfigs()->physics.baseEntityPlayerW / 2.0f,
-                newY + Game::instance().getConfigs()->physics.baseEntityPlayerH / 2.0f
+                newX + spriteWidth  / 2.0f,
+                newY + spriteHeight / 2.0f
         );
     }
 

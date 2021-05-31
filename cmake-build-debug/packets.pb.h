@@ -3485,6 +3485,9 @@ class UpdateEntityPosition PROTOBUF_FINAL :
     kPosXFieldNumber = 2,
     kPosYFieldNumber = 3,
     kFaceAngleFieldNumber = 4,
+    kMidairTicksFieldNumber = 5,
+    kLastTickFallDistanceFieldNumber = 6,
+    kFallDistanceFieldNumber = 7,
   };
   // uint32 entity_id = 1;
   void clear_entity_id();
@@ -3522,6 +3525,33 @@ class UpdateEntityPosition PROTOBUF_FINAL :
   void _internal_set_face_angle(float value);
   public:
 
+  // uint32 midair_ticks = 5;
+  void clear_midair_ticks();
+  ::PROTOBUF_NAMESPACE_ID::uint32 midair_ticks() const;
+  void set_midair_ticks(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_midair_ticks() const;
+  void _internal_set_midair_ticks(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // float last_tick_fall_distance = 6;
+  void clear_last_tick_fall_distance();
+  float last_tick_fall_distance() const;
+  void set_last_tick_fall_distance(float value);
+  private:
+  float _internal_last_tick_fall_distance() const;
+  void _internal_set_last_tick_fall_distance(float value);
+  public:
+
+  // float fall_distance = 7;
+  void clear_fall_distance();
+  float fall_distance() const;
+  void set_fall_distance(float value);
+  private:
+  float _internal_fall_distance() const;
+  void _internal_set_fall_distance(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:awd.net.UpdateEntityPosition)
  private:
   class _Internal;
@@ -3533,6 +3563,9 @@ class UpdateEntityPosition PROTOBUF_FINAL :
   float pos_x_;
   float pos_y_;
   float face_angle_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 midair_ticks_;
+  float last_tick_fall_distance_;
+  float fall_distance_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_packets_2eproto;
 };
@@ -5105,6 +5138,66 @@ inline void UpdateEntityPosition::_internal_set_face_angle(float value) {
 inline void UpdateEntityPosition::set_face_angle(float value) {
   _internal_set_face_angle(value);
   // @@protoc_insertion_point(field_set:awd.net.UpdateEntityPosition.face_angle)
+}
+
+// uint32 midair_ticks = 5;
+inline void UpdateEntityPosition::clear_midair_ticks() {
+  midair_ticks_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 UpdateEntityPosition::_internal_midair_ticks() const {
+  return midair_ticks_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 UpdateEntityPosition::midair_ticks() const {
+  // @@protoc_insertion_point(field_get:awd.net.UpdateEntityPosition.midair_ticks)
+  return _internal_midair_ticks();
+}
+inline void UpdateEntityPosition::_internal_set_midair_ticks(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  midair_ticks_ = value;
+}
+inline void UpdateEntityPosition::set_midair_ticks(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_midair_ticks(value);
+  // @@protoc_insertion_point(field_set:awd.net.UpdateEntityPosition.midair_ticks)
+}
+
+// float last_tick_fall_distance = 6;
+inline void UpdateEntityPosition::clear_last_tick_fall_distance() {
+  last_tick_fall_distance_ = 0;
+}
+inline float UpdateEntityPosition::_internal_last_tick_fall_distance() const {
+  return last_tick_fall_distance_;
+}
+inline float UpdateEntityPosition::last_tick_fall_distance() const {
+  // @@protoc_insertion_point(field_get:awd.net.UpdateEntityPosition.last_tick_fall_distance)
+  return _internal_last_tick_fall_distance();
+}
+inline void UpdateEntityPosition::_internal_set_last_tick_fall_distance(float value) {
+  
+  last_tick_fall_distance_ = value;
+}
+inline void UpdateEntityPosition::set_last_tick_fall_distance(float value) {
+  _internal_set_last_tick_fall_distance(value);
+  // @@protoc_insertion_point(field_set:awd.net.UpdateEntityPosition.last_tick_fall_distance)
+}
+
+// float fall_distance = 7;
+inline void UpdateEntityPosition::clear_fall_distance() {
+  fall_distance_ = 0;
+}
+inline float UpdateEntityPosition::_internal_fall_distance() const {
+  return fall_distance_;
+}
+inline float UpdateEntityPosition::fall_distance() const {
+  // @@protoc_insertion_point(field_get:awd.net.UpdateEntityPosition.fall_distance)
+  return _internal_fall_distance();
+}
+inline void UpdateEntityPosition::_internal_set_fall_distance(float value) {
+  
+  fall_distance_ = value;
+}
+inline void UpdateEntityPosition::set_fall_distance(float value) {
+  _internal_set_fall_distance(value);
+  // @@protoc_insertion_point(field_set:awd.net.UpdateEntityPosition.fall_distance)
 }
 
 // -------------------------------------------------------------------

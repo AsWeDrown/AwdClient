@@ -979,6 +979,104 @@ CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.s"
 	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\util\MathUtils.cpp -o CMakeFiles\AwdClient.dir\game\util\MathUtils.cpp.s
 
+CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj: ../game/world/TileBlock.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\world\TileBlock.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\world\TileBlock.cpp
+
+CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\world\TileBlock.cpp > CMakeFiles\AwdClient.dir\game\world\TileBlock.cpp.i
+
+CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\world\TileBlock.cpp -o CMakeFiles\AwdClient.dir\game\world\TileBlock.cpp.s
+
+CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.obj: ../game/world/BoundingBox.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\world\BoundingBox.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\world\BoundingBox.cpp
+
+CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\world\BoundingBox.cpp > CMakeFiles\AwdClient.dir\game\world\BoundingBox.cpp.i
+
+CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\world\BoundingBox.cpp -o CMakeFiles\AwdClient.dir\game\world\BoundingBox.cpp.s
+
+CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.obj: ../game/world/tile/VoidHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\world\tile\VoidHandler.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\world\tile\VoidHandler.cpp
+
+CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\world\tile\VoidHandler.cpp > CMakeFiles\AwdClient.dir\game\world\tile\VoidHandler.cpp.i
+
+CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\world\tile\VoidHandler.cpp -o CMakeFiles\AwdClient.dir\game\world\tile\VoidHandler.cpp.s
+
+CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.obj: ../game/world/tile/SolidHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\world\tile\SolidHandler.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\world\tile\SolidHandler.cpp
+
+CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\world\tile\SolidHandler.cpp > CMakeFiles\AwdClient.dir\game\world\tile\SolidHandler.cpp.i
+
+CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\world\tile\SolidHandler.cpp -o CMakeFiles\AwdClient.dir\game\world\tile\SolidHandler.cpp.s
+
+CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.obj: ../game/world/TerrainControls.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\world\TerrainControls.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\world\TerrainControls.cpp
+
+CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\world\TerrainControls.cpp > CMakeFiles\AwdClient.dir\game\world\TerrainControls.cpp.i
+
+CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\world\TerrainControls.cpp -o CMakeFiles\AwdClient.dir\game\world\TerrainControls.cpp.s
+
+CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.obj: ../game/entity/Fallable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\entity\Fallable.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\entity\Fallable.cpp
+
+CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\entity\Fallable.cpp > CMakeFiles\AwdClient.dir\game\entity\Fallable.cpp.i
+
+CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\entity\Fallable.cpp -o CMakeFiles\AwdClient.dir\game\entity\Fallable.cpp.s
+
+CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.obj: CMakeFiles/AwdClient.dir/flags.make
+CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.obj: CMakeFiles/AwdClient.dir/includes_CXX.rsp
+CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.obj: ../game/entity/FallableLivingEntity.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.obj"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\AwdClient.dir\game\entity\FallableLivingEntity.cpp.obj -c E:\CLionProjects\AsWeDrown\AwdClient\game\entity\FallableLivingEntity.cpp
+
+CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.i"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\CLionProjects\AsWeDrown\AwdClient\game\entity\FallableLivingEntity.cpp > CMakeFiles\AwdClient.dir\game\entity\FallableLivingEntity.cpp.i
+
+CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.s"
+	"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\CLionProjects\AsWeDrown\AwdClient\game\entity\FallableLivingEntity.cpp -o CMakeFiles\AwdClient.dir\game\entity\FallableLivingEntity.cpp.s
+
 # Object files for target AwdClient
 AwdClient_OBJECTS = \
 "CMakeFiles/AwdClient.dir/main.cpp.obj" \
@@ -1044,7 +1142,14 @@ AwdClient_OBJECTS = \
 "CMakeFiles/AwdClient.dir/game/config/DumbYamlReader.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/config/GameConfig.cpp.obj" \
 "CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj" \
-"CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.obj"
+"CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.obj" \
+"CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.obj"
 
 # External object files for target AwdClient
 AwdClient_EXTERNAL_OBJECTS =
@@ -1113,6 +1218,13 @@ AwdClient.exe: CMakeFiles/AwdClient.dir/game/config/DumbYamlReader.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/config/GameConfig.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/util/CrashReporter.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/game/util/MathUtils.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.obj
+AwdClient.exe: CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.obj
 AwdClient.exe: CMakeFiles/AwdClient.dir/build.make
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-audio.a
 AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-graphics.a
@@ -1123,7 +1235,7 @@ AwdClient.exe: E:/CLionProjects/libs/sfml/SFML-2.5.1-build/lib/libsfml-system.a
 AwdClient.exe: CMakeFiles/AwdClient.dir/linklibs.rsp
 AwdClient.exe: CMakeFiles/AwdClient.dir/objects1.rsp
 AwdClient.exe: CMakeFiles/AwdClient.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Linking CXX executable AwdClient.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\CLionProjects\AsWeDrown\AwdClient\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Linking CXX executable AwdClient.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\AwdClient.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

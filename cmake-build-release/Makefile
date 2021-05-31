@@ -376,6 +376,60 @@ game/entity/EntityPlayer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/EntityPlayer.cpp.s
 .PHONY : game/entity/EntityPlayer.cpp.s
 
+game/entity/Fallable.obj: game/entity/Fallable.cpp.obj
+
+.PHONY : game/entity/Fallable.obj
+
+# target to build an object file
+game/entity/Fallable.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.obj
+.PHONY : game/entity/Fallable.cpp.obj
+
+game/entity/Fallable.i: game/entity/Fallable.cpp.i
+
+.PHONY : game/entity/Fallable.i
+
+# target to preprocess a source file
+game/entity/Fallable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.i
+.PHONY : game/entity/Fallable.cpp.i
+
+game/entity/Fallable.s: game/entity/Fallable.cpp.s
+
+.PHONY : game/entity/Fallable.s
+
+# target to generate assembly for a file
+game/entity/Fallable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/Fallable.cpp.s
+.PHONY : game/entity/Fallable.cpp.s
+
+game/entity/FallableLivingEntity.obj: game/entity/FallableLivingEntity.cpp.obj
+
+.PHONY : game/entity/FallableLivingEntity.obj
+
+# target to build an object file
+game/entity/FallableLivingEntity.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.obj
+.PHONY : game/entity/FallableLivingEntity.cpp.obj
+
+game/entity/FallableLivingEntity.i: game/entity/FallableLivingEntity.cpp.i
+
+.PHONY : game/entity/FallableLivingEntity.i
+
+# target to preprocess a source file
+game/entity/FallableLivingEntity.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.i
+.PHONY : game/entity/FallableLivingEntity.cpp.i
+
+game/entity/FallableLivingEntity.s: game/entity/FallableLivingEntity.cpp.s
+
+.PHONY : game/entity/FallableLivingEntity.s
+
+# target to generate assembly for a file
+game/entity/FallableLivingEntity.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/entity/FallableLivingEntity.cpp.s
+.PHONY : game/entity/FallableLivingEntity.cpp.s
+
 game/entity/LivingEntity.obj: game/entity/LivingEntity.cpp.obj
 
 .PHONY : game/entity/LivingEntity.obj
@@ -1591,6 +1645,87 @@ game/util/TimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/util/TimeUtils.cpp.s
 .PHONY : game/util/TimeUtils.cpp.s
 
+game/world/BoundingBox.obj: game/world/BoundingBox.cpp.obj
+
+.PHONY : game/world/BoundingBox.obj
+
+# target to build an object file
+game/world/BoundingBox.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.obj
+.PHONY : game/world/BoundingBox.cpp.obj
+
+game/world/BoundingBox.i: game/world/BoundingBox.cpp.i
+
+.PHONY : game/world/BoundingBox.i
+
+# target to preprocess a source file
+game/world/BoundingBox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.i
+.PHONY : game/world/BoundingBox.cpp.i
+
+game/world/BoundingBox.s: game/world/BoundingBox.cpp.s
+
+.PHONY : game/world/BoundingBox.s
+
+# target to generate assembly for a file
+game/world/BoundingBox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/BoundingBox.cpp.s
+.PHONY : game/world/BoundingBox.cpp.s
+
+game/world/TerrainControls.obj: game/world/TerrainControls.cpp.obj
+
+.PHONY : game/world/TerrainControls.obj
+
+# target to build an object file
+game/world/TerrainControls.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.obj
+.PHONY : game/world/TerrainControls.cpp.obj
+
+game/world/TerrainControls.i: game/world/TerrainControls.cpp.i
+
+.PHONY : game/world/TerrainControls.i
+
+# target to preprocess a source file
+game/world/TerrainControls.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.i
+.PHONY : game/world/TerrainControls.cpp.i
+
+game/world/TerrainControls.s: game/world/TerrainControls.cpp.s
+
+.PHONY : game/world/TerrainControls.s
+
+# target to generate assembly for a file
+game/world/TerrainControls.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TerrainControls.cpp.s
+.PHONY : game/world/TerrainControls.cpp.s
+
+game/world/TileBlock.obj: game/world/TileBlock.cpp.obj
+
+.PHONY : game/world/TileBlock.obj
+
+# target to build an object file
+game/world/TileBlock.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.obj
+.PHONY : game/world/TileBlock.cpp.obj
+
+game/world/TileBlock.i: game/world/TileBlock.cpp.i
+
+.PHONY : game/world/TileBlock.i
+
+# target to preprocess a source file
+game/world/TileBlock.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.i
+.PHONY : game/world/TileBlock.cpp.i
+
+game/world/TileBlock.s: game/world/TileBlock.cpp.s
+
+.PHONY : game/world/TileBlock.s
+
+# target to generate assembly for a file
+game/world/TileBlock.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/TileBlock.cpp.s
+.PHONY : game/world/TileBlock.cpp.s
+
 game/world/TileData.obj: game/world/TileData.cpp.obj
 
 .PHONY : game/world/TileData.obj
@@ -1671,6 +1806,60 @@ game/world/WorldLoader.s: game/world/WorldLoader.cpp.s
 game/world/WorldLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.s
 .PHONY : game/world/WorldLoader.cpp.s
+
+game/world/tile/SolidHandler.obj: game/world/tile/SolidHandler.cpp.obj
+
+.PHONY : game/world/tile/SolidHandler.obj
+
+# target to build an object file
+game/world/tile/SolidHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.obj
+.PHONY : game/world/tile/SolidHandler.cpp.obj
+
+game/world/tile/SolidHandler.i: game/world/tile/SolidHandler.cpp.i
+
+.PHONY : game/world/tile/SolidHandler.i
+
+# target to preprocess a source file
+game/world/tile/SolidHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.i
+.PHONY : game/world/tile/SolidHandler.cpp.i
+
+game/world/tile/SolidHandler.s: game/world/tile/SolidHandler.cpp.s
+
+.PHONY : game/world/tile/SolidHandler.s
+
+# target to generate assembly for a file
+game/world/tile/SolidHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.s
+.PHONY : game/world/tile/SolidHandler.cpp.s
+
+game/world/tile/VoidHandler.obj: game/world/tile/VoidHandler.cpp.obj
+
+.PHONY : game/world/tile/VoidHandler.obj
+
+# target to build an object file
+game/world/tile/VoidHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.obj
+.PHONY : game/world/tile/VoidHandler.cpp.obj
+
+game/world/tile/VoidHandler.i: game/world/tile/VoidHandler.cpp.i
+
+.PHONY : game/world/tile/VoidHandler.i
+
+# target to preprocess a source file
+game/world/tile/VoidHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.i
+.PHONY : game/world/tile/VoidHandler.cpp.i
+
+game/world/tile/VoidHandler.s: game/world/tile/VoidHandler.cpp.s
+
+.PHONY : game/world/tile/VoidHandler.s
+
+# target to generate assembly for a file
+game/world/tile/VoidHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/VoidHandler.cpp.s
+.PHONY : game/world/tile/VoidHandler.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -1949,6 +2138,12 @@ help:
 	@echo ... game/entity/EntityPlayer.obj
 	@echo ... game/entity/EntityPlayer.i
 	@echo ... game/entity/EntityPlayer.s
+	@echo ... game/entity/Fallable.obj
+	@echo ... game/entity/Fallable.i
+	@echo ... game/entity/Fallable.s
+	@echo ... game/entity/FallableLivingEntity.obj
+	@echo ... game/entity/FallableLivingEntity.i
+	@echo ... game/entity/FallableLivingEntity.s
 	@echo ... game/entity/LivingEntity.obj
 	@echo ... game/entity/LivingEntity.i
 	@echo ... game/entity/LivingEntity.s
@@ -2084,6 +2279,15 @@ help:
 	@echo ... game/util/TimeUtils.obj
 	@echo ... game/util/TimeUtils.i
 	@echo ... game/util/TimeUtils.s
+	@echo ... game/world/BoundingBox.obj
+	@echo ... game/world/BoundingBox.i
+	@echo ... game/world/BoundingBox.s
+	@echo ... game/world/TerrainControls.obj
+	@echo ... game/world/TerrainControls.i
+	@echo ... game/world/TerrainControls.s
+	@echo ... game/world/TileBlock.obj
+	@echo ... game/world/TileBlock.i
+	@echo ... game/world/TileBlock.s
 	@echo ... game/world/TileData.obj
 	@echo ... game/world/TileData.i
 	@echo ... game/world/TileData.s
@@ -2093,6 +2297,12 @@ help:
 	@echo ... game/world/WorldLoader.obj
 	@echo ... game/world/WorldLoader.i
 	@echo ... game/world/WorldLoader.s
+	@echo ... game/world/tile/SolidHandler.obj
+	@echo ... game/world/tile/SolidHandler.i
+	@echo ... game/world/tile/SolidHandler.s
+	@echo ... game/world/tile/VoidHandler.obj
+	@echo ... game/world/tile/VoidHandler.i
+	@echo ... game/world/tile/VoidHandler.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

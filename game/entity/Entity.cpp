@@ -9,7 +9,7 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    void Entity::internalSetPosition(float newX, float newY, float newFaceAngle) {
+    void Entity::internalSetPosition(float newX, float newY, float newFaceAngle, bool silent) {
         float oldX         = this->posX;
         float oldY         = this->posY;
         float oldFaceAngle = this->faceAngle;
@@ -25,20 +25,22 @@ namespace awd::game {
             this->posX = newX;
             this->posY = newY;
 
-            float tileSize = Game::instance().currentWorld()->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+            if (!silent) {
+                float tileSize = Game::instance().currentWorld()->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
-            this->x = posX * tileSize;
-            this->y = posY * tileSize;
+                this->x = posX * tileSize;
+                this->y = posY * tileSize;
 
-            if (entitySprite != nullptr)
-                entitySprite->setPosition(x, y);
+                if (entitySprite != nullptr)
+                    entitySprite->setPosition(x, y);
 
-            positionChanged(oldX, oldY, posX, posY);
+                positionChanged(oldX, oldY, posX, posY);
+            }
         }
 
         if (rotChanged) {
             this->faceAngle = newFaceAngle;
-            rotationChanged(oldFaceAngle, newFaceAngle);
+            if (!silent) rotationChanged(oldFaceAngle, newFaceAngle);
         }
     }
 
@@ -150,16 +152,21 @@ namespace awd::game {
             || lastTickDeltaFaceAngle != 0.0f;
     }
 
+    BoundingBox Entity::getBoundingBox() const {
+        return BoundingBox(posX, posY, posX + spriteWidth, posY + spriteHeight);
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     //   Сеттеры (скорее даже "апдейтеры")
     ///////////////////////////////////////////////////////////////////////////////////////////
 
     void Entity::setPosition(float newX, float newY, float newFaceAngle) {
-        if (isControlled)
-            // Обновляем позицию сразу.
-            internalSetPosition(newX, newY, newFaceAngle);
-        else {
+        if (!isControlled) {
             // Добавляем позицию в буфер интерполяции.
+            //
+            // Поведение этого метода должно быть переопределено для управляемого (isControlled) игрока
+            // (EntityPlayer) для мгновенного обновления позиции с учёта локального прогнозирования передвижения.
+            //
             // TODO: линейная интерполяция позиций при слишком большом расстоянии (быстрая прокрутка событий прошлого).
             EntityStateSnapshot newSnapshot;
 

@@ -4,6 +4,7 @@
 #include "../graphics/common/Drawable.hpp"
 #include "WorldData.hpp"
 #include "../entity/Entity.hpp"
+#include "TerrainControls.hpp"
 
 namespace awd::game {
 
@@ -12,6 +13,8 @@ namespace awd::game {
         uint32_t dimension = 9999; // 9999 -> ничего не рисуем (мир ещё не загружен)
 
         std::shared_ptr<WorldData> worldData = nullptr;
+
+        std::shared_ptr<TerrainControls> terrainControls = nullptr;
 
         std::vector<std::shared_ptr<Entity>> entities;
 
@@ -28,7 +31,8 @@ namespace awd::game {
         void update() override;
         void draw() override;
 
-        std::shared_ptr<WorldData> getWorldData() const;
+        std::shared_ptr<WorldData>         getWorldData        () const;
+        std::shared_ptr<TerrainControls> getTerrainControls() const;
 
         void focusCamera(float worldX, float worldY);
         void centerCamera();
@@ -36,8 +40,8 @@ namespace awd::game {
         void updateDimension(uint32_t newDimension);
 
         std::shared_ptr<Entity> getEntityById(uint32_t entityId) const;
-        void addEntity(const std::shared_ptr<Entity>& entity);
-        void removeEntity(uint32_t entityId);
+        void                    addEntity    (const std::shared_ptr<Entity>& entity);
+        void                    removeEntity (uint32_t entityId);
     };
 
 }

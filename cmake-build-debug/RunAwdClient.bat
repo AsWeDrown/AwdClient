@@ -1,0 +1,2 @@
+AwdClient.exe
+PAUSE

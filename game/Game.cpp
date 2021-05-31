@@ -36,6 +36,7 @@
 #include "packetlistener/play/UpdateEntityPositionListener.hpp"
 #include "packetlistener/play/DespawnEntityListener.hpp"
 #include "util/CrashReporter.hpp"
+#include "world/TileData.hpp"
 
 namespace awd::game {
 
@@ -223,6 +224,8 @@ namespace awd::game {
         // Загрузка текстур, звуков, шрифтов и прочего.
         if (!loadAssets())
             throw std::runtime_error("failed to load assets");
+
+        TileData::init();
 
         // Главный цикл игры (в этом потоке). Должен запускаться в самом конце!
         startGameLoop();

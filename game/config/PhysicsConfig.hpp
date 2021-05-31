@@ -24,9 +24,12 @@ namespace awd::game {
         uint32_t maxLag;
         uint32_t interpDelay;
         uint32_t interpBufSizeThreshold;
-        float    playerBaseHorMs;
-        float    baseEntityPlayerW;
-        float    baseEntityPlayerH;
+
+        float baseEntityPlayerMs;
+        float baseEntityPlayerW;
+        float baseEntityPlayerH;
+
+        float freeFallAcce;
     };
 
 }

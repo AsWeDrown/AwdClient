@@ -21,6 +21,8 @@ namespace awd::game {
                         // момент пакета UpdatePlayerInputs (т.е. "ack" тут не в "обычном" смысле).
                         auto player = std::dynamic_pointer_cast<game::EntityPlayer>(entity);
                         player->setLastSrvProcInputs(packetData->getAck());
+                        player->setGravityData(packet->midair_ticks(),
+                                               packet->last_tick_fall_distance(), packet->fall_distance());
                     }
 
                     entity->setPosition(packet->pos_x(), packet->pos_y(), packet->face_angle());
