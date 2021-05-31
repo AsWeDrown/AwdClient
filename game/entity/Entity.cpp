@@ -9,7 +9,8 @@ namespace awd::game {
      *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    void Entity::internalSetPosition(float newX, float newY, float newFaceAngle, bool silent) {
+    void Entity::internalSetPosition(float newX, float newY, float newFaceAngle,
+                                     PosUpdateStrategy strategy) {
         float oldX         = this->posX;
         float oldY         = this->posY;
         float oldFaceAngle = this->faceAngle;
@@ -21,11 +22,11 @@ namespace awd::game {
         bool posChanged = lastTickDeltaX         != 0.0f || lastTickDeltaY != 0.0f;
         bool rotChanged = lastTickDeltaFaceAngle != 0.0f;
 
-        if (posChanged) {
+        if (posChanged || strategy == PosUpdateStrategy::FORCED) {
             this->posX = newX;
             this->posY = newY;
 
-            if (!silent) {
+            if (strategy != PosUpdateStrategy::SILENT) {
                 float tileSize = Game::instance().currentWorld()->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
 
                 this->x = posX * tileSize;
@@ -38,9 +39,11 @@ namespace awd::game {
             }
         }
 
-        if (rotChanged) {
+        if (rotChanged || strategy == PosUpdateStrategy::FORCED) {
             this->faceAngle = newFaceAngle;
-            if (!silent) rotationChanged(oldFaceAngle, newFaceAngle);
+
+            if (strategy != PosUpdateStrategy::SILENT)
+                rotationChanged(oldFaceAngle, newFaceAngle);
         }
     }
 

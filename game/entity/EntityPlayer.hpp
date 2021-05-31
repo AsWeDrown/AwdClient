@@ -3,7 +3,7 @@
 
 #include <atomic>
 #include <map>
-#include "FallableLivingEntity.hpp"
+#include "LivingEntity.hpp"
 
 namespace awd::game {
 
@@ -29,27 +29,33 @@ namespace awd::game {
         void setMovingLeft (bool enable);
         void setMovingRight(bool enable);
 
+        void canonicalize();
+
         bool empty() const;
 
         bool movingLeft () const;
         bool movingRight() const;
     };
 
-    class DeltaPosition {
+    class MoveMechanics {
     public:
         uint32_t localSequence = 0;
 
-        float deltaX    =  0.0f,
-              deltaY    =  0.0f,
-              faceAngle = -1.0f; // -1 => нужно использовать текущее значение faceAngle игрока (поле EntityPlayer)
+        PlayerInputs playerInputs;
 
-        DeltaPosition();
-        DeltaPosition(uint32_t localSequence, float deltaX, float deltaY, float faceAngle);
+        uint32_t midairTicks          =    0;
+        float    lastTickFallDistance = 0.0f,
+                 fallDistance         = 0.0f;
+
+        MoveMechanics();
+
+        MoveMechanics(uint32_t localSequence, PlayerInputs playerInputs,
+                      uint32_t midairTicks, float lastTickFallDistance, float fallDistance);
 
         bool empty() const;
     };
 
-    class EntityPlayer : public FallableLivingEntity {
+    class EntityPlayer : public LivingEntity {
     private:
         std::mutex mutex;
 
@@ -60,28 +66,29 @@ namespace awd::game {
         uint32_t prevPrevAnim       = Entities::EntityPlayer::ANIM_BASE_STILL_FRONT;
         uint32_t currentAnim        = Entities::EntityPlayer::ANIM_BASE_STILL_FRONT;
 
-        PlayerInputs currentInputs;
+        MoveMechanics currentMoveMechanics;
 
         // Номер (sequence number) последнего пакета UpdatePlayerInputs,
         // который УЖЕ УЧЁЛ И ОБРАБОТАЛ (а не просто получил!) сервер.
         // Используется для прогнозирования передвижений (для controlled).
         std::atomic<uint32_t> lastSrvProcInputs = 0;
 
-        std::deque<DeltaPosition> recentDeltaPosSnapshots;
+        std::deque<MoveMechanics> recentMoveMechanicsSnapshots;
 
         void prepareSprites();
 
-        void updatePlayerInputs();
+        void updateMoveMechanics();
+
+        void updateGravity(MoveMechanics& moveMechanics) const;
+
+        void updatePlayerInputs(MoveMechanics& moveMechanics) const;
 
         void updateAnimation();
 
-        void applyGravityForce(DeltaPosition& deltaPosSnapshot);
+        void applyMoveMechanicsSnapshot(const MoveMechanics& snapshot,
+                                        PosUpdateStrategy strategy = PosUpdateStrategy::NORMAL);
 
-        void applyPlayerInputs(DeltaPosition& deltaPosSnapshot);
-
-        void applyDeltaPosSnapshot(const DeltaPosition& deltaPosSnapshot, bool silent = false);
-
-        void saveDeltaPosSnapshot(const DeltaPosition& deltaPosSnapshot);
+        void saveMoveMechanicsSnapshot(const MoveMechanics& snapshot);
 
         PlayerStateSnapshot takeStateSnapshot() const;
 

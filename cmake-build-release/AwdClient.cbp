@@ -195,12 +195,6 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Fallable.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/FallableLivingEntity.cpp">
-			<Option target="AwdClient"/>
-		</Unit>
-		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/FallableLivingEntity.hpp">
-			<Option target="AwdClient"/>
-		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
