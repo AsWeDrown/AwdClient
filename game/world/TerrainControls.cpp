@@ -38,9 +38,9 @@ namespace awd::game {
         BoundingBox destEntityBb = entityBb.deepCopy().move(dx, 0.0f);
 
         int leftmostTileX   = (int) std::floor(destEntityBb.getMinX());
-        int rightmostTileX  = (int) std::ceil (destEntityBb.getMaxX());
+        int rightmostTileX  = (int) std::ceil (entityBb    .getMaxX());
         int topmostTileY    = (int) std::floor(destEntityBb.getMinY());
-        int bottommostTileY = (int) std::ceil (destEntityBb.getMaxY());
+        int bottommostTileY = (int) std::ceil (entityBb    .getMaxY());
 
         int tileX = pathingRight ? rightmostTileX : leftmostTileX;
 
@@ -48,11 +48,10 @@ namespace awd::game {
             TileBlock nearbyTile = getTileAt(tileX, tileY);
             BoundingBox nearbyTileBb = nearbyTile.getBoundingBox();
 
-            if (!nearbyTile.getHandler().isPassableBy(entity) && destEntityBb.intersectsWith(nearbyTileBb)) {
+            if (!nearbyTile.getHandler().isPassableBy(entity) && destEntityBb.intersectsWith(nearbyTileBb))
                 return pathingRight
                        ? entityX + (nearbyTileBb.getMinX() - entityBb.getMaxX())
                        : entityX - (entityBb.getMinX() - nearbyTileBb.getMaxX());
-            }
         }
 
         return destWorldX;
@@ -68,10 +67,10 @@ namespace awd::game {
         BoundingBox entityBb = entity.getBoundingBox();
         BoundingBox destEntityBb = entityBb.deepCopy().move(0.0f, dy);
 
-        int leftmostTileX   = (int) std::floor(entityBb.getMinX());
-        int rightmostTileX  = (int) std::ceil (entityBb.getMaxX());
-        int topmostTileY    = (int) std::floor(entityBb.getMinY());
-        int bottommostTileY = (int) std::ceil (entityBb.getMaxY());
+        int leftmostTileX   = (int) std::floor(destEntityBb.getMinX());
+        int rightmostTileX  = (int) std::ceil (entityBb    .getMaxX());
+        int topmostTileY    = (int) std::floor(destEntityBb.getMinY());
+        int bottommostTileY = (int) std::ceil (entityBb    .getMaxY());
 
         bool pathingBottom = dy > 0.0f;
         int tileY = pathingBottom ? bottommostTileY : topmostTileY;
