@@ -26,6 +26,7 @@ namespace awd::game {
         uint32_t interpBufSizeThreshold;
 
         float baseEntityPlayerMs;
+        float baseEntityPlayerClimbSpeed;
         float baseEntityPlayerW;
         float baseEntityPlayerH;
 

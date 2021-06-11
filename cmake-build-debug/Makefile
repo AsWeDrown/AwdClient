@@ -1780,6 +1780,33 @@ game/world/WorldLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.s
 .PHONY : game/world/WorldLoader.cpp.s
 
+game/world/tile/LadderHandler.obj: game/world/tile/LadderHandler.cpp.obj
+
+.PHONY : game/world/tile/LadderHandler.obj
+
+# target to build an object file
+game/world/tile/LadderHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/LadderHandler.cpp.obj
+.PHONY : game/world/tile/LadderHandler.cpp.obj
+
+game/world/tile/LadderHandler.i: game/world/tile/LadderHandler.cpp.i
+
+.PHONY : game/world/tile/LadderHandler.i
+
+# target to preprocess a source file
+game/world/tile/LadderHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/LadderHandler.cpp.i
+.PHONY : game/world/tile/LadderHandler.cpp.i
+
+game/world/tile/LadderHandler.s: game/world/tile/LadderHandler.cpp.s
+
+.PHONY : game/world/tile/LadderHandler.s
+
+# target to generate assembly for a file
+game/world/tile/LadderHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/LadderHandler.cpp.s
+.PHONY : game/world/tile/LadderHandler.cpp.s
+
 game/world/tile/SolidHandler.obj: game/world/tile/SolidHandler.cpp.obj
 
 .PHONY : game/world/tile/SolidHandler.obj
@@ -1806,6 +1833,33 @@ game/world/tile/SolidHandler.s: game/world/tile/SolidHandler.cpp.s
 game/world/tile/SolidHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.s
 .PHONY : game/world/tile/SolidHandler.cpp.s
+
+game/world/tile/TileHandler.obj: game/world/tile/TileHandler.cpp.obj
+
+.PHONY : game/world/tile/TileHandler.obj
+
+# target to build an object file
+game/world/tile/TileHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/TileHandler.cpp.obj
+.PHONY : game/world/tile/TileHandler.cpp.obj
+
+game/world/tile/TileHandler.i: game/world/tile/TileHandler.cpp.i
+
+.PHONY : game/world/tile/TileHandler.i
+
+# target to preprocess a source file
+game/world/tile/TileHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/TileHandler.cpp.i
+.PHONY : game/world/tile/TileHandler.cpp.i
+
+game/world/tile/TileHandler.s: game/world/tile/TileHandler.cpp.s
+
+.PHONY : game/world/tile/TileHandler.s
+
+# target to generate assembly for a file
+game/world/tile/TileHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/TileHandler.cpp.s
+.PHONY : game/world/tile/TileHandler.cpp.s
 
 game/world/tile/VoidHandler.obj: game/world/tile/VoidHandler.cpp.obj
 
@@ -2267,9 +2321,15 @@ help:
 	@echo ... game/world/WorldLoader.obj
 	@echo ... game/world/WorldLoader.i
 	@echo ... game/world/WorldLoader.s
+	@echo ... game/world/tile/LadderHandler.obj
+	@echo ... game/world/tile/LadderHandler.i
+	@echo ... game/world/tile/LadderHandler.s
 	@echo ... game/world/tile/SolidHandler.obj
 	@echo ... game/world/tile/SolidHandler.i
 	@echo ... game/world/tile/SolidHandler.s
+	@echo ... game/world/tile/TileHandler.obj
+	@echo ... game/world/tile/TileHandler.i
+	@echo ... game/world/tile/TileHandler.s
 	@echo ... game/world/tile/VoidHandler.obj
 	@echo ... game/world/tile/VoidHandler.i
 	@echo ... game/world/tile/VoidHandler.s

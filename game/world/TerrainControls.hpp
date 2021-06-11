@@ -2,6 +2,7 @@
 
 
 #include <memory>
+#include <functional>
 #include "WorldData.hpp"
 
 namespace awd::game {
@@ -51,6 +52,9 @@ namespace awd::game {
          *         вниз; false - если сущность падает вниз.
          */
         bool isOnGround(const Entity& entity) const;
+
+        std::optional<TileBlock> getFirstIntersectingTile(const Entity& entity,
+                                                          const std::function<bool(const TileBlock&)>& pred);
     };
 
 }

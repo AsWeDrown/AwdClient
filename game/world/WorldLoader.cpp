@@ -103,6 +103,7 @@ namespace awd::game {
         tileBlock->tileId = tileId;
         tileBlock->posX   = x;
         tileBlock->posY   = y;
+        tileBlock->handler = TileData::newTileHandler(tileId);
 
         targetWorldData.tiles.push_back(tileBlock);
 

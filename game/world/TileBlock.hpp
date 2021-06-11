@@ -11,7 +11,7 @@ namespace awd::game {
                  posX   = 0, // координата X левого верхнего угла этого тайла в мире
                  posY   = 0; // координата Y левого верхнего угла этого тайла в мире
 
-        TileHandler& getHandler() const;
+        std::shared_ptr<TileHandler> handler = nullptr;
 
         BoundingBox getBoundingBox() const override;
     };

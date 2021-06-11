@@ -3,13 +3,13 @@
 
 #include <cstdint>
 #include <map>
-#include "tile/TileHandler.hpp"
+#include "tile/TileHandlerFactory.hpp"
 
 namespace awd::game {
 
     class TileData {
     private:
-        static void reg(int rgb, uint32_t tileId, const std::shared_ptr<TileHandler>& handler);
+        static void reg(int rgb, uint32_t tileId, const std::shared_ptr<TileHandlerFactory>& factory);
 
     public:
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,11 +20,11 @@ namespace awd::game {
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         static std::map<int, uint32_t> rgbToTileIdMap;
 
-        static std::map<uint32_t, std::shared_ptr<TileHandler>> tileHandlers;
+        static std::map<uint32_t, std::shared_ptr<TileHandlerFactory>> tileHandlerFactories;
 
         static void init();
 
-        static TileHandler& getTileHandler(uint32_t tileId);
+        static std::shared_ptr<TileHandler> newTileHandler(uint32_t tileId);
     };
 
 }

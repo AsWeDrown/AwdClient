@@ -48,7 +48,7 @@ namespace awd::game {
             TileBlock nearbyTile = getTileAt(tileX, tileY);
             BoundingBox nearbyTileBb = nearbyTile.getBoundingBox();
 
-            if (!nearbyTile.getHandler().isPassableBy(entity) && destEntityBb.intersectsWith(nearbyTileBb))
+            if (!nearbyTile.handler->isPassableBy(entity) && destEntityBb.intersectsWith(nearbyTileBb))
                 return pathingRight
                        ? entityX + (nearbyTileBb.getMinX() - entityBb.getMaxX())
                        : entityX - (entityBb.getMinX() - nearbyTileBb.getMaxX());
@@ -79,7 +79,7 @@ namespace awd::game {
             TileBlock nearbyTile = getTileAt(tileX, tileY);
             BoundingBox nearbyTileBb = nearbyTile.getBoundingBox();
 
-            if (!nearbyTile.getHandler().isPassableBy(entity) && destEntityBb.intersectsWith(nearbyTileBb)) {
+            if (!nearbyTile.handler->isPassableBy(entity) && destEntityBb.intersectsWith(nearbyTileBb)) {
                 return pathingBottom
                        ? entityY + (nearbyTileBb.getMinY() - entityBb.getMaxY())
                        : entityY - (entityBb.getMinY() - nearbyTileBb.getMaxY());
@@ -108,7 +108,7 @@ namespace awd::game {
         };
 
         for (const auto& tileBeneath : tilesBeneath) {
-            if (!tileBeneath.getHandler().isPassableBy(entity)) {
+            if (!tileBeneath.handler->isPassableBy(entity)) {
                 BoundingBox tileBeneathBb = tileBeneath.getBoundingBox();
 
                 if (entityBb.isAboveOf(tileBeneathBb)
@@ -118,6 +118,28 @@ namespace awd::game {
         }
 
         return false;
+    }
+
+    std::optional<TileBlock> TerrainControls::getFirstIntersectingTile(const Entity& entity,
+                                                                       const std::function<bool(const TileBlock&)>& pred) {
+        BoundingBox entityBb = entity.getBoundingBox();
+
+        int leftmostTileX   = (int) std::floor(entityBb.getMinX());
+        int rightmostTileX  = (int) std::ceil (entityBb.getMaxX());
+        int topmostTileY    = (int) std::floor(entityBb.getMinY());
+        int bottommostTileY = (int) std::ceil (entityBb.getMaxY());
+
+        for (int tileX = leftmostTileX; tileX < rightmostTileX; tileX++) {
+            for (int tileY = topmostTileY; tileY < bottommostTileY; tileY++) {
+                TileBlock nearbyTile = getTileAt(tileX, tileY);
+                BoundingBox nearbyTileBb = nearbyTile.getBoundingBox();
+
+                if (pred(nearbyTile) && entityBb.intersectsWith(nearbyTileBb))
+                    return nearbyTile;
+            }
+        }
+
+        return {}; // null (not found)
     }
 
 }

@@ -51,11 +51,13 @@ namespace awd::game {
     }
 
     void EntityPlayer::updateGravity(MoveMechanics& moveMechanics) const {
-        float freeFallAcce = Game::instance().getConfigs()->physics.freeFallAcce;
-        float midairTicks = currentMoveMechanics.midairTicks; // NOLINT(cppcoreguidelines-narrowing-conversions)
-        moveMechanics.lastTickFallDistance = currentMoveMechanics.fallDistance;
-        moveMechanics.fallDistance = (freeFallAcce * midairTicks * midairTicks) / 2.0f;
-        moveMechanics.midairTicks = currentMoveMechanics.midairTicks + 1;
+        if (!moveMechanics.climbing) {
+            float freeFallAcce = Game::instance().getConfigs()->physics.freeFallAcce;
+            float midairTicks = currentMoveMechanics.midairTicks; // NOLINT(cppcoreguidelines-narrowing-conversions)
+            moveMechanics.lastTickFallDistance = currentMoveMechanics.fallDistance;
+            moveMechanics.fallDistance = (freeFallAcce * midairTicks * midairTicks) / 2.0f;
+            moveMechanics.midairTicks = currentMoveMechanics.midairTicks + 1;
+        }
     }
 
     void EntityPlayer::updatePlayerInputs(MoveMechanics& moveMechanics) const {
@@ -67,6 +69,10 @@ namespace awd::game {
             moveMechanics.playerInputs.setMovingRight(
                     sf::Keyboard::isKeyPressed(sf::Keyboard::D)
                     || sf::Keyboard::isKeyPressed(sf::Keyboard::Right));
+
+            moveMechanics.playerInputs.setMovingUp(
+                    sf::Keyboard::isKeyPressed(sf::Keyboard::W)
+                    || sf::Keyboard::isKeyPressed(sf::Keyboard::Up));
 
             moveMechanics.playerInputs.canonicalize();
         } else
@@ -104,6 +110,8 @@ namespace awd::game {
 
     void EntityPlayer::applyMoveMechanicsSnapshot(const MoveMechanics& snapshot,
                                                   PosUpdateStrategy strategy) {
+        auto terrainControls = Game::instance().currentWorld()->getTerrainControls();
+
         float newX         = posX;
         float newY         = posY;
         float newFaceAngle = faceAngle;
@@ -117,23 +125,38 @@ namespace awd::game {
         /*
          * Пользовательский ввод.
          */
-        float moveSpeed = Game::instance().getConfigs()->physics.baseEntityPlayerMs;
-
         if (snapshot.playerInputs.movingLeft()) {
-            newX -= moveSpeed;
+            newX -= Game::instance().getConfigs()->physics.baseEntityPlayerMs;
             newFaceAngle = 270.0f; // лицом влево
         }
 
         if (snapshot.playerInputs.movingRight()) {
-            newX += moveSpeed;
+            newX += Game::instance().getConfigs()->physics.baseEntityPlayerMs;
             newFaceAngle = 90.0f; // лицом вправо
+        }
+
+        currentMoveMechanics.climbing = false; // сброс
+
+        if (snapshot.playerInputs.movingUp()) {
+            std::optional<TileBlock> intersectedLadder
+                    = terrainControls->getFirstIntersectingTile(*this,[this](const TileBlock& tile)
+                            { return tile.handler->isClimbableBy(*this); });
+
+            if (intersectedLadder.has_value()) {
+                // Игрок действительно находится на лестнице и может карабкаться.
+                newY -= Game::instance().getConfigs()->physics.baseEntityPlayerClimbSpeed;
+                currentMoveMechanics.climbing = true;
+
+                // Сбрасываем гравитацию (вдруг игрок до этого был ей подвержен).
+                currentMoveMechanics.midairTicks          =    0;
+                currentMoveMechanics.lastTickFallDistance = 0.0f;
+                currentMoveMechanics.fallDistance         = 0.0f;
+            }
         }
 
         /*
          * Применяем новую позицию с учётом текущего состояния мира (препятствия вокруг и т.п.).
          */
-        auto terrainControls = Game::instance().currentWorld()->getTerrainControls();
-
         internalSetPosition(
                 terrainControls->advanceTowardsXUntilTerrainCollision(*this, newX),
                 terrainControls->advanceTowardsYUntilTerrainCollision(*this, newY),
@@ -170,6 +193,7 @@ namespace awd::game {
         recentMoveMechanicsSnapshots.emplace_back(
                 Game::instance().getPacketManager()->getHandle()->getLocalSequenceNumber(),
                 snapshot.playerInputs,
+                snapshot.climbing,
                 snapshot.midairTicks,
                 snapshot.lastTickFallDistance,
                 snapshot.fallDistance
@@ -216,6 +240,11 @@ namespace awd::game {
         else           inputsBitfield &= ~INPUT_MOVING_RIGHT;
     }
 
+    void PlayerInputs::setMovingUp(bool enable) {
+        if    (enable) inputsBitfield |=  INPUT_MOVING_UP;
+        else           inputsBitfield &= ~INPUT_MOVING_UP;
+    }
+
     void PlayerInputs::canonicalize() {
         if (movingLeft() && movingRight()) {
             setMovingLeft(false);
@@ -235,12 +264,17 @@ namespace awd::game {
         return (inputsBitfield & INPUT_MOVING_RIGHT) != 0;
     }
 
+    bool PlayerInputs::movingUp() const {
+        return (inputsBitfield & INPUT_MOVING_UP) != 0;
+    }
+
     MoveMechanics::MoveMechanics() = default;
 
     MoveMechanics::MoveMechanics(uint32_t localSequence, PlayerInputs playerInputs,
-                                 uint32_t midairTicks, float lastTickFallDistance, float fallDistance) {
+                                 bool climbing, uint32_t midairTicks, float lastTickFallDistance, float fallDistance) {
         this->localSequence = localSequence;
         this->playerInputs = playerInputs;
+        this->climbing = climbing;
         this->midairTicks = midairTicks;
         this->lastTickFallDistance = lastTickFallDistance;
         this->fallDistance = fallDistance;
@@ -248,6 +282,14 @@ namespace awd::game {
 
     bool MoveMechanics::empty() const {
         return playerInputs.empty() && midairTicks == 0;
+    }
+
+    void MoveMechanics::reset() {
+        playerInputs.reset();
+        climbing = false;
+        midairTicks = 0;
+        lastTickFallDistance = 0.0f;
+        fallDistance = 0.0f;
     }
 
     EntityPlayer::EntityPlayer(id_type entityId, uint32_t playerId,
@@ -303,6 +345,7 @@ namespace awd::game {
 
     void EntityPlayer::setPosition(float newX, float newY, float newFaceAngle) {
         if (!isControlled) {
+            // Интерполируем.
             Entity::setPosition(newX, newY, newFaceAngle);
             return;
         }
@@ -311,7 +354,11 @@ namespace awd::game {
         bool isInitialMove = posX == 0.0f && posY == 0.0f; // сервер нас только что отправил на позицию спавна
 
         if (isInitialMove) {
-            internalSetPosition(newX, newY, newFaceAngle); // не учитываем никакое прогнозирование до спавна
+            // Не учитываем никакое прогнозирование до спавна
+            internalSetPosition(newX, newY, newFaceAngle);
+            currentMoveMechanics.reset();
+            recentMoveMechanicsSnapshots.clear();
+
             return;
         }
 
@@ -332,12 +379,10 @@ namespace awd::game {
             );
 
             // Заново применяем тот ввод, который сервер ещё не успел учесть.
-
             for (const auto& snapshot : recentMoveMechanicsSnapshots)
                 applyMoveMechanicsSnapshot(snapshot, PosUpdateStrategy::SILENT);
 
             internalSetPosition(posX, posY, faceAngle, PosUpdateStrategy::FORCED);
-
             auto correctedPlayerState = takeStateSnapshot();
 
             if (correctedPlayerState != oldClientPlayerState) {

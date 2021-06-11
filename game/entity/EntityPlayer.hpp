@@ -21,6 +21,7 @@ namespace awd::game {
     public:
         static constexpr uint32_t INPUT_MOVING_LEFT  = 0b1;
         static constexpr uint32_t INPUT_MOVING_RIGHT = 0b10;
+        static constexpr uint32_t INPUT_MOVING_UP    = 0b100;
 
         uint32_t inputsBitfield = 0;
 
@@ -28,6 +29,7 @@ namespace awd::game {
 
         void setMovingLeft (bool enable);
         void setMovingRight(bool enable);
+        void setMovingUp   (bool enable);
 
         void canonicalize();
 
@@ -35,6 +37,7 @@ namespace awd::game {
 
         bool movingLeft () const;
         bool movingRight() const;
+        bool movingUp   () const;
     };
 
     class MoveMechanics {
@@ -43,16 +46,19 @@ namespace awd::game {
 
         PlayerInputs playerInputs;
 
-        uint32_t midairTicks          =    0;
-        float    lastTickFallDistance = 0.0f,
-                 fallDistance         = 0.0f;
+        bool     climbing             = false;
+        uint32_t midairTicks          =     0;
+        float    lastTickFallDistance =  0.0f,
+                 fallDistance         =  0.0f;
 
         MoveMechanics();
 
         MoveMechanics(uint32_t localSequence, PlayerInputs playerInputs,
-                      uint32_t midairTicks, float lastTickFallDistance, float fallDistance);
+                      bool climbing, uint32_t midairTicks, float lastTickFallDistance, float fallDistance);
 
         bool empty() const;
+
+        void reset();
     };
 
     class EntityPlayer : public LivingEntity {
