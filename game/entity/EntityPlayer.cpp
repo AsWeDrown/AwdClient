@@ -362,6 +362,8 @@ namespace awd::game {
             return;
         }
 
+        if(true)return;//todo remove
+
         auto oldClientPlayerState = takeStateSnapshot();
         internalSetPosition(newX, newY, newFaceAngle, PosUpdateStrategy::SILENT);
 
@@ -389,15 +391,12 @@ namespace awd::game {
                 // Клиенту не удалось корректно спрогнозировать свою следующую позицию.
                 // Скорее всего, на это повлияли какие-то факторы, известные серверу, но
                 // не известные клиенту (по крайней мере неизвестные на момент предсказания).
-                // Принимаем позицию, указанную сервером, без каких-либо локальных корректировок,
-                // и на всякий случай очищаем локальную историю ввода (чтобы не попасть в адский
-                // цикл бесконечных телепортаций (drag'ов).
+                // Принимаем позицию, указанную сервером, без каких-либо локальных корректировок.
                 uint32_t lag = recentMoveMechanicsSnapshots.empty() ? 0 : net::SequenceNumberMath::
                         subtract(recentMoveMechanicsSnapshots[
                                  recentMoveMechanicsSnapshots.size() - 1].localSequence, ack);
 
                 internalSetPosition(newX, newY, newFaceAngle);
-                recentMoveMechanicsSnapshots.clear();
 
                 std::wcerr << L"Drag (prediction failure, lag=" << lag << L") - accepting server position: " << std::endl;
                 std::wcerr << L"    x          : " << oldClientPlayerState.posX
