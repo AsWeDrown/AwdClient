@@ -17,19 +17,19 @@ namespace awd::game {
     void EntityPlayer::prepareSprites() {
         playerSprites[Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]
                 = createScaledSprite(Game::instance().getTextures()
-                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]);
+                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]
                 = createScaledSprite(Game::instance().getTextures()
-                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]);
+                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]
                 = createScaledSprite(Game::instance().getTextures()
-                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]);
+                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]
                 = createScaledSprite(Game::instance().getTextures()
-                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]);
+                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]);
 
         // Начальный спрайт.
         entitySprite = playerSprites[Entities::EntityPlayer::ANIM_BASE_STILL_FRONT];
@@ -73,6 +73,10 @@ namespace awd::game {
             moveMechanics.playerInputs.setMovingUp(
                     sf::Keyboard::isKeyPressed(sf::Keyboard::W)
                     || sf::Keyboard::isKeyPressed(sf::Keyboard::Up));
+
+            moveMechanics.playerInputs.setMovingDown(
+                    sf::Keyboard::isKeyPressed(sf::Keyboard::S)
+                    || sf::Keyboard::isKeyPressed(sf::Keyboard::Down));
 
             moveMechanics.playerInputs.canonicalize();
         } else
@@ -137,14 +141,19 @@ namespace awd::game {
 
         currentMoveMechanics.climbing = false; // сброс
 
-        if (snapshot.playerInputs.movingUp()) {
+        if (snapshot.playerInputs.movingUp() || snapshot.playerInputs.movingDown()) {
             std::optional<TileBlock> intersectedLadder
                     = terrainControls->getFirstIntersectingTile(*this,[this](const TileBlock& tile)
                             { return tile.handler->isClimbableBy(*this); });
 
             if (intersectedLadder.has_value()) {
                 // Игрок действительно находится на лестнице и может карабкаться.
-                newY -= Game::instance().getConfigs()->physics.baseEntityPlayerClimbSpeed;
+                float climbDeltaY = Game::instance().getConfigs()->physics.baseEntityPlayerClimbSpeed;
+
+                if (snapshot.playerInputs.movingUp())
+                    climbDeltaY *= -1.0f; // движемся вверх -> Y уменьшается; вниз - увеличивается
+
+                newY += climbDeltaY;
                 currentMoveMechanics.climbing = true;
 
                 // Сбрасываем гравитацию (вдруг игрок до этого был ей подвержен).
@@ -245,11 +254,21 @@ namespace awd::game {
         else           inputsBitfield &= ~INPUT_MOVING_UP;
     }
 
+    void PlayerInputs::setMovingDown(bool enable) {
+        if    (enable) inputsBitfield |=  INPUT_MOVING_DOWN;
+        else           inputsBitfield &= ~INPUT_MOVING_DOWN;
+    }
+
     void PlayerInputs::canonicalize() {
-        if (movingLeft() && movingRight()) {
-            setMovingLeft(false);
-            setMovingRight(false);
-        }
+        onlyOneOf(INPUT_MOVING_LEFT | INPUT_MOVING_RIGHT);
+        onlyOneOf(INPUT_MOVING_UP   | INPUT_MOVING_DOWN );
+    }
+
+    void PlayerInputs::onlyOneOf(uint32_t inputsCombination) {
+        // Если установлены сразу все биты, указанные в inputsCombination, то снимаем сразу их все.
+        // В противном случае, ничего не делаем. Используется для "оптимизации" пользовательского ввода.
+        if ((inputsBitfield & inputsCombination) == inputsCombination)
+            inputsBitfield &= ~inputsCombination;
     }
 
     bool PlayerInputs::empty() const {
@@ -266,6 +285,10 @@ namespace awd::game {
 
     bool PlayerInputs::movingUp() const {
         return (inputsBitfield & INPUT_MOVING_UP) != 0;
+    }
+
+    bool PlayerInputs::movingDown() const {
+        return (inputsBitfield & INPUT_MOVING_DOWN) != 0;
     }
 
     MoveMechanics::MoveMechanics() = default;
@@ -362,8 +385,6 @@ namespace awd::game {
             return;
         }
 
-        if(true)return;//todo remove
-
         auto oldClientPlayerState = takeStateSnapshot();
         internalSetPosition(newX, newY, newFaceAngle, PosUpdateStrategy::SILENT);
 
@@ -391,12 +412,15 @@ namespace awd::game {
                 // Клиенту не удалось корректно спрогнозировать свою следующую позицию.
                 // Скорее всего, на это повлияли какие-то факторы, известные серверу, но
                 // не известные клиенту (по крайней мере неизвестные на момент предсказания).
-                // Принимаем позицию, указанную сервером, без каких-либо локальных корректировок.
+                // Принимаем позицию, указанную сервером, без каких-либо локальных корректировок,
+                // и на всякий случай очищаем локальную историю ввода (чтобы не попасть в адский
+                // цикл бесконечных телепортаций (drag'ов).
                 uint32_t lag = recentMoveMechanicsSnapshots.empty() ? 0 : net::SequenceNumberMath::
-                        subtract(recentMoveMechanicsSnapshots[
-                                 recentMoveMechanicsSnapshots.size() - 1].localSequence, ack);
+                subtract(recentMoveMechanicsSnapshots
+                        [recentMoveMechanicsSnapshots.size() - 1].localSequence, ack);
 
                 internalSetPosition(newX, newY, newFaceAngle);
+                recentMoveMechanicsSnapshots.clear();
 
                 std::wcerr << L"Drag (prediction failure, lag=" << lag << L") - accepting server position: " << std::endl;
                 std::wcerr << L"    x          : " << oldClientPlayerState.posX

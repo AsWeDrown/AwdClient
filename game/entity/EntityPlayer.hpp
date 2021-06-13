@@ -22,6 +22,7 @@ namespace awd::game {
         static constexpr uint32_t INPUT_MOVING_LEFT  = 0b1;
         static constexpr uint32_t INPUT_MOVING_RIGHT = 0b10;
         static constexpr uint32_t INPUT_MOVING_UP    = 0b100;
+        static constexpr uint32_t INPUT_MOVING_DOWN  = 0b1000;
 
         uint32_t inputsBitfield = 0;
 
@@ -30,14 +31,28 @@ namespace awd::game {
         void setMovingLeft (bool enable);
         void setMovingRight(bool enable);
         void setMovingUp   (bool enable);
+        void setMovingDown (bool enable);
 
+        /**
+         * "Оптимизирует" пользовательский ввод. Например, если были одновременно нажаты
+         * клавиши "идти влево" и "идти вправо", то оба флага будут сняты, и игрок не будет
+         * никуда двигаться. Таким образом, результат применения этого ввода остаётся неизменным,
+         * однако количество установленных битов в inputsBitfield сокращается. Это полезно для
+         * снижения количества передаваемых данных в долгосрочной перспективе, а также при обработке
+         * ввода (иногда при обработке нужно обращаться к данным мира, что довольно дорого: если игрок
+         * одновременно жмёт, скажем, кнопки "ползти по лестнице вверх" и "вниз", то нет смысла тратить
+         * ресурсы на проверку того, находится ли он сейчас на лестнице - ведь по сути он не двигается
+         * по ней вообще).
+         */
         void canonicalize();
+        void onlyOneOf(uint32_t inputsCombination);
 
         bool empty() const;
 
         bool movingLeft () const;
         bool movingRight() const;
         bool movingUp   () const;
+        bool movingDown () const;
     };
 
     class MoveMechanics {

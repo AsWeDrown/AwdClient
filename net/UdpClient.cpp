@@ -49,7 +49,7 @@ namespace awd::net {
             unsigned short portCopy = port;
 
             auto recvStatus = udpSocket->receive(
-                    buffer.get(), BUFFER_SIZE,bytesReceived, serverAddrCopy, portCopy);
+                    buffer.get(), BUFFER_SIZE, bytesReceived, serverAddrCopy, portCopy);
 
             if (recvStatus == sf::UdpSocket::Status::Done) {
                 if (bytesReceived == 0)
