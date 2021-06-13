@@ -84,7 +84,7 @@ namespace awd::game {
     }
 
     void EntityPlayer::updateAnimation() {
-        if (movedLastTick()) {
+        if (lastTickDeltaX != 0.0f && !currentMoveMechanics.climbing) { // не анимируем X в падении и на лестнице
             if (remainingAnimTicks > 0)
                 remainingAnimTicks--;
             else {
