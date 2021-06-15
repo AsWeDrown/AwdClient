@@ -17,6 +17,8 @@ namespace awd::game {
         y      = 0.0f;
         width  = window->getSize().x; // NOLINT(cppcoreguidelines-narrowing-conversions)
         height = window->getSize().y; // NOLINT(cppcoreguidelines-narrowing-conversions)
+
+        // TODO WaterBackground? (не работает.. просто не рисуется (фон остаётся чёрным))
     }
 
     void World::keyPressed(const sf::Event::KeyEvent& event) {

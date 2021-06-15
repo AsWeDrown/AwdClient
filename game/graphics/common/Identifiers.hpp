@@ -124,12 +124,15 @@ typedef unsigned long long id_type;
 *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#define ID_SCREEN_PLAY                     3  *  ID_SCREEN
+#define ID_SCREEN_PLAY                                      3  *  ID_SCREEN
 
-#define ID_SCREEN_PLAY_WORLD               ID_SCREEN_PLAY  \
-                                           +  1  *  ID_WORLD
+#define ID_SCREEN_PLAY_WORLD                                ID_SCREEN_PLAY  \
+                                                            +  1  *  ID_WORLD
 
-#define ID_SCREEN_PLAY_WORLD_ENTITY        ID_SCREEN_PLAY_WORLD  \
-                                           +  (id_type) 1E+10L
+#define ID_SCREEN_PLAY_WORLD_WATER_BACKGROUND               ID_SCREEN_PLAY_WORLD  \
+                                                            +  1  *  ID_SUBCOMPONENT
+
+#define ID_SCREEN_PLAY_WORLD_ENTITY                         ID_SCREEN_PLAY_WORLD  \
+                                                            +  (id_type) 1E+10L
 
 #pragma clang diagnostic pop
