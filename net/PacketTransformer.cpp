@@ -288,6 +288,30 @@ namespace awd::net {
             wrapper.release_update_entity_position();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* begin_quest = dynamic_cast<BeginQuest*>(packet)) {
+            wrapper.set_allocated_begin_quest(begin_quest);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_begin_quest();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* advance_quest = dynamic_cast<AdvanceQuest*>(packet)) {
+            wrapper.set_allocated_advance_quest(advance_quest);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_advance_quest();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* end_quest = dynamic_cast<EndQuest*>(packet)) {
+            wrapper.set_allocated_end_quest(end_quest);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_end_quest();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
         } else
             // Код "if ..." для пакетов этого типа отсутствует выше.
             // Нужно добавить! (исп. awd-ptrans-codegen)
@@ -415,6 +439,21 @@ namespace awd::net {
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<UpdateEntityPosition>(wrapper.update_entity_position()));
+
+            case PacketWrapper::PacketCase::kBeginQuest:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<BeginQuest>(wrapper.begin_quest()));
+
+            case PacketWrapper::PacketCase::kAdvanceQuest:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<AdvanceQuest>(wrapper.advance_quest()));
+
+            case PacketWrapper::PacketCase::kEndQuest:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<EndQuest>(wrapper.end_quest()));
 
             default:
                 // Неизвестный пакет - он будет проигнорирован (не передан никакому PacketListener'у).
