@@ -35,6 +35,9 @@
 #include "packetlistener/play/SpawnEntityListener.hpp"
 #include "packetlistener/play/UpdateEntityPositionListener.hpp"
 #include "packetlistener/play/DespawnEntityListener.hpp"
+#include "packetlistener/play/BeginQuestListener.hpp"
+#include "packetlistener/play/AdvanceQuestListener.hpp"
+#include "packetlistener/play/EndQuestListener.hpp"
 #include "util/CrashReporter.hpp"
 #include "world/TileData.hpp"
 
@@ -70,6 +73,9 @@ namespace awd::game {
         PLISTENER(SpawnEntity)
         PLISTENER(UpdateEntityPosition)
         PLISTENER(DespawnEntity)
+        PLISTENER(BeginQuest)
+        PLISTENER(AdvanceQuest)
+        PLISTENER(EndQuest)
     }
 
     void Game::startGameLoop() {

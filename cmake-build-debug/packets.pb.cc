@@ -350,6 +350,46 @@ struct UpdateEntityPositionDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UpdateEntityPositionDefaultTypeInternal _UpdateEntityPosition_default_instance_;
+constexpr BeginQuest::BeginQuest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : quest_id_(0u)
+  , quest_type_(0u)
+  , max_progress_(0u){}
+struct BeginQuestDefaultTypeInternal {
+  constexpr BeginQuestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~BeginQuestDefaultTypeInternal() {}
+  union {
+    BeginQuest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT BeginQuestDefaultTypeInternal _BeginQuest_default_instance_;
+constexpr AdvanceQuest::AdvanceQuest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : quest_id_(0u)
+  , progress_(0u){}
+struct AdvanceQuestDefaultTypeInternal {
+  constexpr AdvanceQuestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~AdvanceQuestDefaultTypeInternal() {}
+  union {
+    AdvanceQuest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT AdvanceQuestDefaultTypeInternal _AdvanceQuest_default_instance_;
+constexpr EndQuest::EndQuest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : quest_id_(0u)
+  , status_(0u){}
+struct EndQuestDefaultTypeInternal {
+  constexpr EndQuestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~EndQuestDefaultTypeInternal() {}
+  union {
+    EndQuest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT EndQuestDefaultTypeInternal _EndQuest_default_instance_;
 constexpr PacketWrapper::PacketWrapper(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : sequence_(0u)
@@ -367,7 +407,7 @@ struct PacketWrapperDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PacketWrapperDefaultTypeInternal _PacketWrapper_default_instance_;
 }  // namespace net
 }  // namespace awd
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_packets_2eproto[28];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_packets_2eproto[31];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_packets_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_packets_2eproto = nullptr;
 
@@ -563,6 +603,28 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, last_tick_fall_distance_),
   PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, fall_distance_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::awd::net::BeginQuest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::awd::net::BeginQuest, quest_id_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::BeginQuest, quest_type_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::BeginQuest, max_progress_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::awd::net::AdvanceQuest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::awd::net::AdvanceQuest, quest_id_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::AdvanceQuest, progress_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::awd::net::EndQuest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::awd::net::EndQuest, quest_id_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::EndQuest, status_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, _oneof_case_[0]),
@@ -570,6 +632,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, sequence_),
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, ack_),
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, ack_bitfield_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
@@ -622,7 +687,10 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 166, -1, sizeof(::awd::net::DespawnEntity)},
   { 172, -1, sizeof(::awd::net::UpdatePlayerInputs)},
   { 178, -1, sizeof(::awd::net::UpdateEntityPosition)},
-  { 190, -1, sizeof(::awd::net::PacketWrapper)},
+  { 190, -1, sizeof(::awd::net::BeginQuest)},
+  { 198, -1, sizeof(::awd::net::AdvanceQuest)},
+  { 205, -1, sizeof(::awd::net::EndQuest)},
+  { 212, -1, sizeof(::awd::net::PacketWrapper)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -653,6 +721,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_DespawnEntity_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdatePlayerInputs_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdateEntityPosition_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_BeginQuest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_AdvanceQuest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_EndQuest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_PacketWrapper_default_instance_),
 };
 
@@ -699,47 +770,54 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\001 \001(\r\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\022\022\n\nf"
   "ace_angle\030\004 \001(\002\022\024\n\014midair_ticks\030\005 \001(\r\022\037\n"
   "\027last_tick_fall_distance\030\006 \001(\002\022\025\n\rfall_d"
-  "istance\030\007 \001(\002\"\314\n\n\rPacketWrapper\022\020\n\010seque"
-  "nce\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_bitfield\030\003"
-  " \001(\004\022\035\n\004ping\030\004 \001(\0132\r.awd.net.PingH\000\022\035\n\004p"
-  "ong\030\005 \001(\0132\r.awd.net.PongH\000\0226\n\021handshake_"
-  "request\030\n \001(\0132\031.awd.net.HandshakeRequest"
-  "H\000\0228\n\022handshake_response\030\013 \001(\0132\032.awd.net"
-  ".HandshakeResponseH\000\022;\n\024create_lobby_req"
-  "uest\030d \001(\0132\033.awd.net.CreateLobbyRequestH"
-  "\000\022=\n\025create_lobby_response\030e \001(\0132\034.awd.n"
-  "et.CreateLobbyResponseH\000\0227\n\022join_lobby_r"
-  "equest\030f \001(\0132\031.awd.net.JoinLobbyRequestH"
-  "\000\0229\n\023join_lobby_response\030g \001(\0132\032.awd.net"
-  ".JoinLobbyResponseH\000\0229\n\023leave_lobby_requ"
-  "est\030h \001(\0132\032.awd.net.LeaveLobbyRequestH\000\022"
-  ";\n\024leave_lobby_response\030i \001(\0132\033.awd.net."
-  "LeaveLobbyResponseH\000\0225\n\021kicked_from_lobb"
-  "y\030j \001(\0132\030.awd.net.KickedFromLobbyH\000\022;\n\024u"
-  "pdated_members_list\030k \001(\0132\033.awd.net.Upda"
-  "tedMembersListH\000\022C\n\030begin_play_state_req"
-  "uest\030\205\007 \001(\0132\036.awd.net.BeginPlayStateRequ"
-  "estH\000\022E\n\031begin_play_state_response\030\206\007 \001("
-  "\0132\037.awd.net.BeginPlayStateResponseH\000\022D\n\030"
-  "update_dimension_command\030\350\007 \001(\0132\037.awd.ne"
-  "t.UpdateDimensionCommandH\000\022F\n\031update_dim"
-  "ension_complete\030\351\007 \001(\0132 .awd.net.UpdateD"
-  "imensionCompleteH\000\0228\n\022join_world_command"
-  "\030\352\007 \001(\0132\031.awd.net.JoinWorldCommandH\000\022:\n\023"
-  "join_world_complete\030\353\007 \001(\0132\032.awd.net.Joi"
-  "nWorldCompleteH\000\022-\n\014spawn_entity\030\320\017 \001(\0132"
-  "\024.awd.net.SpawnEntityH\000\0221\n\016despawn_entit"
-  "y\030\321\017 \001(\0132\026.awd.net.DespawnEntityH\000\022<\n\024up"
-  "date_player_inputs\030\270\027 \001(\0132\033.awd.net.Upda"
-  "tePlayerInputsH\000\022@\n\026update_entity_positi"
-  "on\030\271\027 \001(\0132\035.awd.net.UpdateEntityPosition"
-  "H\000B\010\n\006packetB\024\n\020gg.aswedrown.netP\001b\006prot"
-  "o3"
+  "istance\030\007 \001(\002\"H\n\nBeginQuest\022\020\n\010quest_id\030"
+  "\001 \001(\r\022\022\n\nquest_type\030\002 \001(\r\022\024\n\014max_progres"
+  "s\030\003 \001(\r\"2\n\014AdvanceQuest\022\020\n\010quest_id\030\001 \001("
+  "\r\022\020\n\010progress\030\002 \001(\r\",\n\010EndQuest\022\020\n\010quest"
+  "_id\030\001 \001(\r\022\016\n\006status\030\002 \001(\r\"\323\013\n\rPacketWrap"
+  "per\022\020\n\010sequence\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ac"
+  "k_bitfield\030\003 \001(\004\022\035\n\004ping\030\004 \001(\0132\r.awd.net"
+  ".PingH\000\022\035\n\004pong\030\005 \001(\0132\r.awd.net.PongH\000\0226"
+  "\n\021handshake_request\030\n \001(\0132\031.awd.net.Hand"
+  "shakeRequestH\000\0228\n\022handshake_response\030\013 \001"
+  "(\0132\032.awd.net.HandshakeResponseH\000\022;\n\024crea"
+  "te_lobby_request\030d \001(\0132\033.awd.net.CreateL"
+  "obbyRequestH\000\022=\n\025create_lobby_response\030e"
+  " \001(\0132\034.awd.net.CreateLobbyResponseH\000\0227\n\022"
+  "join_lobby_request\030f \001(\0132\031.awd.net.JoinL"
+  "obbyRequestH\000\0229\n\023join_lobby_response\030g \001"
+  "(\0132\032.awd.net.JoinLobbyResponseH\000\0229\n\023leav"
+  "e_lobby_request\030h \001(\0132\032.awd.net.LeaveLob"
+  "byRequestH\000\022;\n\024leave_lobby_response\030i \001("
+  "\0132\033.awd.net.LeaveLobbyResponseH\000\0225\n\021kick"
+  "ed_from_lobby\030j \001(\0132\030.awd.net.KickedFrom"
+  "LobbyH\000\022;\n\024updated_members_list\030k \001(\0132\033."
+  "awd.net.UpdatedMembersListH\000\022C\n\030begin_pl"
+  "ay_state_request\030\205\007 \001(\0132\036.awd.net.BeginP"
+  "layStateRequestH\000\022E\n\031begin_play_state_re"
+  "sponse\030\206\007 \001(\0132\037.awd.net.BeginPlayStateRe"
+  "sponseH\000\022D\n\030update_dimension_command\030\350\007 "
+  "\001(\0132\037.awd.net.UpdateDimensionCommandH\000\022F"
+  "\n\031update_dimension_complete\030\351\007 \001(\0132 .awd"
+  ".net.UpdateDimensionCompleteH\000\0228\n\022join_w"
+  "orld_command\030\352\007 \001(\0132\031.awd.net.JoinWorldC"
+  "ommandH\000\022:\n\023join_world_complete\030\353\007 \001(\0132\032"
+  ".awd.net.JoinWorldCompleteH\000\022-\n\014spawn_en"
+  "tity\030\320\017 \001(\0132\024.awd.net.SpawnEntityH\000\0221\n\016d"
+  "espawn_entity\030\321\017 \001(\0132\026.awd.net.DespawnEn"
+  "tityH\000\022<\n\024update_player_inputs\030\270\027 \001(\0132\033."
+  "awd.net.UpdatePlayerInputsH\000\022@\n\026update_e"
+  "ntity_position\030\271\027 \001(\0132\035.awd.net.UpdateEn"
+  "tityPositionH\000\022+\n\013begin_quest\030\240\037 \001(\0132\023.a"
+  "wd.net.BeginQuestH\000\022/\n\radvance_quest\030\241\037 "
+  "\001(\0132\025.awd.net.AdvanceQuestH\000\022\'\n\tend_ques"
+  "t\030\242\037 \001(\0132\021.awd.net.EndQuestH\000B\010\n\006packetB"
+  "\024\n\020gg.aswedrown.netP\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_packets_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_packets_2eproto = {
-  false, false, 3082, descriptor_table_protodef_packets_2eproto, "packets.proto", 
-  &descriptor_table_packets_2eproto_once, nullptr, 0, 28,
+  false, false, 3389, descriptor_table_protodef_packets_2eproto, "packets.proto", 
+  &descriptor_table_packets_2eproto_once, nullptr, 0, 31,
   schemas, file_default_instances, TableStruct_packets_2eproto::offsets,
   file_level_metadata_packets_2eproto, file_level_enum_descriptors_packets_2eproto, file_level_service_descriptors_packets_2eproto,
 };
@@ -5549,6 +5627,701 @@ void UpdateEntityPosition::InternalSwap(UpdateEntityPosition* other) {
 
 // ===================================================================
 
+class BeginQuest::_Internal {
+ public:
+};
+
+BeginQuest::BeginQuest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:awd.net.BeginQuest)
+}
+BeginQuest::BeginQuest(const BeginQuest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&quest_id_, &from.quest_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&max_progress_) -
+    reinterpret_cast<char*>(&quest_id_)) + sizeof(max_progress_));
+  // @@protoc_insertion_point(copy_constructor:awd.net.BeginQuest)
+}
+
+void BeginQuest::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&quest_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&max_progress_) -
+    reinterpret_cast<char*>(&quest_id_)) + sizeof(max_progress_));
+}
+
+BeginQuest::~BeginQuest() {
+  // @@protoc_insertion_point(destructor:awd.net.BeginQuest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void BeginQuest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void BeginQuest::ArenaDtor(void* object) {
+  BeginQuest* _this = reinterpret_cast< BeginQuest* >(object);
+  (void)_this;
+}
+void BeginQuest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void BeginQuest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void BeginQuest::Clear() {
+// @@protoc_insertion_point(message_clear_start:awd.net.BeginQuest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&quest_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&max_progress_) -
+      reinterpret_cast<char*>(&quest_id_)) + sizeof(max_progress_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* BeginQuest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 quest_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          quest_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 quest_type = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          quest_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 max_progress = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          max_progress_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* BeginQuest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:awd.net.BeginQuest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 quest_id = 1;
+  if (this->quest_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_quest_id(), target);
+  }
+
+  // uint32 quest_type = 2;
+  if (this->quest_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_quest_type(), target);
+  }
+
+  // uint32 max_progress = 3;
+  if (this->max_progress() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_max_progress(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:awd.net.BeginQuest)
+  return target;
+}
+
+size_t BeginQuest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:awd.net.BeginQuest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 quest_id = 1;
+  if (this->quest_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_quest_id());
+  }
+
+  // uint32 quest_type = 2;
+  if (this->quest_type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_quest_type());
+  }
+
+  // uint32 max_progress = 3;
+  if (this->max_progress() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_max_progress());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void BeginQuest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:awd.net.BeginQuest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BeginQuest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BeginQuest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:awd.net.BeginQuest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:awd.net.BeginQuest)
+    MergeFrom(*source);
+  }
+}
+
+void BeginQuest::MergeFrom(const BeginQuest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:awd.net.BeginQuest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.quest_id() != 0) {
+    _internal_set_quest_id(from._internal_quest_id());
+  }
+  if (from.quest_type() != 0) {
+    _internal_set_quest_type(from._internal_quest_type());
+  }
+  if (from.max_progress() != 0) {
+    _internal_set_max_progress(from._internal_max_progress());
+  }
+}
+
+void BeginQuest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:awd.net.BeginQuest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BeginQuest::CopyFrom(const BeginQuest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:awd.net.BeginQuest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BeginQuest::IsInitialized() const {
+  return true;
+}
+
+void BeginQuest::InternalSwap(BeginQuest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(BeginQuest, max_progress_)
+      + sizeof(BeginQuest::max_progress_)
+      - PROTOBUF_FIELD_OFFSET(BeginQuest, quest_id_)>(
+          reinterpret_cast<char*>(&quest_id_),
+          reinterpret_cast<char*>(&other->quest_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BeginQuest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class AdvanceQuest::_Internal {
+ public:
+};
+
+AdvanceQuest::AdvanceQuest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:awd.net.AdvanceQuest)
+}
+AdvanceQuest::AdvanceQuest(const AdvanceQuest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&quest_id_, &from.quest_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&progress_) -
+    reinterpret_cast<char*>(&quest_id_)) + sizeof(progress_));
+  // @@protoc_insertion_point(copy_constructor:awd.net.AdvanceQuest)
+}
+
+void AdvanceQuest::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&quest_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&progress_) -
+    reinterpret_cast<char*>(&quest_id_)) + sizeof(progress_));
+}
+
+AdvanceQuest::~AdvanceQuest() {
+  // @@protoc_insertion_point(destructor:awd.net.AdvanceQuest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void AdvanceQuest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void AdvanceQuest::ArenaDtor(void* object) {
+  AdvanceQuest* _this = reinterpret_cast< AdvanceQuest* >(object);
+  (void)_this;
+}
+void AdvanceQuest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void AdvanceQuest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void AdvanceQuest::Clear() {
+// @@protoc_insertion_point(message_clear_start:awd.net.AdvanceQuest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&quest_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&progress_) -
+      reinterpret_cast<char*>(&quest_id_)) + sizeof(progress_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* AdvanceQuest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 quest_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          quest_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 progress = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          progress_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* AdvanceQuest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:awd.net.AdvanceQuest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 quest_id = 1;
+  if (this->quest_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_quest_id(), target);
+  }
+
+  // uint32 progress = 2;
+  if (this->progress() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_progress(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:awd.net.AdvanceQuest)
+  return target;
+}
+
+size_t AdvanceQuest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:awd.net.AdvanceQuest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 quest_id = 1;
+  if (this->quest_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_quest_id());
+  }
+
+  // uint32 progress = 2;
+  if (this->progress() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_progress());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void AdvanceQuest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:awd.net.AdvanceQuest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const AdvanceQuest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<AdvanceQuest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:awd.net.AdvanceQuest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:awd.net.AdvanceQuest)
+    MergeFrom(*source);
+  }
+}
+
+void AdvanceQuest::MergeFrom(const AdvanceQuest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:awd.net.AdvanceQuest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.quest_id() != 0) {
+    _internal_set_quest_id(from._internal_quest_id());
+  }
+  if (from.progress() != 0) {
+    _internal_set_progress(from._internal_progress());
+  }
+}
+
+void AdvanceQuest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:awd.net.AdvanceQuest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AdvanceQuest::CopyFrom(const AdvanceQuest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:awd.net.AdvanceQuest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AdvanceQuest::IsInitialized() const {
+  return true;
+}
+
+void AdvanceQuest::InternalSwap(AdvanceQuest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(AdvanceQuest, progress_)
+      + sizeof(AdvanceQuest::progress_)
+      - PROTOBUF_FIELD_OFFSET(AdvanceQuest, quest_id_)>(
+          reinterpret_cast<char*>(&quest_id_),
+          reinterpret_cast<char*>(&other->quest_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata AdvanceQuest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class EndQuest::_Internal {
+ public:
+};
+
+EndQuest::EndQuest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:awd.net.EndQuest)
+}
+EndQuest::EndQuest(const EndQuest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&quest_id_, &from.quest_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&status_) -
+    reinterpret_cast<char*>(&quest_id_)) + sizeof(status_));
+  // @@protoc_insertion_point(copy_constructor:awd.net.EndQuest)
+}
+
+void EndQuest::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&quest_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&status_) -
+    reinterpret_cast<char*>(&quest_id_)) + sizeof(status_));
+}
+
+EndQuest::~EndQuest() {
+  // @@protoc_insertion_point(destructor:awd.net.EndQuest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void EndQuest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void EndQuest::ArenaDtor(void* object) {
+  EndQuest* _this = reinterpret_cast< EndQuest* >(object);
+  (void)_this;
+}
+void EndQuest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void EndQuest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void EndQuest::Clear() {
+// @@protoc_insertion_point(message_clear_start:awd.net.EndQuest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&quest_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&status_) -
+      reinterpret_cast<char*>(&quest_id_)) + sizeof(status_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* EndQuest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 quest_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          quest_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 status = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* EndQuest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:awd.net.EndQuest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 quest_id = 1;
+  if (this->quest_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_quest_id(), target);
+  }
+
+  // uint32 status = 2;
+  if (this->status() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_status(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:awd.net.EndQuest)
+  return target;
+}
+
+size_t EndQuest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:awd.net.EndQuest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 quest_id = 1;
+  if (this->quest_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_quest_id());
+  }
+
+  // uint32 status = 2;
+  if (this->status() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_status());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void EndQuest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:awd.net.EndQuest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const EndQuest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<EndQuest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:awd.net.EndQuest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:awd.net.EndQuest)
+    MergeFrom(*source);
+  }
+}
+
+void EndQuest::MergeFrom(const EndQuest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:awd.net.EndQuest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.quest_id() != 0) {
+    _internal_set_quest_id(from._internal_quest_id());
+  }
+  if (from.status() != 0) {
+    _internal_set_status(from._internal_status());
+  }
+}
+
+void EndQuest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:awd.net.EndQuest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EndQuest::CopyFrom(const EndQuest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:awd.net.EndQuest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EndQuest::IsInitialized() const {
+  return true;
+}
+
+void EndQuest::InternalSwap(EndQuest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(EndQuest, status_)
+      + sizeof(EndQuest::status_)
+      - PROTOBUF_FIELD_OFFSET(EndQuest, quest_id_)>(
+          reinterpret_cast<char*>(&quest_id_),
+          reinterpret_cast<char*>(&other->quest_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata EndQuest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class PacketWrapper::_Internal {
  public:
   static const ::awd::net::Ping& ping(const PacketWrapper* msg);
@@ -5573,6 +6346,9 @@ class PacketWrapper::_Internal {
   static const ::awd::net::DespawnEntity& despawn_entity(const PacketWrapper* msg);
   static const ::awd::net::UpdatePlayerInputs& update_player_inputs(const PacketWrapper* msg);
   static const ::awd::net::UpdateEntityPosition& update_entity_position(const PacketWrapper* msg);
+  static const ::awd::net::BeginQuest& begin_quest(const PacketWrapper* msg);
+  static const ::awd::net::AdvanceQuest& advance_quest(const PacketWrapper* msg);
+  static const ::awd::net::EndQuest& end_quest(const PacketWrapper* msg);
 };
 
 const ::awd::net::Ping&
@@ -5662,6 +6438,18 @@ PacketWrapper::_Internal::update_player_inputs(const PacketWrapper* msg) {
 const ::awd::net::UpdateEntityPosition&
 PacketWrapper::_Internal::update_entity_position(const PacketWrapper* msg) {
   return *msg->packet_.update_entity_position_;
+}
+const ::awd::net::BeginQuest&
+PacketWrapper::_Internal::begin_quest(const PacketWrapper* msg) {
+  return *msg->packet_.begin_quest_;
+}
+const ::awd::net::AdvanceQuest&
+PacketWrapper::_Internal::advance_quest(const PacketWrapper* msg) {
+  return *msg->packet_.advance_quest_;
+}
+const ::awd::net::EndQuest&
+PacketWrapper::_Internal::end_quest(const PacketWrapper* msg) {
+  return *msg->packet_.end_quest_;
 }
 void PacketWrapper::set_allocated_ping(::awd::net::Ping* ping) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -5993,6 +6781,51 @@ void PacketWrapper::set_allocated_update_entity_position(::awd::net::UpdateEntit
   }
   // @@protoc_insertion_point(field_set_allocated:awd.net.PacketWrapper.update_entity_position)
 }
+void PacketWrapper::set_allocated_begin_quest(::awd::net::BeginQuest* begin_quest) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_packet();
+  if (begin_quest) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(begin_quest);
+    if (message_arena != submessage_arena) {
+      begin_quest = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, begin_quest, submessage_arena);
+    }
+    set_has_begin_quest();
+    packet_.begin_quest_ = begin_quest;
+  }
+  // @@protoc_insertion_point(field_set_allocated:awd.net.PacketWrapper.begin_quest)
+}
+void PacketWrapper::set_allocated_advance_quest(::awd::net::AdvanceQuest* advance_quest) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_packet();
+  if (advance_quest) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(advance_quest);
+    if (message_arena != submessage_arena) {
+      advance_quest = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, advance_quest, submessage_arena);
+    }
+    set_has_advance_quest();
+    packet_.advance_quest_ = advance_quest;
+  }
+  // @@protoc_insertion_point(field_set_allocated:awd.net.PacketWrapper.advance_quest)
+}
+void PacketWrapper::set_allocated_end_quest(::awd::net::EndQuest* end_quest) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_packet();
+  if (end_quest) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(end_quest);
+    if (message_arena != submessage_arena) {
+      end_quest = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, end_quest, submessage_arena);
+    }
+    set_has_end_quest();
+    packet_.end_quest_ = end_quest;
+  }
+  // @@protoc_insertion_point(field_set_allocated:awd.net.PacketWrapper.end_quest)
+}
 PacketWrapper::PacketWrapper(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -6093,6 +6926,18 @@ PacketWrapper::PacketWrapper(const PacketWrapper& from)
     }
     case kUpdateEntityPosition: {
       _internal_mutable_update_entity_position()->::awd::net::UpdateEntityPosition::MergeFrom(from._internal_update_entity_position());
+      break;
+    }
+    case kBeginQuest: {
+      _internal_mutable_begin_quest()->::awd::net::BeginQuest::MergeFrom(from._internal_begin_quest());
+      break;
+    }
+    case kAdvanceQuest: {
+      _internal_mutable_advance_quest()->::awd::net::AdvanceQuest::MergeFrom(from._internal_advance_quest());
+      break;
+    }
+    case kEndQuest: {
+      _internal_mutable_end_quest()->::awd::net::EndQuest::MergeFrom(from._internal_end_quest());
       break;
     }
     case PACKET_NOT_SET: {
@@ -6265,6 +7110,24 @@ void PacketWrapper::clear_packet() {
     case kUpdateEntityPosition: {
       if (GetArena() == nullptr) {
         delete packet_.update_entity_position_;
+      }
+      break;
+    }
+    case kBeginQuest: {
+      if (GetArena() == nullptr) {
+        delete packet_.begin_quest_;
+      }
+      break;
+    }
+    case kAdvanceQuest: {
+      if (GetArena() == nullptr) {
+        delete packet_.advance_quest_;
+      }
+      break;
+    }
+    case kEndQuest: {
+      if (GetArena() == nullptr) {
+        delete packet_.end_quest_;
       }
       break;
     }
@@ -6468,6 +7331,27 @@ const char* PacketWrapper::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
       case 3001:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 202)) {
           ptr = ctx->ParseMessage(_internal_mutable_update_entity_position(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .awd.net.BeginQuest begin_quest = 4000;
+      case 4000:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 2)) {
+          ptr = ctx->ParseMessage(_internal_mutable_begin_quest(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .awd.net.AdvanceQuest advance_quest = 4001;
+      case 4001:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_advance_quest(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .awd.net.EndQuest end_quest = 4002;
+      case 4002:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_end_quest(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -6693,6 +7577,30 @@ failure:
         3001, _Internal::update_entity_position(this), target, stream);
   }
 
+  // .awd.net.BeginQuest begin_quest = 4000;
+  if (_internal_has_begin_quest()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4000, _Internal::begin_quest(this), target, stream);
+  }
+
+  // .awd.net.AdvanceQuest advance_quest = 4001;
+  if (_internal_has_advance_quest()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4001, _Internal::advance_quest(this), target, stream);
+  }
+
+  // .awd.net.EndQuest end_quest = 4002;
+  if (_internal_has_end_quest()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4002, _Internal::end_quest(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6885,6 +7793,27 @@ size_t PacketWrapper::ByteSizeLong() const {
           *packet_.update_entity_position_);
       break;
     }
+    // .awd.net.BeginQuest begin_quest = 4000;
+    case kBeginQuest: {
+      total_size += 3 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *packet_.begin_quest_);
+      break;
+    }
+    // .awd.net.AdvanceQuest advance_quest = 4001;
+    case kAdvanceQuest: {
+      total_size += 3 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *packet_.advance_quest_);
+      break;
+    }
+    // .awd.net.EndQuest end_quest = 4002;
+    case kEndQuest: {
+      total_size += 3 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *packet_.end_quest_);
+      break;
+    }
     case PACKET_NOT_SET: {
       break;
     }
@@ -7018,6 +7947,18 @@ void PacketWrapper::MergeFrom(const PacketWrapper& from) {
       _internal_mutable_update_entity_position()->::awd::net::UpdateEntityPosition::MergeFrom(from._internal_update_entity_position());
       break;
     }
+    case kBeginQuest: {
+      _internal_mutable_begin_quest()->::awd::net::BeginQuest::MergeFrom(from._internal_begin_quest());
+      break;
+    }
+    case kAdvanceQuest: {
+      _internal_mutable_advance_quest()->::awd::net::AdvanceQuest::MergeFrom(from._internal_advance_quest());
+      break;
+    }
+    case kEndQuest: {
+      _internal_mutable_end_quest()->::awd::net::EndQuest::MergeFrom(from._internal_end_quest());
+      break;
+    }
     case PACKET_NOT_SET: {
       break;
     }
@@ -7144,6 +8085,15 @@ template<> PROTOBUF_NOINLINE ::awd::net::UpdatePlayerInputs* Arena::CreateMaybeM
 }
 template<> PROTOBUF_NOINLINE ::awd::net::UpdateEntityPosition* Arena::CreateMaybeMessage< ::awd::net::UpdateEntityPosition >(Arena* arena) {
   return Arena::CreateMessageInternal< ::awd::net::UpdateEntityPosition >(arena);
+}
+template<> PROTOBUF_NOINLINE ::awd::net::BeginQuest* Arena::CreateMaybeMessage< ::awd::net::BeginQuest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::BeginQuest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::awd::net::AdvanceQuest* Arena::CreateMaybeMessage< ::awd::net::AdvanceQuest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::AdvanceQuest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::awd::net::EndQuest* Arena::CreateMaybeMessage< ::awd::net::EndQuest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::EndQuest >(arena);
 }
 template<> PROTOBUF_NOINLINE ::awd::net::PacketWrapper* Arena::CreateMaybeMessage< ::awd::net::PacketWrapper >(Arena* arena) {
   return Arena::CreateMessageInternal< ::awd::net::PacketWrapper >(arena);

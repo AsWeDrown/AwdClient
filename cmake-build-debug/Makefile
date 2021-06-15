@@ -1267,6 +1267,60 @@ game/packetlistener/lobby/UpdatedMembersListListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 .PHONY : game/packetlistener/lobby/UpdatedMembersListListener.cpp.s
 
+game/packetlistener/play/AdvanceQuestListener.obj: game/packetlistener/play/AdvanceQuestListener.cpp.obj
+
+.PHONY : game/packetlistener/play/AdvanceQuestListener.obj
+
+# target to build an object file
+game/packetlistener/play/AdvanceQuestListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/AdvanceQuestListener.cpp.obj
+.PHONY : game/packetlistener/play/AdvanceQuestListener.cpp.obj
+
+game/packetlistener/play/AdvanceQuestListener.i: game/packetlistener/play/AdvanceQuestListener.cpp.i
+
+.PHONY : game/packetlistener/play/AdvanceQuestListener.i
+
+# target to preprocess a source file
+game/packetlistener/play/AdvanceQuestListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/AdvanceQuestListener.cpp.i
+.PHONY : game/packetlistener/play/AdvanceQuestListener.cpp.i
+
+game/packetlistener/play/AdvanceQuestListener.s: game/packetlistener/play/AdvanceQuestListener.cpp.s
+
+.PHONY : game/packetlistener/play/AdvanceQuestListener.s
+
+# target to generate assembly for a file
+game/packetlistener/play/AdvanceQuestListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/AdvanceQuestListener.cpp.s
+.PHONY : game/packetlistener/play/AdvanceQuestListener.cpp.s
+
+game/packetlistener/play/BeginQuestListener.obj: game/packetlistener/play/BeginQuestListener.cpp.obj
+
+.PHONY : game/packetlistener/play/BeginQuestListener.obj
+
+# target to build an object file
+game/packetlistener/play/BeginQuestListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/BeginQuestListener.cpp.obj
+.PHONY : game/packetlistener/play/BeginQuestListener.cpp.obj
+
+game/packetlistener/play/BeginQuestListener.i: game/packetlistener/play/BeginQuestListener.cpp.i
+
+.PHONY : game/packetlistener/play/BeginQuestListener.i
+
+# target to preprocess a source file
+game/packetlistener/play/BeginQuestListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/BeginQuestListener.cpp.i
+.PHONY : game/packetlistener/play/BeginQuestListener.cpp.i
+
+game/packetlistener/play/BeginQuestListener.s: game/packetlistener/play/BeginQuestListener.cpp.s
+
+.PHONY : game/packetlistener/play/BeginQuestListener.s
+
+# target to generate assembly for a file
+game/packetlistener/play/BeginQuestListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/BeginQuestListener.cpp.s
+.PHONY : game/packetlistener/play/BeginQuestListener.cpp.s
+
 game/packetlistener/play/DespawnEntityListener.obj: game/packetlistener/play/DespawnEntityListener.cpp.obj
 
 .PHONY : game/packetlistener/play/DespawnEntityListener.obj
@@ -1293,6 +1347,33 @@ game/packetlistener/play/DespawnEntityListener.s: game/packetlistener/play/Despa
 game/packetlistener/play/DespawnEntityListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.s
 .PHONY : game/packetlistener/play/DespawnEntityListener.cpp.s
+
+game/packetlistener/play/EndQuestListener.obj: game/packetlistener/play/EndQuestListener.cpp.obj
+
+.PHONY : game/packetlistener/play/EndQuestListener.obj
+
+# target to build an object file
+game/packetlistener/play/EndQuestListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/EndQuestListener.cpp.obj
+.PHONY : game/packetlistener/play/EndQuestListener.cpp.obj
+
+game/packetlistener/play/EndQuestListener.i: game/packetlistener/play/EndQuestListener.cpp.i
+
+.PHONY : game/packetlistener/play/EndQuestListener.i
+
+# target to preprocess a source file
+game/packetlistener/play/EndQuestListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/EndQuestListener.cpp.i
+.PHONY : game/packetlistener/play/EndQuestListener.cpp.i
+
+game/packetlistener/play/EndQuestListener.s: game/packetlistener/play/EndQuestListener.cpp.s
+
+.PHONY : game/packetlistener/play/EndQuestListener.s
+
+# target to generate assembly for a file
+game/packetlistener/play/EndQuestListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/EndQuestListener.cpp.s
+.PHONY : game/packetlistener/play/EndQuestListener.cpp.s
 
 game/packetlistener/play/JoinWorldCommandListener.obj: game/packetlistener/play/JoinWorldCommandListener.cpp.obj
 
@@ -2264,9 +2345,18 @@ help:
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.obj
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.i
 	@echo ... game/packetlistener/lobby/UpdatedMembersListListener.s
+	@echo ... game/packetlistener/play/AdvanceQuestListener.obj
+	@echo ... game/packetlistener/play/AdvanceQuestListener.i
+	@echo ... game/packetlistener/play/AdvanceQuestListener.s
+	@echo ... game/packetlistener/play/BeginQuestListener.obj
+	@echo ... game/packetlistener/play/BeginQuestListener.i
+	@echo ... game/packetlistener/play/BeginQuestListener.s
 	@echo ... game/packetlistener/play/DespawnEntityListener.obj
 	@echo ... game/packetlistener/play/DespawnEntityListener.i
 	@echo ... game/packetlistener/play/DespawnEntityListener.s
+	@echo ... game/packetlistener/play/EndQuestListener.obj
+	@echo ... game/packetlistener/play/EndQuestListener.i
+	@echo ... game/packetlistener/play/EndQuestListener.s
 	@echo ... game/packetlistener/play/JoinWorldCommandListener.obj
 	@echo ... game/packetlistener/play/JoinWorldCommandListener.i
 	@echo ... game/packetlistener/play/JoinWorldCommandListener.s
