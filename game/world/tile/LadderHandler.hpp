@@ -1,14 +1,12 @@
 #pragma once
 
 
-#include "TileHandler.hpp"
+#include "VoidHandler.hpp"
 
 namespace awd::game {
 
-    class LadderHandler : public TileHandler {
+    class LadderHandler : public VoidHandler {
     public:
-        bool isPassableBy(const Entity& entity) override;
-
         bool isClimbableBy(const Entity& entity) override;
     };
 

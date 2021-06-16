@@ -972,10 +972,6 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ButtonListener.hpp
 Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
-SFML/Graphics/Color.hpp
--
-
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
 Button.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
@@ -1004,26 +1000,6 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
 Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.hpp
-memory
--
-SFML/Graphics.hpp
--
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
-vector
--
-SFML/Graphics/Transformable.hpp
--
-SFML/Graphics/Drawable.hpp
--
-SFML/Graphics/Color.hpp
--
-SFML/Graphics/Text.hpp
--
-SFML/System/Vector2.hpp
--
-
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
 ../common/Button.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
@@ -1033,28 +1009,6 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Dialog.hpp
 LoadingOverlay.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/UniformGridBuilder.hpp
-SFML/Graphics.hpp
--
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.cpp
-WaterBackground.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.hpp
-ColorSet.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/ColorSet.hpp
-../../util/RenderUtils.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
-../../Game.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
-UniformGridBuilder.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/UniformGridBuilder.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.hpp
-Drawable.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
-RectWrapper.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/data/FontManager.hpp
 memory
@@ -1104,14 +1058,6 @@ string
 stdexcept
 -
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
-memory
--
-SFML/Graphics.hpp
--
-../graphics/common/RichText.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
-
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/BoundingBox.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/Collidable.hpp
@@ -1149,8 +1095,6 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldLoader.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.hpp
 ../entity/Fallable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Fallable.hpp
-../graphics/common/WaterBackground.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
 ../graphics/common/Drawable.hpp

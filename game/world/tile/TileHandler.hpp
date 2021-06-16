@@ -10,6 +10,8 @@ namespace awd::game {
         virtual bool isPassableBy(const Entity& entity) = 0;
 
         virtual bool isClimbableBy(const Entity& entity);
+
+        virtual bool canInteract(const Entity& entity);
     };
 
 }

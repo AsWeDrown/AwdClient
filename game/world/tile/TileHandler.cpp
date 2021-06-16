@@ -6,4 +6,8 @@ namespace awd::game {
         return false;
     }
 
+    bool TileHandler::canInteract(const Entity& entity) {
+        return false;
+    }
+
 }

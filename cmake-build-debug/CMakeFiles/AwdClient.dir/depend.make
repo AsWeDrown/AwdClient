@@ -6891,9 +6891,7 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/common/Dialo
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/common/Drawable.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/common/Identifiers.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/common/LoadingOverlay.hpp
-CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/common/RectWrapper.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/common/Screen.hpp
-CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/common/WaterBackground.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/data/FontManager.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/graphics/data/TextureManager.hpp
 CMakeFiles/AwdClient.dir/game/world/World.cpp.obj: ../game/lobby/Lobby.hpp

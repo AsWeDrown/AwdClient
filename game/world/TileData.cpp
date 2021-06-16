@@ -31,11 +31,14 @@ namespace awd::game {
 
     void TileData::init() {
         // Пустота (void) (тайлы, сквозь которые всегда можно спокойно, беспрепятственно проходить).
-        auto voidHandlerFctory = std::make_shared<VoidHandlerFactory>();
-        reg(0xffffff,   0, voidHandlerFctory);
-        reg(0x84659c,   8, voidHandlerFctory);
-        reg(0x9a78b4,   9, voidHandlerFctory);
-        reg(0xacb4e2,  10, voidHandlerFctory);
+        auto voidHandlerFactory = std::make_shared<VoidHandlerFactory>();
+        reg(0xffffff,   0, voidHandlerFactory);
+        reg(0x84659c,   8, voidHandlerFactory);
+        reg(0x9a78b4,   9, voidHandlerFactory);
+        reg(0xacb4e2,  10, voidHandlerFactory);
+        reg(0xacb4e2,  10, voidHandlerFactory);
+        reg(0x5e5e5e,  11, voidHandlerFactory);
+        reg(0xd24a44,  12, voidHandlerFactory);
 
         // Твёрдые тайлы (solid).
         auto solidHandlerFactory = std::make_shared<SolidHandlerFactory>();
@@ -49,6 +52,11 @@ namespace awd::game {
         // Лестницы.
         auto ladderHandlerFactory = std::make_shared<LadderHandlerFactory>();
         reg(0x865e3a,   7, ladderHandlerFactory);
+
+        // Тайлы, с которыми можно взаимодействовать.
+        auto switchHandlerFactory = std::make_shared<SwitchHandlerFactory>();
+        reg(0x9ac561,  13, switchHandlerFactory);
+        reg(0x6e8a47,  14, switchHandlerFactory);
     }
 
     std::shared_ptr<TileHandler> TileData::newTileHandler(uint32_t tileId) {

@@ -1861,6 +1861,33 @@ game/world/WorldLoader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/WorldLoader.cpp.s
 .PHONY : game/world/WorldLoader.cpp.s
 
+game/world/tile/InteractableHandler.obj: game/world/tile/InteractableHandler.cpp.obj
+
+.PHONY : game/world/tile/InteractableHandler.obj
+
+# target to build an object file
+game/world/tile/InteractableHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/InteractableHandler.cpp.obj
+.PHONY : game/world/tile/InteractableHandler.cpp.obj
+
+game/world/tile/InteractableHandler.i: game/world/tile/InteractableHandler.cpp.i
+
+.PHONY : game/world/tile/InteractableHandler.i
+
+# target to preprocess a source file
+game/world/tile/InteractableHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/InteractableHandler.cpp.i
+.PHONY : game/world/tile/InteractableHandler.cpp.i
+
+game/world/tile/InteractableHandler.s: game/world/tile/InteractableHandler.cpp.s
+
+.PHONY : game/world/tile/InteractableHandler.s
+
+# target to generate assembly for a file
+game/world/tile/InteractableHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/InteractableHandler.cpp.s
+.PHONY : game/world/tile/InteractableHandler.cpp.s
+
 game/world/tile/LadderHandler.obj: game/world/tile/LadderHandler.cpp.obj
 
 .PHONY : game/world/tile/LadderHandler.obj
@@ -1914,6 +1941,33 @@ game/world/tile/SolidHandler.s: game/world/tile/SolidHandler.cpp.s
 game/world/tile/SolidHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/SolidHandler.cpp.s
 .PHONY : game/world/tile/SolidHandler.cpp.s
+
+game/world/tile/SwitchHandler.obj: game/world/tile/SwitchHandler.cpp.obj
+
+.PHONY : game/world/tile/SwitchHandler.obj
+
+# target to build an object file
+game/world/tile/SwitchHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/SwitchHandler.cpp.obj
+.PHONY : game/world/tile/SwitchHandler.cpp.obj
+
+game/world/tile/SwitchHandler.i: game/world/tile/SwitchHandler.cpp.i
+
+.PHONY : game/world/tile/SwitchHandler.i
+
+# target to preprocess a source file
+game/world/tile/SwitchHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/SwitchHandler.cpp.i
+.PHONY : game/world/tile/SwitchHandler.cpp.i
+
+game/world/tile/SwitchHandler.s: game/world/tile/SwitchHandler.cpp.s
+
+.PHONY : game/world/tile/SwitchHandler.s
+
+# target to generate assembly for a file
+game/world/tile/SwitchHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/world/tile/SwitchHandler.cpp.s
+.PHONY : game/world/tile/SwitchHandler.cpp.s
 
 game/world/tile/TileHandler.obj: game/world/tile/TileHandler.cpp.obj
 
@@ -2411,12 +2465,18 @@ help:
 	@echo ... game/world/WorldLoader.obj
 	@echo ... game/world/WorldLoader.i
 	@echo ... game/world/WorldLoader.s
+	@echo ... game/world/tile/InteractableHandler.obj
+	@echo ... game/world/tile/InteractableHandler.i
+	@echo ... game/world/tile/InteractableHandler.s
 	@echo ... game/world/tile/LadderHandler.obj
 	@echo ... game/world/tile/LadderHandler.i
 	@echo ... game/world/tile/LadderHandler.s
 	@echo ... game/world/tile/SolidHandler.obj
 	@echo ... game/world/tile/SolidHandler.i
 	@echo ... game/world/tile/SolidHandler.s
+	@echo ... game/world/tile/SwitchHandler.obj
+	@echo ... game/world/tile/SwitchHandler.i
+	@echo ... game/world/tile/SwitchHandler.s
 	@echo ... game/world/tile/TileHandler.obj
 	@echo ... game/world/tile/TileHandler.i
 	@echo ... game/world/tile/TileHandler.s

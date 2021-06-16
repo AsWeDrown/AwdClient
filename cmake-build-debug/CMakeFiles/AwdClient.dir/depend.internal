@@ -6892,9 +6892,7 @@ CMakeFiles/AwdClient.dir/game/world/World.cpp.obj
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
- E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RectWrapper.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
- E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/WaterBackground.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/data/FontManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/data/TextureManager.hpp
  E:/CLionProjects/AsWeDrown/AwdClient/game/lobby/Lobby.hpp

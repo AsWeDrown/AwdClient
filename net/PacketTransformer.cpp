@@ -288,6 +288,30 @@ namespace awd::net {
             wrapper.release_update_entity_position();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* player_tile_interact = dynamic_cast<PlayerTileInteract*>(packet)) {
+            wrapper.set_allocated_player_tile_interact(player_tile_interact);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_player_tile_interact();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* update_tile = dynamic_cast<UpdateTile*>(packet)) {
+            wrapper.set_allocated_update_tile(update_tile);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_update_tile();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* display_chat_message = dynamic_cast<DisplayChatMessage*>(packet)) {
+            wrapper.set_allocated_display_chat_message(display_chat_message);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_display_chat_message();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
         } else if (auto* begin_quest = dynamic_cast<BeginQuest*>(packet)) {
             wrapper.set_allocated_begin_quest(begin_quest);
             size_t dataLen = wrapper.ByteSizeLong();
@@ -439,6 +463,21 @@ namespace awd::net {
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<UpdateEntityPosition>(wrapper.update_entity_position()));
+
+            case PacketWrapper::PacketCase::kPlayerTileInteract:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<PlayerTileInteract>(wrapper.player_tile_interact()));
+
+            case PacketWrapper::PacketCase::kUpdateTile:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<UpdateTile>(wrapper.update_tile()));
+
+            case PacketWrapper::PacketCase::kDisplayChatMessage:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<DisplayChatMessage>(wrapper.display_chat_message()));
 
             case PacketWrapper::PacketCase::kBeginQuest:
                 return std::make_shared<UnwrappedPacketData>(
