@@ -337,9 +337,45 @@ namespace awd::game {
         LivingEntity::keyPressed(event);
     }
 
+    void EntityPlayer::mousePressed(const sf::Event::MouseButtonEvent& event) {
+        LivingEntity::mousePressed(event);
+
+        /* Взаимодействие с миром */
+
+        uint32_t command;
+
+        if (event.button == sf::Mouse::Left)
+            command = TILE_INTERACT_LEFT_CLICK;
+        else if (event.button == sf::Mouse::Right)
+            command = TILE_INTERACT_RIGHT_CLICK;
+        else
+            return;
+
+        auto world = Game::instance().currentWorld();
+        float dispTileSizePixels = world->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+
+        sf::Vector2i clickedScreenPos = sf::Vector2i(event.x, event.y);
+        sf::Vector2f clickedWorldPos = window->mapPixelToCoords(clickedScreenPos);
+        sf::Vector2i clickedTilePos = sf::Vector2i(
+                static_cast<int>(clickedWorldPos.x / dispTileSizePixels),
+                static_cast<int>(clickedWorldPos.y / dispTileSizePixels)
+        );
+
+        uint32_t tilePosX = clickedTilePos.x;
+        uint32_t tilePosY = clickedTilePos.y;
+
+        try {
+            TileBlock tile = world->getTerrainControls()->getTileAt(tilePosX, tilePosY);
+
+            if (tile.handler->canInteract(*this))
+                Game::instance().getNetService()->playerTileInteract(tilePosX, tilePosY, command);
+        } catch (const std::invalid_argument& ex) {
+            std::wcerr << ex.what() << std::endl;
+        }
+    }
+
     void EntityPlayer::update() {
         std::unique_lock<std::mutex> lock(mutex);
-
         LivingEntity::update();
 
         if (isControlled)

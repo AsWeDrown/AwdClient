@@ -141,4 +141,14 @@ namespace awd::net {
         packetManager->sendPacket(packet);
     }
 
+    void NetworkService::playerTileInteract(uint32_t x, uint32_t y, uint32_t command) {
+        auto packet = std::make_shared<PlayerTileInteract>();
+
+        packet->set_x(x);
+        packet->set_y(y);
+        packet->set_command(command);
+
+        packetManager->sendPacket(packet);
+    }
+
 }

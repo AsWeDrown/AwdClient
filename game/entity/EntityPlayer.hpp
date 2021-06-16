@@ -87,6 +87,9 @@ namespace awd::game {
         uint32_t prevPrevAnim       = Entities::EntityPlayer::ANIM_BASE_STILL_FRONT;
         uint32_t currentAnim        = Entities::EntityPlayer::ANIM_BASE_STILL_FRONT;
 
+        static const uint32_t TILE_INTERACT_LEFT_CLICK  = 1;
+        static const uint32_t TILE_INTERACT_RIGHT_CLICK = 2;
+
         MoveMechanics currentMoveMechanics;
 
         // Номер (sequence number) последнего пакета UpdatePlayerInputs,
@@ -126,6 +129,8 @@ namespace awd::game {
         ///////////////////////////////////////////////////////////////////////////////////////////
 
         void keyPressed(const sf::Event::KeyEvent& event) override;
+
+        void mousePressed(const sf::Event::MouseButtonEvent &event) override;
 
         void update() override;
 

@@ -14,7 +14,8 @@ namespace awd::game {
 
         if (c1 != rgbToTileIdMap.end() || c2 != tileHandlerFactories.end())
             throw std::invalid_argument(
-                    "duplicate tile data: rgb=#" + std::to_string(rgb) + ", id=" + std::to_string(tileId));
+                    "duplicate tile data: rgb=" + std::to_string(rgb) +
+                    " (decimal), id=" + std::to_string(tileId));
 
         tileHandlerFactories[tileId] = factory;
         rgbToTileIdMap[rgb] = tileId;
@@ -35,7 +36,6 @@ namespace awd::game {
         reg(0xffffff,   0, voidHandlerFactory);
         reg(0x84659c,   8, voidHandlerFactory);
         reg(0x9a78b4,   9, voidHandlerFactory);
-        reg(0xacb4e2,  10, voidHandlerFactory);
         reg(0xacb4e2,  10, voidHandlerFactory);
         reg(0x5e5e5e,  11, voidHandlerFactory);
         reg(0xd24a44,  12, voidHandlerFactory);
