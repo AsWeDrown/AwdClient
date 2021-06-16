@@ -350,6 +350,46 @@ struct UpdateEntityPositionDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UpdateEntityPositionDefaultTypeInternal _UpdateEntityPosition_default_instance_;
+constexpr PlayerTileInteract::PlayerTileInteract(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : x_(0u)
+  , y_(0u)
+  , command_(0u){}
+struct PlayerTileInteractDefaultTypeInternal {
+  constexpr PlayerTileInteractDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~PlayerTileInteractDefaultTypeInternal() {}
+  union {
+    PlayerTileInteract _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PlayerTileInteractDefaultTypeInternal _PlayerTileInteract_default_instance_;
+constexpr UpdateTile::UpdateTile(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : x_(0u)
+  , y_(0u)
+  , new_tile_id_(0u){}
+struct UpdateTileDefaultTypeInternal {
+  constexpr UpdateTileDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~UpdateTileDefaultTypeInternal() {}
+  union {
+    UpdateTile _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UpdateTileDefaultTypeInternal _UpdateTile_default_instance_;
+constexpr DisplayChatMessage::DisplayChatMessage(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct DisplayChatMessageDefaultTypeInternal {
+  constexpr DisplayChatMessageDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DisplayChatMessageDefaultTypeInternal() {}
+  union {
+    DisplayChatMessage _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DisplayChatMessageDefaultTypeInternal _DisplayChatMessage_default_instance_;
 constexpr BeginQuest::BeginQuest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : quest_id_(0u)
@@ -407,7 +447,7 @@ struct PacketWrapperDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PacketWrapperDefaultTypeInternal _PacketWrapper_default_instance_;
 }  // namespace net
 }  // namespace awd
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_packets_2eproto[31];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_packets_2eproto[34];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_packets_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_packets_2eproto = nullptr;
 
@@ -603,6 +643,28 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, last_tick_fall_distance_),
   PROTOBUF_FIELD_OFFSET(::awd::net::UpdateEntityPosition, fall_distance_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::awd::net::PlayerTileInteract, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::awd::net::PlayerTileInteract, x_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::PlayerTileInteract, y_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::PlayerTileInteract, command_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdateTile, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdateTile, x_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdateTile, y_),
+  PROTOBUF_FIELD_OFFSET(::awd::net::UpdateTile, new_tile_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::awd::net::DisplayChatMessage, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::awd::net::DisplayChatMessage, message_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::awd::net::BeginQuest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -632,6 +694,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_packets_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, sequence_),
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, ack_),
   PROTOBUF_FIELD_OFFSET(::awd::net::PacketWrapper, ack_bitfield_),
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
@@ -687,10 +752,13 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 166, -1, sizeof(::awd::net::DespawnEntity)},
   { 172, -1, sizeof(::awd::net::UpdatePlayerInputs)},
   { 178, -1, sizeof(::awd::net::UpdateEntityPosition)},
-  { 190, -1, sizeof(::awd::net::BeginQuest)},
-  { 198, -1, sizeof(::awd::net::AdvanceQuest)},
-  { 205, -1, sizeof(::awd::net::EndQuest)},
-  { 212, -1, sizeof(::awd::net::PacketWrapper)},
+  { 190, -1, sizeof(::awd::net::PlayerTileInteract)},
+  { 198, -1, sizeof(::awd::net::UpdateTile)},
+  { 206, -1, sizeof(::awd::net::DisplayChatMessage)},
+  { 212, -1, sizeof(::awd::net::BeginQuest)},
+  { 220, -1, sizeof(::awd::net::AdvanceQuest)},
+  { 227, -1, sizeof(::awd::net::EndQuest)},
+  { 234, -1, sizeof(::awd::net::PacketWrapper)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -721,6 +789,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_DespawnEntity_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdatePlayerInputs_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdateEntityPosition_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_PlayerTileInteract_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_UpdateTile_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_DisplayChatMessage_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_BeginQuest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_AdvanceQuest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::awd::net::_EndQuest_default_instance_),
@@ -770,54 +841,62 @@ const char descriptor_table_protodef_packets_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\001 \001(\r\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\022\022\n\nf"
   "ace_angle\030\004 \001(\002\022\024\n\014midair_ticks\030\005 \001(\r\022\037\n"
   "\027last_tick_fall_distance\030\006 \001(\002\022\025\n\rfall_d"
-  "istance\030\007 \001(\002\"H\n\nBeginQuest\022\020\n\010quest_id\030"
-  "\001 \001(\r\022\022\n\nquest_type\030\002 \001(\r\022\024\n\014max_progres"
-  "s\030\003 \001(\r\"2\n\014AdvanceQuest\022\020\n\010quest_id\030\001 \001("
-  "\r\022\020\n\010progress\030\002 \001(\r\",\n\010EndQuest\022\020\n\010quest"
-  "_id\030\001 \001(\r\022\016\n\006status\030\002 \001(\r\"\323\013\n\rPacketWrap"
-  "per\022\020\n\010sequence\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ac"
-  "k_bitfield\030\003 \001(\004\022\035\n\004ping\030\004 \001(\0132\r.awd.net"
-  ".PingH\000\022\035\n\004pong\030\005 \001(\0132\r.awd.net.PongH\000\0226"
-  "\n\021handshake_request\030\n \001(\0132\031.awd.net.Hand"
-  "shakeRequestH\000\0228\n\022handshake_response\030\013 \001"
-  "(\0132\032.awd.net.HandshakeResponseH\000\022;\n\024crea"
-  "te_lobby_request\030d \001(\0132\033.awd.net.CreateL"
-  "obbyRequestH\000\022=\n\025create_lobby_response\030e"
-  " \001(\0132\034.awd.net.CreateLobbyResponseH\000\0227\n\022"
-  "join_lobby_request\030f \001(\0132\031.awd.net.JoinL"
-  "obbyRequestH\000\0229\n\023join_lobby_response\030g \001"
-  "(\0132\032.awd.net.JoinLobbyResponseH\000\0229\n\023leav"
-  "e_lobby_request\030h \001(\0132\032.awd.net.LeaveLob"
-  "byRequestH\000\022;\n\024leave_lobby_response\030i \001("
-  "\0132\033.awd.net.LeaveLobbyResponseH\000\0225\n\021kick"
-  "ed_from_lobby\030j \001(\0132\030.awd.net.KickedFrom"
-  "LobbyH\000\022;\n\024updated_members_list\030k \001(\0132\033."
-  "awd.net.UpdatedMembersListH\000\022C\n\030begin_pl"
-  "ay_state_request\030\205\007 \001(\0132\036.awd.net.BeginP"
-  "layStateRequestH\000\022E\n\031begin_play_state_re"
-  "sponse\030\206\007 \001(\0132\037.awd.net.BeginPlayStateRe"
-  "sponseH\000\022D\n\030update_dimension_command\030\350\007 "
-  "\001(\0132\037.awd.net.UpdateDimensionCommandH\000\022F"
-  "\n\031update_dimension_complete\030\351\007 \001(\0132 .awd"
-  ".net.UpdateDimensionCompleteH\000\0228\n\022join_w"
-  "orld_command\030\352\007 \001(\0132\031.awd.net.JoinWorldC"
-  "ommandH\000\022:\n\023join_world_complete\030\353\007 \001(\0132\032"
-  ".awd.net.JoinWorldCompleteH\000\022-\n\014spawn_en"
-  "tity\030\320\017 \001(\0132\024.awd.net.SpawnEntityH\000\0221\n\016d"
-  "espawn_entity\030\321\017 \001(\0132\026.awd.net.DespawnEn"
-  "tityH\000\022<\n\024update_player_inputs\030\270\027 \001(\0132\033."
-  "awd.net.UpdatePlayerInputsH\000\022@\n\026update_e"
-  "ntity_position\030\271\027 \001(\0132\035.awd.net.UpdateEn"
-  "tityPositionH\000\022+\n\013begin_quest\030\240\037 \001(\0132\023.a"
-  "wd.net.BeginQuestH\000\022/\n\radvance_quest\030\241\037 "
-  "\001(\0132\025.awd.net.AdvanceQuestH\000\022\'\n\tend_ques"
-  "t\030\242\037 \001(\0132\021.awd.net.EndQuestH\000B\010\n\006packetB"
-  "\024\n\020gg.aswedrown.netP\001b\006proto3"
+  "istance\030\007 \001(\002\";\n\022PlayerTileInteract\022\t\n\001x"
+  "\030\001 \001(\r\022\t\n\001y\030\002 \001(\r\022\017\n\007command\030\003 \001(\r\"7\n\nUp"
+  "dateTile\022\t\n\001x\030\001 \001(\r\022\t\n\001y\030\002 \001(\r\022\023\n\013new_ti"
+  "le_id\030\003 \001(\r\"%\n\022DisplayChatMessage\022\017\n\007mes"
+  "sage\030\001 \001(\t\"H\n\nBeginQuest\022\020\n\010quest_id\030\001 \001"
+  "(\r\022\022\n\nquest_type\030\002 \001(\r\022\024\n\014max_progress\030\003"
+  " \001(\r\"2\n\014AdvanceQuest\022\020\n\010quest_id\030\001 \001(\r\022\020"
+  "\n\010progress\030\002 \001(\r\",\n\010EndQuest\022\020\n\010quest_id"
+  "\030\001 \001(\r\022\016\n\006status\030\002 \001(\r\"\374\014\n\rPacketWrapper"
+  "\022\020\n\010sequence\030\001 \001(\r\022\013\n\003ack\030\002 \001(\r\022\024\n\014ack_b"
+  "itfield\030\003 \001(\004\022\035\n\004ping\030\004 \001(\0132\r.awd.net.Pi"
+  "ngH\000\022\035\n\004pong\030\005 \001(\0132\r.awd.net.PongH\000\0226\n\021h"
+  "andshake_request\030\n \001(\0132\031.awd.net.Handsha"
+  "keRequestH\000\0228\n\022handshake_response\030\013 \001(\0132"
+  "\032.awd.net.HandshakeResponseH\000\022;\n\024create_"
+  "lobby_request\030d \001(\0132\033.awd.net.CreateLobb"
+  "yRequestH\000\022=\n\025create_lobby_response\030e \001("
+  "\0132\034.awd.net.CreateLobbyResponseH\000\0227\n\022joi"
+  "n_lobby_request\030f \001(\0132\031.awd.net.JoinLobb"
+  "yRequestH\000\0229\n\023join_lobby_response\030g \001(\0132"
+  "\032.awd.net.JoinLobbyResponseH\000\0229\n\023leave_l"
+  "obby_request\030h \001(\0132\032.awd.net.LeaveLobbyR"
+  "equestH\000\022;\n\024leave_lobby_response\030i \001(\0132\033"
+  ".awd.net.LeaveLobbyResponseH\000\0225\n\021kicked_"
+  "from_lobby\030j \001(\0132\030.awd.net.KickedFromLob"
+  "byH\000\022;\n\024updated_members_list\030k \001(\0132\033.awd"
+  ".net.UpdatedMembersListH\000\022C\n\030begin_play_"
+  "state_request\030\205\007 \001(\0132\036.awd.net.BeginPlay"
+  "StateRequestH\000\022E\n\031begin_play_state_respo"
+  "nse\030\206\007 \001(\0132\037.awd.net.BeginPlayStateRespo"
+  "nseH\000\022D\n\030update_dimension_command\030\350\007 \001(\013"
+  "2\037.awd.net.UpdateDimensionCommandH\000\022F\n\031u"
+  "pdate_dimension_complete\030\351\007 \001(\0132 .awd.ne"
+  "t.UpdateDimensionCompleteH\000\0228\n\022join_worl"
+  "d_command\030\352\007 \001(\0132\031.awd.net.JoinWorldComm"
+  "andH\000\022:\n\023join_world_complete\030\353\007 \001(\0132\032.aw"
+  "d.net.JoinWorldCompleteH\000\022-\n\014spawn_entit"
+  "y\030\320\017 \001(\0132\024.awd.net.SpawnEntityH\000\0221\n\016desp"
+  "awn_entity\030\321\017 \001(\0132\026.awd.net.DespawnEntit"
+  "yH\000\022<\n\024update_player_inputs\030\270\027 \001(\0132\033.awd"
+  ".net.UpdatePlayerInputsH\000\022@\n\026update_enti"
+  "ty_position\030\271\027 \001(\0132\035.awd.net.UpdateEntit"
+  "yPositionH\000\022<\n\024player_tile_interact\030\272\027 \001"
+  "(\0132\033.awd.net.PlayerTileInteractH\000\022+\n\013upd"
+  "ate_tile\030\273\027 \001(\0132\023.awd.net.UpdateTileH\000\022<"
+  "\n\024display_chat_message\030\274\027 \001(\0132\033.awd.net."
+  "DisplayChatMessageH\000\022+\n\013begin_quest\030\240\037 \001"
+  "(\0132\023.awd.net.BeginQuestH\000\022/\n\radvance_que"
+  "st\030\241\037 \001(\0132\025.awd.net.AdvanceQuestH\000\022\'\n\ten"
+  "d_quest\030\242\037 \001(\0132\021.awd.net.EndQuestH\000B\010\n\006p"
+  "acketB\024\n\020gg.aswedrown.netP\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_packets_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_packets_2eproto = {
-  false, false, 3389, descriptor_table_protodef_packets_2eproto, "packets.proto", 
-  &descriptor_table_packets_2eproto_once, nullptr, 0, 31,
+  false, false, 3715, descriptor_table_protodef_packets_2eproto, "packets.proto", 
+  &descriptor_table_packets_2eproto_once, nullptr, 0, 34,
   schemas, file_default_instances, TableStruct_packets_2eproto::offsets,
   file_level_metadata_packets_2eproto, file_level_enum_descriptors_packets_2eproto, file_level_service_descriptors_packets_2eproto,
 };
@@ -5627,6 +5706,700 @@ void UpdateEntityPosition::InternalSwap(UpdateEntityPosition* other) {
 
 // ===================================================================
 
+class PlayerTileInteract::_Internal {
+ public:
+};
+
+PlayerTileInteract::PlayerTileInteract(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:awd.net.PlayerTileInteract)
+}
+PlayerTileInteract::PlayerTileInteract(const PlayerTileInteract& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&x_, &from.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&command_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(command_));
+  // @@protoc_insertion_point(copy_constructor:awd.net.PlayerTileInteract)
+}
+
+void PlayerTileInteract::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&command_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(command_));
+}
+
+PlayerTileInteract::~PlayerTileInteract() {
+  // @@protoc_insertion_point(destructor:awd.net.PlayerTileInteract)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void PlayerTileInteract::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void PlayerTileInteract::ArenaDtor(void* object) {
+  PlayerTileInteract* _this = reinterpret_cast< PlayerTileInteract* >(object);
+  (void)_this;
+}
+void PlayerTileInteract::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void PlayerTileInteract::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void PlayerTileInteract::Clear() {
+// @@protoc_insertion_point(message_clear_start:awd.net.PlayerTileInteract)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&command_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(command_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* PlayerTileInteract::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 x = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 y = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 command = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          command_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* PlayerTileInteract::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:awd.net.PlayerTileInteract)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 x = 1;
+  if (this->x() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_x(), target);
+  }
+
+  // uint32 y = 2;
+  if (this->y() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_y(), target);
+  }
+
+  // uint32 command = 3;
+  if (this->command() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_command(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:awd.net.PlayerTileInteract)
+  return target;
+}
+
+size_t PlayerTileInteract::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:awd.net.PlayerTileInteract)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 x = 1;
+  if (this->x() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_x());
+  }
+
+  // uint32 y = 2;
+  if (this->y() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_y());
+  }
+
+  // uint32 command = 3;
+  if (this->command() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_command());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void PlayerTileInteract::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:awd.net.PlayerTileInteract)
+  GOOGLE_DCHECK_NE(&from, this);
+  const PlayerTileInteract* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PlayerTileInteract>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:awd.net.PlayerTileInteract)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:awd.net.PlayerTileInteract)
+    MergeFrom(*source);
+  }
+}
+
+void PlayerTileInteract::MergeFrom(const PlayerTileInteract& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:awd.net.PlayerTileInteract)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.x() != 0) {
+    _internal_set_x(from._internal_x());
+  }
+  if (from.y() != 0) {
+    _internal_set_y(from._internal_y());
+  }
+  if (from.command() != 0) {
+    _internal_set_command(from._internal_command());
+  }
+}
+
+void PlayerTileInteract::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:awd.net.PlayerTileInteract)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PlayerTileInteract::CopyFrom(const PlayerTileInteract& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:awd.net.PlayerTileInteract)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PlayerTileInteract::IsInitialized() const {
+  return true;
+}
+
+void PlayerTileInteract::InternalSwap(PlayerTileInteract* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PlayerTileInteract, command_)
+      + sizeof(PlayerTileInteract::command_)
+      - PROTOBUF_FIELD_OFFSET(PlayerTileInteract, x_)>(
+          reinterpret_cast<char*>(&x_),
+          reinterpret_cast<char*>(&other->x_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata PlayerTileInteract::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class UpdateTile::_Internal {
+ public:
+};
+
+UpdateTile::UpdateTile(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:awd.net.UpdateTile)
+}
+UpdateTile::UpdateTile(const UpdateTile& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&x_, &from.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&new_tile_id_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(new_tile_id_));
+  // @@protoc_insertion_point(copy_constructor:awd.net.UpdateTile)
+}
+
+void UpdateTile::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&new_tile_id_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(new_tile_id_));
+}
+
+UpdateTile::~UpdateTile() {
+  // @@protoc_insertion_point(destructor:awd.net.UpdateTile)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void UpdateTile::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void UpdateTile::ArenaDtor(void* object) {
+  UpdateTile* _this = reinterpret_cast< UpdateTile* >(object);
+  (void)_this;
+}
+void UpdateTile::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void UpdateTile::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void UpdateTile::Clear() {
+// @@protoc_insertion_point(message_clear_start:awd.net.UpdateTile)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&new_tile_id_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(new_tile_id_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* UpdateTile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 x = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 y = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 new_tile_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          new_tile_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* UpdateTile::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:awd.net.UpdateTile)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 x = 1;
+  if (this->x() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_x(), target);
+  }
+
+  // uint32 y = 2;
+  if (this->y() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_y(), target);
+  }
+
+  // uint32 new_tile_id = 3;
+  if (this->new_tile_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_new_tile_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:awd.net.UpdateTile)
+  return target;
+}
+
+size_t UpdateTile::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:awd.net.UpdateTile)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 x = 1;
+  if (this->x() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_x());
+  }
+
+  // uint32 y = 2;
+  if (this->y() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_y());
+  }
+
+  // uint32 new_tile_id = 3;
+  if (this->new_tile_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_new_tile_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UpdateTile::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:awd.net.UpdateTile)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UpdateTile* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UpdateTile>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:awd.net.UpdateTile)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:awd.net.UpdateTile)
+    MergeFrom(*source);
+  }
+}
+
+void UpdateTile::MergeFrom(const UpdateTile& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:awd.net.UpdateTile)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.x() != 0) {
+    _internal_set_x(from._internal_x());
+  }
+  if (from.y() != 0) {
+    _internal_set_y(from._internal_y());
+  }
+  if (from.new_tile_id() != 0) {
+    _internal_set_new_tile_id(from._internal_new_tile_id());
+  }
+}
+
+void UpdateTile::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:awd.net.UpdateTile)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UpdateTile::CopyFrom(const UpdateTile& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:awd.net.UpdateTile)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UpdateTile::IsInitialized() const {
+  return true;
+}
+
+void UpdateTile::InternalSwap(UpdateTile* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(UpdateTile, new_tile_id_)
+      + sizeof(UpdateTile::new_tile_id_)
+      - PROTOBUF_FIELD_OFFSET(UpdateTile, x_)>(
+          reinterpret_cast<char*>(&x_),
+          reinterpret_cast<char*>(&other->x_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata UpdateTile::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class DisplayChatMessage::_Internal {
+ public:
+};
+
+DisplayChatMessage::DisplayChatMessage(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:awd.net.DisplayChatMessage)
+}
+DisplayChatMessage::DisplayChatMessage(const DisplayChatMessage& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_message().empty()) {
+    message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_message(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:awd.net.DisplayChatMessage)
+}
+
+void DisplayChatMessage::SharedCtor() {
+message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+DisplayChatMessage::~DisplayChatMessage() {
+  // @@protoc_insertion_point(destructor:awd.net.DisplayChatMessage)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void DisplayChatMessage::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void DisplayChatMessage::ArenaDtor(void* object) {
+  DisplayChatMessage* _this = reinterpret_cast< DisplayChatMessage* >(object);
+  (void)_this;
+}
+void DisplayChatMessage::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DisplayChatMessage::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DisplayChatMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:awd.net.DisplayChatMessage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  message_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DisplayChatMessage::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string message = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_message();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "awd.net.DisplayChatMessage.message"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DisplayChatMessage::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:awd.net.DisplayChatMessage)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "awd.net.DisplayChatMessage.message");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_message(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:awd.net.DisplayChatMessage)
+  return target;
+}
+
+size_t DisplayChatMessage::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:awd.net.DisplayChatMessage)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_message());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DisplayChatMessage::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:awd.net.DisplayChatMessage)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DisplayChatMessage* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DisplayChatMessage>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:awd.net.DisplayChatMessage)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:awd.net.DisplayChatMessage)
+    MergeFrom(*source);
+  }
+}
+
+void DisplayChatMessage::MergeFrom(const DisplayChatMessage& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:awd.net.DisplayChatMessage)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.message().size() > 0) {
+    _internal_set_message(from._internal_message());
+  }
+}
+
+void DisplayChatMessage::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:awd.net.DisplayChatMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DisplayChatMessage::CopyFrom(const DisplayChatMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:awd.net.DisplayChatMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DisplayChatMessage::IsInitialized() const {
+  return true;
+}
+
+void DisplayChatMessage::InternalSwap(DisplayChatMessage* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  message_.Swap(&other->message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DisplayChatMessage::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class BeginQuest::_Internal {
  public:
 };
@@ -6346,6 +7119,9 @@ class PacketWrapper::_Internal {
   static const ::awd::net::DespawnEntity& despawn_entity(const PacketWrapper* msg);
   static const ::awd::net::UpdatePlayerInputs& update_player_inputs(const PacketWrapper* msg);
   static const ::awd::net::UpdateEntityPosition& update_entity_position(const PacketWrapper* msg);
+  static const ::awd::net::PlayerTileInteract& player_tile_interact(const PacketWrapper* msg);
+  static const ::awd::net::UpdateTile& update_tile(const PacketWrapper* msg);
+  static const ::awd::net::DisplayChatMessage& display_chat_message(const PacketWrapper* msg);
   static const ::awd::net::BeginQuest& begin_quest(const PacketWrapper* msg);
   static const ::awd::net::AdvanceQuest& advance_quest(const PacketWrapper* msg);
   static const ::awd::net::EndQuest& end_quest(const PacketWrapper* msg);
@@ -6438,6 +7214,18 @@ PacketWrapper::_Internal::update_player_inputs(const PacketWrapper* msg) {
 const ::awd::net::UpdateEntityPosition&
 PacketWrapper::_Internal::update_entity_position(const PacketWrapper* msg) {
   return *msg->packet_.update_entity_position_;
+}
+const ::awd::net::PlayerTileInteract&
+PacketWrapper::_Internal::player_tile_interact(const PacketWrapper* msg) {
+  return *msg->packet_.player_tile_interact_;
+}
+const ::awd::net::UpdateTile&
+PacketWrapper::_Internal::update_tile(const PacketWrapper* msg) {
+  return *msg->packet_.update_tile_;
+}
+const ::awd::net::DisplayChatMessage&
+PacketWrapper::_Internal::display_chat_message(const PacketWrapper* msg) {
+  return *msg->packet_.display_chat_message_;
 }
 const ::awd::net::BeginQuest&
 PacketWrapper::_Internal::begin_quest(const PacketWrapper* msg) {
@@ -6781,6 +7569,51 @@ void PacketWrapper::set_allocated_update_entity_position(::awd::net::UpdateEntit
   }
   // @@protoc_insertion_point(field_set_allocated:awd.net.PacketWrapper.update_entity_position)
 }
+void PacketWrapper::set_allocated_player_tile_interact(::awd::net::PlayerTileInteract* player_tile_interact) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_packet();
+  if (player_tile_interact) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(player_tile_interact);
+    if (message_arena != submessage_arena) {
+      player_tile_interact = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, player_tile_interact, submessage_arena);
+    }
+    set_has_player_tile_interact();
+    packet_.player_tile_interact_ = player_tile_interact;
+  }
+  // @@protoc_insertion_point(field_set_allocated:awd.net.PacketWrapper.player_tile_interact)
+}
+void PacketWrapper::set_allocated_update_tile(::awd::net::UpdateTile* update_tile) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_packet();
+  if (update_tile) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(update_tile);
+    if (message_arena != submessage_arena) {
+      update_tile = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, update_tile, submessage_arena);
+    }
+    set_has_update_tile();
+    packet_.update_tile_ = update_tile;
+  }
+  // @@protoc_insertion_point(field_set_allocated:awd.net.PacketWrapper.update_tile)
+}
+void PacketWrapper::set_allocated_display_chat_message(::awd::net::DisplayChatMessage* display_chat_message) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_packet();
+  if (display_chat_message) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(display_chat_message);
+    if (message_arena != submessage_arena) {
+      display_chat_message = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, display_chat_message, submessage_arena);
+    }
+    set_has_display_chat_message();
+    packet_.display_chat_message_ = display_chat_message;
+  }
+  // @@protoc_insertion_point(field_set_allocated:awd.net.PacketWrapper.display_chat_message)
+}
 void PacketWrapper::set_allocated_begin_quest(::awd::net::BeginQuest* begin_quest) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   clear_packet();
@@ -6926,6 +7759,18 @@ PacketWrapper::PacketWrapper(const PacketWrapper& from)
     }
     case kUpdateEntityPosition: {
       _internal_mutable_update_entity_position()->::awd::net::UpdateEntityPosition::MergeFrom(from._internal_update_entity_position());
+      break;
+    }
+    case kPlayerTileInteract: {
+      _internal_mutable_player_tile_interact()->::awd::net::PlayerTileInteract::MergeFrom(from._internal_player_tile_interact());
+      break;
+    }
+    case kUpdateTile: {
+      _internal_mutable_update_tile()->::awd::net::UpdateTile::MergeFrom(from._internal_update_tile());
+      break;
+    }
+    case kDisplayChatMessage: {
+      _internal_mutable_display_chat_message()->::awd::net::DisplayChatMessage::MergeFrom(from._internal_display_chat_message());
       break;
     }
     case kBeginQuest: {
@@ -7110,6 +7955,24 @@ void PacketWrapper::clear_packet() {
     case kUpdateEntityPosition: {
       if (GetArena() == nullptr) {
         delete packet_.update_entity_position_;
+      }
+      break;
+    }
+    case kPlayerTileInteract: {
+      if (GetArena() == nullptr) {
+        delete packet_.player_tile_interact_;
+      }
+      break;
+    }
+    case kUpdateTile: {
+      if (GetArena() == nullptr) {
+        delete packet_.update_tile_;
+      }
+      break;
+    }
+    case kDisplayChatMessage: {
+      if (GetArena() == nullptr) {
+        delete packet_.display_chat_message_;
       }
       break;
     }
@@ -7331,6 +8194,27 @@ const char* PacketWrapper::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
       case 3001:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 202)) {
           ptr = ctx->ParseMessage(_internal_mutable_update_entity_position(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .awd.net.PlayerTileInteract player_tile_interact = 3002;
+      case 3002:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 210)) {
+          ptr = ctx->ParseMessage(_internal_mutable_player_tile_interact(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .awd.net.UpdateTile update_tile = 3003;
+      case 3003:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 218)) {
+          ptr = ctx->ParseMessage(_internal_mutable_update_tile(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .awd.net.DisplayChatMessage display_chat_message = 3004;
+      case 3004:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 226)) {
+          ptr = ctx->ParseMessage(_internal_mutable_display_chat_message(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -7577,6 +8461,30 @@ failure:
         3001, _Internal::update_entity_position(this), target, stream);
   }
 
+  // .awd.net.PlayerTileInteract player_tile_interact = 3002;
+  if (_internal_has_player_tile_interact()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3002, _Internal::player_tile_interact(this), target, stream);
+  }
+
+  // .awd.net.UpdateTile update_tile = 3003;
+  if (_internal_has_update_tile()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3003, _Internal::update_tile(this), target, stream);
+  }
+
+  // .awd.net.DisplayChatMessage display_chat_message = 3004;
+  if (_internal_has_display_chat_message()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3004, _Internal::display_chat_message(this), target, stream);
+  }
+
   // .awd.net.BeginQuest begin_quest = 4000;
   if (_internal_has_begin_quest()) {
     target = stream->EnsureSpace(target);
@@ -7793,6 +8701,27 @@ size_t PacketWrapper::ByteSizeLong() const {
           *packet_.update_entity_position_);
       break;
     }
+    // .awd.net.PlayerTileInteract player_tile_interact = 3002;
+    case kPlayerTileInteract: {
+      total_size += 3 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *packet_.player_tile_interact_);
+      break;
+    }
+    // .awd.net.UpdateTile update_tile = 3003;
+    case kUpdateTile: {
+      total_size += 3 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *packet_.update_tile_);
+      break;
+    }
+    // .awd.net.DisplayChatMessage display_chat_message = 3004;
+    case kDisplayChatMessage: {
+      total_size += 3 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *packet_.display_chat_message_);
+      break;
+    }
     // .awd.net.BeginQuest begin_quest = 4000;
     case kBeginQuest: {
       total_size += 3 +
@@ -7947,6 +8876,18 @@ void PacketWrapper::MergeFrom(const PacketWrapper& from) {
       _internal_mutable_update_entity_position()->::awd::net::UpdateEntityPosition::MergeFrom(from._internal_update_entity_position());
       break;
     }
+    case kPlayerTileInteract: {
+      _internal_mutable_player_tile_interact()->::awd::net::PlayerTileInteract::MergeFrom(from._internal_player_tile_interact());
+      break;
+    }
+    case kUpdateTile: {
+      _internal_mutable_update_tile()->::awd::net::UpdateTile::MergeFrom(from._internal_update_tile());
+      break;
+    }
+    case kDisplayChatMessage: {
+      _internal_mutable_display_chat_message()->::awd::net::DisplayChatMessage::MergeFrom(from._internal_display_chat_message());
+      break;
+    }
     case kBeginQuest: {
       _internal_mutable_begin_quest()->::awd::net::BeginQuest::MergeFrom(from._internal_begin_quest());
       break;
@@ -8085,6 +9026,15 @@ template<> PROTOBUF_NOINLINE ::awd::net::UpdatePlayerInputs* Arena::CreateMaybeM
 }
 template<> PROTOBUF_NOINLINE ::awd::net::UpdateEntityPosition* Arena::CreateMaybeMessage< ::awd::net::UpdateEntityPosition >(Arena* arena) {
   return Arena::CreateMessageInternal< ::awd::net::UpdateEntityPosition >(arena);
+}
+template<> PROTOBUF_NOINLINE ::awd::net::PlayerTileInteract* Arena::CreateMaybeMessage< ::awd::net::PlayerTileInteract >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::PlayerTileInteract >(arena);
+}
+template<> PROTOBUF_NOINLINE ::awd::net::UpdateTile* Arena::CreateMaybeMessage< ::awd::net::UpdateTile >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::UpdateTile >(arena);
+}
+template<> PROTOBUF_NOINLINE ::awd::net::DisplayChatMessage* Arena::CreateMaybeMessage< ::awd::net::DisplayChatMessage >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::awd::net::DisplayChatMessage >(arena);
 }
 template<> PROTOBUF_NOINLINE ::awd::net::BeginQuest* Arena::CreateMaybeMessage< ::awd::net::BeginQuest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::awd::net::BeginQuest >(arena);

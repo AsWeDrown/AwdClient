@@ -1,6 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include "TerrainControls.hpp"
+#include "../Game.hpp"
 
 namespace awd::game {
 
@@ -23,6 +24,41 @@ namespace awd::game {
                                     ", " + std::to_string(posY) + "); expected " +
                                     "x in range [0; " + std::to_string(worldData->width) + "), " +
                                     "y in range [0; " + std::to_string(worldData->height) + ")");
+    }
+
+    void TerrainControls::replaceTileAt(uint32_t posX, uint32_t posY, uint32_t newTileId) {
+        /* Заменяем данные */
+
+        TileBlock tile = getTileAt(posX, posY);
+        tile.tileId = newTileId;
+        tile.handler = TileData::newTileHandler(newTileId);
+
+        /* Заменяем текстуру // скопировано с WorldLoader */
+
+        // Размеры файла с текстурами всех тайлов (tilemap).
+        uint32_t wholeTilemapWidth  = Game::instance().getTextures()->worldTileMap->getSize().x;
+
+        // Ищем позицию этого тайла в tilemap (в "таблице текстур" тайлов).
+        uint32_t tileX = newTileId % (wholeTilemapWidth / worldData->tileSize);
+        uint32_t tileY = newTileId / (wholeTilemapWidth / worldData->tileSize);
+
+        // Указатель на Quad (4 точки) этого тайла.
+        sf::Vertex* quad = &(*worldData->worldVertices)[4 * (posX + posY * worldData->width)];
+
+        // Задаём текстуры 4 точек этого Quad'а.
+        // (Имеются в виду координаты нужной текстуры в tilemap (в "таблцие текстур" тайлов) - используем tileSize.)
+        quad[0].texCoords = sf::Vector2f(
+                tileX       * worldData->tileSize,  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                tileY       * worldData->tileSize); // NOLINT(cppcoreguidelines-narrowing-conversions)
+        quad[1].texCoords = sf::Vector2f(
+                (tileX + 1) * worldData->tileSize,  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                tileY       * worldData->tileSize); // NOLINT(cppcoreguidelines-narrowing-conversions)
+        quad[2].texCoords = sf::Vector2f(
+                (tileX + 1) * worldData->tileSize,  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                (tileY + 1) * worldData->tileSize); // NOLINT(cppcoreguidelines-narrowing-conversions)
+        quad[3].texCoords = sf::Vector2f(
+                tileX       * worldData->tileSize,  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                (tileY + 1) * worldData->tileSize); // NOLINT(cppcoreguidelines-narrowing-conversions)
     }
 
     float TerrainControls::advanceTowardsXUntilTerrainCollision(const Entity& entity, float destWorldX) const {

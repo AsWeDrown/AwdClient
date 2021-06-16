@@ -426,6 +426,12 @@
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/DespawnEntityListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/DisplayChatMessageListener.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/DisplayChatMessageListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/EndQuestListener.cpp">
 			<Option target="AwdClient"/>
 		</Unit>
@@ -454,6 +460,12 @@
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateEntityPositionListener.hpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateTileListener.cpp">
+			<Option target="AwdClient"/>
+		</Unit>
+		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/packetlistener/play/UpdateTileListener.hpp">
 			<Option target="AwdClient"/>
 		</Unit>
 		<Unit filename="E:/CLionProjects/AsWeDrown/AwdClient/game/profiling/FpsMeter.cpp">

@@ -38,8 +38,9 @@
 #include "packetlistener/play/BeginQuestListener.hpp"
 #include "packetlistener/play/AdvanceQuestListener.hpp"
 #include "packetlistener/play/EndQuestListener.hpp"
+#include "packetlistener/play/UpdateTileListener.hpp"
+#include "packetlistener/play/DisplayChatMessageListener.hpp"
 #include "util/CrashReporter.hpp"
-#include "world/TileData.hpp"
 
 namespace awd::game {
 
@@ -76,6 +77,8 @@ namespace awd::game {
         PLISTENER(BeginQuest)
         PLISTENER(AdvanceQuest)
         PLISTENER(EndQuest)
+        PLISTENER(UpdateTile)
+        PLISTENER(DisplayChatMessage)
     }
 
     void Game::startGameLoop() {

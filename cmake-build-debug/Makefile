@@ -1348,6 +1348,33 @@ game/packetlistener/play/DespawnEntityListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/DespawnEntityListener.cpp.s
 .PHONY : game/packetlistener/play/DespawnEntityListener.cpp.s
 
+game/packetlistener/play/DisplayChatMessageListener.obj: game/packetlistener/play/DisplayChatMessageListener.cpp.obj
+
+.PHONY : game/packetlistener/play/DisplayChatMessageListener.obj
+
+# target to build an object file
+game/packetlistener/play/DisplayChatMessageListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/DisplayChatMessageListener.cpp.obj
+.PHONY : game/packetlistener/play/DisplayChatMessageListener.cpp.obj
+
+game/packetlistener/play/DisplayChatMessageListener.i: game/packetlistener/play/DisplayChatMessageListener.cpp.i
+
+.PHONY : game/packetlistener/play/DisplayChatMessageListener.i
+
+# target to preprocess a source file
+game/packetlistener/play/DisplayChatMessageListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/DisplayChatMessageListener.cpp.i
+.PHONY : game/packetlistener/play/DisplayChatMessageListener.cpp.i
+
+game/packetlistener/play/DisplayChatMessageListener.s: game/packetlistener/play/DisplayChatMessageListener.cpp.s
+
+.PHONY : game/packetlistener/play/DisplayChatMessageListener.s
+
+# target to generate assembly for a file
+game/packetlistener/play/DisplayChatMessageListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/DisplayChatMessageListener.cpp.s
+.PHONY : game/packetlistener/play/DisplayChatMessageListener.cpp.s
+
 game/packetlistener/play/EndQuestListener.obj: game/packetlistener/play/EndQuestListener.cpp.obj
 
 .PHONY : game/packetlistener/play/EndQuestListener.obj
@@ -1482,6 +1509,33 @@ game/packetlistener/play/UpdateEntityPositionListener.s: game/packetlistener/pla
 game/packetlistener/play/UpdateEntityPositionListener.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateEntityPositionListener.cpp.s
 .PHONY : game/packetlistener/play/UpdateEntityPositionListener.cpp.s
+
+game/packetlistener/play/UpdateTileListener.obj: game/packetlistener/play/UpdateTileListener.cpp.obj
+
+.PHONY : game/packetlistener/play/UpdateTileListener.obj
+
+# target to build an object file
+game/packetlistener/play/UpdateTileListener.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateTileListener.cpp.obj
+.PHONY : game/packetlistener/play/UpdateTileListener.cpp.obj
+
+game/packetlistener/play/UpdateTileListener.i: game/packetlistener/play/UpdateTileListener.cpp.i
+
+.PHONY : game/packetlistener/play/UpdateTileListener.i
+
+# target to preprocess a source file
+game/packetlistener/play/UpdateTileListener.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateTileListener.cpp.i
+.PHONY : game/packetlistener/play/UpdateTileListener.cpp.i
+
+game/packetlistener/play/UpdateTileListener.s: game/packetlistener/play/UpdateTileListener.cpp.s
+
+.PHONY : game/packetlistener/play/UpdateTileListener.s
+
+# target to generate assembly for a file
+game/packetlistener/play/UpdateTileListener.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AwdClient.dir\build.make CMakeFiles/AwdClient.dir/game/packetlistener/play/UpdateTileListener.cpp.s
+.PHONY : game/packetlistener/play/UpdateTileListener.cpp.s
 
 game/profiling/FpsMeter.obj: game/profiling/FpsMeter.cpp.obj
 
@@ -2408,6 +2462,9 @@ help:
 	@echo ... game/packetlistener/play/DespawnEntityListener.obj
 	@echo ... game/packetlistener/play/DespawnEntityListener.i
 	@echo ... game/packetlistener/play/DespawnEntityListener.s
+	@echo ... game/packetlistener/play/DisplayChatMessageListener.obj
+	@echo ... game/packetlistener/play/DisplayChatMessageListener.i
+	@echo ... game/packetlistener/play/DisplayChatMessageListener.s
 	@echo ... game/packetlistener/play/EndQuestListener.obj
 	@echo ... game/packetlistener/play/EndQuestListener.i
 	@echo ... game/packetlistener/play/EndQuestListener.s
@@ -2423,6 +2480,9 @@ help:
 	@echo ... game/packetlistener/play/UpdateEntityPositionListener.obj
 	@echo ... game/packetlistener/play/UpdateEntityPositionListener.i
 	@echo ... game/packetlistener/play/UpdateEntityPositionListener.s
+	@echo ... game/packetlistener/play/UpdateTileListener.obj
+	@echo ... game/packetlistener/play/UpdateTileListener.i
+	@echo ... game/packetlistener/play/UpdateTileListener.s
 	@echo ... game/profiling/FpsMeter.obj
 	@echo ... game/profiling/FpsMeter.i
 	@echo ... game/profiling/FpsMeter.s

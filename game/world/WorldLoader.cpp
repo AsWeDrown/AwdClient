@@ -184,6 +184,7 @@ namespace awd::game {
                 return;
             }
 
+            // Размеры файла с текстурами всех тайлов (tilemap).
             uint32_t wholeTilemapWidth  = Game::instance().getTextures()->worldTileMap->getSize().x;
             uint32_t wholeTilemapHeight = Game::instance().getTextures()->worldTileMap->getSize().y;
 

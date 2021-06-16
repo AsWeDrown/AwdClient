@@ -16,6 +16,8 @@ namespace awd::game {
 
         TileBlock& getTileAt(uint32_t posX, uint32_t posY) const;
 
+        void replaceTileAt(uint32_t posX, uint32_t posY, uint32_t newTileId);
+
         /**
          * Вычисляет значение X, в которое может переместиться указанная сущность в этом мире,
          * максимально близкое к указанному (желаемому). Для этого учитывается "начинка" мира
