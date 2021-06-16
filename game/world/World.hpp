@@ -18,6 +18,11 @@ namespace awd::game {
 
         std::vector<std::shared_ptr<Entity>> entities;
 
+        std::shared_ptr<TileBlock> hoveredTile = nullptr;
+
+        std::unique_ptr<sf::RectangleShape> hoveredTileOutline = nullptr;
+
+
     public:
         /**
          * Часть мира (%/100), отображаемая на экрана (находящаяся в фокусе, т.е. в текущем View).
@@ -31,8 +36,11 @@ namespace awd::game {
         void update() override;
         void draw() override;
 
-        std::shared_ptr<WorldData>         getWorldData        () const;
+        void updateHoveredTile();
+
+        std::shared_ptr<WorldData      > getWorldData      () const;
         std::shared_ptr<TerrainControls> getTerrainControls() const;
+        std::shared_ptr<TileBlock      > getHoveredTile    () const;
 
         void focusCamera(float worldX, float worldY);
         void centerCamera();

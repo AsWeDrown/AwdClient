@@ -1,3 +1,6 @@
+#define HOVERED_TILE_OUTLINE_THICKNESS 2.0f
+
+
 #include "World.hpp"
 #include "../Game.hpp"
 #include "WorldLoader.hpp"
@@ -31,6 +34,7 @@ namespace awd::game {
 
     void World::update() {
         Drawable::update();
+        updateHoveredTile();
     }
 
     void World::draw() {
@@ -42,8 +46,42 @@ namespace awd::game {
 
         // ... а затем уже всё остальное.
         Drawable::draw();
+        window->draw(*hoveredTileOutline);
     }
 
+    void World::updateHoveredTile() {
+        float dispTileSizePixels = worldData->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+
+        sf::Vector2i mouseScreenPos = sf::Mouse::getPosition(*window);
+        sf::Vector2f mouseWorldPos = window->mapPixelToCoords(mouseScreenPos);
+        sf::Vector2i mouseTilePos = sf::Vector2i(
+                static_cast<int>(mouseWorldPos.x / dispTileSizePixels),
+                static_cast<int>(mouseWorldPos.y / dispTileSizePixels)
+        );
+
+        uint32_t tilePosX = mouseTilePos.x;
+        uint32_t tilePosY = mouseTilePos.y;
+
+        try {
+            hoveredTile = terrainControls->shareTileAt(tilePosX, tilePosY);
+
+            // FIXME: Не костыль, а костылище! (Пользуемся тем, что на клиенте canInteract не зависит от типа Entity.)
+            if (!entities.empty() && hoveredTile->handler->canInteract(*entities[0])) {
+                // С тайлом, на котороый наведён курсор, можно взаимодействовать. Выделяем его.
+                hoveredTileOutline->setOutlineColor(sf::Color::Yellow);
+                hoveredTileOutline->setPosition(
+                        dispTileSizePixels * hoveredTile->posX,  // NOLINT(cppcoreguidelines-narrowing-conversions)
+                        dispTileSizePixels * hoveredTile->posY // NOLINT(cppcoreguidelines-narrowing-conversions)
+                );
+            } else
+                // С тайлом, на который наведён курсор, нельзя взаимодействовать. Снимаем выделение (если оно было).
+                hoveredTileOutline->setOutlineColor(sf::Color::Transparent);
+        } catch (const std::invalid_argument& ex) {
+            // Курсор за границами мира?
+            hoveredTile = nullptr;
+        }
+    }
+    
     std::shared_ptr<WorldData> World::getWorldData() const {
         return worldData;
     }
@@ -105,6 +143,15 @@ namespace awd::game {
                 return;
             }
 
+            // Измерение загружено успешно. Обновляем данные.
+            float outlineThickness = HOVERED_TILE_OUTLINE_THICKNESS * renderScale + 1.0f; // min 1 px
+            float dispTileSizePixels = worldData->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+            float outlineRectSize = outlineThickness + dispTileSizePixels;
+            hoveredTileOutline = std::make_unique<sf::RectangleShape>(
+                    sf::Vector2f(outlineRectSize, outlineRectSize));
+            hoveredTileOutline->setFillColor(sf::Color::Transparent);
+            hoveredTileOutline->setOutlineThickness(outlineThickness);
+
             terrainControls = std::make_shared<TerrainControls>(worldData);
             std::wcout << L"Updated dimension successfully" << std::endl;
 
@@ -146,6 +193,10 @@ namespace awd::game {
 
     std::shared_ptr<TerrainControls> World::getTerrainControls() const {
         return terrainControls;
+    }
+
+    std::shared_ptr<TileBlock> World::getHoveredTile() const {
+        return hoveredTile;
     }
 
 }

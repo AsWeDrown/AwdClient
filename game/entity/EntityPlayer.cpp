@@ -342,6 +342,9 @@ namespace awd::game {
 
         /* Взаимодействие с миром */
 
+        if (!isControlled)
+            return;
+
         uint32_t command;
 
         if (event.button == sf::Mouse::Left)
@@ -351,27 +354,11 @@ namespace awd::game {
         else
             return;
 
-        auto world = Game::instance().currentWorld();
-        float dispTileSizePixels = world->getWorldData()->displayTileSize; // NOLINT(cppcoreguidelines-narrowing-conversions)
+        auto hoveredTile = Game::instance().currentWorld()->getHoveredTile();
 
-        sf::Vector2i clickedScreenPos = sf::Vector2i(event.x, event.y);
-        sf::Vector2f clickedWorldPos = window->mapPixelToCoords(clickedScreenPos);
-        sf::Vector2i clickedTilePos = sf::Vector2i(
-                static_cast<int>(clickedWorldPos.x / dispTileSizePixels),
-                static_cast<int>(clickedWorldPos.y / dispTileSizePixels)
-        );
-
-        uint32_t tilePosX = clickedTilePos.x;
-        uint32_t tilePosY = clickedTilePos.y;
-
-        try {
-            TileBlock tile = world->getTerrainControls()->getTileAt(tilePosX, tilePosY);
-
-            if (tile.handler->canInteract(*this))
-                Game::instance().getNetService()->playerTileInteract(tilePosX, tilePosY, command);
-        } catch (const std::invalid_argument& ex) {
-            std::wcerr << ex.what() << std::endl;
-        }
+        if (hoveredTile != nullptr && hoveredTile->handler->canInteract(*this))
+            Game::instance().getNetService()->
+                    playerTileInteract(hoveredTile->posX, hoveredTile->posY, command);
     }
 
     void EntityPlayer::update() {

@@ -16,6 +16,8 @@ namespace awd::game {
 
         TileBlock& getTileAt(uint32_t posX, uint32_t posY) const;
 
+        std::shared_ptr<TileBlock> shareTileAt(uint32_t posX, uint32_t posY) const;
+
         void replaceTileAt(uint32_t posX, uint32_t posY, uint32_t newTileId);
 
         /**

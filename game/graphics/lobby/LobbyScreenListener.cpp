@@ -109,15 +109,10 @@ namespace awd::game {
     void LobbyScreenListener::finishBeginPlayState(Drawable* lobbyDrawable,
                                                    const std::shared_ptr<net::BeginPlayStateResponse>& response) {
         auto* lobbyScreen = (LobbyScreen*) lobbyDrawable;
-        lobbyScreen->hideCurrentLoadingOverlay();
 
-        if (response->status_code() == 1) {
-            // Игра запускается успешно. Ждём, пока сервер передаст нам и остальным
-            // игрокам в комнате всю необходимую для старта игровой стадии информацию.
-            lobbyScreen->hideCurrentLoadingOverlay();
-            lobbyScreen->showLoadingOverlay(
-                    L"Загрузка мира...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
-        } else {
+        // Если == 1 -> игра запускается успешно. Ждём, пока сервер передаст нам и остальным
+        // игрокам в комнате всю необходимую для старта игровой стадии информацию (мир и т.д.).
+        if (response->status_code() != 1) {
             // Ошибка.
             std::wstring errorMessage;
             int errorCode = response->status_code();
@@ -172,10 +167,6 @@ namespace awd::game {
             lobbyScreen->getListener()->playScreen->getWorld()->updateDimension(dimension);
             Game::instance().setCurrentState(GameState::PLAY);
             Game::instance().getNetService()->updateDimensionComplete();
-
-            lobbyScreen->hideCurrentLoadingOverlay();
-            lobbyScreen->showLoadingOverlay(
-                    L"Ждём, когда загрузятся все остальные...", PLAY_STATE_LOAD_TIMEOUT_MILLIS);
         }
     }
 

@@ -16,9 +16,13 @@ namespace awd::game {
     }
 
     TileBlock& TerrainControls::getTileAt(uint32_t posX, uint32_t posY) const {
+        return *shareTileAt(posX, posY);
+    }
+
+    std::shared_ptr<TileBlock> TerrainControls::shareTileAt(uint32_t posX, uint32_t posY) const {
         for (const auto& tile : worldData->tiles)
             if (tile->posX == posX && tile->posY == posY)
-                return *tile;
+                return tile;
 
         throw std::invalid_argument("tile position out of world range: (" + std::to_string(posX) +
                                     ", " + std::to_string(posY) + "); expected " +

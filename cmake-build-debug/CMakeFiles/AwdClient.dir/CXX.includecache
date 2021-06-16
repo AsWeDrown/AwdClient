@@ -952,31 +952,13 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
 ../world/Collidable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/Collidable.hpp
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.cpp
-EntityPlayer.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
-../Game.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
-../../net/SequenceNumberMath.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
-../util/RenderUtils.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityPlayer.hpp
-atomic
--
-map
--
-LivingEntity.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
-
 E:/CLionProjects/AsWeDrown/AwdClient/game/entity/EntityStateSnapshot.hpp
 SFML/Graphics.hpp
 -
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/entity/LivingEntity.hpp
-Entity.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Entity.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Fallable.hpp
+cstdint
+-
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Button.hpp
 string
@@ -1017,20 +999,6 @@ E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Identifiers.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/LoadingOverlay.hpp
 Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
-
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
-vector
--
-SFML/Graphics/Transformable.hpp
--
-SFML/Graphics/Drawable.hpp
--
-SFML/Graphics/Color.hpp
--
-SFML/Graphics/Text.hpp
--
-SFML/System/Vector2.hpp
--
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Screen.hpp
 ../common/Button.hpp
@@ -1084,13 +1052,11 @@ mutex
 deque
 -
 
-E:/CLionProjects/AsWeDrown/AwdClient/game/util/RenderUtils.hpp
-memory
+E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.hpp
+string
 -
-SFML/Graphics.hpp
+stdexcept
 -
-../graphics/common/RichText.hpp
-E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/RichText.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/BoundingBox.hpp
 
@@ -1118,6 +1084,18 @@ map
 tile/TileHandlerFactory.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/tile/TileHandlerFactory.hpp
 
+E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.cpp
+World.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
+../Game.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/Game.hpp
+WorldLoader.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldLoader.hpp
+../util/CrashReporter.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/util/CrashReporter.hpp
+../entity/Fallable.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/entity/Fallable.hpp
+
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/World.hpp
 ../graphics/common/Drawable.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/graphics/common/Drawable.hpp
@@ -1135,6 +1113,12 @@ SFML/Graphics.hpp
 -
 TileBlock.hpp
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/TileBlock.hpp
+
+E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldLoader.hpp
+cstdint
+-
+WorldData.hpp
+E:/CLionProjects/AsWeDrown/AwdClient/game/world/WorldData.hpp
 
 E:/CLionProjects/AsWeDrown/AwdClient/game/world/tile/InteractableHandler.hpp
 VoidHandler.hpp
@@ -1215,10 +1199,6 @@ google/protobuf/message.h
 -
 packets.pb.h
 E:/CLionProjects/AsWeDrown/AwdClient/net/packets.pb.h
-
-E:/CLionProjects/AsWeDrown/AwdClient/net/SequenceNumberMath.hpp
-cstdint
--
 
 E:/CLionProjects/AsWeDrown/AwdClient/net/UdpClient.hpp
 SFML/Network/UdpSocket.hpp
