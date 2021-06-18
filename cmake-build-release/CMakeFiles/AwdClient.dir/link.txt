@@ -1,3 +1,0 @@
-"E:\Program Files\JetBrains\Toolbox\apps\CLion\ch-0\211.6693.114\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\AwdClient.dir/objects.a
-"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\ar.exe" cr CMakeFiles\AwdClient.dir/objects.a @CMakeFiles\AwdClient.dir\objects1.rsp
-"E:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe" -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\AwdClient.dir/objects.a -Wl,--no-whole-archive -o AwdClient.exe -Wl,--out-implib,libAwdClient.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\AwdClient.dir\linklibs.rsp

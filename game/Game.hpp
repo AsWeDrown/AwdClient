@@ -82,6 +82,7 @@ namespace awd::game {
         uint32_t getCurrentTick() const;
 
         std::shared_ptr<TpsMeter> getTpsMeter() const;
+        std::shared_ptr<FpsMeter> getFpsMeter() const;
 
         std::shared_ptr<ConfigManager>  getConfigs () const;
         std::shared_ptr<FontManager>    getFonts   () const;

@@ -34,6 +34,8 @@ namespace awd::game {
 
     void World::update() {
         Drawable::update();
+
+        // Обводка (подсветка) тайлов при наведении на них мышью (если с этим тайлом можно взаимодействовать).
         updateHoveredTile();
     }
 
@@ -46,6 +48,7 @@ namespace awd::game {
 
         // ... а затем уже всё остальное.
         Drawable::draw();
+
         window->draw(*hoveredTileOutline);
     }
 

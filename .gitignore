@@ -1,3 +1,7 @@
+# CLion / CMake
+cmake-build-debug/
+cmake-build-release/
+
 # Eclipse
 .classpath
 .project

@@ -22,7 +22,6 @@ namespace awd::game {
 
         std::unique_ptr<sf::RectangleShape> hoveredTileOutline = nullptr;
 
-
     public:
         /**
          * Часть мира (%/100), отображаемая на экрана (находящаяся в фокусе, т.е. в текущем View).

@@ -129,6 +129,12 @@ typedef unsigned long long id_type;
 #define ID_SCREEN_PLAY_WORLD                                ID_SCREEN_PLAY  \
                                                             +  1  *  ID_WORLD
 
+#define ID_SCREEN_PLAY_QUEST_MANAGER                        ID_SCREEN_PLAY  \
+                                                            +  2  *  ID_WORLD
+
+#define ID_SCREEN_PLAY_QUEST_MANAGER_QUEST_BALLOON          ID_SCREEN_PLAY_QUEST_MANAGER  \
+                                                            +  (id_type) 1E+10L
+
 #define ID_SCREEN_PLAY_WORLD_WATER_BACKGROUND               ID_SCREEN_PLAY_WORLD  \
                                                             +  1  *  ID_SUBCOMPONENT
 

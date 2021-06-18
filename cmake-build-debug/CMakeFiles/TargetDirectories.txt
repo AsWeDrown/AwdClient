@@ -1,7 +1,0 @@
-E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/install/local.dir
-E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/install.dir
-E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/AwdClient.dir
-E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/list_install_components.dir
-E:/CLionProjects/AsWeDrown/AwdClient/cmake-build-debug/CMakeFiles/install/strip.dir

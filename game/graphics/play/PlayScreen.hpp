@@ -4,6 +4,7 @@
 #include "../common/Screen.hpp"
 #include "PlayScreenListener.hpp"
 #include "../../world/World.hpp"
+#include "QuestManager.hpp"
 
 namespace awd::game {
 
@@ -13,6 +14,9 @@ namespace awd::game {
 
         std::shared_ptr<PlayScreenListener> listener = std::make_shared<PlayScreenListener>();
         std::shared_ptr<World> world = nullptr; // создаётся сразу в конструкторе
+        std::shared_ptr<QuestManager> questManager = nullptr; // создаётся сразу в конструкторе
+
+        std::unique_ptr<sf::Text> performanceHud = nullptr;
 
     public:
         PlayScreen();
@@ -24,6 +28,7 @@ namespace awd::game {
 
         std::shared_ptr<PlayScreenListener> getListener() const;
         std::shared_ptr<World> getWorld() const;
+        std::shared_ptr<QuestManager> getQuestManager() const;
     };
 
 }

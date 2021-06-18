@@ -298,6 +298,10 @@ namespace awd::game {
         return tpsMeter;
     }
 
+    std::shared_ptr<FpsMeter> Game::getFpsMeter() const {
+        return fpsMeter;
+    }
+
     std::shared_ptr<ConfigManager> Game::getConfigs() const {
         return configs;
     }
