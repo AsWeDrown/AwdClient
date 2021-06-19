@@ -40,6 +40,7 @@
 #include "packetlistener/play/EndQuestListener.hpp"
 #include "packetlistener/play/UpdateTileListener.hpp"
 #include "packetlistener/play/DisplayChatMessageListener.hpp"
+#include "packetlistener/play/UpdateEnvironmentListener.hpp"
 #include "util/CrashReporter.hpp"
 
 namespace awd::game {
@@ -79,6 +80,7 @@ namespace awd::game {
         PLISTENER(EndQuest)
         PLISTENER(UpdateTile)
         PLISTENER(DisplayChatMessage)
+        PLISTENER(UpdateEnvironment)
     }
 
     void Game::startGameLoop() {

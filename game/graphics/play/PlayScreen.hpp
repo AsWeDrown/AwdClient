@@ -6,6 +6,7 @@
 #include "../../world/World.hpp"
 #include "QuestManager.hpp"
 #include "Chat.hpp"
+#include "../../world/Environment.hpp"
 
 namespace awd::game {
 
@@ -19,6 +20,7 @@ namespace awd::game {
         std::shared_ptr<World> world = nullptr;
         std::shared_ptr<QuestManager> questManager = nullptr;
         std::shared_ptr<Chat> chat = nullptr;
+        std::shared_ptr<Environment> environment = nullptr;
         std::unique_ptr<sf::Text> performanceHud = nullptr;
 
     public:
@@ -33,6 +35,7 @@ namespace awd::game {
         std::shared_ptr<World> getWorld() const;
         std::shared_ptr<QuestManager> getQuestManager() const;
         std::shared_ptr<Chat> getChat() const;
+        std::shared_ptr<Environment> getEnvironment() const;
     };
 
 }

@@ -27,6 +27,9 @@ namespace awd::game {
         chat = std::make_shared<Chat>();
         enqueueAddChild(chat);
 
+        // Параметры окружения (сам по себе Environments не является Drawable!).
+        environment = std::make_shared<Environment>();
+
         // HUD с FPS, TPS и прочей информацией о производительности и качестве соединения.
         uint32_t perfHudFontSize = PERFORMANCE_HUD_FONT_SIZE * renderScale;
 

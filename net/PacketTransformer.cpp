@@ -312,6 +312,14 @@ namespace awd::net {
             wrapper.release_display_chat_message();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* update_environment = dynamic_cast<UpdateEnvironment*>(packet)) {
+            wrapper.set_allocated_update_environment(update_environment);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_update_environment();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
         } else if (auto* begin_quest = dynamic_cast<BeginQuest*>(packet)) {
             wrapper.set_allocated_begin_quest(begin_quest);
             size_t dataLen = wrapper.ByteSizeLong();
@@ -478,6 +486,11 @@ namespace awd::net {
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<DisplayChatMessage>(wrapper.display_chat_message()));
+
+            case PacketWrapper::PacketCase::kUpdateEnvironment:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<UpdateEnvironment>(wrapper.update_environment()));
 
             case PacketWrapper::PacketCase::kBeginQuest:
                 return std::make_shared<UnwrappedPacketData>(
