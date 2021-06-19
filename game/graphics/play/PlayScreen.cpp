@@ -98,4 +98,8 @@ namespace awd::game {
         return chat;
     }
 
+    std::shared_ptr<Environment> PlayScreen::getEnvironment() const {
+        return environment;
+    }
+
 }
