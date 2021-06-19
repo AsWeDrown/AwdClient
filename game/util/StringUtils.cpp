@@ -5,6 +5,10 @@
 
 #include <regex>
 #include <iostream>
+#include <locale>
+#include <codecvt>
+#include <string>
+#include <utf8.h>
 #include "StringUtils.hpp"
 
 namespace awd::game {
@@ -143,6 +147,19 @@ namespace awd::game {
         }
 
         return result;
+    }
+
+    std::wstring StringUtils::getUtf8WideString(const std::string& utf8str) {
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // TODO конвертировать строку std::string, полученную от сервера (через protobuf) с UTF-8 в std::wstring
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Код ниже взят с
+        // -- https://stackoverflow.com/a/18597384/7837105,
+        // и он не работает:
+        // -- Failed to receive a packet (internal error: std::bad_alloc).
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+        return converter.from_bytes(utf8str);
     }
 
 }

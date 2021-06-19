@@ -15,6 +15,8 @@ namespace awd::game {
 
         static std::wstring wrapByLineLength(std::wstring message,
                                              uint32_t maxLineLen, uint32_t maxLinesNum);
+
+        static std::wstring getUtf8WideString(const std::string& utf8str);
     };
 
 }

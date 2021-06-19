@@ -3,6 +3,7 @@
 
 
 #include "PlayScreen.hpp"
+#include "../../util/MathUtils.hpp"
 #include "../../Game.hpp"
 
 namespace awd::game {
@@ -18,9 +19,13 @@ namespace awd::game {
         world = std::make_shared<World>();
         enqueueAddChild(world);
 
-        // Для управления заданиями и отображения их.
+        // Задания.
         questManager = std::make_shared<QuestManager>();
         enqueueAddChild(questManager);
+
+        // Чат.
+        chat = std::make_shared<Chat>();
+        enqueueAddChild(chat);
 
         // HUD с FPS, TPS и прочей информацией о производительности и качестве соединения.
         uint32_t perfHudFontSize = PERFORMANCE_HUD_FONT_SIZE * renderScale;
@@ -50,10 +55,12 @@ namespace awd::game {
 
         // HUD с FPS, TPS и прочей информацией о производительности и качестве соединения.
         if (Game::instance().getCurrentTick() % 25 == 0) { // раз в секунду - чтобы не обновлять данные слишком часто
-            uint32_t fps = Game::instance().getFpsMeter()->estimateFps();
-            std::string fpsStr = fps > 0 ? std::to_string(fps) : "~" + std::to_string(fps);
-            std::string pingStr = std::to_string(Game::instance().getLastRtt());
-            performanceHud->setString(fpsStr + " FPS | " + pingStr + " ms");
+            std::string fps = std::to_string(abs((int)
+                    Game::instance().getFpsMeter()->estimateFps()));
+            std::string tps = MathUtils::pseudoRound(abs(
+                    Game::instance().getTpsMeter()->estimateTps()), 1);
+            std::string ping = std::to_string(Game::instance().getLastRtt());
+            performanceHud->setString(fps + " FPS | " + tps + " TPS | " + ping + " ms");
         }
 
         float perfHudMargin = PERFORMANCE_HUD_MARGIN * renderScale;
@@ -82,6 +89,10 @@ namespace awd::game {
 
     std::shared_ptr<QuestManager> PlayScreen::getQuestManager() const {
         return questManager;
+    }
+
+    std::shared_ptr<Chat> PlayScreen::getChat() const {
+        return chat;
     }
 
 }

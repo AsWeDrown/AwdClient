@@ -55,7 +55,7 @@ namespace awd::game {
         this->quest = quest;
 
         // Фон
-        float rectWidth  = RECT_WIDTH  * renderScale;
+        float rectWidth  = RECT_WIDTH * renderScale;
 
         width = rectWidth;
         rect = std::make_unique<sf::RectangleShape>(sf::Vector2f(width, height));
