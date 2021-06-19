@@ -109,6 +109,8 @@ namespace awd::game {
         std::shared_ptr<Lobby> getCurrentLobby () const;
         void                   setCurrentLobby(const std::shared_ptr<Lobby>& lobby);
 
+        void returnToMainMenu();
+
         // TODO переместить эти методы в какой-то утилити-класс
         static uint32_t randUInt (uint32_t min, uint32_t max);
         static float    randFloat(float    min, float    max);

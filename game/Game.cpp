@@ -383,6 +383,20 @@ namespace awd::game {
         this->joinedWorld = joined;
     }
 
+    void Game::returnToMainMenu() {
+        std::wcout << L"Returning to the main menu" << std::endl;
+
+        // Возвращаемся на главный экран.
+        currentState = GameState::LOBBY;
+        currentScreen = std::make_shared<MainMenuScreen>();
+        window->setView(window->getDefaultView()); // сброс View
+
+        // Сбрасываем всё, что связано с комнатой, в которой мы только что играли.
+        currentLobby = nullptr;
+        netService->leaveLobbyRequest(); // уведомляем всех о том, что мы вышли из комнаты
+        joinedWorld = false;
+    }
+
     uint32_t Game::randUInt(uint32_t min, uint32_t max) {
         if (min == max)
             return min;

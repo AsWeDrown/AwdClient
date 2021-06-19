@@ -11,6 +11,8 @@
 #include "PlayScreen.hpp"
 #include "../../util/MathUtils.hpp"
 #include "../../Game.hpp"
+#include "EscPlayDialog.hpp"
+#include "../mainmenu/MainMenuScreen.hpp"
 
 namespace awd::game {
 
@@ -85,6 +87,15 @@ namespace awd::game {
 
     void PlayScreen::keyPressed(const sf::Event::KeyEvent& event) {
         Screen::keyPressed(event);
+
+        if (event.code == sf::Keyboard::Escape) {
+            // FIXME: всё очень плохо. Ничего из graphics/common не работает нормально при использовании View.
+//            if (isDialogOpen())
+//                closeCurrentDialog();
+//            else
+//                openDialog(std::make_shared<EscPlayDialog>(listener, listener, listener));
+            Game::instance().returnToMainMenu();
+        }
     }
 
     void PlayScreen::mousePressed(const sf::Event::MouseButtonEvent& event) {

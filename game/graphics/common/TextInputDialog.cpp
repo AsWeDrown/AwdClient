@@ -57,7 +57,7 @@ namespace awd::game {
         const float bHeight       = BUTTONS_HEIGHT            * renderScale;
         buttonsY                  = finalY + height - bHeight - bBottomMargin;
 
-        // Back
+        // Next
         float bX = x + bLeftMargin;
         auto btnNext = std::make_shared<TextButton>(
                 btnNextId, L"Далее",

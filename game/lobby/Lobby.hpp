@@ -16,6 +16,10 @@ namespace awd::game {
 
         std::map<uint32_t, std::wstring> playerNames;
         std::map<uint32_t,     uint32_t> playerCharacters;
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+
+        uint32_t ownEntityId;
     };
 
 }
