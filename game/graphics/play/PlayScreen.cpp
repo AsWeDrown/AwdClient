@@ -1,5 +1,11 @@
+// HUD с FPS и пр.
 #define PERFORMANCE_HUD_FONT_SIZE 25
 #define PERFORMANCE_HUD_MARGIN 17.0f
+// Сигнализация
+#define MIN_ALARM_RECT_ALPHA 30
+#define MAX_ALARM_RECT_ALPHA 3 * MIN_ALARM_RECT_ALPHA
+#define ALARM_HALF_CYCLE_TICKS 15
+#define ALARM_DELTA_ALPHA (MAX_ALARM_RECT_ALPHA - MIN_ALARM_RECT_ALPHA) / ALARM_HALF_CYCLE_TICKS
 
 
 #include "PlayScreen.hpp"
@@ -7,6 +13,41 @@
 #include "../../Game.hpp"
 
 namespace awd::game {
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     *
+     *   PRIVATE
+     *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    void PlayScreen::updateEnvironment() {
+        updateAlarm();
+    }
+
+    void PlayScreen::updateAlarm() {
+        if (reducingAlarmAlpha) {
+            uint32_t lowerBound = environment->enableAlarm() ? MIN_ALARM_RECT_ALPHA : 0;
+
+            if (currentAlarmAlpha > lowerBound)
+                currentAlarmAlpha -= ALARM_DELTA_ALPHA;
+            else
+                reducingAlarmAlpha = false;
+        } else if (environment->enableAlarm()) {
+            if (currentAlarmAlpha < MAX_ALARM_RECT_ALPHA)
+                currentAlarmAlpha += ALARM_DELTA_ALPHA;
+            else
+                reducingAlarmAlpha = true;
+        }
+
+        alarmRect->setFillColor(sf::Color(255, 0, 0, currentAlarmAlpha));
+
+        sf::Vector2f viewCenter = window->getView().getCenter();
+        sf::Vector2f viewSize = window->getView().getSize();
+        float viewX = viewCenter.x - viewSize.x / 2.0f;
+        float viewY = viewCenter.y - viewSize.y / 2.0f;
+
+        alarmRect->setPosition(viewX, viewY);
+    }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *
@@ -37,6 +78,9 @@ namespace awd::game {
         performanceHud->setFont(*Game::instance().getFonts()->regularFont);
         performanceHud->setCharacterSize(perfHudFontSize);
         performanceHud->setFillColor(sf::Color::White);
+
+        // Сигнализация.
+        alarmRect = std::make_unique<sf::RectangleShape>(sf::Vector2f(width, height));
     }
 
     void PlayScreen::keyPressed(const sf::Event::KeyEvent& event) {
@@ -55,6 +99,8 @@ namespace awd::game {
             Game::instance().getNetService()->joinWorldComplete();
             justJoined = false;
         }
+
+        updateEnvironment();
 
         // HUD с FPS, TPS и прочей информацией о производительности и качестве соединения.
         if (Game::instance().getCurrentTick() % 25 == 0) { // раз в секунду - чтобы не обновлять данные слишком часто
@@ -79,6 +125,7 @@ namespace awd::game {
     void PlayScreen::draw() {
         Screen::draw();
 
+        window->draw(*alarmRect);
         window->draw(*performanceHud);
     }
 

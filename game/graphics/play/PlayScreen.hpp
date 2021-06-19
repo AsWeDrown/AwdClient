@@ -6,7 +6,7 @@
 #include "../../world/World.hpp"
 #include "QuestManager.hpp"
 #include "Chat.hpp"
-#include "../../world/Environment.hpp"
+#include "Environment.hpp"
 
 namespace awd::game {
 
@@ -21,7 +21,16 @@ namespace awd::game {
         std::shared_ptr<QuestManager> questManager = nullptr;
         std::shared_ptr<Chat> chat = nullptr;
         std::shared_ptr<Environment> environment = nullptr;
+        // ... (SFML) ...
         std::unique_ptr<sf::Text> performanceHud = nullptr;
+        std::unique_ptr<sf::RectangleShape> alarmRect = nullptr;
+
+        uint32_t currentAlarmAlpha = 0;
+        bool reducingAlarmAlpha = false;
+
+        void updateEnvironment();
+
+        void updateAlarm();
 
     public:
         PlayScreen();
