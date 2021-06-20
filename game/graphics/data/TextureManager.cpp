@@ -41,6 +41,17 @@ namespace awd::game {
         return worldTileMap->loadFromFile("assets/textures/world/tilemap.png");
     }
 
+    bool TextureManager::loadEndgameTextures() {
+        endgameSuccess = std::make_shared<sf::Texture>();
+        endgameFailureSomeoneDied = std::make_shared<sf::Texture>();
+        endgameServerError = std::make_shared<sf::Texture>();
+
+        return endgameSuccess->           loadFromFile("assets/textures/endgame/success.png"             )
+            && endgameFailureSomeoneDied->loadFromFile("assets/textures/endgame/failure_someone_died.png")
+            && endgameServerError->       loadFromFile("assets/textures/endgame/server_error.png"        )
+            ;
+    }
+
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      *
      *   PUBLIC
@@ -52,8 +63,9 @@ namespace awd::game {
         std::wcout << L"Maximum texture size allowed by current graphics card: "
                    << sf::Texture::getMaximumSize() << std::endl;
 
-        return loadCharacters  ()
-            && loadWorldTileMap();
+        return loadCharacters     ()
+            && loadWorldTileMap   ()
+            && loadEndgameTextures();
     }
 
 }

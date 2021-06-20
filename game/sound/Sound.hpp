@@ -25,8 +25,10 @@ namespace awd::game {
         static constexpr uint32_t ALARM_TICK          =   7;
         static constexpr uint32_t QUEST_COMPLETED     =   8;
         // -- music/
-        static constexpr uint32_t MAIN_MENU_THEME = 1;
-        static constexpr uint32_t INGAME_THEME    = 2;
+        static constexpr uint32_t MAIN_MENU_THEME          =   1;
+        static constexpr uint32_t INGAME_THEME             =   2;
+        static constexpr uint32_t ENDGAME_SUCCESS_THEME    =   3;
+        static constexpr uint32_t ENDGAME_FAILURE_THEME    =   4;
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -27,11 +27,11 @@ namespace awd::game {
         }
     }
 
-    bool SoundManager::loadMusic(uint32_t id, const std::string& name) {
+    bool SoundManager::loadMusic(uint32_t id, const std::string& name, bool loop) {
         auto buffer = std::make_shared<sf::Music>();
 
         if (buffer->openFromFile("assets/audio/music/" + name + ".wav")) {
-            buffer->setLoop(true);
+            buffer->setLoop(loop);
             buffer->setVolume(75.0f); // музыка на 75%
             music[id] = buffer;
 
@@ -55,8 +55,10 @@ namespace awd::game {
     }
 
     bool SoundManager::loadAllMusic() {
-        return loadMusic(Sound::MAIN_MENU_THEME, "main_menu_theme")
-            && loadMusic(Sound::INGAME_THEME,    "ingame_theme"   )
+        return loadMusic(Sound::MAIN_MENU_THEME,          "main_menu_theme",       true )
+            && loadMusic(Sound::INGAME_THEME,             "ingame_theme",          true )
+            && loadMusic(Sound::ENDGAME_SUCCESS_THEME,    "endgame_success_theme", false)
+            && loadMusic(Sound::ENDGAME_FAILURE_THEME,    "endgame_failure_theme", false)
         ;
     }
 

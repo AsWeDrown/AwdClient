@@ -12,6 +12,7 @@ namespace awd::game {
         bool loadCharAnim(uint32_t character, uint32_t animation);
         bool loadCharacters();
         bool loadWorldTileMap();
+        bool loadEndgameTextures();
 
     public:
         // Здесь ключ       - номер (ID) персонажа,
@@ -23,6 +24,12 @@ namespace awd::game {
         std::map<uint32_t, std::map<uint32_t, std::shared_ptr<sf::Texture>>> characters;
 
         std::shared_ptr<sf::Texture> worldTileMap;
+
+        std::shared_ptr<sf::Texture> endgameSuccess;
+
+        std::shared_ptr<sf::Texture> endgameFailureSomeoneDied;
+
+        std::shared_ptr<sf::Texture> endgameServerError;
 
         bool loadTextures();
     };

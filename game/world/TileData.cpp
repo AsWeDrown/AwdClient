@@ -45,6 +45,8 @@ namespace awd::game {
         reg(0x708986,  23, voidHandlerFactory);
         reg(0x43746e,  24, voidHandlerFactory);
         reg(0xd2d2d2,  25, voidHandlerFactory);
+        reg(0xdcbf7a,  28, voidHandlerFactory);
+        reg(0xae6faa,  30, voidHandlerFactory);
 
         // Твёрдые тайлы (solid).
         auto solidHandlerFactory = std::make_shared<SolidHandlerFactory>();
@@ -72,6 +74,14 @@ namespace awd::game {
         reg(0xc9d95b,  15, hatchClosedHandlerFactory);
         auto hatchOpenHandlerFactory = std::make_shared<HatchOpenHandlerFactory>();
         reg(0xd4d9b2,  16, hatchOpenHandlerFactory);
+
+        // Финальная дверь для входа к капитану подлодки.
+        auto finalCaptainDoorHandlerFactory = std::make_shared<FinalCaptainDoorHandlerFactory>();
+        reg(0x51af9f,  26, finalCaptainDoorHandlerFactory);
+        reg(0x8cbab6,  27, finalCaptainDoorHandlerFactory);
+
+        // Смертельно холодная вода.
+        reg(0x434a84,  29, voidHandlerFactory);
     }
 
     std::shared_ptr<TileHandler> TileData::newTileHandler(uint32_t tileId) {

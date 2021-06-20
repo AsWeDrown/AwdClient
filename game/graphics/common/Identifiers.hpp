@@ -79,6 +79,8 @@ typedef unsigned long long id_type;
                                                    +  1  *  ID_LOADING_OVERLAY
 
 
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *
 *   Lobby Screen
@@ -118,6 +120,8 @@ typedef unsigned long long id_type;
                                                +  1  *  ID_LOADING_OVERLAY
 
 
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *
 *   Play Screen
@@ -152,5 +156,16 @@ typedef unsigned long long id_type;
 
 #define ID_SCREEN_PLAY_WORLD_ENTITY                         ID_SCREEN_PLAY_WORLD  \
                                                             +  (id_type) 1E+10L
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+*   Endgame Screen
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#define ID_SCREEN_ENDGAME        4  *  ID_SCREEN
 
 #pragma clang diagnostic pop

@@ -16,7 +16,7 @@ namespace awd::game {
         std::map<uint32_t, std::shared_ptr<sf::Music      >> music;
 
         bool loadSound(uint32_t id, const std::string& name);
-        bool loadMusic(uint32_t id, const std::string& name);
+        bool loadMusic(uint32_t id, const std::string& name, bool loop);
 
         bool loadAllSounds();
         bool loadAllMusic ();

@@ -17,19 +17,19 @@ namespace awd::game {
     void EntityPlayer::prepareSprites() {
         playerSprites[Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]
                 = createScaledSprite(Game::instance().getTextures()
-                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]);
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_STILL_FRONT]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]
                 = createScaledSprite(Game::instance().getTextures()
-                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]);
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_0]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]
                 = createScaledSprite(Game::instance().getTextures()
-                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]);
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_1]);
 
         playerSprites[Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]
                 = createScaledSprite(Game::instance().getTextures()
-                                             ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]);
+                        ->characters[character][Entities::EntityPlayer::ANIM_BASE_WALK_RIGHT_2]);
 
         // Начальный спрайт.
         entitySprite = playerSprites[Entities::EntityPlayer::ANIM_BASE_STILL_FRONT];

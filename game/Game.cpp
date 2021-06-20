@@ -42,6 +42,7 @@
 #include "packetlistener/play/DisplayChatMessageListener.hpp"
 #include "packetlistener/play/UpdateEnvironmentListener.hpp"
 #include "packetlistener/play/PlaySoundListener.hpp"
+#include "packetlistener/play/EndGameListener.hpp"
 #include "util/CrashReporter.hpp"
 
 namespace awd::game {
@@ -85,6 +86,7 @@ namespace awd::game {
         PLISTENER(DisplayChatMessage)
         PLISTENER(UpdateEnvironment)
         PLISTENER(PlaySound)
+        PLISTENER(EndGame)
     }
 
     void Game::startGameLoop() {

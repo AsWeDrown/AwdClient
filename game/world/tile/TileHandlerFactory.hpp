@@ -8,6 +8,7 @@
 #include "SwitchHandler.hpp"
 #include "HatchOpenHandler.hpp"
 #include "HatchClosedHandler.hpp"
+#include "FinalCaptainDoorHandler.hpp"
 
 namespace awd::game {
 
@@ -51,6 +52,12 @@ namespace awd::game {
     class HatchClosedHandlerFactory : public TileHandlerFactory {
         inline std::shared_ptr<TileHandler> newTileHandler() const final {
             return std::make_shared<HatchClosedHandler>();
+        }
+    };
+
+    class FinalCaptainDoorHandlerFactory : public TileHandlerFactory {
+        inline std::shared_ptr<TileHandler> newTileHandler() const final {
+            return std::make_shared<FinalCaptainDoorHandler>();
         }
     };
 

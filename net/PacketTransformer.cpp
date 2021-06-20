@@ -352,6 +352,14 @@ namespace awd::net {
             wrapper.release_end_quest();
 
             return std::make_shared<WrappedPacketData>(data, dataLen);
+        } else if (auto* end_game = dynamic_cast<EndGame*>(packet)) {
+            wrapper.set_allocated_end_game(end_game);
+            size_t dataLen = wrapper.ByteSizeLong();
+            std::shared_ptr<char[]> data(new char[dataLen]);
+            wrapper.SerializeToArray(data.get(), static_cast<int>(dataLen));
+            wrapper.release_end_game();
+
+            return std::make_shared<WrappedPacketData>(data, dataLen);
         } else
             // Код "if ..." для пакетов этого типа отсутствует выше.
             // Нужно добавить! (исп. awd-ptrans-codegen)
@@ -519,6 +527,11 @@ namespace awd::net {
                 return std::make_shared<UnwrappedPacketData>(
                         sequence, ack, ackBitfield, packetType,
                         std::make_shared<EndQuest>(wrapper.end_quest()));
+
+            case PacketWrapper::PacketCase::kEndGame:
+                return std::make_shared<UnwrappedPacketData>(
+                        sequence, ack, ackBitfield, packetType,
+                        std::make_shared<EndGame>(wrapper.end_game()));
 
             default:
                 // Неизвестный пакет - он будет проигнорирован (не передан никакому PacketListener'у).
