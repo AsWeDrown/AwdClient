@@ -1,13 +1,13 @@
 #pragma once
 
 
-#include "InteractableHandler.hpp"
+#include "VoidHandler.hpp"
 
 namespace awd::game {
 
-    class SwitchHandler : public InteractableHandler {
+    class SwitchHandler : public VoidHandler {
     public:
-        bool isPassableBy(const Entity& entity) override;
+        bool canInteract(const Entity& entity) override;
     };
 
 }

@@ -6,6 +6,8 @@
 #include "VoidHandler.hpp"
 #include "LadderHandler.hpp"
 #include "SwitchHandler.hpp"
+#include "HatchOpenHandler.hpp"
+#include "HatchClosedHandler.hpp"
 
 namespace awd::game {
 
@@ -37,6 +39,18 @@ namespace awd::game {
     class SwitchHandlerFactory : public TileHandlerFactory {
         inline std::shared_ptr<TileHandler> newTileHandler() const final {
             return std::make_shared<SwitchHandler>();
+        }
+    };
+
+    class HatchOpenHandlerFactory : public TileHandlerFactory {
+        inline std::shared_ptr<TileHandler> newTileHandler() const final {
+            return std::make_shared<HatchOpenHandler>();
+        }
+    };
+
+    class HatchClosedHandlerFactory : public TileHandlerFactory {
+        inline std::shared_ptr<TileHandler> newTileHandler() const final {
+            return std::make_shared<HatchClosedHandler>();
         }
     };
 
