@@ -54,7 +54,11 @@ namespace awd::game {
 
     void EndgameScreen::keyPressed(const sf::Event::KeyEvent& event) {
         Screen::keyPressed(event);
-        Game::instance().returnToMainMenu(); // выход по нажатию любой клавиши
+
+        if (event.code == sf::Keyboard::Escape
+                || event.code == sf::Keyboard::Enter
+                || event.code == sf::Keyboard::Space)
+            Game::instance().returnToMainMenu();
     }
 
     void EndgameScreen::update() {
