@@ -1,6 +1,5 @@
 #define LEAVE_TIMEOUT_MILLIS 5000
 #define NEW_OR_LOAD_GAME_TIMEOUT_MILLIS 7500
-#define PLAY_STATE_LOAD_TIMEOUT_MILLIS 30000
 
 
 #include <thread>
@@ -180,6 +179,7 @@ namespace awd::game {
             lobbyScreen->hideCurrentLoadingOverlay();
             Game::instance().setJoinedWorld(true);
             Game::instance().setCurrentScreen(lobbyScreen->getListener()->playScreen);
+            Game::instance().getSoundSystem()->playMusic(Sound::INGAME_THEME);
         }
     }
 

@@ -32,6 +32,7 @@ namespace awd::game {
 
         if (buffer->openFromFile("assets/audio/music/" + name + ".wav")) {
             buffer->setLoop(true);
+            buffer->setVolume(75.0f); // музыка на 75%
             music[id] = buffer;
 
             return true;
@@ -42,12 +43,20 @@ namespace awd::game {
     }
 
     bool SoundManager::loadAllSounds() {
-        return loadSound(Sound::BUTTON_CLICK, "button_click")
+        return loadSound(Sound::ROOF_HEAD_HIT,        "roof_head_hit"      )
+            && loadSound(Sound::LOCKER_FALL,          "locker_fall"        )
+            && loadSound(Sound::PLAYER_STEP,          "player_step"        )
+            && loadSound(Sound::SWITCH_TOGGLE,        "switch_toggle"      )
+            && loadSound(Sound::HATCH_TOGGLE,         "hatch_toggle"       )
+            && loadSound(Sound::BUTTON_CLICK,         "button_click"       )
+            && loadSound(Sound::ALARM_TICK,           "alarm_tick"         )
+            && loadSound(Sound::QUEST_COMPLETED,      "quest_completed"    )
         ;
     }
 
     bool SoundManager::loadAllMusic() {
         return loadMusic(Sound::MAIN_MENU_THEME, "main_menu_theme")
+            && loadMusic(Sound::INGAME_THEME,    "ingame_theme"   )
         ;
     }
 

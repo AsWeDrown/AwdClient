@@ -485,4 +485,16 @@ namespace awd::game {
         // TODO ?
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //   Утилити-методы
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    void EntityPlayer::playMoveSound() {
+        if (stepSoundClock.getElapsedTime().asMilliseconds() > 850) {
+            stepSoundClock.restart();
+            Game::instance().getSoundSystem()->
+                    playSound(Sound(Sound::PLAYER_STEP, posX, posY));
+        }
+    }
+
 }

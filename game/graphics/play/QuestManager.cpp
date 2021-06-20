@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "QuestManager.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 
@@ -81,6 +82,16 @@ namespace awd::game {
         );
 
         enqueueRemoveChild(questIdToDrawableId(questId));
+
+        switch (status) {
+            default:
+                std::wcerr << L"Unhandled quest end status: " << status << std::endl;
+                break;
+
+            case Quest::ENDED_COMPLETE_FULL:
+                Game::instance().getSoundSystem()->playSound(Sound::QUEST_COMPLETED);
+                break;
+        }
     }
 
 }

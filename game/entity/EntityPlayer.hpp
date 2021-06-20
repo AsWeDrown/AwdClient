@@ -80,6 +80,8 @@ namespace awd::game {
     private:
         std::mutex mutex;
 
+        sf::Clock stepSoundClock;
+
         std::map<uint32_t, std::shared_ptr<sf::Sprite>> playerSprites;
 
         uint32_t remainingAnimTicks = 0;
@@ -154,6 +156,12 @@ namespace awd::game {
         void positionChanged(float oldX, float oldY, float newX, float newY) override;
 
         void rotationChanged(float oldFaceAngle, float newFaceAngle) override;
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //   Утилити-методы
+        ///////////////////////////////////////////////////////////////////////////////////////////
+
+        void playMoveSound() override;
     };
 
 }

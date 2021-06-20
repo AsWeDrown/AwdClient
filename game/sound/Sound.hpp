@@ -16,14 +16,17 @@ namespace awd::game {
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // -- sounds/
-        static constexpr uint32_t ROOF_HEAD_HIT  = 1;
-        static constexpr uint32_t LOCKER_FALL    = 2;
-        static constexpr uint32_t PLAYER_STEP    = 3;
-        static constexpr uint32_t SWITCH_TOGGLE  = 4;
-        static constexpr uint32_t HATCH_TOGGLE   = 5;
-        static constexpr uint32_t BUTTON_CLICK   = 1000000001;
+        static constexpr uint32_t ROOF_HEAD_HIT       =   1;
+        static constexpr uint32_t LOCKER_FALL         =   2;
+        static constexpr uint32_t PLAYER_STEP         =   3;
+        static constexpr uint32_t SWITCH_TOGGLE       =   4;
+        static constexpr uint32_t HATCH_TOGGLE        =   5;
+        static constexpr uint32_t BUTTON_CLICK        =   6;
+        static constexpr uint32_t ALARM_TICK          =   7;
+        static constexpr uint32_t QUEST_COMPLETED     =   8;
         // -- music/
         static constexpr uint32_t MAIN_MENU_THEME = 1;
+        static constexpr uint32_t INGAME_THEME    = 2;
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 

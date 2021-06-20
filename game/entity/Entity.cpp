@@ -35,7 +35,10 @@ namespace awd::game {
                 if (entitySprite != nullptr)
                     entitySprite->setPosition(x, y);
 
-                positionChanged(oldX, oldY, posX, posY);
+                if (posChanged) {
+                    positionChanged(oldX, oldY, posX, posY);
+                    playMoveSound();
+                }
             }
         }
 

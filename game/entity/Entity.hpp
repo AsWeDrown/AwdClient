@@ -142,6 +142,8 @@ namespace awd::game {
         //   Утилити-методы
         ///////////////////////////////////////////////////////////////////////////////////////////
 
+        virtual void playMoveSound() = 0;
+
         sf::Vector2f calcPosOnScreen() const;
 
         std::shared_ptr<sf::Sprite> createScaledSprite(

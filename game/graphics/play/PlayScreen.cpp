@@ -32,8 +32,12 @@ namespace awd::game {
 
             if (currentAlarmAlpha > lowerBound)
                 currentAlarmAlpha -= ALARM_DELTA_ALPHA;
-            else
+            else {
                 reducingAlarmAlpha = false;
+
+                if (environment->enableAlarm())
+                    Game::instance().getSoundSystem()->playSound(Sound::ALARM_TICK);
+            }
         } else if (environment->enableAlarm()) {
             if (currentAlarmAlpha < MAX_ALARM_RECT_ALPHA)
                 currentAlarmAlpha += ALARM_DELTA_ALPHA;
