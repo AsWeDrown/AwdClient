@@ -17,6 +17,8 @@
 #include "profiling/FpsMeter.hpp"
 #include "world/World.hpp"
 #include "config/ConfigManager.hpp"
+#include "sound/SoundManager.hpp"
+#include "sound/SoundSystem.hpp"
 
 namespace awd::game {
 
@@ -35,6 +37,9 @@ namespace awd::game {
         std::shared_ptr<ConfigManager>  configs  = std::make_shared<ConfigManager> ();
         std::shared_ptr<FontManager>    fonts    = std::make_shared<FontManager>   ();
         std::shared_ptr<TextureManager> textures = std::make_shared<TextureManager>();
+        std::shared_ptr<SoundManager>   sounds   = std::make_shared<SoundManager>  ();
+
+        std::shared_ptr<SoundSystem> soundSystem = std::make_shared<SoundSystem>();
 
         std::shared_ptr<net::UdpClient>      udpClient         = nullptr;
         std::shared_ptr<net::PacketManager>  packetManager     = nullptr;
@@ -87,6 +92,9 @@ namespace awd::game {
         std::shared_ptr<ConfigManager>  getConfigs () const;
         std::shared_ptr<FontManager>    getFonts   () const;
         std::shared_ptr<TextureManager> getTextures() const;
+        std::shared_ptr<SoundManager>   getSounds  () const;
+
+        std::shared_ptr<SoundSystem> getSoundSystem() const;
 
         std::shared_ptr<net::PacketManager>  getPacketManager    () const;
         std::shared_ptr<net::NetworkService> getNetService       () const;

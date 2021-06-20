@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Button.hpp"
+#include "../../Game.hpp"
 
 namespace awd::game {
 
@@ -35,6 +36,7 @@ namespace awd::game {
     }
 
     void Button::click() {
+        Game::instance().getSoundSystem()->playSound(Sound::BUTTON_CLICK);
         listener->buttonClicked(parent, id);
     }
 

@@ -41,6 +41,7 @@
 #include "packetlistener/play/UpdateTileListener.hpp"
 #include "packetlistener/play/DisplayChatMessageListener.hpp"
 #include "packetlistener/play/UpdateEnvironmentListener.hpp"
+#include "packetlistener/play/PlaySoundListener.hpp"
 #include "util/CrashReporter.hpp"
 
 namespace awd::game {
@@ -52,11 +53,13 @@ namespace awd::game {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     bool Game::loadAssets() {
-        std::wcout << L"--- Loading assets ---" << std::endl;
+        std::wcout << L"--- Loading assets" << std::endl;
 
         return configs ->loadConfigs ()
             && fonts   ->loadFonts   ()
-            && textures->loadTextures();
+            && textures->loadTextures()
+            && sounds  ->loadSounds  ()
+            ;
     }
 
     void Game::registerPacketListeners() {
@@ -81,6 +84,7 @@ namespace awd::game {
         PLISTENER(UpdateTile)
         PLISTENER(DisplayChatMessage)
         PLISTENER(UpdateEnvironment)
+        PLISTENER(PlaySound)
     }
 
     void Game::startGameLoop() {
@@ -92,10 +96,10 @@ namespace awd::game {
         netService    = std::make_shared<net::NetworkService>(packetManager);
 
         // Появления игры на экране.
-        auto bestVideoMode = sf::VideoMode::getFullscreenModes()[2];
+        auto bestVideoMode = sf::VideoMode::getFullscreenModes()[0]; // [0] - лучший доступный полноэкранный режим
 
         window = std::make_shared<sf::RenderWindow>(
-                bestVideoMode, "As We Drown"/*, sf::Style::Fullscreen*/);
+                bestVideoMode, "As We Drown", sf::Style::Fullscreen);
 
         if (configs->game.vsync)
             window->setVerticalSyncEnabled(true);
@@ -111,6 +115,7 @@ namespace awd::game {
 
         currentState = GameState::AUTH;
         currentScreen = std::make_shared<MainMenuScreen>();
+        soundSystem->playMusic(Sound::MAIN_MENU_THEME);
         tickDelayNanos = std::chrono::nanoseconds(NANOS_IN_SECOND / GAME_TPS).count();
         lastFrameNanoTime = std::make_shared<game_time>(game_clock::now());
 
@@ -316,6 +321,14 @@ namespace awd::game {
         return textures;
     }
 
+    std::shared_ptr<SoundManager> Game::getSounds() const {
+        return sounds;
+    }
+
+    std::shared_ptr<SoundSystem> Game::getSoundSystem() const {
+        return soundSystem;
+    }
+
     std::shared_ptr<net::PacketManager> Game::getPacketManager() const {
         return packetManager;
     }
@@ -390,6 +403,7 @@ namespace awd::game {
         currentState = GameState::LOBBY;
         currentScreen = std::make_shared<MainMenuScreen>();
         window->setView(window->getDefaultView()); // сброс View
+        soundSystem->playMusic(Sound::MAIN_MENU_THEME);
 
         // Сбрасываем всё, что связано с комнатой, в которой мы только что играли.
         currentLobby = nullptr;

@@ -43,7 +43,7 @@ namespace awd::game {
         reg(0xa6a5c5,  18, voidHandlerFactory);
         reg(0x93cec8,  22, voidHandlerFactory);
         reg(0x708986,  23, voidHandlerFactory);
-        reg(0xce93bf,  24, voidHandlerFactory);
+        reg(0x43746e,  24, voidHandlerFactory);
 
         // Твёрдые тайлы (solid).
         auto solidHandlerFactory = std::make_shared<SolidHandlerFactory>();

@@ -32,6 +32,9 @@ namespace awd::game {
                                 lobby->playerCharacters[playerId]
                         );
 
+                        if (playerId == lobby->ownPlayerId)
+                            lobby->ownEntityId = entityId;
+
                         playScreen->getWorld()->addEntity(player);
 
                         break;
