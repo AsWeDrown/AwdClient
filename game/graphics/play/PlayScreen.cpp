@@ -43,7 +43,8 @@ namespace awd::game {
                 currentAlarmAlpha += ALARM_DELTA_ALPHA;
             else
                 reducingAlarmAlpha = true;
-        }
+        } else
+            reducingAlarmAlpha = true; // сигнализация отключилась в момент загарания (reducingAlarmAlpha=false)
 
         alarmRect->setFillColor(sf::Color(255, 0, 0, currentAlarmAlpha));
 
