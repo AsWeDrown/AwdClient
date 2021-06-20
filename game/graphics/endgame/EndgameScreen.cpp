@@ -12,6 +12,7 @@ namespace awd::game {
 
     EndgameScreen::EndgameScreen(uint32_t gameEndStatus)
                                 : Screen(ID_SCREEN_ENDGAME) {
+        std::wcout << L"Endgame! Status: " << gameEndStatus << std::endl;
         window->setView(window->getDefaultView()); // сброс View
 
         // TODO сделать нормально
@@ -53,6 +54,7 @@ namespace awd::game {
 
     void EndgameScreen::keyPressed(const sf::Event::KeyEvent& event) {
         Screen::keyPressed(event);
+        Game::instance().returnToMainMenu(); // выход по нажатию любой клавиши
     }
 
     void EndgameScreen::update() {
