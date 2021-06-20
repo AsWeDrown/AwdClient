@@ -17,6 +17,15 @@ namespace awd::game {
             case 2: // QuestFixElectricity
                 return L"Восстановите электричество. Используйте рубильники.";
 
+            case 3: // QuestShatterRoof
+                return L"Создайте тряску, чтобы опрокинуть шкаф на 2-ом этаже.";
+
+            case 4: // QuestGetTogether
+                return L"Соберитесь вместе и обсудите план действий.";
+
+            case 5: // QuestVisitCaptain
+                return L"Доберитесь до капитана подлодки.";
+
             default: // ???
                 return L"< ??? | QuestType: " + std::to_wstring(questType) + L" >";
         }
